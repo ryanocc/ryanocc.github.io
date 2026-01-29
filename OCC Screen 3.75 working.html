@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -311,32 +311,29 @@
       return `${url}${sep}ts=${Date.now()}`;
     }
 
+    // ===== SINGLE PROXY (your Cloudflare Worker) =====
+    const WORKER_BASE = 'https://wazeproxyoccryan.ryantfgm.workers.dev';
 
-// 🚨 Use ONLY your Cloudflare Worker
-const PROXIES = [
-  (url) => `https://wazeproxyoccryan.ryantfgm.workers.dev/?url=${encodeURIComponent(url)}`
-];
+    // ===== Waze fetch via YOUR Worker (JSON guard) =====
+    async function fetchViaProxies(url, signal){
+      const full = `${WORKER_BASE}/?url=${encodeURIComponent(withCacheBust(url))}`;
+      const res = await fetch(full, { cache:'no-store', signal });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      const trimmed = text.replace(/^\uFEFF/, '').trim();
+      if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
+      return JSON.parse(trimmed);
+    }
 
-
-async function fetchViaProxies(url, signal){
-  const full = `https://wazeproxyoccryan.ryantfgm.workers.dev/?url=${encodeURIComponent(withCacheBust(url))}`;
-  const res = await fetch(full, { cache: 'no-store', signal });
-  if(!res.ok) throw new Error(`HTTP ${res.status}`);
-  const text = await res.text();
-  const trimmed = text.replace(/^\uFEFF/, '').trim();
-  if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
-  return JSON.parse(trimmed);
-}
-
-async function fetchTextViaProxies(url, signal){
-  const full = `https://wazeproxyoccryan.ryantfgm.workers.dev/?url=${encodeURIComponent(withCacheBust(url))}`;
-  const res = await fetch(full, { cache: 'no-store', signal });
-  if(!res.ok) throw new Error(`HTTP ${res.status}`);
-  const text = await res.text();
-  if(!text || !text.trim()) throw new Error('Empty response');
-  return text;
-}
-``
+    // ===== XML fetch via YOUR Worker (for National Highways RSS) =====
+    async function fetchTextViaProxies(url, signal){
+      const full = `${WORKER_BASE}/?url=${encodeURIComponent(withCacheBust(url))}`;
+      const res = await fetch(full, { cache:'no-store', signal });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      if(!text || !text.trim()) throw new Error('Empty response');
+      return text;
+    }
 
     // ===== Geo helpers =====
     function toRad(deg){ return deg * Math.PI / 180; }
@@ -777,17 +774,12 @@ async function fetchTextViaProxies(url, signal){
     // ===== Waze update loop =====
     let fetchTimer = null;
     let inFlight = null;
-    let proxyStartIndex = 0;
 
     async function runCycle(){
       if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
 
       const controller = new AbortController();
       inFlight = controller;
-
-      const origOrder = PROXIES.slice();
-      const rotated = PROXIES.slice(proxyStartIndex).concat(PROXIES.slice(0, proxyStartIndex));
-      PROXIES.length = 0; PROXIES.push(...rotated);
 
       try{
         const data = await fetchViaProxies(WAZE_URL, controller.signal);
@@ -841,17 +833,14 @@ async function fetchTextViaProxies(url, signal){
         // After first successful cycle, start treating unseen clusters as "new"
         hasInitializedClusters = true;
 
-        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
         markHealthOK_Waze();
         scheduleNext(REFRESH_MS);
       }catch(e){
         console.error('Waze fetch failed:', e);
         markHealthStale_Waze(e?.message || 'request error');
         clearAccidentsIfTooStale();
-        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
         scheduleNext(Math.min(REFRESH_MS * 2, 180000));
       }finally{
-        PROXIES.length = 0; PROXIES.push(...origOrder);
         inFlight = null;
         startGlobalRepaint();
       }
@@ -1152,5 +1141,4 @@ async function fetchTextViaProxies(url, signal){
     // });
   </script>
 </body>
-
 </html>
