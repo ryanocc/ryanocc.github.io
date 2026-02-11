@@ -313,7 +313,7 @@
 
     // ===== Shared proxy chain =====
 const PROXIES = [
-  (url) => `https://occproxy-6dem-git-main-ryanoccs-projects.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
+  (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
   // (optional) public fallbacks:
   (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
   (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
@@ -1176,3 +1176,4 @@ const PROXIES = [
   </script>
 </body>
 </html>
+
