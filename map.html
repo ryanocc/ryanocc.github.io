@@ -311,28 +311,54 @@
       return `${url}${sep}ts=${Date.now()}`;
     }
 
-    // ===== SINGLE PROXY (your Cloudflare Worker) =====
-    const WORKER_BASE = 'https://wazeproxyoccryan.ryantfgm.workers.dev';
+    // ===== Shared proxy chain =====
+const PROXIES = [
+  (url) => `https://occproxy-6dem-git-main-ryanoccs-projects.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
+  // (optional) public fallbacks:
+  (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+  (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+];
 
-    // ===== Waze fetch via YOUR Worker (JSON guard) =====
+
+    // ===== Waze fetch via proxy chain with JSON guard =====
     async function fetchViaProxies(url, signal){
-      const full = `${WORKER_BASE}/?url=${encodeURIComponent(withCacheBust(url))}`;
-      const res = await fetch(full, { cache:'no-store', signal });
-      if(!res.ok) throw new Error(`HTTP ${res.status}`);
-      const text = await res.text();
-      const trimmed = text.replace(/^\uFEFF/, '').trim();
-      if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
-      return JSON.parse(trimmed);
+      const busted = withCacheBust(url);
+      const errors = [];
+      for(const build of PROXIES){
+        const proxied = build(busted);
+        try{
+          const res = await fetch(proxied, { cache:'no-store', signal });
+          if(!res.ok) throw new Error(`HTTP ${res.status}`);
+          const text = await res.text();
+          const trimmed = text.replace(/^\uFEFF/, '').trim();
+          if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
+          return JSON.parse(trimmed);
+        }catch(e){
+          errors.push(`${proxied}: ${e.message}`);
+          // try next proxy
+        }
+      }
+      throw new Error(`All proxies failed\n${errors.join('\n')}`);
     }
 
-    // ===== XML fetch via YOUR Worker (for National Highways RSS) =====
+    // ===== XML fetch via proxies (for National Highways RSS) =====
     async function fetchTextViaProxies(url, signal){
-      const full = `${WORKER_BASE}/?url=${encodeURIComponent(withCacheBust(url))}`;
-      const res = await fetch(full, { cache:'no-store', signal });
-      if(!res.ok) throw new Error(`HTTP ${res.status}`);
-      const text = await res.text();
-      if(!text || !text.trim()) throw new Error('Empty response');
-      return text;
+      const busted = withCacheBust(url);
+      const errors = [];
+      for(const build of PROXIES){
+        const proxied = build(busted);
+        try{
+          const res = await fetch(proxied, { cache:'no-store', signal });
+          if(!res.ok) throw new Error(`HTTP ${res.status}`);
+          const text = await res.text();
+          if(!text || !text.trim()) throw new Error('Empty response');
+          return text;
+        }catch(e){
+          errors.push(`${proxied}: ${e.message}`);
+          // try next proxy
+        }
+      }
+      throw new Error(`All proxies failed\n${errors.join('\n')}`);
     }
 
     // ===== Geo helpers =====
@@ -774,12 +800,17 @@
     // ===== Waze update loop =====
     let fetchTimer = null;
     let inFlight = null;
+    let proxyStartIndex = 0;
 
     async function runCycle(){
       if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
 
       const controller = new AbortController();
       inFlight = controller;
+
+      const origOrder = PROXIES.slice();
+      const rotated = PROXIES.slice(proxyStartIndex).concat(PROXIES.slice(0, proxyStartIndex));
+      PROXIES.length = 0; PROXIES.push(...rotated);
 
       try{
         const data = await fetchViaProxies(WAZE_URL, controller.signal);
@@ -833,14 +864,17 @@
         // After first successful cycle, start treating unseen clusters as "new"
         hasInitializedClusters = true;
 
+        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
         markHealthOK_Waze();
         scheduleNext(REFRESH_MS);
       }catch(e){
         console.error('Waze fetch failed:', e);
         markHealthStale_Waze(e?.message || 'request error');
         clearAccidentsIfTooStale();
+        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
         scheduleNext(Math.min(REFRESH_MS * 2, 180000));
       }finally{
+        PROXIES.length = 0; PROXIES.push(...origOrder);
         inFlight = null;
         startGlobalRepaint();
       }
@@ -1142,4 +1176,3 @@
   </script>
 </body>
 </html>
-
