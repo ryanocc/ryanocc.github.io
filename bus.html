@@ -153,7 +153,7 @@ const BEE_MATCHERS = ['bee network','bee network -','bee network–','bee networ
 const SEV_PRIORITY = { 'noimpact':0,'verylow':1,'low':2,'normal':3,'medium':4,'high':5,'veryhigh':6,'unknown':3 };
 
 /* Optional: filter only UNPLANNED incidents (SIRI-SX Planned=false). Set to true to enable. */
-const UNPLANNED_ONLY = false;
+const UNPLANNED_ONLY = true;
 
 const el = sel => document.querySelector(sel);
 function fmtTime(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(d); }
