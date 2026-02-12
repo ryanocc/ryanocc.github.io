@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bee Network — Live Bus Disruptions (BODS SIRI‑SX)</title>
+<title>Bee Network — Live Bus Diversions (BODS SIRI‑SX)</title>
 <meta http-equiv="Cache-Control" content="no-store" />
 <style>
   :root{
@@ -22,30 +22,30 @@
   .tag{display:inline-flex; align-items:center; gap:6px; background:var(--chip); border:1px solid #262733; color:var(--muted);
        padding:4px 10px; border-radius:999px; font-size:12px; text-transform:uppercase}
   #grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:16px}
+
   .card{background:var(--card); border:1px solid #22232b; border-radius:14px; padding:14px 16px; display:flex; flex-direction:column; gap:10px}
-  .title{font-size:18px; font-weight:650}
   .row{display:flex; gap:8px; flex-wrap:wrap; color:var(--muted); font-size:14px}
   .pill{display:inline-flex; align-items:center; gap:8px; padding:4px 10px; border-radius:999px; background:#1e1f29; border:1px solid #2a2b37; color:#d6d6de; font-size:12px}
   .sev-low{background:rgba(25,195,125,.12); color:#bff3de; border-color:rgba(25,195,125,.35)}
   .sev-medium{background:rgba(255,176,32,.12); color:#ffe1b3; border-color:rgba(255,176,32,.35)}
   .sev-high{background:rgba(255,77,79,.12); color:#ffd0d0; border-color:rgba(255,77,79,.35)}
-  .lines{display:flex; gap:6px; flex-wrap:wrap}
-  .line{background:#292a35; color:#fff; padding:3px 8px; border-radius:6px; font-weight:600; font-variant-numeric:tabular-nums}
   .muted{color:var(--muted)}
   .footerRow{display:flex; justify-content:space-between; gap:12px; margin-top:4px}
   .nowrap{white-space:nowrap}
   .faint{opacity:.7}
 
-  /* Auto-scroll long lists */
-  body.autoscroll main{height:calc(100vh - 74px); overflow:hidden; position:relative}
-  body.autoscroll #grid{position:absolute; inset:0; overflow:hidden}
-  @keyframes scrollY { 0%{transform:translateY(0)} 100%{ transform:translateY(var(--scroll-end,-50%))}}
-  .scrollContainer{will-change:transform; animation:scrollY var(--scroll-duration,45s) linear infinite}
+  /* Prominent route + operatorRef */
+  .routeTitle{display:flex; align-items:baseline; gap:10px}
+  .routeBadge{font-size:24px; font-weight:800; background:var(--accent); color:#000; padding:4px 10px; border-radius:8px}
+  .opRef{font-size:18px; font-weight:650; color:#fff}
+  .subline{font-size:13px; color:var(--muted)}
+
+  /* No autoscroll */
 </style>
 </head>
 <body>
 <header>
-  <h1><span class="accent">Bee Network</span> — Live Bus Disruptions</h1>
+  <h1><span class="accent">Bee Network</span> — Live Bus Diversions</h1>
   <div class="meta">
     <span id="clock">--:--</span>
     <span id="lastOk" class="faint">Last update: —</span>
@@ -64,11 +64,14 @@
 
 <script>
 /** ===== Configuration ===== **/
-const API_KEY = '17889546a31fddeef67fca78252fb66951aedf1a';   // BODS API key (consider moving server-side)
-const BODS_URL = `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`; // ← Using your working direct URL
+const API_KEY = '17889546a31fddeef67fca78252fb66951aedf1a';   // Consider moving server-side
+const BODS_URL = `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
 const REFRESH_SECONDS = 60;
-const AUTOSCROLL = true;
 
+/* Diversion keyword matching */
+const DIVERSION_MATCHERS = ['divert', 'diversion', 'diversions'];
+
+/* Bee operator matching */
 const BEE_MATCHERS = ['bee network','bee network -','bee network–','bee network —'];
 const SEV_PRIORITY = { 'noimpact':0,'verylow':1,'low':2,'normal':3,'medium':4,'high':5,'veryhigh':6,'unknown':3 };
 
@@ -79,7 +82,7 @@ function parseISO(s){ try { return s ? new Date(s) : null; } catch { return null
 function escapeHtml(s){ return String(s ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
 function textContains(h, needles){ if(!h) return false; const x = String(h).toLowerCase(); return needles.some(n => x.includes(n)); }
 
-/** ===== JSON/XML dual parsing (fallback if API responds with XML) ===== **/
+/** ===== JSON/XML dual parsing ===== **/
 function parseUpstreamBody(text){
   const t = (text||'').trim();
   if(t.startsWith('{') || t.startsWith('[')){
@@ -110,6 +113,8 @@ function extractSituationsFromXML(doc){
     const T = s => el.querySelector(s)?.textContent?.trim() || null;
     const ops = Array.from(el.querySelectorAll('AffectedVehicleJourney > OperatorName, OperatorName'))
                       .map(n=>n.textContent.trim()).filter(Boolean);
+    const opsRef = Array.from(el.querySelectorAll('AffectedVehicleJourney > OperatorRef, OperatorRef'))
+                      .map(n=>n.textContent.trim()).filter(Boolean);
     const lines = Array.from(el.querySelectorAll('AffectedVehicleJourney > LineRef, PublishedLineName, LineName'))
                       .map(n=>n.textContent.trim()).filter(Boolean);
     const places = Array.from(el.querySelectorAll('AffectedStopPoint > StopPointName, AffectedStopPoint > PlaceName'))
@@ -124,13 +129,14 @@ function extractSituationsFromXML(doc){
       },
       CreationTime: T('CreationTime') || T('VersionedAtTime') || T('RecordedAtTime'),
       Affects: {
-        VehicleJourneys: { AffectedVehicleJourney: (ops.length||lines.length) ? [{ OperatorName: ops[0], LineRef: lines[0] }] : [] },
+        VehicleJourneys: { AffectedVehicleJourney: (ops.length||lines.length||opsRef.length) ? [{ OperatorName: ops[0], OperatorRef: opsRef[0], LineRef: lines[0] }] : [] },
         StopPoints: { AffectedStopPoint: places.map(p=>({ StopPointName: p })) }
       },
-      __operators: ops, __lines: lines, __places: places
+      __operators: ops, __operatorRefs: opsRef, __lines: lines, __places: places
     };
   });
 }
+
 const _getOps = sit => {
   const ops = new Set();
   const names=[].concat(sit?.OperatorName||[]).concat(sit?.Operators||[]).concat(sit?.Affects?.Operators||[]);
@@ -146,16 +152,32 @@ const _getOps = sit => {
   for(const j of journeys){ const on = j?.OperatorName || j?.OperatorRef; if(on) ops.add(String(on).trim()); }
   const arr = [...ops]; return arr.length ? arr : (sit.__operators || []);
 };
+
+const _getOperatorRef = sit => {
+  const candidates = new Set();
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
+  const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
+  for(const j of journeys){
+    if(j?.OperatorRef) candidates.add(String(j.OperatorRef).trim());
+  }
+  if(candidates.size) return [...candidates][0];
+  if(Array.isArray(sit.__operatorRefs) && sit.__operatorRefs.length) return sit.__operatorRefs[0];
+  const ops = _getOps(sit);
+  return ops.length ? ops[0] : null;
+};
+
 const _getLines = sit => {
   const lines = new Set();
   const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
   const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
   for(const j of journeys){
     const l = j?.LineRef || j?.PublishedLineName || j?.RouteName || j?.LineName;
-    if(Array.isArray(l)) l.forEach(x=>x&&lines.add(String(x))); else if(l) lines.add(String(l));
+    if(Array.isArray(l)) l.forEach(x=>x&&lines.add(String(x)));
+    else if(l) lines.add(String(l));
   }
   const arr = [...lines]; return arr.length ? arr : (sit.__lines || []);
 };
+
 const _getPlaces = sit => {
   const places = new Set();
   const aps = sit?.Affects?.StopPoints?.AffectedStopPoint || [];
@@ -164,7 +186,7 @@ const _getPlaces = sit => {
   const arr = [...places]; return arr.length ? arr : (sit.__places || []);
 };
 
-/** ===== Rendering ===== **/
+/* Helpers */
 function severityClass(sit){
   const s = String(sit?.Severity || sit?.Priority || 'unknown').toLowerCase().replace(/\s+/g,'');
   const rank = SEV_PRIORITY[s] ?? 3;
@@ -179,24 +201,65 @@ function validityText(sit){
   if(e)      return `Until ${fmtDateTime(e)}`;
   return 'Timing not available';
 }
+
+/* Diversion filter */
+function isDiversion(sit){
+  const txt = [sit?.Description, sit?.Summary].filter(Boolean).join(' ');
+  return textContains(txt, DIVERSION_MATCHERS);
+}
+
+/* Fit-to-screen: compute how many cards fit and slice */
+function sliceToViewport(items){
+  const headerH = document.querySelector('header')?.getBoundingClientRect().height ?? 74;
+  const statusH = document.querySelector('#statusBar')?.getBoundingClientRect().height ?? 36;
+  const verticalPadding = 24 + 16; // main paddings allowances
+  const availH = window.innerHeight - headerH - statusH - verticalPadding;
+
+  const grid = el('#grid');
+  // temp card to measure
+  const temp = document.createElement('div');
+  temp.className = 'card';
+  temp.style.visibility = 'hidden';
+  temp.innerHTML = `
+    <div class="routeTitle"><span class="routeBadge">000</span><span class="opRef">Operator</span></div>
+    <div class="row subline">Sample diversion text</div>
+    <div class="footerRow"><div class="muted nowrap">Validity: —</div><div class="muted nowrap">Updated: —</div></div>
+  `;
+  grid.appendChild(temp);
+  const cardH = temp.getBoundingClientRect().height || 140;
+  grid.removeChild(temp);
+
+  const colW = 420;
+  const cols = Math.max(1, Math.floor(grid.clientWidth / colW));
+  const gap = 16;
+  const rows = Math.max(1, Math.floor((availH + gap) / (cardH + gap)));
+  const max = Math.max(1, cols * rows);
+
+  return items.slice(0, max);
+}
+
+/** ===== Rendering ===== **/
 function renderSituations(items){
   const grid = el('#grid');
+  const visible = sliceToViewport(items);
+
   const container = document.createElement('div');
-  container.className = AUTOSCROLL ? 'scrollContainer' : '';
-  container.innerHTML = items.map(it=>{
+  container.innerHTML = visible.map(it=>{
     const sevCls = severityClass(it.sit);
-    const ops = it.operators.length ? it.operators.join(', ') : 'Bee Network';
-    const linesHtml = it.lines.map(l=>`<span class="line">${escapeHtml(l)}</span>`).join('');
-    const places = it.places.slice(0,6).join(' • ');
+    const linePrimary = it.lines[0] || '—';
+    const opRef = it.operatorRef || '—';
+    const subText = it.title;
+
     return `
       <div class="card">
         <div class="row">
           <span class="pill ${sevCls}">${escapeHtml(it.severity || 'Severity unknown')}</span>
-          <span class="pill">Operator: ${escapeHtml(ops)}</span>
         </div>
-        <div class="title">${escapeHtml(it.title)}</div>
-        <div class="row"><div class="lines">${linesHtml || '<span class="muted">No specific lines listed</span>'}</div></div>
-        <div class="row">${places ? `Areas: ${escapeHtml(places)}` : '<span class="muted">No specific locations given</span>'}</div>
+        <div class="routeTitle">
+          <span class="routeBadge">${escapeHtml(linePrimary)}</span>
+          <span class="opRef">${escapeHtml(opRef)}</span>
+        </div>
+        <div class="row subline">${escapeHtml(subText)}</div>
         <div class="footerRow">
           <div class="muted nowrap">Validity: ${escapeHtml(it.validity)}</div>
           <div class="muted nowrap">Updated: ${it.updated ? fmtDateTime(it.updated) : '—'}</div>
@@ -206,28 +269,19 @@ function renderSituations(items){
   }).join('');
   grid.replaceChildren(container);
 
-  if(AUTOSCROLL){
-    document.body.classList.remove('autoscroll');
-    const vh = window.innerHeight - 74, ch = container.getBoundingClientRect().height;
-    if(ch > vh){
-      document.body.classList.add('autoscroll');
-      container.style.setProperty('--scroll-end', `${-(ch - vh)}px`);
-      container.style.setProperty('--scroll-duration', `45s`);
-    }
-  }
+  // Update total to what is actually visible on screen (fit)
+  el('#totalTag').textContent = `Total: ${visible.length}`;
 }
 
-/** ===== Fetch loop (direct, no proxy) ===== **/
+/** ===== Fetch loop ===== **/
 async function fetchAndRender(){
   const status = el('#statusMsg');
   try{
     status.textContent = 'Fetching…';
 
-    // Direct call to BODS — using your working URL
     const res = await fetch(BODS_URL, {
       method: 'GET',
       headers: {
-        // Ask for JSON but we will gracefully parse XML as well
         'Accept': 'application/json, application/xml;q=0.8, text/xml;q=0.7',
         'Cache-Control': 'no-store'
       },
@@ -238,7 +292,6 @@ async function fetchAndRender(){
       throw new Error(`Upstream HTTP ${res.status}`);
     }
 
-    // Try JSON first, then XML text if JSON fails
     let parsed;
     const clone = res.clone();
     try{
@@ -246,30 +299,33 @@ async function fetchAndRender(){
       parsed = { type:'json', data:j };
     }catch{
       const txt = await clone.text();
-      parsed = parseUpstreamBody(txt); // will parse XML if needed
+      parsed = parseUpstreamBody(txt);
     }
 
     const situations = (parsed.type === 'json')
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    // Bee Network filter
-    const filtered = situations.filter(sit=>{
+    // Bee-only
+    const beeOnly = situations.filter(sit=>{
       const ops = _getOps(sit);
       return ops.length
         ? ops.some(o => textContains(o, BEE_MATCHERS))
         : textContains(sit?.Summary || sit?.Description || '', BEE_MATCHERS);
     });
 
+    // Diversion-only
+    const diversionOnly = beeOnly.filter(isDiversion);
+
     // Map for UI
-    const items = filtered.map(sit=>{
+    const items = diversionOnly.map(sit=>{
       const operators = _getOps(sit).filter(Boolean);
+      const operatorRef = _getOperatorRef(sit);
       const lines = _getLines(sit);
-      const places = _getPlaces(sit);
       const title = pickTitle(sit);
       const updated = parseISO(sit?.CreationTime || sit?.VersionedAtTime || sit?.RecordedAtTime || sit?.PublicationWindow?.StartTime);
       const severity = String(sit?.Severity || sit?.Priority || 'Unknown').replace(/(^.|\s.)./g, m=>m.toUpperCase());
-      return { sit, title, operators, lines, places, updated, severity, validity: validityText(sit) };
+      return { sit, title, operatorRef, operators, lines, updated, severity, validity: validityText(sit) };
     }).sort((a,b)=>{
       const ap = SEV_PRIORITY[(a.sit?.Severity||'unknown')?.toLowerCase().replace(/\s+/g,'')] ?? 3;
       const bp = SEV_PRIORITY[(b.sit?.Severity||'unknown')?.toLowerCase().replace(/\s+/g,'')] ?? 3;
@@ -278,8 +334,8 @@ async function fetchAndRender(){
     });
 
     renderSituations(items);
-    el('#totalTag').textContent = `Total: ${items.length}`;
-    status.textContent = items.length ? 'Live' : 'No active disruptions';
+    // Status reflects whether any diversions exist upstream (not just visible)
+    el('#statusMsg').textContent = items.length ? 'Live' : 'No active diversions';
     el('#lastOk').textContent = `Last update: ${fmtTime(new Date())}`;
   }catch(err){
     console.error(err);
