@@ -214,6 +214,7 @@
     .summary{
       font-size:clamp(26px, 2.6vw, 32px);
       line-height: var(--summary-line-height);
+      color:#000; /* will sit on yellow in overlay; grid uses normal text color */
       color:var(--text);
       opacity:0.95;
 
@@ -312,13 +313,6 @@
       align-items:center;
       justify-content:center;
     }
-    .ov-hint{
-      margin-top:20px;
-      font-size:clamp(14px, 1.4vw, 18px);
-      color:#222;
-      opacity:0.8;
-      font-weight:600;
-    }
   </style>
 </head>
 <body>
@@ -339,10 +333,7 @@
       <div id="ovRoute" class="ov-route">–</div>
       <div id="ovSummary" class="ov-summary">–</div>
       <div id="ovDetails" class="ov-details">–</div>
-      <div id="ovTimes" class="ov-times">
-        <!-- lines injected -->
-      </div>
-      <div class="ov-hint">Press Esc or click anywhere to dismiss</div>
+      <div id="ovTimes" class="ov-times"><!-- lines injected --></div>
     </div>
   </div>
 
@@ -739,26 +730,13 @@
       overlay.setAttribute("aria-hidden", "false");
       overlayShowing = true;
 
-      const duration = options.durationMs ?? 6000; // default 6s
-      let t = setTimeout(hideOverlay, duration);
-
-      const clickHandler = () => { clearTimeout(t); hideOverlay(); };
-      overlay.addEventListener("click", clickHandler, { once:true });
-
-      function onKey(e){
-        if(e.key === "Escape"){
-          clearTimeout(t);
-          hideOverlay();
-        }
-      }
-      window.addEventListener("keydown", onKey, { once:true });
-
-      function hideOverlay(){
+      const duration = options.durationMs ?? 10000; // default 10s
+      setTimeout(() => {
         overlay.classList.remove("show");
         overlay.setAttribute("aria-hidden", "true");
         overlayShowing = false;
         processOverlayQueue(); // show next if queued
-      }
+      }, duration);
     }
 
     function enqueueNewDiverts(arr){
@@ -997,7 +975,7 @@
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
-    /* -------- Keyboard test: press 'K' to simulate a diversion -------- */
+    /* -------- Keyboard test: press 'K' to simulate a diversion (10s) -------- */
     window.addEventListener("keydown", (e)=>{
       if(String(e.key).toLowerCase() === "k"){
         const now = new Date();
@@ -1010,7 +988,7 @@
             endLine: `🛑 UFN - diverted for ${ufnDurationPhrase(now)}`
           }
         };
-        showNewDivertOverlay(sample, { durationMs: 5000 });
+        showNewDivertOverlay(sample, { durationMs: 10000 });
       }
     });
   </script>
