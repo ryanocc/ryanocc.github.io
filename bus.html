@@ -21,8 +21,6 @@
     --neutralElev:#1b1b22;
 
     --accent:#ffd100;       /* yellow route badge */
-    --accentGlow: rgba(255,209,0,0.45);
-    --accentGlowStrong: rgba(255,209,0,0.85);
 
     /* Status pill colours */
     --liveGreen:#19c37d;
@@ -196,26 +194,6 @@
     line-height:1.25;
   }
 
-  /* States */
-  .glow-ufn{
-    border-color:var(--accent);
-    box-shadow:
-      0 0 16px 4px var(--accentGlowStrong),
-      0 0 38px 14px var(--accentGlow);
-  }
-  @keyframes pulseRingLarge{
-    0%   { box-shadow:0 0 14px var(--accentGlow); }
-    50%  { box-shadow:0 0 38px var(--accentGlowStrong); }
-    100% { box-shadow:0 0 14px var(--accentGlow); }
-  }
-  .pulse-new{
-    animation:pulseRingLarge 2.8s ease-in-out infinite;
-  }
-  @media (prefers-reduced-motion: reduce){
-    .chip:hover{ transform:none; }
-    .pulse-new{ animation:none; }
-  }
-
   /* Optional subtle operator tints */
   .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
   .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
@@ -250,13 +228,9 @@ const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 /* Behaviour flags */
 const UNPLANNED_ONLY = true;
 const PAGE_INTERVAL_MS = 10000;
-const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000; // 5 min
 
 /* Diversion keyword matching */
 const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
-
-/* Track first-seen situations */
-const firstSeenMap = new Map();
 
 /* Helpers */
 const $ = s => document.querySelector(s);
@@ -296,7 +270,19 @@ function operatorShortLabel(refRaw){
   return map[ref] || ref || "—";
 }
 
-/* --- Relative time formatter (EOS rules) --- */
+/* Duration formatter for UFN (minutes or hours) */
+function durationSince(startDate){
+  if(!startDate) return null;
+  const now = new Date();
+  const diffMs = now - startDate;
+  if(diffMs < 60*1000) return "less than a minute";
+  const mins = Math.floor(diffMs / 60000);
+  if(mins < 60) return `${mins} minute${mins === 1 ? "" : "s"}`;
+  const hours = Math.floor(mins / 60);
+  return `${hours} hour${hours === 1 ? "" : "s"}`;
+}
+
+/* --- Relative time formatter (EOS rules + UFN duration) --- */
 function validityTimeLabel(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
@@ -350,19 +336,23 @@ function validityTimeLabel(sit){
   }
 
   const startTxt = formatPart(s, true);
-  const endTxt   = formatPart(e, false);
+  const hasEnd = !!e;
+  const endTxt   = hasEnd ? formatPart(e, false) : null;
 
   if(startTxt && endTxt){
     return `${startTxt}\n${endTxt}`;
   }
-  if(startTxt && !endTxt){
-    // No end time → explicit UFN with stop sign
-    return `${startTxt}\n🛑 UFN`;
+  if(startTxt && !hasEnd){
+    // No end time → explicit UFN + duration since start
+    const dur = durationSince(s);
+    const tail = dur ? ` - diverted for ${dur}` : "";
+    return `${startTxt}\n🛑 UFN${tail}`;
   }
   if(!startTxt && endTxt){
     return `${endTxt}`;
   }
-  return "—";
+  // If completely missing, still show generic UFN
+  return "🛑 UFN";
 }
 
 /* Window: only include incidents whose start OR end is within ±7 days of today */
@@ -512,7 +502,6 @@ function setFixedGridSizing(){
 
 function renderPage(){
   const grid = document.getElementById("grid");
-  const now = Date.now();
   const pg = pager.pages[pager.pageIndex] || [];
   grid.innerHTML = "";
 
@@ -521,9 +510,6 @@ function renderPage(){
 
     const chip = document.createElement("div");
     chip.className = "chip " + oc.cls;
-    if(!it.endMs) chip.classList.add("glow-ufn");
-    if(it.firstSeen && now - it.firstSeen < HIGHLIGHT_WINDOW_MS)
-      chip.classList.add("pulse-new");
 
     const inner = document.createElement("div");
     inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
@@ -617,25 +603,20 @@ async function fetchAll(){
     }
 
     /* Map to items */
-    const now = Date.now();
     const items = situations.map(s=>{
-      const key = situationKey(s);
-      if(!firstSeenMap.has(key)) firstSeenMap.set(key, now);
-
       const route = s?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "?";
       const opRef = getOperatorRef(s) || "";
       const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
       const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
 
       return {
-        key,
+        key: situationKey(s),
         route: String(route),
         operatorRef: opRef,
         validity: validityTimeLabel(s),
         summary: (s.Summary || s.Description || "").trim(),
         startMs: st ? st.getTime() : 0,
-        endMs: en ? en.getTime() : null,
-        firstSeen: firstSeenMap.get(key)
+        endMs: en ? en.getTime() : null
       };
     })
     /* Sort: most recently started first */
