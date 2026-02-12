@@ -27,7 +27,7 @@
 
       --neutral:#16161b;
       --neutralElev:#1b1b22;
-      --accent:#ffd100;       /* route badge */
+      --accent:#ffd100;       /* TfGM yellow */
 
       /* Status pill colours */
       --liveGreen:#19c37d;
@@ -49,15 +49,15 @@
     }
 
     *{ box-sizing:border-box; }
-    html, body { height:100%; }
+    html, body { height: 100%; }
 
-    /* ----------- PAGE LAYOUT (updated) ----------- */
+    /* ----------- PAGE LAYOUT (robust, no cutoff) ----------- */
     body{
       margin:0; padding:0; background:var(--bg);
       color:var(--text);
       font-family:"Barlow Semi Condensed", system-ui, sans-serif;
       overflow:hidden;             /* no page scroll */
-      display:flex;                /* NEW: flex column page layout */
+      display:flex;                /* flex column layout */
       flex-direction:column;
     }
 
@@ -92,17 +92,16 @@
       color:#fff;
     }
 
-    /* ----------- MAIN (updated) ----------- */
+    /* ----------- MAIN (grows below header) ----------- */
     main{
-      /* was: height:100vh; */
       padding:0 24px 24px; /* bottom padding only */
       display:flex;
       flex-direction:column;
-      flex:1 1 auto;       /* NEW: occupy remaining height under header */
-      min-height:0;        /* NEW: avoid overflow in flex child */
+      flex:1 1 auto;
+      min-height:0;
     }
 
-    /* ----------- FIXED 3×2 GRID (updated) ----------- */
+    /* ----------- FIXED 3×2 GRID ----------- */
     #grid{
       margin-top:14px;
       display:grid;
@@ -111,7 +110,7 @@
       flex:1;
       height:100%;
       overflow:hidden; /* keep grid non-scroll */
-      align-content:start; /* NEW: prevent distributing extra space between rows */
+      align-content:start; /* don't distribute leftover space between rows */
     }
 
     /* ----------- CARD ----------- */
@@ -215,6 +214,7 @@
     .summary{
       font-size:clamp(26px, 2.6vw, 32px);
       line-height: var(--summary-line-height);
+      color:#000; /* will sit on yellow in overlay; grid uses normal text color */
       color:var(--text);
       opacity:0.95;
 
@@ -252,6 +252,67 @@
     .op-BNDB{ background:linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.16)); border-color:#dcdcdc; color:#000; }
     .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
     .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
+
+    /* ----------- FULLSCREEN "NEW DIVERT" OVERLAY ----------- */
+    #divertOverlay{
+      position:fixed;
+      inset:0;
+      background:var(--accent); /* TfGM yellow */
+      color:#000;
+      display:none;             /* toggled by .show */
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:6vh 5vw;
+    }
+    #divertOverlay.show{
+      display:flex;
+      animation: overlayFadeIn 220ms ease-out;
+    }
+    @keyframes overlayFadeIn{
+      from{ opacity:0; }
+      to{ opacity:1; }
+    }
+    .ov-card{
+      width:min(1200px, 100%);
+      text-align:center;
+    }
+    .ov-kicker{
+      font-weight:900;
+      letter-spacing:1.2px;
+      font-size:clamp(18px, 2vw, 26px);
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .ov-route{
+      font-weight:900;
+      font-size:clamp(120px, 14vw, 220px);
+      line-height:0.9;
+      letter-spacing:-2px;
+      margin:8px 0 10px;
+    }
+    .ov-summary{
+      font-size:clamp(28px, 3vw, 44px);
+      font-weight:800;
+      color:#000;
+      margin:10px 0 8px;
+    }
+    .ov-details{
+      font-size:clamp(22px, 2.2vw, 32px);
+      color:#1a1a1a;
+      opacity:0.9;
+      margin:4px 0 14px;
+    }
+    .ov-times{
+      font-size:clamp(22px, 2.2vw, 30px);
+      font-weight:900;
+      color:#000;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      align-items:center;
+      justify-content:center;
+    }
   </style>
 </head>
 <body>
@@ -264,6 +325,17 @@
   <main>
     <div id="grid"></div>
   </main>
+
+  <!-- Fullscreen "New Divert" Overlay -->
+  <div id="divertOverlay" aria-hidden="true">
+    <div class="ov-card" role="dialog" aria-label="New diversion alert">
+      <div class="ov-kicker">NEW DIVERT</div>
+      <div id="ovRoute" class="ov-route">–</div>
+      <div id="ovSummary" class="ov-summary">–</div>
+      <div id="ovDetails" class="ov-details">–</div>
+      <div id="ovTimes" class="ov-times"><!-- lines injected --></div>
+    </div>
+  </div>
 
   <script>
     /* ===========================
@@ -288,6 +360,14 @@
     /* Track ticker timers & pager */
     let routeTickerTimers = [];
     let pagerTimer = null;
+
+    /* New diversion detection */
+    const seenSituationIds = new Set();
+    let firstFetchDone = false;
+
+    /* Overlay queue control */
+    let overlayQueue = [];
+    let overlayShowing = false;
 
     /* Helpers */
     const $ = s => document.querySelector(s);
@@ -324,6 +404,15 @@
     };
     function mapOperators(list){
       return list.map(ref => OP_MAP[ref] || ref);
+    }
+
+    /* Stable-ish Situation ID for "new" detection */
+    function getSituationId(sit){
+      const a = sit?.SituationNumber || sit?.SituationRef;
+      const b = sit?.ParticipantRef || "";
+      const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
+      const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
+      return String(a || `${b}|${st}|${sum}`).trim();
     }
 
     /* Collect *all* operator refs (deduped) */
@@ -420,7 +509,7 @@
       return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
     }
 
-    /* Validity lines (updated to always show start, even for UFN) */
+    /* Validity lines (always show start, even for UFN) */
     function validityLines(sit){
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -538,11 +627,10 @@
       return out.length?out:[[]];
     }
 
-    /* F11 card size logic using actual geometry (two rows, one row-gap) */
+    /* Geometry-based card sizing: exact 2 rows, no cutoff */
     function setFixedGridSizing(){
       const grid = $("#grid");
       const main = document.querySelector("main");
-
       if(!grid || !main) return;
 
       const csGrid = getComputedStyle(grid);
@@ -554,13 +642,11 @@
       const mainRect = main.getBoundingClientRect();
       const gridRect = grid.getBoundingClientRect();
 
-      // Available vertical space for the grid content inside main,
-      // excluding bottom padding so cards don't touch the edge.
+      // Height available for the grid content inside main (exclude bottom padding)
       const available = Math.max(0, Math.floor((mainRect.bottom - pb) - gridRect.top));
 
-      // Two rows + one rowGap must equal available.
-      // Use a tiny safety to avoid sub-pixel overflow, but keep it tight.
-      const safety  = 1;
+      // Two rows + one rowGap must equal available
+      const safety  = 1; // minimal to avoid sub-pixel overflow
       const perRowH = Math.max(200, Math.floor((available - rowGap) / 2) - safety);
 
       document.documentElement.style.setProperty("--cardHeight", perRowH + "px");
@@ -614,6 +700,59 @@
       }
     }
 
+    /* -------- Overlay helpers -------- */
+    function showNewDivertOverlay(item, options = {}){
+      const overlay = $("#divertOverlay");
+      const elRoute = $("#ovRoute");
+      const elSummary = $("#ovSummary");
+      const elDetails = $("#ovDetails");
+      const elTimes = $("#ovTimes");
+
+      const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+      elRoute.textContent = routes.join(" • ");
+      elSummary.textContent = item.summary || "Diversion";
+      elDetails.textContent = item.details || "";
+
+      // times: show start then end/UFN line
+      elTimes.replaceChildren();
+      if(item.timeLines?.startLine){
+        const s = document.createElement("div");
+        s.textContent = item.timeLines.startLine;
+        elTimes.appendChild(s);
+      }
+      if(item.timeLines?.endLine){
+        const e = document.createElement("div");
+        e.textContent = item.timeLines.endLine;
+        elTimes.appendChild(e);
+      }
+
+      overlay.classList.add("show");
+      overlay.setAttribute("aria-hidden", "false");
+      overlayShowing = true;
+
+      const duration = options.durationMs ?? 10000; // default 10s
+      setTimeout(() => {
+        overlay.classList.remove("show");
+        overlay.setAttribute("aria-hidden", "true");
+        overlayShowing = false;
+        processOverlayQueue(); // show next if queued
+      }, duration);
+    }
+
+    function enqueueNewDiverts(arr){
+      if(!arr || !arr.length) return;
+      overlayQueue.push(...arr);
+      processOverlayQueue();
+    }
+
+    function processOverlayQueue(){
+      if(overlayShowing) return;
+      const next = overlayQueue.shift();
+      if(!next) return;
+      showNewDivertOverlay(next);
+    }
+
+    /* -------- Render & paging -------- */
     function renderPage(){
       clearRouteTickers();
 
@@ -774,17 +913,28 @@
           const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
 
           return {
+            id: getSituationId(s),
             operatorRefs,
             singleOperatorForTint: getSingleOperatorRef(s) || "",
             routes: routes.length ? routes.map(String) : ["?"],
             timeLines: validityLines(s),     // {startLine, endLine}
             summary: (s.Summary || s.Description || "").trim(),
+            details: (s.Description || "").trim(),
             startMs: st ? st.getTime() : 0,
             endMs: en ? en.getTime() : null
           };
         })
         /* Sort: most recently started first */
         .sort((a,b)=> b.startMs - a.startMs);
+
+        /* New diversion detection (after first load only) */
+        let newOnes = [];
+        if(firstFetchDone){
+          newOnes = items.filter(it => !seenSituationIds.has(it.id));
+        }
+        // Update seen IDs
+        items.forEach(it => seenSituationIds.add(it.id));
+        firstFetchDone = true;
 
         /* Page building: fixed 6 per page for 3×2 grid */
         pager.pageSize = 6;
@@ -799,6 +949,12 @@
           startPager();
           setStatusPill(true);
         });
+
+        // Show overlay(s) for newly detected diversions
+        if(newOnes.length){
+          enqueueNewDiverts(newOnes);
+        }
+
       }catch(e){
         console.error(e);
         setStatusPill(false);
@@ -811,15 +967,30 @@
 
     /* Reflow on resize and after fonts ready */
     window.addEventListener("resize", ()=>{
-      requestAnimationFrame(()=>{
-        setFixedGridSizing();
-      });
+      requestAnimationFrame(setFixedGridSizing);
     });
 
     if(document.fonts && document.fonts.ready){
       document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
+
+    /* -------- Keyboard test: press 'K' to simulate a diversion (10s) -------- */
+    window.addEventListener("keydown", (e)=>{
+      if(String(e.key).toLowerCase() === "k"){
+        const now = new Date();
+        const sample = {
+          routes: ["36"],
+          summary: "Route 36 diverted via Deansgate due to incident at St Peter's Square.",
+          details: "Stops at Albert Square and Princess Street are not being served. Please use alternative stops.",
+          timeLines: {
+            startLine: `🕛 ${fmtHM(now)} Today`,
+            endLine: `🛑 UFN - diverted for ${ufnDurationPhrase(now)}`
+          }
+        };
+        showNewDivertOverlay(sample, { durationMs: 10000 });
+      }
+    });
   </script>
 </body>
 </html>
