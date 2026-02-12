@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Live Bus Diversions</title>
 <meta http-equiv="Cache-Control" content="no-store" />
+
+<!-- Font: Barlow Semi Condensed -->
+https://fonts.googleapis.com
+https://fonts.gstatic.com
+https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap
+
 <style>
   :root{
     --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
@@ -32,14 +38,15 @@
     --cardHeight: 420px; /* JS will override to fit exactly 2 rows */
 
     /* Summary metrics */
-    --summary-line-height: 1.35; /* keep in sync with .summary line-height */
+    --summary-line-height: 1.3; /* keep in sync with .summary line-height */
   }
 
   *{ box-sizing:border-box; }
+  html, body{ height:100%; }
   body{
     margin:0; padding:0; background:var(--bg);
     color:var(--text);
-    font-family:system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    font-family:"Barlow Semi Condensed", system-ui, sans-serif;
     overflow:hidden; /* no page scroll */
   }
 
@@ -54,15 +61,15 @@
   }
   .title{
     margin:0;
-    font-size:56px;
+    font-size:56px;        /* larger for control room viewing */
     font-weight:900;
     letter-spacing:-0.3px;
   }
   .status-pill{
-    padding:8px 14px;
+    padding:10px 16px;
     border-radius:999px;
-    font-size:14px;
-    font-weight:700;
+    font-size:18px;
+    font-weight:800;
     background:var(--liveGreen);
     color:#000;
     box-shadow:0 0 0 2px rgba(255,255,255,0.08),
@@ -78,7 +85,7 @@
     padding:0 24px 24px; /* bottom padding only */
     display:flex;
     flex-direction:column;
-    height:calc(100vh - 68px);
+    height:100vh; /* F11/kiosk */
   }
 
   /* ----------- FIXED 3×2 GRID ----------- */
@@ -110,26 +117,40 @@
     height:var(--cardHeight); /* all cards same height */
     min-height:var(--cardHeight);
     max-height:var(--cardHeight);
-    overflow:hidden; /* ensure uniform sizing */
-    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    overflow:hidden; /* ensure uniform sizing; no overflow lines */
   }
   .chip:hover{
-    transform:translateY(-2px);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.05) inset,
-      0 16px 36px rgba(0,0,0,0.45),
-      0 3px 8px rgba(0,0,0,0.45);
-    border-color:#343545;
+    transform:translateY(-1px);
+    transition:transform .15s ease;
   }
 
-  /* Header: route + operator short code */
+  /* Header: MULTI-ROUTE grid + operator short code */
   .chipHeader{
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     justify-content:space-between;
     gap:14px;
     margin-bottom:16px;
   }
+
+  /* ROUTES GRID MODES
+     1-3 routes: 1 column
+     4-6 routes: 2 columns x up to 3 rows
+     7-9 routes: 3 columns x up to 3 rows
+  */
+  .routes{
+    display:grid;
+    gap:10px;
+    align-content:start;
+    /* cap height (3 rows) to protect card layout */
+    max-height: 9em;
+    overflow:hidden;
+  }
+  .routes.cols-1{ grid-template-columns: 1fr; }
+  .routes.cols-2{ grid-template-columns: repeat(2, 1fr); }
+  .routes.cols-3{ grid-template-columns: repeat(3, 1fr); }
+
+  /* Route badge (and +N badge) */
   .route{
     display:inline-flex;
     align-items:center;
@@ -137,34 +158,52 @@
     font-weight:900;
     background:var(--accent);
     color:#000;
-    padding:8px 20px;
-    border-radius:16px;
+    padding:8px 16px;
+    border-radius:12px;
     letter-spacing:-0.5px;
     line-height:1;
     min-width:3ch;
-    font-size:clamp(64px, 8vw, 110px);
+    white-space:nowrap;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    /* Default large size (1–3 routes) */
+    font-size:clamp(44px, 5.6vw, 80px);
   }
+  /* Tighter sizes for denser grids */
+  .routes.cols-2 .route{
+    font-size:clamp(38px, 4.6vw, 64px);
+    padding:6px 14px;
+    border-radius:10px;
+  }
+  .routes.cols-3 .route{
+    font-size:clamp(30px, 3.6vw, 52px);
+    padding:6px 12px;
+    border-radius:10px;
+  }
+
   .operatorTag{
     display:inline-flex;
     align-items:center;
-    gap:14px;
-    padding:10px 16px;
+    gap:12px;
+    padding:8px 14px;
     border-radius:999px;
     background:rgba(255,255,255,0.12);
     border:2px solid rgba(255,255,255,0.18);
-    font-size:32px;
+    font-size:28px;
     font-weight:800;
     color:#e6e6ee;
+    flex-shrink:0;  /* keep visible */
   }
   .operatorDot{
-    width:22px; height:22px; border-radius:50%;
+    width:18px; height:18px; border-radius:50%;
     background:#888;
     box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
   }
 
-  /* Body: EXACTLY TWO LINES (spacer if short, truncate if long) */
+  /* Body: EXACTLY TWO LINES (truncate or leave spacer) */
   .summary{
-    font-size:clamp(28px, 3vw, 34px);
+    font-size:clamp(26px, 2.6vw, 32px);
     line-height: var(--summary-line-height);
     color:var(--text);
     opacity:0.95;
@@ -179,19 +218,23 @@
     min-height: calc(2 * var(--summary-line-height) * 1em);
     max-height: calc(2 * var(--summary-line-height) * 1em);
 
-    margin:2px 2px 16px 2px;
+    margin:6px 2px 12px 2px;
   }
 
-  /* Footer: stacked times */
-  .validityTime{
+  /* Footer: time lines (each one line) */
+  .times{
     margin-top:auto;
-    padding-top:16px;
+    padding-top:12px;
     border-top:2px solid rgba(255,255,255,0.15);
-    white-space:pre-line;
-    font-size:clamp(26px, 2.4vw, 32px);
+  }
+  .timeLine{
+    font-size:clamp(24px, 2.2vw, 30px);
     font-weight:900;
     color:#d9d9e2;
     line-height:1.25;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;  /* ensure one-line, no overflow */
   }
 
   /* Optional subtle operator tints */
@@ -270,89 +313,121 @@ function operatorShortLabel(refRaw){
   return map[ref] || ref || "—";
 }
 
-/* Duration formatter for UFN (minutes or hours) */
-function durationSince(startDate){
-  if(!startDate) return null;
-  const now = new Date();
-  const diffMs = now - startDate;
-  if(diffMs < 60*1000) return "less than a minute";
-  const mins = Math.floor(diffMs / 60000);
-  if(mins < 60) return `${mins} minute${mins === 1 ? "" : "s"}`;
-  const hours = Math.floor(mins / 60);
-  return `${hours} hour${hours === 1 ? "" : "s"}`;
+/* Collect *all* line refs for a situation (deduped) */
+function getLineRefs(sit){
+  const lines = new Set();
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+
+  const pushVal = (val)=>{
+    if(val == null) return;
+    const s = String(val).trim();
+    if(s) lines.add(s);
+  };
+
+  if(Array.isArray(avj)){
+    for(const j of avj){
+      pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
+    }
+  }else if(avj){
+    pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName);
+  }
+
+  if(Array.isArray(sit.__lineRefs)){
+    for(const v of sit.__lineRefs) pushVal(v);
+  }
+
+  // Fallback
+  if(lines.size === 0){
+    const fallback = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef;
+    if(fallback) pushVal(fallback);
+  }
+  return Array.from(lines);
 }
 
-/* --- Relative time formatter (EOS rules + UFN duration) --- */
-function validityTimeLabel(sit){
+/* --- Duration formatter for UFN (m / hr / hrs) --- */
+function ufnDurationPhrase(startDate){
+  if(!startDate) return "less than a minute";
   const now = new Date();
+  const diffMs = now - startDate;
+  if(diffMs < 60000) return "less than a minute";
+  const mins = Math.floor(diffMs / 60000);
+  if(mins < 60) return `${mins} m`;
+  const hours = Math.floor(mins / 60);
+  return `${hours} ${hours === 1 ? "hr" : "hrs"}`;
+}
+
+/* --- Day/Date label rules ---
+   Today / Yesterday / Tomorrow
+   else if in this week (Mon–Sun): weekday short (e.g., Tue)
+   else: '2 Feb'
+*/
+function dayDateLabel(d){
+  const now = new Date();
+
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const startOfGiven = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+
+  const msPerDay = 86400000;
+  const dayDiff = Math.round((startOfGiven - startOfToday) / msPerDay);
+
+  if(dayDiff === 0) return "Today";
+  if(dayDiff === -1) return "Yesterday";
+  if(dayDiff === 1) return "Tomorrow";
+
+  // This week bounds (Mon-Sun)
+  const mon = new Date(startOfToday);
+  mon.setDate(startOfToday.getDate() - ((startOfToday.getDay() + 6) % 7)); // Monday
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  sun.setHours(23,59,59,999);
+
+  if(d >= mon && d <= sun){
+    return new Intl.DateTimeFormat(undefined, { weekday: 'short' }).format(d);
+  }
+
+  // Otherwise date '2 Feb'
+  return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
+}
+
+/* --- Validity lines (▶ start one line, 🛑 end/UFN one line) ---
+   If UFN (no end), show ONLY the UFN line with duration.
+   Time formatting:
+   - 00:00 => SoS
+   - 23:59 => EoS
+   - Else: [HH:MM] [Day/Date]
+*/
+function validityLines(sit){
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
-  function formatPart(d, isStart){
-    // If no time:
-    if(!d) return isStart ? null : "🛑 UFN";
-
-    const sameDay = d.toDateString() === now.toDateString();
-
-    // Local week bounds (Mon–Sun)
-    const startWeek = new Date(now);
-    startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7)); // Monday
-    startWeek.setHours(0,0,0,0);
-    const endWeek = new Date(startWeek);
-    endWeek.setDate(startWeek.getDate() + 6);
-    endWeek.setHours(23,59,59,999);
-
-    const inWeek = d >= startWeek && d <= endWeek;
-
-    // 23:59 => EOS logic
-    const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
-    if(is2359){
-      if(sameDay){
-        return (isStart ? "🕛 " : "🛑 ") + "End of Service";
-      } else {
-        if(inWeek){
-          const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
-          return (isStart ? "🕛 " : "🛑 ") + `EOS ${wd}`;
-        } else {
-          const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
-          return (isStart ? "🕛 " : "🛑 ") + `EOS ${dm}`;
-        }
-      }
-    }
-
-    // Non-EOS normal formatting
-    const time = fmtHM(d);
-    let label;
-    if(sameDay){
-      label = `${time} Today`;
-    } else if(inWeek){
-      const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
-      label = `${wd} ${time}`;
-    } else {
-      const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
-      label = `${dm} ${time}`;
-    }
-    return (isStart ? "🕛 " : "🛑 ") + label;
+  function formatStart(d){
+    if(!d) return null;
+    const isSoS = d.getHours() === 0 && d.getMinutes() === 0;
+    const label = dayDateLabel(d);
+    if(isSoS) return `▶ SoS ${label}`;
+    // [TIME] [DAY/DATE]
+    return `▶ ${fmtHM(d)} ${label}`;
   }
 
-  const startTxt = formatPart(s, true);
+  function formatEnd(d){
+    if(!d) return "🛑 UFN"; // placeholder; UFN phrasing handled outside
+    const isEoS = d.getHours() === 23 && d.getMinutes() === 59;
+    const label = dayDateLabel(d);
+    if(isEoS) return `🛑 EoS ${label}`;
+    return `🛑 ${fmtHM(d)} ${label}`;
+  }
+
   const hasEnd = !!e;
-  const endTxt   = hasEnd ? formatPart(e, false) : null;
+  if(hasEnd){
+    const startLine = formatStart(s);
+    const endLine   = formatEnd(e);
+    return { startLine, endLine };
+  }
 
-  if(startTxt && endTxt){
-    return `${startTxt}\n${endTxt}`;
-  }
-  if(startTxt && !hasEnd){
-    // No end time → explicit UFN + duration since start
-    const dur = durationSince(s);
-    const tail = dur ? ` - diverted for ${dur}` : "";
-    return `${startTxt}\n🛑 UFN${tail}`;
-  }
-  if(!startTxt && endTxt){
-    return `${endTxt}`;
-  }
-  // If completely missing, still show generic UFN
-  return "🛑 UFN";
+  // UFN: Show ONLY the UFN line (with duration)
+  const dur = ufnDurationPhrase(s);
+  const ufnLine = `🛑 UFN - diverted for ${dur}`;
+  return { startLine: null, endLine: ufnLine };
 }
 
 /* Window: only include incidents whose start OR end is within ±7 days of today */
@@ -393,16 +468,15 @@ function operatorClass(ref){
   }
 }
 
-/* Keys */
+/* Keys (stable across multi-line incidents) */
 function situationKey(sit){
   if(sit.SituationNumber) return "id:" + sit.SituationNumber;
   if(sit.SituationRef)   return "ref:" + sit.SituationRef;
   if(sit.ParticipantRef) return "p:" + sit.ParticipantRef;
   const op = getOperatorRef(sit) || "";
-  const ln = (sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "").toString();
   const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
   const sum = (sit?.Summary || sit?.Description || "").toString().slice(0,120);
-  return `k:${op}|${ln}|${st}|${sum}`;
+  return `k:${op}|${st}|${sum}`;
 }
 
 /* Filters */
@@ -463,12 +537,13 @@ function extractSituationsFromXML(doc){
       CreationTime: T("CreationTime") || T("RecordedAtTime") || T("VersionedAtTime"),
       Affects: {
         VehicleJourneys: {
-          AffectedVehicleJourney: (opsRef.length || lines.length)
-            ? [{ OperatorRef: opsRef[0], LineRef: lines[0] }]
+          AffectedVehicleJourney: lines.length
+            ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
             : []
         }
       },
-      __operatorRefs: opsRef
+      __operatorRefs: opsRef,
+      __lineRefs: lines
     };
   });
 }
@@ -476,24 +551,18 @@ function extractSituationsFromXML(doc){
 /* -------- Paging -------- */
 const pager={pages:[],pageIndex:0,pageSize:6,total:0,timer:null}; // always 6 (3×2)
 
-/* Fit exactly 2 rows vertically by setting --cardHeight */
+/* Fit exactly 2 rows vertically by setting --cardHeight (F11 fullscreen safe) */
 function setFixedGridSizing(){
-  const main = document.querySelector("main");
   const grid = document.getElementById("grid");
-  const gridStyles = getComputedStyle(grid);
-  const gap = parseInt(gridStyles.gap) || 20;
+  const main = document.querySelector("main");
+  const mainStyles = getComputedStyle(main);
+  const pb = parseInt(mainStyles.paddingBottom) || 0;
 
-  // Prefer the actual grid content height (accounts for margins/padding/flex)
-  let gridAvail = grid.clientHeight;
+  const gridTop = grid.getBoundingClientRect().top;
+  const vh = window.innerHeight; // reliable in F11 fullscreen
+  const gridAvail = Math.max(0, Math.floor(vh - pb - gridTop));
 
-  // If layout not settled yet (clientHeight=0), fallback to a robust calc
-  if(!gridAvail){
-    const mainRect = main.getBoundingClientRect();
-    const gridRect = grid.getBoundingClientRect();
-    const mainStyles = getComputedStyle(main);
-    const pb = parseInt(mainStyles.paddingBottom) || 0;
-    gridAvail = Math.max(0, Math.floor(mainRect.bottom - gridRect.top - pb));
-  }
+  const gap = parseInt(getComputedStyle(grid).gap) || 20;
 
   // Two rows => subtract one gap between them
   const cardH = Math.max(200, Math.floor((gridAvail - gap) / 2));
@@ -514,42 +583,76 @@ function renderPage(){
     const inner = document.createElement("div");
     inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
 
-    // Header
+    // Header (routes grid + operator)
     const header = document.createElement("div");
     header.className = "chipHeader";
 
-    const r = document.createElement("div");
-    r.className = "route";
-    r.textContent = it.route;
+    // Routes grid mode and +N overflow (cap at 9 cells)
+    const routesWrap = document.createElement("div");
+    routesWrap.className = "routes";
+    const routes = Array.isArray(it.routes) ? it.routes : ["?"];
+    const total = routes.length;
 
+    let mode = "cols-1";
+    if(total <= 3) mode = "cols-1";
+    else if(total <= 6) mode = "cols-2";
+    else mode = "cols-3";
+    routesWrap.classList.add(mode);
+
+    routesWrap.title = routes.join(", ");
+
+    // If more than 9, show first 8 + a "+N" badge as the 9th
+    let displayRoutes = routes.slice(0, 9);
+    if(total > 9){
+      displayRoutes = routes.slice(0, 8).concat([`+${total - 8}`]);
+    }
+
+    displayRoutes.forEach(rt=>{
+      const badge = document.createElement("div");
+      badge.className = "route";
+      badge.textContent = String(rt);
+      routesWrap.appendChild(badge);
+    });
+
+    // Operator pill
     const opTag = document.createElement("div");
     opTag.className = "operatorTag";
-    opTag.title = (it.operatorRef || "").toUpperCase(); // show full ref on hover
+    opTag.title = (it.operatorRef || "").toUpperCase();
     const dot = document.createElement("span");
     dot.className = "operatorDot";
-    // tint operator dot
     const opColour = {
       BNML: "var(--op-BNML)", BNGN: "var(--op-BNGN)", BNSM: "var(--op-BNSM)",
       BNDB: "var(--op-BNDB)", BNVB: "var(--op-BNVB)", BNFM: "var(--op-BNFM)"
     }[(it.operatorRef || "").toUpperCase()];
     if(opColour) dot.style.background = opColour;
-    // short label mapping
     const shortLabel = operatorShortLabel(it.operatorRef);
     opTag.append(dot, document.createTextNode(shortLabel));
 
-    header.append(r, opTag);
+    header.append(routesWrap, opTag);
 
     // Summary (exactly 2 lines reserved)
     const s = document.createElement("div");
     s.className = "summary";
     s.textContent = it.summary || "";
 
-    // Validity
-    const v = document.createElement("div");
-    v.className = "validityTime";
-    v.textContent = it.validity;
+    // Times (start = 1 line, end/UFN = 1 line)
+    const times = document.createElement("div");
+    times.className = "times";
+    const tStart = document.createElement("div");
+    tStart.className = "timeLine";
+    const tEnd = document.createElement("div");
+    tEnd.className = "timeLine";
 
-    inner.append(header, s, v);
+    if(it.timeLines.startLine){
+      tStart.textContent = it.timeLines.startLine;
+      times.appendChild(tStart);
+    }
+    if(it.timeLines.endLine){
+      tEnd.textContent = it.timeLines.endLine;
+      times.appendChild(tEnd);
+    }
+
+    inner.append(header, s, times);
     chip.append(inner);
     grid.append(chip);
   }
@@ -562,6 +665,7 @@ function startPager(){
     pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
     renderPage();
     setStatusPill(true);
+    requestAnimationFrame(setFixedGridSizing);
   }, PAGE_INTERVAL_MS);
 }
 
@@ -602,18 +706,18 @@ async function fetchAll(){
       situations = situations.filter(isUnplanned);
     }
 
-    /* Map to items */
+    /* Map to items (support multi-route) */
     const items = situations.map(s=>{
-      const route = s?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "?";
       const opRef = getOperatorRef(s) || "";
+      const routes = getLineRefs(s);
       const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
       const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
 
       return {
         key: situationKey(s),
-        route: String(route),
+        routes: routes.length ? routes.map(String) : ["?"],
         operatorRef: opRef,
-        validity: validityTimeLabel(s),
+        timeLines: validityLines(s),     // {startLine, endLine}
         summary: (s.Summary || s.Description || "").trim(),
         startMs: st ? st.getTime() : 0,
         endMs: en ? en.getTime() : null
@@ -628,7 +732,6 @@ async function fetchAll(){
     pager.pageIndex = 0;
     pager.total = items.length;
 
-    // Size cards so two rows fit perfectly, then render
     requestAnimationFrame(()=>{
       setFixedGridSizing();
       renderPage();
@@ -652,8 +755,8 @@ function chunk(arr,size){
 fetchAll();
 setInterval(fetchAll, 60000);
 
+/* Reflow on resize and after fonts ready */
 window.addEventListener("resize", ()=>{
-  // Maintain fixed 3×2 layout sizing on any resize
   requestAnimationFrame(()=>{
     setFixedGridSizing();
     const flat = (pager.pages || []).flat();
@@ -665,7 +768,9 @@ window.addEventListener("resize", ()=>{
   });
 });
 
-// Initial sizing once DOM is ready
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
+}
 window.addEventListener("load", ()=> requestAnimationFrame(setFixedGridSizing) );
 </script>
 </body>
