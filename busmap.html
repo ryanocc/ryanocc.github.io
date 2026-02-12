@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Bus Diversions</title>
+  <meta http-equiv="Cache-Control" content="no-store" />
+
+  <!-- Font: Barlow Semi Condensed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <style>
+    :root{
+      --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
+
+      /* Bee Network operator colours */
+      --op-BNML:#ff4d4f;   /* red */
+      --op-BNGN:#3a7afe;   /* blue */
+      --op-BNSM:#ff9a1f;   /* orange */
+      --op-BNDB:#ffffff;   /* white */
+      --op-BNVB:#7a3ffe;   /* purple */
+      --op-BNFM:#ff66b3;   /* pink */
+
+      --neutral:#16161b;
+      --neutralElev:#1b1b22;
+      --accent:#ffd100;       /* TfGM yellow */
+
+      /* Overlay backgrounds */
+      --alert-add-bg: var(--accent); /* yellow */
+      --alert-remove-bg: #19c37d;    /* green */
+
+      /* Status pill colours */
+      --liveGreen:#19c37d;
+      --errorRed:#ff4d4f;
+
+      /* Grid/card */
+      --gridGap:20px;
+      --cardRadius:24px;
+      --cardHeight: 420px;    /* JS sets exact value for 2 rows */
+
+      /* Summary metrics */
+      --summary-line-height: 1.3;
+
+      /* Route ticker sizing */
+      --route-font: clamp(44px, 5.6vw, 80px);
+      --route-pad-v: 8px;
+      --route-pad-h: 16px;
+      --route-radius: 12px;
+
+      /* Map marker */
+      --markerFill: #ffd100;
+      --markerStroke: #000000;
+    }
+
+    *{ box-sizing:border-box; }
+    html, body { height: 100%; }
+
+    /* ----------- PAGE LAYOUT ----------- */
+    body{
+      margin:0; padding:0; background:var(--bg);
+      color:var(--text);
+      font-family:"Barlow Semi Condensed", system-ui, sans-serif;
+      overflow:hidden;             /* no page scroll */
+      display:flex;                /* flex column layout */
+      flex-direction:column;
+    }
+
+    /* ----------- HEADER ----------- */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 24px;
+      background:#0b0b0e;
+      border-bottom:1px solid #1d1d25;
+      gap:16px;
+    }
+    .leftHeader, .rightHeader { display:flex; align-items:center; gap:16px; }
+    .title{
+      margin:0;
+      font-size:56px;        /* control-room size */
+      font-weight:900;
+      letter-spacing:-0.3px;
+    }
+    .status-pill{
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:18px;
+      font-weight:800;
+      background:var(--liveGreen);
+      color:#000;
+      box-shadow:0 0 0 2px rgba(255,255,255,0.08),
+                 0 4px 14px rgba(0,0,0,0.25);
+      transition:background .2s ease,color .2s ease;
+      white-space:nowrap;
+    }
+    .status-error{
+      background:var(--errorRed);
+      color:#fff;
+    }
+
+    /* View switcher */
+    .switch{
+      display:flex; gap:8px; align-items:center;
+      background:#14141a; border:1px solid #23232c; border-radius:999px;
+      padding:6px;
+    }
+    .switch button{
+      background:transparent; border:0; color:#cfd0d9; font-weight:800;
+      padding:8px 14px; border-radius:999px; font-size:18px; cursor:pointer;
+    }
+    .switch button.active{
+      background:#23232c; color:#ffd100;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:6px;
+      background:#14141a; border:1px solid #23232c; border-radius:999px;
+      padding:8px 12px; font-weight:800; font-size:16px; color:#cfd0d9;
+      white-space:nowrap;
+    }
+    .badge .dot{
+      width:10px; height:10px; border-radius:50%; background:#ffd100;
+      box-shadow:0 0 0 1px #000 inset;
+    }
+
+    /* ----------- MAIN ----------- */
+    main{
+      padding:0 24px 24px; /* bottom padding only */
+      display:flex;
+      flex-direction:column;
+      flex:1 1 auto;
+      min-height:0;
+    }
+
+    /* ----------- FIXED 3×2 GRID ----------- */
+    #gridView{
+      display:flex; flex-direction:column; flex:1 1 auto; min-height:0;
+    }
+    #grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);  /* 3 wide */
+      gap:var(--gridGap);
+      flex:1;
+      height:100%;
+      overflow:hidden; /* keep grid non-scroll */
+      align-content:start; /* don't distribute leftover space between rows */
+    }
+
+    /* ----------- MAP VIEW ----------- */
+    #mapView{
+      display:none;             /* toggled by JS */
+      width:100%;
+      margin-top:14px;
+      flex:1 1 auto;
+      min-height:0;
+      border-radius:16px;
+      overflow:hidden;
+      border:2px solid #22222b;
+      box-shadow:
+        0 6px 18px rgba(0,0,0,0.45),
+        0 1px 0 rgba(255,255,255,0.04) inset;
+    }
+    #map{ width:100%; height:100%; }
+
+    /* Leaflet popup dark styling */
+    .leaflet-container a{ color:#111; }
+    .leaflet-popup-content-wrapper{
+      background:#0f0f14; color:#f0f0f5; border-radius:12px; border:1px solid #2a2a33;
+    }
+    .leaflet-popup-tip{ background:#0f0f14; }
+    .popupTitle{ font-weight:900; font-size:18px; margin-bottom:4px; }
+    .popupSub{ font-size:14px; opacity:0.85; }
+    .routesRow{ margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
+    .rBadge{
+      background:#ffd100; color:#000; padding:2px 8px; border-radius:999px;
+      font-weight:900; font-size:14px; line-height:1; letter-spacing:-0.2px;
+      box-shadow:0 0 0 1px rgba(0,0,0,0.6) inset;
+    }
+
+    /* ----------- CARD ----------- */
+    .chip{
+      position:relative;
+      border:3px solid #2a2a33;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00) 60%),
+        var(--neutralElev);
+      border-radius:var(--cardRadius);
+      display:flex;
+      flex-direction:column;
+      padding:24px;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.04) inset,
+        0 10px 25px rgba(0,0,0,0.35),
+        0 6px 18px rgba(0,0,0,0.45);
+      height:var(--cardHeight);
+      min-height:var(--cardHeight);
+      max-height:var(--cardHeight);
+      overflow:hidden;
+    }
+    .chip:hover{ transform:translateY(-1px); transition:transform .15s ease; }
+
+    .chipHeader{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:14px; margin-bottom:16px; width:100%;
+    }
+    .routesTicker{ position:relative; overflow:hidden; width:100%; max-width:100%; flex:1 1 auto; }
+    .routesTrack{ display:flex; flex-wrap:nowrap; will-change:transform; transform:translateX(0%); }
+    .routeSlide{ flex:0 0 100%; display:flex; align-items:flex-start; justify-content:flex-start; }
+    .route{
+      display:inline-flex; align-items:center; justify-content:center;
+      font-weight:900; background:var(--accent); color:#000;
+      padding:var(--route-pad-v) var(--route-pad-h);
+      border-radius:var(--route-radius);
+      letter-spacing:-0.5px; line-height:1;
+      min-width:3ch; max-width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      font-size:var(--route-font);
+    }
+
+    .operatorTag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      border:2px solid rgba(255,255,255,0.18);
+      font-size:28px; font-weight:800; color:#e6e6ee; white-space:nowrap; flex-shrink:0;
+    }
+    .operatorDot{
+      width:18px; height:18px; border-radius:50%; background:#cfcfd6;
+      box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset; display:inline-block; flex-shrink:0;
+    }
+
+    .summary{
+      font-size:clamp(26px, 2.6vw, 32px);
+      line-height: var(--summary-line-height);
+      color:var(--text); opacity:0.95;
+      display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+      min-height: calc(2 * var(--summary-line-height) * 1em);
+      max-height: calc(2 * var(--summary-line-height) * 1em);
+      margin:6px 2px 12px 2px;
+    }
+
+    .times{ margin-top:auto; padding-top:12px; border-top:2px solid rgba(255,255,255,0.15); }
+    .timeLine{
+      font-size:clamp(24px, 2.2vw, 30px); font-weight:900; color:#d9d9e2; line-height:1.25;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
+    .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
+    .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
+    .op-BNDB{ background:linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.16)); border-color:#dcdcdc; color:#000; }
+    .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
+    .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
+
+    /* ----------- FULLSCREEN ALERT OVERLAY ----------- */
+    #divertOverlay{
+      position:fixed; inset:0; background:var(--alert-add-bg); color:#000;
+      display:none; align-items:center; justify-content:center; z-index:9999;
+      padding:6vh 5vw;
+    }
+    #divertOverlay.show{ display:flex; animation: overlayFadeIn 220ms ease-out; }
+    #divertOverlay.ov-add{    background:var(--alert-add-bg); }
+    #divertOverlay.ov-remove{ background:var(--alert-remove-bg); }
+    @keyframes overlayFadeIn{ from{ opacity:0; } to{ opacity:1; } }
+    .ov-card{ width:min(1200px, 100%); text-align:center; }
+    .ov-kicker{ font-weight:900; letter-spacing:1.2px; font-size:clamp(18px, 2vw, 26px); text-transform:uppercase; margin-bottom:8px; }
+    .ov-route{ font-weight:900; font-size:clamp(120px, 14vw, 220px); line-height:0.9; letter-spacing:-2px; margin:8px 0 10px; }
+    .ov-summary{ font-size:clamp(28px, 3vw, 44px); font-weight:800; color:#000; margin:10px 0 8px; }
+    .ov-times{ font-size:clamp(22px, 2.2vw, 30px); font-weight:900; color:#000; display:flex; flex-direction:column; gap:4px; align-items:center; justify-content:center; }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="leftHeader">
+      <h1 class="title">Live Bus Diversions</h1>
+      <!-- View switcher -->
+      <div class="switch" role="tablist" aria-label="View switch">
+        <button id="btnCards" class="active" role="tab" aria-selected="true">Cards (1)</button>
+        <button id="btnMap" role="tab" aria-selected="false">Map (2)</button>
+      </div>
+      <!-- Totals badge -->
+      <div id="stopsBadge" class="badge" title="Affected stops">
+        <span class="dot"></span><span id="stopsCount">0</span> stops
+        <span style="opacity:.7;">/</span>
+        <span id="stopsPlottable">0</span> mapped
+      </div>
+    </div>
+    <div class="rightHeader">
+      <div id="statusPill" class="status-pill">Live • --:--:--</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Cards view -->
+    <section id="gridView" aria-labelledby="btnCards">
+      <div id="grid"></div>
+    </section>
+
+    <!-- Map view -->
+    <section id="mapView" aria-labelledby="btnMap">
+      <div id="map" role="application" aria-label="Map of affected stops"></div>
+    </section>
+  </main>
+
+  <!-- Fullscreen Alert Overlay (unchanged behaviour) -->
+  <div id="divertOverlay" class="ov-add" aria-hidden="true">
+    <div class="ov-card" role="dialog" aria-label="Diversion alert">
+      <div id="ovKicker" class="ov-kicker">NEW TRAVEL ALERT</div>
+      <div id="ovRoute" class="ov-route">–</div>
+      <div id="ovSummary" class="ov-summary">–</div>
+      <div id="ovTimes" class="ov-times"><!-- simplified times injected --></div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+  </script>
+
+  <script>
+    /* ===========================
+       CONFIG
+    =========================== */
+    const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
+    const BODS_URL =
+      `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
+
+    /* TfGM Bee Network operator refs (strict) */
+    const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+
+    /* Behaviour flags */
+    const UNPLANNED_ONLY = true;
+    const PAGE_INTERVAL_MS = 10000; // page dwell (10s)
+    const FEED_REFRESH_MS = 60000;  // feed refresh (60s)
+    const ROUTE_SLIDE_EASE_MS = 400; // slide animation
+
+    /* Diversion keyword matching */
+    const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
+
+    /* Track ticker timers & pager */
+    let routeTickerTimers = [];
+    let pagerTimer = null;
+
+    /* New/Removed diversion detection (for overlays) */
+    let firstFetchDone = false;
+    let lastItemsIndex = new Map();  // id -> item (previous poll)
+
+    /* Overlay queue control */
+    let overlayQueue = [];
+    let overlayShowing = false;
+
+    /* Map state */
+    let leafletMap = null;
+    let leafletLayerGroup = null;
+    let lastPlottedStopsCount = 0;
+    let lastTotalStopsCount = 0;
+
+    /* Helpers */
+    const $ = s => document.querySelector(s);
+    const parseISO = s => s ? new Date(s) : null;
+    const normArr = v => Array.isArray(v) ? v : (v ? [v] : []);
+
+    function fmtFull(d){
+      return new Intl.DateTimeFormat(undefined,
+        {hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(d);
+    }
+    function fmtHM(d){
+      return new Intl.DateTimeFormat(undefined,
+        {hour:"2-digit",minute:"2-digit"}).format(d);
+    }
+    function setStatusPill(ok){
+      const pill = $("#statusPill");
+      const t = fmtFull(new Date());
+      if(ok){
+        pill.classList.remove("status-error");
+        pill.textContent = `Live • ${t}`;
+      } else {
+        pill.classList.add("status-error");
+        pill.textContent = `Error • ${t}`;
+      }
+    }
+
+    /* Operator short-code mapping */
+    const OP_MAP = { BNML:"ML", BNGN:"GNW", BNSM:"SCM", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
+    function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
+
+    function getSituationId(sit){
+      const a = sit?.SituationNumber || sit?.SituationRef;
+      const b = sit?.ParticipantRef || "";
+      const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
+      const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
+      return String(a || `${b}|${st}|${sum}`).trim();
+    }
+
+    function getOperatorRefs(sit){
+      const refs = new Set();
+      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+      const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
+      if(Array.isArray(avj)){ for(const j of avj) add(j?.OperatorRef); }
+      else if(avj){ add(avj?.OperatorRef); }
+      if(Array.isArray(sit.__operatorRefs)){ sit.__operatorRefs.forEach(add); }
+      return [...refs];
+    }
+
+    function getSingleOperatorRef(sit){
+      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+      if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
+      if(avj && avj.OperatorRef) return String(avj.OperatorRef);
+      if(sit?.OperatorRef) return String(sit.OperatorRef);
+      if(sit?.__operatorRefs && sit.__operatorRefs.length) return sit.__operatorRefs[0];
+      return null;
+    }
+
+    function getLineRefs(sit){
+      const lines = new Set();
+      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+      const pushVal = (val)=>{
+        if(val == null) return;
+        const s = String(val).trim();
+        if(s) lines.add(s);
+      };
+      if(Array.isArray(avj)){
+        for(const j of avj){ pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName); }
+        // Calls may have StopPointRef but not relevant for route id
+      }else if(avj){ pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName); }
+      if(Array.isArray(sit.__lineRefs)){ for(const v of sit.__lineRefs) pushVal(v); }
+      if(lines.size === 0){
+        const fallback = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef;
+        if(fallback) pushVal(fallback);
+      }
+      return Array.from(lines);
+    }
+
+    function ufnDurationPhrase(startDate){
+      if(!startDate) return "less than a minute";
+      const now = new Date();
+      const diffMs = now - startDate;
+      if(diffMs < 60000) return "less than a minute";
+      const mins = Math.floor(diffMs / 60000);
+      if(mins < 60) return `${mins} m`;
+      const hours = Math.floor(mins / 60);
+      return `${hours} ${hours === 1 ? "hr" : "hrs"}`;
+    }
+
+    function dayDateLabel(d){
+      const now = new Date();
+      const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const startOfGiven = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+      const msPerDay = 86400000;
+      const dayDiff = Math.round((startOfGiven - startOfToday) / msPerDay);
+      if(dayDiff === 0) return "Today";
+      if(dayDiff === -1) return "Yesterday";
+      if(dayDiff === 1) return "Tomorrow";
+      const mon = new Date(startOfToday);
+      mon.setDate(startOfToday.getDate() - ((startOfToday.getDay() + 6) % 7)); // Monday
+      const sun = new Date(mon); sun.setDate(mon.getDate() + 6); sun.setHours(23,59,59,999);
+      if(d >= mon && d <= sun){
+        return new Intl.DateTimeFormat(undefined, { weekday: 'short' }).format(d);
+      }
+      return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
+    }
+
+    function validityLines(sit){
+      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+      function formatStart(d){
+        if(!d) return null;
+        const isSoS = d.getHours() === 0 && d.getMinutes() === 0;
+        const label = dayDateLabel(d);
+        return isSoS ? `🕛 SoS ${label}` : `🕛 ${fmtHM(d)} ${label}`;
+      }
+      function formatEnd(d){
+        if(!d) return "🛑 UFN";
+        const isEoS = d.getHours() === 23 && d.getMinutes() === 59;
+        const label = dayDateLabel(d);
+        return isEoS ? `🛑 EoS ${label}` : `🛑 ${fmtHM(d)} ${label}`;
+      }
+      const startLine = formatStart(s);
+      if (e) return { startLine, endLine: formatEnd(e) };
+      const dur = ufnDurationPhrase(s);
+      const ufnLine = `🛑 UFN - diverted for ${dur}`;   // grid keeps duration text; overlay simplifies
+      return { startLine, endLine: ufnLine };
+    }
+
+    function isWithin7DayWindow(sit){
+      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+      const now = new Date();
+      const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
+      const endOfToday   = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59,999);
+      const windowStart = new Date(startOfToday.getTime() - 7*24*60*60*1000);
+      const windowEnd   = new Date(endOfToday.getTime()   + 7*24*60*60*1000);
+      const inWindow = d => d && d >= windowStart && d <= windowEnd;
+      return inWindow(s) || inWindow(e);
+    }
+
+    function isDiversion(sit){
+      const txt = (sit.Description || sit.Summary || "").toLowerCase();
+      return DIVERSION_MATCHERS.some(k => txt.includes(k));
+    }
+
+    function isCurrentlyValid(sit){
+      const now = new Date();
+      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+      if(!s) return false;
+      if(s > now) return false;
+      if(e && e < now) return false;
+      return true;
+    }
+
+    /* ====== Extract situations from JSON/XML (as before) ====== */
+    function extractSituationsFromJSON(json){
+      const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+      if(!sd) return [];
+      const sed = Array.isArray(sd.SituationExchangeDelivery)
+        ? sd.SituationExchangeDelivery
+        : [sd.SituationExchangeDelivery].filter(Boolean);
+      const out=[];
+      for(const d of sed){
+        const pe = d?.Situations?.PtSituationElement;
+        if(Array.isArray(pe)) out.push(...pe);
+        else if(pe) out.push(pe);
+      }
+      return out;
+    }
+
+    function extractSituationsFromXML(doc){
+      const els = [...doc.querySelectorAll("PtSituationElement")];
+      return els.map(el=>{
+        const T = s => el.querySelector(s)?.textContent?.trim() || null;
+        const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
+                        .map(n=>n.textContent.trim()).filter(Boolean);
+        const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
+                        .map(n=>n.textContent.trim()).filter(Boolean);
+
+        /* Collect StopPoints from XML */
+        const stopNodes = [...el.querySelectorAll("Affects > StopPoints > AffectedStopPoint")];
+        const stops = stopNodes.map(n=>{
+          const ref = n.querySelector("StopPointRef")?.textContent?.trim() || null;
+          const name = n.querySelector("StopPointName")?.textContent?.trim()
+                    || n.querySelector("StopPointName > Value")?.textContent?.trim()
+                    || null;
+          const lat = parseFloat(n.querySelector("LocationForDisplay > Latitude")?.textContent || n.querySelector("Location > Latitude")?.textContent || "");
+          const lon = parseFloat(n.querySelector("LocationForDisplay > Longitude")?.textContent || n.querySelector("Location > Longitude")?.textContent || "");
+          return { ref, name, lat: isFinite(lat)?lat:null, lon: isFinite(lon)?lon:null };
+        });
+
+        /* AffectedCalls (alternative place to find stop refs) */
+        const callNodes = [...el.querySelectorAll("AffectedVehicleJourney > AffectedCall")];
+        const callStops = callNodes.map(n=>{
+          const ref = n.querySelector("StopPointRef")?.textContent?.trim() || null;
+          const name = n.querySelector("StopPointName")?.textContent?.trim()
+                    || n.querySelector("PlaceName")?.textContent?.trim()
+                    || null;
+          // Calls often lack coordinates
+          return { ref, name, lat:null, lon:null };
+        });
+
+        return {
+          Summary: T("Summary") || T("Description"),
+          Description: T("Description"),
+          Severity: T("Severity") || "unknown",
+          Planned: T("Planned"),
+          SituationNumber: T("SituationNumber") || T("SituationRef"),
+          ParticipantRef: T("ParticipantRef"),
+          ValidityPeriod: {
+            StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
+            EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
+          },
+          CreationTime: T("CreationTime") || T("RecordedAtTime") || T("VersionedAtTime"),
+          Affects: {
+            VehicleJourneys: {
+              AffectedVehicleJourney: lines.length
+                ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
+                : []
+            },
+            StopPoints: { AffectedStopPoint: stops }
+          },
+          __operatorRefs: opsRef,
+          __lineRefs: lines,
+          __affectedCallsStops: callStops
+        };
+      });
+    }
+
+    /* ====== Build items (cards) & collect stops ====== */
+
+    function collectAffectedStops(situations, getRoutesForSit){
+      // Return: Map<stopRef, { ref, name, lat, lon, routes:Set<string>, count:number }>
+      const stopsMap = new Map();
+
+      for(const sit of situations){
+        const routes = new Set(getRoutesForSit(sit) || []);
+        const stops = normArr(sit?.Affects?.StopPoints?.AffectedStopPoint);
+        const callStops = normArr(sit?.__affectedCallsStops);
+
+        function upsertStop(s){
+          if(!s) return;
+          const ref = (s.ref || s.StopPointRef || "").trim();
+          if(!ref) return;
+          const name = s.name || s.StopPointName || null;
+          const lat = s.lat ?? s.Latitude ?? null;
+          const lon = s.lon ?? s.Longitude ?? null;
+
+          if(!stopsMap.has(ref)){
+            stopsMap.set(ref, { ref, name, lat, lon, routes: new Set(), count: 0 });
+          }
+          const entry = stopsMap.get(ref);
+          routes.forEach(r => entry.routes.add(String(r)));
+          // Fill missing coords/name if new info appears
+          if(entry.lat == null && isFinite(lat)) entry.lat = lat;
+          if(entry.lon == null && isFinite(lon)) entry.lon = lon;
+          if((!entry.name || entry.name === "null") && name) entry.name = name;
+          entry.count += 1;
+        }
+
+        // Primary: explicit StopPoints with possible coords
+        stops.forEach(upsertStop);
+        // Secondary: AffectedCalls (often no coords, but at least refs)
+        callStops.forEach(upsertStop);
+      }
+
+      return stopsMap;
+    }
+
+    /* ====== View switcher ====== */
+    function setView(mode){
+      const btnCards = $("#btnCards");
+      const btnMap = $("#btnMap");
+      const gridView = $("#gridView");
+      const mapView = $("#mapView");
+      if(mode === "map"){
+        btnMap.classList.add("active"); btnMap.setAttribute("aria-selected","true");
+        btnCards.classList.remove("active"); btnCards.setAttribute("aria-selected","false");
+        gridView.style.display = "none";
+        mapView.style.display = "block";
+        // Ensure Leaflet knows about container size
+        setTimeout(()=>{ if(leafletMap){ leafletMap.invalidateSize(); } }, 50);
+      }else{
+        btnCards.classList.add("active"); btnCards.setAttribute("aria-selected","true");
+        btnMap.classList.remove("active"); btnMap.setAttribute("aria-selected","false");
+        mapView.style.display = "none";
+        gridView.style.display = "flex";
+      }
+    }
+
+    $("#btnCards")?.addEventListener("click", ()=> setView("cards"));
+    $("#btnMap")?.addEventListener("click", ()=> setView("map"));
+
+    window.addEventListener("keydown", (e)=>{
+      const k = String(e.key).toLowerCase();
+      if(k === "1") setView("cards");
+      if(k === "2") setView("map");
+    });
+
+    /* ====== Map setup & updates ====== */
+    function ensureMap(){
+      if(leafletMap) return;
+      leafletMap = L.map('map', {
+        zoomControl: true,
+        preferCanvas: true,
+      });
+      // Dark tile layer
+      L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+        {
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+          subdomains: 'abcd',
+          maxZoom: 19
+        }
+      ).addTo(leafletMap);
+
+      leafletLayerGroup = L.layerGroup().addTo(leafletMap);
+      // Default focus (Manchester) until we have data
+      leafletMap.setView([53.4808, -2.2426], 10);
+    }
+
+    function updateStopsBadge(total, plottable){
+      $("#stopsCount").textContent = String(total);
+      $("#stopsPlottable").textContent = String(plottable);
+    }
+
+    function updateMapWithStops(stopsMap){
+      ensureMap();
+      leafletLayerGroup.clearLayers();
+
+      const markers = [];
+      let total = 0, plotted = 0;
+
+      stopsMap.forEach(st => {
+        total++;
+        if(!(isFinite(st.lat) && isFinite(st.lon))) return; // skip if no coords
+        plotted++;
+        const routes = Array.from(st.routes || []);
+        const popup = `
+          <div class="popupTitle">${st.name ? st.name : st.ref}</div>
+          <div class="popupSub">${st.ref}${st.name ? ` &middot; ${st.name}` : ""}</div>
+          ${routes.length ? `<div class="routesRow">${routes.map(r=>`<span class="rBadge">${r}</span>`).join("")}</div>` : ""}
+        `;
+        const m = L.circleMarker([st.lat, st.lon], {
+          radius: 7,
+          color: 'rgba(0,0,0,0.9)',
+          weight: 2,
+          fillColor: getComputedStyle(document.documentElement).getPropertyValue('--markerFill').trim() || '#ffd100',
+          fillOpacity: 0.95
+        }).bindPopup(popup, { maxWidth: 320 });
+        m.addTo(leafletLayerGroup);
+        markers.push(m);
+      });
+
+      // Fit bounds if we have points; otherwise default view
+      if(markers.length){
+        const group = L.featureGroup(markers);
+        leafletMap.fitBounds(group.getBounds().pad(0.15), { animate: false });
+      } else {
+        leafletMap.setView([53.4808, -2.2426], 10);
+      }
+
+      updateStopsBadge(total, plotted);
+      lastTotalStopsCount = total;
+      lastPlottedStopsCount = plotted;
+    }
+
+    /* ====== Rendering cards & overlays (same as previous build) ====== */
+    const pager={pages:[],pageIndex:0,pageSize:6,total:0};
+
+    function chunk(arr,size){ const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out.length?out:[[]]; }
+
+    function setFixedGridSizing(){
+      const grid = $("#grid");
+      const main = document.querySelector("main");
+      if(!grid || !main) return;
+
+      const csGrid = getComputedStyle(grid);
+      const csMain = getComputedStyle(main);
+
+      const rowGap = parseFloat(csGrid.rowGap || csGrid.gap || "20") || 20;
+      const pb     = parseFloat(csMain.paddingBottom || "0") || 0;
+
+      const mainRect = main.getBoundingClientRect();
+      const gridRect = grid.getBoundingClientRect();
+
+      const available = Math.max(0, Math.floor((mainRect.bottom - pb) - gridRect.top));
+      const safety  = 1;
+      const perRowH = Math.max(200, Math.floor((available - rowGap) / 2) - safety);
+
+      document.documentElement.style.setProperty("--cardHeight", perRowH + "px");
+    }
+
+    function clearRouteTickers(){ routeTickerTimers.forEach(id => clearInterval(id)); routeTickerTimers = []; }
+
+    function startRouteTicker(trackEl, count){
+      if(!trackEl || count <= 1) return;
+      const steps = count;
+      const totalMs = PAGE_INTERVAL_MS;
+      const minPerSlide = 800;
+      const stepMs = Math.max(minPerSlide, Math.floor(totalMs / steps));
+      let idx = 0;
+
+      trackEl.style.transition = "none";
+      trackEl.style.transform = "translateX(0%)";
+
+      setTimeout(()=>{
+        trackEl.style.transition = `transform ${ROUTE_SLIDE_EASE_MS}ms ease-in-out`;
+        const timer = setInterval(()=>{
+          idx += 1;
+          if(idx >= steps){ clearInterval(timer); return; }
+          const shift = -(idx * 100);
+          trackEl.style.transform = `translateX(${shift}%)`;
+        }, stepMs);
+        routeTickerTimers.push(timer);
+      }, 50);
+    }
+
+    function operatorTintClass(ref){
+      switch((ref||"").toUpperCase()){
+        case "BNML": return {cls:"op-BNML", dark:false};
+        case "BNGN": return {cls:"op-BNGN", dark:true};
+        case "BNSM": return {cls:"op-BNSM", dark:false};
+        case "BNDB": return {cls:"op-BNDB", dark:false};
+        case "BNVB": return {cls:"op-BNVB", dark:true};
+        case "BNFM": return {cls:"op-BNFM", dark:false};
+        default: return {cls:"", dark:true};
+      }
+    }
+
+    function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
+      const overlay = $("#divertOverlay");
+      const elKicker = $("#ovKicker");
+      const elRoute = $("#ovRoute");
+      const elSummary = $("#ovSummary");
+      const elTimes = $("#ovTimes");
+
+      overlay.classList.remove("ov-add","ov-remove");
+
+      if(mode === "remove"){
+        // DIVERT END (green)
+        overlay.classList.add("ov-remove");
+        elKicker.textContent = "DIVERT END";
+
+        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+        elRoute.textContent = routes.join(" • ");
+
+        // No summary/description
+        elSummary.textContent = "";
+
+        const start = item.startMs ? new Date(item.startMs) : null;
+        const end   = item.endMs ? new Date(item.endMs) : new Date();
+        let durLabel = "—";
+        if(start){
+          const diffMs = Math.max(0, end - start);
+          const mins = Math.floor(diffMs / 60000);
+          if(mins < 60){ durLabel = `${mins} m`; }
+          else { const hrs = Math.floor(mins / 60); durLabel = `${hrs} ${hrs === 1 ? "hr" : "hrs"}`; }
+        }
+        elTimes.replaceChildren();
+        const d = document.createElement("div");
+        d.textContent = `🕛diverted for ${durLabel}`;
+        elTimes.appendChild(d);
+      } else {
+        // NEW TRAVEL ALERT (yellow)
+        overlay.classList.add("ov-add");
+        elKicker.textContent = "NEW TRAVEL ALERT";
+
+        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+        elRoute.textContent = routes.join(" • ");
+        elSummary.textContent = item.summary || "Travel alert";
+
+        elTimes.replaceChildren();
+        if(item.timeLines?.endLine){
+          let endText = String(item.timeLines.endLine);
+          if(endText.startsWith("🛑 UFN")) endText = "🛑 UFN";
+          const e = document.createElement("div");
+          e.textContent = endText;
+          elTimes.appendChild(e);
+        }
+      }
+
+      overlay.classList.add("show");
+      overlay.setAttribute("aria-hidden", "false");
+      overlayShowing = true;
+
+      setTimeout(() => {
+        overlay.classList.remove("show");
+        overlay.setAttribute("aria-hidden", "true");
+        overlayShowing = false;
+        processOverlayQueue();
+      }, durationMs);
+    }
+
+    function enqueueOverlays(arr){ if(!arr || !arr.length) return; overlayQueue.push(...arr); processOverlayQueue(); }
+    function processOverlayQueue(){
+      if(overlayShowing) return;
+      const next = overlayQueue.shift();
+      if(!next) return;
+      showDivertOverlay(next.item, { mode: next.mode, durationMs: 10000 });
+    }
+
+    function renderPage(){
+      clearRouteTickers();
+
+      const grid = $("#grid");
+      const pg = pager.pages[pager.pageIndex] || [];
+      grid.innerHTML = "";
+
+      for(const it of pg){
+        const oc = operatorTintClass(it.singleOperatorForTint);
+
+        const chip = document.createElement("div");
+        chip.className = "chip " + oc.cls;
+
+        const inner = document.createElement("div");
+        inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
+
+        // Header
+        const header = document.createElement("div");
+        header.className = "chipHeader";
+
+        // ROUTES TICKER
+        const ticker = document.createElement("div");
+        ticker.className = "routesTicker";
+        ticker.title = (it.routes || []).join(", ");
+        const track = document.createElement("div");
+        track.className = "routesTrack";
+        const routes = Array.isArray(it.routes) && it.routes.length ? it.routes : ["?"];
+        routes.forEach(rt=>{
+          const slide = document.createElement("div");
+          slide.className = "routeSlide";
+          const badge = document.createElement("div");
+          badge.className = "route";
+          badge.textContent = String(rt);
+          slide.appendChild(badge);
+          track.appendChild(slide);
+        });
+        ticker.appendChild(track);
+
+        // Operator pill
+        const opTag = document.createElement("div");
+        opTag.className = "operatorTag";
+        opTag.title = (it.operatorRefs || []).join(", ");
+        const dot = document.createElement("span");
+        dot.className = "operatorDot";
+
+        const opCodes = mapOperators(it.operatorRefs || []);
+        if(opCodes.length === 1){
+          const ref = (it.operatorRefs[0] || "").toUpperCase();
+          const colorMap = { BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)", BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)" };
+          dot.style.background = getComputedStyle(document.documentElement).getPropertyValue(colorMap[ref]?.match(/--[\w-]+/g)?.[0] || "") || "#cfcfd6";
+          opTag.appendChild(dot);
+          opTag.appendChild(document.createTextNode(" " + opCodes[0]));
+        } else {
+          dot.style.background = "#cfcfd6";
+          opTag.appendChild(dot);
+          opTag.appendChild(document.createTextNode(" " + (opCodes.length ? opCodes.join(", ") : "—")));
+        }
+
+        header.append(ticker, opTag);
+
+        // Summary (2 lines)
+        const s = document.createElement("div");
+        s.className = "summary";
+        s.textContent = it.summary || "";
+
+        // Times
+        const times = document.createElement("div");
+        times.className = "times";
+        if(it.timeLines.startLine){
+          const tStart = document.createElement("div");
+          tStart.className = "timeLine";
+          tStart.textContent = it.timeLines.startLine;
+          times.appendChild(tStart);
+        }
+        if(it.timeLines.endLine){
+          const tEnd = document.createElement("div");
+          tEnd.className = "timeLine";
+          tEnd.textContent = it.timeLines.endLine;  // grid includes duration for UFN
+          times.appendChild(tEnd);
+        }
+
+        inner.append(header, s, times);
+        chip.append(inner);
+        grid.append(chip);
+
+        // Start route ticker for this card
+        startRouteTicker(track, routes.length);
+      }
+    }
+
+    function startPager(){
+      if(pagerTimer) clearInterval(pagerTimer);
+      if(pager.pages.length <= 1) return;
+      pagerTimer = setInterval(()=>{
+        pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
+        renderPage();
+        setStatusPill(true);
+        requestAnimationFrame(setFixedGridSizing);
+      }, PAGE_INTERVAL_MS);
+    }
+
+    /* -------- Fetch & Render -------- */
+    async function fetchAll(){
+      try{
+        const res = await fetch(BODS_URL, { cache:"no-store" });
+        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        let parsed;
+        try{
+          parsed = { type:"json", data: await res.clone().json() };
+        }catch{
+          parsed = { type:"xml", data: (new DOMParser()).parseFromString(await res.text(),"application/xml") };
+        }
+
+        let situations = parsed.type==="json"
+          ? extractSituationsFromJSON(parsed.data)
+          : extractSituationsFromXML(parsed.data);
+
+        /* Strict operator filter: include if any operator is a Bee operator */
+        situations = situations.filter(sit=>{
+          const refs = getOperatorRefs(sit);
+          const single = getSingleOperatorRef(sit);
+          const anyBee = (refs && refs.some(r => BEE_OPERATORS.includes(r))) ||
+                         (single && BEE_OPERATORS.includes(single.toUpperCase()));
+          return !!anyBee;
+        });
+
+        /* Diversions only, currently valid, within ±7d, and unplanned only */
+        situations = situations.filter(isDiversion)
+                               .filter(isCurrentlyValid)
+                               .filter(isWithin7DayWindow);
+
+        if(UNPLANNED_ONLY) {
+          situations = situations.filter(sit=>{
+            const p = sit?.Planned;
+            return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
+          });
+        }
+
+        /* Build card items */
+        const items = situations.map(s=>{
+          const operatorRefs = getOperatorRefs(s);
+          const routes = getLineRefs(s);
+          const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
+          const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
+
+          return {
+            id: getSituationId(s),
+            operatorRefs,
+            singleOperatorForTint: getSingleOperatorRef(s) || "",
+            routes: routes.length ? routes.map(String) : ["?"],
+            timeLines: validityLines(s),
+            summary: (s.Summary || s.Description || "").trim(),
+            startMs: st ? st.getTime() : 0,
+            endMs: en ? en.getTime() : null,
+            _raw: s    // keep for stop extraction
+          };
+        })
+        .sort((a,b)=> b.startMs - a.startMs);
+
+        /* Diff for overlays */
+        const currIndex = new Map(items.map(it => [it.id, it]));
+        let newOnes = [];
+        let removedOnes = [];
+        if(firstFetchDone){
+          newOnes = items.filter(it => !lastItemsIndex.has(it.id));
+          removedOnes = [...lastItemsIndex.values()].filter(prev => !currIndex.has(prev.id));
+        }
+        lastItemsIndex = currIndex;
+        firstFetchDone = true;
+
+        /* Cards paging */
+        pager.pageSize = 6;
+        pager.pages = chunk(items, pager.pageSize);
+        pager.pageIndex = 0;
+        pager.total = items.length;
+
+        // Render & start timers
+        requestAnimationFrame(()=>{
+          setFixedGridSizing();
+          renderPage();
+          startPager();
+          setStatusPill(true);
+        });
+
+        // ===== Map: collect affected stops from the filtered situations =====
+        const stopsMap = collectAffectedStops(items.map(x=>x._raw), getLineRefs);
+        updateMapWithStops(stopsMap);
+
+        // Enqueue overlays: new (yellow) then removed (green)
+        if(newOnes.length){ enqueueOverlays(newOnes.map(item => ({ mode:"add", item }))); }
+        if(removedOnes.length){ enqueueOverlays(removedOnes.map(item => ({ mode:"remove", item }))); }
+
+      }catch(e){
+        console.error(e);
+        setStatusPill(false);
+      }
+    }
+
+    /* Start */
+    fetchAll();
+    setInterval(fetchAll, FEED_REFRESH_MS);
+
+    /* Reflow sizing */
+    window.addEventListener("resize", ()=> requestAnimationFrame(setFixedGridSizing));
+    if(document.fonts && document.fonts.ready){
+      document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
+    }
+    window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
+
+    /* Keyboard tests for overlays still available:
+       K = new (yellow), D = ended (green) */
+    window.addEventListener("keydown", (e)=>{
+      const key = String(e.key).toLowerCase();
+      if(key === "k"){
+        const sampleAdd = {
+          routes: ["36"],
+          summary: "Route 36 diverted via Deansgate due to incident at St Peter's Square.",
+          timeLines: { endLine: "🛑 UFN" }
+        };
+        enqueueOverlays([{ mode:"add", item: sampleAdd }]);
+      }
+      if(key === "d"){
+        const start = new Date(Date.now() - (2 * 60 * 60 * 1000));
+        const now = new Date();
+        const sampleRemove = { routes: ["36"], startMs: start.getTime(), endMs: now.getTime() };
+        enqueueOverlays([{ mode:"remove", item: sampleRemove }]);
+      }
+    });
+  </script>
+</body>
+</html>
