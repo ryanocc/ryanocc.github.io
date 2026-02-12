@@ -7,9 +7,9 @@
 <meta http-equiv="Cache-Control" content="no-store" />
 
 <!-- Font: Barlow Semi Condensed -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
 <style>
   :root{
@@ -85,7 +85,7 @@
     padding:0 24px 24px; /* bottom padding only */
     display:flex;
     flex-direction:column;
-    height:100vh; /* kiosk/F11 */
+    height:100vh; /* F11/kiosk */
   }
 
   /* ----------- FIXED 3×2 GRID ----------- */
@@ -141,16 +141,16 @@
   .routes{
     display:grid;
     gap:10px;
-    /* Prevent routes from making the header too tall; 3 rows max */
-    max-height: calc(3 * 1em + 3 * 20px); /* rough guardrail; JS scales font below */
-    overflow:hidden;
     align-content:start;
+    /* cap height (3 rows) to protect card layout */
+    max-height: 9em;
+    overflow:hidden;
   }
   .routes.cols-1{ grid-template-columns: 1fr; }
   .routes.cols-2{ grid-template-columns: repeat(2, 1fr); }
   .routes.cols-3{ grid-template-columns: repeat(3, 1fr); }
 
-  /* Route badge */
+  /* Route badge (and +N badge) */
   .route{
     display:inline-flex;
     align-items:center;
@@ -170,7 +170,7 @@
     /* Default large size (1–3 routes) */
     font-size:clamp(44px, 5.6vw, 80px);
   }
-  /* Tighter sizes for denser grids to protect card height */
+  /* Tighter sizes for denser grids */
   .routes.cols-2 .route{
     font-size:clamp(38px, 4.6vw, 64px);
     padding:6px 14px;
@@ -221,7 +221,7 @@
     margin:6px 2px 12px 2px;
   }
 
-  /* Footer: start (one line) + end/UFN (one line) */
+  /* Footer: time lines (each one line) */
   .times{
     margin-top:auto;
     padding-top:12px;
@@ -332,7 +332,6 @@ function getLineRefs(sit){
     pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName);
   }
 
-  // XML extractor may store a helper list
   if(Array.isArray(sit.__lineRefs)){
     for(const v of sit.__lineRefs) pushVal(v);
   }
@@ -357,70 +356,65 @@ function ufnDurationPhrase(startDate){
   return `${hours} ${hours === 1 ? "hr" : "hrs"}`;
 }
 
-/* --- Validity lines (▶ start on 1 line, 🛑 end/UFN on 1 line) --- */
-/* For UFN (no end), we show ONLY the UFN line per your preference B. */
-function validityLines(sit){
+/* --- Day/Date label rules ---
+   Today / Yesterday / Tomorrow
+   else if in this week (Mon–Sun): weekday short (e.g., Tue)
+   else: '2 Feb'
+*/
+function dayDateLabel(d){
   const now = new Date();
+
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const startOfGiven = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+
+  const msPerDay = 86400000;
+  const dayDiff = Math.round((startOfGiven - startOfToday) / msPerDay);
+
+  if(dayDiff === 0) return "Today";
+  if(dayDiff === -1) return "Yesterday";
+  if(dayDiff === 1) return "Tomorrow";
+
+  // This week bounds (Mon-Sun)
+  const mon = new Date(startOfToday);
+  mon.setDate(startOfToday.getDate() - ((startOfToday.getDay() + 6) % 7)); // Monday
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  sun.setHours(23,59,59,999);
+
+  if(d >= mon && d <= sun){
+    return new Intl.DateTimeFormat(undefined, { weekday: 'short' }).format(d);
+  }
+
+  // Otherwise date '2 Feb'
+  return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
+}
+
+/* --- Validity lines (▶ start one line, 🛑 end/UFN one line) ---
+   If UFN (no end), show ONLY the UFN line with duration.
+   Time formatting:
+   - 00:00 => SoS
+   - 23:59 => EoS
+   - Else: [HH:MM] [Day/Date]
+*/
+function validityLines(sit){
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
   function formatStart(d){
     if(!d) return null;
-    const sameDay = d.toDateString() === now.toDateString();
-    const startWeek = new Date(now);
-    startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7)); // Monday
-    startWeek.setHours(0,0,0,0);
-    const endWeek = new Date(startWeek);
-    endWeek.setDate(startWeek.getDate() + 6);
-    endWeek.setHours(23,59,59,999);
-    const inWeek = d >= startWeek && d <= endWeek;
-
-    const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
-    if(is2359){
-      return "▶ End of Service";
-    }
-
-    const time = fmtHM(d);
-    if(sameDay) return `▶ ${time} Today`;
-    if(inWeek){
-      const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
-      return `▶ ${wd} ${time}`;
-    }
-    const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
-    return `▶ ${dm} ${time}`;
+    const isSoS = d.getHours() === 0 && d.getMinutes() === 0;
+    const label = dayDateLabel(d);
+    if(isSoS) return `▶ SoS ${label}`;
+    // [TIME] [DAY/DATE]
+    return `▶ ${fmtHM(d)} ${label}`;
   }
 
   function formatEnd(d){
     if(!d) return "🛑 UFN"; // placeholder; UFN phrasing handled outside
-    const sameDay = d.toDateString() === now.toDateString();
-    const startWeek = new Date(now);
-    startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7));
-    startWeek.setHours(0,0,0,0);
-    const endWeek = new Date(startWeek);
-    endWeek.setDate(startWeek.getDate() + 6);
-    endWeek.setHours(23,59,59,999);
-    const inWeek = d >= startWeek && d <= endWeek;
-
-    const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
-    if(is2359){
-      if(sameDay) return "🛑 End of Service";
-      if(inWeek){
-        const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
-        return `🛑 EOS ${wd}`;
-      } else {
-        const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
-        return `🛑 EOS ${dm}`;
-      }
-    }
-
-    const time = fmtHM(d);
-    if(sameDay) return `🛑 ${time} Today`;
-    if(inWeek){
-      const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
-      return `🛑 ${wd} ${time}`;
-    }
-    const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
-    return `🛑 ${dm} ${time}`;
+    const isEoS = d.getHours() === 23 && d.getMinutes() === 59;
+    const label = dayDateLabel(d);
+    if(isEoS) return `🛑 EoS ${label}`;
+    return `🛑 ${fmtHM(d)} ${label}`;
   }
 
   const hasEnd = !!e;
@@ -474,7 +468,7 @@ function operatorClass(ref){
   }
 }
 
-/* Keys */
+/* Keys (stable across multi-line incidents) */
 function situationKey(sit){
   if(sit.SituationNumber) return "id:" + sit.SituationNumber;
   if(sit.SituationRef)   return "ref:" + sit.SituationRef;
@@ -593,21 +587,26 @@ function renderPage(){
     const header = document.createElement("div");
     header.className = "chipHeader";
 
-    // Determine routes grid mode and cap to 9
+    // Routes grid mode and +N overflow (cap at 9 cells)
     const routesWrap = document.createElement("div");
     routesWrap.className = "routes";
     const routes = Array.isArray(it.routes) ? it.routes : ["?"];
-    const count = routes.length;
+    const total = routes.length;
+
     let mode = "cols-1";
-    if(count <= 3) mode = "cols-1";
-    else if(count <= 6) mode = "cols-2";
+    if(total <= 3) mode = "cols-1";
+    else if(total <= 6) mode = "cols-2";
     else mode = "cols-3";
     routesWrap.classList.add(mode);
 
-    // title with full list (useful if >9)
     routesWrap.title = routes.join(", ");
 
-    const displayRoutes = routes.slice(0, 9);
+    // If more than 9, show first 8 + a "+N" badge as the 9th
+    let displayRoutes = routes.slice(0, 9);
+    if(total > 9){
+      displayRoutes = routes.slice(0, 8).concat([`+${total - 8}`]);
+    }
+
     displayRoutes.forEach(rt=>{
       const badge = document.createElement("div");
       badge.className = "route";
