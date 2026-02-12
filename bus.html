@@ -243,7 +243,7 @@ function setStatusPill(ok){
 }
 
 /* --- Relative time formatter for stacked lines with emojis and Today marker,
-       and turning any 23:59 into "End of Service" --- */
+       and special 23:59 EOS rules (Option C) --- */
 function validityTimeLabel(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
@@ -253,14 +253,7 @@ function validityTimeLabel(sit){
     // If no time:
     if(!d) return isStart ? null : "UFN";
 
-    // Treat 23:59 as "End of Service"
-    const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
-    if(is2359){
-      return (isStart ? "🟢 " : "🛑 ") + "End of Service";
-    }
-
     const sameDay = d.toDateString() === now.toDateString();
-    const time = fmtHM(d);
 
     // Local week bounds (Mon–Sun)
     const startWeek = new Date(now);
@@ -273,6 +266,26 @@ function validityTimeLabel(sit){
 
     const inWeek = d >= startWeek && d <= endWeek;
 
+    // 23:59 => EOS logic
+    const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
+    if(is2359){
+      if(sameDay){
+        // Today at 23:59 → End of Service
+        return (isStart ? "🟢 " : "🛑 ") + "End of Service";
+      } else {
+        // Not today: within this week show weekday; otherwise show date (DD MMM)
+        if(inWeek){
+          const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
+          return (isStart ? "🟢 " : "🛑 ") + `EOS ${wd}`;
+        } else {
+          const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
+          return (isStart ? "🟢 " : "🛑 ") + `EOS ${dm}`;
+        }
+      }
+    }
+
+    // Non-EOS normal formatting
+    const time = fmtHM(d);
     let label;
     if(sameDay){
       // Today: HH:MM Today
