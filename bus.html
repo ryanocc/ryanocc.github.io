@@ -33,7 +33,7 @@
     margin:0; padding:0; background:var(--bg);
     color:var(--text);
     font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
-    overflow:hidden;
+    overflow:hidden; /* no page scroll */
   }
 
   /* ----------- MODERN HEADER ----------- */
@@ -81,7 +81,7 @@
     grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
     gap:20px;
     flex:1;
-    overflow:hidden; /* no scroll */
+    overflow:hidden; /* keep grid non-scroll */
   }
 
   .chip{
@@ -174,6 +174,15 @@
   .neutral-dark .chipContent{
     color:white;
   }
+
+  /* White chip: force black text for readability */
+  .op-BNDB .chipContent{
+    color:#000 !important;
+  }
+  .op-BNDB .validityTime,
+  .op-BNDB .summary{
+    color:#000 !important;
+  }
 </style>
 </head>
 <body>
@@ -203,7 +212,7 @@ const UNPLANNED_ONLY = true;      // default as requested
 const PAGE_INTERVAL_MS = 10000;   // auto-advance
 const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000; // pulse new for 5 min
 
-/* Diversion keyword matching (fallback when needed) */
+/* Diversion keyword matching */
 const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
 
 /* Track first-seen situations */
@@ -233,59 +242,94 @@ function setStatusPill(ok){
   }
 }
 
-/* --- Relative time formatter (applies same logic to start/end) --- */
-function formatRelativeHM(d, now=new Date()){
-  if(!d) return null;
-
-  const sameDay = d.toDateString() === now.toDateString();
-  const timeHM = dt => fmtHM(dt);
-  const weekday = dt =>
-    new Intl.DateTimeFormat(undefined,{weekday:"short"}).format(dt);
-  const dateDM = dt =>
-    new Intl.DateTimeFormat(undefined,{day:"2-digit",month:"short"}).format(dt);
-
-  // Local week: Monday–Sunday
-  const startWeek = new Date(now);
-  startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7));
-  startWeek.setHours(0,0,0,0);
-
-  const endWeek = new Date(startWeek);
-  endWeek.setDate(startWeek.getDate() + 6);
-  endWeek.setHours(23,59,59,999);
-
-  const inWeek = d >= startWeek && d <= endWeek;
-
-  if(sameDay) return timeHM(d);
-  if(inWeek) return `${weekday(d)} ${timeHM(d)}`;
-  return `${dateDM(d)} ${timeHM(d)}`;
-}
-
-/* Stacked label: start on first line, end on second (or UFN) */
+/* --- Relative time formatter for stacked lines with emojis and Today marker,
+       and turning any 23:59 into "End of Service" --- */
 function validityTimeLabel(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
-  const S = formatRelativeHM(s, now);
-  const E = formatRelativeHM(e, now);
+  function formatPart(d, isStart){
+    // If no time:
+    if(!d) return isStart ? null : "UFN";
 
-  if(S && E) return `${S}\n${E}`;
-  if(S && !E) return `${S}\nUFN`;
-  if(!S && E) return `Until\n${E}`;
+    // Treat 23:59 as "End of Service"
+    const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
+    if(is2359){
+      return (isStart ? "🟢 " : "🛑 ") + "End of Service";
+    }
+
+    const sameDay = d.toDateString() === now.toDateString();
+    const time = fmtHM(d);
+
+    // Local week bounds (Mon–Sun)
+    const startWeek = new Date(now);
+    startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7)); // Monday
+    startWeek.setHours(0,0,0,0);
+
+    const endWeek = new Date(startWeek);
+    endWeek.setDate(startWeek.getDate() + 6);
+    endWeek.setHours(23,59,59,999);
+
+    const inWeek = d >= startWeek && d <= endWeek;
+
+    let label;
+    if(sameDay){
+      // Today: HH:MM Today
+      label = `${time} Today`;
+    } else if(inWeek){
+      // This week (not today): Tue HH:MM
+      const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
+      label = `${wd} ${time}`;
+    } else {
+      // Outside this week: 21 Feb HH:MM
+      const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
+      label = `${dm} ${time}`;
+    }
+
+    return (isStart ? "🟢 " : "🛑 ") + label;
+  }
+
+  const startTxt = formatPart(s, true);
+  const endTxt   = formatPart(e, false);
+
+  if(startTxt && endTxt){
+    return `${startTxt}\n${endTxt}`;
+  }
+  if(startTxt && !endTxt){
+    // No end time → UFN (keep the end emoji)
+    return `${startTxt}\n🛑 UFN`;
+  }
+  if(!startTxt && endTxt){
+    // Unusual but supported: end only
+    return `${endTxt}`;
+  }
   return "—";
 }
 
-/* -------- OperatorRef extraction & class -------- */
+/* Only include incidents whose start OR end is within ±7 days of today */
+function isWithin7DayWindow(sit){
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+
+  const now = new Date();
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
+  const endOfToday   = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59,999);
+
+  const windowStart = new Date(startOfToday.getTime() - 7*24*60*60*1000);
+  const windowEnd   = new Date(endOfToday.getTime()   + 7*24*60*60*1000);
+
+  const inWindow = d => d && d >= windowStart && d <= windowEnd;
+  return inWindow(s) || inWindow(e);
+}
+
+/* OperatorRef extraction & class */
 function getOperatorRef(sit){
-  // Prefer Affects.VehicleJourneys.AffectedVehicleJourney[0].OperatorRef
   const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
   if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
   if(avj && avj.OperatorRef) return String(avj.OperatorRef);
-
-  // Additional fallbacks (some feeds place it directly)
   if(sit?.OperatorRef) return String(sit.OperatorRef);
   if(sit?.__operatorRefs && sit.__operatorRefs.length) return String(sit.__operatorRefs[0]);
-
   return null;
 }
 
@@ -301,12 +345,11 @@ function operatorClass(ref){
   }
 }
 
-/* Unique-ish situation key (prefer real ids, else composite) */
+/* Keys & titles */
 function situationKey(sit){
   if(sit.SituationNumber) return "id:" + sit.SituationNumber;
   if(sit.SituationRef)   return "ref:" + sit.SituationRef;
   if(sit.ParticipantRef) return "p:" + sit.ParticipantRef;
-
   const op = getOperatorRef(sit) || "";
   const ln = (sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "").toString();
   const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
@@ -314,12 +357,11 @@ function situationKey(sit){
   return `k:${op}|${ln}|${st}|${sum}`;
 }
 
-/* -------- Filters -------- */
+/* Filters */
 function isDiversion(sit){
   const txt = (sit.Description || sit.Summary || "").toLowerCase();
   return DIVERSION_MATCHERS.some(k => txt.includes(k));
 }
-
 function isCurrentlyValid(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
@@ -329,7 +371,6 @@ function isCurrentlyValid(sit){
   if(e && e < now) return false;
   return true;
 }
-
 function isUnplanned(sit){
   const p = sit?.Planned;
   if(p === false) return true;
@@ -337,7 +378,7 @@ function isUnplanned(sit){
   return false;
 }
 
-/* -------- Extractors (JSON/XML) -------- */
+/* Extractors */
 function extractSituationsFromJSON(json){
   const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
   if(!sd) return [];
@@ -352,7 +393,6 @@ function extractSituationsFromJSON(json){
   }
   return out;
 }
-
 function extractSituationsFromXML(doc){
   const els = [...doc.querySelectorAll("PtSituationElement")];
   return els.map(el=>{
@@ -361,7 +401,6 @@ function extractSituationsFromXML(doc){
                     .map(n=>n.textContent.trim()).filter(Boolean);
     const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
                     .map(n=>n.textContent.trim()).filter(Boolean);
-
     return {
       Summary: T("Summary") || T("Description"),
       Description: T("Description"),
@@ -402,13 +441,11 @@ function computePageSize(){
   const rows=Math.max(1, Math.floor((avail+gap)/(cardSize+gap)));
   return cols*rows;
 }
-
 function chunk(arr,size){
   const out=[];
   for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size));
   return out.length?out:[[]];
 }
-
 function renderPage(){
   const grid=$("#grid");
   const now=Date.now();
@@ -444,7 +481,6 @@ function renderPage(){
     grid.append(chip);
   }
 }
-
 function startPager(){
   if(pager.timer) clearInterval(pager.timer);
   if(pager.pages.length<=1) return;
@@ -484,6 +520,9 @@ async function fetchAll(){
     /* Only currently valid */
     situations = situations.filter(isCurrentlyValid);
 
+    /* Only if start or end is within ±7 days of today */
+    situations = situations.filter(isWithin7DayWindow);
+
     /* Only unplanned (default on) */
     if(UNPLANNED_ONLY) {
       situations = situations.filter(isUnplanned);
@@ -511,7 +550,7 @@ async function fetchAll(){
         firstSeen: firstSeenMap.get(key)
       };
     })
-    /* Sort: most recently started first, then by latest update if needed */
+    /* Sort: most recently started first */
     .sort((a,b)=> b.startMs - a.startMs);
 
     /* Page building */
