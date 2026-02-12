@@ -74,9 +74,6 @@
     height:calc(100vh - 84px);
   }
 
-  /* Hide old status bar completely */
-  #statusBar{ display:none; }
-
   /* ----------- GRID ----------- */
   #grid{
     margin-top:20px;
@@ -84,7 +81,7 @@
     grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
     gap:20px;
     flex:1;
-    overflow:hidden;
+    overflow:hidden; /* no scroll */
   }
 
   .chip{
@@ -198,20 +195,24 @@ const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
 const BODS_URL =
 `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
 
-const UNPLANNED_ONLY = true;
-const PAGE_INTERVAL_MS = 10000;
-const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000;
+/* TfGM Bee Network operator refs (strict) */
+const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 
+/* Behaviour flags */
+const UNPLANNED_ONLY = true;      // default as requested
+const PAGE_INTERVAL_MS = 10000;   // auto-advance
+const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000; // pulse new for 5 min
+
+/* Diversion keyword matching (fallback when needed) */
 const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
-const BEE_MATCHERS = ["bee network","bee network -","bee network–","bee network —"];
 
-/* Track new chips */
+/* Track first-seen situations */
 const firstSeenMap = new Map();
 
-/* Query helpers */
+/* Helpers */
 const $ = s => document.querySelector(s);
+const parseISO = s => s ? new Date(s) : null;
 
-/* Time formatting */
 function fmtFull(d){
   return new Intl.DateTimeFormat(undefined,
     {hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(d);
@@ -220,9 +221,6 @@ function fmtHM(d){
   return new Intl.DateTimeFormat(undefined,
     {hour:"2-digit",minute:"2-digit"}).format(d);
 }
-const parseISO = s => s ? new Date(s) : null;
-
-/* Status pill setter */
 function setStatusPill(ok){
   const pill = $("#statusPill");
   const t = fmtFull(new Date());
@@ -235,7 +233,7 @@ function setStatusPill(ok){
   }
 }
 
-/* --- Format start/end times with stacked layout --- */
+/* --- Relative time formatter (applies same logic to start/end) --- */
 function formatRelativeHM(d, now=new Date()){
   if(!d) return null;
 
@@ -246,7 +244,7 @@ function formatRelativeHM(d, now=new Date()){
   const dateDM = dt =>
     new Intl.DateTimeFormat(undefined,{day:"2-digit",month:"short"}).format(dt);
 
-  // Week start = Monday
+  // Local week: Monday–Sunday
   const startWeek = new Date(now);
   startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7));
   startWeek.setHours(0,0,0,0);
@@ -262,10 +260,11 @@ function formatRelativeHM(d, now=new Date()){
   return `${dateDM(d)} ${timeHM(d)}`;
 }
 
+/* Stacked label: start on first line, end on second (or UFN) */
 function validityTimeLabel(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
   const S = formatRelativeHM(s, now);
   const E = formatRelativeHM(e, now);
@@ -276,7 +275,20 @@ function validityTimeLabel(sit){
   return "—";
 }
 
-/* Operator colour */
+/* -------- OperatorRef extraction & class -------- */
+function getOperatorRef(sit){
+  // Prefer Affects.VehicleJourneys.AffectedVehicleJourney[0].OperatorRef
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+  if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
+  if(avj && avj.OperatorRef) return String(avj.OperatorRef);
+
+  // Additional fallbacks (some feeds place it directly)
+  if(sit?.OperatorRef) return String(sit.OperatorRef);
+  if(sit?.__operatorRefs && sit.__operatorRefs.length) return String(sit.__operatorRefs[0]);
+
+  return null;
+}
+
 function operatorClass(ref){
   switch((ref||"").toUpperCase()){
     case "BNML": return {cls:"op-BNML", dark:false};
@@ -289,94 +301,100 @@ function operatorClass(ref){
   }
 }
 
-/* Situation key (stable ID) */
+/* Unique-ish situation key (prefer real ids, else composite) */
 function situationKey(sit){
   if(sit.SituationNumber) return "id:" + sit.SituationNumber;
+  if(sit.SituationRef)   return "ref:" + sit.SituationRef;
   if(sit.ParticipantRef) return "p:" + sit.ParticipantRef;
-  const op = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.OperatorRef || "";
-  const ln = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "";
-  const st = sit?.StartTime || "";
-  return `k:${op}|${ln}|${st}`;
+
+  const op = getOperatorRef(sit) || "";
+  const ln = (sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "").toString();
+  const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
+  const sum = (sit?.Summary || sit?.Description || "").toString().slice(0,120);
+  return `k:${op}|${ln}|${st}|${sum}`;
 }
 
-/* Filters */
+/* -------- Filters -------- */
 function isDiversion(sit){
-  const txt = (sit.Description||sit.Summary||"").toLowerCase();
+  const txt = (sit.Description || sit.Summary || "").toLowerCase();
   return DIVERSION_MATCHERS.some(k => txt.includes(k));
 }
+
 function isCurrentlyValid(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
   if(!s) return false;
   if(s > now) return false;
   if(e && e < now) return false;
   return true;
 }
+
 function isUnplanned(sit){
-  const p = sit.Planned;
+  const p = sit?.Planned;
   if(p === false) return true;
-  if(typeof p==="string" && p.trim().toLowerCase()==="false") return true;
+  if(typeof p === "string" && p.trim().toLowerCase() === "false") return true;
   return false;
 }
 
-/* Extractors work unchanged — omitted here for brevity in explanation */
-/* BUT they are included in the final code below */
-
+/* -------- Extractors (JSON/XML) -------- */
 function extractSituationsFromJSON(json){
-  const sd=json.ServiceDelivery||json.Siri?.ServiceDelivery||json.SIRI?.ServiceDelivery||json;
+  const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
   if(!sd) return [];
-  const sed=Array.isArray(sd.SituationExchangeDelivery)?
-    sd.SituationExchangeDelivery:[sd.SituationExchangeDelivery].filter(Boolean);
+  const sed = Array.isArray(sd.SituationExchangeDelivery)
+    ? sd.SituationExchangeDelivery
+    : [sd.SituationExchangeDelivery].filter(Boolean);
   const out=[];
   for(const d of sed){
-    const pe=d?.Situations?.PtSituationElement;
+    const pe = d?.Situations?.PtSituationElement;
     if(Array.isArray(pe)) out.push(...pe);
     else if(pe) out.push(pe);
   }
   return out;
 }
+
 function extractSituationsFromXML(doc){
-  const items=[...doc.querySelectorAll("PtSituationElement")].map(el=>{
-    const T=n=>el.querySelector(n)?.textContent.trim()||null;
-    const ops=[...el.querySelectorAll("AffectedVehicleJourney > OperatorName,OperatorName")].map(n=>n.textContent.trim()).filter(Boolean);
-    const opsRef=[...el.querySelectorAll("AffectedVehicleJourney > OperatorRef,OperatorRef")].map(n=>n.textContent.trim()).filter(Boolean);
-    const lines=[...el.querySelectorAll("AffectedVehicleJourney > LineRef,PublishedLineName,LineName")].map(n=>n.textContent.trim()).filter(Boolean);
-    const places=[...el.querySelectorAll("AffectedStopPoint > StopPointName,AffectedStopPoint > PlaceName")].map(n=>n.textContent.trim()).filter(Boolean);
+  const els = [...doc.querySelectorAll("PtSituationElement")];
+  return els.map(el=>{
+    const T = s => el.querySelector(s)?.textContent?.trim() || null;
+    const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
+                    .map(n=>n.textContent.trim()).filter(Boolean);
+    const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
+                    .map(n=>n.textContent.trim()).filter(Boolean);
 
     return {
-      Summary:T("Summary")||T("Description"),
-      Description:T("Description"),
-      Severity:T("Severity")||"unknown",
-      Planned:T("Planned"),
-      SituationNumber:T("SituationNumber"),
-      ParticipantRef:T("ParticipantRef"),
-      ValidityPeriod:{
-        StartTime:T("ValidityPeriod > StartTime")||T("StartTime"),
-        EndTime:T("ValidityPeriod > EndTime")||T("EndTime")
+      Summary: T("Summary") || T("Description"),
+      Description: T("Description"),
+      Severity: T("Severity") || "unknown",
+      Planned: T("Planned"),
+      SituationNumber: T("SituationNumber") || T("SituationRef"),
+      ParticipantRef: T("ParticipantRef"),
+      ValidityPeriod: {
+        StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
+        EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
       },
-      CreationTime:T("CreationTime")||T("RecordedAtTime"),
-      Affects:{
-        VehicleJourneys:{
-          AffectedVehicleJourney:[
-            {OperatorRef:opsRef[0], OperatorName:ops[0], LineRef:lines[0]}
-          ]
+      CreationTime: T("CreationTime") || T("RecordedAtTime") || T("VersionedAtTime"),
+      Affects: {
+        VehicleJourneys: {
+          AffectedVehicleJourney: (opsRef.length || lines.length)
+            ? [{ OperatorRef: opsRef[0], LineRef: lines[0] }]
+            : []
         }
-      }
+      },
+      __operatorRefs: opsRef
     };
   });
-  return items;
 }
 
-/* Pager */
+/* -------- Pager (no scrolling) -------- */
 const pager={pages:[],pageIndex:0,pageSize:0,total:0,timer:null};
 
 function computePageSize(){
-  const topH=$(".topbar").getBoundingClientRect().height;
-  const pad=40;
-  const avail=window.innerHeight-(topH+pad);
-  const grid=$("#grid");
-  const w=grid.clientWidth||window.innerWidth;
+  const topH = $(".topbar").getBoundingClientRect().height;
+  const pad = 40;
+  const avail = window.innerHeight - (topH + pad);
+  const grid = $("#grid");
+  const w = grid.clientWidth || window.innerWidth;
 
   const minW=220, gap=20;
   const cols=Math.max(1, Math.floor((w+gap)/(minW+gap)));
@@ -427,7 +445,6 @@ function renderPage(){
   }
 }
 
-/* Auto pager */
 function startPager(){
   if(pager.timer) clearInterval(pager.timer);
   if(pager.pages.length<=1) return;
@@ -438,58 +455,75 @@ function startPager(){
   }, PAGE_INTERVAL_MS);
 }
 
-/* Main fetch */
+/* -------- Fetch & Render -------- */
 async function fetchAll(){
   try{
-    const res=await fetch(BODS_URL,{cache:"no-store"});
-    let parsed;
-    try{ parsed={type:"json",data:await res.clone().json()}; }
-    catch{ parsed={type:"xml",data:(new DOMParser()).parseFromString(await res.text(),"application/xml")}; }
+    const res = await fetch(BODS_URL, { cache:"no-store" });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
 
-    let sits = parsed.type==="json"
+    let parsed;
+    try{
+      parsed = { type:"json", data: await res.clone().json() };
+    }catch{
+      parsed = { type:"xml", data: (new DOMParser()).parseFromString(await res.text(),"application/xml") };
+    }
+
+    let situations = parsed.type==="json"
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    /* Filter */
-    sits=sits.filter(isDiversion)
-             .filter(isCurrentlyValid);
-    if(UNPLANNED_ONLY) sits=sits.filter(isUnplanned);
+    /* ---------- PROPER TfGM FILTER: OperatorRef must be in BEE_OPERATORS ---------- */
+    situations = situations.filter(sit=>{
+      const ref = getOperatorRef(sit);
+      return ref && BEE_OPERATORS.includes(ref.toUpperCase());
+    });
 
-    /* Map */
-    const now=Date.now();
-    const items=sits.map(s=>{
-      const key=situationKey(s);
-      if(!firstSeenMap.has(key))
-        firstSeenMap.set(key, now);
+    /* Diversions only */
+    situations = situations.filter(isDiversion);
 
-      const route=s?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "?";
-      const ref=s?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.OperatorRef || "";
-      const st=parseISO(s?.ValidityPeriod?.StartTime);
-      const en=parseISO(s?.ValidityPeriod?.EndTime);
+    /* Only currently valid */
+    situations = situations.filter(isCurrentlyValid);
+
+    /* Only unplanned (default on) */
+    if(UNPLANNED_ONLY) {
+      situations = situations.filter(isUnplanned);
+    }
+
+    /* Map to chips */
+    const now = Date.now();
+    const items = situations.map(s=>{
+      const key = situationKey(s);
+      if(!firstSeenMap.has(key)) firstSeenMap.set(key, now);
+
+      const route = s?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "?";
+      const opRef = getOperatorRef(s) || "";
+      const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
+      const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
 
       return {
         key,
         route,
-        operatorRef:ref,
-        validity:validityTimeLabel(s),
-        summary:(s.Summary||s.Description||"").trim(),
-        startMs:st?st.getTime():0,
-        endMs:en?en.getTime():null,
-        firstSeen:firstSeenMap.get(key)
+        operatorRef: opRef,
+        validity: validityTimeLabel(s),
+        summary: (s.Summary || s.Description || "").trim(),
+        startMs: st ? st.getTime() : 0,
+        endMs: en ? en.getTime() : null,
+        firstSeen: firstSeenMap.get(key)
       };
     })
-    .sort((a,b)=>b.startMs - a.startMs);
+    /* Sort: most recently started first, then by latest update if needed */
+    .sort((a,b)=> b.startMs - a.startMs);
 
-    pager.pageSize=computePageSize();
-    pager.pages=chunk(items,pager.pageSize);
-    pager.pageIndex=0;
-    pager.total=items.length;
+    /* Page building */
+    pager.pageSize = computePageSize();
+    pager.pages = chunk(items, pager.pageSize);
+    pager.pageIndex = 0;
+    pager.total = items.length;
 
     renderPage();
     startPager();
     setStatusPill(true);
-  }
-  catch(e){
+  }catch(e){
     console.error(e);
     setStatusPill(false);
   }
@@ -497,17 +531,16 @@ async function fetchAll(){
 
 /* Start */
 fetchAll();
-setInterval(fetchAll,60000);
+setInterval(fetchAll, 60000);
 
-window.addEventListener("resize",()=>{
-  const flat=pager.pages.flat();
-  pager.pageSize=computePageSize();
-  pager.pages=chunk(flat,pager.pageSize);
-  pager.pageIndex=0;
+window.addEventListener("resize", ()=>{
+  const flat = (pager.pages || []).flat();
+  pager.pageSize = computePageSize();
+  pager.pages = chunk(flat, pager.pageSize);
+  pager.pageIndex = 0;
   renderPage();
   startPager();
 });
-
 </script>
 </body>
 </html>
