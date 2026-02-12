@@ -7,9 +7,9 @@
 <meta http-equiv="Cache-Control" content="no-store" />
 
 <!-- Font: Barlow Semi Condensed -->
-https://fonts.googleapis.com
-https://fonts.gstatic.com
-https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -39,6 +39,13 @@ https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;
 
     /* Summary metrics */
     --summary-line-height: 1.3; /* keep in sync with .summary line-height */
+
+    /* Route ticker sizing */
+    --route-font-large: clamp(44px, 5.6vw, 80px);
+    --route-font: var(--route-font-large);
+    --route-pad-v: 8px;
+    --route-pad-h: 16px;
+    --route-radius: 12px;
   }
 
   *{ box-sizing:border-box; }
@@ -61,7 +68,7 @@ https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;
   }
   .title{
     margin:0;
-    font-size:56px;        /* larger for control room viewing */
+    font-size:56px;        /* control room size */
     font-weight:900;
     letter-spacing:-0.3px;
   }
@@ -124,7 +131,7 @@ https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;
     transition:transform .15s ease;
   }
 
-  /* Header: MULTI-ROUTE grid + operator short code */
+  /* Header: ROUTE TICKER + operator short code */
   .chipHeader{
     display:flex;
     align-items:flex-start;
@@ -133,24 +140,31 @@ https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;
     margin-bottom:16px;
   }
 
-  /* ROUTES GRID MODES
-     1-3 routes: 1 column
-     4-6 routes: 2 columns x up to 3 rows
-     7-9 routes: 3 columns x up to 3 rows
+  /* ROUTE TICKER
+     - Fixed height viewport shows ONE slide at a time
+     - Track slides horizontally per step
+     - Each slide is 100% width of the viewport
   */
-  .routes{
-    display:grid;
-    gap:10px;
-    align-content:start;
-    /* cap height (3 rows) to protect card layout */
-    max-height: 9em;
+  .routesTicker{
+    position:relative;
     overflow:hidden;
+    width:100%;
+    max-width:100%;
+    /* approximate single-line height guard so header remains tidy */
   }
-  .routes.cols-1{ grid-template-columns: 1fr; }
-  .routes.cols-2{ grid-template-columns: repeat(2, 1fr); }
-  .routes.cols-3{ grid-template-columns: repeat(3, 1fr); }
+  .routesTrack{
+    display:flex;
+    flex-wrap:nowrap;
+    will-change:transform;
+    transform:translateX(0%);
+  }
+  .routeSlide{
+    flex: 0 0 100%; /* one slide per viewport */
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-start; /* left align; change to center if preferred */
+  }
 
-  /* Route badge (and +N badge) */
   .route{
     display:inline-flex;
     align-items:center;
@@ -158,28 +172,16 @@ https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;
     font-weight:900;
     background:var(--accent);
     color:#000;
-    padding:8px 16px;
-    border-radius:12px;
+    padding:var(--route-pad-v) var(--route-pad-h);
+    border-radius:var(--route-radius);
     letter-spacing:-0.5px;
     line-height:1;
     min-width:3ch;
-    white-space:nowrap;
     max-width:100%;
+    white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
-    /* Default large size (1–3 routes) */
-    font-size:clamp(44px, 5.6vw, 80px);
-  }
-  /* Tighter sizes for denser grids */
-  .routes.cols-2 .route{
-    font-size:clamp(38px, 4.6vw, 64px);
-    padding:6px 14px;
-    border-radius:10px;
-  }
-  .routes.cols-3 .route{
-    font-size:clamp(30px, 3.6vw, 52px);
-    padding:6px 12px;
-    border-radius:10px;
+    font-size:var(--route-font);
   }
 
   .operatorTag{
@@ -270,7 +272,8 @@ const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 
 /* Behaviour flags */
 const UNPLANNED_ONLY = true;
-const PAGE_INTERVAL_MS = 10000;
+const PAGE_INTERVAL_MS = 10000; // page dwell
+const ROUTE_SLIDE_EASE_MS = 400; // visual slide duration
 
 /* Diversion keyword matching */
 const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
@@ -405,7 +408,6 @@ function validityLines(sit){
     const isSoS = d.getHours() === 0 && d.getMinutes() === 0;
     const label = dayDateLabel(d);
     if(isSoS) return `🕛 SoS ${label}`;
-    // [TIME] [DAY/DATE]
     return `🕛 ${fmtHM(d)} ${label}`;
   }
 
@@ -551,6 +553,9 @@ function extractSituationsFromXML(doc){
 /* -------- Paging -------- */
 const pager={pages:[],pageIndex:0,pageSize:6,total:0,timer:null}; // always 6 (3×2)
 
+/* Track per-card route ticker timers to clean up between renders */
+let routeTickerTimers = [];
+
 /* Fit exactly 2 rows vertically by setting --cardHeight (F11 fullscreen safe) */
 function setFixedGridSizing(){
   const grid = document.getElementById("grid");
@@ -570,6 +575,10 @@ function setFixedGridSizing(){
 }
 
 function renderPage(){
+  // clear previous route ticker timers
+  routeTickerTimers.forEach(t=>clearInterval(t));
+  routeTickerTimers = [];
+
   const grid = document.getElementById("grid");
   const pg = pager.pages[pager.pageIndex] || [];
   grid.innerHTML = "";
@@ -583,36 +592,32 @@ function renderPage(){
     const inner = document.createElement("div");
     inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
 
-    // Header (routes grid + operator)
+    // Header (routes ticker + operator)
     const header = document.createElement("div");
     header.className = "chipHeader";
 
-    // Routes grid mode and +N overflow (cap at 9 cells)
-    const routesWrap = document.createElement("div");
-    routesWrap.className = "routes";
-    const routes = Array.isArray(it.routes) ? it.routes : ["?"];
-    const total = routes.length;
+    // ROUTES TICKER
+    const ticker = document.createElement("div");
+    ticker.className = "routesTicker";
+    ticker.title = (it.routes || []).join(", ");
 
-    let mode = "cols-1";
-    if(total <= 3) mode = "cols-1";
-    else if(total <= 6) mode = "cols-2";
-    else mode = "cols-3";
-    routesWrap.classList.add(mode);
+    const track = document.createElement("div");
+    track.className = "routesTrack";
 
-    routesWrap.title = routes.join(", ");
+    const routes = Array.isArray(it.routes) && it.routes.length ? it.routes : ["?"];
+    routes.forEach(rt=>{
+      const slide = document.createElement("div");
+      slide.className = "routeSlide";
 
-    // If more than 9, show first 8 + a "+N" badge as the 9th
-    let displayRoutes = routes.slice(0, 9);
-    if(total > 9){
-      displayRoutes = routes.slice(0, 8).concat([`+${total - 8}`]);
-    }
-
-    displayRoutes.forEach(rt=>{
       const badge = document.createElement("div");
       badge.className = "route";
       badge.textContent = String(rt);
-      routesWrap.appendChild(badge);
+
+      slide.appendChild(badge);
+      track.appendChild(slide);
     });
+
+    ticker.appendChild(track);
 
     // Operator pill
     const opTag = document.createElement("div");
@@ -628,14 +633,14 @@ function renderPage(){
     const shortLabel = operatorShortLabel(it.operatorRef);
     opTag.append(dot, document.createTextNode(shortLabel));
 
-    header.append(routesWrap, opTag);
+    header.append(ticker, opTag);
 
     // Summary (exactly 2 lines reserved)
     const s = document.createElement("div");
     s.className = "summary";
     s.textContent = it.summary || "";
 
-    // Times (start = 1 line, end/UFN = 1 line)
+    // Times (start = 1 line, end/UFN = 1 line; UFN shows only the UFN line)
     const times = document.createElement("div");
     times.className = "times";
     const tStart = document.createElement("div");
@@ -655,7 +660,43 @@ function renderPage(){
     inner.append(header, s, times);
     chip.append(inner);
     grid.append(chip);
+
+    // Start per-card route ticker if multiple routes
+    startRouteTicker(track, routes.length);
   }
+}
+
+/* Route ticker: slide through all routes within current page dwell time once */
+function startRouteTicker(trackEl, count){
+  if(!trackEl || count <= 1){
+    // nothing to animate
+    return;
+  }
+  const steps = count;                 // number of slides to show
+  const totalMs = PAGE_INTERVAL_MS;    // time available on this page
+  const stepMs = Math.max(800, Math.floor(totalMs / steps)); // min 0.8s per slide for readability
+  let idx = 0;
+
+  // ensure initial position
+  trackEl.style.transition = "none";
+  trackEl.style.transform = "translateX(0%)";
+
+  // kick off after a microtask to apply transition cleanly
+  setTimeout(()=>{
+    trackEl.style.transition = `transform ${ROUTE_SLIDE_EASE_MS}ms ease-in-out`;
+
+    const timer = setInterval(()=>{
+      idx += 1;
+      if(idx >= steps){
+        clearInterval(timer);
+        return;
+      }
+      const shift = -(idx * 100);
+      trackEl.style.transform = `translateX(${shift}%)`;
+    }, stepMs);
+
+    routeTickerTimers.push(timer);
+  }, 50);
 }
 
 function startPager(){
