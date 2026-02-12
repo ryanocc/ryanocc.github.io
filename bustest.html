@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Live Bus Diversions</title>
+  <title>Unplanned Diversions</title>
   <meta http-equiv="Cache-Control" content="no-store" />
 
   <!-- Font: Barlow Semi Condensed -->
@@ -140,6 +140,35 @@
     .chip:hover{
       transform:translateY(-1px);
       transition:transform .15s ease;
+    }
+
+    /* --- UFN >24h: pulse red and stand out --- */
+    @keyframes pulseRed {
+      0% {
+        box-shadow:
+          0 1px 0 rgba(255,255,255,0.04) inset,
+          0 10px 25px rgba(0,0,0,0.35),
+          0 0 0 0 rgba(255,77,79,0.4);
+        border-color: rgba(255,77,79,0.55);
+      }
+      50% {
+        box-shadow:
+          0 1px 0 rgba(255,255,255,0.04) inset,
+          0 10px 25px rgba(0,0,0,0.35),
+          0 0 0 10px rgba(255,77,79,0.12);
+        border-color: rgba(255,77,79,0.95);
+      }
+      100% {
+        box-shadow:
+          0 1px 0 rgba(255,255,255,0.04) inset,
+          0 10px 25px rgba(0,0,0,0.35),
+          0 0 0 0 rgba(255,77,79,0.0);
+        border-color: rgba(255,77,79,0.55);
+      }
+    }
+    .chip.pulse-ufn {
+      border-color: var(--errorRed);
+      animation: pulseRed 1200ms ease-in-out infinite;
     }
 
     /* Header: ROUTE TICKER + operator pill */
@@ -369,6 +398,9 @@
 
     /* Diversion keyword matching */
     const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
+
+    /* UFN >24h helper */
+    const DAY_MS = 24 * 60 * 60 * 1000; /* UFN >24h: pin & pulse */
 
     /* Track ticker timers & pager */
     let routeTickerTimers = [];
@@ -815,6 +847,11 @@
         const chip = document.createElement("div");
         chip.className = "chip " + oc.cls;
 
+        /* UFN >24h: pulse the card */
+        if (it.ufnOver24h) {
+          chip.classList.add("pulse-ufn");
+        }
+
         const inner = document.createElement("div");
         inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
 
@@ -953,12 +990,20 @@
           });
         }
 
-        /* Map to items */
-        const items = situations.map(s=>{
+        /* Map to items + UFN >24h pinning */
+        const nowMs = Date.now(); /* UFN >24h: pin & pulse */
+
+        let items = situations.map(s=>{
           const operatorRefs = getOperatorRefs(s);
           const routes = getLineRefs(s);
           const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
           const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
+
+          const startMs = st ? st.getTime() : 0;
+          const endMs   = en ? en.getTime() : null;
+
+          const isUFN = (endMs == null);
+          const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS; /* UFN >24h: pin & pulse */
 
           return {
             id: getSituationId(s),
@@ -967,12 +1012,26 @@
             routes: routes.length ? routes.map(String) : ["?"],
             timeLines: validityLines(s),     // {startLine, endLine}
             summary: (s.Summary || s.Description || "").trim(),
-            startMs: st ? st.getTime() : 0,
-            endMs: en ? en.getTime() : null
+            startMs,
+            endMs,
+            isUFN,
+            ufnOver24h
           };
         })
-        /* Sort: most recently started first */
-        .sort((a,b)=> b.startMs - a.startMs);
+        /* Sort: pin all UFN>24h to the top (longest-running first), then recency */
+        .sort((a, b) => {
+          // Priority 1: UFN over 24h pinned before others
+          if (a.ufnOver24h && !b.ufnOver24h) return -1;
+          if (!a.ufnOver24h && b.ufnOver24h) return 1;
+
+          // Priority 2: among pinned, show the longest-running first (oldest start first)
+          if (a.ufnOver24h && b.ufnOver24h) {
+            return a.startMs - b.startMs; // older (smaller) startMs first
+          }
+
+          // Priority 3: normal items by most recently started first
+          return b.startMs - a.startMs;
+        });
 
         /* Build current index for diffing */
         const currIndex = new Map(items.map(it => [it.id, it]));
@@ -989,7 +1048,7 @@
         lastItemsIndex = currIndex;
         firstFetchDone = true;
 
-        /* Page building: fixed 6 per page for 3×2 grid */
+        /* Page building: fixed 6 per page for 3×2 grid (pinned items appear first overall) */
         pager.pageSize = 6;
         pager.pages = chunk(items, pager.pageSize);
         pager.pageIndex = 0;
