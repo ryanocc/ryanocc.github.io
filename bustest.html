@@ -29,7 +29,7 @@
 
       /* Overlay backgrounds */
       --alert-add-bg: var(--accent); /* yellow */
-      --alert-remove-bg: #ff9a1f;    /* orange */
+      --alert-remove-bg: #19c37d;    /* green */
 
       /* Status pill colours */
       --liveGreen:#19c37d;
@@ -301,12 +301,6 @@
       color:#000;
       margin:10px 0 8px;
     }
-    .ov-details{
-      font-size:clamp(22px, 2.2vw, 32px);
-      color:#1a1a1a;
-      opacity:0.9;
-      margin:4px 0 14px;
-    }
     .ov-times{
       font-size:clamp(22px, 2.2vw, 30px);
       font-weight:900;
@@ -333,11 +327,10 @@
   <!-- Fullscreen Alert Overlay -->
   <div id="divertOverlay" class="ov-add" aria-hidden="true">
     <div class="ov-card" role="dialog" aria-label="Diversion alert">
-      <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
+      <div id="ovKicker" class="ov-kicker">NEW TRAVEL ALERT</div>
       <div id="ovRoute" class="ov-route">–</div>
       <div id="ovSummary" class="ov-summary">–</div>
-      <div id="ovDetails" class="ov-details">–</div>
-      <div id="ovTimes" class="ov-times"><!-- lines injected --></div>
+      <div id="ovTimes" class="ov-times"><!-- simplified times injected --></div>
     </div>
   </div>
 
@@ -366,9 +359,8 @@
     let pagerTimer = null;
 
     /* New/Removed diversion detection */
-    const seenSituationIds = new Set();  // retained for add detection guard (optional)
     let firstFetchDone = false;
-    let lastItemsIndex = new Map();       // id -> item from previous poll
+    let lastItemsIndex = new Map();  // id -> item (previous poll)
 
     /* Overlay queue control */
     let overlayQueue = [];
@@ -475,7 +467,7 @@
       return Array.from(lines);
     }
 
-    /* UFN duration phrasing (m / hr / hrs) */
+    /* UFN duration phrasing (used for grid; overlay simplifies UFN to just '🛑 UFN') */
     function ufnDurationPhrase(startDate){
       if(!startDate) return "less than a minute";
       const now = new Date();
@@ -514,7 +506,7 @@
       return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
     }
 
-    /* Validity lines (always show start, even for UFN) */
+    /* Validity lines (grid uses both; overlay will simplify) */
     function validityLines(sit){
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -526,7 +518,7 @@
         return isSoS ? `🕛 SoS ${label}` : `🕛 ${fmtHM(d)} ${label}`;
       }
       function formatEnd(d){
-        if(!d) return null;
+        if(!d) return "🛑 UFN"; // grid version may include duration below
         const isEoS = d.getHours() === 23 && d.getMinutes() === 59;
         const label = dayDateLabel(d);
         return isEoS ? `🛑 EoS ${label}` : `🛑 ${fmtHM(d)} ${label}`;
@@ -538,7 +530,7 @@
         return { startLine, endLine: formatEnd(e) };
       }
 
-      // No end time -> UFN: keep the start line AND show UFN with duration
+      // UFN in grid (overlay strips duration)
       const dur = ufnDurationPhrase(s);
       const ufnLine = `🛑 UFN - diverted for ${dur}`;
       return { startLine, endLine: ufnLine };
@@ -711,35 +703,61 @@
       const elKicker = $("#ovKicker");
       const elRoute = $("#ovRoute");
       const elSummary = $("#ovSummary");
-      const elDetails = $("#ovDetails");
       const elTimes = $("#ovTimes");
 
-      // Style & labels by mode
       overlay.classList.remove("ov-add","ov-remove");
+
       if(mode === "remove"){
+        // DIVERT END (green)
         overlay.classList.add("ov-remove");
-        elKicker.textContent = "DIVERT ENDED";
+        elKicker.textContent = "DIVERT END";
+
+        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+        elRoute.textContent = routes.join(" • ");
+
+        // No summary/description
+        elSummary.textContent = "";
+
+        // Compute total diverted time: (end - start); if no end, use now; if no start, show "—"
+        const start = item.startMs ? new Date(item.startMs) : null;
+        const end   = item.endMs ? new Date(item.endMs) : new Date();
+        let durLabel = "—";
+        if(start){
+          const diffMs = Math.max(0, end - start);
+          const mins = Math.floor(diffMs / 60000);
+          if(mins < 60){
+            durLabel = `${mins} m`;
+          } else {
+            const hrs = Math.floor(mins / 60);
+            durLabel = `${hrs} ${hrs === 1 ? "hr" : "hrs"}`;
+          }
+        }
+
+        elTimes.replaceChildren();
+        const d = document.createElement("div");
+        d.textContent = `🕛diverted for ${durLabel}`;
+        elTimes.appendChild(d);
+
       } else {
+        // NEW TRAVEL ALERT (yellow)
         overlay.classList.add("ov-add");
-        elKicker.textContent = "NEW DIVERT";
-      }
+        elKicker.textContent = "NEW TRAVEL ALERT";
 
-      const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-      elRoute.textContent = routes.join(" • ");
-      elSummary.textContent = item.summary || (mode === "remove" ? "Diversion cleared" : "Diversion");
-      elDetails.textContent = item.details || "";
+        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+        elRoute.textContent = routes.join(" • ");
 
-      // times: show start then end/UFN line
-      elTimes.replaceChildren();
-      if(item.timeLines?.startLine){
-        const s = document.createElement("div");
-        s.textContent = item.timeLines.startLine;
-        elTimes.appendChild(s);
-      }
-      if(item.timeLines?.endLine){
-        const e = document.createElement("div");
-        e.textContent = item.timeLines.endLine;
-        elTimes.appendChild(e);
+        // Summary only
+        elSummary.textContent = item.summary || "Travel alert";
+
+        // End time only; if UFN line exists, show just "🛑 UFN"
+        elTimes.replaceChildren();
+        if(item.timeLines?.endLine){
+          let endText = String(item.timeLines.endLine);
+          if(endText.startsWith("🛑 UFN")) endText = "🛑 UFN";
+          const e = document.createElement("div");
+          e.textContent = endText;
+          elTimes.appendChild(e);
+        }
       }
 
       overlay.classList.add("show");
@@ -851,6 +869,7 @@
         if(it.timeLines.endLine){
           const tEnd = document.createElement("div");
           tEnd.className = "timeLine";
+          // Grid keeps the duration text; overlay strips it for UFN
           tEnd.textContent = it.timeLines.endLine;
           times.appendChild(tEnd);
         }
@@ -932,7 +951,6 @@
             routes: routes.length ? routes.map(String) : ["?"],
             timeLines: validityLines(s),     // {startLine, endLine}
             summary: (s.Summary || s.Description || "").trim(),
-            details: (s.Description || "").trim(),
             startMs: st ? st.getTime() : 0,
             endMs: en ? en.getTime() : null
           };
@@ -953,7 +971,6 @@
 
         /* Update tracking */
         lastItemsIndex = currIndex;
-        items.forEach(it => seenSituationIds.add(it.id));
         firstFetchDone = true;
 
         /* Page building: fixed 6 per page for 3×2 grid */
@@ -970,7 +987,7 @@
           setStatusPill(true);
         });
 
-        // Enqueue overlays: new (yellow) then removed (orange)
+        // Enqueue overlays: new (yellow) then removed (green)
         if(newOnes.length){
           enqueueOverlays(newOnes.map(item => ({ mode:"add", item })));
         }
@@ -998,34 +1015,28 @@
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
-    /* -------- Keyboard tests: K = new (yellow), D = ended (orange) -------- */
+    /* -------- Keyboard tests: K = new (yellow), D = diverted end (green) -------- */
     window.addEventListener("keydown", (e)=>{
       const key = String(e.key).toLowerCase();
 
       if(key === "k"){
-        const now = new Date();
         const sampleAdd = {
           routes: ["36"],
           summary: "Route 36 diverted via Deansgate due to incident at St Peter's Square.",
-          details: "Stops at Albert Square and Princess Street are not being served. Please use alternative stops.",
           timeLines: {
-            startLine: `🕛 ${fmtHM(now)} Today`,
-            endLine: `🛑 UFN - diverted for ${ufnDurationPhrase(now)}`
+            endLine: "🛑 UFN" // overlay will show just '🛑 UFN'
           }
         };
         enqueueOverlays([{ mode:"add", item: sampleAdd }]);
       }
 
       if(key === "d"){
-        const earlier = new Date(Date.now() - 45*60*1000); // 45 mins ago
+        const start = new Date(Date.now() - (2 * 60 * 60 * 1000)); // 2 hours ago
+        const now = new Date();
         const sampleRemove = {
           routes: ["36"],
-          summary: "Route 36 diversion via Deansgate has ended.",
-          details: "Normal route now operating.",
-          timeLines: {
-            startLine: `🕛 ${fmtHM(earlier)} Today`,
-            endLine: `🛑 EoS Today`  // example of an ended line
-          }
+          startMs: start.getTime(),
+          endMs: now.getTime()
         };
         enqueueOverlays([{ mode:"remove", item: sampleRemove }]);
       }
@@ -1033,3 +1044,4 @@
   </script>
 </body>
 </html>
+``
