@@ -280,11 +280,45 @@ function isCurrentlyValid(sit, now = new Date()){
 
 /* Validity time label (HH:MM–HH:MM | From HH:MM | Until HH:MM) */
 function validityTimeLabel(sit){
+  const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-  if(s && e) return `${fmtHM(s)}–${fmtHM(e)}`;
-  if(s)      return `From ${fmtHM(s)}`;
-  if(e)      return `Until ${fmtHM(e)}`;
+
+  if(!s) return '—';
+
+  const sameDay = s.toDateString() === now.toDateString();
+
+  // Determine if within the same ISO week (Mon–Sun)
+  const startOfWeek = new Date(now);
+  startOfWeek.setDate(now.getDate() - now.getDay() + 1); // Monday
+  startOfWeek.setHours(0,0,0,0);
+
+  const endOfWeek = new Date(startOfWeek);
+  endOfWeek.setDate(startOfWeek.getDate() + 6);
+  endOfWeek.setHours(23,59,59,999);
+
+  const inThisWeek = s >= startOfWeek && s <= endOfWeek;
+
+  const timeHM = d => new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit'}).format(d);
+  const weekday = d => new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
+  const dateDM = d => new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
+
+  let prefix = '';
+  if(!sameDay && inThisWeek){
+    prefix = weekday(s) + ' ';
+  } else if(!inThisWeek){
+    prefix = dateDM(s) + ' ';
+  }
+
+  if(s && e){
+    return `${prefix}${timeHM(s)}–${timeHM(e)}`;
+  }
+  if(s){
+    return `${prefix}From ${timeHM(s)}`;
+  }
+  if(e){
+    return `${prefix}Until ${timeHM(e)}`;
+  }
   return '—';
 }
 
