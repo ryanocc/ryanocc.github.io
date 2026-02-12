@@ -49,12 +49,16 @@
     }
 
     *{ box-sizing:border-box; }
-    html, body{ height:100%; }
+    html, body { height:100%; }
+
+    /* ----------- PAGE LAYOUT (updated) ----------- */
     body{
       margin:0; padding:0; background:var(--bg);
       color:var(--text);
       font-family:"Barlow Semi Condensed", system-ui, sans-serif;
-      overflow:hidden; /* no page scroll */
+      overflow:hidden;             /* no page scroll */
+      display:flex;                /* NEW: flex column page layout */
+      flex-direction:column;
     }
 
     /* ----------- HEADER ----------- */
@@ -88,14 +92,17 @@
       color:#fff;
     }
 
+    /* ----------- MAIN (updated) ----------- */
     main{
+      /* was: height:100vh; */
       padding:0 24px 24px; /* bottom padding only */
       display:flex;
       flex-direction:column;
-      height:100vh; /* F11/kiosk */
+      flex:1 1 auto;       /* NEW: occupy remaining height under header */
+      min-height:0;        /* NEW: avoid overflow in flex child */
     }
 
-    /* ----------- FIXED 3×2 GRID ----------- */
+    /* ----------- FIXED 3×2 GRID (updated) ----------- */
     #grid{
       margin-top:14px;
       display:grid;
@@ -104,6 +111,7 @@
       flex:1;
       height:100%;
       overflow:hidden; /* keep grid non-scroll */
+      align-content:start; /* NEW: prevent distributing extra space between rows */
     }
 
     /* ----------- CARD ----------- */
@@ -412,7 +420,7 @@
       return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
     }
 
-    /* Validity lines: 🕛 start (or SoS), 🛑 end (or EoS) / UFN */
+    /* Validity lines (updated to always show start, even for UFN) */
     function validityLines(sit){
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -421,27 +429,25 @@
         if(!d) return null;
         const isSoS = d.getHours() === 0 && d.getMinutes() === 0;
         const label = dayDateLabel(d);
-        if(isSoS) return `🕛 SoS ${label}`;
-        return `🕛 ${fmtHM(d)} ${label}`;
+        return isSoS ? `🕛 SoS ${label}` : `🕛 ${fmtHM(d)} ${label}`;
       }
       function formatEnd(d){
-        if(!d) return "🛑 UFN"; // placeholder; replaced with UFN duration below
+        if(!d) return null;
         const isEoS = d.getHours() === 23 && d.getMinutes() === 59;
         const label = dayDateLabel(d);
-        if(isEoS) return `🛑 EoS ${label}`;
-        return `🛑 ${fmtHM(d)} ${label}`;
+        return isEoS ? `🛑 EoS ${label}` : `🛑 ${fmtHM(d)} ${label}`;
       }
 
-      const hasEnd = !!e;
-      if(hasEnd){
-        const startLine = formatStart(s);
-        const endLine   = formatEnd(e);
-        return { startLine, endLine };
+      const startLine = formatStart(s);
+
+      if (e) {
+        return { startLine, endLine: formatEnd(e) };
       }
-      // UFN: ONLY the UFN line, with duration
+
+      // No end time -> UFN: keep the start line AND show UFN with duration
       const dur = ufnDurationPhrase(s);
       const ufnLine = `🛑 UFN - diverted for ${dur}`;
-      return { startLine: null, endLine: ufnLine };
+      return { startLine, endLine: ufnLine };
     }
 
     /* ±7 day window */
@@ -532,22 +538,32 @@
       return out.length?out:[[]];
     }
 
-    /* F11 card size logic (with safety buffer) */
+    /* F11 card size logic using actual geometry (two rows, one row-gap) */
     function setFixedGridSizing(){
       const grid = $("#grid");
       const main = document.querySelector("main");
-      const pb = parseInt(getComputedStyle(main).paddingBottom) || 0;
 
-      const gridTop = grid.getBoundingClientRect().top;
-      const vh = window.innerHeight; // reliable in F11 fullscreen
-      const gap = parseInt(getComputedStyle(grid).gap) || 20;
+      if(!grid || !main) return;
 
-      const available = Math.max(0, Math.floor(vh - pb - gridTop));
-      const raw = (available - gap) / 2;
-      const safety = 4; // px to avoid overflow after fonts/layout settle
-      const cardH = Math.max(200, Math.floor(raw) - safety);
+      const csGrid = getComputedStyle(grid);
+      const csMain = getComputedStyle(main);
 
-      document.documentElement.style.setProperty("--cardHeight", cardH + "px");
+      const rowGap = parseFloat(csGrid.rowGap || csGrid.gap || "20") || 20;
+      const pb     = parseFloat(csMain.paddingBottom || "0") || 0;
+
+      const mainRect = main.getBoundingClientRect();
+      const gridRect = grid.getBoundingClientRect();
+
+      // Available vertical space for the grid content inside main,
+      // excluding bottom padding so cards don't touch the edge.
+      const available = Math.max(0, Math.floor((mainRect.bottom - pb) - gridRect.top));
+
+      // Two rows + one rowGap must equal available.
+      // Use a tiny safety to avoid sub-pixel overflow, but keep it tight.
+      const safety  = 1;
+      const perRowH = Math.max(200, Math.floor((available - rowGap) / 2) - safety);
+
+      document.documentElement.style.setProperty("--cardHeight", perRowH + "px");
     }
 
     function clearRouteTickers(){
@@ -671,7 +687,7 @@
         s.className = "summary";
         s.textContent = it.summary || "";
 
-        // Times (start = 1 line, end/UFN = 1 line; UFN shows only UFN line)
+        // Times (start = 1 line, end/UFN = 1 line)
         const times = document.createElement("div");
         times.className = "times";
         if(it.timeLines.startLine){
@@ -803,7 +819,7 @@
     if(document.fonts && document.fonts.ready){
       document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
     }
-    window.addEventListener("load", ()=> requestAnimationFrame(setFixedGridSizing) );
+    window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
   </script>
 </body>
 </html>
