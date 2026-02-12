@@ -54,7 +54,7 @@
   }
   .title{
     margin:0;
-    font-size:28px;
+    font-size:56px;
     font-weight:900;
     letter-spacing:-0.3px;
   }
@@ -308,14 +308,14 @@ function validityTimeLabel(sit){
     const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
     if(is2359){
       if(sameDay){
-        return (isStart ? "🟢 " : "🛑 ") + "End of Service";
+        return (isStart ? "🕛 " : "🛑 ") + "End of Service";
       } else {
         if(inWeek){
           const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
-          return (isStart ? "🟢 " : "🛑 ") + `EOS ${wd}`;
+          return (isStart ? "🕛 " : "🛑 ") + `EOS ${wd}`;
         } else {
           const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
-          return (isStart ? "🟢 " : "🛑 ") + `EOS ${dm}`;
+          return (isStart ? "🕛 " : "🛑 ") + `EOS ${dm}`;
         }
       }
     }
@@ -332,7 +332,7 @@ function validityTimeLabel(sit){
       const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
       label = `${dm} ${time}`;
     }
-    return (isStart ? "🟢 " : "🛑 ") + label;
+    return (isStart ? "🕛 " : "🛑 ") + label;
   }
 
   const startTxt = formatPart(s, true);
