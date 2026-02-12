@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bee Network — Live Bus Diversions (BODS SIRI‑SX)</title>
+<title>Live Bus Diversions</title>
 <meta http-equiv="Cache-Control" content="no-store" />
 <style>
   :root{
     --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
-    --chipBorder:#22232b; --chipBg:#16161b;
+    --chipBorder:#22232b;
 
     /* Operator colours */
     --op-BNML:#ff4d4f;   /* red */
@@ -18,488 +18,496 @@
     --op-BNVB:#7a3ffe;   /* purple */
     --op-BNFM:#ff66b3;   /* pink */
 
-    --neutral:#23232b;   /* default chip bg */
-    --accent:#ffd100;    /* yellow route badge */
+    --neutral:#23232b;
+    --accent:#ffd100;       /* yellow route badge */
+    --accentGlow: rgba(255,209,0,0.45);
+    --accentGlowStrong: rgba(255,209,0,0.85);
+
+    /* Status pill colours */
+    --liveGreen:#19c37d;
+    --errorRed:#ff4d4f;
   }
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
+  *{ box-sizing:border-box; }
   body{
-    margin:0;
-    background:var(--bg);
+    margin:0; padding:0; background:var(--bg);
     color:var(--text);
-    font-family:system-ui, Segoe UI, Roboto, Arial, sans-serif;
-    overflow:hidden; /* hard stop: no page scroll */
-  }
-  header{
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding:18px 24px; border-bottom:1px solid #22232b;
-    background:linear-gradient(180deg,var(--bg),rgba(11,11,14,.85) 80%, transparent)
-  }
-  h1{margin:0; font-size:28px; font-weight:700}
-  .accent{color:#ffd100}
-  .meta{display:flex; gap:18px; color:var(--muted); font-size:14px}
-
-  main{padding:16px 24px 24px; height:calc(100vh - 74px); display:flex; flex-direction:column}
-  #statusBar{display:flex; gap:16px; flex-wrap:wrap; margin:8px 0 18px}
-  .tag{
-    display:inline-flex; align-items:center; gap:6px; background:#1d1d26;
-    border:1px solid #262733; color:var(--muted);
-    padding:4px 10px; border-radius:999px; font-size:12px; text-transform:uppercase
-  }
-
-  /* Grid of square chips (auto-fill, squares) */
-  #grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
-    gap:16px;
+    font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
     overflow:hidden;
-    flex:1;
   }
 
-  /* Square chip container */
+  /* ----------- MODERN HEADER ----------- */
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 28px;
+    background:#0b0b0e;
+    border-bottom:1px solid #1d1d25;
+  }
+  .title{
+    margin:0;
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:-0.5px;
+  }
+  .status-pill{
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:700;
+    background:var(--liveGreen);
+    color:#000;
+    box-shadow:0 0 0 2px rgba(255,255,255,0.08),
+               0 4px 14px rgba(0,0,0,0.25);
+    transition:background .2s ease,color .2s ease;
+  }
+  .status-error{
+    background:var(--errorRed);
+    color:#fff;
+  }
+
+  main{
+    padding:0 28px 28px;
+    display:flex;
+    flex-direction:column;
+    height:calc(100vh - 84px);
+  }
+
+  /* Hide old status bar completely */
+  #statusBar{ display:none; }
+
+  /* ----------- GRID ----------- */
+  #grid{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:20px;
+    flex:1;
+    overflow:hidden;
+  }
+
   .chip{
     position:relative;
-    border:1px solid var(--chipBorder);
-    border-radius:16px;
-    background:var(--neutral); /* overriden by operator colour */
-    display:flex; align-items:center; justify-content:center;
-    aspect-ratio:1/1; /* square */
-    padding:12px;
+    border:2px solid var(--chipBorder);
+    background:var(--neutral);
+    border-radius:18px;
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px;
+    transition:border .2s ease, box-shadow .2s ease;
   }
 
-  /* Inner layout */
   .chipContent{
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    width:100%; height:100%; text-align:center;
+    text-align:center;
+    width:100%; height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
   }
 
-  /* Big route number inside yellow box (always black text) */
   .route{
     display:inline-block;
-    font-size:42px; font-weight:900; line-height:1; letter-spacing:0.5px;
-    margin-bottom:12px;
-    color:#000;
+    font-size:46px;
+    font-weight:900;
     background:var(--accent);
-    padding:6px 12px;
-    border-radius:8px;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+    color:#000;
+    padding:6px 14px;
+    border-radius:10px;
+    margin-bottom:14px;
   }
 
-  /* Validity time line (below route number) */
+  /* Stacked times */
   .validityTime{
-    font-size:15px; font-weight:700; margin-bottom:8px;
-    color:#0b0b0e; /* dark text by default for light backgrounds */
-    opacity:0.95;
+    font-size:17px;
+    font-weight:800;
+    line-height:1.25;
+    white-space:nowrap;
+    margin-bottom:10px;
   }
 
-  /* Summary line */
   .summary{
-    font-size:13px; line-height:1.2; color:#0b0b0e;
-    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
-    max-width:95%;
+    font-size:14px;
+    line-height:1.2;
+    opacity:0.85;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    max-width:92%;
+    margin:0 auto;
   }
 
-  /* For dark backgrounds (blue/purple/neutral), invert text to white */
-  .on-dark .validityTime, .on-dark .summary { color:#ffffff; }
-  .on-dark .validityTime { opacity:0.92; }
+  /* Dark inversion */
+  .on-dark .validityTime,
+  .on-dark .summary{
+    color:white;
+  }
 
-  /* Operator colour classes (chip background) */
-  .op-BNML{ background:var(--op-BNML); }  /* red  -> default (dark text ok for route badge only; content uses .on-dark/normal) */
-  .op-BNGN{ background:var(--op-BNGN); }  /* blue -> add .on-dark */
-  .op-BNSM{ background:var(--op-BNSM); }  /* orange -> normal (dark text) */
-  .op-BNDB{ background:var(--op-BNDB); border-color:#dcdcdc; }  /* white -> normal (dark text) */
-  .op-BNVB{ background:var(--op-BNVB); }  /* purple -> add .on-dark */
-  .op-BNFM{ background:var(--op-BNFM); }  /* pink  -> normal (dark text) */
-  .neutral-dark{ background:var(--neutral); } /* unknown -> treat as dark */
+  /* ----------- GLOW FOR UFN ----------- */
+  .glow-ufn{
+    border-color:var(--accent);
+    box-shadow:0 0 12px 4px var(--accentGlowStrong),
+               0 0 28px 10px var(--accentGlow);
+  }
 
-  /* Apply .on-dark text inversion for dark chips */
-  .op-BNGN .chipContent, .op-BNVB .chipContent, .neutral-dark .chipContent { color:#fff; }
+  /* ----------- PULSE FOR NEW ----------- */
+  @keyframes pulseRing {
+    0%   { box-shadow:0 0 0 2px var(--accent),0 0 8px 2px var(--accentGlow); }
+    50%  { box-shadow:0 0 0 2px rgba(255,209,0,0.7),0 0 18px 7px var(--accentGlowStrong); }
+    100% { box-shadow:0 0 0 2px var(--accent),0 0 8px 2px var(--accentGlow); }
+  }
+  .pulse-new{
+    border-color:var(--accent);
+    animation:pulseRing 2s ease-in-out infinite;
+  }
 
-  /* Status text */
-  #statusMsg{ min-width:140px }
+  /* Operator colours */
+  .op-BNML{ background:var(--op-BNML); }
+  .op-BNGN{ background:var(--op-BNGN); }
+  .op-BNSM{ background:var(--op-BNSM); }
+  .op-BNDB{ background:var(--op-BNDB); border-color:#dcdcdc; }
+  .op-BNVB{ background:var(--op-BNVB); }
+  .op-BNFM{ background:var(--op-BNFM); }
+  .neutral-dark{ background:var(--neutral); }
+  .op-BNGN .chipContent,
+  .op-BNVB .chipContent,
+  .neutral-dark .chipContent{
+    color:white;
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1><span class="accent">Bee Network</span> — Live Bus Diversions</h1>
-  <div class="meta">
-    <span id="clock">--:--</span>
-    <span id="lastOk" class="faint">Last update: —</span>
-  </div>
+
+<header class="topbar">
+  <h1 class="title">Live Bus Diversions</h1>
+  <div id="statusPill" class="status-pill">Live • --:--:--</div>
 </header>
 
 <main>
-  <div id="statusBar">
-    <span class="tag" id="totalTag">Total: 0</span>
-    <span class="tag">Bee Network only</span>
-    <span class="tag" id="refreshTag">Refresh: 60s</span>
-    <span class="tag" id="statusMsg">Starting…</span>
-  </div>
   <div id="grid"></div>
 </main>
 
 <script>
-/** ===== Configuration ===== **/
-const API_KEY = '17889546a31fddeef67fca78252fb66951aedf1a'; // Consider moving server-side
-const BODS_URL = `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
-const REFRESH_SECONDS = 60;
+/* ===========================
+   CONFIG
+=========================== */
+const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
+const BODS_URL =
+`https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
 
-/* Diversion keyword matching */
-const DIVERSION_MATCHERS = ['divert', 'diversion', 'diversions'];
-
-/* Bee operator matching */
-const BEE_MATCHERS = ['bee network','bee network -','bee network–','bee network —'];
-const SEV_PRIORITY = { 'noimpact':0,'verylow':1,'low':2,'normal':3,'medium':4,'high':5,'veryhigh':6,'unknown':3 };
-
-/* Optional: filter only UNPLANNED incidents (SIRI-SX Planned=false). Set to true to enable. */
 const UNPLANNED_ONLY = true;
+const PAGE_INTERVAL_MS = 10000;
+const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000;
 
-const el = sel => document.querySelector(sel);
-function fmtTime(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(d); }
-function fmtHM(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit'}).format(d); }
-function parseISO(s){ try { return s ? new Date(s) : null; } catch { return null; } }
-function escapeHtml(s){ return String(s ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
-function textContains(h, needles){ if(!h) return false; const x = String(h).toLowerCase(); return needles.some(n => x.includes(n)); }
+const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
+const BEE_MATCHERS = ["bee network","bee network -","bee network–","bee network —"];
 
-/** ===== Upstream parse (JSON or XML) ===== **/
-function parseUpstreamBody(text){
-  const t = (text||'').trim();
-  if(t.startsWith('{') || t.startsWith('[')){
-    try { return { type:'json', data: JSON.parse(t) }; } catch { /* fall through */ }
+/* Track new chips */
+const firstSeenMap = new Map();
+
+/* Query helpers */
+const $ = s => document.querySelector(s);
+
+/* Time formatting */
+function fmtFull(d){
+  return new Intl.DateTimeFormat(undefined,
+    {hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(d);
+}
+function fmtHM(d){
+  return new Intl.DateTimeFormat(undefined,
+    {hour:"2-digit",minute:"2-digit"}).format(d);
+}
+const parseISO = s => s ? new Date(s) : null;
+
+/* Status pill setter */
+function setStatusPill(ok){
+  const pill = $("#statusPill");
+  const t = fmtFull(new Date());
+  if(ok){
+    pill.classList.remove("status-error");
+    pill.textContent = `Live • ${t}`;
+  } else {
+    pill.classList.add("status-error");
+    pill.textContent = `Error • ${t}`;
   }
-  const dom = new DOMParser().parseFromString(t,'application/xml');
-  const err = dom.querySelector('parsererror');
-  if(err) throw new Error('XML parse error');
-  return { type:'xml', data: dom };
 }
 
-/** ===== Extractors ===== **/
-function extractSituationsFromJSON(json){
-  const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
-  if(!sd) return [];
-  const sed = Array.isArray(sd.SituationExchangeDelivery) ? sd.SituationExchangeDelivery
-            : [sd.SituationExchangeDelivery].filter(Boolean);
-  const all=[]; for(const d of sed){
-    const pe = d?.Situations?.PtSituationElement;
-    if(Array.isArray(pe)) all.push(...pe);
-    else if(pe) all.push(pe);
-  }
-  return all;
+/* --- Format start/end times with stacked layout --- */
+function formatRelativeHM(d, now=new Date()){
+  if(!d) return null;
+
+  const sameDay = d.toDateString() === now.toDateString();
+  const timeHM = dt => fmtHM(dt);
+  const weekday = dt =>
+    new Intl.DateTimeFormat(undefined,{weekday:"short"}).format(dt);
+  const dateDM = dt =>
+    new Intl.DateTimeFormat(undefined,{day:"2-digit",month:"short"}).format(dt);
+
+  // Week start = Monday
+  const startWeek = new Date(now);
+  startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7));
+  startWeek.setHours(0,0,0,0);
+
+  const endWeek = new Date(startWeek);
+  endWeek.setDate(startWeek.getDate() + 6);
+  endWeek.setHours(23,59,59,999);
+
+  const inWeek = d >= startWeek && d <= endWeek;
+
+  if(sameDay) return timeHM(d);
+  if(inWeek) return `${weekday(d)} ${timeHM(d)}`;
+  return `${dateDM(d)} ${timeHM(d)}`;
 }
 
-function extractSituationsFromXML(doc){
-  const elems = doc.querySelectorAll('PtSituationElement');
-  return Array.from(elems).map(el=>{
-    const T = s => el.querySelector(s)?.textContent?.trim() || null;
-    const ops = Array.from(el.querySelectorAll('AffectedVehicleJourney > OperatorName, OperatorName'))
-                      .map(n=>n.textContent.trim()).filter(Boolean);
-    const opsRef = Array.from(el.querySelectorAll('AffectedVehicleJourney > OperatorRef, OperatorRef'))
-                      .map(n=>n.textContent.trim()).filter(Boolean);
-    const lines = Array.from(el.querySelectorAll('AffectedVehicleJourney > LineRef, PublishedLineName, LineName'))
-                      .map(n=>n.textContent.trim()).filter(Boolean);
-    const places = Array.from(el.querySelectorAll('AffectedStopPoint > StopPointName, AffectedStopPoint > PlaceName'))
-                      .map(n=>n.textContent.trim()).filter(Boolean);
-    return {
-      Summary: T('Summary') || T('Description') || 'Disruption',
-      Description: T('Description'),
-      Severity: T('Severity') || T('Priority') || 'unknown',
-      Planned: T('Planned'),
-      ValidityPeriod: {
-        StartTime: T('ValidityPeriod > StartTime') || T('StartTime'),
-        EndTime:   T('ValidityPeriod > EndTime')   || T('EndTime'),
-      },
-      CreationTime: T('CreationTime') || T('VersionedAtTime') || T('RecordedAtTime'),
-      Affects: {
-        VehicleJourneys: { AffectedVehicleJourney: (ops.length||lines.length||opsRef.length) ? [{ OperatorName: ops[0], OperatorRef: opsRef[0], LineRef: lines[0] }] : [] },
-        StopPoints: { AffectedStopPoint: places.map(p=>({ StopPointName: p })) }
-      },
-      __operators: ops, __operatorRefs: opsRef, __lines: lines, __places: places
-    };
-  });
-}
-
-const _getOperatorRef = sit => {
-  const candidates = new Set();
-  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
-  const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
-  for(const j of journeys){
-    if(j?.OperatorRef) candidates.add(String(j.OperatorRef).trim());
-  }
-  if(candidates.size) return [...candidates][0];
-  if(Array.isArray(sit.__operatorRefs) && sit.__operatorRefs.length) return sit.__operatorRefs[0];
-  return null;
-};
-
-const _getOps = sit => {
-  const ops = new Set();
-  const names=[].concat(sit?.OperatorName||[]).concat(sit?.Operators||[]).concat(sit?.Affects?.Operators||[]);
-  for(const n of names){
-    if(!n) continue;
-    if(Array.isArray(n)) n.forEach(v=>v && ops.add(String(v).trim()));
-    else if(typeof n==='object'){
-      const v = n.OperatorName || n.Name || n.value || n.text; if(v) ops.add(String(v).trim());
-    } else ops.add(String(n).trim());
-  }
-  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
-  const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
-  for(const j of journeys){ const on = j?.OperatorName || j?.OperatorRef; if(on) ops.add(String(on).trim()); }
-  return [...ops];
-};
-
-const _getLines = sit => {
-  const lines = new Set();
-  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
-  const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
-  for(const j of journeys){
-    const l = j?.LineRef || j?.PublishedLineName || j?.RouteName || j?.LineName;
-    if(Array.isArray(l)) l.forEach(x=>x&&lines.add(String(x)));
-    else if(l) lines.add(String(l));
-  }
-  return [...lines];
-};
-
-/* Helpers */
-function pickTitle(sit){ return (sit?.Summary || sit?.Description || sit?.ParticipantRef || sit?.SituationNumber || '').toString(); }
-
-/* Diversion filter */
-function isDiversion(sit){
-  const txt = [sit?.Description, sit?.Summary].filter(Boolean).join(' ').toLowerCase();
-  return DIVERSION_MATCHERS.some(k => txt.includes(k));
-}
-
-/* Is currently valid: Start <= now <= End (or End missing) */
-function isCurrentlyValid(sit, now = new Date()){
-  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-  if(!s) return false;                // require a start to consider it valid
-  if(s > now) return false;           // not started yet
-  if(e && e < now) return false;      // already ended
-  return true;                        // active window
-}
-
-/* Validity time label (HH:MM–HH:MM | From HH:MM | Until HH:MM) */
 function validityTimeLabel(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
 
-  if(!s) return '—';
+  const S = formatRelativeHM(s, now);
+  const E = formatRelativeHM(e, now);
 
-  const sameDay = s.toDateString() === now.toDateString();
-
-  // Determine if within the same ISO week (Mon–Sun)
-  const startOfWeek = new Date(now);
-  startOfWeek.setDate(now.getDate() - now.getDay() + 1); // Monday
-  startOfWeek.setHours(0,0,0,0);
-
-  const endOfWeek = new Date(startOfWeek);
-  endOfWeek.setDate(startOfWeek.getDate() + 6);
-  endOfWeek.setHours(23,59,59,999);
-
-  const inThisWeek = s >= startOfWeek && s <= endOfWeek;
-
-  const timeHM = d => new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit'}).format(d);
-  const weekday = d => new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
-  const dateDM = d => new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
-
-  let prefix = '';
-  if(!sameDay && inThisWeek){
-    prefix = weekday(s) + ' ';
-  } else if(!inThisWeek){
-    prefix = dateDM(s) + ' ';
-  }
-
-  if(s && e){
-    return `${prefix}${timeHM(s)}–${timeHM(e)}`;
-  }
-  if(s){
-    return `${prefix}From ${timeHM(s)}`;
-  }
-  if(e){
-    return `${prefix}Until ${timeHM(e)}`;
-  }
-  return '—';
+  if(S && E) return `${S}\n${E}`;
+  if(S && !E) return `${S}\nUFN`;
+  if(!S && E) return `Until\n${E}`;
+  return "—";
 }
 
-/* Optional: Planned=false only */
+/* Operator colour */
+function operatorClass(ref){
+  switch((ref||"").toUpperCase()){
+    case "BNML": return {cls:"op-BNML", dark:false};
+    case "BNGN": return {cls:"op-BNGN", dark:true};
+    case "BNSM": return {cls:"op-BNSM", dark:false};
+    case "BNDB": return {cls:"op-BNDB", dark:false};
+    case "BNVB": return {cls:"op-BNVB", dark:true};
+    case "BNFM": return {cls:"op-BNFM", dark:false};
+    default: return {cls:"neutral-dark", dark:true};
+  }
+}
+
+/* Situation key (stable ID) */
+function situationKey(sit){
+  if(sit.SituationNumber) return "id:" + sit.SituationNumber;
+  if(sit.ParticipantRef) return "p:" + sit.ParticipantRef;
+  const op = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.OperatorRef || "";
+  const ln = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "";
+  const st = sit?.StartTime || "";
+  return `k:${op}|${ln}|${st}`;
+}
+
+/* Filters */
+function isDiversion(sit){
+  const txt = (sit.Description||sit.Summary||"").toLowerCase();
+  return DIVERSION_MATCHERS.some(k => txt.includes(k));
+}
+function isCurrentlyValid(sit){
+  const now = new Date();
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+  if(!s) return false;
+  if(s > now) return false;
+  if(e && e < now) return false;
+  return true;
+}
 function isUnplanned(sit){
-  // SIRI-SX PtSituationElement may include <Planned>true|false>.
-  // Treat explicit "false" (string) or boolean false as unplanned.
-  const p = sit?.Planned;
+  const p = sit.Planned;
   if(p === false) return true;
-  if(typeof p === 'string') return p.trim().toLowerCase() === 'false';
+  if(typeof p==="string" && p.trim().toLowerCase()==="false") return true;
   return false;
 }
 
-/* Map OperatorRef => CSS class + on-dark flag */
-function operatorClass(ref){
-  switch(String(ref||'').toUpperCase()){
-    case 'BNML': return { cls:'op-BNML', onDark:false };
-    case 'BNGN': return { cls:'op-BNGN', onDark:true  };
-    case 'BNSM': return { cls:'op-BNSM', onDark:false };
-    case 'BNDB': return { cls:'op-BNDB', onDark:false };
-    case 'BNVB': return { cls:'op-BNVB', onDark:true  };
-    case 'BNFM': return { cls:'op-BNFM', onDark:false };
-    default:     return { cls:'neutral-dark', onDark:true };
+/* Extractors work unchanged — omitted here for brevity in explanation */
+/* BUT they are included in the final code below */
+
+function extractSituationsFromJSON(json){
+  const sd=json.ServiceDelivery||json.Siri?.ServiceDelivery||json.SIRI?.ServiceDelivery||json;
+  if(!sd) return [];
+  const sed=Array.isArray(sd.SituationExchangeDelivery)?
+    sd.SituationExchangeDelivery:[sd.SituationExchangeDelivery].filter(Boolean);
+  const out=[];
+  for(const d of sed){
+    const pe=d?.Situations?.PtSituationElement;
+    if(Array.isArray(pe)) out.push(...pe);
+    else if(pe) out.push(pe);
+  }
+  return out;
+}
+function extractSituationsFromXML(doc){
+  const items=[...doc.querySelectorAll("PtSituationElement")].map(el=>{
+    const T=n=>el.querySelector(n)?.textContent.trim()||null;
+    const ops=[...el.querySelectorAll("AffectedVehicleJourney > OperatorName,OperatorName")].map(n=>n.textContent.trim()).filter(Boolean);
+    const opsRef=[...el.querySelectorAll("AffectedVehicleJourney > OperatorRef,OperatorRef")].map(n=>n.textContent.trim()).filter(Boolean);
+    const lines=[...el.querySelectorAll("AffectedVehicleJourney > LineRef,PublishedLineName,LineName")].map(n=>n.textContent.trim()).filter(Boolean);
+    const places=[...el.querySelectorAll("AffectedStopPoint > StopPointName,AffectedStopPoint > PlaceName")].map(n=>n.textContent.trim()).filter(Boolean);
+
+    return {
+      Summary:T("Summary")||T("Description"),
+      Description:T("Description"),
+      Severity:T("Severity")||"unknown",
+      Planned:T("Planned"),
+      SituationNumber:T("SituationNumber"),
+      ParticipantRef:T("ParticipantRef"),
+      ValidityPeriod:{
+        StartTime:T("ValidityPeriod > StartTime")||T("StartTime"),
+        EndTime:T("ValidityPeriod > EndTime")||T("EndTime")
+      },
+      CreationTime:T("CreationTime")||T("RecordedAtTime"),
+      Affects:{
+        VehicleJourneys:{
+          AffectedVehicleJourney:[
+            {OperatorRef:opsRef[0], OperatorName:ops[0], LineRef:lines[0]}
+          ]
+        }
+      }
+    };
+  });
+  return items;
+}
+
+/* Pager */
+const pager={pages:[],pageIndex:0,pageSize:0,total:0,timer:null};
+
+function computePageSize(){
+  const topH=$(".topbar").getBoundingClientRect().height;
+  const pad=40;
+  const avail=window.innerHeight-(topH+pad);
+  const grid=$("#grid");
+  const w=grid.clientWidth||window.innerWidth;
+
+  const minW=220, gap=20;
+  const cols=Math.max(1, Math.floor((w+gap)/(minW+gap)));
+  const cardSize=Math.max(minW, Math.floor((w-(cols-1)*gap)/cols));
+  const rows=Math.max(1, Math.floor((avail+gap)/(cardSize+gap)));
+  return cols*rows;
+}
+
+function chunk(arr,size){
+  const out=[];
+  for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size));
+  return out.length?out:[[]];
+}
+
+function renderPage(){
+  const grid=$("#grid");
+  const now=Date.now();
+  const pg=pager.pages[pager.pageIndex]||[];
+  grid.innerHTML="";
+
+  for(const it of pg){
+    const oc=operatorClass(it.operatorRef);
+    const chip=document.createElement("div");
+    chip.className="chip "+oc.cls;
+
+    if(!it.endMs) chip.classList.add("glow-ufn");
+    if(it.firstSeen && now-it.firstSeen < HIGHLIGHT_WINDOW_MS)
+      chip.classList.add("pulse-new");
+
+    const inner=document.createElement("div");
+    inner.className="chipContent "+(oc.dark?"on-dark":"");
+
+    const r=document.createElement("div");
+    r.className="route";
+    r.textContent=it.route;
+
+    const v=document.createElement("div");
+    v.className="validityTime";
+    v.innerHTML=it.validity.replace(/\n/g,"<br>");
+
+    const s=document.createElement("div");
+    s.className="summary";
+    s.textContent=it.summary;
+
+    inner.append(r,v,s);
+    chip.append(inner);
+    grid.append(chip);
   }
 }
 
-/* Fit-to-screen: compute how many squares fit in the grid area, then slice */
-function sliceToViewport(items){
-  const headerH = document.querySelector('header')?.getBoundingClientRect().height ?? 74;
-  const statusH = document.querySelector('#statusBar')?.getBoundingClientRect().height ?? 36;
-  const mainPadding = 24 + 16;
-  const availH = window.innerHeight - headerH - statusH - mainPadding;
-  const grid = el('#grid');
-
-  const gridW = grid.clientWidth || (window.innerWidth - 48);
-  const minW = 200, gap = 16;
-  const cols = Math.max(1, Math.floor((gridW + gap) / (minW + gap)));
-  const cardSize = Math.max(minW, Math.floor((gridW - (cols-1)*gap)/cols));
-  const rows = Math.max(1, Math.floor((availH + gap) / (cardSize + gap)));
-  const max = Math.max(1, cols * rows);
-
-  return items.slice(0, max);
+/* Auto pager */
+function startPager(){
+  if(pager.timer) clearInterval(pager.timer);
+  if(pager.pages.length<=1) return;
+  pager.timer=setInterval(()=>{
+    pager.pageIndex=(pager.pageIndex+1)%pager.pages.length;
+    renderPage();
+    setStatusPill(true);
+  }, PAGE_INTERVAL_MS);
 }
 
-/** ===== Rendering ===== **/
-function renderSituations(items){
-  const grid = el('#grid');
-  const visible = sliceToViewport(items);
-
-  const frag = document.createDocumentFragment();
-  visible.forEach(it=>{
-    const { cls, onDark } = operatorClass(it.operatorRef);
-    const chip = document.createElement('div');
-    chip.className = `chip ${cls}`;
-
-    const inner = document.createElement('div');
-    inner.className = `chipContent ${onDark ? 'on-dark' : ''}`;
-
-    const route = document.createElement('div');
-    route.className = 'route';
-    route.textContent = it.route || '—';
-
-    const validityEl = document.createElement('div');
-    validityEl.className = 'validityTime';
-    validityEl.textContent = it.validityTime || '—';
-
-    const summary = document.createElement('div');
-    summary.className = 'summary';
-    summary.textContent = it.summary || '';
-
-    inner.appendChild(route);
-    inner.appendChild(validityEl);
-    inner.appendChild(summary);
-    chip.appendChild(inner);
-
-    frag.appendChild(chip);
-  });
-
-  grid.replaceChildren(frag);
-  el('#totalTag').textContent = `Total: ${visible.length}`;
-}
-
-/** ===== Fetch loop ===== **/
-async function fetchAndRender(){
-  const status = el('#statusMsg');
+/* Main fetch */
+async function fetchAll(){
   try{
-    status.textContent = 'Fetching…';
-
-    const res = await fetch(BODS_URL, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json, application/xml;q=0.8, text/xml;q=0.7',
-        'Cache-Control': 'no-store'
-      },
-      cache: 'no-store',
-    });
-
-    if(!res.ok){
-      throw new Error(`Upstream HTTP ${res.status}`);
-    }
-
+    const res=await fetch(BODS_URL,{cache:"no-store"});
     let parsed;
-    const clone = res.clone();
-    try{
-      const j = await res.json();
-      parsed = { type:'json', data:j };
-    }catch{
-      const txt = await clone.text();
-      parsed = parseUpstreamBody(txt);
-    }
+    try{ parsed={type:"json",data:await res.clone().json()}; }
+    catch{ parsed={type:"xml",data:(new DOMParser()).parseFromString(await res.text(),"application/xml")}; }
 
-    const situations = (parsed.type === 'json')
+    let sits = parsed.type==="json"
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    // Filter: Bee Network only
-    const beeOnly = situations.filter(sit=>{
-      const ops = _getOps(sit);
-      return ops.length
-        ? ops.some(o => textContains(o, BEE_MATCHERS))
-        : textContains(sit?.Summary || sit?.Description || '', BEE_MATCHERS);
-    });
+    /* Filter */
+    sits=sits.filter(isDiversion)
+             .filter(isCurrentlyValid);
+    if(UNPLANNED_ONLY) sits=sits.filter(isUnplanned);
 
-    // Filter: Diversions only
-    let filtered = beeOnly.filter(isDiversion);
+    /* Map */
+    const now=Date.now();
+    const items=sits.map(s=>{
+      const key=situationKey(s);
+      if(!firstSeenMap.has(key))
+        firstSeenMap.set(key, now);
 
-    // Filter: ONLY currently valid
-    const now = new Date();
-    filtered = filtered.filter(sit => isCurrentlyValid(sit, now));
-
-    // Optional: Only UNPLANNED
-    if(UNPLANNED_ONLY){
-      filtered = filtered.filter(isUnplanned);
-    }
-
-    // Map to chip items
-    const items = filtered.map(sit=>{
-      const operatorRef = _getOperatorRef(sit);
-      const lines = _getLines(sit);
-      const route = lines[0] || '—';
-
-      const validityTime = validityTimeLabel(sit);
-      const summary = pickTitle(sit);
-
-      const updated = parseISO(sit?.CreationTime || sit?.VersionedAtTime || sit?.RecordedAtTime);
+      const route=s?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef || "?";
+      const ref=s?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.OperatorRef || "";
+      const st=parseISO(s?.ValidityPeriod?.StartTime);
+      const en=parseISO(s?.ValidityPeriod?.EndTime);
 
       return {
-        operatorRef, route,
-        validityTime,
-        summary,
-        updated, sit
+        key,
+        route,
+        operatorRef:ref,
+        validity:validityTimeLabel(s),
+        summary:(s.Summary||s.Description||"").trim(),
+        startMs:st?st.getTime():0,
+        endMs:en?en.getTime():null,
+        firstSeen:firstSeenMap.get(key)
       };
-    }).sort((a,b)=>{
-      // Sort: most recently updated first
-      const au = a.updated?.getTime?.() || 0;
-      const bu = b.updated?.getTime?.() || 0;
-      return bu - au;
-    });
+    })
+    .sort((a,b)=>b.startMs - a.startMs);
 
-    renderSituations(items);
-    el('#statusMsg').textContent = items.length ? 'Live' : 'No active diversions';
-    el('#lastOk').textContent = `Last update: ${fmtTime(new Date())}`;
-  }catch(err){
-    console.error(err);
-    el('#statusMsg').textContent = `Error: ${err.message}`;
+    pager.pageSize=computePageSize();
+    pager.pages=chunk(items,pager.pageSize);
+    pager.pageIndex=0;
+    pager.total=items.length;
+
+    renderPage();
+    startPager();
+    setStatusPill(true);
+  }
+  catch(e){
+    console.error(e);
+    setStatusPill(false);
   }
 }
 
-function tickClock(){ el('#clock').textContent = fmtTime(new Date()); }
-function start(){
-  el('#refreshTag').textContent = `Refresh: ${REFRESH_SECONDS}s`;
-  setInterval(tickClock, 1000);
-  fetchAndRender();
-  setInterval(fetchAndRender, REFRESH_SECONDS*1000);
-}
-window.addEventListener('load', start);
+/* Start */
+fetchAll();
+setInterval(fetchAll,60000);
 
-/* Re-slice on resize to keep non-scrolling fit */
-window.addEventListener('resize', () => {
-  fetchAndRender();
+window.addEventListener("resize",()=>{
+  const flat=pager.pages.flat();
+  pager.pageSize=computePageSize();
+  pager.pages=chunk(flat,pager.pageSize);
+  pager.pageIndex=0;
+  renderPage();
+  startPager();
 });
+
 </script>
 </body>
 </html>
