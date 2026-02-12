@@ -389,7 +389,7 @@ function dayDateLabel(d){
   return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
 }
 
-/* --- Validity lines (▶ start one line, 🛑 end/UFN one line) ---
+/* --- Validity lines (🕛 start one line, 🛑 end/UFN one line) ---
    If UFN (no end), show ONLY the UFN line with duration.
    Time formatting:
    - 00:00 => SoS
@@ -404,9 +404,9 @@ function validityLines(sit){
     if(!d) return null;
     const isSoS = d.getHours() === 0 && d.getMinutes() === 0;
     const label = dayDateLabel(d);
-    if(isSoS) return `▶ SoS ${label}`;
+    if(isSoS) return `🕛 SoS ${label}`;
     // [TIME] [DAY/DATE]
-    return `▶ ${fmtHM(d)} ${label}`;
+    return `🕛 ${fmtHM(d)} ${label}`;
   }
 
   function formatEnd(d){
