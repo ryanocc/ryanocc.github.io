@@ -233,7 +233,6 @@
       font-weight:800;
       color:#e6e6ee;
       white-space:nowrap;   /* keep on one line */
-      flex-shrink:0;
     }
     .operatorDot{
       width:18px; height:18px; border-radius:50%;
@@ -372,7 +371,7 @@
   <!-- Fullscreen Alert Overlay -->
   <div id="divertOverlay" class="ov-add" aria-hidden="true">
     <div class="ov-card" role="dialog" aria-label="Diversion alert">
-      <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
+      <div id="ovKicker" class="ov-kicker">NEW TRAVEL ALERT</div>
       <div id="ovRoute" class="ov-route">–</div>
       <div id="ovSummary" class="ov-summary">–</div>
       <div id="ovTimes" class="ov-times"><!-- simplified times injected --></div>
@@ -413,6 +412,9 @@
     /* Overlay queue control */
     let overlayQueue = [];
     let overlayShowing = false;
+
+    /* VISIBILITY QUEUE */
+    let pageVisible = true;
 
     /* Helpers */
     const $ = s => document.querySelector(s);
@@ -823,13 +825,17 @@
     function enqueueOverlays(arr){
       if(!arr || !arr.length) return;
       overlayQueue.push(...arr);
-      processOverlayQueue();
+      processOverlayQueue(); // will defer if page hidden
     }
 
+    /* VISIBILITY QUEUE: only show overlays when the tab is visible */
     function processOverlayQueue(){
-      if(overlayShowing) return;
+      if (!pageVisible) return;          // wait until visible
+      if (overlayShowing) return;
+
       const next = overlayQueue.shift();
-      if(!next) return;
+      if (!next) return;
+
       showDivertOverlay(next.item, { mode: next.mode, durationMs: 10000 });
     }
 
@@ -1089,6 +1095,14 @@
       document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
+
+    /* VISIBILITY QUEUE: pause overlays while hidden, resume on show */
+    document.addEventListener("visibilitychange", () => {
+      pageVisible = !document.hidden;
+      if (pageVisible) {
+        processOverlayQueue(); // immediately resume queued alerts
+      }
+    });
 
     /* -------- Keyboard tests: K = new (yellow), D = diverted end (green) -------- */
     window.addEventListener("keydown", (e)=>{
