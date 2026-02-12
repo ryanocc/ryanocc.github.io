@@ -7,10 +7,10 @@
 <meta http-equiv="Cache-Control" content="no-store" />
 <style>
   :root{
-    --bg:#0b0b0e; --panel:#121217; --text:#e9e9ef; --muted:#a7a7b3;
-    --border:#1f2028; --badge:#ffd100;
+    --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
+    --chipBorder:#22232b;
 
-    /* Operator colours (for the slim bar) */
+    /* Operator colours */
     --op-BNML:#ff4d4f;   /* red */
     --op-BNGN:#3a7afe;   /* blue */
     --op-BNSM:#ff9a1f;   /* orange */
@@ -18,6 +18,8 @@
     --op-BNVB:#7a3ffe;   /* purple */
     --op-BNFM:#ff66b3;   /* pink */
 
+    --neutral:#23232b;
+    --accent:#ffd100;       /* yellow route badge */
     --accentGlow: rgba(255,209,0,0.45);
     --accentGlowStrong: rgba(255,209,0,0.85);
 
@@ -28,97 +30,159 @@
 
   *{ box-sizing:border-box; }
   body{
-    margin:0; padding:0; background:var(--bg); color:var(--text);
-    font-family:system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    margin:0; padding:0; background:var(--bg);
+    color:var(--text);
+    font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
     overflow:hidden; /* no page scroll */
   }
 
-  /* -------- Header -------- */
+  /* ----------- MODERN HEADER ----------- */
   .topbar{
-    display:flex; justify-content:space-between; align-items:center;
-    padding:20px 28px; background:#0b0b0e; border-bottom:1px solid #1d1d25;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 28px;
+    background:#0b0b0e;
+    border-bottom:1px solid #1d1d25;
   }
   .title{
-    margin:0; font-size:34px; font-weight:900; letter-spacing:-0.5px;
+    margin:0;
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:-0.5px;
   }
   .status-pill{
-    padding:9px 18px; border-radius:999px; font-size:15px; font-weight:700;
-    background:var(--liveGreen); color:#000;
-    box-shadow:0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:700;
+    background:var(--liveGreen);
+    color:#000;
+    box-shadow:0 0 0 2px rgba(255,255,255,0.08),
+               0 4px 14px rgba(0,0,0,0.25);
     transition:background .2s ease,color .2s ease;
   }
-  .status-error{ background:var(--errorRed); color:#fff; }
+  .status-error{
+    background:var(--errorRed);
+    color:#fff;
+  }
 
   main{
-    padding:0 28px 28px; display:flex; flex-direction:column;
+    padding:0 28px 28px;
+    display:flex;
+    flex-direction:column;
     height:calc(100vh - 84px);
   }
 
-  /* -------- Grid -------- */
+  /* ----------- GRID ----------- */
   #grid{
     margin-top:20px;
-    display:grid; gap:16px;
-    grid-template-columns:repeat(auto-fill, minmax(420px, 1fr));
-    flex:1; overflow:hidden; /* paging only, no scroll */
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:20px;
+    flex:1;
+    overflow:hidden; /* keep grid non-scroll */
   }
 
-  /* -------- Card (C1‑C style) -------- */
-  .card{
-    display:flex; align-items:stretch;
-    background:var(--panel);
-    border:1px solid var(--border);
-    border-radius:5px; /* slight rounding */
-    min-height:128px;
+  .chip{
+    position:relative;
+    border:2px solid var(--chipBorder);
+    background:var(--neutral);
+    border-radius:18px;
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px;
+    transition:border .2s ease, box-shadow .2s ease;
   }
-  .opBar{
-    width:10px; flex:0 0 10px; border-top-left-radius:5px; border-bottom-left-radius:5px;
+
+  .chipContent{
+    text-align:center;
+    width:100%; height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
   }
-  .body{
-    display:flex; flex-direction:column; gap:8px;
-    padding:14px 16px; width:100%;
+
+  .route{
+    display:inline-block;
+    font-size:46px;
+    font-weight:900;
+    background:var(--accent);
+    color:#000;
+    padding:6px 14px;
+    border-radius:10px;
+    margin-bottom:14px;
   }
-  .row-top{
-    display:flex; align-items:center; justify-content:space-between; gap:12px;
+
+  /* Stacked times */
+  .validityTime{
+    font-size:17px;
+    font-weight:800;
+    line-height:1.25;
+    white-space:nowrap;
+    margin-bottom:10px;
   }
-  .route-badge{
-    background:var(--badge); color:#000; font-weight:900; font-size:28px;
-    line-height:1; padding:6px 12px; border-radius:8px; display:inline-flex; align-items:center;
-    letter-spacing:.5px;
-  }
-  .meta{
-    margin-left:auto; color:var(--muted); font-size:12px; display:none; /* reserved for optional meta */
-  }
-  .times{
-    display:flex; flex-direction:column; gap:4px; font-weight:800; font-size:16px;
-  }
+
   .summary{
-    font-size:14px; line-height:1.25; color:#d9d9e1; opacity:.95;
-    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    font-size:14px;
+    line-height:1.2;
+    opacity:0.85;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    max-width:92%;
+    margin:0 auto;
   }
 
-  /* Glow for UFN */
+  /* Dark inversion */
+  .on-dark .validityTime,
+  .on-dark .summary{
+    color:white;
+  }
+
+  /* ----------- GLOW FOR UFN ----------- */
   .glow-ufn{
-    box-shadow:0 0 10px 2px var(--accentGlowStrong), 0 0 24px 8px var(--accentGlow);
-    border-color:#2c2d36;
+    border-color:var(--accent);
+    box-shadow:0 0 12px 4px var(--accentGlowStrong),
+               0 0 28px 10px var(--accentGlow);
   }
 
-  /* Pulse for new (first 5 minutes) */
+  /* ----------- PULSE FOR NEW ----------- */
   @keyframes pulseRing {
-    0%   { box-shadow:0 0 0 2px var(--badge),0 0 8px 2px var(--accentGlow); }
+    0%   { box-shadow:0 0 0 2px var(--accent),0 0 8px 2px var(--accentGlow); }
     50%  { box-shadow:0 0 0 2px rgba(255,209,0,0.7),0 0 18px 7px var(--accentGlowStrong); }
-    100% { box-shadow:0 0 0 2px var(--badge),0 0 8px 2px var(--accentGlow); }
+    100% { box-shadow:0 0 0 2px var(--accent),0 0 8px 2px var(--accentGlow); }
   }
-  .pulse-new{ animation:pulseRing 2s ease-in-out infinite; }
+  .pulse-new{
+    border-color:var(--accent);
+    animation:pulseRing 2s ease-in-out infinite;
+  }
 
-  /* Operator bar colours */
+  /* Operator colours */
   .op-BNML{ background:var(--op-BNML); }
   .op-BNGN{ background:var(--op-BNGN); }
   .op-BNSM{ background:var(--op-BNSM); }
-  .op-BNDB{ background:var(--op-BNDB); }
+  .op-BNDB{ background:var(--op-BNDB); border-color:#dcdcdc; }
   .op-BNVB{ background:var(--op-BNVB); }
   .op-BNFM{ background:var(--op-BNFM); }
+  .neutral-dark{ background:var(--neutral); }
+  .op-BNGN .chipContent,
+  .op-BNVB .chipContent,
+  .neutral-dark .chipContent{
+    color:white;
+  }
 
-  /* Ensure text contrast remains excellent on dark panel (white bar is only the strip, not the card bg) */
+  /* White chip: force black text for readability */
+  .op-BNDB .chipContent{
+    color:#000 !important;
+  }
+  .op-BNDB .validityTime,
+  .op-BNDB .summary{
+    color:#000 !important;
+  }
 </style>
 </head>
 <body>
@@ -134,7 +198,7 @@
 
 <script>
 /* ===========================
-   CONFIG & CONSTANTS
+   CONFIG
 =========================== */
 const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
 const BODS_URL =
@@ -144,9 +208,9 @@ const BODS_URL =
 const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 
 /* Behaviour flags */
-const UNPLANNED_ONLY = true;
-const PAGE_INTERVAL_MS = 10000;               // auto-advance
-const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000;    // pulse new for 5 min
+const UNPLANNED_ONLY = true;      // default as requested
+const PAGE_INTERVAL_MS = 10000;   // auto-advance
+const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000; // pulse new for 5 min
 
 /* Diversion keyword matching */
 const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
@@ -178,13 +242,15 @@ function setStatusPill(ok){
   }
 }
 
-/* --- Relative time formatter with EOS rules (Option C) and Today suffix --- */
+/* --- Relative time formatter for stacked lines with emojis and Today marker,
+       and special 23:59 EOS rules (Option C) --- */
 function validityTimeLabel(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
   function formatPart(d, isStart){
+    // If no time:
     if(!d) return isStart ? null : "UFN";
 
     const sameDay = d.toDateString() === now.toDateString();
@@ -193,47 +259,64 @@ function validityTimeLabel(sit){
     const startWeek = new Date(now);
     startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7)); // Monday
     startWeek.setHours(0,0,0,0);
+
     const endWeek = new Date(startWeek);
     endWeek.setDate(startWeek.getDate() + 6);
     endWeek.setHours(23,59,59,999);
 
     const inWeek = d >= startWeek && d <= endWeek;
 
-    // 23:59 => EOS logic (no time shown)
+    // 23:59 => EOS logic
     const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
     if(is2359){
       if(sameDay){
+        // Today at 23:59 → End of Service
         return (isStart ? "🟢 " : "🛑 ") + "End of Service";
-      } else if(inWeek){
-        const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
-        return (isStart ? "🟢 " : "🛑 ") + `EOS ${wd}`;
       } else {
-        const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
-        return (isStart ? "🟢 " : "🛑 ") + `EOS ${dm}`;
+        // Not today: within this week show weekday; otherwise show date (DD MMM)
+        if(inWeek){
+          const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
+          return (isStart ? "🟢 " : "🛑 ") + `EOS ${wd}`;
+        } else {
+          const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
+          return (isStart ? "🟢 " : "🛑 ") + `EOS ${dm}`;
+        }
       }
     }
 
-    // Non-EOS formatting
+    // Non-EOS normal formatting
     const time = fmtHM(d);
     let label;
     if(sameDay){
+      // Today: HH:MM Today
       label = `${time} Today`;
     } else if(inWeek){
+      // This week (not today): Tue HH:MM
       const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
       label = `${wd} ${time}`;
     } else {
+      // Outside this week: 21 Feb HH:MM
       const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
       label = `${dm} ${time}`;
     }
+
     return (isStart ? "🟢 " : "🛑 ") + label;
   }
 
   const startTxt = formatPart(s, true);
   const endTxt   = formatPart(e, false);
 
-  if(startTxt && endTxt) return `${startTxt}\n${endTxt}`;
-  if(startTxt && !endTxt) return `${startTxt}\n🛑 UFN`;
-  if(!startTxt && endTxt) return `${endTxt}`;
+  if(startTxt && endTxt){
+    return `${startTxt}\n${endTxt}`;
+  }
+  if(startTxt && !endTxt){
+    // No end time → UFN (keep the end emoji)
+    return `${startTxt}\n🛑 UFN`;
+  }
+  if(!startTxt && endTxt){
+    // Unusual but supported: end only
+    return `${endTxt}`;
+  }
   return "—";
 }
 
@@ -262,15 +345,16 @@ function getOperatorRef(sit){
   if(sit?.__operatorRefs && sit.__operatorRefs.length) return String(sit.__operatorRefs[0]);
   return null;
 }
-function operatorBarClass(ref){
+
+function operatorClass(ref){
   switch((ref||"").toUpperCase()){
-    case "BNML": return "op-BNML";
-    case "BNGN": return "op-BNGN";
-    case "BNSM": return "op-BNSM";
-    case "BNDB": return "op-BNDB";
-    case "BNVB": return "op-BNVB";
-    case "BNFM": return "op-BNFM";
-    default:     return ""; // falls back to neutral border/panel
+    case "BNML": return {cls:"op-BNML", dark:false};
+    case "BNGN": return {cls:"op-BNGN", dark:true};
+    case "BNSM": return {cls:"op-BNSM", dark:false};
+    case "BNDB": return {cls:"op-BNDB", dark:false};
+    case "BNVB": return {cls:"op-BNVB", dark:true};
+    case "BNFM": return {cls:"op-BNFM", dark:false};
+    default: return {cls:"neutral-dark", dark:true};
   }
 }
 
@@ -284,9 +368,6 @@ function situationKey(sit){
   const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
   const sum = (sit?.Summary || sit?.Description || "").toString().slice(0,120);
   return `k:${op}|${ln}|${st}|${sum}`;
-}
-function pickTitle(sit){
-  return (sit?.Summary || sit?.Description || "").toString();
 }
 
 /* Filters */
@@ -357,51 +438,27 @@ function extractSituationsFromXML(doc){
   });
 }
 
-/* -------- Paging (no scrolling) -------- */
+/* -------- Pager (no scrolling) -------- */
 const pager={pages:[],pageIndex:0,pageSize:0,total:0,timer:null};
-
-function measureCardHeight(){
-  // Create a temporary card to measure typical height
-  const grid=$("#grid");
-  const temp=document.createElement("div");
-  temp.className="card";
-  temp.innerHTML=`
-    <div class="opBar" style="background:#555"></div>
-    <div class="body">
-      <div class="row-top">
-        <div class="route-badge">00</div>
-      </div>
-      <div class="times"><div>🟢 Tue 12:05</div><div>🛑 EOS Fri</div></div>
-      <div class="summary">Sample summary text</div>
-    </div>
-  `;
-  temp.style.visibility="hidden";
-  grid.appendChild(temp);
-  const h = temp.getBoundingClientRect().height || 140;
-  grid.removeChild(temp);
-  return h;
-}
 
 function computePageSize(){
   const topH = $(".topbar").getBoundingClientRect().height;
   const pad = 40;
-  const availH = window.innerHeight - (topH + pad);
+  const avail = window.innerHeight - (topH + pad);
   const grid = $("#grid");
-  const gridW = grid.clientWidth || window.innerWidth;
+  const w = grid.clientWidth || window.innerWidth;
 
-  const minW = 420, gap = 16;
-  const cols = Math.max(1, Math.floor((gridW + gap) / (minW + gap)));
-  const cardH = measureCardHeight();
-  const rows = Math.max(1, Math.floor((availH + gap) / (cardH + gap)));
-  return cols * rows;
+  const minW=220, gap=20;
+  const cols=Math.max(1, Math.floor((w+gap)/(minW+gap)));
+  const cardSize=Math.max(minW, Math.floor((w-(cols-1)*gap)/cols));
+  const rows=Math.max(1, Math.floor((avail+gap)/(cardSize+gap)));
+  return cols*rows;
 }
-
 function chunk(arr,size){
   const out=[];
   for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size));
   return out.length?out:[[]];
 }
-
 function renderPage(){
   const grid=$("#grid");
   const now=Date.now();
@@ -409,40 +466,34 @@ function renderPage(){
   grid.innerHTML="";
 
   for(const it of pg){
-    const card=document.createElement("div");
-    card.className="card";
-    if(!it.endMs) card.classList.add("glow-ufn");
-    if(it.firstSeen && now-it.firstSeen < HIGHLIGHT_WINDOW_MS) card.classList.add("pulse-new");
+    const oc=operatorClass(it.operatorRef);
+    const chip=document.createElement("div");
+    chip.className="chip "+oc.cls;
 
-    const bar=document.createElement("div");
-    bar.className="opBar " + operatorBarClass(it.operatorRef);
+    if(!it.endMs) chip.classList.add("glow-ufn");
+    if(it.firstSeen && now-it.firstSeen < HIGHLIGHT_WINDOW_MS)
+      chip.classList.add("pulse-new");
 
-    const body=document.createElement("div");
-    body.className="body";
+    const inner=document.createElement("div");
+    inner.className="chipContent "+(oc.dark?"on-dark":"");
 
-    const top=document.createElement("div");
-    top.className="row-top";
+    const r=document.createElement("div");
+    r.className="route";
+    r.textContent=it.route;
 
-    const badge=document.createElement("div");
-    badge.className="route-badge";
-    badge.textContent = it.route || "—";
+    const v=document.createElement("div");
+    v.className="validityTime";
+    v.innerHTML=it.validity.replace(/\n/g,"<br>");
 
-    top.appendChild(badge);
+    const s=document.createElement("div");
+    s.className="summary";
+    s.textContent=it.summary;
 
-    const times=document.createElement("div");
-    times.className="times";
-    times.innerHTML = it.validity.replace(/\n/g,"<br>");
-
-    const summary=document.createElement("div");
-    summary.className="summary";
-    summary.textContent = it.summary || "";
-
-    body.append(top, times, summary);
-    card.append(bar, body);
-    grid.append(card);
+    inner.append(r,v,s);
+    chip.append(inner);
+    grid.append(chip);
   }
 }
-
 function startPager(){
   if(pager.timer) clearInterval(pager.timer);
   if(pager.pages.length<=1) return;
@@ -470,19 +521,27 @@ async function fetchAll(){
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    /* TfGM operator filter (strict OperatorRef) */
+    /* ---------- PROPER TfGM FILTER: OperatorRef must be in BEE_OPERATORS ---------- */
     situations = situations.filter(sit=>{
       const ref = getOperatorRef(sit);
       return ref && BEE_OPERATORS.includes(ref.toUpperCase());
     });
 
-    /* Diversions only, currently valid, ±7 day window, unplanned */
+    /* Diversions only */
     situations = situations.filter(isDiversion);
-    situations = situations.filter(isCurrentlyValid);
-    situations = situations.filter(isWithin7DayWindow);
-    if(UNPLANNED_ONLY) situations = situations.filter(isUnplanned);
 
-    /* Map for UI */
+    /* Only currently valid */
+    situations = situations.filter(isCurrentlyValid);
+
+    /* Only if start or end is within ±7 days of today */
+    situations = situations.filter(isWithin7DayWindow);
+
+    /* Only unplanned (default on) */
+    if(UNPLANNED_ONLY) {
+      situations = situations.filter(isUnplanned);
+    }
+
+    /* Map to chips */
     const now = Date.now();
     const items = situations.map(s=>{
       const key = situationKey(s);
@@ -498,7 +557,7 @@ async function fetchAll(){
         route,
         operatorRef: opRef,
         validity: validityTimeLabel(s),
-        summary: pickTitle(s),
+        summary: (s.Summary || s.Description || "").trim(),
         startMs: st ? st.getTime() : 0,
         endMs: en ? en.getTime() : null,
         firstSeen: firstSeenMap.get(key)
@@ -507,7 +566,7 @@ async function fetchAll(){
     /* Sort: most recently started first */
     .sort((a,b)=> b.startMs - a.startMs);
 
-    /* Build pages */
+    /* Page building */
     pager.pageSize = computePageSize();
     pager.pages = chunk(items, pager.pageSize);
     pager.pageIndex = 0;
