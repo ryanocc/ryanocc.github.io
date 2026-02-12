@@ -1,1179 +1,778 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <title>OCC Map — GM View (Dark + Clustering + Reinforced Confidence)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Live Bus Diversions</title>
+<meta http-equiv="Cache-Control" content="no-store" />
 
-  <!-- MapLibre CSS/JS -->
-  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css" />
-  <script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
+<!-- Font: Barlow Semi Condensed -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Barlow Semi Condensed (modern sans-serif everywhere) -->
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
 
-  <style>
-    :root{
-      --bg:#000;
-      --text:#f2f2f2;
-      --danger:#ff2e34;      /* bottom bar red & edge scan red */
-      --red:#ff0000;         /* red circles */
-      --yellow:#ffd000;      /* yellow circles */
-      --green:#28c76f;       /* OCC accent green (still used for highlights) */
-      --ui-font:"Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
-    }
+    /* Operator colours */
+    --op-BNML:#ff4d4f;   /* red */
+    --op-BNGN:#3a7afe;   /* blue */
+    --op-BNSM:#ff9a1f;   /* orange */
+    --op-BNDB:#ffffff;   /* white */
+    --op-BNVB:#7a3ffe;   /* purple */
+    --op-BNFM:#ff66b3;   /* pink */
 
-    html, body { height:100%; margin:0; }
-    body {
-      background:var(--bg);
-      color:var(--text);
-      font-family:var(--ui-font);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow:hidden;
-      position:relative;
-    }
+    --neutral:#16161b;
+    --neutralElev:#1b1b22;
 
-    /* Map occupies full height normally; shrinks to 75vh when bar is visible */
-    #map {
-      position:absolute;
-      top:0; left:0; right:0;
-      height:100%;
-      width:100%;
-    }
-    body.bar-open #map { height:75vh; }
+    --accent:#ffd100;       /* yellow route badge */
 
-    .maplibregl-ctrl-group button { filter: invert(1) hue-rotate(180deg); }
-    .maplibregl-ctrl-attrib { background: rgba(0,0,0,0.5); color:#ddd; }
+    /* Status pill colours */
+    --liveGreen:#19c37d;
+    --errorRed:#ff4d4f;
 
-    /* ===== Bottom Alert Bar (25% viewport height) ===== */
-    #alert-bar {
-      position:absolute;
-      left:0; right:0; bottom:0;
-      height:25vh;
-      background:var(--danger);
-      color:#fff;
-      z-index:10;
-      transform: translateY(100%);
-      transition: transform 300ms ease;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:16px;
-      box-sizing:border-box;
-      font-family:var(--ui-font);
-    }
-    #alert-bar.show { transform: translateY(0); }
+    /* Grid/card */
+    --gridGap:20px;
+    --cardRadius:24px;
+    --cardHeight: 420px; /* JS will override to fit exactly 2 rows */
 
-    #alert-content {
-      max-width:1200px;
-      width:100%;
-      display:grid;
-      grid-template-rows:auto auto auto;
-      row-gap:10px;
-      padding:0 16px;
-      font-family:var(--ui-font);
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
-    }
+    /* Summary metrics */
+    --summary-line-height: 1.3; /* keep in sync with .summary line-height */
+  }
 
-    #alert-title {
-      font-size:clamp(20px, 3.2vh, 32px);
-      font-weight:700;
-      letter-spacing:0.5px;
-      text-transform:uppercase;
-    }
+  *{ box-sizing:border-box; }
+  html, body{ height:100%; }
+  body{
+    margin:0; padding:0; background:var(--bg);
+    color:var(--text);
+    font-family:"Barlow Semi Condensed", system-ui, sans-serif;
+    overflow:hidden; /* no page scroll */
+  }
 
-    /* ===== Subtitle styling: very large + distinctive ===== */
-    #alert-location {
-      font-size: clamp(28px, 5.6vh, 72px);
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      line-height: 1.15;
-      text-transform: none;
-      color: #fff;
-      text-shadow:
-        0 2px 6px rgba(0,0,0,0.45),
-        0 0 2px rgba(0,0,0,0.85);
-      font-family:var(--ui-font);
-    }
+  /* ----------- HEADER ----------- */
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 24px;
+    background:#0b0b0e;
+    border-bottom:1px solid #1d1d25;
+  }
+  .title{
+    margin:0;
+    font-size:56px;        /* larger for control room viewing */
+    font-weight:900;
+    letter-spacing:-0.3px;
+  }
+  .status-pill{
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:18px;
+    font-weight:800;
+    background:var(--liveGreen);
+    color:#000;
+    box-shadow:0 0 0 2px rgba(255,255,255,0.08),
+               0 4px 14px rgba(0,0,0,0.25);
+    transition:background .2s ease,color .2s ease;
+  }
+  .status-error{
+    background:var(--errorRed);
+    color:#fff;
+  }
 
-    /* Road badge element for M/A/B roads */
-    .road-badge {
-      display: inline-block;
-      margin-right: 12px;
-      padding: 2px 14px;
-      border-radius: 10px;
-      font-size: 1em;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.85);
-      box-shadow:
-        0 0 0 2px rgba(0,0,0,0.35) inset,
-        0 4px 12px rgba(0,0,0,0.40),
-        0 0 12px rgba(255,255,255,0.35);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background: linear-gradient(180deg, #1f1f1f 0%, #000 100%);
-      font-family:var(--ui-font);
-    }
-    .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); } /* Motorway: blue */
-    .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); } /* A-road: green */
-    .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); } /* B-road: brown */
+  main{
+    padding:0 24px 24px; /* bottom padding only */
+    display:flex;
+    flex-direction:column;
+    height:100vh; /* kiosk/F11 */
+  }
 
-    .road-sep { margin: 0 8px; opacity: 0.9; }
+  /* ----------- FIXED 3×2 GRID ----------- */
+  #grid{
+    margin-top:14px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);  /* 3 wide */
+    gap:var(--gridGap);
+    flex:1;
+    height:100%;           /* ensure clientHeight is reliable */
+    overflow:hidden;       /* keep grid non-scroll */
+  }
 
-    /* First reported time */
-    #alert-time {
-      font-size:clamp(14px, 2.4vh, 24px);
-      font-weight:600;
-      opacity:0.9;
-      font-family:var(--ui-font);
-    }
+  /* ----------- CARD ----------- */
+  .chip{
+    position:relative;
+    border:3px solid #2a2a33;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00) 60%),
+      var(--neutralElev);
+    border-radius:var(--cardRadius);
+    display:flex;
+    flex-direction:column;
+    padding:24px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.04) inset,
+      0 10px 25px rgba(0,0,0,0.35),
+      0 6px 18px rgba(0,0,0,0.45);
+    height:var(--cardHeight); /* all cards same height */
+    min-height:var(--cardHeight);
+    max-height:var(--cardHeight);
+    overflow:hidden; /* ensure uniform sizing; no overflow lines */
+  }
+  .chip:hover{
+    transform:translateY(-1px);
+    transition:transform .15s ease;
+  }
 
-    /* ===== SVG Border Sweep (RED) ===== */
-    #svg-scan {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9;                /* under the bar */
-      opacity: 0;
-      transition: opacity 120ms ease;
-    }
-    body.scan-on #svg-scan { opacity: 1; }
+  /* Header: MULTI-ROUTE grid + operator short code */
+  .chipHeader{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:16px;
+  }
 
-    #svg-scan .scan-rect {
-      fill: none;
-      stroke: var(--danger);
-      stroke-width: 15;
-      vector-effect: non-scaling-stroke;
-      filter: drop-shadow(0 0 8px rgba(255, 46, 52, 0.75));
-    }
+  /* ROUTES GRID MODES
+     1-3 routes: 1 column
+     4-6 routes: 2 columns x up to 3 rows
+     7-9 routes: 3 columns x up to 3 rows
+  */
+  .routes{
+    display:grid;
+    gap:10px;
+    /* Prevent routes from making the header too tall; 3 rows max */
+    max-height: calc(3 * 1em + 3 * 20px); /* rough guardrail; JS scales font below */
+    overflow:hidden;
+    align-content:start;
+  }
+  .routes.cols-1{ grid-template-columns: 1fr; }
+  .routes.cols-2{ grid-template-columns: repeat(2, 1fr); }
+  .routes.cols-3{ grid-template-columns: repeat(3, 1fr); }
 
-    @keyframes dashSweep {
-      from { stroke-dashoffset: 0; }
-      to   { stroke-dashoffset: var(--dashLen); }
-    }
-    body.scan-on #svg-scan .scan-rect {
-      animation: dashSweep 900ms ease-out 1;
-    }
+  /* Route badge */
+  .route{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    background:var(--accent);
+    color:#000;
+    padding:8px 16px;
+    border-radius:12px;
+    letter-spacing:-0.5px;
+    line-height:1;
+    min-width:3ch;
+    white-space:nowrap;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    /* Default large size (1–3 routes) */
+    font-size:clamp(44px, 5.6vw, 80px);
+  }
+  /* Tighter sizes for denser grids to protect card height */
+  .routes.cols-2 .route{
+    font-size:clamp(38px, 4.6vw, 64px);
+    padding:6px 14px;
+    border-radius:10px;
+  }
+  .routes.cols-3 .route{
+    font-size:clamp(30px, 3.6vw, 52px);
+    padding:6px 12px;
+    border-radius:10px;
+  }
 
-    /* ===== Feed Health badges ===== */
-    .feed-health {
-      position: absolute;
-      z-index: 11;
-      background: rgba(20,20,20,0.75);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-family: var(--ui-font);
-      font-size: 14px;
-      letter-spacing: 0.2px;
-      border: 1px solid rgba(255,255,255,0.15);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    #feed-health-waze { top: 10px; left: 10px; }
-    #feed-health-he   { top: 10px; right: 10px; }
+  .operatorTag{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.12);
+    border:2px solid rgba(255,255,255,0.18);
+    font-size:28px;
+    font-weight:800;
+    color:#e6e6ee;
+    flex-shrink:0;  /* keep visible */
+  }
+  .operatorDot{
+    width:18px; height:18px; border-radius:50%;
+    background:#888;
+    box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
+  }
 
-    .feed-health.ok    { border-color: rgba(40,199,111,0.6); }
-    .feed-health.stale { border-color: rgba(255,46,52,0.6); }
-  </style>
+  /* Body: EXACTLY TWO LINES (truncate or leave spacer) */
+  .summary{
+    font-size:clamp(26px, 2.6vw, 32px);
+    line-height: var(--summary-line-height);
+    color:var(--text);
+    opacity:0.95;
+
+    /* Two-line block */
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;    /* truncate after 2 lines */
+    overflow:hidden;
+
+    /* Reserve exactly two line-heights of space */
+    min-height: calc(2 * var(--summary-line-height) * 1em);
+    max-height: calc(2 * var(--summary-line-height) * 1em);
+
+    margin:6px 2px 12px 2px;
+  }
+
+  /* Footer: start (one line) + end/UFN (one line) */
+  .times{
+    margin-top:auto;
+    padding-top:12px;
+    border-top:2px solid rgba(255,255,255,0.15);
+  }
+  .timeLine{
+    font-size:clamp(24px, 2.2vw, 30px);
+    font-weight:900;
+    color:#d9d9e2;
+    line-height:1.25;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;  /* ensure one-line, no overflow */
+  }
+
+  /* Optional subtle operator tints */
+  .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
+  .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
+  .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
+  .op-BNDB{ background:linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.16)); border-color:#dcdcdc; color:#000; }
+  .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
+  .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
+</style>
 </head>
 <body>
-  <div id="map"></div>
 
-  <!-- Feed health badges -->
-  <div id="feed-health-waze" class="feed-health stale" aria-live="polite" aria-label="Waze feed status">Waze: initialising…</div>
-  <div id="feed-health-he"   class="feed-health stale" aria-live="polite" aria-label="Highways feed status">Highways: initialising…</div>
+<header class="topbar">
+  <h1 class="title">Live Bus Diversions</h1>
+  <div id="statusPill" class="status-pill">Live • --:--:--</div>
+</header>
 
-  <!-- SVG edge sweep overlay -->
-  <svg id="svg-scan" aria-hidden="true" width="100%" height="100%">
-    <rect class="scan-rect" x="1" y="1" width="100%" height="100%"></rect>
-  </svg>
+<main>
+  <div id="grid"></div>
+</main>
 
-  <!-- Bottom red alert bar -->
-  <div id="alert-bar" aria-live="assertive" aria-hidden="true">
-    <div id="alert-content">
-      <div id="alert-title">New High Confidence Alert</div>
-      <div id="alert-location">—</div>
-      <div id="alert-time" aria-label="First reported time">—</div>
-    </div>
+<script>
+/* ===========================
+   CONFIG
+=========================== */
+const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
+const BODS_URL =
+  `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
 
-    <!-- Progress bar (counts down ALERT_BAR_MS) -->
-    <div id="alert-progress-wrap">
-      <div id="alert-progress"></div>
-    </div>
-  </div>
+/* TfGM Bee Network operator refs (strict) */
+const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 
-  <script>
-    // ===== CONFIG =====
-    const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
-    const HE_URL   = 'https://m.highwaysengland.co.uk/feeds/rss/UnplannedEvents/North%20West.xml'; // National Highways RSS (North West)
-    const REFRESH_MS = 30000;
+/* Behaviour flags */
+const UNPLANNED_ONLY = true;
+const PAGE_INTERVAL_MS = 10000;
 
-    const ALERT_BAR_MS       = 10000; // 10s visible
-    const MERGE_METERS       = 200;   // merge alerts within 200 m
+/* Diversion keyword matching */
+const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
 
-    // Optional behaviours
-    const STALE_CLEAR_MS = 5 * 60 * 1000;        // clear accidents if feed stale > 5min
-    const SHOW_BANNER_ON_INCREASE = true;        // banner when high-tier increases
+/* Helpers */
+const $ = s => document.querySelector(s);
+const parseISO = s => s ? new Date(s) : null;
 
-    // 🎯 High confidence definition
-    const HIGH_CONF_MIN = 4;
+function fmtFull(d){
+  return new Intl.DateTimeFormat(undefined,
+    {hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(d);
+}
+function fmtHM(d){
+  return new Intl.DateTimeFormat(undefined,
+    {hour:"2-digit",minute:"2-digit"}).format(d);
+}
+function setStatusPill(ok){
+  const pill = $("#statusPill");
+  const t = fmtFull(new Date());
+  if(ok){
+    pill.classList.remove("status-error");
+    pill.textContent = `Live • ${t}`;
+  } else {
+    pill.classList.add("status-error");
+    pill.textContent = `Error • ${t}`;
+  }
+}
 
-    // 🧮 Clustering reinforcement
-    const CLUSTER_BONUS_PER_REPORT = 0.5;
-    const CLUSTER_BONUS_MAX = 2.0;
+/* Operator short-label mapping for the pill */
+function operatorShortLabel(refRaw){
+  const ref = (refRaw || "").toUpperCase();
+  const map = {
+    BNSM:"SCM",
+    BNML:"ML",
+    BNGN:"GNW",
+    BNDB:"DB",
+    BNVB:"VB",
+    BNFM:"FB",
+  };
+  return map[ref] || ref || "—";
+}
 
-    // ===== AUDIO CONFIG (15-minute global cooldown) =====
-    const AUDIO_COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
-    let audioCtx = null;
-    let audioEnabled = false;
-    let lastSoundAt = Number(localStorage.getItem('lastSoundAt') || 0);
+/* Collect *all* line refs for a situation (deduped) */
+function getLineRefs(sit){
+  const lines = new Set();
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
 
-    function unlockAudioOnce() {
-      try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        audioCtx.resume().then(() => {
-          audioEnabled = (audioCtx.state === 'running');
-        }).catch(() => {});
-      } catch (e) {}
-      document.removeEventListener('pointerdown', unlockAudioOnce);
-      document.removeEventListener('keydown', unlockAudioOnce);
+  const pushVal = (val)=>{
+    if(val == null) return;
+    const s = String(val).trim();
+    if(s) lines.add(s);
+  };
+
+  if(Array.isArray(avj)){
+    for(const j of avj){
+      pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
     }
-    document.addEventListener('pointerdown', unlockAudioOnce, { once: true });
-    document.addEventListener('keydown',    unlockAudioOnce, { once: true });
+  }else if(avj){
+    pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName);
+  }
 
-    function canPlayAlertSound() {
-      if (!audioCtx || !audioEnabled) return false;
-      const now = Date.now();
-      return (now - lastSoundAt) >= AUDIO_COOLDOWN_MS;
+  // XML extractor may store a helper list
+  if(Array.isArray(sit.__lineRefs)){
+    for(const v of sit.__lineRefs) pushVal(v);
+  }
+
+  // Fallback
+  if(lines.size === 0){
+    const fallback = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef;
+    if(fallback) pushVal(fallback);
+  }
+  return Array.from(lines);
+}
+
+/* --- Duration formatter for UFN (m / hr / hrs) --- */
+function ufnDurationPhrase(startDate){
+  if(!startDate) return "less than a minute";
+  const now = new Date();
+  const diffMs = now - startDate;
+  if(diffMs < 60000) return "less than a minute";
+  const mins = Math.floor(diffMs / 60000);
+  if(mins < 60) return `${mins} m`;
+  const hours = Math.floor(mins / 60);
+  return `${hours} ${hours === 1 ? "hr" : "hrs"}`;
+}
+
+/* --- Validity lines (▶ start on 1 line, 🛑 end/UFN on 1 line) --- */
+/* For UFN (no end), we show ONLY the UFN line per your preference B. */
+function validityLines(sit){
+  const now = new Date();
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+
+  function formatStart(d){
+    if(!d) return null;
+    const sameDay = d.toDateString() === now.toDateString();
+    const startWeek = new Date(now);
+    startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7)); // Monday
+    startWeek.setHours(0,0,0,0);
+    const endWeek = new Date(startWeek);
+    endWeek.setDate(startWeek.getDate() + 6);
+    endWeek.setHours(23,59,59,999);
+    const inWeek = d >= startWeek && d <= endWeek;
+
+    const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
+    if(is2359){
+      return "▶ End of Service";
     }
 
-    function playAlertSound() {
-      if (!canPlayAlertSound()) return;
+    const time = fmtHM(d);
+    if(sameDay) return `▶ ${time} Today`;
+    if(inWeek){
+      const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
+      return `▶ ${wd} ${time}`;
+    }
+    const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
+    return `▶ ${dm} ${time}`;
+  }
 
-      const ctx = audioCtx;
-      const now = ctx.currentTime;
+  function formatEnd(d){
+    if(!d) return "🛑 UFN"; // placeholder; UFN phrasing handled outside
+    const sameDay = d.toDateString() === now.toDateString();
+    const startWeek = new Date(now);
+    startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7));
+    startWeek.setHours(0,0,0,0);
+    const endWeek = new Date(startWeek);
+    endWeek.setDate(startWeek.getDate() + 6);
+    endWeek.setHours(23,59,59,999);
+    const inWeek = d >= startWeek && d <= endWeek;
 
-      function tone(freq, start, dur, gainPeak = 0.25) {
-        const osc = ctx.createOscillator();
-        const g   = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, now + start);
-        g.gain.setValueAtTime(0.0001, now + start);
-        g.gain.exponentialRampToValueAtTime(gainPeak, now + start + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001,  now + start + dur);
-        osc.connect(g).connect(ctx.destination);
-        osc.start(now + start);
-        osc.stop(now + start + dur);
+    const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
+    if(is2359){
+      if(sameDay) return "🛑 End of Service";
+      if(inWeek){
+        const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
+        return `🛑 EOS ${wd}`;
+      } else {
+        const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
+        return `🛑 EOS ${dm}`;
       }
-
-      // Two-tone chime: A5 -> E6
-      tone(880,  0.00, 0.20, 0.30);
-      tone(1319, 0.22, 0.22, 0.28);
-
-      lastSoundAt = Date.now();
-      localStorage.setItem('lastSoundAt', String(lastSoundAt));
     }
 
-    // ===== Tight Greater Manchester bounds (SW, NE) =====
-    const GM_BOUNDS = [
-      [-2.75, 53.33],  // Southwest (lon, lat)
-      [-1.95, 53.62]   // Northeast (lon, lat)
-    ];
+    const time = fmtHM(d);
+    if(sameDay) return `🛑 ${time} Today`;
+    if(inWeek){
+      const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
+      return `🛑 ${wd} ${time}`;
+    }
+    const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
+    return `🛑 ${dm} ${time}`;
+  }
 
-    const FOCUS_ZOOM    = 12.00;
-    const FOCUS_PITCH   = 30;
-    const FOCUS_BEARING = 0;
-    const FOCUS_MS      = 1200;
+  const hasEnd = !!e;
+  if(hasEnd){
+    const startLine = formatStart(s);
+    const endLine   = formatEnd(e);
+    return { startLine, endLine };
+  }
 
-    // ===== MAP (MapTiler style) =====
-    const map = new maplibregl.Map({
-      container: 'map',
-      style: 'https://api.maptiler.com/maps/019aeeff-f216-7688-8555-59ae0793249c/style.json?key=0H39izAoMROVO5bW1Su2',
-      center: [-2.303, 53.4514],
-      zoom: 12,
-      bearing: 0,
-      pitch: 52,
-      maxBounds: GM_BOUNDS
+  // UFN: Show ONLY the UFN line (with duration)
+  const dur = ufnDurationPhrase(s);
+  const ufnLine = `🛑 UFN - diverted for ${dur}`;
+  return { startLine: null, endLine: ufnLine };
+}
+
+/* Window: only include incidents whose start OR end is within ±7 days of today */
+function isWithin7DayWindow(sit){
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+
+  const now = new Date();
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
+  const endOfToday   = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59,999);
+
+  const windowStart = new Date(startOfToday.getTime() - 7*24*60*60*1000);
+  const windowEnd   = new Date(endOfToday.getTime()   + 7*24*60*60*1000);
+
+  const inWindow = d => d && d >= windowStart && d <= windowEnd;
+  return inWindow(s) || inWindow(e);
+}
+
+/* OperatorRef extraction & class */
+function getOperatorRef(sit){
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+  if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
+  if(avj && avj.OperatorRef) return String(avj.OperatorRef);
+  if(sit?.OperatorRef) return String(sit.OperatorRef);
+  if(sit?.__operatorRefs && sit.__operatorRefs.length) return String(sit.__operatorRefs[0]);
+  return null;
+}
+
+function operatorClass(ref){
+  switch((ref||"").toUpperCase()){
+    case "BNML": return {cls:"op-BNML", dark:false};
+    case "BNGN": return {cls:"op-BNGN", dark:true};
+    case "BNSM": return {cls:"op-BNSM", dark:false};
+    case "BNDB": return {cls:"op-BNDB", dark:false};
+    case "BNVB": return {cls:"op-BNVB", dark:true};
+    case "BNFM": return {cls:"op-BNFM", dark:false};
+    default: return {cls:"", dark:true};
+  }
+}
+
+/* Keys */
+function situationKey(sit){
+  if(sit.SituationNumber) return "id:" + sit.SituationNumber;
+  if(sit.SituationRef)   return "ref:" + sit.SituationRef;
+  if(sit.ParticipantRef) return "p:" + sit.ParticipantRef;
+  const op = getOperatorRef(sit) || "";
+  const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
+  const sum = (sit?.Summary || sit?.Description || "").toString().slice(0,120);
+  return `k:${op}|${st}|${sum}`;
+}
+
+/* Filters */
+function isDiversion(sit){
+  const txt = (sit.Description || sit.Summary || "").toLowerCase();
+  return DIVERSION_MATCHERS.some(k => txt.includes(k));
+}
+function isCurrentlyValid(sit){
+  const now = new Date();
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  if(!s) return false;
+  if(s > now) return false;
+  if(e && e < now) return false;
+  return true;
+}
+function isUnplanned(sit){
+  const p = sit?.Planned;
+  if(p === false) return true;
+  if(typeof p === "string" && p.trim().toLowerCase() === "false") return true;
+  return false;
+}
+
+/* Extractors */
+function extractSituationsFromJSON(json){
+  const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+  if(!sd) return [];
+  const sed = Array.isArray(sd.SituationExchangeDelivery)
+    ? sd.SituationExchangeDelivery
+    : [sd.SituationExchangeDelivery].filter(Boolean);
+  const out=[];
+  for(const d of sed){
+    const pe = d?.Situations?.PtSituationElement;
+    if(Array.isArray(pe)) out.push(...pe);
+    else if(pe) out.push(pe);
+  }
+  return out;
+}
+function extractSituationsFromXML(doc){
+  const els = [...doc.querySelectorAll("PtSituationElement")];
+  return els.map(el=>{
+    const T = s => el.querySelector(s)?.textContent?.trim() || null;
+    const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
+                    .map(n=>n.textContent.trim()).filter(Boolean);
+    const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
+                    .map(n=>n.textContent.trim()).filter(Boolean);
+    return {
+      Summary: T("Summary") || T("Description"),
+      Description: T("Description"),
+      Severity: T("Severity") || "unknown",
+      Planned: T("Planned"),
+      SituationNumber: T("SituationNumber") || T("SituationRef"),
+      ParticipantRef: T("ParticipantRef"),
+      ValidityPeriod: {
+        StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
+        EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
+      },
+      CreationTime: T("CreationTime") || T("RecordedAtTime") || T("VersionedAtTime"),
+      Affects: {
+        VehicleJourneys: {
+          AffectedVehicleJourney: lines.length
+            ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
+            : []
+        }
+      },
+      __operatorRefs: opsRef,
+      __lineRefs: lines
+    };
+  });
+}
+
+/* -------- Paging -------- */
+const pager={pages:[],pageIndex:0,pageSize:6,total:0,timer:null}; // always 6 (3×2)
+
+/* Fit exactly 2 rows vertically by setting --cardHeight (F11 fullscreen safe) */
+function setFixedGridSizing(){
+  const grid = document.getElementById("grid");
+  const main = document.querySelector("main");
+  const mainStyles = getComputedStyle(main);
+  const pb = parseInt(mainStyles.paddingBottom) || 0;
+
+  const gridTop = grid.getBoundingClientRect().top;
+  const vh = window.innerHeight; // reliable in F11 fullscreen
+  const gridAvail = Math.max(0, Math.floor(vh - pb - gridTop));
+
+  const gap = parseInt(getComputedStyle(grid).gap) || 20;
+
+  // Two rows => subtract one gap between them
+  const cardH = Math.max(200, Math.floor((gridAvail - gap) / 2));
+  document.documentElement.style.setProperty("--cardHeight", cardH + "px");
+}
+
+function renderPage(){
+  const grid = document.getElementById("grid");
+  const pg = pager.pages[pager.pageIndex] || [];
+  grid.innerHTML = "";
+
+  for(const it of pg){
+    const oc = operatorClass(it.operatorRef);
+
+    const chip = document.createElement("div");
+    chip.className = "chip " + oc.cls;
+
+    const inner = document.createElement("div");
+    inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
+
+    // Header (routes grid + operator)
+    const header = document.createElement("div");
+    header.className = "chipHeader";
+
+    // Determine routes grid mode and cap to 9
+    const routesWrap = document.createElement("div");
+    routesWrap.className = "routes";
+    const routes = Array.isArray(it.routes) ? it.routes : ["?"];
+    const count = routes.length;
+    let mode = "cols-1";
+    if(count <= 3) mode = "cols-1";
+    else if(count <= 6) mode = "cols-2";
+    else mode = "cols-3";
+    routesWrap.classList.add(mode);
+
+    // title with full list (useful if >9)
+    routesWrap.title = routes.join(", ");
+
+    const displayRoutes = routes.slice(0, 9);
+    displayRoutes.forEach(rt=>{
+      const badge = document.createElement("div");
+      badge.className = "route";
+      badge.textContent = String(rt);
+      routesWrap.appendChild(badge);
     });
 
-    // ===== Helpers: cache-bust query =====
-    function withCacheBust(url){
-      const sep = url.includes('?') ? '&' : '?';
-      return `${url}${sep}ts=${Date.now()}`;
+    // Operator pill
+    const opTag = document.createElement("div");
+    opTag.className = "operatorTag";
+    opTag.title = (it.operatorRef || "").toUpperCase();
+    const dot = document.createElement("span");
+    dot.className = "operatorDot";
+    const opColour = {
+      BNML: "var(--op-BNML)", BNGN: "var(--op-BNGN)", BNSM: "var(--op-BNSM)",
+      BNDB: "var(--op-BNDB)", BNVB: "var(--op-BNVB)", BNFM: "var(--op-BNFM)"
+    }[(it.operatorRef || "").toUpperCase()];
+    if(opColour) dot.style.background = opColour;
+    const shortLabel = operatorShortLabel(it.operatorRef);
+    opTag.append(dot, document.createTextNode(shortLabel));
+
+    header.append(routesWrap, opTag);
+
+    // Summary (exactly 2 lines reserved)
+    const s = document.createElement("div");
+    s.className = "summary";
+    s.textContent = it.summary || "";
+
+    // Times (start = 1 line, end/UFN = 1 line)
+    const times = document.createElement("div");
+    times.className = "times";
+    const tStart = document.createElement("div");
+    tStart.className = "timeLine";
+    const tEnd = document.createElement("div");
+    tEnd.className = "timeLine";
+
+    if(it.timeLines.startLine){
+      tStart.textContent = it.timeLines.startLine;
+      times.appendChild(tStart);
+    }
+    if(it.timeLines.endLine){
+      tEnd.textContent = it.timeLines.endLine;
+      times.appendChild(tEnd);
     }
 
-    // ===== Shared proxy chain =====
-const PROXIES = [
-  (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
-  // (optional) public fallbacks:
-  (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-  (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
-];
+    inner.append(header, s, times);
+    chip.append(inner);
+    grid.append(chip);
+  }
+}
 
+function startPager(){
+  if(pager.timer) clearInterval(pager.timer);
+  if(pager.pages.length <= 1) return;
+  pager.timer = setInterval(()=>{
+    pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
+    renderPage();
+    setStatusPill(true);
+    requestAnimationFrame(setFixedGridSizing);
+  }, PAGE_INTERVAL_MS);
+}
 
-    // ===== Waze fetch via proxy chain with JSON guard =====
-    async function fetchViaProxies(url, signal){
-      const busted = withCacheBust(url);
-      const errors = [];
-      for(const build of PROXIES){
-        const proxied = build(busted);
-        try{
-          const res = await fetch(proxied, { cache:'no-store', signal });
-          if(!res.ok) throw new Error(`HTTP ${res.status}`);
-          const text = await res.text();
-          const trimmed = text.replace(/^\uFEFF/, '').trim();
-          if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
-          return JSON.parse(trimmed);
-        }catch(e){
-          errors.push(`${proxied}: ${e.message}`);
-          // try next proxy
-        }
-      }
-      throw new Error(`All proxies failed\n${errors.join('\n')}`);
+/* -------- Fetch & Render -------- */
+async function fetchAll(){
+  try{
+    const res = await fetch(BODS_URL, { cache:"no-store" });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    let parsed;
+    try{
+      parsed = { type:"json", data: await res.clone().json() };
+    }catch{
+      parsed = { type:"xml", data: (new DOMParser()).parseFromString(await res.text(),"application/xml") };
     }
 
-    // ===== XML fetch via proxies (for National Highways RSS) =====
-    async function fetchTextViaProxies(url, signal){
-      const busted = withCacheBust(url);
-      const errors = [];
-      for(const build of PROXIES){
-        const proxied = build(busted);
-        try{
-          const res = await fetch(proxied, { cache:'no-store', signal });
-          if(!res.ok) throw new Error(`HTTP ${res.status}`);
-          const text = await res.text();
-          if(!text || !text.trim()) throw new Error('Empty response');
-          return text;
-        }catch(e){
-          errors.push(`${proxied}: ${e.message}`);
-          // try next proxy
-        }
-      }
-      throw new Error(`All proxies failed\n${errors.join('\n')}`);
+    let situations = parsed.type==="json"
+      ? extractSituationsFromJSON(parsed.data)
+      : extractSituationsFromXML(parsed.data);
+
+    /* Strict operator filter */
+    situations = situations.filter(sit=>{
+      const ref = getOperatorRef(sit);
+      return ref && BEE_OPERATORS.includes(ref.toUpperCase());
+    });
+
+    /* Diversions only */
+    situations = situations.filter(isDiversion);
+
+    /* Only currently valid */
+    situations = situations.filter(isCurrentlyValid);
+
+    /* Only if start or end is within ±7 days of today */
+    situations = situations.filter(isWithin7DayWindow);
+
+    /* Only unplanned (default on) */
+    if(UNPLANNED_ONLY) {
+      situations = situations.filter(isUnplanned);
     }
 
-    // ===== Geo helpers =====
-    function toRad(deg){ return deg * Math.PI / 180; }
-    function haversineMeters([lon1, lat1], [lon2, lat2]){
-      const R = 6371000;
-      const dLat = toRad(lat2 - lat1);
-      const dLon = toRad(lon2 - lon1);
-      const a = Math.sin(dLat/2)**2
-              + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c;
-    }
-
-    // ===== Feed shaping (Waze) =====
-    function getLngLatFromAlert(a){
-      try{
-        if(a){
-          if(a.location){
-            const loc = a.location;
-            if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
-            if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
-            if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
-            if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
-          }
-          if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
-            const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
-          }
-          if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
-        }
-      }catch(e){}
-      return null;
-    }
-
-    function alertsToPoints(feed){
-      const out=[];
-      const alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
-      for(const a of alerts){
-        const type = (a.type || a.alertType || '').toString().toUpperCase();
-        if(type !== 'ACCIDENT') continue;
-
-        const base = Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0;
-        if(!(base > 0)) continue;
-
-        const coord = getLngLatFromAlert(a);
-        if(!coord) continue;
-
-        const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
-        out.push({
-          id,
-          coord,
-          street: a.street || a.roadName || a.address || 'Unknown road',
-          city: a.city || a.town || '',
-          conf: base,
-          time: a.pubMillis || a.updateTime || a.reportMillis || 0
-        });
-      }
-      return out;
-    }
-
-    // ===== Clustering: confidence = MAX(member) + reinforcement =====
-    function clusterAccidents(points, mergeMeters = MERGE_METERS){
-      if(points.length === 0) return [];
-
-      const parent = Array(points.length).fill(0).map((_,i)=>i);
-      function find(x){ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; }
-      function union(a,b){ a=find(a); b=find(b); if(a!==b) parent[a]=b; }
-
-      for(let i=0;i<points.length;i++){
-        for(let j=i+1;j<points.length;j++){
-          const d = haversineMeters(points[i].coord, points[j].coord);
-          if(d <= mergeMeters) union(i,j);
-        }
-      }
-
-      const groups = new Map();
-      for(let i=0;i<points.length;i++){
-        const r = find(i);
-        if(!groups.has(r)) groups.set(r, []);
-        groups.get(r).push(points[i]);
-      }
-
-      const clusters = [];
-      for(const members of groups.values()){
-        const count     = members.length;
-        const maxConf   = members.reduce((m,p)=>Math.max(m, Number(p.conf)||0), 0);
-
-        const bonusRaw  = (count - 1) * CLUSTER_BONUS_PER_REPORT;
-        const bonus     = Math.min(CLUSTER_BONUS_MAX, Math.max(0, bonusRaw));
-        const eff       = Math.min(5, Math.max(1, Math.round(maxConf + bonus)));
-
-        const avg       = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]], [0,0]).map(v=>v/count);
-        const maxTime   = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
-        const minTime   = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
-        const firstTime = (minTime === Infinity) ? 0 : minTime;
-        const ids       = members.map(m=>m.id).sort().join('+');
-
-        const best = members.slice().sort((a,b)=>{
-          const ce = (Number(b.conf)||0) - (Number(a.conf)||0);
-          if(ce!==0) return ce;
-          return (Number(b.time)||0) - (Number(a.time)||0);
-        })[0];
-
-        clusters.push({
-          id: `cluster-${ids}`,
-          coord: avg,
-          street: best.street,
-          city: best.city,
-          eff,
-          latestTime: maxTime,
-          firstTime,
-          count
-        });
-      }
-
-      clusters.sort((a,b)=>{
-        const ce = (Number(b.eff)||0) - (Number(a.eff)||0);
-        if(ce!==0) return ce;
-        return (Number(b.latestTime)||0) - (Number(a.latestTime)||0);
-      });
-
-      return clusters.map(c => ({
-        type:'Feature',
-        id: c.id,
-        geometry:{ type:'Point', coordinates: c.coord },
-        properties:{
-          id: c.id,
-          effectiveConfidence: c.eff,
-          street: c.street,
-          city: c.city,
-          time: c.latestTime,
-          firstReportedMillis: c.firstTime,
-          reportCount: c.count
-        }
-      }));
-    }
-
-    // ===== Time formatting =====
-    function formatFirstReported(ms){
-      if(!ms || !isFinite(ms)) return 'Time unknown';
-      try{
-        return new Date(Number(ms)).toLocaleString('en-GB', {
-          timeZone: 'Europe/London',
-          hour12: false,
-          year: 'numeric',
-          month: 'short',
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit'
-        });
-      }catch(e){
-        return 'Time unavailable';
-      }
-    }
-
-    // ===== Canvas pulsing icon for high (>=4) =====
-    function createPulsingDot(map, color='red'){
-      const size = 340;
-      const targetFps = 12;
-      const frameMs = 1000 / targetFps;
-      let last = 0;
-
-      const fillColor = (on)=> color==='white' ? `rgba(255,255,255,${on?1:0.85})` : `rgba(255,0,0,${on?1:0.9})`;
-      const ringColor = (on)=> color==='white' ? `rgba(255,255,255,${on?0.95:0.3})` : `rgba(255, 80, 80, ${on?0.95:0.15})`;
+    /* Map to items (support multi-route) */
+    const items = situations.map(s=>{
+      const opRef = getOperatorRef(s) || "";
+      const routes = getLineRefs(s);
+      const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
+      const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
 
       return {
-        width:size, height:size, data:new Uint8Array(size*size*4),
-        onAdd:function(){
-          const c=document.createElement('canvas'); c.width=this.width; c.height=this.height;
-          this.context=c.getContext('2d');
-        },
-        render:function(){
-          const now = performance.now();
-          if(now - last < frameMs) return false;
-          last = now;
-
-          const duration = 1200; const t = (now % duration) / duration;
-          const on = t < 0.5;
-
-          const ctx=this.context, w=this.width, h=this.height;
-          ctx.clearRect(0,0,w,h);
-
-          const ringR = (w/2)*(0.30 + 0.20*t);
-          ctx.beginPath(); ctx.arc(w/2,h/2, ringR, 0, Math.PI*2, false);
-          ctx.fillStyle = ringColor(on); ctx.fill();
-
-          ctx.beginPath(); ctx.arc(w/2,h/2, (w/2)*0.18, 0, Math.PI*2, false);
-          ctx.fillStyle = fillColor(true);
-          ctx.strokeStyle = 'rgba(255,255,255,1)';
-          ctx.lineWidth = Math.max(2, w*0.025);
-          ctx.fill(); ctx.stroke();
-
-          const img=ctx.getImageData(0,0,w,h); this.data.set(img.data);
-
-          map.triggerRepaint();
-          return true;
-        }
+        key: situationKey(s),
+        routes: routes.length ? routes.map(String) : ["?"],
+        operatorRef: opRef,
+        timeLines: validityLines(s),     // {startLine, endLine}
+        summary: (s.Summary || s.Description || "").trim(),
+        startMs: st ? st.getTime() : 0,
+        endMs: en ? en.getTime() : null
       };
-    }
-
-    // ===== OCC highlight dots (optional points) =====
-    const HIGHLIGHT_POINTS = [
-      // { name: 'TfGM HQ', coordinates: [-2.2455, 53.4793] },
-    ];
-
-    function buildHighlightsFC(points){
-      const features = (points || []).filter(p =>
-        Array.isArray(p?.coordinates) && p.coordinates.length >= 2 &&
-        typeof p.coordinates[0] === 'number' && typeof p.coordinates[1] === 'number'
-      ).map((p, i) => ({
-        type: 'Feature',
-        id: p.name ? `hl-${p.name}-${i}` : `hl-${i}`,
-        geometry: { type: 'Point', coordinates: p.coordinates },
-        properties: { name: p.name || '' }
-      }));
-      return { type: 'FeatureCollection', features };
-    }
-
-    function setHighlightPoints(points){
-      const src = map.getSource('occ-highlights');
-      const fc = buildHighlightsFC(points);
-      if(src) src.setData(fc);
-    }
-
-    // ===== UI elements =====
-    const barEl = document.getElementById('alert-bar');
-    const locEl = document.getElementById('alert-location');
-    const timeEl = document.getElementById('alert-time');
-    const progressEl = document.getElementById('alert-progress');
-    const healthWazeEl = document.getElementById('feed-health-waze');
-    const healthHeEl   = document.getElementById('feed-health-he');
-
-    let queue = [], bannerActive = false, highlightedId = null;
-    let highlightedCenter = null;
-    let hideTimer = null;
-
-    /* ===== SVG Scan helpers ===== */
-    function initSvgScan() {
-      const rect = document.querySelector('#svg-scan .scan-rect');
-      const svg  = document.getElementById('svg-scan');
-      if (!rect || !svg) return;
-
-      const w = Math.max(0, window.innerWidth  - 2);
-      const h = Math.max(0, window.innerHeight - 2);
-
-      rect.setAttribute('x', '1');
-      rect.setAttribute('y', '1');
-      rect.setAttribute('width',  `${w}`);
-      rect.setAttribute('height', `${h}`);
-
-      const perimeter = 2 * (w + h);
-      rect.style.strokeDasharray  = `${perimeter}`;
-      rect.style.strokeDashoffset = `0`;
-      document.documentElement.style.setProperty('--dashLen', `${perimeter}`);
-    }
-    window.addEventListener('resize', initSvgScan);
-    initSvgScan();
-
-    function runSvgScan() {
-      document.body.classList.remove('scan-on');
-      requestAnimationFrame(() => {
-        document.body.classList.add('scan-on');
-        setTimeout(() => document.body.classList.remove('scan-on'), 950);
-      });
-    }
-
-    function setBarVisible(show){
-      barEl.classList.toggle('show', show);
-      barEl.setAttribute('aria-hidden', show ? 'false' : 'true');
-      document.body.classList.toggle('bar-open', show);
-      map.resize();
-      startGlobalRepaint();
-
-      if (show && highlightedCenter) {
-        map.easeTo({
-          center: highlightedCenter,
-          zoom: FOCUS_ZOOM,
-          pitch: FOCUS_PITCH,
-          bearing: FOCUS_BEARING,
-          duration: FOCUS_MS,
-          essential: true
-        });
-        setTimeout(runSvgScan, 120);
-      } else {
-        map.fitBounds(GM_BOUNDS, { padding: 0, duration: 800, essential: true });
-      }
-    }
-
-    function updateHighlightFilters(){
-      if(map.getLayer('accidents-high')){
-        const filter = highlightedId
-          ? [ "all", [">=", ["get","effectiveConfidence"], HIGH_CONF_MIN], ["!=", ["get","id"], highlightedId] ]
-          : [ ">=", ["get","effectiveConfidence"], HIGH_CONF_MIN ];
-        map.setFilter('accidents-high', filter);
-      }
-      if(map.getLayer('accident-highlighted')){
-        const filter = highlightedId
-          ? ["==", ["get","id"], highlightedId]
-          : ["==", ["get","id"], "___none___"];
-        map.setFilter('accident-highlighted', filter);
-      }
-    }
-
-    function enqueueBanner(feature){
-      const street = (feature.properties.street||'').trim() || 'Unknown road';
-      const city   = (feature.properties.city||'').trim();
-      const center = Array.isArray(feature.geometry?.coordinates) ? feature.geometry.coordinates : null;
-      const firstMillis = Number(feature.properties.firstReportedMillis)||0;
-
-      queue.push({ id: feature.id, street, city, center, firstMillis });
-      if(!bannerActive) showNextBanner();
-    }
-
-    function escapeHTML(str){
-      return String(str).replace(/[&<>:"']/g, (ch) => ({
-        '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
-      }[ch]));
-    }
-
-    function stylizeRoad(street, city) {
-      const s = escapeHTML((street || '').trim());
-      const c = escapeHTML((city || '').trim());
-
-      if (!s && !c) return 'Unknown road';
-
-      const roadTokenRegex = /\b([MBA]\d{1,4})\b/i;
-
-      let displayStreet = s;
-      const match = s.match(roadTokenRegex);
-
-      if (match) {
-        const token = match[1].toUpperCase();
-        const cls = token.startsWith('M') ? 'motorway'
-                  : token.startsWith('A') ? 'aprimary'
-                  : 'broad';
-        displayStreet = s.replace(
-          roadTokenRegex,
-          `<span class="road-badge ${cls}">${token}</span>`
-        );
-      }
-
-      const sep = c ? `<span class="road-sep">—</span>` : '';
-      return `${displayStreet}${c ? `${sep}${c}` : ''}`;
-    }
-
-    function resetProgressBar() {
-      if (!progressEl) return;
-      progressEl.style.transition = 'none';
-      progressEl.style.transform  = 'scaleX(1)';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          progressEl.style.transition = `transform ${ALERT_BAR_MS}ms linear`;
-          progressEl.style.transform  = 'scaleX(0)';
-        });
-      });
-    }
-
-    function showNextBanner(){
-      if(bannerActive) return;
-      const item = queue.shift(); if(!item) return;
-
-      bannerActive = true;
-      highlightedId = item.id;
-      highlightedCenter = item.center;
-      updateHighlightFilters();
-
-      locEl.innerHTML = stylizeRoad(item.street, item.city);
-      timeEl.textContent = `First reported: ${formatFirstReported(item.firstMillis)}`;
-
-      setBarVisible(true);
-      resetProgressBar();
-
-      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
-      hideTimer = setTimeout(()=>{
-        setBarVisible(false);
-        highlightedId = null;
-        highlightedCenter = null;
-        updateHighlightFilters();
-        bannerActive = false;
-        showNextBanner();
-      }, ALERT_BAR_MS);
-    }
-
-    const prevEffByClusterId = new Map();
-    // Track brand-new clusters (after initial load) for sound trigger
-    const seenClusterIds = new Set();
-    let hasInitializedClusters = false;
-
-    // ===== Global repaint ticker =====
-    let repaintRAF = null;
-
-    function layerExists(id){ try { return !!map.getLayer(id); } catch(e){ return false; } }
-
-    function hasPulsingVisible(){
-      if(!layerExists('accidents-high') && !layerExists('accident-highlighted')) return false;
-      const red = layerExists('accidents-high') ? map.queryRenderedFeatures({layers:['accidents-high']}) : [];
-      const white = layerExists('accident-highlighted') ? map.queryRenderedFeatures({layers:['accident-highlighted']}) : [];
-      return (red && red.length > 0) || (white && white.length > 0);
-    }
-
-    function startGlobalRepaint(){
-      if (repaintRAF) return;
-      const tick = () => {
-        if (hasPulsingVisible()) {
-          map.triggerRepaint();
-          repaintRAF = requestAnimationFrame(tick);
-        } else {
-          cancelAnimationFrame(repaintRAF); repaintRAF = null;
-        }
-      };
-      repaintRAF = requestAnimationFrame(tick);
-    }
-
-    // ===== Waze feed health tracking =====
-    let lastOkWaze = 0;
-    function markHealthOK_Waze(){
-      lastOkWaze = Date.now();
-      if(healthWazeEl){
-        healthWazeEl.classList.remove('stale');
-        healthWazeEl.classList.add('ok');
-        healthWazeEl.textContent = `Waze: ${new Date(lastOkWaze).toLocaleTimeString('en-GB',{hour12:false})}`;
-      }
-    }
-    function markHealthStale_Waze(errMsg){
-      const staleSecs = Math.round((Date.now() - (lastOkWaze||Date.now()))/1000);
-      if(healthWazeEl){
-        healthWazeEl.classList.remove('ok');
-        healthWazeEl.classList.add('stale');
-        healthWazeEl.textContent = `Waze stale (${staleSecs}s)${errMsg? ' — ' + errMsg : ''}`;
-      }
-    }
-    function clearAccidentsIfTooStale(){
-      const staleMs = Date.now() - (lastOkWaze || 0);
-      if (lastOkWaze && staleMs > STALE_CLEAR_MS) {
-        map.getSource('accidents')?.setData({ type:'FeatureCollection', features:[] });
-      }
-    }
-
-    // ===== Waze update loop =====
-    let fetchTimer = null;
-    let inFlight = null;
-    let proxyStartIndex = 0;
-
-    async function runCycle(){
-      if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
-
-      const controller = new AbortController();
-      inFlight = controller;
-
-      const origOrder = PROXIES.slice();
-      const rotated = PROXIES.slice(proxyStartIndex).concat(PROXIES.slice(0, proxyStartIndex));
-      PROXIES.length = 0; PROXIES.push(...rotated);
-
-      try{
-        const data = await fetchViaProxies(WAZE_URL, controller.signal);
-        const points = alertsToPoints(data);
-        const clusterFeatures = clusterAccidents(points, MERGE_METERS);
-
-        const geo = { type:'FeatureCollection', features: clusterFeatures };
-        const src = map.getSource('accidents');
-        if(src) src.setData(geo);
-
-        // --- Detect brand-new clusters since initialisation ---
-        let brandNewCount = 0;
-        for (const f of clusterFeatures) {
-          if (!seenClusterIds.has(f.id)) {
-            if (hasInitializedClusters) {
-              brandNewCount++;
-            }
-            seenClusterIds.add(f.id);
-          }
-        }
-
-        // --- Existing high-confidence transition logic ---
-        const newly = [];
-        for(const f of clusterFeatures){
-          const id = f.id;
-          const newEff = Number(f.properties.effectiveConfidence||0);
-          const oldEff = prevEffByClusterId.get(id);
-
-          const becameHigh = (newEff >= HIGH_CONF_MIN) && (oldEff === undefined || oldEff < HIGH_CONF_MIN);
-          const becameHigherHigh = SHOW_BANNER_ON_INCREASE && (newEff >= HIGH_CONF_MIN) && (oldEff !== undefined) && (newEff > oldEff);
-
-          prevEffByClusterId.set(id, newEff);
-          if (becameHigh || becameHigherHigh) newly.push(f);
-        }
-
-        // --- Play max one sound per cycle, respecting 15-min global cooldown ---
-        if ((brandNewCount > 0 || newly.length > 0) && canPlayAlertSound()) {
-          playAlertSound();
-        }
-
-        // Continue banner flow for high-confidence items
-        if(newly.length){
-          newly.sort((a,b)=>{
-            const dc = (Number(b.properties.effectiveConfidence||0)) - (Number(a.properties.effectiveConfidence||0));
-            if(dc!==0) return dc;
-            return (Number(b.properties.time||0)) - (Number(a.properties.time||0));
-          });
-          newly.forEach(enqueueBanner);
-        }
-
-        // After first successful cycle, start treating unseen clusters as "new"
-        hasInitializedClusters = true;
-
-        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
-        markHealthOK_Waze();
-        scheduleNext(REFRESH_MS);
-      }catch(e){
-        console.error('Waze fetch failed:', e);
-        markHealthStale_Waze(e?.message || 'request error');
-        clearAccidentsIfTooStale();
-        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
-        scheduleNext(Math.min(REFRESH_MS * 2, 180000));
-      }finally{
-        PROXIES.length = 0; PROXIES.push(...origOrder);
-        inFlight = null;
-        startGlobalRepaint();
-      }
-    }
-
-    function scheduleNext(ms){
-      clearTimeout(fetchTimer);
-      fetchTimer = setTimeout(runCycle, ms);
-    }
-
-    // ===== National Highways RSS parser → GeoJSON =====
-    function tryNumber(v){
-      const n = Number(v);
-      return Number.isFinite(n) ? n : null;
-    }
-
-    function parseHeRss(xmlString){
-      let doc;
-      try{
-        doc = new DOMParser().parseFromString(xmlString, 'text/xml');
-      }catch(e){
-        return { type:'FeatureCollection', features:[] };
-      }
-      const items = Array.from(doc.querySelectorAll('item'));
-      const feats = [];
-
-      for(const item of items){
-        let lat = null, lon = null;
-
-        // georss:point -> "lat lon"
-        const geoPoint = item.querySelector('ge\\:point, georss\\:point, point');
-        if(geoPoint && geoPoint.textContent){
-          const parts = geoPoint.textContent.trim().split(/[ ,]+/);
-          if(parts.length >= 2){
-            lat = tryNumber(parts[0]); lon = tryNumber(parts[1]);
-          }
-        }
-
-        // geo:lat + geo:long
-        if(lat === null || lon === null){
-          const latEl = item.querySelector('geo\\:lat, lat');
-          const lonEl = item.querySelector('geo\\:long, lon, long');
-          if(latEl && lonEl){
-            lat = tryNumber(latEl.textContent);
-            lon = tryNumber(lonEl.textContent);
-          }
-        }
-
-        // Fallback: parse from link query (?lat=&lon=) or lonlat=lon,lat
-        if((lat === null || lon === null) && item.querySelector('link')){
-          try{
-            const href = item.querySelector('link')?.textContent?.trim() || '';
-            const u = new URL(href, location.href);
-            const qLat = tryNumber(u.searchParams.get('lat'));
-            const qLon = tryNumber(u.searchParams.get('lon') || u.searchParams.get('lng') || u.searchParams.get('long'));
-            if(qLat != null && qLon != null){
-              lat = qLat; lon = qLon;
-            }else{
-              const lonlat = u.searchParams.get('lonlat') || u.searchParams.get('ll');
-              if(lonlat){
-                const parts = lonlat.split(/[ ,]+/);
-                if(parts.length >= 2){
-                  const qLon2 = tryNumber(parts[0]); const qLat2 = tryNumber(parts[1]);
-                  if(qLat2 != null && qLon2 != null){ lat = qLat2; lon = qLon2; }
-                }
-              }
-            }
-          }catch(e){}
-        }
-
-        if(lat == null || lon == null) continue;
-
-        const title   = item.querySelector('title')?.textContent?.trim() || 'Unplanned event';
-        const guid    = item.querySelector('guid')?.textContent?.trim() || `${lon},${lat},${title}`;
-        const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
-
-        feats.push({
-          type: 'Feature',
-          id: `he-${guid}`,
-          geometry: { type:'Point', coordinates:[lon, lat] },
-          properties: { id:`he-${guid}`, title, pubDate }
-        });
-      }
-
-      return { type:'FeatureCollection', features:feats };
-    }
-
-    // ===== Highways feed health tracking =====
-    let lastOkHe = 0;
-    function markHealthOK_He(){
-      lastOkHe = Date.now();
-      if(healthHeEl){
-        healthHeEl.classList.remove('stale');
-        healthHeEl.classList.add('ok');
-        healthHeEl.textContent = `Highways: ${new Date(lastOkHe).toLocaleTimeString('en-GB',{hour12:false})}`;
-      }
-    }
-    function markHealthStale_He(errMsg){
-      const staleSecs = Math.round((Date.now() - (lastOkHe||Date.now()))/1000);
-      if(healthHeEl){
-        healthHeEl.classList.remove('ok');
-        healthHeEl.classList.add('stale');
-        healthHeEl.textContent = `Highways stale (${staleSecs}s)`;
-      }
-    }
-
-    // ===== National Highways update loop (no banner/zoom/animation) =====
-    let heTimer = null;
-    let heInFlight = null;
-
-    async function runHeCycle(){
-      if(heInFlight){ try{ heInFlight.abort(); }catch(e){} heInFlight = null; }
-
-      const controller = new AbortController();
-      heInFlight = controller;
-
-      try{
-        const xml = await fetchTextViaProxies(HE_URL, controller.signal);
-        const fc  = parseHeRss(xml);
-
-        const src = map.getSource('he-unplanned');
-        if(src) src.setData(fc);
-
-        markHealthOK_He();
-        scheduleHeNext(REFRESH_MS);
-      }catch(e){
-        console.error('Highways fetch failed:', e);
-        markHealthStale_He(e?.message || 'request error');
-        scheduleHeNext(Math.min(REFRESH_MS * 2, 180000));
-      }finally{
-        heInFlight = null;
-      }
-    }
-
-    function scheduleHeNext(ms){
-      clearTimeout(heTimer);
-      heTimer = setTimeout(runHeCycle, ms);
-    }
-
-    // ===== Map setup =====
-    map.on('load', async () => {
-      // Fit to GM bounds on load (minimal padding)
-      map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
-
-      // Images for pulsing (high = >=4)
-      map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
-      map.addImage('pulsing-white', createPulsingDot(map,'white'), { pixelRatio: 2 });
-
-      // Accident source
-      map.addSource('accidents', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
-
-      // = 1 : small YELLOW circle
-      map.addLayer({
-        id:'accidents-one',
-        type:'circle',
-        source:'accidents',
-        filter: ['==', ['get','effectiveConfidence'], 1],
-        paint:{
-          'circle-radius':['interpolate',['linear'],['zoom'], 8,3.0, 12,4.0, 16,5.5],
-          'circle-color': varColor('--yellow', '#ffd000'),
-          'circle-stroke-color': '#fff1a6',
-          'circle-stroke-width': 1.0
-        }
-      });
-
-      // = 2 : medium YELLOW circle
-      map.addLayer({
-        id:'accidents-two',
-        type:'circle',
-        source:'accidents',
-        filter: ['==', ['get','effectiveConfidence'], 2],
-        paint:{
-          'circle-radius':['interpolate',['linear'],['zoom'], 8,4.4, 12,6.0, 16,7.4],
-          'circle-color': varColor('--yellow', '#ffd000'),
-          'circle-stroke-color': '#fff1a6',
-          'circle-stroke-width': 1.2
-        }
-      });
-
-      // = 3 : larger RED circle (non-pulsing)
-      map.addLayer({
-        id:'accidents-three',
-        type:'circle',
-        source:'accidents',
-        filter: ['==', ['get','effectiveConfidence'], 3],
-        paint:{
-          'circle-radius':['interpolate',['linear'],['zoom'], 8,6.2, 12,8.2, 16,10.2],
-          'circle-color': varColor('--red', '#ff0000'),
-          'circle-stroke-color': '#ffd0d0',
-          'circle-stroke-width': 1.6
-        }
-      });
-
-      // ≥ 4 : pulsing RED symbols (high confidence)
-      map.addLayer({
-        id:'accidents-high',
-        type:'symbol',
-        source:'accidents',
-        filter: ['>=', ['get','effectiveConfidence'], HIGH_CONF_MIN],
-        layout:{
-          'icon-image':'pulsing-red',
-          'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95],
-          'icon-allow-overlap':true
-        }
-      });
-
-      // Highlighted (bar’s referenced cluster) as pulsing WHITE
-      map.addLayer({
-        id:'accident-highlighted',
-        type:'symbol',
-        source:'accidents',
-        filter: ["==", ["get","id"], "___none___"],
-        layout:{
-          'icon-image':'pulsing-white',
-          'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95],
-          'icon-allow-overlap':true
-        }
-      });
-
-      // ===== Your OCC highlight dots =====
-      map.addSource('occ-highlights', {
-        type: 'geojson',
-        data: buildHighlightsFC(HIGHLIGHT_POINTS)
-      });
-
-      map.addLayer({
-        id: 'occ-highlights-dots',
-        type: 'circle',
-        source: 'occ-highlights',
-        paint: {
-          'circle-radius': ['interpolate', ['linear'], ['zoom'], 8, 3.2, 12, 4.2, 16, 5.8],
-          'circle-color': '#28c76f',
-          'circle-stroke-color': '#ffffff',
-          'circle-stroke-width': 1.2,
-          'circle-blur': 0.03
-        }
-      });
-
-      // --- National Highways (North West) blue dots (static) ---
-      map.addSource('he-unplanned', {
-        type: 'geojson',
-        data: { type:'FeatureCollection', features:[] }
-      });
-
-      map.addLayer({
-        id: 'he-unplanned-dots',
-        type: 'circle',
-        source: 'he-unplanned',
-        paint: {
-          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 3.4, 12, 5.2, 16, 7.0],
-          'circle-color': '#3a90ff',          // solid blue
-          'circle-stroke-color': '#ffffff',   // white edge for contrast on dark
-          'circle-stroke-width': 1.2,
-          'circle-blur': 0.03
-        }
-      });
-
-      // Controlled update cycle (Waze)
-      await runCycle();
-      scheduleNext(REFRESH_MS);
-
-      // Initial RSS fetch + schedule (Highways)
-      await runHeCycle();
-      scheduleHeNext(REFRESH_MS);
-
-      // Start global repaint ticker once the style and layers exist
-      startGlobalRepaint();
+    })
+    /* Sort: most recently started first */
+    .sort((a,b)=> b.startMs - a.startMs);
+
+    /* Page building: fixed 6 per page for 3×2 grid */
+    pager.pageSize = 6;
+    pager.pages = chunk(items, pager.pageSize);
+    pager.pageIndex = 0;
+    pager.total = items.length;
+
+    requestAnimationFrame(()=>{
+      setFixedGridSizing();
+      renderPage();
+      startPager();
+      setStatusPill(true);
     });
+  }catch(e){
+    console.error(e);
+    setStatusPill(false);
+  }
+}
 
-    // Keep ticker alive after map activity
-    map.on('idle', startGlobalRepaint);
-    map.on('moveend', startGlobalRepaint);
-    map.on('zoomend', startGlobalRepaint);
+/* Utility: chunk array */
+function chunk(arr,size){
+  const out=[];
+  for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size));
+  return out.length?out:[[]];
+}
 
-    // Maintain layout when window resizes
-    window.addEventListener('resize', () => { map.resize(); startGlobalRepaint(); });
+/* Start */
+fetchAll();
+setInterval(fetchAll, 60000);
 
-    // ===== Utility: read CSS variable (fallback to provided colour) =====
-    function varColor(varName, fallback){
-      try{
-        const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-        return val || fallback;
-      }catch(e){
-        return fallback;
-      }
-    }
+/* Reflow on resize and after fonts ready */
+window.addEventListener("resize", ()=>{
+  requestAnimationFrame(()=>{
+    setFixedGridSizing();
+    const flat = (pager.pages || []).flat();
+    pager.pageSize = 6;
+    pager.pages = chunk(flat, pager.pageSize);
+    pager.pageIndex = 0;
+    renderPage();
+    startPager();
+  });
+});
 
-    // // (Optional) Press 'S' to test the chime once, ignoring cooldown during that single press
-    // window.addEventListener('keydown', (e) => {
-    //   if (e.key.toLowerCase() === 's') {
-    //     if (audioCtx && audioEnabled) {
-    //       const saved = lastSoundAt;
-    //       lastSoundAt = 0;
-    //       playAlertSound();
-    //       lastSoundAt = saved;
-    //     }
-    //   }
-    // });
-  </script>
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
+}
+window.addEventListener("load", ()=> requestAnimationFrame(setFixedGridSizing) );
+</script>
 </body>
 </html>
-
