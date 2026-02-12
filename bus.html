@@ -1,0 +1,303 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bee Network — Live Bus Disruptions (BODS SIRI‑SX)</title>
+<meta http-equiv="Cache-Control" content="no-store" />
+<style>
+  :root{
+    --bg:#0b0b0e; --card:#14141a; --text:#e9e9ef; --muted:#a7a7b3; --accent:#ffd100;
+    --good:#19c37d; --warn:#ffb020; --bad:#ff4d4f; --chip:#1d1d26;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0; background:var(--bg); color:var(--text); font-family:system-ui, Segoe UI, Roboto, Arial, sans-serif}
+  header{display:flex; justify-content:space-between; align-items:baseline; padding:18px 24px; border-bottom:1px solid #22232b;
+         background:linear-gradient(180deg,var(--bg),rgba(11,11,14,.85) 80%, transparent)}
+  h1{margin:0; font-size:28px; font-weight:700} .accent{color:var(--accent)}
+  .meta{display:flex; gap:18px; color:var(--muted); font-size:14px}
+  main{padding:16px 24px 24px}
+  #statusBar{display:flex; gap:16px; flex-wrap:wrap; margin:8px 0 18px}
+  .tag{display:inline-flex; align-items:center; gap:6px; background:var(--chip); border:1px solid #262733; color:var(--muted);
+       padding:4px 10px; border-radius:999px; font-size:12px; text-transform:uppercase}
+  #grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:16px}
+  .card{background:var(--card); border:1px solid #22232b; border-radius:14px; padding:14px 16px; display:flex; flex-direction:column; gap:10px}
+  .title{font-size:18px; font-weight:650}
+  .row{display:flex; gap:8px; flex-wrap:wrap; color:var(--muted); font-size:14px}
+  .pill{display:inline-flex; align-items:center; gap:8px; padding:4px 10px; border-radius:999px; background:#1e1f29; border:1px solid #2a2b37; color:#d6d6de; font-size:12px}
+  .sev-low{background:rgba(25,195,125,.12); color:#bff3de; border-color:rgba(25,195,125,.35)}
+  .sev-medium{background:rgba(255,176,32,.12); color:#ffe1b3; border-color:rgba(255,176,32,.35)}
+  .sev-high{background:rgba(255,77,79,.12); color:#ffd0d0; border-color:rgba(255,77,79,.35)}
+  .lines{display:flex; gap:6px; flex-wrap:wrap}
+  .line{background:#292a35; color:#fff; padding:3px 8px; border-radius:6px; font-weight:600; font-variant-numeric:tabular-nums}
+  .muted{color:var(--muted)}
+  .footerRow{display:flex; justify-content:space-between; gap:12px; margin-top:4px}
+  .nowrap{white-space:nowrap}
+  .faint{opacity:.7}
+
+  /* Auto-scroll long lists */
+  body.autoscroll main{height:calc(100vh - 74px); overflow:hidden; position:relative}
+  body.autoscroll #grid{position:absolute; inset:0; overflow:hidden}
+  @keyframes scrollY { 0%{transform:translateY(0)} 100%{ transform:translateY(var(--scroll-end,-50%))}}
+  .scrollContainer{will-change:transform; animation:scrollY var(--scroll-duration,45s) linear infinite}
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="accent">Bee Network</span> — Live Bus Disruptions</h1>
+  <div class="meta">
+    <span id="clock">--:--</span>
+    <span id="lastOk" class="faint">Last update: —</span>
+  </div>
+</header>
+
+<main>
+  <div id="statusBar">
+    <span class="tag" id="totalTag">Total: 0</span>
+    <span class="tag">Bee Network only</span>
+    <span class="tag" id="refreshTag">Refresh: 60s</span>
+    <span class="tag" id="statusMsg">Starting…</span>
+  </div>
+  <div id="grid"></div>
+</main>
+
+<script>
+/** ===== Configuration ===== **/
+const API_KEY = '17889546a31fddeef67fca78252fb66951aedf1a';   // your BODS API key
+const BODS_URL = 'https://data.bus-data.dft.gov.uk/api/v1/siri-sx';
+const REQUEST_URL = new URL(BODS_URL);
+REQUEST_URL.searchParams.set('format', 'json');               // ask for JSON
+REQUEST_URL.searchParams.set('api_key', API_KEY);             // include API key (query form)
+const REFRESH_SECONDS = 60;
+const AUTOSCROLL = true;
+
+const BEE_MATCHERS = ['bee network','bee network -','bee network–','bee network —'];
+const SEV_PRIORITY = { 'noimpact':0,'verylow':1,'low':2,'normal':3,'medium':4,'high':5,'veryhigh':6,'unknown':3 };
+
+const el = sel => document.querySelector(sel);
+function fmtTime(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(d); }
+function fmtDateTime(d){ return new Intl.DateTimeFormat(undefined,{weekday:'short',hour:'2-digit',minute:'2-digit'}).format(d); }
+function parseISO(s){ try { return s ? new Date(s) : null; } catch { return null; } }
+function escapeHtml(s){ return String(s ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+function textContains(h, needles){ if(!h) return false; const x = String(h).toLowerCase(); return needles.some(n => x.includes(n)); }
+
+/** ===== JSON/XML dual parsing (fallback if API responds with XML) ===== **/
+function parseUpstreamBody(text){
+  const t = (text||'').trim();
+  if(t.startsWith('{') || t.startsWith('[')){
+    try { return { type:'json', data: JSON.parse(t) }; } catch { /* fall through */ }
+  }
+  const dom = new DOMParser().parseFromString(t,'application/xml');
+  const err = dom.querySelector('parsererror');
+  if(err) throw new Error('XML parse error');
+  return { type:'xml', data: dom };
+}
+
+/** ===== Extractors ===== **/
+function extractSituationsFromJSON(json){
+  const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+  if(!sd) return [];
+  const sed = Array.isArray(sd.SituationExchangeDelivery) ? sd.SituationExchangeDelivery
+            : [sd.SituationExchangeDelivery].filter(Boolean);
+  const all=[]; for(const d of sed){
+    const pe = d?.Situations?.PtSituationElement;
+    if(Array.isArray(pe)) all.push(...pe);
+    else if(pe) all.push(pe);
+  }
+  return all;
+}
+function extractSituationsFromXML(doc){
+  const elems = doc.querySelectorAll('PtSituationElement');
+  return Array.from(elems).map(el=>{
+    const T = s => el.querySelector(s)?.textContent?.trim() || null;
+    const ops = Array.from(el.querySelectorAll('AffectedVehicleJourney > OperatorName, OperatorName'))
+                      .map(n=>n.textContent.trim()).filter(Boolean);
+    const lines = Array.from(el.querySelectorAll('AffectedVehicleJourney > LineRef, PublishedLineName, LineName'))
+                      .map(n=>n.textContent.trim()).filter(Boolean);
+    const places = Array.from(el.querySelectorAll('AffectedStopPoint > StopPointName, AffectedStopPoint > PlaceName'))
+                      .map(n=>n.textContent.trim()).filter(Boolean);
+    return {
+      Summary: T('Summary') || T('Description') || 'Disruption',
+      Description: T('Description'),
+      Severity: T('Severity') || T('Priority') || 'unknown',
+      ValidityPeriod: {
+        StartTime: T('ValidityPeriod > StartTime') || T('StartTime'),
+        EndTime:   T('ValidityPeriod > EndTime')   || T('EndTime'),
+      },
+      CreationTime: T('CreationTime') || T('VersionedAtTime') || T('RecordedAtTime'),
+      Affects: {
+        VehicleJourneys: { AffectedVehicleJourney: (ops.length||lines.length) ? [{ OperatorName: ops[0], LineRef: lines[0] }] : [] },
+        StopPoints: { AffectedStopPoint: places.map(p=>({ StopPointName: p })) }
+      },
+      __operators: ops, __lines: lines, __places: places
+    };
+  });
+}
+const _getOps = sit => {
+  const ops = new Set();
+  const names=[].concat(sit?.OperatorName||[]).concat(sit?.Operators||[]).concat(sit?.Affects?.Operators||[]);
+  for(const n of names){
+    if(!n) continue;
+    if(Array.isArray(n)) n.forEach(v=>v && ops.add(String(v).trim()));
+    else if(typeof n==='object'){
+      const v = n.OperatorName || n.Name || n.value || n.text; if(v) ops.add(String(v).trim());
+    } else ops.add(String(n).trim());
+  }
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
+  const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
+  for(const j of journeys){ const on = j?.OperatorName || j?.OperatorRef; if(on) ops.add(String(on).trim()); }
+  const arr = [...ops]; return arr.length ? arr : (sit.__operators || []);
+};
+const _getLines = sit => {
+  const lines = new Set();
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
+  const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
+  for(const j of journeys){
+    const l = j?.LineRef || j?.PublishedLineName || j?.RouteName || j?.LineName;
+    if(Array.isArray(l)) l.forEach(x=>x&&lines.add(String(x))); else if(l) lines.add(String(l));
+  }
+  const arr = [...lines]; return arr.length ? arr : (sit.__lines || []);
+};
+const _getPlaces = sit => {
+  const places = new Set();
+  const aps = sit?.Affects?.StopPoints?.AffectedStopPoint || [];
+  const stops = Array.isArray(aps) ? aps : [aps].filter(Boolean);
+  for(const s of stops){ const n = s?.StopPointName || s?.PlaceName || s?.StopName; if(n) places.add(String(n)); }
+  const arr = [...places]; return arr.length ? arr : (sit.__places || []);
+};
+
+/** ===== Rendering ===== **/
+function severityClass(sit){
+  const s = String(sit?.Severity || sit?.Priority || 'unknown').toLowerCase().replace(/\s+/g,'');
+  const rank = SEV_PRIORITY[s] ?? 3;
+  if(rank>=5) return 'sev-high'; if(rank>=3) return 'sev-medium'; return 'sev-low';
+}
+function pickTitle(sit){ return (sit?.Summary || sit?.Description || sit?.ParticipantRef || sit?.SituationNumber || 'Disruption').toString(); }
+function validityText(sit){
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  if(s && e) return `${fmtDateTime(s)} → ${fmtDateTime(e)}`;
+  if(s)      return `From ${fmtDateTime(s)}`;
+  if(e)      return `Until ${fmtDateTime(e)}`;
+  return 'Timing not available';
+}
+function renderSituations(items){
+  const grid = el('#grid');
+  const container = document.createElement('div');
+  container.className = AUTOSCROLL ? 'scrollContainer' : '';
+  container.innerHTML = items.map(it=>{
+    const sevCls = severityClass(it.sit);
+    const ops = it.operators.length ? it.operators.join(', ') : 'Bee Network';
+    const linesHtml = it.lines.map(l=>`<span class="line">${escapeHtml(l)}</span>`).join('');
+    const places = it.places.slice(0,6).join(' • ');
+    return `
+      <div class="card">
+        <div class="row">
+          <span class="pill ${sevCls}">${escapeHtml(it.severity || 'Severity unknown')}</span>
+          <span class="pill">Operator: ${escapeHtml(ops)}</span>
+        </div>
+        <div class="title">${escapeHtml(it.title)}</div>
+        <div class="row"><div class="lines">${linesHtml || '<span class="muted">No specific lines listed</span>'}</div></div>
+        <div class="row">${places ? `Areas: ${escapeHtml(places)}` : '<span class="muted">No specific locations given</span>'}</div>
+        <div class="footerRow">
+          <div class="muted nowrap">Validity: ${escapeHtml(it.validity)}</div>
+          <div class="muted nowrap">Updated: ${it.updated ? fmtDateTime(it.updated) : '—'}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  grid.replaceChildren(container);
+
+  if(AUTOSCROLL){
+    document.body.classList.remove('autoscroll');
+    const vh = window.innerHeight - 74, ch = container.getBoundingClientRect().height;
+    if(ch > vh){
+      document.body.classList.add('autoscroll');
+      container.style.setProperty('--scroll-end', `${-(ch - vh)}px`);
+      container.style.setProperty('--scroll-duration', `45s`);
+    }
+  }
+}
+
+/** ===== Fetch loop (no proxy) ===== **/
+async function fetchAndRender(){
+  const status = el('#statusMsg');
+  try{
+    status.textContent = 'Fetching…';
+
+    // Ask for JSON explicitly; include the key in query (widest compatibility).
+    const res = await fetch(REQUEST_URL.toString(), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json, application/xml;q=0.8, text/xml;q=0.7'
+      },
+      cache: 'no-store',
+    });
+
+    if(!res.ok){
+      throw new Error(`Upstream HTTP ${res.status}`);
+    }
+
+    // Try JSON first, then XML text if JSON fails
+    let parsed;
+    const clone = res.clone();
+    try{
+      const j = await res.json();
+      parsed = { type:'json', data:j };
+    }catch{
+      const txt = await clone.text();
+      parsed = parseUpstreamBody(txt); // will parse XML if needed
+    }
+
+    const situations = (parsed.type === 'json')
+      ? extractSituationsFromJSON(parsed.data)
+      : extractSituationsFromXML(parsed.data);
+
+    // Bee Network filter
+    const filtered = situations.filter(sit=>{
+      const ops = _getOps(sit);
+      return ops.length
+        ? ops.some(o => textContains(o, BEE_MATCHERS))
+        : textContains(sit?.Summary || sit?.Description || '', BEE_MATCHERS);
+    });
+
+    // Map for UI
+    const items = filtered.map(sit=>{
+      const operators = _getOps(sit).filter(Boolean);
+      const lines = _getLines(sit);
+      const places = _getPlaces(sit);
+      const title = pickTitle(sit);
+      const updated = parseISO(sit?.CreationTime || sit?.VersionedAtTime || sit?.RecordedAtTime || sit?.PublicationWindow?.StartTime);
+      const severity = String(sit?.Severity || sit?.Priority || 'Unknown').replace(/(^.|\s.)./g, m=>m.toUpperCase());
+      return { sit, title, operators, lines, places, updated, severity, validity: validityText(sit) };
+    }).sort((a,b)=>{
+      const ap = SEV_PRIORITY[(a.sit?.Severity||'unknown')?.toLowerCase().replace(/\s+/g,'')] ?? 3;
+      const bp = SEV_PRIORITY[(b.sit?.Severity||'unknown')?.toLowerCase().replace(/\s+/g,'')] ?? 3;
+      if(bp!==ap) return bp-ap;
+      return (b.updated?.getTime?.()||0)-(a.updated?.getTime?.()||0);
+    });
+
+    renderSituations(items);
+    el('#totalTag').textContent = `Total: ${items.length}`;
+    status.textContent = items.length ? 'Live' : 'No active disruptions';
+    el('#lastOk').textContent = `Last update: ${fmtTime(new Date())}`;
+  }catch(err){
+    console.error(err);
+    el('#statusMsg').textContent = `Error: ${err.message}`;
+  }
+}
+
+function tickClock(){ el('#clock').textContent = fmtTime(new Date()); }
+function start(){
+  el('#refreshTag').textContent = `Refresh: ${REFRESH_SECONDS}s`;
+  setInterval(tickClock, 1000);
+  fetchAndRender();
+  setInterval(fetchAndRender, REFRESH_SECONDS*1000);
+}
+window.addEventListener('load', start);
+window.addEventListener('resize', ()=> fetchAndRender());
+</script>
+</body>
+</html>
