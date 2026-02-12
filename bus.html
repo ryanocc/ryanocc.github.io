@@ -32,6 +32,9 @@
     --gridGap:20px;
     --cardRadius:24px;
     --cardHeight: 420px; /* JS will override to fit exactly 2 rows */
+
+    /* Summary metrics */
+    --summary-line-height: 1.35; /* keep in sync with .summary line-height */
   }
 
   *{ box-sizing:border-box; }
@@ -87,7 +90,8 @@
     grid-template-columns:repeat(3, 1fr);  /* 3 wide */
     gap:var(--gridGap);
     flex:1;
-    overflow:hidden; /* keep grid non-scroll */
+    height:100%;           /* ensure clientHeight is reliable */
+    overflow:hidden;       /* keep grid non-scroll */
   }
 
   /* ----------- CARD ----------- */
@@ -160,16 +164,23 @@
     box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
   }
 
-  /* Body */
+  /* Body: EXACTLY TWO LINES (spacer if short, truncate if long) */
   .summary{
     font-size:clamp(28px, 3vw, 34px);
-    line-height:1.35;
+    line-height: var(--summary-line-height);
     color:var(--text);
     opacity:0.95;
+
+    /* Two-line block */
     display:-webkit-box;
-    -webkit-line-clamp:3;     /* ensure consistent height */
     -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;    /* truncate after 2 lines */
     overflow:hidden;
+
+    /* Reserve exactly two line-heights of space */
+    min-height: calc(2 * var(--summary-line-height) * 1em);
+    max-height: calc(2 * var(--summary-line-height) * 1em);
+
     margin:2px 2px 16px 2px;
   }
 
@@ -205,7 +216,7 @@
     .pulse-new{ animation:none; }
   }
 
-  /* Optional subtle operator tints (backgrounds keep uniform size) */
+  /* Optional subtle operator tints */
   .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
   .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
   .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
@@ -292,7 +303,8 @@ function validityTimeLabel(sit){
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
   function formatPart(d, isStart){
-    if(!d) return isStart ? null : "UFN";
+    // If no time:
+    if(!d) return isStart ? null : "🛑 UFN";
 
     const sameDay = d.toDateString() === now.toDateString();
 
@@ -344,6 +356,7 @@ function validityTimeLabel(sit){
     return `${startTxt}\n${endTxt}`;
   }
   if(startTxt && !endTxt){
+    // No end time → explicit UFN with stop sign
     return `${startTxt}\n🛑 UFN`;
   }
   if(!startTxt && endTxt){
@@ -475,15 +488,25 @@ const pager={pages:[],pageIndex:0,pageSize:6,total:0,timer:null}; // always 6 (3
 
 /* Fit exactly 2 rows vertically by setting --cardHeight */
 function setFixedGridSizing(){
-  const topbar = document.querySelector(".topbar");
   const main = document.querySelector("main");
   const grid = document.getElementById("grid");
-  const gap = parseInt(getComputedStyle(grid).gap) || 20;
+  const gridStyles = getComputedStyle(grid);
+  const gap = parseInt(gridStyles.gap) || 20;
 
-  // Available height for grid content inside <main>
-  const avail = main.getBoundingClientRect().height - (grid.offsetTop - main.getBoundingClientRect().top);
+  // Prefer the actual grid content height (accounts for margins/padding/flex)
+  let gridAvail = grid.clientHeight;
+
+  // If layout not settled yet (clientHeight=0), fallback to a robust calc
+  if(!gridAvail){
+    const mainRect = main.getBoundingClientRect();
+    const gridRect = grid.getBoundingClientRect();
+    const mainStyles = getComputedStyle(main);
+    const pb = parseInt(mainStyles.paddingBottom) || 0;
+    gridAvail = Math.max(0, Math.floor(mainRect.bottom - gridRect.top - pb));
+  }
+
   // Two rows => subtract one gap between them
-  const cardH = Math.floor((avail - gap) / 2);
+  const cardH = Math.max(200, Math.floor((gridAvail - gap) / 2));
   document.documentElement.style.setProperty("--cardHeight", cardH + "px");
 }
 
@@ -530,10 +553,10 @@ function renderPage(){
 
     header.append(r, opTag);
 
-    // Summary
+    // Summary (exactly 2 lines reserved)
     const s = document.createElement("div");
     s.className = "summary";
-    s.textContent = it.summary;
+    s.textContent = it.summary || "";
 
     // Validity
     const v = document.createElement("div");
@@ -624,10 +647,13 @@ async function fetchAll(){
     pager.pageIndex = 0;
     pager.total = items.length;
 
-    setFixedGridSizing();  // ensure two rows fit exactly
-    renderPage();
-    startPager();
-    setStatusPill(true);
+    // Size cards so two rows fit perfectly, then render
+    requestAnimationFrame(()=>{
+      setFixedGridSizing();
+      renderPage();
+      startPager();
+      setStatusPill(true);
+    });
   }catch(e){
     console.error(e);
     setStatusPill(false);
@@ -647,17 +673,19 @@ setInterval(fetchAll, 60000);
 
 window.addEventListener("resize", ()=>{
   // Maintain fixed 3×2 layout sizing on any resize
-  setFixedGridSizing();
-  const flat = (pager.pages || []).flat();
-  pager.pageSize = 6;
-  pager.pages = chunk(flat, pager.pageSize);
-  pager.pageIndex = 0;
-  renderPage();
-  startPager();
+  requestAnimationFrame(()=>{
+    setFixedGridSizing();
+    const flat = (pager.pages || []).flat();
+    pager.pageSize = 6;
+    pager.pages = chunk(flat, pager.pageSize);
+    pager.pageIndex = 0;
+    renderPage();
+    startPager();
+  });
 });
 
 // Initial sizing once DOM is ready
-window.addEventListener("load", setFixedGridSizing);
+window.addEventListener("load", ()=> requestAnimationFrame(setFixedGridSizing) );
 </script>
 </body>
 </html>
