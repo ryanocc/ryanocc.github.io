@@ -181,6 +181,21 @@
 
     .feed-health.ok    { border-color: rgba(40,199,111,0.6); }
     .feed-health.stale { border-color: rgba(255,46,52,0.6); }
+
+    /* ===== Progress bar styling ===== */
+    #alert-progress-wrap {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 6px;
+      background: rgba(255,255,255,0.2);
+      overflow: hidden;
+    }
+    #alert-progress {
+      transform-origin: left center;
+      width: 100%; height: 100%;
+      background: #fff;
+      transform: scaleX(0);
+    }
   </style>
 </head>
 <body>
@@ -294,7 +309,7 @@
     const FOCUS_BEARING = 0;
     const FOCUS_MS      = 1200;
 
-    // ===== MAP (MapTiler style) =====
+    // ===== MAP (TomTom dark style) =====
     const map = new maplibregl.Map({
       container: 'map',
       style: 'https://api.tomtom.com/style/2/custom/style/dG9tdG9tQEBAaGFqWkVicnlCWER2bUhJaTsYyZt3W8VKY4lO983E0Ln7.json?key=0xMuCVT7V4oiP7NscvquS3oVpvQ7sPtP',
@@ -312,13 +327,12 @@
     }
 
     // ===== Shared proxy chain =====
-const PROXIES = [
-  (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
-  // (optional) public fallbacks:
-  (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-  (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
-];
-
+    const PROXIES = [
+      (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
+      // (optional) public fallbacks:
+      (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+    ];
 
     // ===== Waze fetch via proxy chain with JSON guard =====
     async function fetchViaProxies(url, signal){
@@ -642,23 +656,19 @@ const PROXIES = [
           essential: true
         });
         setTimeout(runSvgScan, 120);
-
-
-} else {
-  // Smooth transition delay (e.g., 450 ms)
-  setTimeout(() => {
-    map.easeTo({
-      center: [-2.3214, 53.4306],
-      zoom: 11.15,
-      bearing: 0,
-      pitch: 58,
-      duration: 1400, // slightly longer for smoothness
-      essential: true
-    });
-  }, 450);
-}
-
-
+      } else {
+        // Smooth transition delay (e.g., 450 ms)
+        setTimeout(() => {
+          map.easeTo({
+            center: [-2.3214, 53.4306],
+            zoom: 11.15,
+            bearing: 0,
+            pitch: 58,
+            duration: 1400, // slightly longer for smoothness
+            essential: true
+          });
+        }, 450);
+      }
     }
 
     function updateHighlightFilters(){
@@ -676,14 +686,53 @@ const PROXIES = [
       }
     }
 
+    // ===== Visibility-aware alert pausing / resuming =====
+    let alertsPaused = document.hidden;   // start paused if the tab loads hidden
+    let currentBanner = null;
+
+    function pauseAlerts() {
+      if (alertsPaused) return;
+      alertsPaused = true;
+
+      // If a banner is mid-flight, requeue it to replay fully on resume
+      if (bannerActive) {
+        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+        setBarVisible(false);
+
+        if (currentBanner) {
+          queue.unshift(currentBanner);
+          currentBanner = null;
+        }
+
+        bannerActive = false;
+        highlightedId = null;
+        highlightedCenter = null;
+        updateHighlightFilters();
+      }
+    }
+
+    function resumeAlerts() {
+      if (!alertsPaused) return;
+      alertsPaused = false;
+
+      if (!bannerActive) {
+        showNextBanner();
+      }
+    }
+
     function enqueueBanner(feature){
       const street = (feature.properties.street||'').trim() || 'Unknown road';
       const city   = (feature.properties.city||'').trim();
       const center = Array.isArray(feature.geometry?.coordinates) ? feature.geometry.coordinates : null;
       const firstMillis = Number(feature.properties.firstReportedMillis)||0;
 
-      queue.push({ id: feature.id, street, city, center, firstMillis });
-      if(!bannerActive) showNextBanner();
+      const item = { id: feature.id, street, city, center, firstMillis };
+      queue.push(item);
+
+      // Only start showing if not already active and not paused
+      if (!alertsPaused && !bannerActive) {
+        showNextBanner();
+      }
     }
 
     function escapeHTML(str){
@@ -731,10 +780,11 @@ const PROXIES = [
     }
 
     function showNextBanner(){
-      if(bannerActive) return;
+      if (bannerActive || alertsPaused) return;
       const item = queue.shift(); if(!item) return;
 
       bannerActive = true;
+      currentBanner = item;                // track the current banner
       highlightedId = item.id;
       highlightedCenter = item.center;
       updateHighlightFilters();
@@ -751,6 +801,8 @@ const PROXIES = [
         highlightedId = null;
         highlightedCenter = null;
         updateHighlightFilters();
+
+        currentBanner = null;
         bannerActive = false;
         showNextBanner();
       }, ALERT_BAR_MS);
@@ -811,6 +863,13 @@ const PROXIES = [
       }
     }
 
+    // ===== Hidden-tab fetch throttling =====
+    const HIDDEN_REFRESH_MULTIPLIER = 4;          // 4× slower when hidden
+    const HIDDEN_REFRESH_MAX_MS     = 180000;     // cap at 180s (3 minutes)
+    function effectiveDelay(ms){
+      return alertsPaused ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms;
+    }
+
     // ===== Waze update loop =====
     let fetchTimer = null;
     let inFlight = null;
@@ -861,11 +920,12 @@ const PROXIES = [
         }
 
         // --- Play max one sound per cycle, respecting 15-min global cooldown ---
-        if ((brandNewCount > 0 || newly.length > 0) && canPlayAlertSound()) {
+        // Only chime when visible and allowed
+        if ((brandNewCount > 0 || newly.length > 0) && !alertsPaused && canPlayAlertSound()) {
           playAlertSound();
         }
 
-        // Continue banner flow for high-confidence items
+        // Continue banner flow for high-confidence items (enqueue only; playback respects pause)
         if(newly.length){
           newly.sort((a,b)=>{
             const dc = (Number(b.properties.effectiveConfidence||0)) - (Number(a.properties.effectiveConfidence||0));
@@ -896,7 +956,7 @@ const PROXIES = [
 
     function scheduleNext(ms){
       clearTimeout(fetchTimer);
-      fetchTimer = setTimeout(runCycle, ms);
+      fetchTimer = setTimeout(runCycle, effectiveDelay(ms));
     }
 
     // ===== National Highways RSS parser → GeoJSON =====
@@ -1025,8 +1085,23 @@ const PROXIES = [
 
     function scheduleHeNext(ms){
       clearTimeout(heTimer);
-      heTimer = setTimeout(runHeCycle, ms);
+      heTimer = setTimeout(runHeCycle, effectiveDelay(ms));
     }
+
+    // ===== Page Visibility / Lifecycle bindings =====
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        pauseAlerts();
+      } else {
+        resumeAlerts();
+      }
+    });
+    window.addEventListener('pageshow',  () => { if (!document.hidden) resumeAlerts(); });
+    window.addEventListener('pagehide',  () => { pauseAlerts(); });
+
+    // Optional: consider window focus/blur if multiple windows overlap the wall
+    // window.addEventListener('focus',   () => { if (!document.hidden) resumeAlerts(); });
+    // window.addEventListener('blur',    () => { pauseAlerts(); });
 
     // ===== Map setup =====
     map.on('load', async () => {
@@ -1190,3 +1265,4 @@ const PROXIES = [
   </script>
 </body>
 </html>
+``
