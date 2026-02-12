@@ -9,9 +9,7 @@
   <!-- Font: Barlow Semi Condensed -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -28,6 +26,10 @@
       --neutral:#16161b;
       --neutralElev:#1b1b22;
       --accent:#ffd100;       /* TfGM yellow */
+
+      /* Overlay backgrounds */
+      --alert-add-bg: var(--accent); /* yellow */
+      --alert-remove-bg: #ff9a1f;    /* orange */
 
       /* Status pill colours */
       --liveGreen:#19c37d;
@@ -210,11 +212,10 @@
       flex-shrink:0;
     }
 
-    /* Body: EXACTLY TWO LINES (truncate or leave spacer) */
+    /* Body: EXACTLY TWO LINES */
     .summary{
       font-size:clamp(26px, 2.6vw, 32px);
       line-height: var(--summary-line-height);
-      color:#000; /* will sit on yellow in overlay; grid uses normal text color */
       color:var(--text);
       opacity:0.95;
 
@@ -253,11 +254,11 @@
     .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
     .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
 
-    /* ----------- FULLSCREEN "NEW DIVERT" OVERLAY ----------- */
+    /* ----------- FULLSCREEN ALERT OVERLAY ----------- */
     #divertOverlay{
       position:fixed;
       inset:0;
-      background:var(--accent); /* TfGM yellow */
+      background:var(--alert-add-bg); /* default yellow */
       color:#000;
       display:none;             /* toggled by .show */
       align-items:center;
@@ -269,6 +270,9 @@
       display:flex;
       animation: overlayFadeIn 220ms ease-out;
     }
+    #divertOverlay.ov-add{    background:var(--alert-add-bg); }
+    #divertOverlay.ov-remove{ background:var(--alert-remove-bg); }
+
     @keyframes overlayFadeIn{
       from{ opacity:0; }
       to{ opacity:1; }
@@ -326,10 +330,10 @@
     <div id="grid"></div>
   </main>
 
-  <!-- Fullscreen "New Divert" Overlay -->
-  <div id="divertOverlay" aria-hidden="true">
-    <div class="ov-card" role="dialog" aria-label="New diversion alert">
-      <div class="ov-kicker">NEW DIVERT</div>
+  <!-- Fullscreen Alert Overlay -->
+  <div id="divertOverlay" class="ov-add" aria-hidden="true">
+    <div class="ov-card" role="dialog" aria-label="Diversion alert">
+      <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
       <div id="ovRoute" class="ov-route">–</div>
       <div id="ovSummary" class="ov-summary">–</div>
       <div id="ovDetails" class="ov-details">–</div>
@@ -361,9 +365,10 @@
     let routeTickerTimers = [];
     let pagerTimer = null;
 
-    /* New diversion detection */
-    const seenSituationIds = new Set();
+    /* New/Removed diversion detection */
+    const seenSituationIds = new Set();  // retained for add detection guard (optional)
     let firstFetchDone = false;
+    let lastItemsIndex = new Map();       // id -> item from previous poll
 
     /* Overlay queue control */
     let overlayQueue = [];
@@ -406,7 +411,7 @@
       return list.map(ref => OP_MAP[ref] || ref);
     }
 
-    /* Stable-ish Situation ID for "new" detection */
+    /* Stable-ish Situation ID for "new"/"removed" detection */
     function getSituationId(sit){
       const a = sit?.SituationNumber || sit?.SituationRef;
       const b = sit?.ParticipantRef || "";
@@ -701,16 +706,27 @@
     }
 
     /* -------- Overlay helpers -------- */
-    function showNewDivertOverlay(item, options = {}){
+    function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
       const overlay = $("#divertOverlay");
+      const elKicker = $("#ovKicker");
       const elRoute = $("#ovRoute");
       const elSummary = $("#ovSummary");
       const elDetails = $("#ovDetails");
       const elTimes = $("#ovTimes");
 
+      // Style & labels by mode
+      overlay.classList.remove("ov-add","ov-remove");
+      if(mode === "remove"){
+        overlay.classList.add("ov-remove");
+        elKicker.textContent = "DIVERT ENDED";
+      } else {
+        overlay.classList.add("ov-add");
+        elKicker.textContent = "NEW DIVERT";
+      }
+
       const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
       elRoute.textContent = routes.join(" • ");
-      elSummary.textContent = item.summary || "Diversion";
+      elSummary.textContent = item.summary || (mode === "remove" ? "Diversion cleared" : "Diversion");
       elDetails.textContent = item.details || "";
 
       // times: show start then end/UFN line
@@ -730,16 +746,15 @@
       overlay.setAttribute("aria-hidden", "false");
       overlayShowing = true;
 
-      const duration = options.durationMs ?? 10000; // default 10s
       setTimeout(() => {
         overlay.classList.remove("show");
         overlay.setAttribute("aria-hidden", "true");
         overlayShowing = false;
         processOverlayQueue(); // show next if queued
-      }, duration);
+      }, durationMs);
     }
 
-    function enqueueNewDiverts(arr){
+    function enqueueOverlays(arr){
       if(!arr || !arr.length) return;
       overlayQueue.push(...arr);
       processOverlayQueue();
@@ -749,7 +764,7 @@
       if(overlayShowing) return;
       const next = overlayQueue.shift();
       if(!next) return;
-      showNewDivertOverlay(next);
+      showDivertOverlay(next.item, { mode: next.mode, durationMs: 10000 });
     }
 
     /* -------- Render & paging -------- */
@@ -769,7 +784,7 @@
         const inner = document.createElement("div");
         inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
 
-        // Header: route ticker + operator pill (Option A)
+        // Header: route ticker + operator pill
         const header = document.createElement("div");
         header.className = "chipHeader";
 
@@ -793,7 +808,7 @@
         });
         ticker.appendChild(track);
 
-        // Operator pill (single-op coloured dot, multi-op neutral dot)
+        // Operator pill
         const opTag = document.createElement("div");
         opTag.className = "operatorTag";
         opTag.title = (it.operatorRefs || []).join(", ");
@@ -803,7 +818,6 @@
 
         const opCodes = mapOperators(it.operatorRefs || []);
         if(opCodes.length === 1){
-          // coloured dot for single operator
           const ref = (it.operatorRefs[0] || "").toUpperCase();
           const colorMap = {
             BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
@@ -813,7 +827,6 @@
           opTag.appendChild(dot);
           opTag.appendChild(document.createTextNode(" " + opCodes[0]));
         } else {
-          // neutral dot + comma-separated codes
           dot.style.background = "#cfcfd6";
           opTag.appendChild(dot);
           opTag.appendChild(document.createTextNode(" " + (opCodes.length ? opCodes.join(", ") : "—")));
@@ -927,12 +940,19 @@
         /* Sort: most recently started first */
         .sort((a,b)=> b.startMs - a.startMs);
 
-        /* New diversion detection (after first load only) */
+        /* Build current index for diffing */
+        const currIndex = new Map(items.map(it => [it.id, it]));
+
+        /* Detect new and removed (after first load) */
         let newOnes = [];
+        let removedOnes = [];
         if(firstFetchDone){
-          newOnes = items.filter(it => !seenSituationIds.has(it.id));
+          newOnes = items.filter(it => !lastItemsIndex.has(it.id));
+          removedOnes = [...lastItemsIndex.values()].filter(prev => !currIndex.has(prev.id));
         }
-        // Update seen IDs
+
+        /* Update tracking */
+        lastItemsIndex = currIndex;
         items.forEach(it => seenSituationIds.add(it.id));
         firstFetchDone = true;
 
@@ -950,9 +970,12 @@
           setStatusPill(true);
         });
 
-        // Show overlay(s) for newly detected diversions
+        // Enqueue overlays: new (yellow) then removed (orange)
         if(newOnes.length){
-          enqueueNewDiverts(newOnes);
+          enqueueOverlays(newOnes.map(item => ({ mode:"add", item })));
+        }
+        if(removedOnes.length){
+          enqueueOverlays(removedOnes.map(item => ({ mode:"remove", item })));
         }
 
       }catch(e){
@@ -975,11 +998,13 @@
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
-    /* -------- Keyboard test: press 'K' to simulate a diversion (10s) -------- */
+    /* -------- Keyboard tests: K = new (yellow), D = ended (orange) -------- */
     window.addEventListener("keydown", (e)=>{
-      if(String(e.key).toLowerCase() === "k"){
+      const key = String(e.key).toLowerCase();
+
+      if(key === "k"){
         const now = new Date();
-        const sample = {
+        const sampleAdd = {
           routes: ["36"],
           summary: "Route 36 diverted via Deansgate due to incident at St Peter's Square.",
           details: "Stops at Albert Square and Princess Street are not being served. Please use alternative stops.",
@@ -988,7 +1013,21 @@
             endLine: `🛑 UFN - diverted for ${ufnDurationPhrase(now)}`
           }
         };
-        showNewDivertOverlay(sample, { durationMs: 10000 });
+        enqueueOverlays([{ mode:"add", item: sampleAdd }]);
+      }
+
+      if(key === "d"){
+        const earlier = new Date(Date.now() - 45*60*1000); // 45 mins ago
+        const sampleRemove = {
+          routes: ["36"],
+          summary: "Route 36 diversion via Deansgate has ended.",
+          details: "Normal route now operating.",
+          timeLines: {
+            startLine: `🕛 ${fmtHM(earlier)} Today`,
+            endLine: `🛑 EoS Today`  // example of an ended line
+          }
+        };
+        enqueueOverlays([{ mode:"remove", item: sampleRemove }]);
       }
     });
   </script>
