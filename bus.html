@@ -17,14 +17,16 @@
 
       /* Bee Network operator colours */
       --op-BNML:#ff4d4f;   /* red */
-      --op-BNGN:#3a7afe;   /* blue */
+      --op-BNGN:#3a7afe;   /* blue (GNW) */
       --op-BNSM:#ff9a1f;   /* orange */
-      --op-BNDB:#ffffff;   /* white */
+      --op-BNDB:#2f89ff;   /* blue (DB) – distinct from BNGN */
       --op-BNVB:#7a3ffe;   /* purple */
       --op-BNFM:#ff66b3;   /* pink */
 
       --neutral:#16161b;
       --neutralElev:#1b1b22;
+
+      /* Unified route badge accent */
       --accent:#ffd100;       /* TfGM yellow */
 
       /* Overlay backgrounds */
@@ -175,7 +177,7 @@
       align-items:center;
       justify-content:center;
       font-weight:900;
-      background:var(--accent);
+      background:var(--accent);   /* Unified yellow for all operators */
       color:#000;
       padding:var(--route-pad-v) var(--route-pad-h);
       border-radius:var(--route-radius);
@@ -250,7 +252,21 @@
     .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
     .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
     .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
-    .op-BNDB{ background:linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.16)); border-color:#dcdcdc; color:#000; }
+    /* BNDB now uses a blue tint instead of white */
+    .op-BNDB{
+      background: linear-gradient(180deg, rgba(47,137,255,0.10), transparent), var(--neutralElev);
+      border-color: rgba(47,137,255,0.35);
+    }
+    @supports (background: color-mix(in oklab, red, blue)) {
+      .op-BNDB{
+        background: linear-gradient(
+                     180deg,
+                     color-mix(in oklab, var(--op-BNDB) 18%, transparent),
+                     transparent
+                   ), var(--neutralElev);
+        border-color: color-mix(in oklab, var(--op-BNDB) 35%, #2a2a33);
+      }
+    }
     .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
     .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
 
@@ -690,10 +706,10 @@
         case "BNML": return {cls:"op-BNML", dark:false};
         case "BNGN": return {cls:"op-BNGN", dark:true};
         case "BNSM": return {cls:"op-BNSM", dark:false};
-        case "BNDB": return {cls:"op-BNDB", dark:false};
+        case "BNDB": return {cls:"op-BNDB", dark:true};  // BNDB uses on-dark
         case "BNVB": return {cls:"op-BNVB", dark:true};
         case "BNFM": return {cls:"op-BNFM", dark:false};
-        default: return {cls:"", dark:true};
+        default:     return {cls:"",       dark:true};
       }
     }
 
@@ -1044,4 +1060,3 @@
   </script>
 </body>
 </html>
-``
