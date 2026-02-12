@@ -7,40 +7,119 @@
 <meta http-equiv="Cache-Control" content="no-store" />
 <style>
   :root{
-    --bg:#0b0b0e; --card:#14141a; --text:#e9e9ef; --muted:#a7a7b3; --accent:#ffd100;
-    --good:#19c37d; --warn:#ffb020; --bad:#ff4d4f; --chip:#1d1d26;
+    --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
+    --chipBorder:#22232b; --chipBg:#16161b;
+
+    /* Operator colours */
+    --op-BNML:#ff4d4f;   /* red */
+    --op-BNGN:#3a7afe;   /* blue */
+    --op-BNSM:#ff9a1f;   /* orange */
+    --op-BNDB:#ffffff;   /* white */
+    --op-BNVB:#7a3ffe;   /* purple */
+    --op-BNFM:#ff66b3;   /* pink */
+
+    --neutral:#23232b;   /* default chip bg */
   }
+
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{margin:0; background:var(--bg); color:var(--text); font-family:system-ui, Segoe UI, Roboto, Arial, sans-serif}
-  header{display:flex; justify-content:space-between; align-items:baseline; padding:18px 24px; border-bottom:1px solid #22232b;
-         background:linear-gradient(180deg,var(--bg),rgba(11,11,14,.85) 80%, transparent)}
-  h1{margin:0; font-size:28px; font-weight:700} .accent{color:var(--accent)}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    overflow:hidden; /* hard stop: no page scroll */
+  }
+  header{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:18px 24px; border-bottom:1px solid #22232b;
+    background:linear-gradient(180deg,var(--bg),rgba(11,11,14,.85) 80%, transparent)
+  }
+  h1{margin:0; font-size:28px; font-weight:700}
+  .accent{color:#ffd100}
   .meta{display:flex; gap:18px; color:var(--muted); font-size:14px}
-  main{padding:16px 24px 24px}
+
+  main{padding:16px 24px 24px; height:calc(100vh - 74px); display:flex; flex-direction:column}
   #statusBar{display:flex; gap:16px; flex-wrap:wrap; margin:8px 0 18px}
-  .tag{display:inline-flex; align-items:center; gap:6px; background:var(--chip); border:1px solid #262733; color:var(--muted);
-       padding:4px 10px; border-radius:999px; font-size:12px; text-transform:uppercase}
-  #grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:16px}
+  .tag{
+    display:inline-flex; align-items:center; gap:6px; background:#1d1d26;
+    border:1px solid #262733; color:var(--muted);
+    padding:4px 10px; border-radius:999px; font-size:12px; text-transform:uppercase
+  }
 
-  .card{background:var(--card); border:1px solid #22232b; border-radius:14px; padding:14px 16px; display:flex; flex-direction:column; gap:10px}
-  .row{display:flex; gap:8px; flex-wrap:wrap; color:var(--muted); font-size:14px}
-  .pill{display:inline-flex; align-items:center; gap:8px; padding:4px 10px; border-radius:999px; background:#1e1f29; border:1px solid #2a2b37; color:#d6d6de; font-size:12px}
-  .sev-low{background:rgba(25,195,125,.12); color:#bff3de; border-color:rgba(25,195,125,.35)}
-  .sev-medium{background:rgba(255,176,32,.12); color:#ffe1b3; border-color:rgba(255,176,32,.35)}
-  .sev-high{background:rgba(255,77,79,.12); color:#ffd0d0; border-color:rgba(255,77,79,.35)}
-  .muted{color:var(--muted)}
-  .footerRow{display:flex; justify-content:space-between; gap:12px; margin-top:4px}
-  .nowrap{white-space:nowrap}
-  .faint{opacity:.7}
+  /* Grid of square chips (auto-fill, squares) */
+  #grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+    gap:16px;
+    /* no scroll in main either */
+    overflow:hidden;
+    flex:1;
+  }
 
-  /* Prominent route + operatorRef */
-  .routeTitle{display:flex; align-items:baseline; gap:10px}
-  .routeBadge{font-size:24px; font-weight:800; background:var(--accent); color:#000; padding:4px 10px; border-radius:8px}
-  .opRef{font-size:18px; font-weight:650; color:#fff}
-  .subline{font-size:13px; color:var(--muted)}
+  /* Square chip container: keep 1:1 aspect */
+  .chip{
+    position:relative;
+    border:1px solid var(--chipBorder);
+    border-radius:16px;
+    background:var(--neutral); /* overriden by operator colour */
+    display:flex; align-items:center; justify-content:center;
+    aspect-ratio:1/1; /* square */
+    padding:12px;
+  }
 
-  /* No autoscroll */
+  /* Inner layout */
+  .chipContent{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    width:100%; height:100%; text-align:center;
+  }
+
+  /* Big route number */
+  .route{
+    font-size:48px; font-weight:900; line-height:1; letter-spacing:0.5px;
+    margin-bottom:10px;
+    color:#0b0b0e; /* default for light chips; will be toggled for dark ones via classes */
+    text-shadow: 0 0 0 rgba(0,0,0,0); /* keep crisp */
+  }
+
+  /* Start time line */
+  .startTime{
+    font-size:14px; font-weight:600; margin-bottom:8px;
+    opacity:0.95;
+  }
+
+  /* Summary line */
+  .summary{
+    font-size:13px; line-height:1.2; color:#0b0b0e;
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+    max-width:95%;
+  }
+
+  /* For dark backgrounds (blue/purple/neutral), invert text to white */
+  .on-dark .route, .on-dark .startTime, .on-dark .summary { color:#ffffff; }
+  .on-dark .startTime { color:#e9e9ef; opacity:0.9; }
+
+  /* Subtle severity pill (kept tiny, optional) */
+  .pill{
+    position:absolute; top:10px; right:10px;
+    font-size:11px; padding:2px 6px; border-radius:999px;
+    background:#1e1f29; border:1px solid #2a2b37; color:#d6d6de;
+  }
+
+  /* Operator colour classes (chip background) */
+  .op-BNML{ background:var(--op-BNML); }  /* red  -> use dark text (default) */
+  .op-BNGN{ background:var(--op-BNGN); }  /* blue -> dark text is unreadable -> add .on-dark */
+  .op-BNSM{ background:var(--op-BNSM); }  /* orange -> dark text OK */
+  .op-BNDB{ background:var(--op-BNDB); border-color:#dcdcdc; }  /* white -> use dark text */
+  .op-BNVB{ background:var(--op-BNVB); }  /* purple -> add .on-dark */
+  .op-BNFM{ background:var(--op-BNFM); }  /* pink  -> dark text OK */
+
+  /* Apply .on-dark text inversion for dark chips */
+  .op-BNGN .chipContent, .op-BNVB .chipContent, .neutral-dark .chipContent{ color:#fff; }
+  .op-BNGN .chipContent, .op-BNVB .chipContent, .neutral-dark .chipContent{ /* marker only */ }
+
+  /* Status text */
+  #statusMsg{ min-width:140px }
 </style>
 </head>
 <body>
@@ -64,7 +143,7 @@
 
 <script>
 /** ===== Configuration ===== **/
-const API_KEY = '17889546a31fddeef67fca78252fb66951aedf1a';   // Consider moving server-side
+const API_KEY = '17889546a31fddeef67fca78252fb66951aedf1a'; // Consider moving server-side
 const BODS_URL = `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
 const REFRESH_SECONDS = 60;
 
@@ -77,12 +156,13 @@ const SEV_PRIORITY = { 'noimpact':0,'verylow':1,'low':2,'normal':3,'medium':4,'h
 
 const el = sel => document.querySelector(sel);
 function fmtTime(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(d); }
+function fmtDateTimeShort(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit'}).format(d); }
 function fmtDateTime(d){ return new Intl.DateTimeFormat(undefined,{weekday:'short',hour:'2-digit',minute:'2-digit'}).format(d); }
 function parseISO(s){ try { return s ? new Date(s) : null; } catch { return null; } }
 function escapeHtml(s){ return String(s ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
 function textContains(h, needles){ if(!h) return false; const x = String(h).toLowerCase(); return needles.some(n => x.includes(n)); }
 
-/** ===== JSON/XML dual parsing ===== **/
+/** ===== Upstream parse (JSON or XML) ===== **/
 function parseUpstreamBody(text){
   const t = (text||'').trim();
   if(t.startsWith('{') || t.startsWith('[')){
@@ -107,6 +187,7 @@ function extractSituationsFromJSON(json){
   }
   return all;
 }
+
 function extractSituationsFromXML(doc){
   const elems = doc.querySelectorAll('PtSituationElement');
   return Array.from(elems).map(el=>{
@@ -137,6 +218,18 @@ function extractSituationsFromXML(doc){
   });
 }
 
+const _getOperatorRef = sit => {
+  const candidates = new Set();
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
+  const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
+  for(const j of journeys){
+    if(j?.OperatorRef) candidates.add(String(j.OperatorRef).trim());
+  }
+  if(candidates.size) return [...candidates][0];
+  if(Array.isArray(sit.__operatorRefs) && sit.__operatorRefs.length) return sit.__operatorRefs[0];
+  return null;
+};
+
 const _getOps = sit => {
   const ops = new Set();
   const names=[].concat(sit?.OperatorName||[]).concat(sit?.Operators||[]).concat(sit?.Affects?.Operators||[]);
@@ -150,20 +243,7 @@ const _getOps = sit => {
   const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
   const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
   for(const j of journeys){ const on = j?.OperatorName || j?.OperatorRef; if(on) ops.add(String(on).trim()); }
-  const arr = [...ops]; return arr.length ? arr : (sit.__operators || []);
-};
-
-const _getOperatorRef = sit => {
-  const candidates = new Set();
-  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney || [];
-  const journeys = Array.isArray(avj) ? avj : [avj].filter(Boolean);
-  for(const j of journeys){
-    if(j?.OperatorRef) candidates.add(String(j.OperatorRef).trim());
-  }
-  if(candidates.size) return [...candidates][0];
-  if(Array.isArray(sit.__operatorRefs) && sit.__operatorRefs.length) return sit.__operatorRefs[0];
-  const ops = _getOps(sit);
-  return ops.length ? ops[0] : null;
+  return [...ops];
 };
 
 const _getLines = sit => {
@@ -175,18 +255,9 @@ const _getLines = sit => {
     if(Array.isArray(l)) l.forEach(x=>x&&lines.add(String(x)));
     else if(l) lines.add(String(l));
   }
-  const arr = [...lines]; return arr.length ? arr : (sit.__lines || []);
+  return [...lines];
 };
 
-const _getPlaces = sit => {
-  const places = new Set();
-  const aps = sit?.Affects?.StopPoints?.AffectedStopPoint || [];
-  const stops = Array.isArray(aps) ? aps : [aps].filter(Boolean);
-  for(const s of stops){ const n = s?.StopPointName || s?.PlaceName || s?.StopName; if(n) places.add(String(n)); }
-  const arr = [...places]; return arr.length ? arr : (sit.__places || []);
-};
-
-/* Helpers */
 function severityClass(sit){
   const s = String(sit?.Severity || sit?.Priority || 'unknown').toLowerCase().replace(/\s+/g,'');
   const rank = SEV_PRIORITY[s] ?? 3;
@@ -201,38 +272,39 @@ function validityText(sit){
   if(e)      return `Until ${fmtDateTime(e)}`;
   return 'Timing not available';
 }
-
-/* Diversion filter */
 function isDiversion(sit){
-  const txt = [sit?.Description, sit?.Summary].filter(Boolean).join(' ');
-  return textContains(txt, DIVERSION_MATCHERS);
+  const txt = [sit?.Description, sit?.Summary].filter(Boolean).join(' ').toLowerCase();
+  return DIVERSION_MATCHERS.some(k => txt.includes(k));
 }
 
-/* Fit-to-screen: compute how many cards fit and slice */
+/* Map OperatorRef => CSS class + on-dark flag */
+function operatorClass(ref){
+  switch(String(ref||'').toUpperCase()){
+    case 'BNML': return { cls:'op-BNML', onDark:false };
+    case 'BNGN': return { cls:'op-BNGN', onDark:true  };
+    case 'BNSM': return { cls:'op-BNSM', onDark:false };
+    case 'BNDB': return { cls:'op-BNDB', onDark:false };
+    case 'BNVB': return { cls:'op-BNVB', onDark:true  };
+    case 'BNFM': return { cls:'op-BNFM', onDark:false };
+    default:     return { cls:'neutral-dark', onDark:true }; // safe default
+  }
+}
+
+/* Fit-to-screen: compute how many squares fit in the grid area, then slice */
 function sliceToViewport(items){
   const headerH = document.querySelector('header')?.getBoundingClientRect().height ?? 74;
   const statusH = document.querySelector('#statusBar')?.getBoundingClientRect().height ?? 36;
-  const verticalPadding = 24 + 16; // main paddings allowances
-  const availH = window.innerHeight - headerH - statusH - verticalPadding;
-
+  const mainPadding = 24 + 16;
+  const availH = window.innerHeight - headerH - statusH - mainPadding;
   const grid = el('#grid');
-  // temp card to measure
-  const temp = document.createElement('div');
-  temp.className = 'card';
-  temp.style.visibility = 'hidden';
-  temp.innerHTML = `
-    <div class="routeTitle"><span class="routeBadge">000</span><span class="opRef">Operator</span></div>
-    <div class="row subline">Sample diversion text</div>
-    <div class="footerRow"><div class="muted nowrap">Validity: —</div><div class="muted nowrap">Updated: —</div></div>
-  `;
-  grid.appendChild(temp);
-  const cardH = temp.getBoundingClientRect().height || 140;
-  grid.removeChild(temp);
 
-  const colW = 420;
-  const cols = Math.max(1, Math.floor(grid.clientWidth / colW));
-  const gap = 16;
-  const rows = Math.max(1, Math.floor((availH + gap) / (cardH + gap)));
+  // Determine column count based on actual grid width and min card size (200) + gap (16)
+  const gridW = grid.clientWidth || (window.innerWidth - 48);
+  const minW = 200, gap = 16;
+  const cols = Math.max(1, Math.floor((gridW + gap) / (minW + gap)));
+  // Each card is square → its height ~ its width (approx minW). Account for gap.
+  const cardSize = Math.max(minW, Math.floor((gridW - (cols-1)*gap)/cols));
+  const rows = Math.max(1, Math.floor((availH + gap) / (cardSize + gap)));
   const max = Math.max(1, cols * rows);
 
   return items.slice(0, max);
@@ -243,33 +315,41 @@ function renderSituations(items){
   const grid = el('#grid');
   const visible = sliceToViewport(items);
 
-  const container = document.createElement('div');
-  container.innerHTML = visible.map(it=>{
-    const sevCls = severityClass(it.sit);
-    const linePrimary = it.lines[0] || '—';
-    const opRef = it.operatorRef || '—';
-    const subText = it.title;
+  const frag = document.createDocumentFragment();
+  visible.forEach(it=>{
+    const { cls, onDark } = operatorClass(it.operatorRef);
+    const chip = document.createElement('div');
+    chip.className = `chip ${cls}`;
 
-    return `
-      <div class="card">
-        <div class="row">
-          <span class="pill ${sevCls}">${escapeHtml(it.severity || 'Severity unknown')}</span>
-        </div>
-        <div class="routeTitle">
-          <span class="routeBadge">${escapeHtml(linePrimary)}</span>
-          <span class="opRef">${escapeHtml(opRef)}</span>
-        </div>
-        <div class="row subline">${escapeHtml(subText)}</div>
-        <div class="footerRow">
-          <div class="muted nowrap">Validity: ${escapeHtml(it.validity)}</div>
-          <div class="muted nowrap">Updated: ${it.updated ? fmtDateTime(it.updated) : '—'}</div>
-        </div>
-      </div>
-    `;
-  }).join('');
-  grid.replaceChildren(container);
+    const pill = document.createElement('div');
+    pill.className = 'pill';
+    pill.textContent = it.severity || '—';
+    chip.appendChild(pill);
 
-  // Update total to what is actually visible on screen (fit)
+    const inner = document.createElement('div');
+    inner.className = `chipContent ${onDark ? 'on-dark' : ''}`;
+
+    const route = document.createElement('div');
+    route.className = 'route';
+    route.textContent = it.route || '—';
+
+    const startEl = document.createElement('div');
+    startEl.className = 'startTime';
+    startEl.textContent = it.startTimeText || '—';
+
+    const summary = document.createElement('div');
+    summary.className = 'summary';
+    summary.textContent = it.summary || '';
+
+    inner.appendChild(route);
+    inner.appendChild(startEl);
+    inner.appendChild(summary);
+    chip.appendChild(inner);
+
+    frag.appendChild(chip);
+  });
+
+  grid.replaceChildren(frag);
   el('#totalTag').textContent = `Total: ${visible.length}`;
 }
 
@@ -306,7 +386,7 @@ async function fetchAndRender(){
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    // Bee-only
+    // Filter: Bee Network only
     const beeOnly = situations.filter(sit=>{
       const ops = _getOps(sit);
       return ops.length
@@ -314,27 +394,41 @@ async function fetchAndRender(){
         : textContains(sit?.Summary || sit?.Description || '', BEE_MATCHERS);
     });
 
-    // Diversion-only
+    // Filter: Diversions only
     const diversionOnly = beeOnly.filter(isDiversion);
 
-    // Map for UI
+    // Map to chip items
     const items = diversionOnly.map(sit=>{
-      const operators = _getOps(sit).filter(Boolean);
       const operatorRef = _getOperatorRef(sit);
       const lines = _getLines(sit);
-      const title = pickTitle(sit);
-      const updated = parseISO(sit?.CreationTime || sit?.VersionedAtTime || sit?.RecordedAtTime || sit?.PublicationWindow?.StartTime);
-      const severity = String(sit?.Severity || sit?.Priority || 'Unknown').replace(/(^.|\s.)./g, m=>m.toUpperCase());
-      return { sit, title, operatorRef, operators, lines, updated, severity, validity: validityText(sit) };
+      const route = lines[0] || '—';
+
+      // Start time from ValidityPeriod.StartTime (preferred)
+      const start = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+      const startText = start ? fmtDateTimeShort(start) : '—';
+
+      const summary = (sit?.Summary || sit?.Description || '').toString();
+      const severity = String(sit?.Severity || sit?.Priority || 'Unknown')
+        .replace(/(^.|\s.)./g, m => m.toUpperCase());
+
+      return {
+        operatorRef, route,
+        startTimeText: startText,
+        summary,
+        severity,
+        sit
+      };
     }).sort((a,b)=>{
+      // Sort: recent first, then severity
+      const au = parseISO(a.sit?.CreationTime || a.sit?.VersionedAtTime || a.sit?.RecordedAtTime) || 0;
+      const bu = parseISO(b.sit?.CreationTime || b.sit?.VersionedAtTime || b.sit?.RecordedAtTime) || 0;
+      if(bu!==au) return (bu?.getTime?.()||0) - (au?.getTime?.()||0);
       const ap = SEV_PRIORITY[(a.sit?.Severity||'unknown')?.toLowerCase().replace(/\s+/g,'')] ?? 3;
       const bp = SEV_PRIORITY[(b.sit?.Severity||'unknown')?.toLowerCase().replace(/\s+/g,'')] ?? 3;
-      if(bp!==ap) return bp-ap;
-      return (b.updated?.getTime?.()||0)-(a.updated?.getTime?.()||0);
+      return bp - ap;
     });
 
     renderSituations(items);
-    // Status reflects whether any diversions exist upstream (not just visible)
     el('#statusMsg').textContent = items.length ? 'Live' : 'No active diversions';
     el('#lastOk').textContent = `Last update: ${fmtTime(new Date())}`;
   }catch(err){
@@ -351,7 +445,12 @@ function start(){
   setInterval(fetchAndRender, REFRESH_SECONDS*1000);
 }
 window.addEventListener('load', start);
-window.addEventListener('resize', () => fetchAndRender());
+
+/* Re-slice on resize (no extra fetch; keeps current data but refits screen) */
+window.addEventListener('resize', () => {
+  // Trigger a re-render by calling fetchAndRender (simple + keeps status fresh)
+  fetchAndRender();
+});
 </script>
 </body>
 </html>
