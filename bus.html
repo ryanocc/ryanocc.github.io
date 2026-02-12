@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,7 +8,6 @@
 <style>
   :root{
     --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
-    --chipBorder:#22232b;
 
     /* Operator colours */
     --op-BNML:#ff4d4f;   /* red */
@@ -18,7 +17,9 @@
     --op-BNVB:#7a3ffe;   /* purple */
     --op-BNFM:#ff66b3;   /* pink */
 
-    --neutral:#23232b;
+    --neutral:#16161b;
+    --neutralElev:#1b1b22;
+
     --accent:#ffd100;       /* yellow route badge */
     --accentGlow: rgba(255,209,0,0.45);
     --accentGlowStrong: rgba(255,209,0,0.85);
@@ -26,35 +27,40 @@
     /* Status pill colours */
     --liveGreen:#19c37d;
     --errorRed:#ff4d4f;
+
+    /* Grid/card */
+    --gridGap:20px;
+    --cardRadius:24px;
+    --cardHeight: 420px; /* JS will override to fit exactly 2 rows */
   }
 
   *{ box-sizing:border-box; }
   body{
     margin:0; padding:0; background:var(--bg);
     color:var(--text);
-    font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    font-family:system-ui, Segoe UI, Roboto, Arial, sans-serif;
     overflow:hidden; /* no page scroll */
   }
 
-  /* ----------- MODERN HEADER ----------- */
+  /* ----------- HEADER ----------- */
   .topbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 28px;
+    padding:16px 24px;
     background:#0b0b0e;
     border-bottom:1px solid #1d1d25;
   }
   .title{
     margin:0;
-    font-size:34px;
+    font-size:28px;
     font-weight:900;
-    letter-spacing:-0.5px;
+    letter-spacing:-0.3px;
   }
   .status-pill{
-    padding:9px 18px;
+    padding:8px 14px;
     border-radius:999px;
-    font-size:15px;
+    font-size:14px;
     font-weight:700;
     background:var(--liveGreen);
     color:#000;
@@ -68,121 +74,144 @@
   }
 
   main{
-    padding:0 28px 28px;
+    padding:0 24px 24px; /* bottom padding only */
     display:flex;
     flex-direction:column;
-    height:calc(100vh - 84px);
+    height:calc(100vh - 68px);
   }
 
-  /* ----------- GRID ----------- */
+  /* ----------- FIXED 3×2 GRID ----------- */
   #grid{
-    margin-top:20px;
+    margin-top:14px;
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-    gap:20px;
+    grid-template-columns:repeat(3, 1fr);  /* 3 wide */
+    gap:var(--gridGap);
     flex:1;
     overflow:hidden; /* keep grid non-scroll */
   }
 
+  /* ----------- CARD ----------- */
   .chip{
     position:relative;
-    border:2px solid var(--chipBorder);
-    background:var(--neutral);
-    border-radius:18px;
-    aspect-ratio:1/1;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:14px;
-    transition:border .2s ease, box-shadow .2s ease;
-  }
-
-  .chipContent{
-    text-align:center;
-    width:100%; height:100%;
+    border:3px solid #2a2a33;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00) 60%),
+      var(--neutralElev);
+    border-radius:var(--cardRadius);
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    padding:24px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.04) inset,
+      0 10px 25px rgba(0,0,0,0.35),
+      0 6px 18px rgba(0,0,0,0.45);
+    height:var(--cardHeight); /* all cards same height */
+    min-height:var(--cardHeight);
+    max-height:var(--cardHeight);
+    overflow:hidden; /* ensure uniform sizing */
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .chip:hover{
+    transform:translateY(-2px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.05) inset,
+      0 16px 36px rgba(0,0,0,0.45),
+      0 3px 8px rgba(0,0,0,0.45);
+    border-color:#343545;
   }
 
+  /* Header: route + operator short code */
+  .chipHeader{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:16px;
+  }
   .route{
-    display:inline-block;
-    font-size:46px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
     font-weight:900;
     background:var(--accent);
     color:#000;
-    padding:6px 14px;
-    border-radius:10px;
-    margin-bottom:14px;
+    padding:8px 20px;
+    border-radius:16px;
+    letter-spacing:-0.5px;
+    line-height:1;
+    min-width:3ch;
+    font-size:clamp(64px, 8vw, 110px);
   }
-
-  /* Stacked times */
-  .validityTime{
-    font-size:17px;
+  .operatorTag{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.12);
+    border:2px solid rgba(255,255,255,0.18);
+    font-size:32px;
     font-weight:800;
-    line-height:1.25;
-    white-space:nowrap;
-    margin-bottom:10px;
+    color:#e6e6ee;
+  }
+  .operatorDot{
+    width:22px; height:22px; border-radius:50%;
+    background:#888;
+    box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
   }
 
+  /* Body */
   .summary{
-    font-size:14px;
-    line-height:1.2;
-    opacity:0.85;
+    font-size:clamp(28px, 3vw, 34px);
+    line-height:1.35;
+    color:var(--text);
+    opacity:0.95;
     display:-webkit-box;
-    -webkit-line-clamp:3;
+    -webkit-line-clamp:3;     /* ensure consistent height */
     -webkit-box-orient:vertical;
     overflow:hidden;
-    max-width:92%;
-    margin:0 auto;
+    margin:2px 2px 16px 2px;
   }
 
-  /* Dark inversion */
-  .on-dark .validityTime,
-  .on-dark .summary{
-    color:white;
+  /* Footer: stacked times */
+  .validityTime{
+    margin-top:auto;
+    padding-top:16px;
+    border-top:2px solid rgba(255,255,255,0.15);
+    white-space:pre-line;
+    font-size:clamp(26px, 2.4vw, 32px);
+    font-weight:900;
+    color:#d9d9e2;
+    line-height:1.25;
   }
 
-  /* ----------- GLOW FOR UFN ----------- */
+  /* States */
   .glow-ufn{
     border-color:var(--accent);
-    box-shadow:0 0 12px 4px var(--accentGlowStrong),
-               0 0 28px 10px var(--accentGlow);
+    box-shadow:
+      0 0 16px 4px var(--accentGlowStrong),
+      0 0 38px 14px var(--accentGlow);
   }
-
-  /* ----------- PULSE FOR NEW ----------- */
-  @keyframes pulseRing {
-    0%   { box-shadow:0 0 0 2px var(--accent),0 0 8px 2px var(--accentGlow); }
-    50%  { box-shadow:0 0 0 2px rgba(255,209,0,0.7),0 0 18px 7px var(--accentGlowStrong); }
-    100% { box-shadow:0 0 0 2px var(--accent),0 0 8px 2px var(--accentGlow); }
+  @keyframes pulseRingLarge{
+    0%   { box-shadow:0 0 14px var(--accentGlow); }
+    50%  { box-shadow:0 0 38px var(--accentGlowStrong); }
+    100% { box-shadow:0 0 14px var(--accentGlow); }
   }
   .pulse-new{
-    border-color:var(--accent);
-    animation:pulseRing 2s ease-in-out infinite;
+    animation:pulseRingLarge 2.8s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .chip:hover{ transform:none; }
+    .pulse-new{ animation:none; }
   }
 
-  /* Operator colours */
-  .op-BNML{ background:var(--op-BNML); }
-  .op-BNGN{ background:var(--op-BNGN); }
-  .op-BNSM{ background:var(--op-BNSM); }
-  .op-BNDB{ background:var(--op-BNDB); border-color:#dcdcdc; }
-  .op-BNVB{ background:var(--op-BNVB); }
-  .op-BNFM{ background:var(--op-BNFM); }
-  .neutral-dark{ background:var(--neutral); }
-  .op-BNGN .chipContent,
-  .op-BNVB .chipContent,
-  .neutral-dark .chipContent{
-    color:white;
-  }
-
-  /* White chip: force black text for readability */
-  .op-BNDB .chipContent{
-    color:#000 !important;
-  }
-  .op-BNDB .validityTime,
-  .op-BNDB .summary{
-    color:#000 !important;
-  }
+  /* Optional subtle operator tints (backgrounds keep uniform size) */
+  .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
+  .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
+  .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
+  .op-BNDB{ background:linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.16)); border-color:#dcdcdc; color:#000; }
+  .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
+  .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
 </style>
 </head>
 <body>
@@ -202,15 +231,15 @@
 =========================== */
 const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
 const BODS_URL =
-`https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
+  `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
 
 /* TfGM Bee Network operator refs (strict) */
 const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 
 /* Behaviour flags */
-const UNPLANNED_ONLY = true;      // default as requested
-const PAGE_INTERVAL_MS = 10000;   // auto-advance
-const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000; // pulse new for 5 min
+const UNPLANNED_ONLY = true;
+const PAGE_INTERVAL_MS = 10000;
+const HIGHLIGHT_WINDOW_MS = 5 * 60 * 1000; // 5 min
 
 /* Diversion keyword matching */
 const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
@@ -242,15 +271,27 @@ function setStatusPill(ok){
   }
 }
 
-/* --- Relative time formatter for stacked lines with emojis and Today marker,
-       and special 23:59 EOS rules (Option C) --- */
+/* Operator short-label mapping for the pill */
+function operatorShortLabel(refRaw){
+  const ref = (refRaw || "").toUpperCase();
+  const map = {
+    BNSM:"SCM",
+    BNML:"ML",
+    BNGN:"GNW",
+    BNDB:"DB",
+    BNVB:"VB",
+    BNFM:"FB",
+  };
+  return map[ref] || ref || "—";
+}
+
+/* --- Relative time formatter (EOS rules) --- */
 function validityTimeLabel(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
   function formatPart(d, isStart){
-    // If no time:
     if(!d) return isStart ? null : "UFN";
 
     const sameDay = d.toDateString() === now.toDateString();
@@ -259,7 +300,6 @@ function validityTimeLabel(sit){
     const startWeek = new Date(now);
     startWeek.setDate(now.getDate() - ((now.getDay() + 6) % 7)); // Monday
     startWeek.setHours(0,0,0,0);
-
     const endWeek = new Date(startWeek);
     endWeek.setDate(startWeek.getDate() + 6);
     endWeek.setHours(23,59,59,999);
@@ -270,10 +310,8 @@ function validityTimeLabel(sit){
     const is2359 = d.getHours() === 23 && d.getMinutes() === 59;
     if(is2359){
       if(sameDay){
-        // Today at 23:59 → End of Service
         return (isStart ? "🟢 " : "🛑 ") + "End of Service";
       } else {
-        // Not today: within this week show weekday; otherwise show date (DD MMM)
         if(inWeek){
           const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
           return (isStart ? "🟢 " : "🛑 ") + `EOS ${wd}`;
@@ -288,18 +326,14 @@ function validityTimeLabel(sit){
     const time = fmtHM(d);
     let label;
     if(sameDay){
-      // Today: HH:MM Today
       label = `${time} Today`;
     } else if(inWeek){
-      // This week (not today): Tue HH:MM
       const wd = new Intl.DateTimeFormat(undefined,{weekday:'short'}).format(d);
       label = `${wd} ${time}`;
     } else {
-      // Outside this week: 21 Feb HH:MM
       const dm = new Intl.DateTimeFormat(undefined,{day:'2-digit',month:'short'}).format(d);
       label = `${dm} ${time}`;
     }
-
     return (isStart ? "🟢 " : "🛑 ") + label;
   }
 
@@ -310,17 +344,15 @@ function validityTimeLabel(sit){
     return `${startTxt}\n${endTxt}`;
   }
   if(startTxt && !endTxt){
-    // No end time → UFN (keep the end emoji)
     return `${startTxt}\n🛑 UFN`;
   }
   if(!startTxt && endTxt){
-    // Unusual but supported: end only
     return `${endTxt}`;
   }
   return "—";
 }
 
-/* Only include incidents whose start OR end is within ±7 days of today */
+/* Window: only include incidents whose start OR end is within ±7 days of today */
 function isWithin7DayWindow(sit){
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -354,11 +386,11 @@ function operatorClass(ref){
     case "BNDB": return {cls:"op-BNDB", dark:false};
     case "BNVB": return {cls:"op-BNVB", dark:true};
     case "BNFM": return {cls:"op-BNFM", dark:false};
-    default: return {cls:"neutral-dark", dark:true};
+    default: return {cls:"", dark:true};
   }
 }
 
-/* Keys & titles */
+/* Keys */
 function situationKey(sit){
   if(sit.SituationNumber) return "id:" + sit.SituationNumber;
   if(sit.SituationRef)   return "ref:" + sit.SituationRef;
@@ -438,67 +470,87 @@ function extractSituationsFromXML(doc){
   });
 }
 
-/* -------- Pager (no scrolling) -------- */
-const pager={pages:[],pageIndex:0,pageSize:0,total:0,timer:null};
+/* -------- Paging -------- */
+const pager={pages:[],pageIndex:0,pageSize:6,total:0,timer:null}; // always 6 (3×2)
 
-function computePageSize(){
-  const topH = $(".topbar").getBoundingClientRect().height;
-  const pad = 40;
-  const avail = window.innerHeight - (topH + pad);
-  const grid = $("#grid");
-  const w = grid.clientWidth || window.innerWidth;
+/* Fit exactly 2 rows vertically by setting --cardHeight */
+function setFixedGridSizing(){
+  const topbar = document.querySelector(".topbar");
+  const main = document.querySelector("main");
+  const grid = document.getElementById("grid");
+  const gap = parseInt(getComputedStyle(grid).gap) || 20;
 
-  const minW=220, gap=20;
-  const cols=Math.max(1, Math.floor((w+gap)/(minW+gap)));
-  const cardSize=Math.max(minW, Math.floor((w-(cols-1)*gap)/cols));
-  const rows=Math.max(1, Math.floor((avail+gap)/(cardSize+gap)));
-  return cols*rows;
+  // Available height for grid content inside <main>
+  const avail = main.getBoundingClientRect().height - (grid.offsetTop - main.getBoundingClientRect().top);
+  // Two rows => subtract one gap between them
+  const cardH = Math.floor((avail - gap) / 2);
+  document.documentElement.style.setProperty("--cardHeight", cardH + "px");
 }
-function chunk(arr,size){
-  const out=[];
-  for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size));
-  return out.length?out:[[]];
-}
+
 function renderPage(){
-  const grid=$("#grid");
-  const now=Date.now();
-  const pg=pager.pages[pager.pageIndex]||[];
-  grid.innerHTML="";
+  const grid = document.getElementById("grid");
+  const now = Date.now();
+  const pg = pager.pages[pager.pageIndex] || [];
+  grid.innerHTML = "";
 
   for(const it of pg){
-    const oc=operatorClass(it.operatorRef);
-    const chip=document.createElement("div");
-    chip.className="chip "+oc.cls;
+    const oc = operatorClass(it.operatorRef);
 
+    const chip = document.createElement("div");
+    chip.className = "chip " + oc.cls;
     if(!it.endMs) chip.classList.add("glow-ufn");
-    if(it.firstSeen && now-it.firstSeen < HIGHLIGHT_WINDOW_MS)
+    if(it.firstSeen && now - it.firstSeen < HIGHLIGHT_WINDOW_MS)
       chip.classList.add("pulse-new");
 
-    const inner=document.createElement("div");
-    inner.className="chipContent "+(oc.dark?"on-dark":"");
+    const inner = document.createElement("div");
+    inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
 
-    const r=document.createElement("div");
-    r.className="route";
-    r.textContent=it.route;
+    // Header
+    const header = document.createElement("div");
+    header.className = "chipHeader";
 
-    const v=document.createElement("div");
-    v.className="validityTime";
-    v.innerHTML=it.validity.replace(/\n/g,"<br>");
+    const r = document.createElement("div");
+    r.className = "route";
+    r.textContent = it.route;
 
-    const s=document.createElement("div");
-    s.className="summary";
-    s.textContent=it.summary;
+    const opTag = document.createElement("div");
+    opTag.className = "operatorTag";
+    opTag.title = (it.operatorRef || "").toUpperCase(); // show full ref on hover
+    const dot = document.createElement("span");
+    dot.className = "operatorDot";
+    // tint operator dot
+    const opColour = {
+      BNML: "var(--op-BNML)", BNGN: "var(--op-BNGN)", BNSM: "var(--op-BNSM)",
+      BNDB: "var(--op-BNDB)", BNVB: "var(--op-BNVB)", BNFM: "var(--op-BNFM)"
+    }[(it.operatorRef || "").toUpperCase()];
+    if(opColour) dot.style.background = opColour;
+    // short label mapping
+    const shortLabel = operatorShortLabel(it.operatorRef);
+    opTag.append(dot, document.createTextNode(shortLabel));
 
-    inner.append(r,v,s);
+    header.append(r, opTag);
+
+    // Summary
+    const s = document.createElement("div");
+    s.className = "summary";
+    s.textContent = it.summary;
+
+    // Validity
+    const v = document.createElement("div");
+    v.className = "validityTime";
+    v.textContent = it.validity;
+
+    inner.append(header, s, v);
     chip.append(inner);
     grid.append(chip);
   }
 }
+
 function startPager(){
   if(pager.timer) clearInterval(pager.timer);
-  if(pager.pages.length<=1) return;
-  pager.timer=setInterval(()=>{
-    pager.pageIndex=(pager.pageIndex+1)%pager.pages.length;
+  if(pager.pages.length <= 1) return;
+  pager.timer = setInterval(()=>{
+    pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
     renderPage();
     setStatusPill(true);
   }, PAGE_INTERVAL_MS);
@@ -521,7 +573,7 @@ async function fetchAll(){
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    /* ---------- PROPER TfGM FILTER: OperatorRef must be in BEE_OPERATORS ---------- */
+    /* Strict operator filter */
     situations = situations.filter(sit=>{
       const ref = getOperatorRef(sit);
       return ref && BEE_OPERATORS.includes(ref.toUpperCase());
@@ -541,7 +593,7 @@ async function fetchAll(){
       situations = situations.filter(isUnplanned);
     }
 
-    /* Map to chips */
+    /* Map to items */
     const now = Date.now();
     const items = situations.map(s=>{
       const key = situationKey(s);
@@ -554,7 +606,7 @@ async function fetchAll(){
 
       return {
         key,
-        route,
+        route: String(route),
         operatorRef: opRef,
         validity: validityTimeLabel(s),
         summary: (s.Summary || s.Description || "").trim(),
@@ -566,12 +618,13 @@ async function fetchAll(){
     /* Sort: most recently started first */
     .sort((a,b)=> b.startMs - a.startMs);
 
-    /* Page building */
-    pager.pageSize = computePageSize();
+    /* Page building: fixed 6 per page for 3×2 grid */
+    pager.pageSize = 6;
     pager.pages = chunk(items, pager.pageSize);
     pager.pageIndex = 0;
     pager.total = items.length;
 
+    setFixedGridSizing();  // ensure two rows fit exactly
     renderPage();
     startPager();
     setStatusPill(true);
@@ -581,18 +634,30 @@ async function fetchAll(){
   }
 }
 
+/* Utility: chunk array */
+function chunk(arr,size){
+  const out=[];
+  for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size));
+  return out.length?out:[[]];
+}
+
 /* Start */
 fetchAll();
 setInterval(fetchAll, 60000);
 
 window.addEventListener("resize", ()=>{
+  // Maintain fixed 3×2 layout sizing on any resize
+  setFixedGridSizing();
   const flat = (pager.pages || []).flat();
-  pager.pageSize = computePageSize();
+  pager.pageSize = 6;
   pager.pages = chunk(flat, pager.pageSize);
   pager.pageIndex = 0;
   renderPage();
   startPager();
 });
+
+// Initial sizing once DOM is ready
+window.addEventListener("load", setFixedGridSizing);
 </script>
 </body>
 </html>
