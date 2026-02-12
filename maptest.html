@@ -642,9 +642,19 @@ const PROXIES = [
           essential: true
         });
         setTimeout(runSvgScan, 120);
-      } else {
-        map.fitBounds(GM_BOUNDS, { padding: 0, duration: 800, essential: true });
-      }
+
+} else {
+  // Always return to your preferred default GM view
+  map.easeTo({
+    center: [-2.3214, 53.4306],
+    zoom: 11.15,
+    bearing: 0,
+    pitch: 58,
+    duration: 1200,
+    essential: true
+  });
+}
+
     }
 
     function updateHighlightFilters(){
