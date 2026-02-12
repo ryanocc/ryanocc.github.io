@@ -19,6 +19,7 @@
     --op-BNFM:#ff66b3;   /* pink */
 
     --neutral:#23232b;   /* default chip bg */
+    --accent:#ffd100;    /* yellow route badge */
   }
 
   *{box-sizing:border-box}
@@ -52,12 +53,11 @@
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
     gap:16px;
-    /* no scroll in main either */
     overflow:hidden;
     flex:1;
   }
 
-  /* Square chip container: keep 1:1 aspect */
+  /* Square chip container */
   .chip{
     position:relative;
     border:1px solid var(--chipBorder);
@@ -74,17 +74,22 @@
     width:100%; height:100%; text-align:center;
   }
 
-  /* Big route number */
+  /* Big route number inside yellow box (always black text) */
   .route{
-    font-size:48px; font-weight:900; line-height:1; letter-spacing:0.5px;
-    margin-bottom:10px;
-    color:#0b0b0e; /* default for light chips; will be toggled for dark ones via classes */
-    text-shadow: 0 0 0 rgba(0,0,0,0); /* keep crisp */
+    display:inline-block;
+    font-size:42px; font-weight:900; line-height:1; letter-spacing:0.5px;
+    margin-bottom:12px;
+    color:#000;
+    background:var(--accent);
+    padding:6px 12px;
+    border-radius:8px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
   }
 
-  /* Start time line */
-  .startTime{
-    font-size:14px; font-weight:600; margin-bottom:8px;
+  /* Validity time line (below route number) */
+  .validityTime{
+    font-size:15px; font-weight:700; margin-bottom:8px;
+    color:#0b0b0e; /* dark text by default for light backgrounds */
     opacity:0.95;
   }
 
@@ -96,27 +101,20 @@
   }
 
   /* For dark backgrounds (blue/purple/neutral), invert text to white */
-  .on-dark .route, .on-dark .startTime, .on-dark .summary { color:#ffffff; }
-  .on-dark .startTime { color:#e9e9ef; opacity:0.9; }
-
-  /* Subtle severity pill (kept tiny, optional) */
-  .pill{
-    position:absolute; top:10px; right:10px;
-    font-size:11px; padding:2px 6px; border-radius:999px;
-    background:#1e1f29; border:1px solid #2a2b37; color:#d6d6de;
-  }
+  .on-dark .validityTime, .on-dark .summary { color:#ffffff; }
+  .on-dark .validityTime { opacity:0.92; }
 
   /* Operator colour classes (chip background) */
-  .op-BNML{ background:var(--op-BNML); }  /* red  -> use dark text (default) */
-  .op-BNGN{ background:var(--op-BNGN); }  /* blue -> dark text is unreadable -> add .on-dark */
-  .op-BNSM{ background:var(--op-BNSM); }  /* orange -> dark text OK */
-  .op-BNDB{ background:var(--op-BNDB); border-color:#dcdcdc; }  /* white -> use dark text */
+  .op-BNML{ background:var(--op-BNML); }  /* red  -> default (dark text ok for route badge only; content uses .on-dark/normal) */
+  .op-BNGN{ background:var(--op-BNGN); }  /* blue -> add .on-dark */
+  .op-BNSM{ background:var(--op-BNSM); }  /* orange -> normal (dark text) */
+  .op-BNDB{ background:var(--op-BNDB); border-color:#dcdcdc; }  /* white -> normal (dark text) */
   .op-BNVB{ background:var(--op-BNVB); }  /* purple -> add .on-dark */
-  .op-BNFM{ background:var(--op-BNFM); }  /* pink  -> dark text OK */
+  .op-BNFM{ background:var(--op-BNFM); }  /* pink  -> normal (dark text) */
+  .neutral-dark{ background:var(--neutral); } /* unknown -> treat as dark */
 
   /* Apply .on-dark text inversion for dark chips */
-  .op-BNGN .chipContent, .op-BNVB .chipContent, .neutral-dark .chipContent{ color:#fff; }
-  .op-BNGN .chipContent, .op-BNVB .chipContent, .neutral-dark .chipContent{ /* marker only */ }
+  .op-BNGN .chipContent, .op-BNVB .chipContent, .neutral-dark .chipContent { color:#fff; }
 
   /* Status text */
   #statusMsg{ min-width:140px }
@@ -154,10 +152,12 @@ const DIVERSION_MATCHERS = ['divert', 'diversion', 'diversions'];
 const BEE_MATCHERS = ['bee network','bee network -','bee network–','bee network —'];
 const SEV_PRIORITY = { 'noimpact':0,'verylow':1,'low':2,'normal':3,'medium':4,'high':5,'veryhigh':6,'unknown':3 };
 
+/* Optional: filter only UNPLANNED incidents (SIRI-SX Planned=false). Set to true to enable. */
+const UNPLANNED_ONLY = false;
+
 const el = sel => document.querySelector(sel);
 function fmtTime(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(d); }
-function fmtDateTimeShort(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit'}).format(d); }
-function fmtDateTime(d){ return new Intl.DateTimeFormat(undefined,{weekday:'short',hour:'2-digit',minute:'2-digit'}).format(d); }
+function fmtHM(d){ return new Intl.DateTimeFormat(undefined,{hour:'2-digit',minute:'2-digit'}).format(d); }
 function parseISO(s){ try { return s ? new Date(s) : null; } catch { return null; } }
 function escapeHtml(s){ return String(s ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
 function textContains(h, needles){ if(!h) return false; const x = String(h).toLowerCase(); return needles.some(n => x.includes(n)); }
@@ -204,6 +204,7 @@ function extractSituationsFromXML(doc){
       Summary: T('Summary') || T('Description') || 'Disruption',
       Description: T('Description'),
       Severity: T('Severity') || T('Priority') || 'unknown',
+      Planned: T('Planned'),
       ValidityPeriod: {
         StartTime: T('ValidityPeriod > StartTime') || T('StartTime'),
         EndTime:   T('ValidityPeriod > EndTime')   || T('EndTime'),
@@ -258,23 +259,43 @@ const _getLines = sit => {
   return [...lines];
 };
 
-function severityClass(sit){
-  const s = String(sit?.Severity || sit?.Priority || 'unknown').toLowerCase().replace(/\s+/g,'');
-  const rank = SEV_PRIORITY[s] ?? 3;
-  if(rank>=5) return 'sev-high'; if(rank>=3) return 'sev-medium'; return 'sev-low';
-}
-function pickTitle(sit){ return (sit?.Summary || sit?.Description || sit?.ParticipantRef || sit?.SituationNumber || 'Disruption').toString(); }
-function validityText(sit){
-  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-  if(s && e) return `${fmtDateTime(s)} → ${fmtDateTime(e)}`;
-  if(s)      return `From ${fmtDateTime(s)}`;
-  if(e)      return `Until ${fmtDateTime(e)}`;
-  return 'Timing not available';
-}
+/* Helpers */
+function pickTitle(sit){ return (sit?.Summary || sit?.Description || sit?.ParticipantRef || sit?.SituationNumber || '').toString(); }
+
+/* Diversion filter */
 function isDiversion(sit){
   const txt = [sit?.Description, sit?.Summary].filter(Boolean).join(' ').toLowerCase();
   return DIVERSION_MATCHERS.some(k => txt.includes(k));
+}
+
+/* Is currently valid: Start <= now <= End (or End missing) */
+function isCurrentlyValid(sit, now = new Date()){
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  if(!s) return false;                // require a start to consider it valid
+  if(s > now) return false;           // not started yet
+  if(e && e < now) return false;      // already ended
+  return true;                        // active window
+}
+
+/* Validity time label (HH:MM–HH:MM | From HH:MM | Until HH:MM) */
+function validityTimeLabel(sit){
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  if(s && e) return `${fmtHM(s)}–${fmtHM(e)}`;
+  if(s)      return `From ${fmtHM(s)}`;
+  if(e)      return `Until ${fmtHM(e)}`;
+  return '—';
+}
+
+/* Optional: Planned=false only */
+function isUnplanned(sit){
+  // SIRI-SX PtSituationElement may include <Planned>true|false>.
+  // Treat explicit "false" (string) or boolean false as unplanned.
+  const p = sit?.Planned;
+  if(p === false) return true;
+  if(typeof p === 'string') return p.trim().toLowerCase() === 'false';
+  return false;
 }
 
 /* Map OperatorRef => CSS class + on-dark flag */
@@ -286,7 +307,7 @@ function operatorClass(ref){
     case 'BNDB': return { cls:'op-BNDB', onDark:false };
     case 'BNVB': return { cls:'op-BNVB', onDark:true  };
     case 'BNFM': return { cls:'op-BNFM', onDark:false };
-    default:     return { cls:'neutral-dark', onDark:true }; // safe default
+    default:     return { cls:'neutral-dark', onDark:true };
   }
 }
 
@@ -298,11 +319,9 @@ function sliceToViewport(items){
   const availH = window.innerHeight - headerH - statusH - mainPadding;
   const grid = el('#grid');
 
-  // Determine column count based on actual grid width and min card size (200) + gap (16)
   const gridW = grid.clientWidth || (window.innerWidth - 48);
   const minW = 200, gap = 16;
   const cols = Math.max(1, Math.floor((gridW + gap) / (minW + gap)));
-  // Each card is square → its height ~ its width (approx minW). Account for gap.
   const cardSize = Math.max(minW, Math.floor((gridW - (cols-1)*gap)/cols));
   const rows = Math.max(1, Math.floor((availH + gap) / (cardSize + gap)));
   const max = Math.max(1, cols * rows);
@@ -321,11 +340,6 @@ function renderSituations(items){
     const chip = document.createElement('div');
     chip.className = `chip ${cls}`;
 
-    const pill = document.createElement('div');
-    pill.className = 'pill';
-    pill.textContent = it.severity || '—';
-    chip.appendChild(pill);
-
     const inner = document.createElement('div');
     inner.className = `chipContent ${onDark ? 'on-dark' : ''}`;
 
@@ -333,16 +347,16 @@ function renderSituations(items){
     route.className = 'route';
     route.textContent = it.route || '—';
 
-    const startEl = document.createElement('div');
-    startEl.className = 'startTime';
-    startEl.textContent = it.startTimeText || '—';
+    const validityEl = document.createElement('div');
+    validityEl.className = 'validityTime';
+    validityEl.textContent = it.validityTime || '—';
 
     const summary = document.createElement('div');
     summary.className = 'summary';
     summary.textContent = it.summary || '';
 
     inner.appendChild(route);
-    inner.appendChild(startEl);
+    inner.appendChild(validityEl);
     inner.appendChild(summary);
     chip.appendChild(inner);
 
@@ -395,37 +409,39 @@ async function fetchAndRender(){
     });
 
     // Filter: Diversions only
-    const diversionOnly = beeOnly.filter(isDiversion);
+    let filtered = beeOnly.filter(isDiversion);
+
+    // Filter: ONLY currently valid
+    const now = new Date();
+    filtered = filtered.filter(sit => isCurrentlyValid(sit, now));
+
+    // Optional: Only UNPLANNED
+    if(UNPLANNED_ONLY){
+      filtered = filtered.filter(isUnplanned);
+    }
 
     // Map to chip items
-    const items = diversionOnly.map(sit=>{
+    const items = filtered.map(sit=>{
       const operatorRef = _getOperatorRef(sit);
       const lines = _getLines(sit);
       const route = lines[0] || '—';
 
-      // Start time from ValidityPeriod.StartTime (preferred)
-      const start = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-      const startText = start ? fmtDateTimeShort(start) : '—';
+      const validityTime = validityTimeLabel(sit);
+      const summary = pickTitle(sit);
 
-      const summary = (sit?.Summary || sit?.Description || '').toString();
-      const severity = String(sit?.Severity || sit?.Priority || 'Unknown')
-        .replace(/(^.|\s.)./g, m => m.toUpperCase());
+      const updated = parseISO(sit?.CreationTime || sit?.VersionedAtTime || sit?.RecordedAtTime);
 
       return {
         operatorRef, route,
-        startTimeText: startText,
+        validityTime,
         summary,
-        severity,
-        sit
+        updated, sit
       };
     }).sort((a,b)=>{
-      // Sort: recent first, then severity
-      const au = parseISO(a.sit?.CreationTime || a.sit?.VersionedAtTime || a.sit?.RecordedAtTime) || 0;
-      const bu = parseISO(b.sit?.CreationTime || b.sit?.VersionedAtTime || b.sit?.RecordedAtTime) || 0;
-      if(bu!==au) return (bu?.getTime?.()||0) - (au?.getTime?.()||0);
-      const ap = SEV_PRIORITY[(a.sit?.Severity||'unknown')?.toLowerCase().replace(/\s+/g,'')] ?? 3;
-      const bp = SEV_PRIORITY[(b.sit?.Severity||'unknown')?.toLowerCase().replace(/\s+/g,'')] ?? 3;
-      return bp - ap;
+      // Sort: most recently updated first
+      const au = a.updated?.getTime?.() || 0;
+      const bu = b.updated?.getTime?.() || 0;
+      return bu - au;
     });
 
     renderSituations(items);
@@ -446,9 +462,8 @@ function start(){
 }
 window.addEventListener('load', start);
 
-/* Re-slice on resize (no extra fetch; keeps current data but refits screen) */
+/* Re-slice on resize to keep non-scrolling fit */
 window.addEventListener('resize', () => {
-  // Trigger a re-render by calling fetchAndRender (simple + keeps status fresh)
   fetchAndRender();
 });
 </script>
