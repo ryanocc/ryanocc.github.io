@@ -64,7 +64,7 @@
 
 <script>
 /** ===== Configuration ===== **/
-const API_KEY = '17889546a31fddeef67fca78252fb66951aedf1a';   // BODS API key (move to proxy if public)
+const API_KEY = '17889546a31fddeef67fca78252fb66951aedf1a';   // BODS API key (consider moving to proxy)
 const BODS_URL = 'https://data.bus-data.dft.gov.uk/api/v1/siri-sx';
 const REQUEST_URL = new URL(BODS_URL);
 REQUEST_URL.searchParams.set('format', 'json');   // ask for JSON
@@ -72,9 +72,9 @@ REQUEST_URL.searchParams.set('api_key', API_KEY); // include API key (query form
 const REFRESH_SECONDS = 60;
 const AUTOSCROLL = true;
 
-// NEW: proxy builder
+// PROXY: pass RAW URL (no encodeURIComponent) per Fix 1
 const PROXY_BASE = 'https://occproxy-6dem.vercel.app/api/proxy?url=';
-const buildProxied = (url) => `${PROXY_BASE}${encodeURIComponent(url)}`;
+const buildProxied = (url) => `${PROXY_BASE}${url}`;
 
 const BEE_MATCHERS = ['bee network','bee network -','bee network–','bee network —'];
 const SEV_PRIORITY = { 'noimpact':0,'verylow':1,'low':2,'normal':3,'medium':4,'high':5,'veryhigh':6,'unknown':3 };
@@ -230,16 +230,15 @@ async function fetchAndRender(){
   try{
     status.textContent = 'Fetching…';
 
-    // Route the request through the proxy
+    // Build final upstream URL and send RAW in proxy param (Fix 1)
     const targetUrl = REQUEST_URL.toString();
     const proxiedUrl = buildProxied(targetUrl);
 
     const res = await fetch(proxiedUrl, {
       method: 'GET',
       headers: {
-        // Send a permissive accept; proxy will forward
         'Accept': 'application/json, application/xml;q=0.8, text/xml;q=0.7'
-        // If your proxy requires any special header (e.g. X-CSRFToken), add it here
+        // Add if your proxy expects it:
         // 'X-CSRFToken': 'QYZi2KdTdGxiGXp5DuMnAiBLepbJK7bUIGIlwXDNbYqasneb3fSAFnnynZXUdi2M'
       },
       cache: 'no-store',
