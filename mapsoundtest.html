@@ -119,9 +119,9 @@
       background: linear-gradient(180deg, #1f1f1f 0%, #000 100%);
       font-family:var(--ui-font);
     }
-    .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); }
-    .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); }
-    .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); }
+    .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); } /* Motorway: blue */
+    .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); } /* A-road: green */
+    .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); } /* B-road: brown */
 
     .road-sep { margin: 0 8px; opacity: 0.9; }
 
@@ -131,6 +131,20 @@
       font-weight:600;
       opacity:0.9;
       font-family:var(--ui-font);
+    }
+
+    /* ===== Progress bar in alert ===== */
+    #alert-progress-wrap{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:6px;
+      background:rgba(0,0,0,0.25);
+    }
+    #alert-progress{
+      height:100%;
+      width:100%;
+      transform-origin:left center;
+      background:rgba(255,255,255,0.85);
     }
 
     /* ===== SVG Border Sweep (RED) ===== */
@@ -282,6 +296,28 @@
       localStorage.setItem('lastSoundAt', '0');
     }
 
+    // ===== Quiet hours config (Europe/London) =====
+    const QUIET_START = { h: 22, m: 0 };   // 22:00
+    const QUIET_END   = { h: 6,  m: 15 };  // 06:15
+    const NIGHT_ATTENUATION = 0.45;        // ~ -7 dB (gentle reduction)
+
+    function isQuietHours(d = new Date()) {
+      // Compute time in Europe/London (DST aware)
+      const fmt = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/London',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      const [hhStr, mmStr] = fmt.format(d).split(':');
+      const hh = Number(hhStr), mm = Number(mmStr);
+
+      if (hh >= QUIET_START.h) return true;                           // 22:00–23:59
+      if (hh < QUIET_END.h)   return true;                            // 00:00–05:59
+      if (hh === QUIET_END.h && mm < QUIET_END.m) return true;        // 06:00–06:14
+      return false;
+    }
+
     // Persistent unlock until running
     function unlockAudio() {
       try {
@@ -313,36 +349,84 @@
       return getCooldownRemainingMs() === 0;
     }
 
+    // ===== Option B: Soft "Marimba" style chime with quiet-hours volume =====
     function playAlertSound() {
       if (!audioCtx || audioCtx.state !== 'running') return;
 
       const ctx = audioCtx;
       const now = ctx.currentTime;
 
-      function tone(freq, start, dur, gainPeak = 0.25) {
-        const osc = ctx.createOscillator();
-        const g   = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, now + start);
-        g.gain.setValueAtTime(0.0001, now + start);
-        // Use linear ramps for reliability across browsers
-        g.gain.linearRampToValueAtTime(gainPeak,  now + start + 0.04);
-        g.gain.linearRampToValueAtTime(0.0001,    now + start + dur);
-        osc.connect(g).connect(ctx.destination);
-        osc.start(now + start);
-        osc.stop(now + start + dur + 0.02);
+      // Master gain with quiet-hours attenuation
+      const master = ctx.createGain();
+      const baseGain = 0.85; // daytime level
+      const gainFactor = isQuietHours() ? (baseGain * NIGHT_ATTENUATION) : baseGain;
+      master.gain.value = gainFactor;
+      master.connect(ctx.destination);
+
+      // Smooth lowpass to remove harshness
+      const lp = ctx.createBiquadFilter();
+      lp.type = 'lowpass';
+      lp.frequency.value = 2000; // start lower than the "sweep bell"
+      lp.Q.value = 0.8;
+      lp.connect(master);
+
+      // ADSR utility
+      function applyADSR(g, t0, { a = 0.015, d = 0.22, s = 0.35, r = 0.35, peak = 0.85 }) {
+        g.gain.cancelScheduledValues(t0);
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.linearRampToValueAtTime(peak,      t0 + a);
+        g.gain.linearRampToValueAtTime(peak * s,  t0 + a + d);
+        g.gain.linearRampToValueAtTime(0.0001,    t0 + a + d + r);
       }
 
-      // Two-tone chime: A5 -> E6
-      tone(880,  0.00, 0.20, 0.30);
-      tone(1319, 0.22, 0.24, 0.28);
+      // Marimba-like voice: sine + very low square partial
+      function makeTone(freq, start, dur) {
+        const oscSine   = ctx.createOscillator();
+        const oscSquare = ctx.createOscillator();
+        const gSine     = ctx.createGain();
+        const gSquare   = ctx.createGain();
+
+        oscSine.type = 'sine';
+        oscSquare.type = 'square';
+
+        oscSine.frequency.setValueAtTime(freq, now + start);
+        oscSquare.frequency.setValueAtTime(freq, now + start);
+
+        // Balance: sine main voice, square very low for woodiness
+        gSine.gain.value   = 1.0;
+        gSquare.gain.value = 0.18;
+
+        oscSine.connect(gSine).connect(lp);
+        oscSquare.connect(gSquare).connect(lp);
+
+        // Gentle evolution: slight filter move to emulate bar resonance
+        lp.frequency.cancelScheduledValues(now + start);
+        lp.frequency.setValueAtTime(2000, now + start);
+        lp.frequency.linearRampToValueAtTime(2600, now + start + 0.20);
+        lp.frequency.linearRampToValueAtTime(1800, now + start + dur);
+
+        // ADSR per partial
+        applyADSR(gSine,   now + start, { a: 0.015, d: 0.22, s: 0.35, r: Math.max(0.28, dur - 0.05), peak: 0.85 });
+        applyADSR(gSquare, now + start, { a: 0.010, d: 0.25, s: 0.25, r: Math.max(0.28, dur - 0.05), peak: 0.18 });
+
+        const stopAt = now + start + dur + 0.03; // small tail to avoid clicks
+        oscSine.start(now + start);
+        oscSquare.start(now + start);
+        oscSine.stop(stopAt);
+        oscSquare.stop(stopAt);
+      }
+
+      // Two-note chime (gentle, control-room friendly)
+      // A5 (880 Hz) then E6 (1319 Hz), with slight overlap
+      makeTone(880.00,  0.00, 0.42);
+      makeTone(1319.0,  0.24, 0.46);
 
       lastSoundAt = Date.now();
       localStorage.setItem('lastSoundAt', String(lastSoundAt));
       updateAudioStatus();
     }
 
-    // Manual test that bypasses cooldown safely
+    // Manual test that bypasses cooldown safely (still applies quiet-hours attenuation)
     function playTestChime() {
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -352,10 +436,10 @@
         if (!audioEnabled) { updateAudioStatus(); return; }
         const saved = lastSoundAt;
         try {
-          lastSoundAt = 0; // bypass cooldown once
-          playAlertSound();
+          lastSoundAt = 0; // bypass cooldown once for the test
+          playAlertSound(); // uses the marimba-style chime above
         } finally {
-          lastSoundAt = saved; // restore original cooldown
+          lastSoundAt = saved; // restore original cooldown timestamp
         }
       }).catch(() => {});
     }
@@ -723,10 +807,11 @@
         return;
       }
       const rem = getCooldownRemainingMs();
+      const night = isQuietHours();
       if (rem > 0) {
-        audioStatusEl.textContent = `Audio: Cooldown ${formatMs(rem)}`;
+        audioStatusEl.textContent = `Audio: Cooldown ${formatMs(rem)}${night ? ' (quiet hours)' : ''}`;
       } else {
-        audioStatusEl.textContent = 'Audio: Ready';
+        audioStatusEl.textContent = `Audio: Ready${night ? ' (quiet hours)' : ''}`;
       }
     }
 
@@ -778,16 +863,6 @@
       }
     }
 
-    function enqueueBanner(feature){
-      const street = (feature.properties.street||'').trim() || 'Unknown road';
-      const city   = (feature.properties.city||'').trim();
-      const center = Array.isArray(feature.geometry?.coordinates) ? feature.geometry.coordinates : null;
-      const firstMillis = Number(feature.properties.firstReportedMillis)||0;
-
-      queue.push({ id: feature.id, street, city, center, firstMillis });
-      if(!bannerActive) showNextBanner();
-    }
-
     function escapeHTML(str){
       return String(str).replace(/[&<>:"']/g, (ch) => ({
         '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
@@ -830,6 +905,16 @@
           progressEl.style.transform  = 'scaleX(0)';
         });
       });
+    }
+
+    function enqueueBanner(feature){
+      const street = (feature.properties.street||'').trim() || 'Unknown road';
+      const city   = (feature.properties.city||'').trim();
+      const center = Array.isArray(feature.geometry?.coordinates) ? feature.geometry.coordinates : null;
+      const firstMillis = Number(feature.properties.firstReportedMillis)||0;
+
+      queue.push({ id: feature.id, street, city, center, firstMillis });
+      if(!bannerActive) showNextBanner();
     }
 
     function showNextBanner(){
@@ -1132,7 +1217,8 @@
 
     // ===== Map setup =====
     map.on('load', async () => {
-      // Keep: you may prefer fitBounds on first load; current default is the DEFAULT_VIEW camera
+      // Start at your DEFAULT_VIEW camera
+      // (If you prefer to fit bounds on first load, uncomment the next line)
       // map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
 
       // Images for pulsing (high = >=4)
@@ -1292,3 +1378,4 @@
   </script>
 </body>
 </html>
+``
