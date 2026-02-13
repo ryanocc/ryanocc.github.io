@@ -17,9 +17,9 @@
 
       /* Bee Network operator colours */
       --op-BNML:#ff4d4f;   /* red */
-      --op-BNGN:#3a7afe;   /* blue (GNW) */
+      --op-BNGN:#003C6E;   /* blue (GNW) */
       --op-BNSM:#ff9a1f;   /* orange */
-      --op-BNDB:#2f89ff;   /* blue (DB) – distinct from BNGN */
+      --op-BNDB:#9AC331;   /* blue (DB) – distinct from BNGN */
       --op-BNVB:#7a3ffe;   /* purple */
       --op-BNFM:#ff66b3;   /* pink */
 
@@ -27,15 +27,15 @@
       --neutralElev:#1b1b22;
 
       /* Unified route badge accent */
-      --accent:#ffd100;       /* TfGM yellow */
+      --accent:#FFE04A;       /* TfGM yellow */
 
       /* Overlay backgrounds */
       --alert-add-bg: var(--accent); /* yellow */
       --alert-remove-bg: #19c37d;    /* green */
 
       /* Status pill colours */
-      --liveGreen:#19c37d;
-      --errorRed:#ff4d4f;
+      --liveGreen:#42BE4B;
+      --errorRed:#EA5540;
 
       /* Grid/card */
       --gridGap:20px;
@@ -45,11 +45,16 @@
       /* Summary metrics */
       --summary-line-height: 1.3;
 
-      /* Route ticker sizing */
+      /* Route badge sizing */
       --route-font: clamp(44px, 5.6vw, 80px);
       --route-pad-v: 8px;
       --route-pad-h: 16px;
       --route-radius: 12px;
+
+      /* NEW: area height equal to single route badge height */
+      --route-rect-h: calc(var(--route-font) + (var(--route-pad-v) * 2));
+      /* NEW: compact font for multi grid tiles */
+      --route-mini-font: clamp(18px, 2.2vw, 28px);
     }
 
     *{ box-sizing:border-box; }
@@ -181,7 +186,7 @@
       animation: pulseRed 1200ms ease-in-out infinite;
     }
 
-    /* Header: ROUTE TICKER + operator pill */
+    /* Header: ROUTE AREA + operator pill */
     .chipHeader{
       display:flex;
       align-items:flex-start;
@@ -191,26 +196,18 @@
       width:100%;
     }
 
-    /* ROUTE TICKER: single-line viewport, slides full-width pages */
-    .routesTicker{
-      position:relative;
-      overflow:hidden;
+    /* ======= NEW: ROUTE DISPLAY ======= */
+    .routesArea{
       width:100%;
+      height:var(--route-rect-h);
+      display:flex;
+      align-items:center;       /* centre single badge vertically */
+      justify-content:flex-start;
       max-width:100%;
       flex:1 1 auto;
     }
-    .routesTrack{
-      display:flex;
-      flex-wrap:nowrap;
-      will-change:transform;
-      transform:translateX(0%);
-    }
-    .routeSlide{
-      flex: 0 0 100%;
-      display:flex;
-      align-items:flex-start;
-      justify-content:flex-start; /* left align */
-    }
+
+    /* Single route badge (existing .route retained) */
     .route{
       display:inline-flex;
       align-items:center;
@@ -228,6 +225,34 @@
       overflow:hidden;
       text-overflow:ellipsis;
       font-size:var(--route-font);
+    }
+
+    /* Multi route grid: 2 columns x 3 rows */
+    .routesGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap:8px;
+      width:100%;
+      height:100%;
+      align-items:stretch;
+      justify-items:stretch;
+    }
+    .route-mini{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      background:var(--accent);
+      color:#000;
+      border-radius:var(--route-radius);
+      letter-spacing:-0.3px;
+      line-height:1;
+      padding:6px 10px;
+      font-size:var(--route-mini-font);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
     /* Operator pill (Option A) */
@@ -371,7 +396,7 @@
 
   <header class="topbar">
     <h1 class="title">TfGM Travel Alerts - Diversions</h1>
-    <div id="statusPill" class="status-pill">Live • --:--:--</div>
+    <div id="statusPill" class="status-pill">Pulling from DfT</div>
   </header>
 
   <main>
@@ -381,7 +406,7 @@
   <!-- Fullscreen Alert Overlay -->
   <div id="divertOverlay" class="ov-add" aria-hidden="true">
     <div class="ov-card" role="dialog" aria-label="Diversion alert">
-      <div id="ovKicker" class="ov-kicker">NEW TRAVEL ALERT</div>
+      <div id="ovKicker" class="ov-kicker">NEW DIVERTS</div>
       <div id="ovRoute" class="ov-route">–</div>
       <div id="ovSummary" class="ov-summary">–</div>
       <div id="ovTimes" class="ov-times"><!-- simplified times injected --></div>
@@ -403,7 +428,6 @@
     const UNPLANNED_ONLY = true;
     const PAGE_INTERVAL_MS = 10000; // page dwell (10s)
     const FEED_REFRESH_MS = 60000;  // feed refresh (60s)
-    const ROUTE_SLIDE_EASE_MS = 400; // slide animation
 
     /* Diversion keyword matching */
     const DIVERSION_MATCHERS = ["divert","diversion","diversions"];
@@ -411,8 +435,7 @@
     /* UFN >24h helper */
     const DAY_MS = 24 * 60 * 60 * 1000; /* UFN >24h: pin & pulse */
 
-    /* Track ticker timers & pager */
-    let routeTickerTimers = [];
+    /* Pager */
     let pagerTimer = null;
 
     /* New/Removed diversion detection */
@@ -453,8 +476,8 @@
     /* Operator short-code mapping */
     const OP_MAP = {
       BNML:"ML",
-      BNGN:"GNW",
-      BNSM:"SCM",
+      BNGN:"GN",
+      BNSM:"SC",
       BNDB:"DB",
       BNVB:"VB",
       BNFM:"FB",
@@ -515,7 +538,7 @@
           pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
         }
       }else if(avj){
-        pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName);
+        pushVal(avj?.LineRef || avj?.PublishedLineName || j?.LineName);
       }
       if(Array.isArray(sit.__lineRefs)){
         for(const v of sit.__lineRefs) pushVal(v);
@@ -575,13 +598,13 @@
         if(!d) return null;
         const isSoS = d.getHours() === 0 && d.getMinutes() === 0;
         const label = dayDateLabel(d);
-        return isSoS ? `🕛 SoS ${label}` : `🕛 ${fmtHM(d)} ${label}`;
+        return isSoS ? `🕑  SoS 📅 ${label}` : `🕑 ${fmtHM(d)} 📅 ${label}`;
       }
       function formatEnd(d){
         if(!d) return "🛑 UFN"; // grid version may include duration below
         const isEoS = d.getHours() === 23 && d.getMinutes() === 59;
         const label = dayDateLabel(d);
-        return isEoS ? `🛑 EoS ${label}` : `🛑 ${fmtHM(d)} ${label}`;
+        return isEoS ? `🛑 EoS 📅 ${label}` : `🛑 ${fmtHM(d)} 📅 ${label}`;
       }
 
       const startLine = formatStart(s);
@@ -709,54 +732,6 @@
       document.documentElement.style.setProperty("--cardHeight", perRowH + "px");
     }
 
-    function clearRouteTickers(){
-      routeTickerTimers.forEach(id => clearInterval(id));
-      routeTickerTimers = [];
-    }
-
-    /* Route ticker: slide through all routes within current page dwell once */
-    function startRouteTicker(trackEl, count){
-      if(!trackEl || count <= 1) return;
-
-      const steps = count;                 // number of slides
-      const totalMs = PAGE_INTERVAL_MS;    // total page dwell
-      const minPerSlide = 800;             // readability minimum
-      const stepMs = Math.max(minPerSlide, Math.floor(totalMs / steps));
-      let idx = 0;
-
-      trackEl.style.transition = "none";
-      trackEl.style.transform = "translateX(0%)";
-
-      // Defer to allow layout to settle, then animate
-      setTimeout(()=>{
-        trackEl.style.transition = `transform ${ROUTE_SLIDE_EASE_MS}ms ease-in-out`;
-
-        const timer = setInterval(()=>{
-          idx += 1;
-          if(idx >= steps){
-            clearInterval(timer);
-            return;
-          }
-          const shift = -(idx * 100);
-          trackEl.style.transform = `translateX(${shift}%)`;
-        }, stepMs);
-
-        routeTickerTimers.push(timer);
-      }, 50);
-    }
-
-    function operatorTintClass(ref){
-      switch((ref||"").toUpperCase()){
-        case "BNML": return {cls:"op-BNML", dark:false};
-        case "BNGN": return {cls:"op-BNGN", dark:true};
-        case "BNSM": return {cls:"op-BNSM", dark:false};
-        case "BNDB": return {cls:"op-BNDB", dark:true};  // BNDB uses on-dark
-        case "BNVB": return {cls:"op-BNVB", dark:true};
-        case "BNFM": return {cls:"op-BNFM", dark:false};
-        default:     return {cls:"",       dark:true};
-      }
-    }
-
     /* -------- Overlay helpers -------- */
     function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
       const overlay = $("#divertOverlay");
@@ -795,7 +770,7 @@
 
         elTimes.replaceChildren();
         const d = document.createElement("div");
-        d.textContent = `🕛diverted for ${durLabel}`;
+        d.textContent = `🕑diverted for ${durLabel}`;
         elTimes.appendChild(d);
 
       } else {
@@ -851,8 +826,6 @@
 
     /* -------- Render & paging -------- */
     function renderPage(){
-      clearRouteTickers();
-
       const grid = $("#grid");
       const pg = pager.pages[pager.pageIndex] || [];
       grid.innerHTML = "";
@@ -876,29 +849,61 @@
         const inner = document.createElement("div");
         inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
 
-        // Header: route ticker + operator pill
+        // Header: ROUTES DISPLAY + operator pill
         const header = document.createElement("div");
         header.className = "chipHeader";
 
-        // ROUTES TICKER
-        const ticker = document.createElement("div");
-        ticker.className = "routesTicker";
-        ticker.title = (it.routes || []).join(", ");
-
-        const track = document.createElement("div");
-        track.className = "routesTrack";
+        // ======= ROUTES DISPLAY: single big badge OR 2x3 grid with overflow "+X" =======
+        const routesArea = document.createElement("div");
+        routesArea.className = "routesArea";
+        routesArea.title = (it.routes || []).join(", ");
 
         const routes = Array.isArray(it.routes) && it.routes.length ? it.routes : ["?"];
-        routes.forEach(rt=>{
-          const slide = document.createElement("div");
-          slide.className = "routeSlide";
+
+        if (routes.length === 1) {
+          // Single big badge (keep existing .route style)
           const badge = document.createElement("div");
           badge.className = "route";
-          badge.textContent = String(rt);
-          slide.appendChild(badge);
-          track.appendChild(slide);
-        });
-        ticker.appendChild(track);
+          badge.textContent = String(routes[0]);
+          routesArea.appendChild(badge);
+        } else {
+          // Multi: 2 columns x 3 rows, same outer size as single badge area
+          const gridRoutes = document.createElement("div");
+          gridRoutes.className = "routesGrid";
+
+          // Show up to 6 slots; if more than 6, last slot becomes "+X"
+          const MAX_SLOTS = 6;
+          const overflow = Math.max(0, routes.length - MAX_SLOTS);
+          const toShow = overflow > 0 ? routes.slice(0, MAX_SLOTS - 1) : routes.slice(0, MAX_SLOTS);
+
+          // Fill up to 5 real routes
+          toShow.forEach(rt => {
+            const cell = document.createElement("div");
+            cell.className = "route-mini";
+            cell.textContent = String(rt);
+            gridRoutes.appendChild(cell);
+          });
+
+          // If overflow, put "+X" into the 6th slot
+          if (overflow > 0) {
+            const cell = document.createElement("div");
+            cell.className = "route-mini";
+            cell.textContent = `+${overflow}`;
+            gridRoutes.appendChild(cell);
+          } else {
+            // If fewer than 6 routes, pad remaining cells with invisible fillers to keep geometry fixed
+            const pad = MAX_SLOTS - toShow.length;
+            for (let i = 0; i < pad; i++) {
+              const filler = document.createElement("div");
+              filler.className = "route-mini";
+              filler.style.visibility = "hidden";
+              filler.textContent = "—";
+              gridRoutes.appendChild(filler);
+            }
+          }
+
+          routesArea.appendChild(gridRoutes);
+        }
 
         // Operator pill
         const opTag = document.createElement("div");
@@ -924,7 +929,7 @@
           opTag.appendChild(document.createTextNode(" " + (opCodes.length ? opCodes.join(", ") : "—")));
         }
 
-        header.append(ticker, opTag);
+        header.append(routesArea, opTag);
 
         // Summary (exactly 2 lines)
         const s = document.createElement("div");
@@ -951,9 +956,6 @@
         inner.append(header, s, times);
         chip.append(inner);
         grid.append(chip);
-
-        // Start per-card route ticker
-        startRouteTicker(track, routes.length);
       }
     }
 
@@ -966,6 +968,18 @@
         setStatusPill(true);
         requestAnimationFrame(setFixedGridSizing); // keep exact rows
       }, PAGE_INTERVAL_MS);
+    }
+
+    function operatorTintClass(ref){
+      switch((ref||"").toUpperCase()){
+        case "BNML": return {cls:"op-BNML", dark:false};
+        case "BNGN": return {cls:"op-BNGN", dark:true};
+        case "BNSM": return {cls:"op-BNSM", dark:false};
+        case "BNDB": return {cls:"op-BNDB", dark:true};  // BNDB uses on-dark
+        case "BNVB": return {cls:"op-BNVB", dark:true};
+        case "BNFM": return {cls:"op-BNFM", dark:false};
+        default:     return {cls:"",       dark:true};
+      }
     }
 
     /* -------- Fetch & Render -------- */
@@ -1143,8 +1157,8 @@
 
       if(key === "k"){
         const sampleAdd = {
-          routes: ["36"],
-          summary: "Route 36 diverted via Deansgate due to incident at St Peter's Square.",
+          routes: ["36", "37", "38", "39", "40", "41", "42"], // demonstrate +X
+          summary: "Multiple routes diverted via Deansgate due to incident at St Peter's Square.",
           timeLines: {
             endLine: "🛑 UFN" // overlay will show just '🛑 UFN'
           }
