@@ -55,6 +55,9 @@
       --route-rect-h: calc(var(--route-font) + (var(--route-pad-v) * 2));
       /* compact font for multi grid tiles */
       --route-mini-font: clamp(18px, 2.2vw, 28px);
+
+      /* Pager progress duration (JS sets this to PAGE_INTERVAL_MS) */
+      --page-interval: 10000ms;
     }
 
     *{ box-sizing:border-box; }
@@ -74,23 +77,78 @@
     .topbar{
       display:flex;
       justify-content:space-between;
-      align-items:center;
+      align-items:flex-start; /* allow left to stack */
       padding:16px 24px;
       background:#0b0b0e;
       border-bottom:1px solid #1d1d25;
+    }
+    .leftHeader{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:8px;
+      min-width:0;
     }
     .title{
       margin:0;
       font-size:56px;        /* control-room size */
       font-weight:900;
       letter-spacing:-0.3px;
+      line-height:1;
     }
 
-    /* Bee + Live pill wrapper */
+    /* Operator totals + page indicator under title */
+    .status-meta{
+      font-size:14px;
+      font-weight:700;
+      color:var(--muted);
+      letter-spacing:0.2px;
+      text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      line-height:1.15;
+    }
+    .status-meta .opCounts{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .status-meta .opCounts span{
+      position:relative;
+      padding-left:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      white-space:nowrap;
+    }
+    .status-meta .opCounts span::before{
+      content:"";
+      position:absolute;
+      left:0; top:50%;
+      width:8px; height:8px; border-radius:50%;
+      transform:translateY(-50%);
+      background:#cfcfd6;
+      box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
+    }
+    .status-meta .sep{
+      opacity:.6;
+      user-select:none;
+    }
+    /* Dots per operator */
+    .status-meta .opCounts span[data-op="BNML"]::before{ background: var(--op-BNML); }
+    .status-meta .opCounts span[data-op="BNGN"]::before{ background: var(--op-BNGN); }
+    .status-meta .opCounts span[data-op="BNSM"]::before{ background: var(--op-BNSM); }
+    .status-meta .opCounts span[data-op="BNDB"]::before{ background: var(--op-BNDB); }
+    .status-meta .opCounts span[data-op="BNVB"]::before{ background: var(--op-BNVB); }
+    .status-meta .opCounts span[data-op="BNFM"]::before{ background: var(--op-BNFM); }
+
+    /* Bee + Live pill wrapper (right side) */
     .statusWrapper{
       display:flex;
       align-items:center;
       gap:16px;
+      flex-shrink:0;
     }
     #beeLogo{
       width:64px;
@@ -183,7 +241,6 @@
         0 0 0 4px rgba(255,77,79,0.10);
     }
 
-    /* UFN >24h: pulse red and stand out */
     @keyframes pulseRed {
       0% {
         box-shadow:
@@ -312,7 +369,32 @@
       border-color: rgba(255,255,255,0.20);
     }
 
-    /* Operator pill */
+    /* Right column stack (Operator + Emoji Reason) */
+    .rightCol{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:stretch;
+      width:max-content;     /* both chips share the same intrinsic width */
+    }
+
+    .reasonEmojiChip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      border:2px solid rgba(255,255,255,0.18);
+      font-size:28px;
+      font-weight:800;
+      color:#e6e6ee;
+      white-space:nowrap;
+      width:100%;
+      line-height:1;
+    }
+
     .operatorTag{
       display:inline-flex;
       align-items:center;
@@ -337,32 +419,6 @@
       transition: background-color 400ms ease, background 400ms ease;
     }
 
-    /* Right column stack (Operator + Emoji Reason) */
-    .rightCol{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      align-items:stretch;
-      width:max-content;     /* both chips share the same intrinsic width */
-    }
-
-    .reasonEmojiChip{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:8px 14px;           /* match operatorTag */
-      border-radius:999px;        /* match operatorTag */
-      background:rgba(255,255,255,0.12);
-      border:2px solid rgba(255,255,255,0.18);
-      font-size:28px;             /* match operatorTag */
-      font-weight:800;            /* match operatorTag */
-      color:#e6e6ee;
-      white-space:nowrap;
-      width:100%;                 /* fill rightCol width */
-      line-height:1;
-    }
-
     /* Body: one-line details "xxxxx // TOWN" */
     .detailsLine{
       font-size:clamp(26px, 2.6vw, 32px);
@@ -385,12 +441,48 @@
     }
     .timeLine{
       font-size:clamp(24px, 2.2vw, 30px);
-      font-weight:900;
-      color:#d9d9e2;
+      font-weight:900;       /* base (overridden within .times for card rows) */
+      color:#d9d9e2;         /* base (overridden within .times for card rows) */
       line-height:1.25;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    /* Make Started //, Ends //, Duration // softer in cards,
+       but keep the VALUES bold & white */
+    .times .timeLine{
+      font-weight:600;
+      color: rgba(233,233,239,0.65);
+    }
+    .times .timeLine .timePrefix{
+      font-weight:600;
+      color: rgba(233,233,239,0.55);
+    }
+    .times .timeLine .timeValue{
+      font-weight:900;
+      color:#ffffff;
+    }
+    /* If Ends // value is UFN, make the entire line yellow (prefix + value) */
+    .times .timeLine.ufn{
+      color: var(--accent);
+    }
+    .times .timeLine.ufn .timePrefix,
+    .times .timeLine.ufn .timeValue{
+      color: var(--accent);
+    }
+
+    .timeLine .ufn-warning{
+      margin-left:8px;
+      display:inline-block;
+      animation: ufnFlash 1.2s infinite;
+    }
+    @keyframes ufnFlash {
+      0%, 60%   { opacity: 1; transform: scale(1); }
+      70%       { opacity: .35; transform: scale(0.98); }
+      100%      { opacity: 1; transform: scale(1); }
     }
 
     /* Optional subtle operator tints (backgrounds) */
@@ -471,12 +563,52 @@
       align-items:center;
       justify-content:center;
     }
+
+    /* --- Thin yellow progress line at page bottom --- */
+    #pageProgress{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      height:4px;
+      background:var(--accent);
+      transform-origin:left center;
+      transform:scaleX(0);
+      opacity:0.9;
+      z-index:9998; /* keep below overlay (9999), above content */
+      pointer-events:none;
+      display:none; /* hidden when not paging */
+      will-change:transform;
+    }
+    #pageProgress.run{
+      animation: pageProgress var(--page-interval) linear forwards;
+    }
+    @keyframes pageProgress{
+      from{ transform:scaleX(0); }
+      to  { transform:scaleX(1); }
+    }
   </style>
 </head>
 <body>
 
   <header class="topbar">
-    <h1 class="title">TfGM Travel Alerts - Diversions</h1>
+    <div class="leftHeader">
+      <h1 class="title">TfGM Travel Alerts - Diversions</h1>
+
+      <!-- Operator counts + Page indicator (under title) -->
+      <div id="statusMeta" class="status-meta" aria-live="polite">
+        <span class="opCounts">
+          <span data-op="BNML">ML 0</span> •
+          <span data-op="BNGN">GN 0</span> •
+          <span data-op="BNSM">SC 0</span> •
+          <span data-op="BNDB">DB 0</span> •
+          <span data-op="BNVB">VB 0</span> •
+          <span data-op="BNFM">FB 0</span>
+        </span>
+        <span class="sep">|</span>
+        <span id="metricPage">Pg 0/0</span>
+      </div>
+    </div>
+
+    <!-- Right side: bee + live pill only -->
     <div class="statusWrapper">
       <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
       <div id="statusPill" class="status-pill">Pulling from DfT</div>
@@ -496,6 +628,9 @@
       <div id="ovTimes" class="ov-times"></div>
     </div>
   </div>
+
+  <!-- Page turn progress (fills over the dwell interval) -->
+  <div id="pageProgress" aria-hidden="true"></div>
 
   <script>
     /* ===========================
@@ -533,24 +668,23 @@
     /* VISIBILITY QUEUE */
     let pageVisible = true;
 
+    /* Set CSS duration for the progress bar to match page dwell */
+    document.documentElement.style.setProperty('--page-interval', PAGE_INTERVAL_MS + 'ms');
+
     /* Helpers */
     const $ = s => document.querySelector(s);
     const parseISO = s => s ? new Date(s) : null;
 
-    function fmtFull(d){
-      return new Intl.DateTimeFormat(undefined,
-        {hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(d);
-    }
     function fmtHM(d){
       return new Intl.DateTimeFormat(undefined,
         {hour:"2-digit",minute:"2-digit"}).format(d);
     }
 
-    /* Status pill and Bee wiggle: animate only when requested */
     function setStatusPill(ok, { animate = false } = {}){
       const pill = $("#statusPill");
       const bee = $("#beeLogo");
-      const t = fmtFull(new Date());
+      const t = new Intl.DateTimeFormat(undefined,
+        {hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
       if(ok){
         pill.classList.remove("status-error");
         pill.textContent = `Live • ${t}`;
@@ -565,24 +699,129 @@
       }
     }
 
-    /* Operator short-code mapping */
-    const OP_MAP = {
-      BNML:"ML",
-      BNGN:"GN",
-      BNSM:"SC",
-      BNDB:"DB",
-      BNVB:"VB",
-      BNFM:"FB",
-    };
+    /* Operator short-code mapping (kept as in your original) */
+    const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
     function mapOperators(list){
       return list.map(ref => OP_MAP[ref] || ref);
     }
-
-    /* Operator colours */
     const OP_COLOR_MAP = {
       BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
       BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
     };
+
+    /* --- status meta updaters (counts + page indicator) --- */
+    function updateOperatorCounts(counts){
+      (BEE_OPERATORS || []).forEach(op => {
+        const el = document.querySelector(`.status-meta .opCounts span[data-op="${op}"]`);
+        if (el){
+          const code = OP_MAP[op] || op;
+          const val = counts && Number.isFinite(counts[op]) ? counts[op] : 0;
+          el.textContent = `${code} ${val}`;
+        }
+      });
+    }
+    function updatePageIndicator(){
+      const el = document.getElementById('metricPage');
+      if(!el) return;
+      const totalPages = Array.isArray(pager.pages) ? pager.pages.length : 0;
+      const curr = totalPages > 0 ? (pager.pageIndex + 1) : 0;
+      el.textContent = `Pg ${curr}/${totalPages}`;
+    }
+
+    /* --- bottom progress bar control --- */
+    function restartProgressBar(){
+      const bar = document.getElementById('pageProgress');
+      if (!bar) return;
+      const shouldShow = Array.isArray(pager.pages) && pager.pages.length > 1;
+      if (!shouldShow){
+        bar.classList.remove('run');
+        bar.style.display = 'none';
+        bar.style.transform = 'scaleX(0)';
+        return;
+      }
+      bar.style.display = 'block';
+      bar.classList.remove('run');
+      void bar.offsetWidth; // reflow to reset animation
+      bar.classList.add('run');
+    }
+
+    /* ---------- Date label helpers ---------- */
+    function isToday(d){
+      const now = new Date();
+      return d.getFullYear() === now.getFullYear() &&
+             d.getMonth() === now.getMonth() &&
+             d.getDate() === now.getDate();
+    }
+    function isYesterday(d){
+      const now = new Date();
+      const y = new Date(now);
+      y.setDate(now.getDate() - 1);
+      return d.getFullYear() === y.getFullYear() &&
+             d.getMonth() === y.getMonth() &&
+             d.getDate() === y.getDate();
+    }
+    function isTomorrow(d){
+      const now = new Date();
+      const t = new Date(now);
+      t.setDate(now.getDate() + 1);
+      return d.getFullYear() === t.getFullYear() &&
+             d.getMonth() === t.getMonth() &&
+             d.getDate() === t.getDate();
+    }
+    function weekBoundsOfToday(){
+      const now = new Date();
+      const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      // Monday start (Mon=1..Sun=7)
+      const weekday = (start.getDay()+6) % 7; // 0 = Monday
+      start.setDate(start.getDate() - weekday);
+      const end = new Date(start);
+      end.setDate(start.getDate() + 6);
+      end.setHours(23,59,59,999);
+      return {start, end};
+    }
+    function inThisWeek(d){
+      const {start, end} = weekBoundsOfToday();
+      return d >= start && d <= end;
+    }
+    function ordinal(n){
+      const s = ["th","st","nd","rd"], v = n % 100;
+      return n + (s[(v-20)%10] || s[v] || s[0]);
+    }
+    function fullMonth(d){
+      return new Intl.DateTimeFormat(undefined, { month: 'long' }).format(d);
+    }
+    function fullWeekday(d){
+      return new Intl.DateTimeFormat(undefined, { weekday: 'long' }).format(d);
+    }
+
+    function formatLabelForDate(d){
+      if(!d) return null;
+      if(isToday(d)) return `${fmtHM(d)} Today`;
+      if(isYesterday(d)) return `Yesterday`;
+      if(isTomorrow(d)) return `Tomorrow`;
+      if(inThisWeek(d)) return fullWeekday(d); // Monday, Tuesday...
+      return `${ordinal(d.getDate())} ${fullMonth(d)}`; // 3rd February
+    }
+
+    function isStartOfService(d){ return d && d.getHours() === 0 && d.getMinutes() === 0; }
+    function isEndOfService(d){ return d && d.getHours() === 23 && d.getMinutes() === 59; }
+
+    /* ---------- single-unit, rounded duration ---------- */
+    function formatSingleUnitDuration(start, end){
+      if(!start) return "—";
+      const now = new Date();
+      const endTime = end || now;
+      let ms = endTime - start;
+      if (ms < 0) return "—";
+      const s = ms / 1000;
+      if (s < 60) return `${Math.round(s)}s`;
+      const m = s / 60;
+      if (m < 60) return `${Math.round(m)}m`;
+      const h = m / 60;
+      if (h < 24) return `${Math.round(h)}h`;
+      const d = h / 24;
+      return `${Math.round(d)}d`;
+    }
 
     /* Stable-ish Situation ID */
     function getSituationId(sit){
@@ -624,13 +863,11 @@
     function getLineRefs(sit){
       const lines = new Set();
       const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-
       const pushVal = (val)=>{
         if(val == null) return;
         const s = String(val).trim();
         if(s) lines.add(s);
       };
-
       if(Array.isArray(avj)){
         for(const j of avj){
           pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
@@ -648,95 +885,11 @@
       return Array.from(lines);
     }
 
-    /* UFN duration phrasing */
-    function ufnDurationPhrase(startDate){
-      if(!startDate) return "less than a minute";
-      const now = new Date();
-      const diffMs = now - startDate;
-      if(diffMs < 60000) return "less than a minute";
-      const mins = Math.floor(diffMs / 60000);
-      if(mins < 60) return `${mins} m`;
-      const hours = Math.floor(mins / 60);
-      return `${hours} ${hours === 1 ? "hr" : "hrs"}`;
-    }
-
-    /* Day/Date label rules */
-    function dayDateLabel(d){
-      const now = new Date();
-      const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      const startOfGiven = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-
-      const msPerDay = 86400000;
-      const dayDiff = Math.round((startOfGiven - startOfToday) / msPerDay);
-
-      if(dayDiff === 0) return "Today";
-      if(dayDiff === -1) return "Yesterday";
-      if(dayDiff === 1) return "Tomorrow";
-
-      // Week bounds (Mon–Sun)
-      const mon = new Date(startOfToday);
-      mon.setDate(startOfToday.getDate() - ((startOfToday.getDay() + 6) % 7)); // Monday
-      const sun = new Date(mon);
-      sun.setDate(mon.getDate() + 6);
-      sun.setHours(23,59,59,999);
-
-      if(d >= mon && d <= sun){
-        return new Intl.DateTimeFormat(undefined, { weekday: 'short' }).format(d);
-      }
-      // Otherwise: '2 Feb'
-      return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
-    }
-
-    /* Validity lines */
-    function validityLines(sit){
-      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-
-      function formatStart(d){
-        if(!d) return null;
-        const isSoS = d.getHours() === 0 && d.getMinutes() === 0;
-        const label = dayDateLabel(d);
-        return isSoS ? `🕑  SoS 📅 ${label}` : `🕑 ${fmtHM(d)} 📅 ${label}`;
-      }
-      function formatEnd(d){
-        if(!d) return "🛑 UFN";
-        const isEoS = d.getHours() === 23 && d.getMinutes() === 59;
-        const label = dayDateLabel(d);
-        return isEoS ? `🛑 EoS 📅 ${label}` : `🛑 ${fmtHM(d)} 📅 ${label}`;
-      }
-
-      const startLine = formatStart(s);
-
-      if (e) {
-        return { startLine, endLine: formatEnd(e) };
-      }
-
-      const dur = ufnDurationPhrase(s);
-      const ufnLine = `🛑 UFN - diverted for ${dur}`;
-      return { startLine, endLine: ufnLine };
-    }
-
-    /* ±7 day window */
-    function isWithin7DayWindow(sit){
-      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-
-      const now = new Date();
-      const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
-      const endOfToday   = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59,999);
-
-      const windowStart = new Date(startOfToday.getTime() - 7*24*60*60*1000);
-      const windowEnd   = new Date(endOfToday.getTime()   + 7*24*60*60*1000);
-
-      const inWindow = d => d && d >= windowStart && d <= windowEnd;
-      return inWindow(s) || inWindow(e);
-    }
-
+    /* Diversion filtering and validity */
     function isDiversion(sit){
       const txt = (sit.Description || sit.Summary || "").toLowerCase();
-      return DIVERSION_MATCHERS.some(k => txt.includes(k));
+      return ["divert","diversion","diversions"].some(k => txt.includes(k));
     }
-
     function isCurrentlyValid(sit){
       const now = new Date();
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
@@ -746,7 +899,6 @@
       if(e && e < now) return false;
       return true;
     }
-
     function extractSituationsFromJSON(json){
       const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
       if(!sd) return [];
@@ -761,7 +913,6 @@
       }
       return out;
     }
-
     function extractSituationsFromXML(doc){
       const els = [...doc.querySelectorAll("PtSituationElement")];
       return els.map(el=>{
@@ -797,11 +948,11 @@
 
     /* -------- Paging -------- */
     const pager={pages:[],pageIndex:0,pageSize:6,total:0};
-
     function chunk(arr,size){
+      if (!Array.isArray(arr) || arr.length === 0) return []; // real empty => no pages
       const out=[];
       for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size));
-      return out.length?out:[[]];
+      return out;
     }
 
     /* Geometry-based card sizing: exact 2 rows, no cutoff */
@@ -829,6 +980,42 @@
       document.documentElement.style.setProperty("--cardHeight", perRowH + "px");
     }
 
+    /* ---------- Times footer builder ---------- */
+    function buildTimesLines(sit){
+      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+
+      // START
+      let startVal = "—";
+      if (s){
+        if (isStartOfService(s)) {
+          startVal = "Start of Service";
+        } else {
+          startVal = formatLabelForDate(s);
+        }
+      }
+      const startLine = `Started // ${startVal || "—"}`;
+
+      // END / UFN
+      let endVal = "—";
+      if (e){
+        if (isEndOfService(e)) {
+          endVal = "End of Service";
+        } else {
+          endVal = formatLabelForDate(e);
+        }
+      } else {
+        endVal = "UFN";
+      }
+      const endLine = `Ends // ${endVal}`;
+
+      // DURATION (single-unit, rounded)
+      const durationVal = formatSingleUnitDuration(s, e);
+      const durationLine = `Duration // ${durationVal}`;
+
+      return { startLine, endLine, durationLine, startDate:s, endDate:e };
+    }
+
     /* -------- Overlay helpers -------- */
     function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
       const overlay = $("#divertOverlay");
@@ -843,51 +1030,45 @@
         // DIVERT END (green)
         overlay.classList.add("ov-remove");
         elKicker.textContent = "DIVERT END";
-
         const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
         elRoute.textContent = routes.join(" • ");
-
-        // No summary/description
         elSummary.textContent = "";
 
-        // Compute total diverted time
+        // Simple total diverted time
+        elTimes.replaceChildren();
         const start = item.startMs ? new Date(item.startMs) : null;
         const end   = item.endMs ? new Date(item.endMs) : new Date();
-        let durLabel = "—";
-        if(start){
-          const diffMs = Math.max(0, end - start);
-          const mins = Math.floor(diffMs / 60000);
-          if(mins < 60){
-            durLabel = `${mins} m`;
-          } else {
-            const hrs = Math.floor(mins / 60);
-            durLabel = `${hrs} ${hrs === 1 ? "hr" : "hrs"}`;
-          }
-        }
-
-        elTimes.replaceChildren();
+        const dLine = `Duration // ${formatSingleUnitDuration(start, end)}`;
         const d = document.createElement("div");
-        d.textContent = `🕑diverted for ${durLabel}`;
+        d.textContent = dLine;
+        d.className = "timeLine";
         elTimes.appendChild(d);
 
       } else {
         // NEW TRAVEL ALERT (yellow)
         overlay.classList.add("ov-add");
         elKicker.textContent = "NEW TRAVEL ALERT";
-
         const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
         elRoute.textContent = routes.join(" • ");
-
-        // Summary only
         elSummary.textContent = item.summary || "Travel alert";
 
-        // End time only; if UFN line exists, show just "🛑 UFN"
+        // Show only Ends line (UFN or date) to keep overlay succinct
         elTimes.replaceChildren();
         if(item.timeLines?.endLine){
           let endText = String(item.timeLines.endLine);
-          if(endText.startsWith("🛑 UFN")) endText = "🛑 UFN";
+          // if it has UFN, normalize to just "Ends // UFN"
+          if (endText.toUpperCase().includes("UFN")) endText = "Ends // UFN";
           const e = document.createElement("div");
+          e.className = "timeLine";
           e.textContent = endText;
+          // append flashing warning on UFN
+          if (endText.endsWith("UFN")) {
+            const warn = document.createElement("span");
+            warn.className = "ufn-warning";
+            warn.setAttribute("aria-label","ongoing");
+            warn.textContent = " ⚠️";
+            e.appendChild(warn);
+          }
           elTimes.appendChild(e);
         }
       }
@@ -909,15 +1090,11 @@
       overlayQueue.push(...arr);
       processOverlayQueue();
     }
-
-    /* VISIBILITY QUEUE */
     function processOverlayQueue(){
       if (!pageVisible) return;
       if (overlayShowing) return;
-
       const next = overlayQueue.shift();
       if (!next) return;
-
       showDivertOverlay(next.item, { mode: next.mode, durationMs: 10000 });
     }
 
@@ -932,9 +1109,7 @@
         .map(r => String(r).toUpperCase())
         .filter(Boolean))];
       const colors = uniqueRefs.map(ref => OP_COLOR_MAP[ref]).filter(Boolean);
-
       if(colors.length <= 1) return;
-
       let i = 0;
       dotEl.style.background = colors[0];
       const id = setInterval(() => {
@@ -948,44 +1123,42 @@
     function parseSummaryParts(summaryText){
       if(!summaryText) return null;
       const str = String(summaryText);
-
-      // Split on the FIRST " - " (with spaces)
       const hyIdx = str.indexOf(" - ");
       if(hyIdx === -1) return null;
-
       const left = str.slice(0, hyIdx).trim();
       const reason = str.slice(hyIdx + 3).trim();
-
-      // Take the LAST comma on the left side for town
       const lastComma = left.lastIndexOf(",");
       if(lastComma === -1) return null;
-
       const place = left.slice(0, lastComma).trim();
       const town  = left.slice(lastComma + 1).trim();
-
       if(!place || !town || !reason) return null;
       return { place, town, reason };
     }
-
-    /* Emoji selector for reason */
     function getReasonEmoji(text){
       if(!text) return "⚠️";
       const s = String(text).toLowerCase();
-
-      // 🚧 Roadworks / Road works / Works
       if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "🚧";
-      // ⛔ Closed / Closure
       if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
-      // 🚗 congestion
       if (/\bcongestion\b/.test(s)) return "🚗";
-      // 🔀 divert / diversion / diversions (incl. diverted/diverting)
       if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
-      // 💥 RTC / Collision
       if (/\brtc\b|\bcollision\b/.test(s)) return "💥";
-      // 🚨 incident / Police / fire
       if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
-      // default
       return "⚠️";
+    }
+
+    /* --- Helpers for time line splitting & HTML safety --- */
+    function splitLine(line){
+      const idx = line.indexOf(" // ");
+      if (idx === -1) return [line, ""];
+      return [line.slice(0, idx), line.slice(idx + 4)];
+    }
+    function escapeHtml(s){
+      return String(s ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#39;");
     }
 
     /* -------- Render & paging -------- */
@@ -993,9 +1166,7 @@
       const grid = $("#grid");
       const pg = pager.pages[pager.pageIndex] || [];
 
-      // Stop any previous multi-operator dot colour cycles
       clearColorCycles();
-
       grid.innerHTML = "";
 
       for(const it of pg){
@@ -1003,7 +1174,6 @@
 
         const chip = document.createElement("div");
         chip.className = "chip " + oc.cls;
-
         if (it.isUFN) chip.classList.add("ufn");
         if (it.ufnOver24h) chip.classList.add("pulse-ufn");
 
@@ -1025,13 +1195,11 @@
         const routes = Array.isArray(it.routes) && it.routes.length ? it.routes : ["?"];
 
         if (routes.length === 1) {
-          // Single big badge
           const badge = document.createElement("div");
           badge.className = "route";
           badge.textContent = String(routes[0]);
           routesArea.appendChild(badge);
         } else {
-          // Multi: 2x3 grid, fixed 6 slots (+X if overflow)
           const gridRoutes = document.createElement("div");
           gridRoutes.className = "routesGrid";
 
@@ -1039,7 +1207,6 @@
           const overflow = Math.max(0, routes.length - MAX_SLOTS);
           const toShow = overflow > 0 ? routes.slice(0, MAX_SLOTS - 1) : routes.slice(0, MAX_SLOTS);
 
-          // Up to 5 real routes
           toShow.forEach(rt => {
             const cell = document.createElement("div");
             cell.className = "route-mini";
@@ -1047,23 +1214,20 @@
             gridRoutes.appendChild(cell);
           });
 
-          // If overflow, put "+X" into the 6th slot
           if (overflow > 0) {
             const cell = document.createElement("div");
             cell.className = "route-mini";
             cell.textContent = `+${overflow}`;
             gridRoutes.appendChild(cell);
           } else {
-            // Pad with visible glass chips to keep the grid visually full
             const pad = MAX_SLOTS - toShow.length;
             for (let i = 0; i < pad; i++) {
               const filler = document.createElement("div");
               filler.className = "route-mini route-mini--glass";
-              filler.textContent = ""; // purely visual placeholder
+              filler.textContent = "";
               gridRoutes.appendChild(filler);
             }
           }
-
           routesArea.appendChild(gridRoutes);
         }
         headerLeft.appendChild(routesArea);
@@ -1087,7 +1251,6 @@
           opTag.appendChild(dot);
           opTag.appendChild(document.createTextNode(" " + opCodes[0]));
         } else {
-          // MULTI-OP: cycle the dot through all relevant operator colours
           dot.style.background = "#cfcfd6";
           opTag.appendChild(dot);
           opTag.appendChild(document.createTextNode(" " + (opCodes.length ? opCodes.join(", ") : "—")));
@@ -1095,13 +1258,10 @@
         }
         rightCol.appendChild(opTag);
 
-        // Parse summary once (also used for details line)
+        // Reason emoji chip (kept as emoji; title for full text)
         const parsed = parseSummaryParts(it.summary);
-
-        // Emoji-only reason chip (text in title/aria for accessibility)
         const reasonText = (parsed && parsed.reason) ? parsed.reason : (it.summary || "");
         const reasonEmoji = getReasonEmoji(reasonText);
-
         const reasonEmojiChip = document.createElement("div");
         reasonEmojiChip.className = "reasonEmojiChip";
         reasonEmojiChip.textContent = reasonEmoji;
@@ -1131,37 +1291,76 @@
           detailsEl.textContent = it.summary || "";
         }
 
-        // ===== Times (start and end/UFN) =====
+        // ===== Times (Started //, Ends //, Duration //) =====
         const times = document.createElement("div");
         times.className = "times";
-        if(it.timeLines.startLine){
-          const tStart = document.createElement("div");
-          tStart.className = "timeLine";
-          tStart.textContent = it.timeLines.startLine;
-          times.appendChild(tStart);
+
+        // Helpers for splitting lines and building HTML
+        const [startLabel, startValue] = splitLine(it.timeLines.startLine);
+        const [endLabel, endValue] = splitLine(it.timeLines.endLine);
+        const [durLabel, durValue] = splitLine(it.timeLines.durationLine);
+
+        const startDiv = document.createElement("div");
+        startDiv.className = "timeLine";
+        startDiv.innerHTML =
+          `<span class="timePrefix">${escapeHtml(startLabel)} //</span> ` +
+          `<span class="timeValue">${escapeHtml(startValue)}</span>`;
+        times.appendChild(startDiv);
+
+        const endDiv = document.createElement("div");
+        endDiv.className = "timeLine";
+        const isUFN = String(endValue || "").trim().toUpperCase() === "UFN";
+        if (isUFN) endDiv.classList.add("ufn");
+        endDiv.innerHTML =
+          `<span class="timePrefix">${escapeHtml(endLabel)} //</span> ` +
+          `<span class="timeValue">${escapeHtml(endValue)}</span>`;
+        if (isUFN) {
+          const warn = document.createElement("span");
+          warn.className = "ufn-warning";
+          warn.setAttribute("aria-label","ongoing");
+          warn.textContent = " ⚠️";
+          endDiv.appendChild(warn);
         }
-        if(it.timeLines.endLine){
-          const tEnd = document.createElement("div");
-          tEnd.className = "timeLine";
-          tEnd.textContent = it.timeLines.endLine;
-          times.appendChild(tEnd);
-        }
+        times.appendChild(endDiv);
+
+        const durDiv = document.createElement("div");
+        durDiv.className = "timeLine";
+        durDiv.innerHTML =
+          `<span class="timePrefix">${escapeHtml(durLabel)} //</span> ` +
+          `<span class="timeValue">${escapeHtml(durValue)}</span>`;
+        times.appendChild(durDiv);
 
         inner.append(header, detailsEl, times);
         chip.append(inner);
         grid.append(chip);
       }
+
+      // keep page indicator accurate on each render
+      updatePageIndicator();
     }
 
+    /* --- pager controls (idempotent) --- */
+    function stopPager(){
+      if (pagerTimer){
+        clearInterval(pagerTimer);
+        pagerTimer = null;
+      }
+    }
     function startPager(){
-      if(pagerTimer) clearInterval(pagerTimer);
-      if(pager.pages.length <= 1) return;
+      if (!pager.pages || pager.pages.length <= 1){
+        stopPager();
+        restartProgressBar(); // hides if single/no page
+        return;
+      }
+      stopPager();
+      restartProgressBar(); // reset line at cycle start
       pagerTimer = setInterval(()=>{
         pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
         renderPage();
-        // Keep status time fresh without animating the bee on page flips
-        setStatusPill(true, { animate: false });
+        setStatusPill(true, { animate:false });
         requestAnimationFrame(setFixedGridSizing);
+        updatePageIndicator();   // update "Pg a/b"
+        restartProgressBar();    // refill progress line
       }, PAGE_INTERVAL_MS);
     }
 
@@ -1175,6 +1374,20 @@
         case "BNFM": return {cls:"op-BNFM", dark:false};
         default:     return {cls:"",       dark:true};
       }
+    }
+
+    /* Count filtered items per operator (each item can increment multiple ops) */
+    function computeOperatorCounts(items){
+      const counts = { BNML:0, BNGN:0, BNSM:0, BNDB:0, BNVB:0, BNFM:0 };
+      if(!Array.isArray(items)) return counts;
+      for(const it of items){
+        const refs = (it.operatorRefs || []).map(r => String(r).toUpperCase());
+        const uniq = [...new Set(refs)];
+        for(const r of uniq){
+          if (BEE_OPERATORS.includes(r)) counts[r] = (counts[r] || 0) + 1;
+        }
+      }
+      return counts;
     }
 
     /* -------- Fetch & Render -------- */
@@ -1209,8 +1422,21 @@
         /* Only currently valid */
         situations = situations.filter(isCurrentlyValid);
 
-        /* Only if start or end is within ±7 days of today */
-        situations = situations.filter(isWithin7DayWindow);
+        /* ±7 day window */
+        situations = situations.filter(sit=>{
+          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+
+          const now = new Date();
+          const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
+          const endOfToday   = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59,999);
+
+          const windowStart = new Date(startOfToday.getTime() - 7*24*60*60*1000);
+          const windowEnd   = new Date(endOfToday.getTime()   + 7*24*60*60*1000);
+
+          const inWindow = d => d && d >= windowStart && d <= windowEnd;
+          return inWindow(s) || inWindow(e);
+        });
 
         /* Only unplanned */
         if(UNPLANNED_ONLY) {
@@ -1235,12 +1461,14 @@
           const isUFN = (endMs == null);
           const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
 
+          const timeLines = buildTimesLines(s);
+
           return {
             id: getSituationId(s),
             operatorRefs,
             singleOperatorForTint: getSingleOperatorRef(s) || "",
             routes: routes.length ? routes.map(String) : ["?"],
-            timeLines: validityLines(s),
+            timeLines,
             summary: (s.Summary || s.Description || "").trim(),
             startMs,
             endMs,
@@ -1282,18 +1510,30 @@
         firstFetchDone = true;
 
         /* Page building: fixed 6 per page for 3×2 grid */
+        const prevIndex = pager.pageIndex || 0;
+
         pager.pageSize = 6;
         pager.pages = chunk(items, pager.pageSize);
-        pager.pageIndex = 0;
         pager.total = items.length;
+
+        // Clamp page index
+        if (pager.pages.length === 0){
+          pager.pageIndex = 0;
+        } else {
+          pager.pageIndex = Math.min(prevIndex, pager.pages.length - 1);
+        }
+
+        // Update operator counts + page indicator for header
+        const opCounts = computeOperatorCounts(items); // counts over filtered items displayed by this tool
+        updateOperatorCounts(opCounts);
+        updatePageIndicator();
 
         // Render & start timers
         requestAnimationFrame(()=>{
           setFixedGridSizing();
           renderPage();
-          startPager();
-          // ✅ Animate bee on successful feed update
           setStatusPill(true, { animate: true });
+          startPager(); // idempotent; also handles progress bar show/hide
         });
 
         // Enqueue overlays: new then removed
@@ -1318,35 +1558,36 @@
     window.addEventListener("resize", ()=>{
       requestAnimationFrame(setFixedGridSizing);
     });
-
     if(document.fonts && document.fonts.ready){
       document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
-    /* VISIBILITY QUEUE */
+    /* VISIBILITY QUEUE (also pause/resume paging + progress bar) */
     document.addEventListener("visibilitychange", () => {
       pageVisible = !document.hidden;
       if (pageVisible) {
+        startPager();
+        restartProgressBar();
         processOverlayQueue();
+      } else {
+        stopPager();
       }
     });
 
     /* Keyboard tests: K = new (yellow), D = diverted end (green) */
     window.addEventListener("keydown", (e)=>{
       const key = String(e.key).toLowerCase();
-
       if(key === "k"){
         const sampleAdd = {
-          routes: ["36", "37", "38", "39", "40", "41", "42"], // demonstrate +X
+          routes: ["36", "37", "38", "39", "40", "41", "42"],
           summary: "Multiple routes diverted via Deansgate, MANCHESTER - Incident at St Peter's Square.",
           timeLines: {
-            endLine: "🛑 UFN"
+            endLine: "Ends // UFN"
           }
         };
         enqueueOverlays([{ mode:"add", item: sampleAdd }]);
       }
-
       if(key === "d"){
         const start = new Date(Date.now() - (2 * 60 * 60 * 1000)); // 2 hours ago
         const now = new Date();
