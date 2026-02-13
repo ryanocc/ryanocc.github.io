@@ -665,9 +665,6 @@
     let overlayQueue = [];
     let overlayShowing = false;
 
-    /* VISIBILITY QUEUE */
-    let pageVisible = true;
-
     /* Set CSS duration for the progress bar to match page dwell */
     document.documentElement.style.setProperty('--page-interval', PAGE_INTERVAL_MS + 'ms');
 
@@ -1091,7 +1088,6 @@
       processOverlayQueue();
     }
     function processOverlayQueue(){
-      if (!pageVisible) return;
       if (overlayShowing) return;
       const next = overlayQueue.shift();
       if (!next) return;
@@ -1562,18 +1558,6 @@
       document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
-
-    /* VISIBILITY QUEUE (also pause/resume paging + progress bar) */
-    document.addEventListener("visibilitychange", () => {
-      pageVisible = !document.hidden;
-      if (pageVisible) {
-        startPager();
-        restartProgressBar();
-        processOverlayQueue();
-      } else {
-        stopPager();
-      }
-    });
 
     /* Keyboard tests: K = new (yellow), D = diverted end (green) */
     window.addEventListener("keydown", (e)=>{
