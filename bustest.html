@@ -19,7 +19,7 @@
       --op-BNML:#ff4d4f;   /* red */
       --op-BNGN:#003C6E;   /* blue (GNW) */
       --op-BNSM:#ff9a1f;   /* orange */
-      --op-BNDB:#9AC331;   /* blue (DB) – distinct from BNGN */
+      --op-BNDB:#9AC331;   /* DB (brand distinct colour) */
       --op-BNVB:#7a3ffe;   /* purple */
       --op-BNFM:#ff66b3;   /* pink */
 
@@ -51,16 +51,16 @@
       --route-pad-h: 16px;
       --route-radius: 12px;
 
-      /* NEW: area height equal to single route badge height */
+      /* area height equal to single route badge height */
       --route-rect-h: calc(var(--route-font) + (var(--route-pad-v) * 2));
-      /* NEW: compact font for multi grid tiles */
+      /* compact font for multi grid tiles */
       --route-mini-font: clamp(18px, 2.2vw, 28px);
     }
 
     *{ box-sizing:border-box; }
     html, body { height: 100%; }
 
-    /* ----------- PAGE LAYOUT (robust, no cutoff) ----------- */
+    /* ----------- PAGE LAYOUT ----------- */
     body{
       margin:0; padding:0; background:var(--bg);
       color:var(--text);
@@ -85,6 +85,32 @@
       font-weight:900;
       letter-spacing:-0.3px;
     }
+
+    /* Bee + Live pill wrapper */
+    .statusWrapper{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    #beeLogo{
+      width:64px;
+      height:64px;
+      object-fit:contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
+      transition: transform 0.2s ease-out;
+    }
+    @keyframes wibble {
+      0%   { transform: rotate(0deg) scale(1); }
+      20%  { transform: rotate(4deg) scale(1.05); }
+      40%  { transform: rotate(-4deg) scale(1.05); }
+      60%  { transform: rotate(3deg) scale(1.03); }
+      80%  { transform: rotate(-3deg) scale(1.03); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+    .bee-wibble{
+      animation: wibble 650ms ease-out;
+    }
+
     .status-pill{
       padding:10px 16px;
       border-radius:999px;
@@ -101,7 +127,7 @@
       color:#fff;
     }
 
-    /* ----------- MAIN (grows below header) ----------- */
+    /* ----------- MAIN ----------- */
     main{
       padding:0 24px 24px; /* bottom padding only */
       display:flex;
@@ -147,7 +173,7 @@
       transition:transform .15s ease;
     }
 
-    /* NEW: highlight all UFNs (non-pulsing). >24h also gets pulse-ufn */
+    /* Highlight all UFNs; >24h also gets pulse-ufn */
     .chip.ufn{
       border-color: rgba(255,77,79,0.85) !important; /* stronger red */
       box-shadow:
@@ -157,7 +183,7 @@
         0 0 0 4px rgba(255,77,79,0.10);
     }
 
-    /* --- UFN >24h: pulse red and stand out --- */
+    /* UFN >24h: pulse red and stand out */
     @keyframes pulseRed {
       0% {
         box-shadow:
@@ -186,17 +212,26 @@
       animation: pulseRed 1200ms ease-in-out infinite;
     }
 
-    /* Header: ROUTE AREA + operator pill */
+    /* Header: ROUTE AREA + operator stack */
     .chipHeader{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap:14px;
-      margin-bottom:16px;
+      margin-bottom:0;
       width:100%;
     }
 
-    /* ======= NEW: ROUTE DISPLAY ======= */
+    /* left column: route area */
+    .headerLeft{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      flex:1 1 auto;
+      min-width:0; /* allow text to ellipsis correctly */
+    }
+
+    /* ROUTE DISPLAY */
     .routesArea{
       width:100%;
       height:var(--route-rect-h);
@@ -207,7 +242,7 @@
       flex:1 1 auto;
     }
 
-    /* Single route badge (existing .route retained) */
+    /* Single route badge */
     .route{
       display:inline-flex;
       align-items:center;
@@ -225,6 +260,7 @@
       overflow:hidden;
       text-overflow:ellipsis;
       font-size:var(--route-font);
+      width:100%;
     }
 
     /* Multi route grid: 2 columns x 3 rows */
@@ -255,7 +291,28 @@
       text-overflow:ellipsis;
     }
 
-    /* Operator pill (Option A) */
+    /* Glass empty chips to pad the multi-route grid */
+    .route-mini--glass{
+      background: rgba(255,255,255,0.06);
+      border: 2px dashed rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius: var(--route-radius);
+      letter-spacing:-0.3px;
+      line-height:1;
+      padding:6px 10px;
+      font-size: var(--route-mini-font);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      font-weight: 800;
+    }
+    .route-mini--glass:hover{
+      border-color: rgba(255,255,255,0.20);
+    }
+
+    /* Operator pill */
     .operatorTag{
       display:inline-flex;
       align-items:center;
@@ -267,7 +324,9 @@
       font-size:28px;
       font-weight:800;
       color:#e6e6ee;
-      white-space:nowrap;   /* keep on one line */
+      white-space:nowrap;
+      width:100%;           /* Ensures operator chip defines the column width */
+      line-height:1;
     }
     .operatorDot{
       width:18px; height:18px; border-radius:50%;
@@ -275,27 +334,50 @@
       box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
       display:inline-block;
       flex-shrink:0;
+      transition: background-color 400ms ease, background 400ms ease;
     }
 
-    /* Body: EXACTLY TWO LINES */
-    .summary{
+    /* Right column stack (Operator + Emoji Reason) */
+    .rightCol{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:stretch;
+      width:max-content;     /* both chips share the same intrinsic width */
+    }
+
+    .reasonEmojiChip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:8px 14px;           /* match operatorTag */
+      border-radius:999px;        /* match operatorTag */
+      background:rgba(255,255,255,0.12);
+      border:2px solid rgba(255,255,255,0.18);
+      font-size:28px;             /* match operatorTag */
+      font-weight:800;            /* match operatorTag */
+      color:#e6e6ee;
+      white-space:nowrap;
+      width:100%;                 /* fill rightCol width */
+      line-height:1;
+    }
+
+    /* Body: one-line details "xxxxx // TOWN" */
+    .detailsLine{
       font-size:clamp(26px, 2.6vw, 32px);
       line-height: var(--summary-line-height);
       color:var(--text);
-      opacity:0.95;
-
-      display:-webkit-box;
-      -webkit-box-orient:vertical;
-      -webkit-line-clamp:2;
+      white-space:nowrap;
       overflow:hidden;
-
-      min-height: calc(2 * var(--summary-line-height) * 1em);
-      max-height: calc(2 * var(--summary-line-height) * 1em);
-
+      text-overflow:ellipsis;
       margin:6px 2px 12px 2px;
     }
+    .detailsLine .town{
+      font-weight:900;
+    }
 
-    /* Footer: time lines (each one line) */
+    /* Footer: time lines */
     .times{
       margin-top:auto;
       padding-top:12px;
@@ -308,14 +390,13 @@
       line-height:1.25;
       white-space:nowrap;
       overflow:hidden;
-      text-overflow:ellipsis;  /* ensure one-line, no overflow */
+      text-overflow:ellipsis;
     }
 
     /* Optional subtle operator tints (backgrounds) */
     .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
     .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
     .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
-    /* BNDB now uses a blue tint instead of white */
     .op-BNDB{
       background: linear-gradient(180deg, rgba(47,137,255,0.10), transparent), var(--neutralElev);
       border-color: rgba(47,137,255,0.35);
@@ -396,7 +477,10 @@
 
   <header class="topbar">
     <h1 class="title">TfGM Travel Alerts - Diversions</h1>
-    <div id="statusPill" class="status-pill">Pulling from DfT</div>
+    <div class="statusWrapper">
+      <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
+      <div id="statusPill" class="status-pill">Pulling from DfT</div>
+    </div>
   </header>
 
   <main>
@@ -409,7 +493,7 @@
       <div id="ovKicker" class="ov-kicker">NEW DIVERTS</div>
       <div id="ovRoute" class="ov-route">–</div>
       <div id="ovSummary" class="ov-summary">–</div>
-      <div id="ovTimes" class="ov-times"><!-- simplified times injected --></div>
+      <div id="ovTimes" class="ov-times"></div>
     </div>
   </div>
 
@@ -461,12 +545,20 @@
       return new Intl.DateTimeFormat(undefined,
         {hour:"2-digit",minute:"2-digit"}).format(d);
     }
-    function setStatusPill(ok){
+
+    /* Status pill and Bee wiggle: animate only when requested */
+    function setStatusPill(ok, { animate = false } = {}){
       const pill = $("#statusPill");
+      const bee = $("#beeLogo");
       const t = fmtFull(new Date());
       if(ok){
         pill.classList.remove("status-error");
         pill.textContent = `Live • ${t}`;
+        if (animate && bee){
+          bee.classList.remove("bee-wibble");
+          void bee.offsetWidth;   // reflow to restart animation
+          bee.classList.add("bee-wibble");
+        }
       } else {
         pill.classList.add("status-error");
         pill.textContent = `Error • ${t}`;
@@ -486,7 +578,13 @@
       return list.map(ref => OP_MAP[ref] || ref);
     }
 
-    /* Stable-ish Situation ID for "new"/"removed" detection */
+    /* Operator colours */
+    const OP_COLOR_MAP = {
+      BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
+      BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
+    };
+
+    /* Stable-ish Situation ID */
     function getSituationId(sit){
       const a = sit?.SituationNumber || sit?.SituationRef;
       const b = sit?.ParticipantRef || "";
@@ -550,7 +648,7 @@
       return Array.from(lines);
     }
 
-    /* UFN duration phrasing (used for grid; overlay simplifies UFN to just '🛑 UFN') */
+    /* UFN duration phrasing */
     function ufnDurationPhrase(startDate){
       if(!startDate) return "less than a minute";
       const now = new Date();
@@ -589,7 +687,7 @@
       return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short' }).format(d);
     }
 
-    /* Validity lines (grid uses both; overlay will simplify) */
+    /* Validity lines */
     function validityLines(sit){
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -601,7 +699,7 @@
         return isSoS ? `🕑  SoS 📅 ${label}` : `🕑 ${fmtHM(d)} 📅 ${label}`;
       }
       function formatEnd(d){
-        if(!d) return "🛑 UFN"; // grid version may include duration below
+        if(!d) return "🛑 UFN";
         const isEoS = d.getHours() === 23 && d.getMinutes() === 59;
         const label = dayDateLabel(d);
         return isEoS ? `🛑 EoS 📅 ${label}` : `🛑 ${fmtHM(d)} 📅 ${label}`;
@@ -613,7 +711,6 @@
         return { startLine, endLine: formatEnd(e) };
       }
 
-      // UFN in grid (overlay strips duration)
       const dur = ufnDurationPhrase(s);
       const ufnLine = `🛑 UFN - diverted for ${dur}`;
       return { startLine, endLine: ufnLine };
@@ -753,7 +850,7 @@
         // No summary/description
         elSummary.textContent = "";
 
-        // Compute total diverted time: (end - start); if no end, use now; if no start, show "—"
+        // Compute total diverted time
         const start = item.startMs ? new Date(item.startMs) : null;
         const end   = item.endMs ? new Date(item.endMs) : new Date();
         let durLabel = "—";
@@ -810,12 +907,12 @@
     function enqueueOverlays(arr){
       if(!arr || !arr.length) return;
       overlayQueue.push(...arr);
-      processOverlayQueue(); // will defer if page hidden
+      processOverlayQueue();
     }
 
-    /* VISIBILITY QUEUE: only show overlays when the tab is visible */
+    /* VISIBILITY QUEUE */
     function processOverlayQueue(){
-      if (!pageVisible) return;          // wait until visible
+      if (!pageVisible) return;
       if (overlayShowing) return;
 
       const next = overlayQueue.shift();
@@ -824,10 +921,81 @@
       showDivertOverlay(next.item, { mode: next.mode, durationMs: 10000 });
     }
 
+    /* Colour cycling helpers (multi-operator dots) */
+    let colorCycleTimers = [];
+    function clearColorCycles(){
+      colorCycleTimers.forEach(id => clearInterval(id));
+      colorCycleTimers = [];
+    }
+    function startDotColorCycle(dotEl, operatorRefs, { intervalMs = 1200 } = {}){
+      const uniqueRefs = [...new Set((operatorRefs || [])
+        .map(r => String(r).toUpperCase())
+        .filter(Boolean))];
+      const colors = uniqueRefs.map(ref => OP_COLOR_MAP[ref]).filter(Boolean);
+
+      if(colors.length <= 1) return;
+
+      let i = 0;
+      dotEl.style.background = colors[0];
+      const id = setInterval(() => {
+        i = (i + 1) % colors.length;
+        dotEl.style.background = colors[i];
+      }, intervalMs);
+      colorCycleTimers.push(id);
+    }
+
+    /* Summary parsing: "xxxxx, TOWN - REASON" */
+    function parseSummaryParts(summaryText){
+      if(!summaryText) return null;
+      const str = String(summaryText);
+
+      // Split on the FIRST " - " (with spaces)
+      const hyIdx = str.indexOf(" - ");
+      if(hyIdx === -1) return null;
+
+      const left = str.slice(0, hyIdx).trim();
+      const reason = str.slice(hyIdx + 3).trim();
+
+      // Take the LAST comma on the left side for town
+      const lastComma = left.lastIndexOf(",");
+      if(lastComma === -1) return null;
+
+      const place = left.slice(0, lastComma).trim();
+      const town  = left.slice(lastComma + 1).trim();
+
+      if(!place || !town || !reason) return null;
+      return { place, town, reason };
+    }
+
+    /* Emoji selector for reason */
+    function getReasonEmoji(text){
+      if(!text) return "⚠️";
+      const s = String(text).toLowerCase();
+
+      // 🚧 Roadworks / Road works / Works
+      if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "🚧";
+      // ⛔ Closed / Closure
+      if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
+      // 🚗 congestion
+      if (/\bcongestion\b/.test(s)) return "🚗";
+      // 🔀 divert / diversion / diversions (incl. diverted/diverting)
+      if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
+      // 💥 RTC / Collision
+      if (/\brtc\b|\bcollision\b/.test(s)) return "💥";
+      // 🚨 incident / Police / fire
+      if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
+      // default
+      return "⚠️";
+    }
+
     /* -------- Render & paging -------- */
     function renderPage(){
       const grid = $("#grid");
       const pg = pager.pages[pager.pageIndex] || [];
+
+      // Stop any previous multi-operator dot colour cycles
+      clearColorCycles();
+
       grid.innerHTML = "";
 
       for(const it of pg){
@@ -836,24 +1004,20 @@
         const chip = document.createElement("div");
         chip.className = "chip " + oc.cls;
 
-        /* Highlight any UFN */
-        if (it.isUFN) {
-          chip.classList.add("ufn");
-        }
-
-        /* UFN >24h: pulse the card */
-        if (it.ufnOver24h) {
-          chip.classList.add("pulse-ufn");
-        }
+        if (it.isUFN) chip.classList.add("ufn");
+        if (it.ufnOver24h) chip.classList.add("pulse-ufn");
 
         const inner = document.createElement("div");
         inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
 
-        // Header: ROUTES DISPLAY + operator pill
+        // Header container
         const header = document.createElement("div");
         header.className = "chipHeader";
 
-        // ======= ROUTES DISPLAY: single big badge OR 2x3 grid with overflow "+X" =======
+        // ===== Left column: routes =====
+        const headerLeft = document.createElement("div");
+        headerLeft.className = "headerLeft";
+
         const routesArea = document.createElement("div");
         routesArea.className = "routesArea";
         routesArea.title = (it.routes || []).join(", ");
@@ -861,22 +1025,21 @@
         const routes = Array.isArray(it.routes) && it.routes.length ? it.routes : ["?"];
 
         if (routes.length === 1) {
-          // Single big badge (keep existing .route style)
+          // Single big badge
           const badge = document.createElement("div");
           badge.className = "route";
           badge.textContent = String(routes[0]);
           routesArea.appendChild(badge);
         } else {
-          // Multi: 2 columns x 3 rows, same outer size as single badge area
+          // Multi: 2x3 grid, fixed 6 slots (+X if overflow)
           const gridRoutes = document.createElement("div");
           gridRoutes.className = "routesGrid";
 
-          // Show up to 6 slots; if more than 6, last slot becomes "+X"
           const MAX_SLOTS = 6;
           const overflow = Math.max(0, routes.length - MAX_SLOTS);
           const toShow = overflow > 0 ? routes.slice(0, MAX_SLOTS - 1) : routes.slice(0, MAX_SLOTS);
 
-          // Fill up to 5 real routes
+          // Up to 5 real routes
           toShow.forEach(rt => {
             const cell = document.createElement("div");
             cell.className = "route-mini";
@@ -891,19 +1054,23 @@
             cell.textContent = `+${overflow}`;
             gridRoutes.appendChild(cell);
           } else {
-            // If fewer than 6 routes, pad remaining cells with invisible fillers to keep geometry fixed
+            // Pad with visible glass chips to keep the grid visually full
             const pad = MAX_SLOTS - toShow.length;
             for (let i = 0; i < pad; i++) {
               const filler = document.createElement("div");
-              filler.className = "route-mini";
-              filler.style.visibility = "hidden";
-              filler.textContent = "—";
+              filler.className = "route-mini route-mini--glass";
+              filler.textContent = ""; // purely visual placeholder
               gridRoutes.appendChild(filler);
             }
           }
 
           routesArea.appendChild(gridRoutes);
         }
+        headerLeft.appendChild(routesArea);
+
+        // ===== Right column: operator + emoji reason =====
+        const rightCol = document.createElement("div");
+        rightCol.className = "rightCol";
 
         // Operator pill
         const opTag = document.createElement("div");
@@ -916,27 +1083,55 @@
         const opCodes = mapOperators(it.operatorRefs || []);
         if(opCodes.length === 1){
           const ref = (it.operatorRefs[0] || "").toUpperCase();
-          const colorMap = {
-            BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
-            BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
-          };
-          dot.style.background = colorMap[ref] || "#cfcfd6";
+          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
           opTag.appendChild(dot);
           opTag.appendChild(document.createTextNode(" " + opCodes[0]));
         } else {
+          // MULTI-OP: cycle the dot through all relevant operator colours
           dot.style.background = "#cfcfd6";
           opTag.appendChild(dot);
           opTag.appendChild(document.createTextNode(" " + (opCodes.length ? opCodes.join(", ") : "—")));
+          startDotColorCycle(dot, it.operatorRefs);
+        }
+        rightCol.appendChild(opTag);
+
+        // Parse summary once (also used for details line)
+        const parsed = parseSummaryParts(it.summary);
+
+        // Emoji-only reason chip (text in title/aria for accessibility)
+        const reasonText = (parsed && parsed.reason) ? parsed.reason : (it.summary || "");
+        const reasonEmoji = getReasonEmoji(reasonText);
+
+        const reasonEmojiChip = document.createElement("div");
+        reasonEmojiChip.className = "reasonEmojiChip";
+        reasonEmojiChip.textContent = reasonEmoji;
+        reasonEmojiChip.title = reasonText || "Reason";
+        reasonEmojiChip.setAttribute("aria-label", `Reason: ${reasonText || 'unknown'}`);
+        rightCol.appendChild(reasonEmojiChip);
+
+        // Assemble header
+        header.append(headerLeft, rightCol);
+
+        // ===== Details line ("place // TOWN") or fallback to summary =====
+        let detailsEl;
+        if(parsed){
+          detailsEl = document.createElement("div");
+          detailsEl.className = "detailsLine";
+          const placeSpan = document.createElement("span");
+          placeSpan.textContent = parsed.place;
+          const sep = document.createElement("span");
+          sep.textContent = " // ";
+          const townSpan = document.createElement("span");
+          townSpan.className = "town";
+          townSpan.textContent = parsed.town;
+          detailsEl.append(placeSpan, sep, townSpan);
+        } else {
+          detailsEl = document.createElement("div");
+          detailsEl.className = "detailsLine";
+          detailsEl.textContent = it.summary || "";
         }
 
-        header.append(routesArea, opTag);
-
-        // Summary (exactly 2 lines)
-        const s = document.createElement("div");
-        s.className = "summary";
-        s.textContent = it.summary || "";
-
-        // Times (start = 1 line, end/UFN = 1 line)
+        // ===== Times (start and end/UFN) =====
         const times = document.createElement("div");
         times.className = "times";
         if(it.timeLines.startLine){
@@ -948,12 +1143,11 @@
         if(it.timeLines.endLine){
           const tEnd = document.createElement("div");
           tEnd.className = "timeLine";
-          // Grid keeps the duration text; overlay strips it for UFN
           tEnd.textContent = it.timeLines.endLine;
           times.appendChild(tEnd);
         }
 
-        inner.append(header, s, times);
+        inner.append(header, detailsEl, times);
         chip.append(inner);
         grid.append(chip);
       }
@@ -965,8 +1159,9 @@
       pagerTimer = setInterval(()=>{
         pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
         renderPage();
-        setStatusPill(true);
-        requestAnimationFrame(setFixedGridSizing); // keep exact rows
+        // Keep status time fresh without animating the bee on page flips
+        setStatusPill(true, { animate: false });
+        requestAnimationFrame(setFixedGridSizing);
       }, PAGE_INTERVAL_MS);
     }
 
@@ -975,7 +1170,7 @@
         case "BNML": return {cls:"op-BNML", dark:false};
         case "BNGN": return {cls:"op-BNGN", dark:true};
         case "BNSM": return {cls:"op-BNSM", dark:false};
-        case "BNDB": return {cls:"op-BNDB", dark:true};  // BNDB uses on-dark
+        case "BNDB": return {cls:"op-BNDB", dark:true};
         case "BNVB": return {cls:"op-BNVB", dark:true};
         case "BNFM": return {cls:"op-BNFM", dark:false};
         default:     return {cls:"",       dark:true};
@@ -1017,7 +1212,7 @@
         /* Only if start or end is within ±7 days of today */
         situations = situations.filter(isWithin7DayWindow);
 
-        /* Only unplanned (default on) */
+        /* Only unplanned */
         if(UNPLANNED_ONLY) {
           situations = situations.filter(sit=>{
             const p = sit?.Planned;
@@ -1026,7 +1221,7 @@
         }
 
         /* Map to items + UFN >24h pinning */
-        const nowMs = Date.now(); /* UFN >24h: pin & pulse */
+        const nowMs = Date.now();
 
         let items = situations.map(s=>{
           const operatorRefs = getOperatorRefs(s);
@@ -1038,14 +1233,14 @@
           const endMs   = en ? en.getTime() : null;
 
           const isUFN = (endMs == null);
-          const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS; /* UFN >24h: pin & pulse */
+          const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
 
           return {
             id: getSituationId(s),
             operatorRefs,
             singleOperatorForTint: getSingleOperatorRef(s) || "",
             routes: routes.length ? routes.map(String) : ["?"],
-            timeLines: validityLines(s),     // {startLine, endLine}
+            timeLines: validityLines(s),
             summary: (s.Summary || s.Description || "").trim(),
             startMs,
             endMs,
@@ -1053,36 +1248,21 @@
             ufnOver24h
           };
         })
-        /* Sort: 
-           1) UFN >24h pinned to top (longest-running first)
-           2) Remaining UFNs highlighted red (most recent start first)
-           3) Non-UFN by end date (soonest first); ties by most recent start
-        */
+        /* Sort */
         .sort((a, b) => {
-          // Group priority: >24h UFN first
           if (a.ufnOver24h && !b.ufnOver24h) return -1;
           if (!a.ufnOver24h && b.ufnOver24h) return 1;
+          if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs; // older first
 
-          // Within >24h UFN group: longest-running first (oldest start first)
-          if (a.ufnOver24h && b.ufnOver24h) {
-            return a.startMs - b.startMs; // older first
-          }
-
-          // Next group: remaining UFNs
           if (a.isUFN && !b.isUFN) return -1;
           if (!a.isUFN && b.isUFN) return 1;
 
-          // Within remaining UFNs: most recent start first
-          if (a.isUFN && b.isUFN) {
-            return b.startMs - a.startMs;
-          }
+          if (a.isUFN && b.isUFN) return b.startMs - a.startMs;
 
-          // Final group: non-UFN — order by end date soonest first
           const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
           const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
           if (aEnd !== bEnd) return aEnd - bEnd;
 
-          // Tie-breaker: most recent start first
           return b.startMs - a.startMs;
         });
 
@@ -1101,7 +1281,7 @@
         lastItemsIndex = currIndex;
         firstFetchDone = true;
 
-        /* Page building: fixed 6 per page for 3×2 grid (pinned items appear first overall) */
+        /* Page building: fixed 6 per page for 3×2 grid */
         pager.pageSize = 6;
         pager.pages = chunk(items, pager.pageSize);
         pager.pageIndex = 0;
@@ -1112,10 +1292,11 @@
           setFixedGridSizing();
           renderPage();
           startPager();
-          setStatusPill(true);
+          // ✅ Animate bee on successful feed update
+          setStatusPill(true, { animate: true });
         });
 
-        // Enqueue overlays: new (yellow) then removed (green)
+        // Enqueue overlays: new then removed
         if(newOnes.length){
           enqueueOverlays(newOnes.map(item => ({ mode:"add", item })));
         }
@@ -1125,13 +1306,13 @@
 
       }catch(e){
         console.error(e);
-        setStatusPill(false);
+        setStatusPill(false, { animate: false });
       }
     }
 
     /* Start */
     fetchAll();
-    setInterval(fetchAll, FEED_REFRESH_MS); // refresh feed every 60s
+    setInterval(fetchAll, FEED_REFRESH_MS);
 
     /* Reflow on resize and after fonts ready */
     window.addEventListener("resize", ()=>{
@@ -1143,24 +1324,24 @@
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
-    /* VISIBILITY QUEUE: pause overlays while hidden, resume on show */
+    /* VISIBILITY QUEUE */
     document.addEventListener("visibilitychange", () => {
       pageVisible = !document.hidden;
       if (pageVisible) {
-        processOverlayQueue(); // immediately resume queued alerts
+        processOverlayQueue();
       }
     });
 
-    /* -------- Keyboard tests: K = new (yellow), D = diverted end (green) -------- */
+    /* Keyboard tests: K = new (yellow), D = diverted end (green) */
     window.addEventListener("keydown", (e)=>{
       const key = String(e.key).toLowerCase();
 
       if(key === "k"){
         const sampleAdd = {
           routes: ["36", "37", "38", "39", "40", "41", "42"], // demonstrate +X
-          summary: "Multiple routes diverted via Deansgate due to incident at St Peter's Square.",
+          summary: "Multiple routes diverted via Deansgate, MANCHESTER - Incident at St Peter's Square.",
           timeLines: {
-            endLine: "🛑 UFN" // overlay will show just '🛑 UFN'
+            endLine: "🛑 UFN"
           }
         };
         enqueueOverlays([{ mode:"add", item: sampleAdd }]);
