@@ -1,151 +1,83 @@
-<!doctype html>
-<html lang="en-GB">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
+  <title>OCC Dashboard - Highways Alerts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unplanned Diversions</title>
-  <meta http-equiv="Cache-Control" content="no-store" />
 
-  <!-- Performance: preconnect for font hosts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <!-- MapLibre CSS/JS -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css" />
+  <script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
+
+  <!-- Fonts: IBM Plex (pill) + Barlow Semi Condensed (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Global UI font -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Optional fallback UI font -->
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- Bus-blind style for route chips -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
+      --bg:#000;
+      --text:#f2f2f2;
+      --danger:#ff2e34;      /* bottom bar red & edge scan red */
+      --red:#ff0000;         /* red circles */
+      --yellow:#ffd000;      /* yellow circles */
+      --green:#28c76f;       /* OCC accent green */
 
-      --op-BNML:#ff4d4f;
-      --op-BNGN:#003C6E;
-      --op-BNSM:#ff9a1f;
-      --op-BNDB:#9AC331;
-      --op-BNVB:#7a3ffe;
-      --op-BNFM:#ff66b3;
-
-      --neutral:#16161b;
-      --neutralElev:#1b1b22;
-
-      --accent:#FFE04A;
-      --alert-add-bg: var(--accent);
-      --alert-remove-bg: #19c37d;
-
+      /* Bee dashboard colours */
       --liveGreen:#42BE4B;
       --errorRed:#EA5540;
 
-      --gridGap:20px;
-      --cardRadius:24px;
-      --cardHeight: 420px;
-
-      /* Slight breathing room for summaries to avoid clipping at 100% */
-      --summary-line-height: 1.05;
-
-      /* Route badge sizing (cards) */
-      --route-font: clamp(44px, 5.6vw, 80px);
-      --route-pad-v: 8px;
-      --route-pad-h: 16px;
-      --route-radius: 12px;
-
-      /* area height sized for route chips */
-      --route-mini-font: clamp(24px, 3.2vw, 34px);
-      --route-rect-h: calc(var(--route-mini-font) * 4.2 + 8px + 8px);
-
-      /* Pager progress duration (JS sets this to PAGE_INTERVAL_MS) */
-      --page-interval: 10000ms;
+      /* Top-left spacing to mirror the bus dashboard header padding (16px top, 24px left) */
+      --pillTop:16px;
+      --pillLeft:24px;
     }
 
-    *{
-      box-sizing:border-box;
-      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
-    }
-
-    html, body { height: 100%; }
-
-    body{
-      margin:0; padding:0; background:var(--bg);
+    html, body { height:100%; margin:0; }
+    body {
+      background:var(--bg);
       color:var(--text);
+      font-family:"Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       overflow:hidden;
-      display:flex;
-      flex-direction:column;
-    }
-
-    /* ----------- HEADER ----------- */
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      padding:16px 24px;
-      background:#0b0b0e;
-      border-bottom:1px solid #1d1d25;
-    }
-    .leftHeader{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:8px;
-      min-width:0;
-    }
-    .title{
-      margin:0;
-      font-size:56px;
-      font-weight:900;
-      letter-spacing:-0.3px;
-      line-height:1;
-    }
-
-    /* Operator totals + page indicator under title */
-    .status-meta{
-      font-size:14px;
-      font-weight:700;
-      color:var(--muted);
-      letter-spacing:0.2px;
-      text-shadow: 0 1px 0 rgba(0,0,0,0.25);
-      display:flex;
-      align-items:center;
-      gap:8px;
-      line-height:1;
-    }
-    .status-meta .opCounts{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    .status-meta .opCounts span{
       position:relative;
-      padding-left:14px;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      white-space:nowrap;
     }
-    .status-meta .opCounts span::before{
-      content:"";
-      position:absolute;
-      left:0; top:50%;
-      width:8px; height:8px; border-radius:50%;
-      transform:translateY(-50%);
-      background:#cfcfd6;
-      box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
-    }
-    .status-meta .sep{ opacity:.6; user-select:none; }
-    .status-meta .opCounts span[data-op="BNML"]::before{ background: var(--op-BNML); }
-    .status-meta .opCounts span[data-op="BNGN"]::before{ background: var(--op-BNGN); }
-    .status-meta .opCounts span[data-op="BNSM"]::before{ background: var(--op-BNSM); }
-    .status-meta .opCounts span[data-op="BNDB"]::before{ background: var(--op-BNDB); }
-    .status-meta .opCounts span[data-op="BNVB"]::before{ background: var(--op-BNVB); }
-    .status-meta .opCounts span[data-op="BNFM"]::before{ background: var(--op-BNFM); }
 
+    /* Map occupies full height normally; shrinks to 75vh when bar is visible */
+    #map {
+      position:absolute;
+      top:0; left:0; right:0;
+      height:100%;
+      width:100%;
+    }
+    body.bar-open #map { height:75vh; }
+
+    .maplibregl-ctrl-group button { filter: invert(1) hue-rotate(180deg); }
+    .maplibregl-ctrl-attrib { background: rgba(0,0,0,0.5); color:#ddd; }
+
+    /* ===== TOP-LEFT unified STATUS WRAPPER (matches bus dashboard spacing & style) ===== */
     .statusWrapper{
+      position:absolute;
+      top:var(--pillTop);
+      left:var(--pillLeft);
+      z-index:30;
       display:flex;
       align-items:center;
       gap:16px;
-      flex-shrink:0;
     }
+    .status-pill{
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:18px;
+      font-weight:800;
+      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
+      background:var(--liveGreen);
+      color:#000;
+      box-shadow:0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
+      transition:background .2s ease,color .2s ease;
+    }
+    .status-error{ background:var(--errorRed); color:#fff; }
+
     #beeLogo{
       width:64px; height:64px; object-fit:contain;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
@@ -161,1361 +93,1161 @@
     }
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
-    .status-pill{
-      padding:10px 16px;
-      border-radius:999px;
-      font-size:18px;
-      font-weight:800;
-      background:var(--liveGreen);
-      color:#000;
-      box-shadow:0 0 0 2px rgba(255,255,255,0.08),
-                 0 4px 14px rgba(0,0,0,0.25);
-      transition:background .2s ease,color .2s ease;
-    }
-    .status-error{ background:var(--errorRed); color:#fff; }
-
-    /* ----------- MAIN ----------- */
-    main{
-      padding:0 24px 24px;
+    /* ===== Bottom Alert Bar (25% viewport height) ===== */
+    #alert-bar {
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:25vh;
+      background:var(--danger);
+      color:#fff;
+      z-index:10;
+      transform: translateY(100%);
+      transition: transform 300ms ease;
       display:flex;
-      flex-direction:column;
-      flex:1 1 auto;
-      min-height:0;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:16px;
+      box-sizing:border-box;
+      font-family:var(--ui-font);
     }
+    #alert-bar.show { transform: translateY(0); }
 
-    /* ----------- FIXED 3×2 GRID ----------- */
-    #grid{
-      margin-top:14px;
+    #alert-content {
+      max-width:1200px;
+      width:100%;
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:var(--gridGap);
-      flex:1;
-      height:100%;
-      overflow:hidden;
-      align-content:start;
+      grid-template-rows:auto auto auto;
+      row-gap:10px;
+      padding:0 16px;
+      font-family:var(--ui-font);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
     }
 
-    /* ----------- CARD ----------- */
-    .chip{
-      position:relative;
-      border:3px solid #2a2a33;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00) 60%),
-        var(--neutralElev);
-      border-radius:var(--cardRadius);
-      display:flex;
-      flex-direction:column;
-      padding:10px;
-      box-shadow:
-        0 1px 0 rgba(255,255,255,0.04) inset,
-        0 10px 25px rgba(0,0,0,0.35),
-        0 6px 18px rgba(0,0,0,0.45);
-      height:var(--cardHeight);
-      min-height:var(--cardHeight);
-      max-height:var(--cardHeight);
-      overflow:hidden;
-      box-sizing: border-box !important;
-    }
-
-    .chip.ufn{
-      border-color: rgba(255,77,79,0.85) !important;
-      box-shadow:
-        0 1px 0 rgba(255,255,255,0.04) inset,
-        0 10px 25px rgba(0,0,0,0.35),
-        0 6px 18px rgba(0,0,0,0.45),
-        0 0 0 4px rgba(255,77,79,0.10);
-    }
-    @keyframes pulseRed {
-      0% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.4); border-color: rgba(255,77,79,0.55); }
-      50% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 10px rgba(255,77,79,0.12); border-color: rgba(255,77,79,0.95); }
-      100%{ box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.0); border-color: rgba(255,77,79,0.55); }
-    }
-    .chip.pulse-ufn { border-color: var(--errorRed); animation: pulseRed 1200ms ease-in-out infinite; }
-
-    .chipHeader{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:0; width:100%;
-    }
-    .headerLeft{ display:flex; flex-direction:column; gap:8px; flex:1 1 auto; min-width:0; }
-
-    .routesArea{
-      width:100%; height:var(--route-rect-h);
-      display:flex; align-items:center; justify-content:flex-start;
-      max-width:100%; flex:1 1 auto;
-    }
-
-    /* Always a 2×2 routes grid */
-    .routesGrid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap:8px; width:100%; height:100%;
-      align-items:stretch; justify-items:stretch;
-    }
-
-    /* Route chips (filled slots) — USE OSWALD 700 */
-    .route-mini{
-      display:flex; align-items:center; justify-content:center;
-      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
+    #alert-title {
+      font-size:clamp(20px, 3.2vh, 32px);
       font-weight:700;
-      background:var(--accent); color:#000; border-radius:var(--route-radius);
-      letter-spacing:0.3px; line-height:1; padding:6px 10px; font-size: var(--route-mini-font);
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      letter-spacing:0.5px;
       text-transform:uppercase;
-      font-variant-numeric: tabular-nums;
     }
 
-    /* Transparent placeholder for blanks */
-    .route-mini--glass{
-      background: rgba(255,255,255,0.06);
-      border: 2px dashed rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.22);
-      display:flex; align-items:center; justify-content:center;
-      border-radius: var(--route-radius);
-      letter-spacing:-0.3px; line-height:1;
-      padding:6px 10px; font-size: var(--route-mini-font);
-      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-      font-weight: 800;
+    /* ===== Subtitle styling ===== */
+    #alert-location {
+      font-size: clamp(28px, 5.6vh, 72px);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      line-height: 1.15;
+      text-transform: none;
+      color: #fff;
+      text-shadow:
+        0 2px 6px rgba(0,0,0,0.45),
+        0 0 2px rgba(0,0,0,0.85);
+      font-family:var(--ui-font);
     }
 
-    .rightCol{ display:flex; flex-direction:column; gap:8px; align-items:stretch; width:max-content; }
-    .reasonEmojiChip{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:8px 14px; border-radius:999px;
-      background:rgba(255,255,255,0.12); border:2px solid rgba(255,255,255,0.18);
-      font-size:28px; font-weight:800; color:#e6e6ee; white-space:nowrap; width:100%; line-height:1;
-    }
-    .operatorTag{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px;
-      background:rgba(255,255,255,0.12); border:2px solid rgba(255,255,255,0.18);
-      font-size:28px; font-weight:800; color:#e6e6ee; white-space:nowrap; width:100%; line-height:1;
-    }
-    .operatorDot{
-      width:18px; height:18px; border-radius:50%;
-      background:#cfcfd6; box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
-      display:inline-block; flex-shrink:0; transition: background-color 400ms ease, background 400ms ease;
-    }
-
-    .detailsLine{
-      font-size:clamp(26px, 2.6vw, 32px);
-      line-height: var(--summary-line-height);
-      color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-      margin:6px 2px 12px 2px;
-    }
-
-    .detailsLine { margin-top: 12px; }
-
-    .detailsLine .town{ font-weight:900; }
-
-    .times{
-      margin-top:auto; padding-top:14px; border-top:2px solid rgba(255,255,255,0.15);
-    }
-    .timeLine{
-      font-size:clamp(24px, 2.2vw, 30px); font-weight:900; color:#d9d9e2; line-height:1;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; gap:8px;
-    }
-    .times .timeLine{ font-weight:600; color: rgba(233,233,239,0.65); }
-    .times .timeLine .timePrefix{ font-weight:600; color: rgba(233,233,239,0.55); }
-    .times .timeLine .timeValue{ font-weight:900; color:#ffffff; }
-    .times .timeLine.ufn{ color: var(--accent); }
-    .times .timeLine.ufn .timePrefix,
-    .times .timeLine.ufn .timeValue{ color: var(--accent); }
-    .timeLine .ufn-warning{ margin-left:-6px; display:inline-block; animation: ufnFlash 1.2s infinite; }
-    @keyframes ufnFlash { 0%,60%{opacity:1;transform:scale(1);} 70%{opacity:.35;transform:scale(0.98);} 100%{opacity:1;transform:scale(1);} }
-
-    /* Optional subtle operator tints (cards) */
-    .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
-    .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
-    .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
-    .op-BNDB{
-      background: linear-gradient(180deg, rgba(47,137,255,0.10), transparent), var(--neutralElev);
-      border-color: rgba(47,137,255,0.35);
-    }
-    @supports (background: color-mix(in oklab, red, blue)) {
-      .op-BNDB{
-        background: linear-gradient(180deg, color-mix(in oklab, var(--op-BNDB) 18%, transparent), transparent), var(--neutralElev);
-        border-color: color-mix(in oklab, var(--op-BNDB) 35%, #2a2a33);
-      }
-    }
-    .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
-    .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
-
-    /* ----------- FULLSCREEN ALERT OVERLAY ----------- */
-    #divertOverlay{
-      position:fixed; inset:0; background:var(--alert-add-bg); color:#000;
-      display:none; align-items:center; justify-content:center; z-index:9999; padding:6vh 5vw;
-    }
-    #divertOverlay.show{ display:flex; animation: overlayFadeIn 220ms ease-out; }
-    @keyframes overlayFadeIn{ from{ opacity:0; } to{ opacity:1; } }
-
-    .ov-card{ width:min(1200px, 100%); text-align:center; }
-
-    /* ======== OVERLAY PIECES ======== */
-    .ov-kicker{
-      font-weight: 1000;
-      letter-spacing: 1.4px;
-      font-size: clamp(80px, 10vw, 140px);
+    /* Road badge element for M/A/B roads */
+    .road-badge {
+      display: inline-block;
+      margin-right: 12px;
+      padding: 2px 14px;
+      border-radius: 10px;
+      font-size: 1em;
+      font-weight: 700;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.85);
+      box-shadow:
+        0 0 0 2px rgba(0,0,0,0.35) inset,
+        0 4px 12px rgba(0,0,0,0.40),
+        0 0 12px rgba(255,255,255,0.35);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: linear-gradient(180deg, #1f1f1f 0%, #000 100%);
+      font-family:var(--ui-font);
+    }
+    .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); }
+    .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); }
+    .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); }
+
+    .road-sep { margin: 0 8px; opacity: 0.9; }
+
+    /* First reported time */
+    #alert-time {
+      font-size:clamp(14px, 2.4vh, 24px);
+      font-weight:600;
+      opacity:0.9;
+      font-family:var(--ui-font);
     }
 
-    /* Reason pill (add overlay only) */
-    .ov-reason{
-      display:inline-flex; align-items:center; gap:10px;
-      background:#000; color:var(--accent);
-      border: 2px solid rgba(0,0,0,0.9);
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: 1000;
-      font-size: clamp(24px, 3vw, 38px);
-      box-shadow: 0 10px 26px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,0.06) inset;
-      margin: 0 auto 14px;
-      user-select: none;
-    }
-    .ov-reason-emoji{ font-size: 1.2em; line-height: 1; }
-    .ov-reason-text{ letter-spacing: -0.2px; }
-
-    .ov-location{
-      font-weight: 1000;
-      letter-spacing: -0.6px;
-      font-size: clamp(42px, 5.2vw, 84px);
-      line-height: 1;
-      margin: 10px 0 18px;
-    }
-
-    /* Enlarged route chips (black/yellow) — USE OSWALD 700 */
-    .ov-routes{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      justify-content: center;
-      margin: 8px auto 18px;
-      max-width: 1200px;
-    }
-    .ov-route-chip{
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-      color: var(--accent);
-      border-radius: 18px;
-      border: 4px solid rgba(0,0,0,0.95);
-      padding: 18px 26px;
-      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif !important;
-      font-weight:700 !important;
-      letter-spacing: 0.4px;
-      font-size: clamp(52px, 7vw, 95px);
-      line-height: 1;
-      box-shadow: 0 12px 32px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,0.06) inset;
-      user-select: none;
-      min-width: 6ch;
-      text-transform:uppercase;
-      font-variant-numeric: tabular-nums;
-    }
-    /* Top-right floating badge (emoji only; circle removed below) */
-    .ov-route-badge{
+    /* ===== SVG Border Sweep (RED) ===== */
+    #svg-scan {
       position: absolute;
-      top: -10px !important; right: -20px !important;
-      background: none !important;
-      border: none !important;
-      width: auto !important;
-      height: auto !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      font-size: 0.6em !important;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9;
+      opacity: 0;
+      transition: opacity 120ms ease;
+    }
+    body.scan-on #svg-scan { opacity: 1; }
+
+    #svg-scan .scan-rect {
+      fill: none;
+      stroke: var(--danger);
+      stroke-width: 15;
+      vector-effect: non-scaling-stroke;
+      filter: drop-shadow(0 0 8px rgba(255, 46, 52, 0.75));
     }
 
-    .ov-operator{
-      display: inline-flex; align-items: center; gap: 12px;
-      background: #000; color: var(--accent);
-      border: 2px solid rgba(0,0,0,0.9); border-radius: 999px;
-      font-weight: 1000; font-size: clamp(26px, 3vw, 40px);
-      padding: 12px 20px; margin-top: 10px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,0.06) inset;
+    @keyframes dashSweep {
+      from { stroke-dashoffset: 0; }
+      to   { stroke-dashoffset: var(--dashLen); }
     }
-    .ov-operator .operatorDot{
-      width: 22px; height: 22px; border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(0,0,0,0.25) inset; flex-shrink: 0;
+    body.scan-on #svg-scan .scan-rect {
+      animation: dashSweep 900ms ease-out 1;
     }
 
-    /* Duration line (end overlay) */
-    .ov-duration{
-      font-weight: 1000;
-      letter-spacing: -0.2px;
-      font-size: clamp(28px, 3vw, 48px);
-      line-height: 1;
-      margin: 6px 0 0;
+    /* ===== Feed Health badges (now hidden but kept for JS compatibility) ===== */
+    .feed-health { display:none !important; }
+
+    /* ===== Progress bar styling ===== */
+    #alert-progress-wrap {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 6px;
+      background: rgba(255,255,255,0.2);
+      overflow: hidden;
     }
-
-    /* Add vs End backgrounds */
-    #divertOverlay.ov-add    { background: var(--alert-add-bg);    color:#000; }
-    #divertOverlay.ov-remove { background: var(--alert-remove-bg); color:#000; }
-
-    /* Attention animations */
-    @keyframes overlayPop { 0%{opacity:0;transform:scale(0.96);} 100%{opacity:1;transform:scale(1);} }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.0), 0 24px 80px rgba(0,0,0,.35); }
-      50%      { box-shadow: 0 0 0 12px rgba(0,0,0,0.08), 0 24px 80px rgba(0,0,0,.45); }
+    #alert-progress {
+      transform-origin: left center;
+      width: 100%; height: 100%;
+      background: #fff;
+      transform: scaleX(0);
     }
-    @keyframes chipPop { 0%{ transform: translateY(6px) scale(0.98); opacity: 0; } 100%{ transform: translateY(0) scale(1); opacity: 1; } }
-
-    #divertOverlay.show .ov-card{ animation: overlayPop 280ms cubic-bezier(.2,.8,.2,1); }
-    #divertOverlay.show .ov-operator{ animation: pulseGlow 1400ms ease-in-out infinite; }
-    #divertOverlay.show .ov-reason{ animation: chipPop 260ms ease-out both; }
-    #divertOverlay.show .ov-route-chip{ animation: chipPop 300ms ease-out both; }
-    #divertOverlay.show .ov-route-chip:nth-child(1){ animation-delay:  90ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(2){ animation-delay: 140ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(3){ animation-delay: 190ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(4){ animation-delay: 240ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(5){ animation-delay: 290ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(6){ animation-delay: 340ms; }
-
-    /* --- Thin yellow progress line at page bottom --- */
-    #pageProgress{
-      position:fixed; left:0; right:0; bottom:0; height:4px; background:var(--accent);
-      transform-origin:left center; transform:scaleX(0); opacity:0.9; z-index:9998;
-      pointer-events:none; display:none; will-change:transform;
-    }
-    #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
-    @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
   </style>
 </head>
 <body>
+  <div id="map"></div>
 
-  <header class="topbar">
-    <div class="leftHeader">
-      <h1 class="title">TfGM Travel Alerts - Key Diversions</h1>
-
-      <!-- Operator counts + Page indicator (under title) -->
-      <div id="statusMeta" class="status-meta" aria-live="polite">
-        <span class="opCounts">
-          <span data-op="BNML">ML 0</span> •
-          <span data-op="BNGN">GN 0</span> •
-          <span data-op="BNSM">SC 0</span> •
-          <span data-op="BNDB">DB 0</span> •
-          <span data-op="BNVB">VB 0</span> •
-          <span data-op="BNFM">FB 0</span>
-        </span>
-        <span class="sep">|</span>
-        <span id="metricPage">Pg 0/0</span>
-      </div>
-    </div>
-
-    <!-- Right side: bee + live pill only -->
-    <div class="statusWrapper">
-      <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
-      <div id="statusPill" class="status-pill">Pulling from DfT</div>
-    </div>
-  </header>
-
-  <main>
-    <div id="grid"></div>
-  </main>
-
-  <!-- Fullscreen Alert Overlay (add + end variants) -->
-  <div id="divertOverlay" class="ov-add" aria-hidden="true" aria-live="assertive">
-    <div class="ov-card" role="dialog" aria-label="Travel alert">
-      <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
-
-      <!-- Add overlay: reason + location + routes + operator -->
-      <div id="ovReason" class="ov-reason" aria-label="Reason" hidden>
-        <span class="ov-reason-emoji" aria-hidden="true">⚠️</span>
-        <span class="ov-reason-text">Reason</span>
-      </div>
-      <div id="ovLocation" class="ov-location" hidden>–</div>
-
-      <!-- Shared: routes block -->
-      <div id="ovRoutes" class="ov-routes"></div>
-
-      <!-- Add/End overlay: operator chip -->
-      <div id="ovOperator" class="ov-operator" aria-label="Operator" hidden></div>
-
-      <!-- End overlay: duration line -->
-      <div id="ovDuration" class="ov-duration" hidden>On diversion for —</div>
-    </div>
+  <!-- TOP-LEFT unified status pill (match: pill left, bee right) -->
+  <div class="statusWrapper" aria-live="polite">
+    <div id="statusPill" class="status-pill">Initialising…</div>
+    <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async" />
   </div>
 
-  <!-- Page turn progress (fills over the dwell interval) -->
-  <div id="pageProgress" aria-hidden="true"></div>
+  <!-- SVG edge sweep overlay -->
+  <svg id="svg-scan" aria-hidden="true" width="100%" height="100%">
+    <rect class="scan-rect" x="1" y="1" width="100%" height="100%"></rect>
+  </svg>
+
+  <!-- Bottom red alert bar -->
+  <div id="alert-bar" aria-live="assertive" aria-hidden="true">
+    <div id="alert-content">
+      <div id="alert-title">New High Confidence Alert</div>
+      <div id="alert-location">—</div>
+      <div id="alert-time" aria-label="First reported time">—</div>
+    </div>
+    <div id="alert-progress-wrap"><div id="alert-progress"></div></div>
+  </div>
+
+  <!-- Hidden old feed badges (kept to avoid breaking any legacy references) -->
+  <div id="feed-health-waze" class="feed-health" aria-live="polite" aria-label="Waze feed status">Waze: initialising…</div>
+  <div id="feed-health-he"   class="feed-health" aria-live="polite" aria-label="Highways feed status">Highways: initialising…</div>
 
   <script>
-    /* ===========================
-       CONFIG
-    =========================== */
-    const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
-    const BODS_URL =
-      `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
+    // ===== CONFIG =====
+    const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
+    const HE_URL   = 'https://m.highwaysengland.co.uk/feeds/rss/UnplannedEvents/North%20West.xml'; // National Highways RSS (North West)
+    const REFRESH_MS = 30000;
 
-    /* TfGM Bee Network operator refs (strict) */
-    const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+    const ALERT_BAR_MS       = 10000; // 10s visible
+    const MERGE_METERS       = 200;   // merge alerts within 200 m
 
-    /* Behaviour flags */
-    const UNPLANNED_ONLY = true;
-    const PAGE_INTERVAL_MS = 10000; // page dwell (10s)
-    const FEED_REFRESH_MS = 60000;  // feed refresh (60s)
+    // Optional behaviours
+    const STALE_CLEAR_MS = 5 * 60 * 1000;        // clear accidents if feed stale > 5min
+    const SHOW_BANNER_ON_INCREASE = true;        // banner when high-tier increases
 
-    /* UFN >24h helper */
-    const DAY_MS = 24 * 60 * 60 * 1000;
+    // High confidence definition
+    const HIGH_CONF_MIN = 4;
 
-    /* Pager */
-    let pagerTimer = null;
+    // Clustering reinforcement
+    const CLUSTER_BONUS_PER_REPORT = 0.5;
+    const CLUSTER_BONUS_MAX = 2.0;
 
-    /* Live-set change detection (for overlays) */
-    let firstFetchDone = false;
-    let lastLiveIndex = new Map();  // id -> last live item (previous poll)
+    // ===== AUDIO CONFIG (15-minute global cooldown) =====
+    const AUDIO_COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
+    let audioCtx = null;
+    let audioEnabled = false;
+    let lastSoundAt = Number(localStorage.getItem('lastSoundAt') || 0);
 
-    /* Overlay queue control */
-    let overlayQueue = [];
-    let overlayShowing = false;
-
-    /* Dashboard state (pool for tests) */
-    let currentItems = [];
-
-    /* Set CSS duration for the progress bar to match page dwell */
-    document.documentElement.style.setProperty('--page-interval', PAGE_INTERVAL_MS + 'ms');
-
-    /* Helpers */
-    const $ = s => document.querySelector(s);
-    const parseISO = s => s ? new Date(s) : null;
-
-    function fmtHM(d){
-      return new Intl.DateTimeFormat(undefined, {hour:"2-digit",minute:"2-digit"}).format(d);
-    }
-
-    function setStatusPill(ok, { animate = false } = {}){
-      const pill = $("#statusPill");
-      const bee = $("#beeLogo");
-      const t = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
-      if(ok){
-        pill.classList.remove("status-error");
-        pill.textContent = `Live • ${t}`;
-        if (animate && bee){
-          bee.classList.remove("bee-wibble");
-          void bee.offsetWidth;   // reflow to restart animation
-          bee.classList.add("bee-wibble");
+    function unlockAudioOnce() {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         }
-      } else {
-        pill.classList.add("status-error");
-        pill.textContent = `Error • ${t}`;
-      }
+        audioCtx.resume().then(() => {
+          audioEnabled = (audioCtx.state === 'running');
+        }).catch(() => {});
+      } catch (e) {}
+      document.removeEventListener('pointerdown', unlockAudioOnce);
+      document.removeEventListener('keydown', unlockAudioOnce);
+    }
+    document.addEventListener('pointerdown', unlockAudioOnce, { once: true });
+    document.addEventListener('keydown',    unlockAudioOnce, { once: true });
+
+    function canPlayAlertSound() {
+      if (!audioCtx || !audioEnabled) return false;
+      const now = Date.now();
+      return (now - lastSoundAt) >= AUDIO_COOLDOWN_MS;
     }
 
-    /* Operator short-code mapping */
-    const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
-    function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
-    const OP_COLOR_MAP = {
-      BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
-      BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
-    };
+    function playAlertSound() {
+      if (!canPlayAlertSound()) return;
 
-    /* --- status meta updaters (counts + page indicator) --- */
-    function updateOperatorCounts(counts){
-      (BEE_OPERATORS || []).forEach(op => {
-        const el = document.querySelector(`.status-meta .opCounts span[data-op="${op}"]`);
-        if (el){
-          const code = OP_MAP[op] || op;
-          const val = counts && Number.isFinite(counts[op]) ? counts[op] : 0;
-          el.textContent = `${code} ${val}`;
+      const ctx = audioCtx;
+      const now = ctx.currentTime;
+
+      function tone(freq, start, dur, gainPeak = 0.25) {
+        const osc = ctx.createOscillator();
+        const g   = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + start);
+        g.gain.setValueAtTime(0.0001, now + start);
+        g.gain.exponentialRampToValueAtTime(gainPeak, now + start + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001,  now + start + dur);
+        osc.connect(g).connect(ctx.destination);
+        osc.start(now + start);
+        osc.stop(now + start + dur);
+      }
+
+      // Two-tone chime: A5 -> E6
+      tone(880,  0.00, 0.20, 0.30);
+      tone(1319, 0.22, 0.22, 0.28);
+
+      lastSoundAt = Date.now();
+      localStorage.setItem('lastSoundAt', String(lastSoundAt));
+    }
+
+    // ===== Tight Greater Manchester bounds (SW, NE) =====
+    const GM_BOUNDS = [
+      [-2.75, 53.33],  // Southwest (lon, lat)
+      [-1.95, 53.62]   // Northeast (lon, lat)
+    ];
+
+    const FOCUS_ZOOM    = 12.00;
+    const FOCUS_PITCH   = 30;
+    const FOCUS_BEARING = 0;
+    const FOCUS_MS      = 1200;
+
+    // ===== MAP (MapTiler dark style) =====
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'https://api.maptiler.com/maps/019aeeff-f216-7688-8555-59ae0793249c/style.json?key=0H39izAoMROVO5bW1Su2',
+      center: [-2.3214, 53.4306],
+      zoom: 11.15,
+      bearing: 0,
+      pitch: 58,
+      maxBounds: GM_BOUNDS
+    });
+
+    // ===== Helpers: cache-bust query =====
+    function withCacheBust(url){
+      const sep = url.includes('?') ? '&' : '?';
+      return `${url}${sep}ts=${Date.now()}`;
+    }
+
+    // ===== Shared proxy chain =====
+    const PROXIES = [
+      (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
+      (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+    ];
+
+    // ===== Waze fetch via proxy chain with JSON guard =====
+    async function fetchViaProxies(url, signal){
+      const busted = withCacheBust(url);
+      const errors = [];
+      for(const build of PROXIES){
+        const proxied = build(busted);
+        try{
+          const res = await fetch(proxied, { cache:'no-store', signal });
+          if(!res.ok) throw new Error(`HTTP ${res.status}`);
+          const text = await res.text();
+          const trimmed = text.replace(/^\uFEFF/, '').trim();
+          if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
+          return JSON.parse(trimmed);
+        }catch(e){
+          errors.push(`${proxied}: ${e.message}`);
         }
-      });
-    }
-    function updatePageIndicator(){
-      const el = document.getElementById('metricPage');
-      if(!el) return;
-      const totalPages = Array.isArray(pager.pages) ? pager.pages.length : 0;
-      const curr = totalPages > 0 ? (pager.pageIndex + 1) : 0;
-      el.textContent = `Pg ${curr}/${totalPages}`;
-    }
-
-    /* --- bottom progress bar control --- */
-    function restartProgressBar(){
-      const bar = document.getElementById('pageProgress');
-      if (!bar) return;
-      const shouldShow = Array.isArray(pager.pages) && pager.pages.length > 1;
-      if (!shouldShow){
-        bar.classList.remove('run');
-        bar.style.display = 'none';
-        bar.style.transform = 'scaleX(0)';
-        return;
       }
-      bar.style.display = 'block';
-      bar.classList.remove('run');
-      void bar.offsetWidth; // reflow to reset animation
-      bar.classList.add('run');
+      throw new Error(`All proxies failed\n${errors.join('\n')}`);
     }
 
-    /* ---------- Date helpers ---------- */
-    function isToday(d){ const n=new Date(); return d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate(); }
-    function isYesterday(d){ const n=new Date(), y=new Date(n); y.setDate(n.getDate()-1); return d.getFullYear()===y.getFullYear() && d.getMonth()===y.getMonth() && d.getDate()===y.getDate(); }
-    function isTomorrow(d){ const n=new Date(), t=new Date(n); t.setDate(n.getDate()+1); return d.getFullYear()===t.getFullYear() && d.getMonth()===t.getMonth() && d.getDate()===t.getDate(); }
-    function weekBoundsOfToday(){ const n=new Date(); const s=new Date(n.getFullYear(),n.getMonth(),n.getDate()); const wd=(s.getDay()+6)%7; s.setDate(s.getDate()-wd); const e=new Date(s); e.setDate(s.getDate()+6); e.setHours(23,59,59,999); return {start:s,end:e}; }
-    function inThisWeek(d){ const {start,end}=weekBoundsOfToday(); return d>=start && d<=end; }
-    function ordinal(n){ const s=["th","st","nd","rd"], v=n%100; return n + (s[(v-20)%10] || s[v] || s[0]); }
-    function fullMonth(d){ return new Intl.DateTimeFormat(undefined, { month: 'long' }).format(d); }
-    function fullWeekday(d){ return new Intl.DateTimeFormat(undefined, { weekday: 'long' }).format(d); }
-    function formatLabelForDate(d){
-      if(!d) return null;
-      if(isToday(d)) return `${fmtHM(d)} Today`;
-      if(isYesterday(d)) return `Yesterday`;
-      if(isTomorrow(d)) return `Tomorrow`;
-      if(inThisWeek(d)) return fullWeekday(d);
-      return `${ordinal(d.getDate())} ${fullMonth(d)}`;
-    }
-    function isStartOfService(d){ return d && d.getHours()===0 && d.getMinutes()===0; }
-    function isEndOfService(d){ return d && d.getHours()===23 && d.getMinutes()===59; }
-
-    /* ---------- single-unit, rounded duration ---------- */
-    function formatSingleUnitDuration(start, end){
-      if(!start) return "—";
-      const now = new Date();
-      const endTime = end || now;
-      let ms = endTime - start;
-      if (ms < 0) return "—";
-      const s = ms / 1000;
-      if (s < 60) return `${Math.round(s)}s`;
-      const m = s / 60;
-      if (m < 60) return `${Math.round(m)}m`;
-      const h = m / 60;
-      if (h < 24) return `${Math.round(h)}h`;
-      const d = h / 24;
-      return `${Math.round(d)}d`;
-    }
-
-    /* Stable-ish Situation ID */
-    function getSituationId(sit){
-      const a  = sit?.SituationNumber || sit?.SituationRef;
-      const b  = sit?.ParticipantRef || "";
-      const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
-      const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
-      return String(a || `${b}|${st}|${sum}`).trim();
-    }
-
-    /* Collect *all* operator refs (deduped) */
-    function getOperatorRefs(sit){
-      const refs = new Set();
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
-
-      if(Array.isArray(avj)){
-        for(const j of avj) add(j?.OperatorRef);
-      } else if(avj){
-        add(avj?.OperatorRef);
+    // ===== XML fetch via proxies (for National Highways RSS) =====
+    async function fetchTextViaProxies(url, signal){
+      const busted = withCacheBust(url);
+      const errors = [];
+      for(const build of PROXIES){
+        const proxied = build(busted);
+        try{
+          const res = await fetch(proxied, { cache:'no-store', signal });
+          if(!res.ok) throw new Error(`HTTP ${res.status}`);
+          const text = await res.text();
+          if(!text || !text.trim()) throw new Error('Empty response');
+          return text;
+        }catch(e){
+          errors.push(`${proxied}: ${e.message}`);
+        }
       }
-      if(Array.isArray(sit.__operatorRefs)){
-        sit.__operatorRefs.forEach(add);
-      }
-      return [...refs];
+      throw new Error(`All proxies failed\n${errors.join('\n')}`);
     }
 
-    /* Single operator ref for background tint (optional) */
-    function getSingleOperatorRef(sit){
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
-      if(avj && avj.OperatorRef) return String(avj.OperatorRef);
-      if(sit?.OperatorRef) return String(sit.OperatorRef);
-      if(sit?.__operatorRefs && sit.__operatorRefs.length) return sit.__operatorRefs[0];
+    // ===== Geo helpers =====
+    function toRad(deg){ return deg * Math.PI / 180; }
+    function haversineMeters([lon1, lat1], [lon2, lat2]){
+      const R = 6371000;
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+      const a = Math.sin(dLat/2)**2
+              + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    // ===== Feed shaping (Waze) =====
+    function getLngLatFromAlert(a){
+      try{
+        if(a){
+          if(a.location){
+            const loc = a.location;
+            if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
+            if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
+            if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
+            if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
+          }
+          if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
+            const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
+          }
+          if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
+        }
+      }catch(e){}
       return null;
     }
 
-    /* Line refs */
-    function getLineRefs(sit){
-      const lines = new Set();
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      const pushVal = (val)=>{ if(val == null) return; const s = String(val).trim(); if(s) lines.add(s); };
-      if(Array.isArray(avj)){
-        for(const j of avj){
-          pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
-        }
-      }else if(avj){
-        pushVal(avj?.LineRef || avj?.PublishedLineName || j?.LineName);
-      }
-      if(Array.isArray(sit.__lineRefs)){
-        for(const v of sit.__lineRefs) pushVal(v);
-      }
-      if(lines.size === 0){
-        const fallback = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef;
-        if(fallback) pushVal(fallback);
-      }
-      return Array.from(lines);
-    }
+    function alertsToPoints(feed){
+      const out=[];
+      const alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        const type = (a.type || a.alertType || '').toString().toUpperCase();
+        if(type !== 'ACCIDENT') continue;
 
-    /* Diversion filtering and validity */
-    function isDiversion(sit){
-      const txt = (sit.Description || sit.Summary || "").toLowerCase();
-      return txt.includes("divert") || txt.includes("diversion");
-    }
-    function isCurrentlyValid(sit){
-      const now = new Date();
-      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-      if(!s) return false;
-      if(s > now) return false;
-      if(e && e < now) return false;
-      return true;
-    }
+        const base = Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0;
+        if(!(base > 0)) continue;
 
-    /* -------- Paging -------- */
-    const pager={pages:[],pageIndex:0,pageSize:6,total:0};
-    function chunk(arr,size){
-      if (!Array.isArray(arr) || arr.length === 0) return [];
-      const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out;
-    }
+        const coord = getLngLatFromAlert(a);
+        if(!coord) continue;
 
-    /* Geometry-based card sizing: exact 2 rows, no cutoff
-       FIXED: treat --cardHeight as OUTER (border-box) and avoid downward bias */
-    function setFixedGridSizing(){
-      const grid = document.querySelector("#grid");
-      const main = document.querySelector("main");
-      if(!grid || !main) return;
-
-      const csGrid = getComputedStyle(grid);
-      const csMain = getComputedStyle(main);
-
-      const rowGap = parseFloat(csGrid.rowGap || csGrid.gap || "20") || 20;
-      const pb     = parseFloat(csMain.paddingBottom || "0") || 0;
-
-      const mainRect = main.getBoundingClientRect();
-      const gridRect = grid.getBoundingClientRect();
-
-      // Available OUTER height for the grid content area (2 rows + 1 gap)
-      // Ceil to avoid losing a pixel at 100% zoom
-      const availableOuter = Math.max(0, Math.ceil((mainRect.bottom - pb) - gridRect.top));
-
-      // OUTER per-row height across 2 rows and 1 rowGap
-      // Round to avoid downward bias
-      const perRowOuter = Math.max(200, Math.round((availableOuter - rowGap) / 2));
-
-      // .chip uses border-box; set outer height directly
-      document.documentElement.style.setProperty("--cardHeight", perRowOuter + "px");
-    }
-
-    /* ---------- Times footer builder (for cards) ---------- */
-    function buildTimesLines(sit){
-      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-
-      // Started line
-      let startVal = "—";
-      if (s) {
-        if (isToday(s) && isStartOfService(s)) {
-          startVal = "Start of Service";
-        } else {
-          startVal = formatLabelForDate(s);
-        }
-      }
-      const startLine = `Started // ${startVal}`;
-
-      // Ends line
-      let endVal = "—";
-      if (e) {
-        if (isToday(e) && isEndOfService(e)) {
-          endVal = "End of Service";
-        } else {
-          endVal = formatLabelForDate(e);
-        }
-      } else {
-        endVal = "UFN"; // no end supplied
-      }
-      const endLine = `Ends // ${endVal}`;
-
-      // Duration
-      const durationVal = formatSingleUnitDuration(s, e);
-      const durationLine = `Duration // ${durationVal}`;
-
-      return { startLine, endLine, durationLine, startDate:s, endDate:e };
-    }
-
-    /* -------- Routes 2×2 renderer -------- */
-    function renderRoutesAs2x2Grid(routesArea, routes){
-      const MAX_SLOTS = 4;
-      const gridRoutes = document.createElement("div");
-      gridRoutes.className = "routesGrid";
-
-      const list = Array.isArray(routes) ? routes.map(String) : ["?"];
-      const count = list.length;
-
-      if (count <= MAX_SLOTS) {
-        // Fill existing routes, then placeholders to reach 4
-        list.forEach(rt => {
-          const cell = document.createElement("div");
-          cell.className = "route-mini";
-          cell.textContent = rt;
-          gridRoutes.appendChild(cell);
+        const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
+        out.push({
+          id,
+          coord,
+          street: a.street || a.roadName || a.address || 'Unknown road',
+          city: a.city || a.town || '',
+          conf: base,
+          time: a.pubMillis || a.updateTime || a.reportMillis || 0
         });
-        for (let i = count; i < MAX_SLOTS; i++) {
-          const filler = document.createElement("div");
-          filler.className = "route-mini route-mini--glass";
-          filler.textContent = ""; // transparent placeholder
-          gridRoutes.appendChild(filler);
+      }
+      return out;
+    }
+
+    // ===== Clustering =====
+    function clusterAccidents(points, mergeMeters = MERGE_METERS){
+      if(points.length === 0) return [];
+
+      const parent = Array(points.length).fill(0).map((_,i)=>i);
+      function find(x){ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; }
+      function union(a,b){ a=find(a); b=find(b); if(a!==b) parent[a]=b; }
+
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          const d = haversineMeters(points[i].coord, points[j].coord);
+          if(d <= mergeMeters) union(i,j);
         }
-      } else {
-        // More than 4: first 3, then "+x"
-        for (let i = 0; i < 3; i++) {
-          const cell = document.createElement("div");
-          cell.className = "route-mini";
-          cell.textContent = list[i];
-          gridRoutes.appendChild(cell);
-        }
-        const overflow = count - 3;
-        const plus = document.createElement("div");
-        plus.className = "route-mini";
-        plus.textContent = `+${overflow}`;
-        gridRoutes.appendChild(plus);
       }
 
-      routesArea.replaceChildren(gridRoutes);
+      const groups = new Map();
+      for(let i=0;i<points.length;i++){
+        const r = find(i);
+        if(!groups.has(r)) groups.set(r, []);
+        groups.get(r).push(points[i]);
+      }
+
+      const clusters = [];
+      for(const members of groups.values()){
+        const count     = members.length;
+        const maxConf   = members.reduce((m,p)=>Math.max(m, Number(p.conf)||0), 0);
+
+        const bonusRaw  = (count - 1) * CLUSTER_BONUS_PER_REPORT;
+        const bonus     = Math.min(CLUSTER_BONUS_MAX, Math.max(0, bonusRaw));
+        const eff       = Math.min(5, Math.max(1, Math.round(maxConf + bonus)));
+
+        const avg       = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]], [0,0]).map(v=>v/count);
+        const maxTime   = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const minTime   = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
+        const firstTime = (minTime === Infinity) ? 0 : minTime;
+        const ids       = members.map(m=>m.id).sort().join('+');
+
+        const best = members.slice().sort((a,b)=>{
+          const ce = (Number(b.conf)||0) - (Number(a.conf)||0);
+          if(ce!==0) return ce;
+          return (Number(b.time)||0) - (Number(a.time)||0);
+        })[0];
+
+        clusters.push({
+          id: `cluster-${ids}`,
+          coord: avg,
+          street: best.street,
+          city: best.city,
+          eff,
+          latestTime: maxTime,
+          firstTime,
+          count
+        });
+      }
+
+      clusters.sort((a,b)=>{
+        const ce = (Number(b.eff)||0) - (Number(a.eff)||0);
+        if(ce!==0) return ce;
+        return (Number(b.latestTime)||0) - (Number(a.latestTime)||0);
+      });
+
+      return clusters.map(c => ({
+        type:'Feature',
+        id: c.id,
+        geometry:{ type:'Point', coordinates: c.coord },
+        properties:{
+          id: c.id,
+          effectiveConfidence: c.eff,
+          street: c.street,
+          city: c.city,
+          time: c.latestTime,
+          firstReportedMillis: c.firstTime,
+          reportCount: c.count
+        }
+      }));
     }
 
-    /* -------- Overlay helpers -------- */
-    function startDotColorCycle(dotEl, operatorRefs, { intervalMs = 1200 } = {}){
-      const uniqueRefs = [...new Set((operatorRefs || [])
-        .map(r => String(r).toUpperCase())
-        .filter(Boolean))];
-      const colors = uniqueRefs.map(ref => OP_COLOR_MAP[ref]).filter(Boolean);
-      if(colors.length <= 1) return;
-      let i = 0;
-      dotEl.style.background = colors[0];
-      setInterval(() => {
-        i = (i + 1) % colors.length;
-        dotEl.style.background = colors[i];
-      }, intervalMs);
-      // short-lived overlay; cleanup is not critical
-    }
-
-    function parseSummaryParts(summaryText){
-      if(!summaryText) return null;
-      const str = String(summaryText);
-      const hyIdx = str.indexOf(" - ");
-      if(hyIdx === -1) return null;
-      const left = str.slice(0, hyIdx).trim();
-      const reason = str.slice(hyIdx + 3).trim();
-      const lastComma = left.lastIndexOf(",");
-      if(lastComma === -1) return null;
-      const place = left.slice(0, lastComma).trim();
-      const town  = left.slice(lastComma + 1).trim();
-      if(!place || !town || !reason) return null;
-      return { place, town, reason };
-    }
-
-    function splitLine(line){
-      const idx = line.indexOf(" // ");
-      if (idx === -1) return [line, ""];
-      return [line.slice(0, idx), line.slice(idx + 4)];
-    }
-    function escapeHtml(s){
-      return String(s ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#39;");
-    }
-
-    function operatorTintClass(ref){
-      switch((ref||"").toUpperCase()){
-        case "BNML": return {cls:"op-BNML", dark:false};
-        case "BNGN": return {cls:"op-BNGN", dark:true};
-        case "BNSM": return {cls:"op-BNSM", dark:false};
-        case "BNDB": return {cls:"op-BNDB", dark:true};
-        case "BNVB": return {cls:"op-BNVB", dark:true};
-        case "BNFM": return {cls:"op-BNFM", dark:false};
-        default:     return {cls:"",       dark:true};
+    // ===== Time formatting =====
+    function formatFirstReported(ms){
+      if(!ms || !isFinite(ms)) return 'Time unknown';
+      try{
+        return new Date(Number(ms)).toLocaleString('en-GB', {
+          timeZone: 'Europe/London',
+          hour12: false,
+          year: 'numeric',
+          month: 'short',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+      }catch(e){
+        return 'Time unavailable';
       }
     }
 
-    function computeOperatorCounts(items){
-      const counts = { BNML:0, BNGN:0, BNSM:0, BNDB:0, BNVB:0, BNFM:0 };
-      if(!Array.isArray(items)) return counts;
-      for(const it of items){
-        const refs = (it.operatorRefs || []).map(r => String(r).toUpperCase());
-        const uniq = [...new Set(refs)];
-        for(const r of uniq){
-          if (BEE_OPERATORS.includes(r)) counts[r] = (counts[r] || 0) + 1;
-        }
-      }
-      return counts;
-    }
+    // ===== Canvas pulsing icon for high (>=4) =====
+    function createPulsingDot(map, color='red'){
+      const size = 340;
+      const targetFps = 12;
+      const frameMs = 1000 / targetFps;
+      let last = 0;
 
-    function renderPage(){
-      const grid = $("#grid");
-      const pg = pager.pages[pager.pageIndex] || [];
-
-      grid.innerHTML = "";
-
-      for(const it of pg){
-        const oc = operatorTintClass(it.singleOperatorForTint);
-
-        const chip = document.createElement("div");
-        chip.className = "chip " + oc.cls;
-        if (it.isUFN) chip.classList.add("ufn");
-        if (it.ufnOver24h) chip.classList.add("pulse-ufn");
-
-        const inner = document.createElement("div");
-        inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
-
-        const header = document.createElement("div");
-        header.className = "chipHeader";
-
-        const headerLeft = document.createElement("div");
-        headerLeft.className = "headerLeft";
-
-        const routesArea = document.createElement("div");
-        routesArea.className = "routesArea";
-        routesArea.title = (it.routes || []).join(", ");
-
-        const routes = Array.isArray(it.routes) && it.routes.length ? it.routes : ["?"];
-        renderRoutesAs2x2Grid(routesArea, routes);
-        headerLeft.appendChild(routesArea);
-
-        const rightCol = document.createElement("div");
-        rightCol.className = "rightCol";
-
-        const opTag = document.createElement("div");
-        opTag.className = "operatorTag";
-        opTag.title = (it.operatorRefs || []).join(", ");
-
-        const dot = document.createElement("span");
-        dot.className = "operatorDot";
-
-        const opCodes = mapOperators(it.operatorRefs || []);
-        if(opCodes.length === 1){
-          const ref = (it.operatorRefs[0] || "").toUpperCase();
-          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
-          opTag.appendChild(dot);
-          opTag.appendChild(document.createTextNode(" " + opCodes[0]));
-        } else {
-          dot.style.background = "#cfcfd6";
-          opTag.appendChild(dot);
-          opTag.appendChild(document.createTextNode(" " + (opCodes.length ? opCodes.join(", ") : "—")));
-          startDotColorCycle(dot, it.operatorRefs);
-        }
-        rightCol.appendChild(opTag);
-
-        const parsed = parseSummaryParts(it.summary);
-        const reasonText = (parsed && parsed.reason) ? parsed.reason : (it.summary || "");
-        const reasonEmoji = getReasonEmoji(reasonText);
-        const reasonEmojiChip = document.createElement("div");
-        reasonEmojiChip.className = "reasonEmojiChip";
-        reasonEmojiChip.textContent = reasonEmoji;
-        reasonEmojiChip.title = reasonText || "Reason";
-        reasonEmojiChip.setAttribute("aria-label", `Reason: ${reasonText || 'unknown'}`);
-        rightCol.appendChild(reasonEmojiChip);
-
-        header.append(headerLeft, rightCol);
-
-        let detailsEl;
-        if(parsed){
-          detailsEl = document.createElement("div");
-          detailsEl.className = "detailsLine";
-          const placeSpan = document.createElement("span");
-          placeSpan.textContent = parsed.place;
-          const sep = document.createElement("span");
-          sep.textContent = " // ";
-          const townSpan = document.createElement("span");
-          townSpan.className = "town";
-          townSpan.textContent = parsed.town;
-          detailsEl.append(placeSpan, sep, townSpan);
-        } else {
-          detailsEl = document.createElement("div");
-          detailsEl.className = "detailsLine";
-          detailsEl.textContent = it.summary || "";
-        }
-
-        const times = document.createElement("div");
-        times.className = "times";
-
-        const [startLabel, startValue] = splitLine(it.timeLines.startLine);
-        const [endLabel, endValue] = splitLine(it.timeLines.endLine);
-        const [durLabel, durValue] = splitLine(it.timeLines.durationLine);
-
-        const startDiv = document.createElement("div");
-        startDiv.className = "timeLine";
-        startDiv.innerHTML =
-          `<span class="timePrefix">${escapeHtml(startLabel)} //</span> ` +
-          `<span class="timeValue">${escapeHtml(startValue)}</span>`;
-        times.appendChild(startDiv);
-
-        const endDiv = document.createElement("div");
-        endDiv.className = "timeLine";
-        const isUFN = String(endValue || "").trim().toUpperCase() === "UFN";
-        if (isUFN) endDiv.classList.add("ufn");
-        endDiv.innerHTML =
-          `<span class="timePrefix">${escapeHtml(endLabel)} //</span> ` +
-          `<span class="timeValue">${escapeHtml(endValue)}</span>`;
-        if (isUFN) {
-          const warn = document.createElement("span");
-          warn.className = "ufn-warning";
-          warn.setAttribute("aria-label","ongoing");
-          warn.textContent = " ⚠️";
-          endDiv.appendChild(warn);
-        }
-        times.appendChild(endDiv);
-
-        const durDiv = document.createElement("div");
-        durDiv.className = "timeLine";
-        durDiv.innerHTML =
-          `<span class="timePrefix">${escapeHtml(durLabel)} //</span> ` +
-          `<span class="timeValue">${escapeHtml(durValue)}</span>`;
-        times.appendChild(durDiv);
-
-        inner.append(header, detailsEl, times);
-        chip.append(inner);
-        grid.append(chip);
-      }
-
-      updatePageIndicator();
-    }
-
-    /* --- pager controls --- */
-    function stopPager(){
-      if (pagerTimer){ clearInterval(pagerTimer); pagerTimer = null; }
-    }
-    function startPager(){
-      if (!pager.pages || pager.pages.length <= 1){
-        stopPager(); restartProgressBar(); return;
-      }
-      stopPager(); restartProgressBar();
-      pagerTimer = setInterval(()=>{
-        pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
-        renderPage();
-        setStatusPill(true, { animate:false });
-        requestAnimationFrame(setFixedGridSizing);
-        updatePageIndicator();
-        restartProgressBar();
-      }, PAGE_INTERVAL_MS);
-    }
-
-    /* -------- Map a situation to dashboard item -------- */
-    function mapSituationToItem(s){
-      const operatorRefs = getOperatorRefs(s);
-      const routes = getLineRefs(s);
-      const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
-      const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
-      const nowMs = Date.now();
-      const startMs = st ? st.getTime() : 0;
-      const endMs   = en ? en.getTime() : null;
-
-      const isUFN = (endMs == null);
-      const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
-
-      const timeLines = buildTimesLines(s);
+      const fillColor = (on)=> color==='white' ? `rgba(255,255,255,${on?1:0.85})` : `rgba(255,0,0,${on?1:0.9})`;
+      const ringColor = (on)=> color==='white' ? `rgba(255,255,255,${on?0.95:0.3})` : `rgba(255, 80, 80, ${on?0.95:0.15})`;
 
       return {
-        id: getSituationId(s),
-        operatorRefs,
-        singleOperatorForTint: getSingleOperatorRef(s) || "",
-        routes: routes.length ? routes.map(String) : ["?"],
-        timeLines,
-        summary: (s.Summary || s.Description || "").trim(),
-        startMs,
-        endMs,
-        isUFN,
-        ufnOver24h
+        width:size, height:size, data:new Uint8Array(size*size*4),
+        onAdd:function(){
+          const c=document.createElement('canvas'); c.width=this.width; c.height=this.height;
+          this.context=c.getContext('2d');
+        },
+        render:function(){
+          const now = performance.now();
+          if(now - last < frameMs) return false;
+          last = now;
+
+          const duration = 1200; const t = (now % duration) / duration;
+          const on = t < 0.5;
+
+          const ctx=this.context, w=this.width, h=this.height;
+          ctx.clearRect(0,0,w,h);
+
+          const ringR = (w/2)*(0.30 + 0.20*t);
+          ctx.beginPath(); ctx.arc(w/2,h/2, ringR, 0, Math.PI*2, false);
+          ctx.fillStyle = ringColor(on); ctx.fill();
+
+          ctx.beginPath(); ctx.arc(w/2,h/2, (w/2)*0.18, 0, Math.PI*2, false);
+          ctx.fillStyle = fillColor(true);
+          ctx.strokeStyle = 'rgba(255,255,255,1)';
+          ctx.lineWidth = Math.max(2, w*0.025);
+          ctx.fill(); ctx.stroke();
+
+          const img=ctx.getImageData(0,0,w,h); this.data.set(img.data);
+
+          map.triggerRepaint();
+          return true;
+        }
       };
     }
 
-    /* -------- Fetch & Render (with live vs display separation) -------- */
-    async function fetchAll(){
+    // ===== OCC highlight dots (optional points) =====
+    const HIGHLIGHT_POINTS = [
+      // { name: 'TfGM HQ', coordinates: [-2.2455, 53.4793] },
+    ];
+
+    function buildHighlightsFC(points){
+      const features = (points || []).filter(p =>
+        Array.isArray(p?.coordinates) && p.coordinates.length >= 2 &&
+        typeof p.coordinates[0] === 'number' && typeof p.coordinates[1] === 'number'
+      ).map((p, i) => ({
+        type: 'Feature',
+        id: p.name ? `hl-${p.name}-${i}` : `hl-${i}`,
+        geometry: { type: 'Point', coordinates: p.coordinates },
+        properties: { name: p.name || '' }
+      }));
+      return { type: 'FeatureCollection', features };
+    }
+
+    function setHighlightPoints(points){
+      const src = map.getSource('occ-highlights');
+      const fc = buildHighlightsFC(points);
+      if(src) src.setData(fc);
+    }
+
+    // ===== UI elements =====
+    const barEl = document.getElementById('alert-bar');
+    const locEl = document.getElementById('alert-location');
+    const timeEl = document.getElementById('alert-time');
+    const progressEl = document.getElementById('alert-progress');
+    const healthWazeEl = document.getElementById('feed-health-waze');
+    const healthHeEl   = document.getElementById('feed-health-he');
+
+    let queue = [], bannerActive = false, highlightedId = null;
+    let highlightedCenter = null;
+    let hideTimer = null;
+
+    /* ===== SVG Scan helpers ===== */
+    function initSvgScan() {
+      const rect = document.querySelector('#svg-scan .scan-rect');
+      const svg  = document.getElementById('svg-scan');
+      if (!rect || !svg) return;
+
+      const w = Math.max(0, window.innerWidth  - 2);
+      const h = Math.max(0, window.innerHeight - 2);
+
+      rect.setAttribute('x', '1');
+      rect.setAttribute('y', '1');
+      rect.setAttribute('width',  `${w}`);
+      rect.setAttribute('height', `${h}`);
+
+      const perimeter = 2 * (w + h);
+      rect.style.strokeDasharray  = `${perimeter}`;
+      rect.style.strokeDashoffset = `0`;
+      document.documentElement.style.setProperty('--dashLen', `${perimeter}`);
+    }
+    window.addEventListener('resize', initSvgScan);
+    initSvgScan();
+
+    function runSvgScan() {
+      document.body.classList.remove('scan-on');
+      requestAnimationFrame(() => {
+        document.body.classList.add('scan-on');
+        setTimeout(() => document.body.classList.remove('scan-on'), 950);
+      });
+    }
+
+    function setBarVisible(show){
+      barEl.classList.toggle('show', show);
+      barEl.setAttribute('aria-hidden', show ? 'false' : 'true');
+      document.body.classList.toggle('bar-open', show);
+      map.resize();
+      startGlobalRepaint();
+
+      if (show && highlightedCenter) {
+        map.easeTo({
+          center: highlightedCenter,
+          zoom: FOCUS_ZOOM,
+          pitch: FOCUS_PITCH,
+          bearing: FOCUS_BEARING,
+          duration: FOCUS_MS,
+          essential: true
+        });
+        setTimeout(runSvgScan, 120);
+      } else {
+        setTimeout(() => {
+          map.easeTo({
+            center: [-2.3214, 53.4306],
+            zoom: 11.15,
+            bearing: 0,
+            pitch: 58,
+            duration: 1400,
+            essential: true
+          });
+        }, 450);
+      }
+    }
+
+    function updateHighlightFilters(){
+      if(map.getLayer('accidents-high')){
+        const filter = highlightedId
+          ? [ "all", [">=", ["get","effectiveConfidence"], HIGH_CONF_MIN], ["!=", ["get","id"], highlightedId] ]
+          : [ ">=", ["get","effectiveConfidence"], HIGH_CONF_MIN ];
+        map.setFilter('accidents-high', filter);
+      }
+      if(map.getLayer('accident-highlighted')){
+        const filter = highlightedId
+          ? ["==", ["get","id"], highlightedId]
+          : ["==", ["get","id"], "___none___"];
+        map.setFilter('accident-highlighted', filter);
+      }
+    }
+
+    // ===== Visibility-aware alert pausing / resuming =====
+    let alertsPaused = document.hidden;
+    let currentBanner = null;
+
+    function pauseAlerts() {
+      if (alertsPaused) return;
+      alertsPaused = true;
+
+      if (bannerActive) {
+        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+        setBarVisible(false);
+
+        if (currentBanner) {
+          queue.unshift(currentBanner);
+          currentBanner = null;
+        }
+
+        bannerActive = false;
+        highlightedId = null;
+        highlightedCenter = null;
+        updateHighlightFilters();
+      }
+    }
+
+    function resumeAlerts() {
+      if (!alertsPaused) return;
+      alertsPaused = false;
+
+      if (!bannerActive) {
+        showNextBanner();
+      }
+    }
+
+    function enqueueBanner(feature){
+      const street = (feature.properties.street||'').trim() || 'Unknown road';
+      const city   = (feature.properties.city||'').trim();
+      const center = Array.isArray(feature.geometry?.coordinates) ? feature.geometry.coordinates : null;
+      const firstMillis = Number(feature.properties.firstReportedMillis)||0;
+
+      const item = { id: feature.id, street, city, center, firstMillis };
+      queue.push(item);
+
+      if (!alertsPaused && !bannerActive) {
+        showNextBanner();
+      }
+    }
+
+    function escapeHTML(str){
+      return String(str).replace(/[&<>:"']/g, (ch) => ({
+        '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+      }[ch]));
+    }
+
+    function stylizeRoad(street, city) {
+      const s = escapeHTML((street || '').trim());
+      const c = escapeHTML((city || '').trim());
+
+      if (!s && !c) return 'Unknown road';
+
+      const roadTokenRegex = /\b([MBA]\d{1,4})\b/i;
+
+      let displayStreet = s;
+      const match = s.match(roadTokenRegex);
+
+      if (match) {
+        const token = match[1].toUpperCase();
+        const cls = token.startsWith('M') ? 'motorway'
+                  : token.startsWith('A') ? 'aprimary'
+                  : 'broad';
+        displayStreet = s.replace(
+          roadTokenRegex,
+          `<span class="road-badge ${cls}">${token}</span>`
+        );
+      }
+
+      const sep = c ? `<span class="road-sep">—</span>` : '';
+      return `${displayStreet}${c ? `${sep}${c}` : ''}`;
+    }
+
+    function resetProgressBar() {
+      if (!progressEl) return;
+      progressEl.style.transition = 'none';
+      progressEl.style.transform  = 'scaleX(1)';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          progressEl.style.transition = `transform ${ALERT_BAR_MS}ms linear`;
+          progressEl.style.transform  = 'scaleX(0)';
+        });
+      });
+    }
+
+    function showNextBanner(){
+      if (bannerActive || alertsPaused) return;
+      const item = queue.shift(); if(!item) return;
+
+      bannerActive = true;
+      currentBanner = item;
+      highlightedId = item.id;
+      highlightedCenter = item.center;
+      updateHighlightFilters();
+
+      locEl.innerHTML = stylizeRoad(item.street, item.city);
+      timeEl.textContent = `First reported: ${formatFirstReported(item.firstMillis)}`;
+
+      setBarVisible(true);
+      resetProgressBar();
+
+      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+      hideTimer = setTimeout(()=>{
+        setBarVisible(false);
+        highlightedId = null;
+        highlightedCenter = null;
+        updateHighlightFilters();
+
+        currentBanner = null;
+        bannerActive = false;
+        showNextBanner();
+      }, ALERT_BAR_MS);
+    }
+
+    const prevEffByClusterId = new Map();
+    const seenClusterIds = new Set();
+    let hasInitializedClusters = false;
+
+    // ===== Global repaint ticker =====
+    let repaintRAF = null;
+
+    function layerExists(id){ try { return !!map.getLayer(id); } catch(e){ return false; } }
+
+    function hasPulsingVisible(){
+      if(!layerExists('accidents-high') && !layerExists('accident-highlighted')) return false;
+      const red = layerExists('accidents-high') ? map.queryRenderedFeatures({layers:['accidents-high']}) : [];
+      const white = layerExists('accident-highlighted') ? map.queryRenderedFeatures({layers:['accident-highlighted']}) : [];
+      return (red && red.length > 0) || (white && white.length > 0);
+    }
+
+    function startGlobalRepaint(){
+      if (repaintRAF) return;
+      const tick = () => {
+        if (hasPulsingVisible()) {
+          map.triggerRepaint();
+          repaintRAF = requestAnimationFrame(tick);
+        } else {
+          cancelAnimationFrame(repaintRAF); repaintRAF = null;
+        }
+      };
+      repaintRAF = requestAnimationFrame(tick);
+    }
+
+    // ===== Unified status pill =====
+    function fmtHHMMSS(){
+      return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());
+    }
+    function setStatusPill(ok, {animate=false}={}){
+      const pill=document.getElementById('statusPill');
+      const bee=document.getElementById('beeLogo');
+      const t=fmtHHMMSS();
+      if(ok){
+        pill.classList.remove('status-error');
+        pill.textContent=`Live • ${t}`;
+        if(animate && bee){
+          bee.classList.remove('bee-wibble');
+          void bee.offsetWidth; // reflow
+          bee.classList.add('bee-wibble');
+        }
+      } else {
+        pill.classList.add('status-error');
+        pill.textContent=`Error • ${t}`;
+      }
+    }
+    let lastOkWaze = 0;
+    let lastOkHe   = 0;
+    const STATUS_STALE_MS = Math.max(REFRESH_MS * 2, 65000);
+    function updateGlobalStatus({animate=false}={}){
+      const now = Date.now();
+      const wazeFresh = lastOkWaze && (now - lastOkWaze) <= STATUS_STALE_MS;
+      const heFresh   = lastOkHe   && (now - lastOkHe)   <= STATUS_STALE_MS;
+      setStatusPill(Boolean(wazeFresh && heFresh), { animate });
+    }
+    function markHealthOK_Waze(){ lastOkWaze = Date.now(); updateGlobalStatus({animate:true}); }
+    function markHealthStale_Waze(){ updateGlobalStatus(); clearAccidentsIfTooStale(); }
+    function markHealthOK_He(){ lastOkHe = Date.now(); updateGlobalStatus({animate:true}); }
+    function markHealthStale_He(){ updateGlobalStatus(); }
+
+    function clearAccidentsIfTooStale(){
+      const staleMs = Date.now() - (lastOkWaze || 0);
+      if (lastOkWaze && staleMs > STALE_CLEAR_MS) {
+        map.getSource('accidents')?.setData({ type:'FeatureCollection', features:[] });
+      }
+    }
+
+    // ===== Hidden-tab fetch throttling =====
+    const HIDDEN_REFRESH_MULTIPLIER = 4;
+    const HIDDEN_REFRESH_MAX_MS     = 180000;
+    function effectiveDelay(ms){
+      return document.hidden ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms;
+    }
+
+    // ===== Waze update loop =====
+    let fetchTimer = null;
+    let inFlight = null;
+    let proxyStartIndex = 0;
+
+    async function runCycle(){
+      if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
+
+      const controller = new AbortController();
+      inFlight = controller;
+
+      const origOrder = PROXIES.slice();
+      const rotated = PROXIES.slice(proxyStartIndex).concat(PROXIES.slice(0, proxyStartIndex));
+      PROXIES.length = 0; PROXIES.push(...rotated);
+
       try{
-        const res = await fetch(BODS_URL, { cache:"no-store" });
-        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await fetchViaProxies(WAZE_URL, controller.signal);
+        const points = alertsToPoints(data);
+        const clusterFeatures = clusterAccidents(points, MERGE_METERS);
 
-        let parsed;
-        try{
-          parsed = { type:"json", data: await res.clone().json() };
-        }catch{
-          parsed = { type:"xml", data: (new DOMParser()).parseFromString(await res.text(),"application/xml") };
-        }
+        const geo = { type:'FeatureCollection', features: clusterFeatures };
+        const src = map.getSource('accidents');
+        if(src) src.setData(geo);
 
-        // Extract all situations
-        const extractSituationsFromJSON = (json) => {
-          const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
-          if(!sd) return [];
-          const sed = Array.isArray(sd.SituationExchangeDelivery)
-            ? sd.SituationExchangeDelivery
-            : [sd.SituationExchangeDelivery].filter(Boolean);
-          const out=[];
-          for(const d of sed){
-            const pe = d?.Situations?.PtSituationElement;
-            if(Array.isArray(pe)) out.push(...pe);
-            else if(pe) out.push(pe);
-          }
-          return out;
-        };
-        const extractSituationsFromXML = (doc) => {
-          const els = [...doc.querySelectorAll("PtSituationElement")];
-          return els.map(el=>{
-            const T = s => el.querySelector(s)?.textContent?.trim() || null;
-            const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
-                            .map(n=>n.textContent.trim()).filter(Boolean);
-            const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
-                            .map(n=>n.textContent.trim()).filter(Boolean);
-            return {
-              Summary: T("Summary") || T("Description"),
-              Description: T("Description"),
-              Severity: T("Severity") || "unknown",
-              Planned: T("Planned"),
-              SituationNumber: T("SituationNumber") || T("SituationRef"),
-              ParticipantRef: T("ParticipantRef"),
-              ValidityPeriod: {
-                StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
-                EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
-              },
-              CreationTime: T("CreationTime") || T("RecordedAtTime") || T("VersionedAtTime"),
-              Affects: {
-                VehicleJourneys: {
-                  AffectedVehicleJourney: lines.length
-                    ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
-                    : []
-                }
-              },
-              __operatorRefs: opsRef,
-              __lineRefs: lines
-            };
-          });
-        };
-
-        let allSituations = parsed.type==="json"
-          ? extractSituationsFromJSON(parsed.data)
-          : extractSituationsFromXML(parsed.data);
-
-        // Bee-only
-        allSituations = allSituations.filter(sit=>{
-          const refs = getOperatorRefs(sit);
-          const single = getSingleOperatorRef(sit);
-          const anyBee = (refs && refs.some(r => BEE_OPERATORS.includes(r))) ||
-                         (single && BEE_OPERATORS.includes(single.toUpperCase()));
-          return !!anyBee;
-        });
-
-        // Diversions only
-        allSituations = allSituations.filter(isDiversion);
-
-        // ---- LIVE POOL (used for overlays): currently-valid + (optional) unplanned ----
-        let liveSituations = allSituations.filter(isCurrentlyValid);
-        if(UNPLANNED_ONLY) {
-          liveSituations = liveSituations.filter(sit=>{
-            const p = sit?.Planned;
-            return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
-          });
-        }
-
-        // ---- DISPLAY POOL (grid): from live, restrict to start today OR end today OR UFN ----
-        let displaySituations = liveSituations.filter(sit => {
-          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-          const startIsToday = !!(s && isToday(s));
-          const endIsToday   = !!(e && isToday(e)); // since live, e is later today (not past)
-          const isUFN        = !e;
-          return startIsToday || endIsToday || isUFN;
-        });
-
-        // Map to items
-        const liveItems = liveSituations.map(mapSituationToItem);
-
-        let items = displaySituations.map(mapSituationToItem)
-          .sort((a, b) => {
-            // Keep older >24h UFN high (visually) as before
-            if (a.ufnOver24h && !b.ufnOver24h) return -1;
-            if (!a.ufnOver24h && b.ufnOver24h) return 1;
-            if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs; // older first
-            if (a.isUFN && !b.isUFN) return -1;
-            if (!a.isUFN && b.isUFN) return 1;
-            if (a.isUFN && b.isUFN) return b.startMs - a.startMs;
-            const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
-            const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
-            if (aEnd !== bEnd) return aEnd - bEnd;
-            return b.startMs - a.startMs;
-          });
-
-        // Maintain pager
-        const prevIndex = pager.pageIndex || 0;
-        pager.pageSize = 6;
-        pager.pages = chunk(items, pager.pageSize);
-        pager.total = items.length;
-        pager.pageIndex = pager.pages.length === 0 ? 0 : Math.min(prevIndex, pager.pages.length - 1);
-
-        // Update counts/meta
-        const opCounts = computeOperatorCounts(items);
-        updateOperatorCounts(opCounts);
-        updatePageIndicator();
-
-        // Render
-        currentItems = items; // for keyboard tests
-        requestAnimationFrame(()=>{
-          setFixedGridSizing();
-          renderPage();
-          setStatusPill(true, { animate: true });
-          startPager();
-        });
-
-        // ===== Overlay detection based on LIVE set changes =====
-        const currLiveIndex = new Map(liveItems.map(it => [it.id, it]));
-
-        let newOnes = [];
-        let removedOnes = [];
-        if(firstFetchDone){
-          newOnes     = liveItems.filter(it => !lastLiveIndex.has(it.id));
-          removedOnes = [...lastLiveIndex.values()].filter(prev => !currLiveIndex.has(prev.id));
-        }
-        lastLiveIndex = currLiveIndex;
-        firstFetchDone = true;
-
-        // ADD overlays only for NEW UFN live items
-        if (newOnes.length) {
-          const ufnAdds = newOnes.filter(it => it.isUFN);
-          if (ufnAdds.length) enqueueOverlays(ufnAdds.map(item => ({ mode:"add", item })));
-        }
-
-        // END overlays only when a divert actually ends:
-        const now = Date.now();
-        if (removedOnes.length) {
-          const endedNow = removedOnes.filter(prev => {
-            if (prev.endMs == null) return true;      // UFN dropping from live => end set to now
-            return prev.endMs <= now;                  // known end passed
-          }).map(it => {
-            if (!it.endMs) it.endMs = now;            // set display duration end to now for UFN
-            return it;
-          });
-
-          if (endedNow.length){
-            enqueueOverlays(endedNow.map(item => ({ mode:"remove", item })));
+        let brandNewCount = 0;
+        for (const f of clusterFeatures) {
+          if (!seenClusterIds.has(f.id)) {
+            if (hasInitializedClusters) brandNewCount++;
+            seenClusterIds.add(f.id);
           }
         }
 
+        const newly = [];
+        for(const f of clusterFeatures){
+          const id = f.id;
+          const newEff = Number(f.properties.effectiveConfidence||0);
+          const oldEff = prevEffByClusterId.get(id);
+
+          const becameHigh = (newEff >= HIGH_CONF_MIN) && (oldEff === undefined || oldEff < HIGH_CONF_MIN);
+          const becameHigherHigh = SHOW_BANNER_ON_INCREASE && (newEff >= HIGH_CONF_MIN) && (oldEff !== undefined) && (newEff > oldEff);
+
+          prevEffByClusterId.set(id, newEff);
+          if (becameHigh || becameHigherHigh) newly.push(f);
+        }
+
+        if ((brandNewCount > 0 || newly.length > 0) && !document.hidden && canPlayAlertSound()) {
+          playAlertSound();
+        }
+
+        if(newly.length){
+          newly.sort((a,b)=>{
+            const dc = (Number(b.properties.effectiveConfidence||0)) - (Number(a.properties.effectiveConfidence||0));
+            if(dc!==0) return dc;
+            return (Number(b.properties.time||0)) - (Number(a.properties.time||0));
+          });
+          newly.forEach(enqueueBanner);
+        }
+
+        hasInitializedClusters = true;
+
+        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
+        markHealthOK_Waze();
+        scheduleNext(REFRESH_MS);
       }catch(e){
-        console.error(e);
-        setStatusPill(false, { animate: false });
+        console.error('Waze fetch failed:', e);
+        markHealthStale_Waze(e?.message || 'request error');
+        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
+        scheduleNext(Math.min(REFRESH_MS * 2, 180000));
+      }finally{
+        PROXIES.length = 0; PROXIES.push(...origOrder);
+        inFlight = null;
+        startGlobalRepaint();
       }
     }
 
-    /* Dynamic dwell: 10s for one route, 15s for 2-4, 20s for 5+ */
-    function computeOverlayDurationMs(item){
-      const count = (item?.routes && item.routes.length) ? item.routes.length : 1;
-      if (count === 1) return 10000;
-      if (count <= 4)  return 15000;
-      return 20000;
+    function scheduleNext(ms){
+      clearTimeout(fetchTimer);
+      fetchTimer = setTimeout(runCycle, effectiveDelay(ms));
     }
 
-    function enqueueOverlays(arr){
-      if(!arr || !arr.length) return;
-      overlayQueue.push(...arr);
-      processOverlayQueue();
+    // ===== National Highways RSS parser → GeoJSON =====
+    function tryNumber(v){
+      const n = Number(v);
+      return Number.isFinite(n) ? n : null;
     }
 
-    function processOverlayQueue(){
-      if (overlayShowing) return;
-      const next = overlayQueue.shift();
-      if (!next) return;
-      const duration = computeOverlayDurationMs(next.item);
-      showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
-    }
+    function parseHeRss(xmlString){
+      let doc;
+      try{
+        doc = new DOMParser().parseFromString(xmlString, 'text/xml');
+      }catch(e){
+        return { type:'FeatureCollection', features:[] };
+      }
+      const items = Array.from(doc.querySelectorAll('item'));
+      const feats = [];
 
-    function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
-      const overlay  = $("#divertOverlay");
-      const elKicker = $("#ovKicker");
-      const elReason = $("#ovReason");
-      const elReasonEmoji = elReason?.querySelector(".ov-reason-emoji");
-      const elReasonText  = elReason?.querySelector(".ov-reason-text");
-      const elLoc    = $("#ovLocation");
-      const elRoutes = $("#ovRoutes");
-      const elOp     = $("#ovOperator");
-      const elDur    = $("#ovDuration");
+      for(const item of items){
+        let lat = null, lon = null;
 
-      overlay.classList.remove("ov-add","ov-remove");
-
-      // Reset/hide optional blocks
-      elReason.hidden = true;
-      elLoc.hidden    = true;
-      elOp.hidden     = true;
-      elDur.hidden    = true;
-
-      if (mode === "add") {
-        // ADD OVERLAY (UFN only)
-        if (!item?.isUFN) return;
-
-        overlay.classList.add("ov-add");
-        elKicker.textContent = "NEW DIVERT";
-
-        // Reason pill (emoji + text)
-        const parsed = parseSummaryParts(item.summary);
-        const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
-        const reasonEmoji = getReasonEmoji(reasonTextRaw);
-        if (elReason && elReasonEmoji && elReasonText){
-          elReasonEmoji.textContent = reasonEmoji;
-          elReasonText.textContent  = reasonTextRaw;
-          elReason.hidden = false;
+        const geoPoint = item.querySelector('ge\\:point, georss\\:point, point');
+        if(geoPoint && geoPoint.textContent){
+          const parts = geoPoint.textContent.trim().split(/[ ,]+/);
+          if(parts.length >= 2){
+            lat = tryNumber(parts[0]); lon = tryNumber(parts[1]);
+          }
         }
 
-        // Location line
-        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
-        elLoc.textContent = locationStr;
-        elLoc.hidden = false;
+        if(lat === null || lon === null){
+          const latEl = item.querySelector('geo\\:lat, lat');
+          const lonEl = item.querySelector('geo\\:long, lon, long');
+          if(latEl && lonEl){
+            lat = tryNumber(latEl.textContent);
+            lon = tryNumber(lonEl.textContent);
+          }
+        }
 
-        // Routes with 🔀 badge
-        elRoutes.replaceChildren();
-        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        routes.forEach(rt => {
-          const chip = document.createElement("div");
-          chip.className = "ov-route-chip";
-          chip.textContent = String(rt);
+        if((lat === null || lon === null) && item.querySelector('link')){
+          try{
+            const href = item.querySelector('link')?.textContent?.trim() || '';
+            const u = new URL(href, location.href);
+            const qLat = tryNumber(u.searchParams.get('lat'));
+            const qLon = tryNumber(u.searchParams.get('lon') || u.searchParams.get('lng') || u.searchParams.get('long'));
+            if(qLat != null && qLon != null){
+              lat = qLat; lon = qLon;
+            }else{
+              const lonlat = u.searchParams.get('lonlat') || u.searchParams.get('ll');
+              if(lonlat){
+                const parts = lonlat.split(/[ ,]+/);
+                if(parts.length >= 2){
+                  const qLon2 = tryNumber(parts[0]); const qLat2 = tryNumber(parts[1]);
+                  if(qLat2 != null && qLon2 != null){ lat = qLat2; lon = qLon2; }
+                }
+              }
+            }
+          }catch(e){}
+        }
 
-          const badge = document.createElement("span");
-          badge.className = "ov-route-badge";
-          badge.setAttribute("aria-label", "Diverting");
-          badge.textContent = "🔀";
+        if(lat == null || lon == null) continue;
 
-          chip.appendChild(badge);
-          elRoutes.appendChild(chip);
+        const title   = item.querySelector('title')?.textContent?.trim() || 'Unplanned event';
+        const guid    = item.querySelector('guid')?.textContent?.trim() || `${lon},${lat},${title}`;
+        const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
+
+        feats.push({
+          type: 'Feature',
+          id: `he-${guid}`,
+          geometry: { type:'Point', coordinates:[lon, lat] },
+          properties: { id:`he-${guid}`, title, pubDate }
         });
-
-        // Operator pill
-        elOp.replaceChildren();
-        const dot = document.createElement("span");
-        dot.className = "operatorDot";
-        elOp.appendChild(dot);
-
-        const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
-        const codes = mapOperators(refs);
-        elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
-        if (refs.length <= 1) {
-          const ref = refs[0];
-          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
-        } else {
-          dot.style.background = "#cfcfd6";
-          startDotColorCycle(dot, refs, { intervalMs: 900 });
-        }
-        elOp.hidden = false;
-
-      } else if (mode === "remove") {
-        // END OVERLAY (only when a divert actually ends)
-        overlay.classList.add("ov-remove");
-        elKicker.textContent = "DIVERT ENDED";
-
-        // Reason pill
-        const parsed = parseSummaryParts(item.summary);
-        const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
-        if (elReason && elReasonEmoji && elReasonText) {
-          elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
-          elReasonText.textContent  = reasonTextRaw;
-          elReason.hidden = false;
-        }
-
-        // Location line
-        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
-        elLoc.textContent = locationStr;
-        elLoc.hidden = false;
-
-        // Routes with 👍 badge
-        elRoutes.replaceChildren();
-        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        routes.forEach(rt => {
-          const chip = document.createElement("div");
-          chip.className = "ov-route-chip";
-          chip.textContent = String(rt);
-
-          const badge = document.createElement("span");
-          badge.className = "ov-route-badge";
-          badge.setAttribute("aria-label", "Divert ended");
-          badge.textContent = "👍";
-
-          chip.appendChild(badge);
-          elRoutes.appendChild(chip);
-        });
-
-        // Operator pill
-        elOp.replaceChildren();
-        const dot = document.createElement("span");
-        dot.className = "operatorDot";
-        elOp.appendChild(dot);
-
-        const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
-        const codes = mapOperators(refs);
-        elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
-        if (refs.length <= 1) {
-          const ref = refs[0];
-          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
-        } else {
-          dot.style.background = "#cfcfd6";
-          startDotColorCycle(dot, refs, { intervalMs: 900 });
-        }
-        elOp.hidden = false;
-
-        // Duration line (from start to end)
-        const start = item.startMs ? new Date(item.startMs) : null;
-        const end   = item.endMs   ? new Date(item.endMs)   : new Date();
-        const dur   = formatSingleUnitDuration(start, end);
-        elDur.textContent = `On diversion for ${dur}`;
-        elDur.hidden = false;
       }
 
-      // Show overlay
-      overlay.classList.add("show");
-      overlay.setAttribute("aria-hidden", "false");
-      overlayShowing = true;
-
-      setTimeout(() => {
-        overlay.classList.remove("show");
-        overlay.setAttribute("aria-hidden", "true");
-        overlayShowing = false;
-        processOverlayQueue();
-      }, durationMs);
+      return { type:'FeatureCollection', features:feats };
     }
 
-    /* Start */
-    fetchAll();
-    setInterval(fetchAll, FEED_REFRESH_MS);
+    // ===== Highways feed health tracking =====
+    let heTimer = null;
+    let heInFlight = null;
 
-    /* Reflow on resize and after fonts ready */
-    window.addEventListener("resize", () => requestAnimationFrame(setFixedGridSizing));
-    if(document.fonts && document.fonts.ready){
-      document.fonts.ready.then(() => requestAnimationFrame(setFixedGridSizing));
+    async function runHeCycle(){
+      if(heInFlight){ try{ heInFlight.abort(); }catch(e){} heInFlight = null; }
+
+      const controller = new AbortController();
+      heInFlight = controller;
+
+      try{
+        const xml = await fetchTextViaProxies(HE_URL, controller.signal);
+        const fc  = parseHeRss(xml);
+
+        const src = map.getSource('he-unplanned');
+        if(src) src.setData(fc);
+
+        markHealthOK_He();
+        scheduleHeNext(REFRESH_MS);
+      }catch(e){
+        console.error('Highways fetch failed:', e);
+        markHealthStale_He(e?.message || 'request error');
+        scheduleHeNext(Math.min(REFRESH_MS * 2, 180000));
+      }finally{
+        heInFlight = null;
+      }
     }
-    window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
-    /* Keyboard tests:
-       K = ADD overlay on a random dashboard item (force demo => ensure UFN)
-       D = END overlay on a random dashboard item (duration to now) */
-    window.addEventListener("keydown", (e)=>{
-      const key = String(e.key).toLowerCase();
-      if(key === "k"){
-        const ufnPool = (currentItems || []).filter(it => it.isUFN);
-        const anyPool = (currentItems || []);
-        const pool = ufnPool.length ? ufnPool : anyPool;
-        if (!pool.length) { console.warn("[K TEST] No items to sample."); return; }
-        const pick = pool[Math.floor(Math.random() * pool.length)];
-        const testItem = { ...pick };
-        testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
-        testItem.operatorRefs = Array.isArray(testItem.operatorRefs) ? testItem.operatorRefs : [];
-        if (!testItem.isUFN) testItem.isUFN = true; // force for demo
-        enqueueOverlays([{ mode:"add", item: testItem }]);
-        console.info("[K TEST] NEW overlay for random item (force demo)", {id:testItem.id, routes:testItem.routes});
-      }
-      if(key === "d"){
-        // This test simulates an actual END event (used for visual QA)
-        const pool = (currentItems || []);
-        if (!pool.length) { console.warn("[D TEST] No items to sample."); return; }
-        const pick = pool[Math.floor(Math.random() * pool.length)];
-        const testItem = { ...pick };
-        testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
-        if (!testItem.startMs) testItem.startMs = Date.now() - (90 * 60 * 1000); // fallback 90m
-        testItem.endMs = Date.now();
-        enqueueOverlays([{ mode:"remove", item: testItem }]);
-        console.info("[D TEST] END overlay for random item", {id:testItem.id, routes:testItem.routes});
-      }
+    function scheduleHeNext(ms){
+      clearTimeout(heTimer);
+      heTimer = setTimeout(runHeCycle, effectiveDelay(ms));
+    }
+
+    // ===== Page Visibility / Lifecycle bindings =====
+    document.addEventListener('visibilitychange', () => { if (document.hidden) pauseAlerts(); else resumeAlerts(); });
+    window.addEventListener('pageshow',  () => { if (!document.hidden) resumeAlerts(); });
+    window.addEventListener('pagehide',  () => { pauseAlerts(); });
+
+    // ===== Map setup =====
+    map.on('load', async () => {
+      // Fit to GM bounds on load (minimal padding)
+      map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
+
+      // Images for pulsing (high = >=4)
+      map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
+      map.addImage('pulsing-white', createPulsingDot(map,'white'), { pixelRatio: 2 });
+
+      // Accident source
+      map.addSource('accidents', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+
+      // = 1 : small YELLOW circle
+      map.addLayer({
+        id:'accidents-one',
+        type:'circle',
+        source:'accidents',
+        filter: ['==', ['get','effectiveConfidence'], 1],
+        paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'], 8,3.0, 12,4.0, 16,5.5],
+          'circle-color': varColor('--yellow', '#ffd000'),
+          'circle-stroke-color': '#fff1a6',
+          'circle-stroke-width': 1.0
+        }
+      });
+
+      // = 2 : medium YELLOW circle
+      map.addLayer({
+        id:'accidents-two',
+        type:'circle',
+        source:'accidents',
+        filter: ['==', ['get','effectiveConfidence'], 2],
+        paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'], 8,4.4, 12,6.0, 16,7.4],
+          'circle-color': varColor('--yellow', '#ffd000'),
+          'circle-stroke-color': '#fff1a6',
+          'circle-stroke-width': 1.2
+        }
+      });
+
+      // = 3 : larger RED circle (non-pulsing)
+      map.addLayer({
+        id:'accidents-three',
+        type:'circle',
+        source:'accidents',
+        filter: ['==', ['get','effectiveConfidence'], 3],
+        paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'], 8,6.2, 12,8.2, 16,10.2],
+          'circle-color': varColor('--red', '#ff0000'),
+          'circle-stroke-color': '#ffd0d0',
+          'circle-stroke-width': 1.6
+        }
+      });
+
+      // ≥ 4 : pulsing RED symbols (high confidence)
+      map.addLayer({
+        id:'accidents-high',
+        type:'symbol',
+        source:'accidents',
+        filter: ['>=', ['get','effectiveConfidence'], HIGH_CONF_MIN],
+        layout:{
+          'icon-image':'pulsing-red',
+          'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95],
+          'icon-allow-overlap':true
+        }
+      });
+
+      // Highlighted (bar’s referenced cluster) as pulsing WHITE
+      map.addLayer({
+        id:'accident-highlighted',
+        type:'symbol',
+        source:'accidents',
+        filter: ["==", ["get","id"], "___none___"],
+        layout:{
+          'icon-image':'pulsing-white',
+          'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95],
+          'icon-allow-overlap':true
+        }
+      });
+
+      // Your OCC highlight dots
+      map.addSource('occ-highlights', {
+        type: 'geojson',
+        data: buildHighlightsFC(HIGHLIGHT_POINTS)
+      });
+      map.addLayer({
+        id: 'occ-highlights-dots',
+        type: 'circle',
+        source: 'occ-highlights',
+        paint: {
+          'circle-radius': ['interpolate', ['linear'], ['zoom'], 8, 3.2, 12, 4.2, 16, 5.8],
+          'circle-color': '#28c76f',
+          'circle-stroke-color': '#ffffff',
+          'circle-stroke-width': 1.2,
+          'circle-blur': 0.03
+        }
+      });
+
+      // National Highways (North West) blue dots (static)
+      map.addSource('he-unplanned', {
+        type: 'geojson',
+        data: { type:'FeatureCollection', features:[] }
+      });
+      map.addLayer({
+        id: 'he-unplanned-dots',
+        type: 'circle',
+        source: 'he-unplanned',
+        paint: {
+          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 3.4, 12, 5.2, 16, 7.0],
+          'circle-color': '#3a90ff',
+          'circle-stroke-color': '#ffffff',
+          'circle-stroke-width': 1.2,
+          'circle-blur': 0.03
+        }
+      });
+
+      // Controlled update cycles
+      await runCycle();
+      scheduleNext(REFRESH_MS);
+
+      await runHeCycle();
+      scheduleHeNext(REFRESH_MS);
+
+      // Start global repaint ticker once the style and layers exist
+      startGlobalRepaint();
+
+      // Initialise pill state
+      setStatusPill(false, { animate:false });
     });
 
-    function getReasonEmoji(text){
-      if(!text) return "⚠️";
-      const s = String(text).toLowerCase();
-      if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "🚧";
-      if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
-      if (/\bcongestion\b/.test(s)) return "🚗";
-      if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
-      if (/\brtc\b|\bcollision\b/.test(s)) return "💥";
-      if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
-      return "⚠️";
+    // Keep ticker alive after map activity
+    map.on('idle', startGlobalRepaint);
+    map.on('moveend', startGlobalRepaint);
+    map.on('zoomend', startGlobalRepaint);
+
+    // Maintain layout when window resizes
+    window.addEventListener('resize', () => { map.resize(); startGlobalRepaint(); });
+
+    // Utility: read CSS variable (fallback to provided colour)
+    function varColor(varName, fallback){
+      try{
+        const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+        return val || fallback;
+      }catch(e){
+        return fallback;
+      }
     }
   </script>
 </body>
