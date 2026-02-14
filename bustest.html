@@ -68,8 +68,8 @@
       margin:0; padding:0; background:var(--bg);
       color:var(--text);
       font-family:"Barlow Semi Condensed", system-ui, sans-serif;
-      overflow:hidden;             /* no page scroll */
-      display:flex;                /* flex column layout */
+      overflow:hidden;
+      display:flex;
       flex-direction:column;
     }
 
@@ -77,7 +77,7 @@
     .topbar{
       display:flex;
       justify-content:space-between;
-      align-items:flex-start; /* allow left to stack */
+      align-items:flex-start;
       padding:16px 24px;
       background:#0b0b0e;
       border-bottom:1px solid #1d1d25;
@@ -91,7 +91,7 @@
     }
     .title{
       margin:0;
-      font-size:56px;        /* control-room size */
+      font-size:56px;
       font-weight:900;
       letter-spacing:-0.3px;
       line-height:1;
@@ -131,11 +131,7 @@
       background:#cfcfd6;
       box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
     }
-    .status-meta .sep{
-      opacity:.6;
-      user-select:none;
-    }
-    /* Dots per operator */
+    .status-meta .sep{ opacity:.6; user-select:none; }
     .status-meta .opCounts span[data-op="BNML"]::before{ background: var(--op-BNML); }
     .status-meta .opCounts span[data-op="BNGN"]::before{ background: var(--op-BNGN); }
     .status-meta .opCounts span[data-op="BNSM"]::before{ background: var(--op-BNSM); }
@@ -143,7 +139,6 @@
     .status-meta .opCounts span[data-op="BNVB"]::before{ background: var(--op-BNVB); }
     .status-meta .opCounts span[data-op="BNFM"]::before{ background: var(--op-BNFM); }
 
-    /* Right side: bee + live pill only */
     .statusWrapper{
       display:flex;
       align-items:center;
@@ -151,9 +146,7 @@
       flex-shrink:0;
     }
     #beeLogo{
-      width:64px;
-      height:64px;
-      object-fit:contain;
+      width:64px; height:64px; object-fit:contain;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
       transition: transform 0.2s ease-out;
     }
@@ -182,7 +175,7 @@
 
     /* ----------- MAIN ----------- */
     main{
-      padding:0 24px 24px; /* bottom padding only */
+      padding:0 24px 24px;
       display:flex;
       flex-direction:column;
       flex:1 1 auto;
@@ -193,12 +186,12 @@
     #grid{
       margin-top:14px;
       display:grid;
-      grid-template-columns:repeat(3, 1fr);  /* 3 wide */
+      grid-template-columns:repeat(3, 1fr);
       gap:var(--gridGap);
       flex:1;
       height:100%;
-      overflow:hidden; /* keep grid non-scroll */
-      align-content:start; /* don't distribute leftover space between rows */
+      overflow:hidden;
+      align-content:start;
     }
 
     /* ----------- CARD ----------- */
@@ -219,13 +212,12 @@
       height:var(--cardHeight);
       min-height:var(--cardHeight);
       max-height:var(--cardHeight);
-      overflow:hidden; /* no overflow lines */
+      overflow:hidden;
     }
     .chip:hover{ transform:translateY(-1px); transition:transform .15s ease; }
 
-    /* Highlight all UFNs; >24h also gets pulse-ufn */
     .chip.ufn{
-      border-color: rgba(255,77,79,0.85) !important; /* stronger red */
+      border-color: rgba(255,77,79,0.85) !important;
       box-shadow:
         0 1px 0 rgba(255,255,255,0.04) inset,
         0 10px 25px rgba(0,0,0,0.35),
@@ -239,168 +231,78 @@
     }
     .chip.pulse-ufn { border-color: var(--errorRed); animation: pulseRed 1200ms ease-in-out infinite; }
 
-    /* Header: ROUTE AREA + operator stack */
     .chipHeader{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:0;
-      width:100%;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:0; width:100%;
     }
     .headerLeft{ display:flex; flex-direction:column; gap:8px; flex:1 1 auto; min-width:0; }
 
-    /* ROUTE DISPLAY (cards) */
     .routesArea{
-      width:100%;
-      height:var(--route-rect-h);
-      display:flex;
-      align-items:center;       /* centre single badge vertically */
-      justify-content:flex-start;
-      max-width:100%;
-      flex:1 1 auto;
+      width:100%; height:var(--route-rect-h);
+      display:flex; align-items:center; justify-content:flex-start;
+      max-width:100%; flex:1 1 auto;
     }
     .route{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-      background:var(--accent);   /* Unified yellow for all operators */
-      color:#000;
-      padding:var(--route-pad-v) var(--route-pad-h);
-      border-radius:var(--route-radius);
-      letter-spacing:-0.5px;
-      line-height:1;
-      min-width:3ch;
-      max-width:100%;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      font-size:var(--route-font);
-      width:100%;
+      display:inline-flex; align-items:center; justify-content:center;
+      font-weight:900; background:var(--accent); color:#000;
+      padding:var(--route-pad-v) var(--route-pad-h); border-radius:var(--route-radius);
+      letter-spacing:-0.5px; line-height:1; min-width:3ch; max-width:100%;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      font-size:var(--route-font); width:100%;
     }
 
-    /* Multi route grid: 2 columns x 3 rows */
     .routesGrid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap:8px;
-      width:100%;
-      height:100%;
-      align-items:stretch;
-      justify-items:stretch;
+      display:grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr);
+      gap:8px; width:100%; height:100%; align-items:stretch; justify-items:stretch;
     }
     .route-mini{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-      background:var(--accent);
-      color:#000;
-      border-radius:var(--route-radius);
-      letter-spacing:-0.3px;
-      line-height:1;
-      padding:6px 10px;
-      font-size:var(--route-mini-font);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      display:flex; align-items:center; justify-content:center; font-weight:900;
+      background:var(--accent); color:#000; border-radius:var(--route-radius);
+      letter-spacing:-0.3px; line-height:1; padding:6px 10px; font-size:var(--route-mini-font);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
     .route-mini--glass{
       background: rgba(255,255,255,0.06);
       border: 2px dashed rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.22);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius: var(--route-radius);
-      letter-spacing:-0.3px;
-      line-height:1;
-      padding:6px 10px;
-      font-size: var(--route-mini-font);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      display:flex; align-items:center; justify-content:center;
+      border-radius: var(--route-radius); letter-spacing:-0.3px; line-height:1;
+      padding:6px 10px; font-size: var(--route-mini-font);
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
       font-weight: 800;
     }
 
-    /* Right column stack (Operator + Emoji Reason) */
-    .rightCol{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      align-items:stretch;
-      width:max-content;     /* both chips share the same intrinsic width */
-    }
+    .rightCol{ display:flex; flex-direction:column; gap:8px; align-items:stretch; width:max-content; }
     .reasonEmojiChip{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.12);
-      border:2px solid rgba(255,255,255,0.18);
-      font-size:28px;
-      font-weight:800;
-      color:#e6e6ee;
-      white-space:nowrap;
-      width:100%;
-      line-height:1;
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:8px 14px; border-radius:999px;
+      background:rgba(255,255,255,0.12); border:2px solid rgba(255,255,255,0.18);
+      font-size:28px; font-weight:800; color:#e6e6ee; white-space:nowrap; width:100%; line-height:1;
     }
     .operatorTag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.12);
-      border:2px solid rgba(255,255,255,0.18);
-      font-size:28px;
-      font-weight:800;
-      color:#e6e6ee;
-      white-space:nowrap;
-      width:100%;
-      line-height:1;
+      display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px;
+      background:rgba(255,255,255,0.12); border:2px solid rgba(255,255,255,0.18);
+      font-size:28px; font-weight:800; color:#e6e6ee; white-space:nowrap; width:100%; line-height:1;
     }
     .operatorDot{
       width:18px; height:18px; border-radius:50%;
-      background:#cfcfd6; /* neutral by default; per-operator colour set in JS if single-op */
-      box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
-      display:inline-block;
-      flex-shrink:0;
-      transition: background-color 400ms ease, background 400ms ease;
+      background:#cfcfd6; box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
+      display:inline-block; flex-shrink:0; transition: background-color 400ms ease, background 400ms ease;
     }
 
-    /* Body: one-line details "xxxxx // TOWN" */
     .detailsLine{
       font-size:clamp(26px, 2.6vw, 32px);
       line-height: var(--summary-line-height);
-      color:var(--text);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
       margin:6px 2px 12px 2px;
     }
     .detailsLine .town{ font-weight:900; }
 
-    /* Footer: time lines */
     .times{
-      margin-top:auto;
-      padding-top:12px;
-      border-top:2px solid rgba(255,255,255,0.15);
+      margin-top:auto; padding-top:12px; border-top:2px solid rgba(255,255,255,0.15);
     }
     .timeLine{
-      font-size:clamp(24px, 2.2vw, 30px);
-      font-weight:900;       /* base (overridden within .times for card rows) */
-      color:#d9d9e2;         /* base (overridden within .times for card rows) */
-      line-height:1.25;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      display:flex;
-      align-items:center;
-      gap:8px;
+      font-size:clamp(24px, 2.2vw, 30px); font-weight:900; color:#d9d9e2; line-height:1.25;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; gap:8px;
     }
     .times .timeLine{ font-weight:600; color: rgba(233,233,239,0.65); }
     .times .timeLine .timePrefix{ font-weight:600; color: rgba(233,233,239,0.55); }
@@ -408,14 +310,10 @@
     .times .timeLine.ufn{ color: var(--accent); }
     .times .timeLine.ufn .timePrefix,
     .times .timeLine.ufn .timeValue{ color: var(--accent); }
-    .timeLine .ufn-warning{
-      margin-left:8px;
-      display:inline-block;
-      animation: ufnFlash 1.2s infinite;
-    }
+    .timeLine .ufn-warning{ margin-left:8px; display:inline-block; animation: ufnFlash 1.2s infinite; }
     @keyframes ufnFlash { 0%,60%{opacity:1;transform:scale(1);} 70%{opacity:.35;transform:scale(0.98);} 100%{opacity:1;transform:scale(1);} }
 
-    /* Optional subtle operator tints (backgrounds) */
+    /* Optional subtle operator tints (cards) */
     .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
     .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
     .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
@@ -425,11 +323,7 @@
     }
     @supports (background: color-mix(in oklab, red, blue)) {
       .op-BNDB{
-        background: linear-gradient(
-          180deg,
-          color-mix(in oklab, var(--op-BNDB) 18%, transparent),
-          transparent
-        ), var(--neutralElev);
+        background: linear-gradient(180deg, color-mix(in oklab, var(--op-BNDB) 18%, transparent), transparent), var(--neutralElev);
         border-color: color-mix(in oklab, var(--op-BNDB) 35%, #2a2a33);
       }
     }
@@ -438,15 +332,8 @@
 
     /* ----------- FULLSCREEN ALERT OVERLAY ----------- */
     #divertOverlay{
-      position:fixed;
-      inset:0;
-      background:var(--alert-add-bg); /* default yellow */
-      color:#000;
-      display:none;             /* toggled by .show */
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:6vh 5vw;
+      position:fixed; inset:0; background:var(--alert-add-bg); color:#000;
+      display:none; align-items:center; justify-content:center; z-index:9999; padding:6vh 5vw;
     }
     #divertOverlay.show{ display:flex; animation: overlayFadeIn 220ms ease-out; }
     @keyframes overlayFadeIn{ from{ opacity:0; } to{ opacity:1; } }
@@ -462,7 +349,7 @@
       margin-bottom: 12px;
     }
 
-    /* Reason pill (black/yellow) */
+    /* Reason pill (add overlay only) */
     .ov-reason{
       display:inline-flex; align-items:center; gap:10px;
       background:#000; color:var(--accent);
@@ -490,42 +377,38 @@
     .ov-routes{
       display: flex;
       flex-wrap: wrap;
-      gap: 18px; /* slightly larger gap for larger chips */
+      gap: 18px;
       justify-content: center;
       margin: 8px auto 18px;
       max-width: 1200px;
     }
     .ov-route-chip{
-      position: relative; /* for the floating badge */
+      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: #000;
       color: var(--accent);
-      border-radius: 18px;             /* a touch more rounded when larger */
+      border-radius: 18px;
       border: 4px solid rgba(0,0,0,0.95);
-      padding: 18px 26px;              /* larger padding */
+      padding: 18px 26px;
       font-weight: 1000;
       letter-spacing: -0.4px;
-      font-size: clamp(52px, 7vw, 95px); /* BIG */
+      font-size: clamp(52px, 7vw, 95px);
       line-height: 1;
       box-shadow: 0 12px 32px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,0.06) inset;
       user-select: none;
-      min-width: 6ch;                  /* better hit area at distance */
+      min-width: 6ch;
     }
-    /* Top-right floating 🔀 badge (B2) */
+    /* Top-right floating badge (🔀 for add, 👍 for end) */
     .ov-route-badge{
       position: absolute;
-      top: -12px;                      /* attached look */
-      right: -12px;
+      top: -12px; right: -12px;
       width: clamp(34px, 4.5vw, 54px);
       height: clamp(34px, 4.5vw, 54px);
       border-radius: 999px;
-      background: #000;
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      background: #000; color: var(--accent);
+      display: inline-flex; align-items: center; justify-content: center;
       font-size: clamp(18px, 2.6vw, 32px);
       font-weight: 900;
       border: 3px solid rgba(0,0,0,0.95);
@@ -533,50 +416,42 @@
       transform-origin: center;
       animation: badgePop 260ms ease-out both, badgePulse 1600ms ease-in-out 260ms infinite;
     }
-    @keyframes badgePop {
-      0%   { transform: scale(0.6); opacity: 0; }
-      100% { transform: scale(1);   opacity: 1; }
-    }
-    @keyframes badgePulse {
-      0%, 100% { transform: scale(1);   }
-      50%      { transform: scale(1.08); }
-    }
+    @keyframes badgePop { 0%{ transform: scale(0.6); opacity:0; } 100%{ transform: scale(1); opacity:1; } }
+    @keyframes badgePulse { 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.08); } }
 
     .ov-operator{
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: #000;
-      color: var(--accent);
-      border: 2px solid rgba(0,0,0,0.9);
-      border-radius: 999px;
-      font-weight: 1000;
-      font-size: clamp(26px, 3vw, 40px);
-      padding: 12px 20px;
-      margin-top: 10px;
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #000; color: var(--accent);
+      border: 2px solid rgba(0,0,0,0.9); border-radius: 999px;
+      font-weight: 1000; font-size: clamp(26px, 3vw, 40px);
+      padding: 12px 20px; margin-top: 10px;
       box-shadow: 0 12px 30px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,0.06) inset;
     }
     .ov-operator .operatorDot{
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(0,0,0,0.25) inset;
-      flex-shrink: 0;
+      width: 22px; height: 22px; border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.25) inset; flex-shrink: 0;
     }
 
-    /* ======== Attention animations (subtle, modern) ======== */
-    @keyframes overlayPop {
-      0%   { opacity: 0; transform: scale(0.96); }
-      100% { opacity: 1; transform: scale(1); }
+    /* Duration line (end overlay) */
+    .ov-duration{
+      font-weight: 1000;
+      letter-spacing: -0.2px;
+      font-size: clamp(28px, 3vw, 48px);
+      line-height: 1.15;
+      margin: 6px 0 0;
     }
+
+    /* Add vs End backgrounds */
+    #divertOverlay.ov-add    { background: var(--alert-add-bg);    color:#000; }
+    #divertOverlay.ov-remove { background: var(--alert-remove-bg); color:#000; }
+
+    /* Attention animations */
+    @keyframes overlayPop { 0%{opacity:0;transform:scale(0.96);} 100%{opacity:1;transform:scale(1);} }
     @keyframes pulseGlow {
       0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.0), 0 24px 80px rgba(0,0,0,.35); }
       50%      { box-shadow: 0 0 0 12px rgba(0,0,0,0.08), 0 24px 80px rgba(0,0,0,.45); }
     }
-    @keyframes chipPop {
-      0%   { transform: translateY(6px) scale(0.98); opacity: 0; }
-      100% { transform: translateY(0)    scale(1);    opacity: 1; }
-    }
+    @keyframes chipPop { 0%{ transform: translateY(6px) scale(0.98); opacity: 0; } 100%{ transform: translateY(0) scale(1); opacity: 1; } }
 
     #divertOverlay.show .ov-card{ animation: overlayPop 280ms cubic-bezier(.2,.8,.2,1); }
     #divertOverlay.show .ov-operator{ animation: pulseGlow 1400ms ease-in-out infinite; }
@@ -591,17 +466,9 @@
 
     /* --- Thin yellow progress line at page bottom --- */
     #pageProgress{
-      position:fixed;
-      left:0; right:0; bottom:0;
-      height:4px;
-      background:var(--accent);
-      transform-origin:left center;
-      transform:scaleX(0);
-      opacity:0.9;
-      z-index:9998; /* keep below overlay (9999), above content */
-      pointer-events:none;
-      display:none; /* hidden when not paging */
-      will-change:transform;
+      position:fixed; left:0; right:0; bottom:0; height:4px; background:var(--accent);
+      transform-origin:left center; transform:scaleX(0); opacity:0.9; z-index:9998;
+      pointer-events:none; display:none; will-change:transform;
     }
     #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
     @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
@@ -639,17 +506,26 @@
     <div id="grid"></div>
   </main>
 
-  <!-- Fullscreen Alert Overlay (with REASON pill, enlarged route chips, and 🔀 badges) -->
+  <!-- Fullscreen Alert Overlay (add + end variants) -->
   <div id="divertOverlay" class="ov-add" aria-hidden="true" aria-live="assertive">
-    <div class="ov-card" role="dialog" aria-label="New travel alert">
+    <div class="ov-card" role="dialog" aria-label="Travel alert">
       <div id="ovKicker" class="ov-kicker">NEW TRAVEL ALERT</div>
+
+      <!-- Add overlay: reason + location + routes + operator -->
       <div id="ovReason" class="ov-reason" aria-label="Reason" hidden>
         <span class="ov-reason-emoji" aria-hidden="true">⚠️</span>
         <span class="ov-reason-text">Reason</span>
       </div>
-      <div id="ovLocation" class="ov-location">–</div>
+      <div id="ovLocation" class="ov-location" hidden>–</div>
+
+      <!-- Shared: routes block -->
       <div id="ovRoutes" class="ov-routes"></div>
-      <div id="ovOperator" class="ov-operator" aria-label="Operator"></div>
+
+      <!-- Add overlay: operator chip -->
+      <div id="ovOperator" class="ov-operator" aria-label="Operator" hidden></div>
+
+      <!-- End overlay: duration line -->
+      <div id="ovDuration" class="ov-duration" hidden>On diversion for —</div>
     </div>
   </div>
 
@@ -673,12 +549,12 @@
     const FEED_REFRESH_MS = 60000;  // feed refresh (60s)
 
     /* UFN >24h helper */
-    const DAY_MS = 24 * 60 * 60 * 1000; /* UFN >24h: pin & pulse */
+    const DAY_MS = 24 * 60 * 60 * 1000;
 
     /* Pager */
     let pagerTimer = null;
 
-    /* New diversion detection */
+    /* New/Removed diversion detection */
     let firstFetchDone = false;
     let lastItemsIndex = new Map();  // id -> item (previous poll)
 
@@ -697,15 +573,13 @@
     const parseISO = s => s ? new Date(s) : null;
 
     function fmtHM(d){
-      return new Intl.DateTimeFormat(undefined,
-        {hour:"2-digit",minute:"2-digit"}).format(d);
+      return new Intl.DateTimeFormat(undefined, {hour:"2-digit",minute:"2-digit"}).format(d);
     }
 
     function setStatusPill(ok, { animate = false } = {}){
       const pill = $("#statusPill");
       const bee = $("#beeLogo");
-      const t = new Intl.DateTimeFormat(undefined,
-        {hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+      const t = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
       if(ok){
         pill.classList.remove("status-error");
         pill.textContent = `Live • ${t}`;
@@ -803,11 +677,11 @@
 
     /* Stable-ish Situation ID */
     function getSituationId(sit){
-      const a = sit?.SituationNumber || sit?.SituationRef;
-      const b = sit?.ParticipantRef || "";
-      the_st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
+      const a  = sit?.SituationNumber || sit?.SituationRef;
+      const b  = sit?.ParticipantRef || "";
+      const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
       const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
-      return String(a || `${b}|${the_st}|${sum}`).trim();
+      return String(a || `${b}|${st}|${sum}`).trim();
     }
 
     /* Collect *all* operator refs (deduped) */
@@ -924,10 +798,8 @@
     /* -------- Paging -------- */
     const pager={pages:[],pageIndex:0,pageSize:6,total:0};
     function chunk(arr,size){
-      if (!Array.isArray(arr) || arr.length === 0) return []; // real empty => no pages
-      const out=[];
-      for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size));
-      return out;
+      if (!Array.isArray(arr) || arr.length === 0) return [];
+      const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out;
     }
 
     /* Geometry-based card sizing: exact 2 rows, no cutoff */
@@ -945,11 +817,8 @@
       const mainRect = main.getBoundingClientRect();
       const gridRect = grid.getBoundingClientRect();
 
-      // Height available for the grid content inside main (exclude bottom padding)
       const available = Math.max(0, Math.floor((mainRect.bottom - pb) - gridRect.top));
-
-      // Two rows + one rowGap must equal available
-      const safety  = 1; // minimal to avoid sub-pixel overflow
+      const safety  = 1;
       const perRowH = Math.max(200, Math.floor((available - rowGap) / 2) - safety);
 
       document.documentElement.style.setProperty("--cardHeight", perRowH + "px");
@@ -960,25 +829,15 @@
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
-      // START
       let startVal = "—";
-      if (s){
-        if (isStartOfService(s)) startVal = "Start of Service";
-        else startVal = formatLabelForDate(s);
-      }
+      if (s) startVal = isStartOfService(s) ? "Start of Service" : formatLabelForDate(s);
       const startLine = `Started // ${startVal || "—"}`;
 
-      // END / UFN
       let endVal = "—";
-      if (e){
-        if (isEndOfService(e)) endVal = "End of Service";
-        else endVal = formatLabelForDate(e);
-      } else {
-        endVal = "UFN";
-      }
+      if (e) endVal = isEndOfService(e) ? "End of Service" : formatLabelForDate(e);
+      else endVal = "UFN";
       const endLine = `Ends // ${endVal}`;
 
-      // DURATION (single-unit, rounded)
       const durationVal = formatSingleUnitDuration(s, e);
       const durationLine = `Duration // ${durationVal}`;
 
@@ -994,11 +853,11 @@
       if(colors.length <= 1) return;
       let i = 0;
       dotEl.style.background = colors[0];
-      const id = setInterval(() => {
+      setInterval(() => {
         i = (i + 1) % colors.length;
         dotEl.style.background = colors[i];
       }, intervalMs);
-      // short-lived overlay; cleanup not critical
+      // short-lived overlay; cleanup is not critical
     }
 
     function parseSummaryParts(summaryText){
@@ -1047,11 +906,9 @@
         const inner = document.createElement("div");
         inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
 
-        // Header container
         const header = document.createElement("div");
         header.className = "chipHeader";
 
-        // ===== Left column: routes =====
         const headerLeft = document.createElement("div");
         headerLeft.className = "headerLeft";
 
@@ -1099,11 +956,9 @@
         }
         headerLeft.appendChild(routesArea);
 
-        // ===== Right column: operator + emoji reason =====
         const rightCol = document.createElement("div");
         rightCol.className = "rightCol";
 
-        // Operator pill
         const opTag = document.createElement("div");
         opTag.className = "operatorTag";
         opTag.title = (it.operatorRefs || []).join(", ");
@@ -1125,7 +980,6 @@
         }
         rightCol.appendChild(opTag);
 
-        // Reason emoji chip (title has full text)
         const parsed = parseSummaryParts(it.summary);
         const reasonText = (parsed && parsed.reason) ? parsed.reason : (it.summary || "");
         const reasonEmoji = getReasonEmoji(reasonText);
@@ -1136,10 +990,8 @@
         reasonEmojiChip.setAttribute("aria-label", `Reason: ${reasonText || 'unknown'}`);
         rightCol.appendChild(reasonEmojiChip);
 
-        // Assemble header
         header.append(headerLeft, rightCol);
 
-        // ===== Details line ("place // TOWN") or fallback to summary =====
         let detailsEl;
         if(parsed){
           detailsEl = document.createElement("div");
@@ -1158,7 +1010,6 @@
           detailsEl.textContent = it.summary || "";
         }
 
-        // ===== Times (Started //, Ends //, Duration //) =====
         const times = document.createElement("div");
         times.className = "times";
 
@@ -1201,32 +1052,25 @@
         grid.append(chip);
       }
 
-      // keep page indicator accurate on each render
       updatePageIndicator();
     }
 
     /* --- pager controls (no visibility gating) --- */
     function stopPager(){
-      if (pagerTimer){
-        clearInterval(pagerTimer);
-        pagerTimer = null;
-      }
+      if (pagerTimer){ clearInterval(pagerTimer); pagerTimer = null; }
     }
     function startPager(){
       if (!pager.pages || pager.pages.length <= 1){
-        stopPager();
-        restartProgressBar(); // hides if single/no page
-        return;
+        stopPager(); restartProgressBar(); return;
       }
-      stopPager();
-      restartProgressBar(); // reset line at cycle start
+      stopPager(); restartProgressBar();
       pagerTimer = setInterval(()=>{
         pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
         renderPage();
         setStatusPill(true, { animate:false });
         requestAnimationFrame(setFixedGridSizing);
-        updatePageIndicator();   // update "Pg a/b"
-        restartProgressBar();    // refill progress line
+        updatePageIndicator();
+        restartProgressBar();
       }, PAGE_INTERVAL_MS);
     }
 
@@ -1242,7 +1086,6 @@
       }
     }
 
-    /* Count filtered items per operator (each item can increment multiple ops) */
     function computeOperatorCounts(items){
       const counts = { BNML:0, BNGN:0, BNSM:0, BNDB:0, BNVB:0, BNFM:0 };
       if(!Array.isArray(items)) return counts;
@@ -1273,7 +1116,6 @@
           ? extractSituationsFromJSON(parsed.data)
           : extractSituationsFromXML(parsed.data);
 
-        /* Strict operator filter: include if any operator is a Bee operator */
         situations = situations.filter(sit=>{
           const refs = getOperatorRefs(sit);
           const single = getSingleOperatorRef(sit);
@@ -1282,13 +1124,9 @@
           return !!anyBee;
         });
 
-        /* Diversions only */
         situations = situations.filter(isDiversion);
-
-        /* Only currently valid */
         situations = situations.filter(isCurrentlyValid);
 
-        /* ±7 day window */
         situations = situations.filter(sit=>{
           const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
           const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -1304,7 +1142,6 @@
           return inWindow(s) || inWindow(e);
         });
 
-        /* Only unplanned */
         if(UNPLANNED_ONLY) {
           situations = situations.filter(sit=>{
             const p = sit?.Planned;
@@ -1312,8 +1149,8 @@
           });
         }
 
-        /* Map to items + UFN pinning */
         const nowMs = Date.now();
+
         let items = situations.map(s=>{
           const operatorRefs = getOperatorRefs(s);
           const routes = getLineRefs(s);
@@ -1354,42 +1191,36 @@
           return b.startMs - a.startMs;
         });
 
-        /* Make the current items available for tests */
-        currentItems = items;
-
-        /* Build current index for diffing */
         const currIndex = new Map(items.map(it => [it.id, it]));
 
-        /* Detect new (after first load) */
         let newOnes = [];
+        let removedOnes = [];
         if(firstFetchDone){
           newOnes = items.filter(it => !lastItemsIndex.has(it.id));
+          removedOnes = [...lastItemsIndex.values()].filter(prev => !currIndex.has(prev.id));
         }
 
-        /* Update tracking */
         lastItemsIndex = currIndex;
         firstFetchDone = true;
 
-        /* Page building: fixed 6 per page for 3×2 grid */
+        currentItems = items;
+
         const prevIndex = pager.pageIndex || 0;
 
         pager.pageSize = 6;
         pager.pages = chunk(items, pager.pageSize);
         pager.total = items.length;
 
-        // Clamp page index
         if (pager.pages.length === 0){
           pager.pageIndex = 0;
         } else {
           pager.pageIndex = Math.min(prevIndex, pager.pages.length - 1);
         }
 
-        // Update operator counts + page indicator for header
         const opCounts = computeOperatorCounts(items);
         updateOperatorCounts(opCounts);
         updatePageIndicator();
 
-        // Render & start timers
         requestAnimationFrame(()=>{
           setFixedGridSizing();
           renderPage();
@@ -1397,10 +1228,17 @@
           startPager();
         });
 
-        // Enqueue overlays: ONLY new UFN diversions
+        // Overlays:
+        // - ADD: Only new UFN diverts
         if (newOnes.length) {
           const ufnAdds = newOnes.filter(it => it.isUFN);
           if (ufnAdds.length) enqueueOverlays(ufnAdds.map(item => ({ mode:"add", item })));
+        }
+        // - END: Show for ALL diverts (not just UFN)
+        if (removedOnes.length) {
+          const now = Date.now();
+          removedOnes.forEach(it => { if (!it.endMs) it.endMs = now; });
+          enqueueOverlays(removedOnes.map(item => ({ mode:"remove", item })));
         }
 
       }catch(e){
@@ -1427,7 +1265,7 @@
       if (overlayShowing) return;
       const next = overlayQueue.shift();
       if (!next) return;
-      const duration = (next.mode === "add") ? computeOverlayDurationMs(next.item) : 10000;
+      const duration = computeOverlayDurationMs(next.item);
       showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
     }
 
@@ -1440,63 +1278,112 @@
       const elLoc    = $("#ovLocation");
       const elRoutes = $("#ovRoutes");
       const elOp     = $("#ovOperator");
+      const elDur    = $("#ovDuration");
 
-      if (mode !== "add") { overlay.setAttribute("aria-hidden", "true"); return; }
-      if (!item?.isUFN) return; // Production behaviour: UFN-only
+      overlay.classList.remove("ov-add","ov-remove");
 
-      overlay.classList.add("ov-add");
-      elKicker.textContent = "NEW TRAVEL ALERT";
+      // Reset/hide optional blocks
+      elReason.hidden = true;
+      elLoc.hidden    = true;
+      elOp.hidden     = true;
+      elDur.hidden    = true;
 
-      // Reason pill (emoji + text)
-      const parsed = parseSummaryParts(item.summary);
-      const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
-      const reasonEmoji = getReasonEmoji(reasonTextRaw);
-      if (elReason && elReasonEmoji && elReasonText){
-        elReasonEmoji.textContent = reasonEmoji;
-        elReasonText.textContent  = reasonTextRaw;
-        elReason.hidden = false;
-      }
+      if (mode === "add") {
+        // ADD OVERLAY (UFN only)
+        if (!item?.isUFN) return;
 
-      // Location: "place // TOWN" (fallback to summary if parsing fails)
-      const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
-      elLoc.textContent = locationStr;
+        overlay.classList.add("ov-add");
+        elKicker.textContent = "NEW TRAVEL ALERT";
 
-      // Routes → enlarged chips with floating 🔀 badge (B2)
-      elRoutes.replaceChildren();
-      const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-      routes.forEach(rt => {
-        const chip = document.createElement("div");
-        chip.className = "ov-route-chip";
-        chip.textContent = String(rt);
+        // Reason pill (emoji + text)
+        const parsed = parseSummaryParts(item.summary);
+        const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
+        const reasonEmoji = getReasonEmoji(reasonTextRaw);
+        if (elReason && elReasonEmoji && elReasonText){
+          elReasonEmoji.textContent = reasonEmoji;
+          elReasonText.textContent  = reasonTextRaw;
+          elReason.hidden = false;
+        }
 
-        const badge = document.createElement("span");
-        badge.className = "ov-route-badge";
-        badge.setAttribute("aria-label", "Diverted");
-        badge.textContent = "🔀";
+        // Location line (same place)
+        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
+        elLoc.textContent = locationStr;
+        elLoc.hidden = false;
 
-        chip.appendChild(badge);
-        elRoutes.appendChild(chip);
-      });
+        // Routes with 🔀 badge
+        elRoutes.replaceChildren();
+        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+        routes.forEach(rt => {
+          const chip = document.createElement("div");
+          chip.className = "ov-route-chip";
+          chip.textContent = String(rt);
 
-      // Operator pill: dot colour with cycling for multi‑operator
-      elOp.replaceChildren();
-      const dot = document.createElement("span");
-      dot.className = "operatorDot";
-      elOp.appendChild(dot);
+          const badge = document.createElement("span");
+          badge.className = "ov-route-badge";
+          badge.setAttribute("aria-label", "Diverting");
+          badge.textContent = "🔀";
 
-      const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
-      const codes = mapOperators(refs);
-      elOp.appendChild(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
+          chip.appendChild(badge);
+          elRoutes.appendChild(chip);
+        });
 
-      if (refs.length <= 1) {
-        const ref = refs[0];
-        dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
+        // Operator pill
+        elOp.replaceChildren();
+        const dot = document.createElement("span");
+        dot.className = "operatorDot";
+        elOp.appendChild(dot);
+
+        const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
+        const codes = mapOperators(refs);
+        elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
+        if (refs.length <= 1) {
+          const ref = refs[0];
+          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
+        } else {
+          dot.style.background = "#cfcfd6";
+          startDotColorCycle(dot, refs, { intervalMs: 900 });
+        }
+        elOp.hidden = false;
+
+      } else if (mode === "remove") {
+        // END OVERLAY (show for all)
+        overlay.classList.add("ov-remove");
+        elKicker.textContent = "DIVERT ENDED";
+
+        // Location line (same place as start overlay)
+        const parsed = parseSummaryParts(item.summary);
+        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
+        elLoc.textContent = locationStr;
+        elLoc.hidden = false;
+
+        // Routes with 👍 badge
+        elRoutes.replaceChildren();
+        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+        routes.forEach(rt => {
+          const chip = document.createElement("div");
+          chip.className = "ov-route-chip";
+          chip.textContent = String(rt);
+
+          const badge = document.createElement("span");
+          badge.className = "ov-route-badge";
+          badge.setAttribute("aria-label", "Divert ended");
+          badge.textContent = "👍";
+
+          chip.appendChild(badge);
+          elRoutes.appendChild(chip);
+        });
+
+        // Duration line (from start to now / or to item.endMs if provided)
+        const start = item.startMs ? new Date(item.startMs) : null;
+        const end   = item.endMs   ? new Date(item.endMs)   : new Date();
+        const dur   = formatSingleUnitDuration(start, end);
+        elDur.textContent = `On diversion for ${dur}`;
+        elDur.hidden = false;
       } else {
-        dot.style.background = "#cfcfd6";
-        startDotColorCycle(dot, refs, { intervalMs: 900 }); // a touch quicker on the alert
+        return;
       }
 
-      // Show
+      // Show overlay
       overlay.classList.add("show");
       overlay.setAttribute("aria-hidden", "false");
       overlayShowing = true;
@@ -1520,35 +1407,37 @@
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
-    /* Keyboard tests: K = overlay for a random dashboard item
-       FORCE DEMO: If picked item is not UFN, set isUFN=true so it shows. */
+    /* Keyboard tests:
+       K = ADD overlay on a random dashboard item (force demo => ensure UFN)
+       D = END overlay on a random dashboard item (duration to now) */
     window.addEventListener("keydown", (e)=>{
       const key = String(e.key).toLowerCase();
-      if(key !== "k") return;
-
-      const ufnPool = (currentItems || []).filter(it => it.isUFN);
-      const anyPool = (currentItems || []);
-      const pool = ufnPool.length ? ufnPool : anyPool;
-      if (!pool.length) {
-        console.warn("[K TEST] No items currently on the dashboard to sample.");
-        return;
+      if(key === "k"){
+        const ufnPool = (currentItems || []).filter(it => it.isUFN);
+        const anyPool = (currentItems || []);
+        const pool = ufnPool.length ? ufnPool : anyPool;
+        if (!pool.length) { console.warn("[K TEST] No items to sample."); return; }
+        const pick = pool[Math.floor(Math.random() * pool.length)];
+        const testItem = { ...pick };
+        testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
+        testItem.operatorRefs = Array.isArray(testItem.operatorRefs) ? testItem.operatorRefs : [];
+        // FORCE DEMO: ensure overlay shows even if original wasn't UFN
+        if (!testItem.isUFN) testItem.isUFN = true;
+        enqueueOverlays([{ mode:"add", item: testItem }]);
+        console.info("[K TEST] NEW overlay for random item (force demo)", {id:testItem.id, routes:testItem.routes});
       }
-
-      const pick = pool[Math.floor(Math.random() * pool.length)];
-      const testItem = { ...pick };
-
-      // Ensure required fields exist
-      testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
-      testItem.operatorRefs = Array.isArray(testItem.operatorRefs) ? testItem.operatorRefs : [];
-
-      // FORCE DEMO: ensure overlay shows even if the original wasn't UFN
-      if (!testItem.isUFN) testItem.isUFN = true;
-
-      enqueueOverlays([{ mode:"add", item: testItem }]);
-
-      console.info("[K TEST] Triggered overlay for random item (force demo):", {
-        id: testItem.id, isUFN: testItem.isUFN, routes: testItem.routes, operators: testItem.operatorRefs
-      });
+      if(key === "d"){
+        const pool = (currentItems || []);
+        if (!pool.length) { console.warn("[D TEST] No items to sample."); return; }
+        const pick = pool[Math.floor(Math.random() * pool.length)];
+        const testItem = { ...pick };
+        testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
+        // Duration to now for demo
+        if (!testItem.startMs) testItem.startMs = Date.now() - (90 * 60 * 1000); // fallback 90m
+        testItem.endMs = Date.now();
+        enqueueOverlays([{ mode:"remove", item: testItem }]);
+        console.info("[D TEST] END overlay for random item", {id:testItem.id, routes:testItem.routes});
+      }
     });
 
     function getReasonEmoji(text){
