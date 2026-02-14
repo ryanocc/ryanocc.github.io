@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>OCC Map — GM View (Dark + Clustering + Reinforced Confidence)</title>
+  <title>OCC Dashboard - Highways Alerts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- MapLibre CSS/JS -->
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css" />
   <script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
 
-  <!-- Barlow Semi Condensed (modern sans-serif everywhere) -->
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Fonts: IBM Plex (pill) + Barlow Semi Condensed (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -19,15 +21,22 @@
       --danger:#ff2e34;      /* bottom bar red & edge scan red */
       --red:#ff0000;         /* red circles */
       --yellow:#ffd000;      /* yellow circles */
-      --green:#28c76f;       /* OCC accent green (still used for highlights) */
-      --ui-font:"Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+      --green:#28c76f;       /* OCC accent green */
+
+      /* Bee dashboard colours */
+      --liveGreen:#42BE4B;
+      --errorRed:#EA5540;
+
+      /* Top-left spacing to mirror the bus dashboard header padding (16px top, 24px left) */
+      --pillTop:16px;
+      --pillLeft:24px;
     }
 
     html, body { height:100%; margin:0; }
     body {
       background:var(--bg);
       color:var(--text);
-      font-family:var(--ui-font);
+      font-family:"Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       overflow:hidden;
@@ -45,6 +54,44 @@
 
     .maplibregl-ctrl-group button { filter: invert(1) hue-rotate(180deg); }
     .maplibregl-ctrl-attrib { background: rgba(0,0,0,0.5); color:#ddd; }
+
+    /* ===== TOP-LEFT unified STATUS WRAPPER (matches bus dashboard spacing & style) ===== */
+    .statusWrapper{
+      position:absolute;
+      top:var(--pillTop);
+      left:var(--pillLeft);
+      z-index:30;
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    .status-pill{
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:18px;
+      font-weight:800;
+      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
+      background:var(--liveGreen);
+      color:#000;
+      box-shadow:0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
+      transition:background .2s ease,color .2s ease;
+    }
+    .status-error{ background:var(--errorRed); color:#fff; }
+
+    #beeLogo{
+      width:64px; height:64px; object-fit:contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
+      transition: transform 0.2s ease-out;
+    }
+    @keyframes wibble {
+      0%   { transform: rotate(0deg) scale(1); }
+      20%  { transform: rotate(4deg) scale(1.05); }
+      40%  { transform: rotate(-4deg) scale(1.05); }
+      60%  { transform: rotate(3deg) scale(1.03); }
+      80%  { transform: rotate(-3deg) scale(1.03); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+    .bee-wibble{ animation: wibble 650ms ease-out; }
 
     /* ===== Bottom Alert Bar (25% viewport height) ===== */
     #alert-bar {
@@ -84,7 +131,7 @@
       text-transform:uppercase;
     }
 
-    /* ===== Subtitle styling: very large + distinctive ===== */
+    /* ===== Subtitle styling ===== */
     #alert-location {
       font-size: clamp(28px, 5.6vh, 72px);
       font-weight: 700;
@@ -119,9 +166,9 @@
       background: linear-gradient(180deg, #1f1f1f 0%, #000 100%);
       font-family:var(--ui-font);
     }
-    .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); } /* Motorway: blue */
-    .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); } /* A-road: green */
-    .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); } /* B-road: brown */
+    .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); }
+    .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); }
+    .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); }
 
     .road-sep { margin: 0 8px; opacity: 0.9; }
 
@@ -138,7 +185,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 9;                /* under the bar */
+      z-index: 9;
       opacity: 0;
       transition: opacity 120ms ease;
     }
@@ -160,27 +207,8 @@
       animation: dashSweep 900ms ease-out 1;
     }
 
-    /* ===== Feed Health badges ===== */
-    .feed-health {
-      position: absolute;
-      z-index: 11;
-      background: rgba(20,20,20,0.75);
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-family: var(--ui-font);
-      font-size: 14px;
-      letter-spacing: 0.2px;
-      border: 1px solid rgba(255,255,255,0.15);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    #feed-health-waze { top: 10px; left: 10px; }
-    #feed-health-he   { top: 10px; right: 10px; }
-
-    .feed-health.ok    { border-color: rgba(40,199,111,0.6); }
-    .feed-health.stale { border-color: rgba(255,46,52,0.6); }
+    /* ===== Feed Health badges (now hidden but kept for JS compatibility) ===== */
+    .feed-health { display:none !important; }
 
     /* ===== Progress bar styling ===== */
     #alert-progress-wrap {
@@ -201,9 +229,11 @@
 <body>
   <div id="map"></div>
 
-  <!-- Feed health badges -->
-  <div id="feed-health-waze" class="feed-health stale" aria-live="polite" aria-label="Waze feed status">Waze: initialising…</div>
-  <div id="feed-health-he"   class="feed-health stale" aria-live="polite" aria-label="Highways feed status">Highways: initialising…</div>
+  <!-- TOP-LEFT unified status pill (match: pill left, bee right) -->
+  <div class="statusWrapper" aria-live="polite">
+    <div id="statusPill" class="status-pill">Initialising…</div>
+    <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async" />
+  </div>
 
   <!-- SVG edge sweep overlay -->
   <svg id="svg-scan" aria-hidden="true" width="100%" height="100%">
@@ -217,12 +247,12 @@
       <div id="alert-location">—</div>
       <div id="alert-time" aria-label="First reported time">—</div>
     </div>
-
-    <!-- Progress bar (counts down ALERT_BAR_MS) -->
-    <div id="alert-progress-wrap">
-      <div id="alert-progress"></div>
-    </div>
+    <div id="alert-progress-wrap"><div id="alert-progress"></div></div>
   </div>
+
+  <!-- Hidden old feed badges (kept to avoid breaking any legacy references) -->
+  <div id="feed-health-waze" class="feed-health" aria-live="polite" aria-label="Waze feed status">Waze: initialising…</div>
+  <div id="feed-health-he"   class="feed-health" aria-live="polite" aria-label="Highways feed status">Highways: initialising…</div>
 
   <script>
     // ===== CONFIG =====
@@ -237,10 +267,10 @@
     const STALE_CLEAR_MS = 5 * 60 * 1000;        // clear accidents if feed stale > 5min
     const SHOW_BANNER_ON_INCREASE = true;        // banner when high-tier increases
 
-    // 🎯 High confidence definition
+    // High confidence definition
     const HIGH_CONF_MIN = 4;
 
-    // 🧮 Clustering reinforcement
+    // Clustering reinforcement
     const CLUSTER_BONUS_PER_REPORT = 0.5;
     const CLUSTER_BONUS_MAX = 2.0;
 
@@ -329,7 +359,6 @@
     // ===== Shared proxy chain =====
     const PROXIES = [
       (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
-      // (optional) public fallbacks:
       (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
       (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
     ];
@@ -349,7 +378,6 @@
           return JSON.parse(trimmed);
         }catch(e){
           errors.push(`${proxied}: ${e.message}`);
-          // try next proxy
         }
       }
       throw new Error(`All proxies failed\n${errors.join('\n')}`);
@@ -369,7 +397,6 @@
           return text;
         }catch(e){
           errors.push(`${proxied}: ${e.message}`);
-          // try next proxy
         }
       }
       throw new Error(`All proxies failed\n${errors.join('\n')}`);
@@ -433,7 +460,7 @@
       return out;
     }
 
-    // ===== Clustering: confidence = MAX(member) + reinforcement =====
+    // ===== Clustering =====
     function clusterAccidents(points, mergeMeters = MERGE_METERS){
       if(points.length === 0) return [];
 
@@ -657,14 +684,13 @@
         });
         setTimeout(runSvgScan, 120);
       } else {
-        // Smooth transition delay (e.g., 450 ms)
         setTimeout(() => {
           map.easeTo({
             center: [-2.3214, 53.4306],
             zoom: 11.15,
             bearing: 0,
             pitch: 58,
-            duration: 1400, // slightly longer for smoothness
+            duration: 1400,
             essential: true
           });
         }, 450);
@@ -687,14 +713,13 @@
     }
 
     // ===== Visibility-aware alert pausing / resuming =====
-    let alertsPaused = document.hidden;   // start paused if the tab loads hidden
+    let alertsPaused = document.hidden;
     let currentBanner = null;
 
     function pauseAlerts() {
       if (alertsPaused) return;
       alertsPaused = true;
 
-      // If a banner is mid-flight, requeue it to replay fully on resume
       if (bannerActive) {
         if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
         setBarVisible(false);
@@ -729,7 +754,6 @@
       const item = { id: feature.id, street, city, center, firstMillis };
       queue.push(item);
 
-      // Only start showing if not already active and not paused
       if (!alertsPaused && !bannerActive) {
         showNextBanner();
       }
@@ -784,7 +808,7 @@
       const item = queue.shift(); if(!item) return;
 
       bannerActive = true;
-      currentBanner = item;                // track the current banner
+      currentBanner = item;
       highlightedId = item.id;
       highlightedCenter = item.center;
       updateHighlightFilters();
@@ -809,7 +833,6 @@
     }
 
     const prevEffByClusterId = new Map();
-    // Track brand-new clusters (after initial load) for sound trigger
     const seenClusterIds = new Set();
     let hasInitializedClusters = false;
 
@@ -838,24 +861,41 @@
       repaintRAF = requestAnimationFrame(tick);
     }
 
-    // ===== Waze feed health tracking =====
+    // ===== Unified status pill =====
+    function fmtHHMMSS(){
+      return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());
+    }
+    function setStatusPill(ok, {animate=false}={}){
+      const pill=document.getElementById('statusPill');
+      const bee=document.getElementById('beeLogo');
+      const t=fmtHHMMSS();
+      if(ok){
+        pill.classList.remove('status-error');
+        pill.textContent=`Live • ${t}`;
+        if(animate && bee){
+          bee.classList.remove('bee-wibble');
+          void bee.offsetWidth; // reflow
+          bee.classList.add('bee-wibble');
+        }
+      } else {
+        pill.classList.add('status-error');
+        pill.textContent=`Error • ${t}`;
+      }
+    }
     let lastOkWaze = 0;
-    function markHealthOK_Waze(){
-      lastOkWaze = Date.now();
-      if(healthWazeEl){
-        healthWazeEl.classList.remove('stale');
-        healthWazeEl.classList.add('ok');
-        healthWazeEl.textContent = `Waze: ${new Date(lastOkWaze).toLocaleTimeString('en-GB',{hour12:false})}`;
-      }
+    let lastOkHe   = 0;
+    const STATUS_STALE_MS = Math.max(REFRESH_MS * 2, 65000);
+    function updateGlobalStatus({animate=false}={}){
+      const now = Date.now();
+      const wazeFresh = lastOkWaze && (now - lastOkWaze) <= STATUS_STALE_MS;
+      const heFresh   = lastOkHe   && (now - lastOkHe)   <= STATUS_STALE_MS;
+      setStatusPill(Boolean(wazeFresh && heFresh), { animate });
     }
-    function markHealthStale_Waze(errMsg){
-      const staleSecs = Math.round((Date.now() - (lastOkWaze||Date.now()))/1000);
-      if(healthWazeEl){
-        healthWazeEl.classList.remove('ok');
-        healthWazeEl.classList.add('stale');
-        healthWazeEl.textContent = `Waze stale (${staleSecs}s)${errMsg? ' — ' + errMsg : ''}`;
-      }
-    }
+    function markHealthOK_Waze(){ lastOkWaze = Date.now(); updateGlobalStatus({animate:true}); }
+    function markHealthStale_Waze(){ updateGlobalStatus(); clearAccidentsIfTooStale(); }
+    function markHealthOK_He(){ lastOkHe = Date.now(); updateGlobalStatus({animate:true}); }
+    function markHealthStale_He(){ updateGlobalStatus(); }
+
     function clearAccidentsIfTooStale(){
       const staleMs = Date.now() - (lastOkWaze || 0);
       if (lastOkWaze && staleMs > STALE_CLEAR_MS) {
@@ -864,10 +904,10 @@
     }
 
     // ===== Hidden-tab fetch throttling =====
-    const HIDDEN_REFRESH_MULTIPLIER = 4;          // 4× slower when hidden
-    const HIDDEN_REFRESH_MAX_MS     = 180000;     // cap at 180s (3 minutes)
+    const HIDDEN_REFRESH_MULTIPLIER = 4;
+    const HIDDEN_REFRESH_MAX_MS     = 180000;
     function effectiveDelay(ms){
-      return alertsPaused ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms;
+      return document.hidden ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms;
     }
 
     // ===== Waze update loop =====
@@ -892,24 +932,16 @@
 
         const geo = { type:'FeatureCollection', features: clusterFeatures };
         const src = map.getSource('accidents');
-        if(src) {
-          src.setData(geo);
-          // Cache for demo lookups
-          window.lastAccidentsGeo = geo;
-        }
+        if(src) src.setData(geo);
 
-        // --- Detect brand-new clusters since initialisation ---
         let brandNewCount = 0;
         for (const f of clusterFeatures) {
           if (!seenClusterIds.has(f.id)) {
-            if (hasInitializedClusters) {
-              brandNewCount++;
-            }
+            if (hasInitializedClusters) brandNewCount++;
             seenClusterIds.add(f.id);
           }
         }
 
-        // --- Existing high-confidence transition logic ---
         const newly = [];
         for(const f of clusterFeatures){
           const id = f.id;
@@ -923,13 +955,10 @@
           if (becameHigh || becameHigherHigh) newly.push(f);
         }
 
-        // --- Play max one sound per cycle, respecting 15-min global cooldown ---
-        // Only chime when visible and allowed
-        if ((brandNewCount > 0 || newly.length > 0) && !alertsPaused && canPlayAlertSound()) {
+        if ((brandNewCount > 0 || newly.length > 0) && !document.hidden && canPlayAlertSound()) {
           playAlertSound();
         }
 
-        // Continue banner flow for high-confidence items (enqueue only; playback respects pause)
         if(newly.length){
           newly.sort((a,b)=>{
             const dc = (Number(b.properties.effectiveConfidence||0)) - (Number(a.properties.effectiveConfidence||0));
@@ -939,7 +968,6 @@
           newly.forEach(enqueueBanner);
         }
 
-        // After first successful cycle, start treating unseen clusters as "new"
         hasInitializedClusters = true;
 
         proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
@@ -948,7 +976,6 @@
       }catch(e){
         console.error('Waze fetch failed:', e);
         markHealthStale_Waze(e?.message || 'request error');
-        clearAccidentsIfTooStale();
         proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
         scheduleNext(Math.min(REFRESH_MS * 2, 180000));
       }finally{
@@ -982,7 +1009,6 @@
       for(const item of items){
         let lat = null, lon = null;
 
-        // georss:point -> "lat lon"
         const geoPoint = item.querySelector('ge\\:point, georss\\:point, point');
         if(geoPoint && geoPoint.textContent){
           const parts = geoPoint.textContent.trim().split(/[ ,]+/);
@@ -991,7 +1017,6 @@
           }
         }
 
-        // geo:lat + geo:long
         if(lat === null || lon === null){
           const latEl = item.querySelector('geo\\:lat, lat');
           const lonEl = item.querySelector('geo\\:long, lon, long');
@@ -1001,7 +1026,6 @@
           }
         }
 
-        // Fallback: parse from link query (?lat=&lon=) or lonlat=lon,lat
         if((lat === null || lon === null) && item.querySelector('link')){
           try{
             const href = item.querySelector('link')?.textContent?.trim() || '';
@@ -1013,7 +1037,7 @@
             }else{
               const lonlat = u.searchParams.get('lonlat') || u.searchParams.get('ll');
               if(lonlat){
-                const parts = lonlat split(/[ ,]+/);
+                const parts = lonlat.split(/[ ,]+/);
                 if(parts.length >= 2){
                   const qLon2 = tryNumber(parts[0]); const qLat2 = tryNumber(parts[1]);
                   if(qLat2 != null && qLon2 != null){ lat = qLat2; lon = qLon2; }
@@ -1041,25 +1065,6 @@
     }
 
     // ===== Highways feed health tracking =====
-    let lastOkHe = 0;
-    function markHealthOK_He(){
-      lastOkHe = Date.now();
-      if(healthHeEl){
-        healthHeEl.classList.remove('stale');
-        healthHeEl.classList.add('ok');
-        healthHeEl.textContent = `Highways: ${new Date(lastOkHe).toLocaleTimeString('en-GB',{hour12:false})}`;
-      }
-    }
-    function markHealthStale_He(errMsg){
-      const staleSecs = Math.round((Date.now() - (lastOkHe||Date.now()))/1000);
-      if(healthHeEl){
-        healthHeEl.classList.remove('ok');
-        healthHeEl.classList.add('stale');
-        healthHeEl.textContent = `Highways stale (${staleSecs}s)`;
-      }
-    }
-
-    // ===== National Highways update loop (no banner/zoom/animation) =====
     let heTimer = null;
     let heInFlight = null;
 
@@ -1074,11 +1079,7 @@
         const fc  = parseHeRss(xml);
 
         const src = map.getSource('he-unplanned');
-        if(src) {
-          src.setData(fc);
-          // Cache for demo lookups
-          window.lastHeGeo = fc;
-        }
+        if(src) src.setData(fc);
 
         markHealthOK_He();
         scheduleHeNext(REFRESH_MS);
@@ -1097,13 +1098,7 @@
     }
 
     // ===== Page Visibility / Lifecycle bindings =====
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        pauseAlerts();
-      } else {
-        resumeAlerts();
-      }
-    });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) pauseAlerts(); else resumeAlerts(); });
     window.addEventListener('pageshow',  () => { if (!document.hidden) resumeAlerts(); });
     window.addEventListener('pagehide',  () => { pauseAlerts(); });
 
@@ -1166,7 +1161,7 @@
         id:'accidents-high',
         type:'symbol',
         source:'accidents',
-        filter: [">=", ['get','effectiveConfidence'], HIGH_CONF_MIN],
+        filter: ['>=', ['get','effectiveConfidence'], HIGH_CONF_MIN],
         layout:{
           'icon-image':'pulsing-red',
           'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95],
@@ -1187,12 +1182,11 @@
         }
       });
 
-      // ===== Your OCC highlight dots =====
+      // Your OCC highlight dots
       map.addSource('occ-highlights', {
         type: 'geojson',
         data: buildHighlightsFC(HIGHLIGHT_POINTS)
       });
-
       map.addLayer({
         id: 'occ-highlights-dots',
         type: 'circle',
@@ -1206,35 +1200,36 @@
         }
       });
 
-      // --- National Highways (North West) blue dots (static) ---
+      // National Highways (North West) blue dots (static)
       map.addSource('he-unplanned', {
         type: 'geojson',
         data: { type:'FeatureCollection', features:[] }
       });
-
       map.addLayer({
         id: 'he-unplanned-dots',
         type: 'circle',
         source: 'he-unplanned',
         paint: {
           'circle-radius': ['interpolate',['linear'],['zoom'], 8, 3.4, 12, 5.2, 16, 7.0],
-          'circle-color': '#3a90ff',          // solid blue
-          'circle-stroke-color': '#ffffff',   // white edge for contrast on dark
+          'circle-color': '#3a90ff',
+          'circle-stroke-color': '#ffffff',
           'circle-stroke-width': 1.2,
           'circle-blur': 0.03
         }
       });
 
-      // Controlled update cycle (Waze)
+      // Controlled update cycles
       await runCycle();
       scheduleNext(REFRESH_MS);
 
-      // Initial RSS fetch + schedule (Highways)
       await runHeCycle();
       scheduleHeNext(REFRESH_MS);
 
       // Start global repaint ticker once the style and layers exist
       startGlobalRepaint();
+
+      // Initialise pill state
+      setStatusPill(false, { animate:false });
     });
 
     // Keep ticker alive after map activity
@@ -1245,7 +1240,7 @@
     // Maintain layout when window resizes
     window.addEventListener('resize', () => { map.resize(); startGlobalRepaint(); });
 
-    // ===== Utility: read CSS variable (fallback to provided colour) =====
+    // Utility: read CSS variable (fallback to provided colour)
     function varColor(varName, fallback){
       try{
         const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
@@ -1254,244 +1249,6 @@
         return fallback;
       }
     }
-
-    // // (Optional) Press 'S' to test the chime once, ignoring cooldown during that single press
-    // window.addEventListener('keydown', (e) => {
-    //   if (e.key.toLowerCase() === 's') {
-    //     if (audioCtx && audioEnabled) {
-    //       const saved = lastSoundAt;
-    //       lastSoundAt = 0;
-    //       playAlertSound();
-    //       lastSoundAt = saved;
-    //     }
-    //   }
-    // });
-
-    // ============================================================
-    // =============== DEMO: Press 'T' to run =====================
-    // ============================================================
-    const DEMO_DWELL_MS = 3000;  // 3 seconds per step
-    let demoRunning = false;
-    let demoTimer = null;
-
-    /** Safely read the cached FeatureCollections set earlier */
-    function getAccidentsFC() {
-      const fc = (window.lastAccidentsGeo && window.lastAccidentsGeo.type === 'FeatureCollection')
-        ? window.lastAccidentsGeo
-        : { type:'FeatureCollection', features:[] };
-      return fc;
-    }
-    function getHighwaysFC() {
-      const fc = (window.lastHeGeo && window.lastHeGeo.type === 'FeatureCollection')
-        ? window.lastHeGeo
-        : { type:'FeatureCollection', features:[] };
-      return fc;
-    }
-
-    /** Finders for first representative feature by category */
-    function pickFirstHighways() {
-      const fc = getHighwaysFC();
-      if (!fc.features.length) return null;
-      const sorted = fc.features.slice().sort((a,b) => {
-        const ad = Date.parse(a.properties?.pubDate || '') || 0;
-        const bd = Date.parse(b.properties?.pubDate || '') || 0;
-        return bd - ad;
-      });
-      return sorted[0] || null;
-    }
-    function pickFirstWazeTier(exactEff) {
-      const fc = getAccidentsFC();
-      const feats = fc.features.filter(f => Number(f.properties?.effectiveConfidence) === exactEff);
-      if (!feats.length) return null;
-      feats.sort((a,b) => (Number(b.properties?.time||0)) - (Number(a.properties?.time||0)));
-      return feats[0] || null;
-    }
-    function pickFirstWazeHigh() {
-      const fc = getAccidentsFC();
-      const feats = fc.features.filter(f => Number(f.properties?.effectiveConfidence) >= HIGH_CONF_MIN);
-      if (!feats.length) return null;
-      feats.sort((a,b) => {
-        const ae = Number(a.properties?.effectiveConfidence||0);
-        const be = Number(b.properties?.effectiveConfidence||0);
-        if (be !== ae) return be - ae;
-        return (Number(b.properties?.time||0)) - (Number(a.properties?.time||0));
-      });
-      return feats[0] || null;
-    }
-
-    /** Camera focus helper (and run edge sweep) */
-    function focusOnFeature(f) {
-      if (!f || !Array.isArray(f.geometry?.coordinates)) return;
-      const center = f.geometry.coordinates;
-      map.easeTo({
-        center,
-        zoom: FOCUS_ZOOM,
-        pitch: FOCUS_PITCH,
-        bearing: FOCUS_BEARING,
-        duration: FOCUS_MS,
-        essential: true
-      });
-      runSvgScan();
-    }
-
-    /** Update highlight state for the high-tier step only */
-    function setDemoHighlight(featureOrNull) {
-      if (featureOrNull && featureOrNull.id) {
-        highlightedId = featureOrNull.id;
-        highlightedCenter = Array.isArray(featureOrNull.geometry?.coordinates) ? featureOrNull.geometry.coordinates : null;
-      } else {
-        highlightedId = null;
-        highlightedCenter = null;
-      }
-      updateHighlightFilters();
-    }
-
-    /** Build the ordered demo steps (skip missing gracefully) */
-    function buildDemoSteps() {
-      const steps = [];
-
-      // 1) Highways incident
-      const he = pickFirstHighways();
-      if (he) {
-        steps.push({
-          label: 'Highways incident',
-          feature: he,
-          action: () => {
-            // No highlight layer for HE; just focus
-            setDemoHighlight(null);
-            setBarVisible(false);
-            focusOnFeature(he);
-          }
-        });
-      }
-
-      // 2) Waze Tier 1
-      const w1 = pickFirstWazeTier(1);
-      if (w1) {
-        steps.push({
-          label: 'Waze tier 1',
-          feature: w1,
-          action: () => {
-            setDemoHighlight(null);
-            setBarVisible(false);
-            focusOnFeature(w1);
-          }
-        });
-      }
-
-      // 3) Waze Tier 2
-      const w2 = pickFirstWazeTier(2);
-      if (w2) {
-        steps.push({
-          label: 'Waze tier 2',
-          feature: w2,
-          action: () => {
-            setDemoHighlight(null);
-            setBarVisible(false);
-            focusOnFeature(w2);
-          }
-        });
-      }
-
-      // 4) Waze Tier 3
-      const w3 = pickFirstWazeTier(3);
-      if (w3) {
-        steps.push({
-          label: 'Waze tier 3',
-          feature: w3,
-          action: () => {
-            setDemoHighlight(null);
-            setBarVisible(false);
-            focusOnFeature(w3);
-          }
-        });
-      }
-
-      // 5) Waze High (>= 4) — use white highlight marker
-      const wh = pickFirstWazeHigh();
-      if (wh) {
-        steps.push({
-          label: 'Waze high (≥4)',
-          feature: wh,
-          action: () => {
-            setBarVisible(false);
-            setDemoHighlight(wh);
-            focusOnFeature(wh);
-          }
-        });
-      }
-
-      return steps;
-    }
-
-    /** Main runner */
-    function runDemoOnce() {
-      if (demoRunning) return;
-      const steps = buildDemoSteps();
-      if (!steps.length) {
-        console.warn('[Demo] No features available yet — wait for feeds to populate.');
-        return;
-      }
-
-      demoRunning = true;
-
-      // Pause banner queue while demo runs; restore after
-      const wasPaused = alertsPaused;
-      pauseAlerts();
-
-      let idx = 0;
-
-      const advance = () => {
-        if (idx >= steps.length) {
-          // Cleanup and restore
-          setDemoHighlight(null);
-          setBarVisible(false);
-          if (!wasPaused) {
-            // Only resume if we paused it
-            resumeAlerts();
-          }
-          demoRunning = false;
-          demoTimer = null;
-          // Return to overview
-          setTimeout(() => {
-            map.easeTo({
-              center: [-2.3214, 53.4306],
-              zoom: 11.15,
-              bearing: 0,
-              pitch: 58,
-              duration: 1200,
-              essential: true
-            });
-          }, 150);
-          return;
-        }
-
-        const step = steps[idx++];
-        try {
-          step.action();
-        } catch (e) {
-          console.error('[Demo] Step failed:', step.label, e);
-        }
-        demoTimer = setTimeout(advance, DEMO_DWELL_MS);
-      };
-
-      // Start
-      advance();
-    }
-
-    /** Keyboard binding: press 'T' to run demo */
-    window.addEventListener('keydown', (e) => {
-      // Ignore if typing in an input/textarea
-      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
-      if (tag === 'input' || tag === 'textarea' || e.isComposing) return;
-
-      if (e.key && e.key.toLowerCase() === 't') {
-        runDemoOnce();
-      }
-    });
-    // ============================================================
-    // ================== END DEMO ADDITIONS ======================
-    // ============================================================
   </script>
 </body>
 </html>
