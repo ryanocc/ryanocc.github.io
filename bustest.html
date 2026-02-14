@@ -279,7 +279,6 @@
       width:100%;
     }
 
-    /* left column: route area */
     .headerLeft{
       display:flex;
       flex-direction:column;
@@ -293,7 +292,7 @@
       width:100%;
       height:var(--route-rect-h);
       display:flex;
-      align-items:center;       /* centre single badge vertically */
+      align-items:center;
       justify-content:flex-start;
       max-width:100%;
       flex:1 1 auto;
@@ -348,7 +347,6 @@
       text-overflow:ellipsis;
     }
 
-    /* Glass empty chips to pad the multi-route grid */
     .route-mini--glass{
       background: rgba(255,255,255,0.06);
       border: 2px dashed rgba(255,255,255,0.14);
@@ -365,9 +363,6 @@
       -webkit-backdrop-filter: blur(4px);
       font-weight: 800;
     }
-    .route-mini--glass:hover{
-      border-color: rgba(255,255,255,0.20);
-    }
 
     /* Right column stack (Operator + Emoji Reason) */
     .rightCol{
@@ -375,7 +370,7 @@
       flex-direction:column;
       gap:8px;
       align-items:stretch;
-      width:max-content;     /* both chips share the same intrinsic width */
+      width:max-content;
     }
 
     .reasonEmojiChip{
@@ -407,12 +402,12 @@
       font-weight:800;
       color:#e6e6ee;
       white-space:nowrap;
-      width:100%;           /* Ensures operator chip defines the column width */
+      width:100%;
       line-height:1;
     }
     .operatorDot{
       width:18px; height:18px; border-radius:50%;
-      background:#cfcfd6; /* neutral by default; per-operator colour set in JS if single-op */
+      background:#cfcfd6;
       box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
       display:inline-block;
       flex-shrink:0;
@@ -441,8 +436,8 @@
     }
     .timeLine{
       font-size:clamp(24px, 2.2vw, 30px);
-      font-weight:900;       /* base (overridden within .times for card rows) */
-      color:#d9d9e2;         /* base (overridden within .times for card rows) */
+      font-weight:900;
+      color:#d9d9e2;
       line-height:1.25;
       white-space:nowrap;
       overflow:hidden;
@@ -451,8 +446,6 @@
       align-items:center;
       gap:8px;
     }
-    /* Make Started //, Ends //, Duration // softer in cards,
-       but keep the VALUES bold & white */
     .times .timeLine{
       font-weight:600;
       color: rgba(233,233,239,0.65);
@@ -465,7 +458,6 @@
       font-weight:900;
       color:#ffffff;
     }
-    /* If Ends // value is UFN, make the entire line yellow (prefix + value) */
     .times .timeLine.ufn{
       color: var(--accent);
     }
@@ -533,36 +525,99 @@
       width:min(1200px, 100%);
       text-align:center;
     }
+
+    /* ======== OVERLAY REDESIGN (UFN only) ======== */
     .ov-kicker{
-      font-weight:900;
-      letter-spacing:1.2px;
-      font-size:clamp(80px, 2vw, 120px);
-      text-transform:uppercase;
-      margin-bottom:8px;
+      font-weight: 1000;
+      letter-spacing: 1.4px;
+      font-size: clamp(80px, 10vw, 140px);
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .ov-route{
-      font-weight:900;
-      font-size:clamp(120px, 14vw, 220px);
-      line-height:0.9;
-      letter-spacing:-2px;
-      margin:8px 0 10px;
+
+    .ov-location{
+      font-weight: 1000;
+      letter-spacing: -0.6px;
+      font-size: clamp(42px, 5.2vw, 84px);
+      line-height: 1.05;
+      margin: 8px 0 18px;
     }
-    .ov-summary{
-      font-size:clamp(28px, 3vw, 44px);
-      font-weight:800;
-      color:#000;
-      margin:10px 0 8px;
+
+    .ov-routes{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin: 8px auto 18px;
+      max-width: 1200px;
     }
-    .ov-times{
-      font-size:clamp(22px, 2.2vw, 30px);
-      font-weight:900;
-      color:#000;
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      align-items:center;
-      justify-content:center;
+    .ov-route-chip{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      color: var(--accent);                 /* TfGM yellow text */
+      border-radius: var(--route-radius);
+      border: 2px solid rgba(0,0,0,0.9);
+      padding: 10px 16px;
+      font-weight: 1000;
+      letter-spacing: -0.3px;
+      font-size: clamp(24px, 3.2vw, 42px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,0.06) inset;
+      user-select: none;
     }
+
+    .ov-operator{
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #000;
+      color: var(--accent);
+      border: 2px solid rgba(0,0,0,0.9);
+      border-radius: 999px;
+      font-weight: 1000;
+      font-size: clamp(26px, 3vw, 40px);
+      padding: 12px 20px;
+      margin-top: 10px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,0.06) inset;
+    }
+    .ov-operator .operatorDot{
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.25) inset;
+      flex-shrink: 0;
+    }
+
+    /* ======== Attention animations (subtle, modern) ======== */
+    @keyframes overlayPop {
+      0%   { opacity: 0; transform: scale(0.96); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.0), 0 24px 80px rgba(0,0,0,.35); }
+      50%      { box-shadow: 0 0 0 12px rgba(0,0,0,0.08), 0 24px 80px rgba(0,0,0,.45); }
+    }
+    @keyframes chipPop {
+      0%   { transform: translateY(6px) scale(0.98); opacity: 0; }
+      100% { transform: translateY(0)    scale(1);    opacity: 1; }
+    }
+
+    #divertOverlay.show .ov-card{
+      animation: overlayPop 280ms cubic-bezier(.2,.8,.2,1);
+    }
+    #divertOverlay.show .ov-operator{
+      animation: pulseGlow 1400ms ease-in-out infinite;
+    }
+    #divertOverlay.show .ov-route-chip{
+      animation: chipPop 300ms ease-out both;
+    }
+    #divertOverlay.show .ov-route-chip:nth-child(1){ animation-delay:  90ms; }
+    #divertOverlay.show .ov-route-chip:nth-child(2){ animation-delay: 140ms; }
+    #divertOverlay.show .ov-route-chip:nth-child(3){ animation-delay: 190ms; }
+    #divertOverlay.show .ov-route-chip:nth-child(4){ animation-delay: 240ms; }
+    #divertOverlay.show .ov-route-chip:nth-child(5){ animation-delay: 290ms; }
+    #divertOverlay.show .ov-route-chip:nth-child(6){ animation-delay: 340ms; }
 
     /* --- Thin yellow progress line at page bottom --- */
     #pageProgress{
@@ -619,13 +674,13 @@
     <div id="grid"></div>
   </main>
 
-  <!-- Fullscreen Alert Overlay -->
-  <div id="divertOverlay" class="ov-add" aria-hidden="true">
-    <div class="ov-card" role="dialog" aria-label="Diversion alert">
-      <div id="ovKicker" class="ov-kicker">NEW DIVERTS</div>
-      <div id="ovRoute" class="ov-route">–</div>
-      <div id="ovSummary" class="ov-summary">–</div>
-      <div id="ovTimes" class="ov-times"></div>
+  <!-- Fullscreen Alert Overlay (redesigned) -->
+  <div id="divertOverlay" class="ov-add" aria-hidden="true" aria-live="assertive">
+    <div class="ov-card" role="dialog" aria-label="New travel alert">
+      <div id="ovKicker" class="ov-kicker">NEW TRAVEL ALERT</div>
+      <div id="ovLocation" class="ov-location">–</div>
+      <div id="ovRoutes" class="ov-routes"></div>
+      <div id="ovOperator" class="ov-operator" aria-label="Operator"></div>
     </div>
   </div>
 
@@ -665,6 +720,9 @@
     let overlayQueue = [];
     let overlayShowing = false;
 
+    /* Dashboard state (pool for tests) */
+    let currentItems = [];
+
     /* Set CSS duration for the progress bar to match page dwell */
     document.documentElement.style.setProperty('--page-interval', PAGE_INTERVAL_MS + 'ms');
 
@@ -696,7 +754,7 @@
       }
     }
 
-    /* Operator short-code mapping (kept as in your original) */
+    /* Operator short-code mapping */
     const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
     function mapOperators(list){
       return list.map(ref => OP_MAP[ref] || ref);
@@ -1014,92 +1072,6 @@
     }
 
     /* -------- Overlay helpers -------- */
-    function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
-      const overlay = $("#divertOverlay");
-      const elKicker = $("#ovKicker");
-      const elRoute = $("#ovRoute");
-      const elSummary = $("#ovSummary");
-      const elTimes = $("#ovTimes");
-
-      overlay.classList.remove("ov-add","ov-remove");
-
-      if(mode === "remove"){
-        // DIVERT END (green)
-        overlay.classList.add("ov-remove");
-        elKicker.textContent = "DIVERT END";
-        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        elRoute.textContent = routes.join(" • ");
-        elSummary.textContent = "";
-
-        // Simple total diverted time
-        elTimes.replaceChildren();
-        const start = item.startMs ? new Date(item.startMs) : null;
-        const end   = item.endMs ? new Date(item.endMs) : new Date();
-        const dLine = `Duration // ${formatSingleUnitDuration(start, end)}`;
-        const d = document.createElement("div");
-        d.textContent = dLine;
-        d.className = "timeLine";
-        elTimes.appendChild(d);
-
-      } else {
-        // NEW TRAVEL ALERT (yellow)
-        overlay.classList.add("ov-add");
-        elKicker.textContent = "NEW TRAVEL ALERT";
-        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        elRoute.textContent = routes.join(" • ");
-        elSummary.textContent = item.summary || "Travel alert";
-
-        // Show only Ends line (UFN or date) to keep overlay succinct
-        elTimes.replaceChildren();
-        if(item.timeLines?.endLine){
-          let endText = String(item.timeLines.endLine);
-          // if it has UFN, normalize to just "Ends // UFN"
-          if (endText.toUpperCase().includes("UFN")) endText = "Ends // UFN";
-          const e = document.createElement("div");
-          e.className = "timeLine";
-          e.textContent = endText;
-          // append flashing warning on UFN
-          if (endText.endsWith("UFN")) {
-            const warn = document.createElement("span");
-            warn.className = "ufn-warning";
-            warn.setAttribute("aria-label","ongoing");
-            warn.textContent = " ⚠️";
-            e.appendChild(warn);
-          }
-          elTimes.appendChild(e);
-        }
-      }
-
-      overlay.classList.add("show");
-      overlay.setAttribute("aria-hidden", "false");
-      overlayShowing = true;
-
-      setTimeout(() => {
-        overlay.classList.remove("show");
-        overlay.setAttribute("aria-hidden", "true");
-        overlayShowing = false;
-        processOverlayQueue(); // show next if queued
-      }, durationMs);
-    }
-
-    function enqueueOverlays(arr){
-      if(!arr || !arr.length) return;
-      overlayQueue.push(...arr);
-      processOverlayQueue();
-    }
-    function processOverlayQueue(){
-      if (overlayShowing) return;
-      const next = overlayQueue.shift();
-      if (!next) return;
-      showDivertOverlay(next.item, { mode: next.mode, durationMs: 10000 });
-    }
-
-    /* Colour cycling helpers (multi-operator dots) */
-    let colorCycleTimers = [];
-    function clearColorCycles(){
-      colorCycleTimers.forEach(id => clearInterval(id));
-      colorCycleTimers = [];
-    }
     function startDotColorCycle(dotEl, operatorRefs, { intervalMs = 1200 } = {}){
       const uniqueRefs = [...new Set((operatorRefs || [])
         .map(r => String(r).toUpperCase())
@@ -1112,10 +1084,9 @@
         i = (i + 1) % colors.length;
         dotEl.style.background = colors[i];
       }, intervalMs);
-      colorCycleTimers.push(id);
+      // note: short-lived overlay; cleanup is non-critical
     }
 
-    /* Summary parsing: "xxxxx, TOWN - REASON" */
     function parseSummaryParts(summaryText){
       if(!summaryText) return null;
       const str = String(summaryText);
@@ -1130,19 +1101,7 @@
       if(!place || !town || !reason) return null;
       return { place, town, reason };
     }
-    function getReasonEmoji(text){
-      if(!text) return "⚠️";
-      const s = String(text).toLowerCase();
-      if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "🚧";
-      if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
-      if (/\bcongestion\b/.test(s)) return "🚗";
-      if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
-      if (/\brtc\b|\bcollision\b/.test(s)) return "💥";
-      if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
-      return "⚠️";
-    }
 
-    /* --- Helpers for time line splitting & HTML safety --- */
     function splitLine(line){
       const idx = line.indexOf(" // ");
       if (idx === -1) return [line, ""];
@@ -1157,12 +1116,10 @@
         .replace(/'/g,"&#39;");
     }
 
-    /* -------- Render & paging -------- */
     function renderPage(){
       const grid = $("#grid");
       const pg = pager.pages[pager.pageIndex] || [];
 
-      clearColorCycles();
       grid.innerHTML = "";
 
       for(const it of pg){
@@ -1254,7 +1211,7 @@
         }
         rightCol.appendChild(opTag);
 
-        // Reason emoji chip (kept as emoji; title for full text)
+        // Reason emoji chip (title has full text)
         const parsed = parseSummaryParts(it.summary);
         const reasonText = (parsed && parsed.reason) ? parsed.reason : (it.summary || "");
         const reasonEmoji = getReasonEmoji(reasonText);
@@ -1291,7 +1248,6 @@
         const times = document.createElement("div");
         times.className = "times";
 
-        // Helpers for splitting lines and building HTML
         const [startLabel, startValue] = splitLine(it.timeLines.startLine);
         const [endLabel, endValue] = splitLine(it.timeLines.endLine);
         const [durLabel, durValue] = splitLine(it.timeLines.durationLine);
@@ -1335,7 +1291,7 @@
       updatePageIndicator();
     }
 
-    /* --- pager controls (idempotent) --- */
+    /* --- pager controls (no visibility gating) --- */
     function stopPager(){
       if (pagerTimer){
         clearInterval(pagerTimer);
@@ -1490,15 +1446,16 @@
           return b.startMs - a.startMs;
         });
 
+        /* Make the current items available for tests */
+        currentItems = items;
+
         /* Build current index for diffing */
         const currIndex = new Map(items.map(it => [it.id, it]));
 
-        /* Detect new and removed (after first load) */
+        /* Detect new (after first load) */
         let newOnes = [];
-        let removedOnes = [];
         if(firstFetchDone){
           newOnes = items.filter(it => !lastItemsIndex.has(it.id));
-          removedOnes = [...lastItemsIndex.values()].filter(prev => !currIndex.has(prev.id));
         }
 
         /* Update tracking */
@@ -1520,7 +1477,7 @@
         }
 
         // Update operator counts + page indicator for header
-        const opCounts = computeOperatorCounts(items); // counts over filtered items displayed by this tool
+        const opCounts = computeOperatorCounts(items);
         updateOperatorCounts(opCounts);
         updatePageIndicator();
 
@@ -1532,18 +1489,106 @@
           startPager(); // idempotent; also handles progress bar show/hide
         });
 
-        // Enqueue overlays: new then removed
-        if(newOnes.length){
-          enqueueOverlays(newOnes.map(item => ({ mode:"add", item })));
-        }
-        if(removedOnes.length){
-          enqueueOverlays(removedOnes.map(item => ({ mode:"remove", item })));
+        // Enqueue overlays: ONLY new UFN diversions
+        if (newOnes.length) {
+          const ufnAdds = newOnes.filter(it => it.isUFN);
+          if (ufnAdds.length) enqueueOverlays(ufnAdds.map(item => ({ mode:"add", item })));
         }
 
       }catch(e){
         console.error(e);
         setStatusPill(false, { animate: false });
       }
+    }
+
+    /* Dynamic dwell: 10s for one route, 15s for 2-4, 20s for 5+ */
+    function computeOverlayDurationMs(item){
+      const count = (item?.routes && item.routes.length) ? item.routes.length : 1;
+      if (count === 1) return 10000;
+      if (count <= 4)  return 15000;
+      return 20000;
+    }
+
+    function enqueueOverlays(arr){
+      if(!arr || !arr.length) return;
+      overlayQueue.push(...arr);
+      processOverlayQueue();
+    }
+
+    function processOverlayQueue(){
+      if (overlayShowing) return;
+      const next = overlayQueue.shift();
+      if (!next) return;
+      const duration = (next.mode === "add") ? computeOverlayDurationMs(next.item) : 10000;
+      showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
+    }
+
+    function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
+      const overlay  = $("#divertOverlay");
+      const elKicker = $("#ovKicker");
+      const elLoc    = $("#ovLocation");
+      const elRoutes = $("#ovRoutes");
+      const elOp     = $("#ovOperator");
+
+      overlay.classList.remove("ov-add","ov-remove");
+
+      if (mode === "add") {
+        // Production behaviour: overlay is meaningful for UFN adds
+        if (!item?.isUFN) return;
+
+        overlay.classList.add("ov-add");
+        elKicker.textContent = "NEW TRAVEL ALERT";
+
+        // Location: "place // TOWN" (fallback to summary if parsing fails)
+        const parsed = parseSummaryParts(item.summary);
+        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
+        elLoc.textContent = locationStr;
+
+        // Routes → inverted chips
+        elRoutes.replaceChildren();
+        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+        routes.forEach(rt => {
+          const chip = document.createElement("div");
+          chip.className = "ov-route-chip";
+          chip.textContent = String(rt);
+          elRoutes.appendChild(chip);
+        });
+
+        // Operator pill: dot colour with cycling for multi‑operator
+        elOp.replaceChildren();
+        const dot = document.createElement("span");
+        dot.className = "operatorDot";
+        elOp.appendChild(dot);
+
+        const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
+        const codes = mapOperators(refs);
+        elOp.appendChild(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
+
+        if (refs.length <= 1) {
+          const ref = refs[0];
+          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
+        } else {
+          dot.style.background = "#cfcfd6";
+          startDotColorCycle(dot, refs, { intervalMs: 900 }); // a touch quicker on the alert
+        }
+
+      } else {
+        // We don't show removal overlays anymore
+        overlay.setAttribute("aria-hidden", "true");
+        return;
+      }
+
+      // Show
+      overlay.classList.add("show");
+      overlay.setAttribute("aria-hidden", "false");
+      overlayShowing = true;
+
+      setTimeout(() => {
+        overlay.classList.remove("show");
+        overlay.setAttribute("aria-hidden", "true");
+        overlayShowing = false;
+        processOverlayQueue(); // show next if queued
+      }, durationMs);
     }
 
     /* Start */
@@ -1559,30 +1604,54 @@
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
-    /* Keyboard tests: K = new (yellow), D = diverted end (green) */
+    /* Keyboard tests: K = overlay for a random dashboard item
+       FORCE DEMO: If picked item is not UFN, set isUFN=true so it shows. */
     window.addEventListener("keydown", (e)=>{
       const key = String(e.key).toLowerCase();
-      if(key === "k"){
-        const sampleAdd = {
-          routes: ["36", "37", "38", "39", "40", "41", "42"],
-          summary: "Multiple routes diverted via Deansgate, MANCHESTER - Incident at St Peter's Square.",
-          timeLines: {
-            endLine: "Ends // UFN"
-          }
-        };
-        enqueueOverlays([{ mode:"add", item: sampleAdd }]);
+      if(key !== "k") return;
+
+      const ufnPool = (currentItems || []).filter(it => it.isUFN);
+      const anyPool = (currentItems || []);
+
+      // Prefer UFN, else any
+      const pool = ufnPool.length ? ufnPool : anyPool;
+      if (!pool.length) {
+        console.warn("[K TEST] No items currently on the dashboard to sample.");
+        return;
       }
-      if(key === "d"){
-        const start = new Date(Date.now() - (2 * 60 * 60 * 1000)); // 2 hours ago
-        const now = new Date();
-        const sampleRemove = {
-          routes: ["36"],
-          startMs: start.getTime(),
-          endMs: now.getTime()
-        };
-        enqueueOverlays([{ mode:"remove", item: sampleRemove }]);
-      }
+
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      const testItem = { ...pick };
+
+      // Ensure required fields exist
+      testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
+      testItem.operatorRefs = Array.isArray(testItem.operatorRefs) ? testItem.operatorRefs : [];
+
+      // FORCE DEMO: ensure overlay shows even if original wasn't UFN
+      if (!testItem.isUFN) testItem.isUFN = true;
+
+      // Enqueue as an "add" overlay
+      enqueueOverlays([{ mode:"add", item: testItem }]);
+
+      console.info("[K TEST] Triggered overlay for random item (force demo):", {
+        id: testItem.id,
+        isUFN: testItem.isUFN,
+        routes: testItem.routes,
+        operators: testItem.operatorRefs
+      });
     });
+
+    function getReasonEmoji(text){
+      if(!text) return "⚠️";
+      const s = String(text).toLowerCase();
+      if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "🚧";
+      if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
+      if (/\bcongestion\b/.test(s)) return "🚗";
+      if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
+      if (/\brtc\b|\bcollision\b/.test(s)) return "💥";
+      if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
+      return "⚠️";
+    }
   </script>
 </body>
 </html>
