@@ -3,75 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OCC Screen - Bus Diverts</title>
+  <title>Unplanned Diversions</title>
   <meta http-equiv="Cache-Control" content="no-store" />
 
-  <!-- Font: Barlow Semi Condensed -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- IBM Plex Sans Condensed (Option B) -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Fallback Barlow (optional) -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#0b0b0e; --text:#e9e9ef; --muted:#a7a7b3;
 
-      /* Bee Network operator colours */
-      --op-BNML:#ff4d4f;   /* red */
-      --op-BNGN:#003C6E;   /* blue (GNW) */
-      --op-BNSM:#ff9a1f;   /* orange */
-      --op-BNDB:#9AC331;   /* DB (brand distinct colour) */
-      --op-BNVB:#7a3ffe;   /* purple */
-      --op-BNFM:#ff66b3;   /* pink */
+      --op-BNML:#ff4d4f;
+      --op-BNGN:#003C6E;
+      --op-BNSM:#ff9a1f;
+      --op-BNDB:#9AC331;
+      --op-BNVB:#7a3ffe;
+      --op-BNFM:#ff66b3;
 
       --neutral:#16161b;
       --neutralElev:#1b1b22;
 
-      /* Unified route badge accent */
-      --accent:#FFE04A;       /* TfGM yellow */
+      --accent:#FFE04A;
+      --alert-add-bg: var(--accent);
+      --alert-remove-bg: #19c37d;
 
-      /* Overlay backgrounds */
-      --alert-add-bg: var(--accent); /* yellow */
-      --alert-remove-bg: #19c37d;    /* green */
-
-      /* Status pill colours */
       --liveGreen:#42BE4B;
       --errorRed:#EA5540;
 
-      /* Grid/card */
       --gridGap:20px;
       --cardRadius:24px;
-      --cardHeight: 420px;    /* JS sets exact value for 2 rows */
+      --cardHeight: 420px;
 
-      /* Summary metrics */
       --summary-line-height: 1.3;
 
-      /* Route badge sizing (cards) */
       --route-font: clamp(44px, 5.6vw, 80px);
       --route-pad-v: 8px;
       --route-pad-h: 16px;
       --route-radius: 12px;
 
-      /* area height sized for route chips */
       --route-rect-h: calc(var(--route-mini-font) * 4.2 + 8px + 8px);
-      /* compact font for multi grid tiles */
       --route-mini-font: clamp(18px, 2.2vw, 28px);
 
-      /* Pager progress duration (JS sets this to PAGE_INTERVAL_MS) */
       --page-interval: 10000ms;
     }
 
-    *{ box-sizing:border-box; }
+    *{
+      box-sizing:border-box;
+      /* NEW GLOBAL FONT */
+      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
+    }
+
     html, body { height: 100%; }
 
-    /* ----------- PAGE LAYOUT ----------- */
     body{
       margin:0; padding:0; background:var(--bg);
       color:var(--text);
-      font-family:"Barlow Semi Condensed", system-ui, sans-serif;
       overflow:hidden;
       display:flex;
       flex-direction:column;
     }
+
+    /* --- everything below is unchanged --- */
+
 
     /* ----------- HEADER ----------- */
     .topbar{
@@ -473,6 +469,40 @@
     }
     #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
     @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+    
+    /* === Bigger route chip text (simple bump) === */
+:root{
+  /* was: clamp(18px, 2.2vw, 28px) */
+  --route-mini-font: clamp(24px, 3.2vw, 34px);
+
+/* Make route chips bold */
+.route-mini {
+  font-weight: 700;
+}
+
+
+/* Remove circular badge around overlay emoji */
+.ov-route-badge {
+  background: none !important;
+  border: none !important;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+.ov-route-badge {
+  font-size: 0.6em !important;
+}
+
+
+.ov-route-badge {
+  top: -10px !important;
+  right: -20px !important;
+}
+
   </style>
 </head>
 <body>
@@ -510,7 +540,7 @@
   <!-- Fullscreen Alert Overlay (add + end variants) -->
   <div id="divertOverlay" class="ov-add" aria-hidden="true" aria-live="assertive">
     <div class="ov-card" role="dialog" aria-label="Travel alert">
-      <div id="ovKicker" class="ov-kicker">NEW TRAVEL ALERT</div>
+      <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
 
       <!-- Add overlay: reason + location + routes + operator -->
       <div id="ovReason" class="ov-reason" aria-label="Reason" hidden>
@@ -1331,7 +1361,7 @@ function buildTimesLines(sit){
         if (!item?.isUFN) return;
 
         overlay.classList.add("ov-add");
-        elKicker.textContent = "NEW TRAVEL ALERT";
+        elKicker.textContent = "NEW DIVERT";
 
         // Reason pill (emoji + text)
         const parsed = parseSummaryParts(item.summary);
