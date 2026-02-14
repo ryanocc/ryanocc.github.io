@@ -1345,43 +1345,68 @@
         }
         elOp.hidden = false;
 
-      } else if (mode === "remove") {
-        // END OVERLAY (show for all)
-        overlay.classList.add("ov-remove");
-        elKicker.textContent = "DIVERT ENDED";
+} else if (mode === "remove") {
+  // END OVERLAY (show for all)
+  overlay.classList.add("ov-remove");
+  elKicker.textContent = "DIVERT ENDED";
 
-        // Location line (same place as start overlay)
-        const parsed = parseSummaryParts(item.summary);
-        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
-        elLoc.textContent = locationStr;
-        elLoc.hidden = false;
+  // Reason pill (emoji + text) — mirror "add" fallback behavior
+  const parsed = parseSummaryParts(item.summary);
+  const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
+  if (elReason && elReasonEmoji && elReasonText) {
+    elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
+    elReasonText.textContent  = reasonTextRaw;
+    elReason.hidden = false;
+  }
 
-        // Routes with 👍 badge
-        elRoutes.replaceChildren();
-        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        routes.forEach(rt => {
-          const chip = document.createElement("div");
-          chip.className = "ov-route-chip";
-          chip.textContent = String(rt);
+  // Location line
+  const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
+  elLoc.textContent = locationStr;
+  elLoc.hidden = false;
 
-          const badge = document.createElement("span");
-          badge.className = "ov-route-badge";
-          badge.setAttribute("aria-label", "Divert ended");
-          badge.textContent = "👍";
+  // Routes with 👍 badge
+  elRoutes.replaceChildren();
+  const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+  routes.forEach(rt => {
+    const chip = document.createElement("div");
+    chip.className = "ov-route-chip";
+    chip.textContent = String(rt);
 
-          chip.appendChild(badge);
-          elRoutes.appendChild(chip);
-        });
+    const badge = document.createElement("span");
+    badge.className = "ov-route-badge";
+    badge.setAttribute("aria-label", "Divert ended");
+    badge.textContent = "👍";
 
-        // Duration line (from start to now / or to item.endMs if provided)
-        const start = item.startMs ? new Date(item.startMs) : null;
-        const end   = item.endMs   ? new Date(item.endMs)   : new Date();
-        const dur   = formatSingleUnitDuration(start, end);
-        elDur.textContent = `On diversion for ${dur}`;
-        elDur.hidden = false;
-      } else {
-        return;
-      }
+    chip.appendChild(badge);
+    elRoutes.appendChild(chip);
+  });
+
+  // Operator pill — mirror "add" behavior, including cycling dot for multiple
+  elOp.replaceChildren();
+  const dot = document.createElement("span");
+  dot.className = "operatorDot";
+  elOp.appendChild(dot);
+
+  const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
+  const codes = mapOperators(refs);
+  elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
+  if (refs.length <= 1) {
+    const ref = refs[0];
+    dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
+  } else {
+    dot.style.background = "#cfcfd6";
+    startDotColorCycle(dot, refs, { intervalMs: 900 });
+  }
+  elOp.hidden = false;
+
+  // Duration line (from start to now / or to item.endMs if provided)
+  const start = item.startMs ? new Date(item.startMs) : null;
+  const end   = item.endMs   ? new Date(item.endMs)   : new Date();
+  const dur   = formatSingleUnitDuration(start, end);
+  elDur.textContent = `On diversion for ${dur}`;
+  elDur.hidden = false;
+}
+``
 
       // Show overlay
       overlay.classList.add("show");
