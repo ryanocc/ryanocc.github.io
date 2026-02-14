@@ -871,7 +871,7 @@
       const t=fmtHHMMSS();
       if(ok){
         pill.classList.remove('status-error');
-        pill.textContent=`Live • ${t}`;
+        pill.textContent=`Live  ${t}`;
         if(animate && bee){
           bee.classList.remove('bee-wibble');
           void bee.offsetWidth; // reflow
@@ -879,7 +879,7 @@
         }
       } else {
         pill.classList.add('status-error');
-        pill.textContent=`Error • ${t}`;
+        pill.textContent=`Stand By • ${t}`;
       }
     }
     let lastOkWaze = 0;
