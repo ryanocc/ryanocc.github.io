@@ -51,8 +51,8 @@
       --route-pad-h: 16px;
       --route-radius: 12px;
 
-      /* area height equal to single route badge height */
-      --route-rect-h: calc(var(--route-font) + (var(--route-pad-v) * 2));
+      /* area height sized for route chips */
+      --route-rect-h: calc(var(--route-mini-font) * 4.2 + 8px + 8px);
       /* compact font for multi grid tiles */
       --route-mini-font: clamp(18px, 2.2vw, 28px);
 
@@ -241,31 +241,32 @@
       display:flex; align-items:center; justify-content:flex-start;
       max-width:100%; flex:1 1 auto;
     }
-    .route{
-      display:inline-flex; align-items:center; justify-content:center;
-      font-weight:900; background:var(--accent); color:#000;
-      padding:var(--route-pad-v) var(--route-pad-h); border-radius:var(--route-radius);
-      letter-spacing:-0.5px; line-height:1; min-width:3ch; max-width:100%;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-      font-size:var(--route-font); width:100%;
+
+    /* Always a 2×2 routes grid */
+    .routesGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap:8px; width:100%; height:100%;
+      align-items:stretch; justify-items:stretch;
     }
 
-    .routesGrid{
-      display:grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr);
-      gap:8px; width:100%; height:100%; align-items:stretch; justify-items:stretch;
-    }
+    /* Route chips (filled slots) */
     .route-mini{
       display:flex; align-items:center; justify-content:center; font-weight:900;
       background:var(--accent); color:#000; border-radius:var(--route-radius);
-      letter-spacing:-0.3px; line-height:1; padding:6px 10px; font-size:var(--route-mini-font);
+      letter-spacing:-0.3px; line-height:1; padding:6px 10px; font-size: var(--route-mini-font);
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
+
+    /* Transparent placeholder for blanks */
     .route-mini--glass{
       background: rgba(255,255,255,0.06);
       border: 2px dashed rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.22);
       display:flex; align-items:center; justify-content:center;
-      border-radius: var(--route-radius); letter-spacing:-0.3px; line-height:1;
+      border-radius: var(--route-radius);
+      letter-spacing:-0.3px; line-height:1;
       padding:6px 10px; font-size: var(--route-mini-font);
       backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
       font-weight: 800;
@@ -478,7 +479,7 @@
 
   <header class="topbar">
     <div class="leftHeader">
-      <h1 class="title">TfGM Travel Alerts - Key Diversions</h1>
+      <h1 class="title">TfGM Travel Alerts - Diversions</h1>
 
       <!-- Operator counts + Page indicator (under title) -->
       <div id="statusMeta" class="status-meta" aria-live="polite">
@@ -778,23 +779,84 @@
     }
 
     /* ---------- Times footer builder (for cards) ---------- */
-    function buildTimesLines(sit){
-      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+function buildTimesLines(sit){
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
-      let startVal = "—";
-      if (s) startVal = isStartOfService(s) ? "Start of Service" : formatLabelForDate(s);
-      const startLine = `Started // ${startVal || "—"}`;
+  // Started line
+  let startVal = "—";
+  if (s) {
+    if (isToday(s) && isStartOfService(s)) {
+      // Only call it "Start of Service" when it is today at 00:00
+      startVal = "Start of Service";
+    } else {
+      // Otherwise: if today show "HH:MM Today"; if this week show weekday; else date
+      startVal = formatLabelForDate(s);
+    }
+  }
+  const startLine = `Started // ${startVal}`;
 
-      let endVal = "—";
-      if (e) endVal = isEndOfService(e) ? "End of Service" : formatLabelForDate(e);
-      else endVal = "UFN";
-      const endLine = `Ends // ${endVal}`;
+  // Ends line
+  let endVal = "—";
+  if (e) {
+    if (isToday(e) && isEndOfService(e)) {
+      // Only call it "End of Service" when it is today at 23:59
+      endVal = "End of Service";
+    } else {
+      // Otherwise: if today show "HH:MM Today"; if this week show weekday; else date
+      endVal = formatLabelForDate(e);
+    }
+  } else {
+    endVal = "UFN"; // no end supplied
+  }
+  const endLine = `Ends // ${endVal}`;
 
-      const durationVal = formatSingleUnitDuration(s, e);
-      const durationLine = `Duration // ${durationVal}`;
+  // Duration line unchanged
+  const durationVal = formatSingleUnitDuration(s, e);
+  const durationLine = `Duration // ${durationVal}`;
 
-      return { startLine, endLine, durationLine, startDate:s, endDate:e };
+  return { startLine, endLine, durationLine, startDate:s, endDate:e };
+}
+
+    /* -------- Routes 2×2 renderer -------- */
+    function renderRoutesAs2x2Grid(routesArea, routes){
+      const MAX_SLOTS = 4;
+      const gridRoutes = document.createElement("div");
+      gridRoutes.className = "routesGrid";
+
+      const list = Array.isArray(routes) ? routes.map(String) : ["?"];
+      const count = list.length;
+
+      if (count <= MAX_SLOTS) {
+        // Fill existing routes, then placeholders to reach 4
+        list.forEach(rt => {
+          const cell = document.createElement("div");
+          cell.className = "route-mini";
+          cell.textContent = rt;
+          gridRoutes.appendChild(cell);
+        });
+        for (let i = count; i < MAX_SLOTS; i++) {
+          const filler = document.createElement("div");
+          filler.className = "route-mini route-mini--glass";
+          filler.textContent = ""; // transparent placeholder
+          gridRoutes.appendChild(filler);
+        }
+      } else {
+        // More than 4: first 3, then "+x"
+        for (let i = 0; i < 3; i++) {
+          const cell = document.createElement("div");
+          cell.className = "route-mini";
+          cell.textContent = list[i];
+          gridRoutes.appendChild(cell);
+        }
+        const overflow = count - 3;
+        const plus = document.createElement("div");
+        plus.className = "route-mini";
+        plus.textContent = `+${overflow}`;
+        gridRoutes.appendChild(plus);
+      }
+
+      routesArea.replaceChildren(gridRoutes);
     }
 
     /* -------- Overlay helpers -------- */
@@ -895,43 +957,7 @@
         routesArea.title = (it.routes || []).join(", ");
 
         const routes = Array.isArray(it.routes) && it.routes.length ? it.routes : ["?"];
-
-        if (routes.length === 1) {
-          const badge = document.createElement("div");
-          badge.className = "route";
-          badge.textContent = String(routes[0]);
-          routesArea.appendChild(badge);
-        } else {
-          const gridRoutes = document.createElement("div");
-          gridRoutes.className = "routesGrid";
-
-          const MAX_SLOTS = 6;
-          const overflow = Math.max(0, routes.length - MAX_SLOTS);
-          const toShow = overflow > 0 ? routes.slice(0, MAX_SLOTS - 1) : routes.slice(0, MAX_SLOTS);
-
-          toShow.forEach(rt => {
-            const cell = document.createElement("div");
-            cell.className = "route-mini";
-            cell.textContent = String(rt);
-            gridRoutes.appendChild(cell);
-          });
-
-          if (overflow > 0) {
-            const cell = document.createElement("div");
-            cell.className = "route-mini";
-            cell.textContent = `+${overflow}`;
-            gridRoutes.appendChild(cell);
-          } else {
-            const pad = MAX_SLOTS - toShow.length;
-            for (let i = 0; i < pad; i++) {
-              const filler = document.createElement("div");
-              filler.className = "route-mini route-mini--glass";
-              filler.textContent = "";
-              gridRoutes.appendChild(filler);
-            }
-          }
-          routesArea.appendChild(gridRoutes);
-        }
+        renderRoutesAs2x2Grid(routesArea, routes);
         headerLeft.appendChild(routesArea);
 
         const rightCol = document.createElement("div");
@@ -1237,7 +1263,7 @@
         // END overlays only when a divert actually reaches its end:
         // - If previous had endMs and endMs <= now -> ended now/past (show overlay)
         // - If previous was UFN (no endMs) and it drops from live -> end was set to NOW (show overlay)
-        // - If a UFN just changed to a future end time, it remains live -> NO overlay here (by definition)
+        // - If a UFN just changed to a future end time, it remains live -> NO overlay here
         if (removedOnes.length) {
           const now = Date.now();
           const endedNow = removedOnes.filter(prev => {
