@@ -478,7 +478,7 @@
 
   <header class="topbar">
     <div class="leftHeader">
-      <h1 class="title">TfGM Travel Alerts - Diversions</h1>
+      <h1 class="title">TfGM Travel Alerts - Key Diversions</h1>
 
       <!-- Operator counts + Page indicator (under title) -->
       <div id="statusMeta" class="status-meta" aria-live="polite">
@@ -521,7 +521,7 @@
       <!-- Shared: routes block -->
       <div id="ovRoutes" class="ov-routes"></div>
 
-      <!-- Add overlay: operator chip -->
+      <!-- Add/End overlay: operator chip -->
       <div id="ovOperator" class="ov-operator" aria-label="Operator" hidden></div>
 
       <!-- End overlay: duration line -->
@@ -554,9 +554,9 @@
     /* Pager */
     let pagerTimer = null;
 
-    /* New/Removed diversion detection */
+    /* Live-set change detection (for overlays) */
     let firstFetchDone = false;
-    let lastItemsIndex = new Map();  // id -> item (previous poll)
+    let lastLiveIndex = new Map();  // id -> last live item (previous poll)
 
     /* Overlay queue control */
     let overlayQueue = [];
@@ -748,53 +748,6 @@
       return true;
     }
 
-    function extractSituationsFromJSON(json){
-      const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
-      if(!sd) return [];
-      const sed = Array.isArray(sd.SituationExchangeDelivery)
-        ? sd.SituationExchangeDelivery
-        : [sd.SituationExchangeDelivery].filter(Boolean);
-      const out=[];
-      for(const d of sed){
-        const pe = d?.Situations?.PtSituationElement;
-        if(Array.isArray(pe)) out.push(...pe);
-        else if(pe) out.push(pe);
-      }
-      return out;
-    }
-    function extractSituationsFromXML(doc){
-      const els = [...doc.querySelectorAll("PtSituationElement")];
-      return els.map(el=>{
-        const T = s => el.querySelector(s)?.textContent?.trim() || null;
-        const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
-                        .map(n=>n.textContent.trim()).filter(Boolean);
-        const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
-                        .map(n=>n.textContent.trim()).filter(Boolean);
-        return {
-          Summary: T("Summary") || T("Description"),
-          Description: T("Description"),
-          Severity: T("Severity") || "unknown",
-          Planned: T("Planned"),
-          SituationNumber: T("SituationNumber") || T("SituationRef"),
-          ParticipantRef: T("ParticipantRef"),
-          ValidityPeriod: {
-            StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
-            EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
-          },
-          CreationTime: T("CreationTime") || T("RecordedAtTime") || T("VersionedAtTime"),
-          Affects: {
-            VehicleJourneys: {
-              AffectedVehicleJourney: lines.length
-                ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
-                : []
-            }
-          },
-          __operatorRefs: opsRef,
-          __lineRefs: lines
-        };
-      });
-    }
-
     /* -------- Paging -------- */
     const pager={pages:[],pageIndex:0,pageSize:6,total:0};
     function chunk(arr,size){
@@ -887,6 +840,31 @@
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#39;");
+    }
+
+    function operatorTintClass(ref){
+      switch((ref||"").toUpperCase()){
+        case "BNML": return {cls:"op-BNML", dark:false};
+        case "BNGN": return {cls:"op-BNGN", dark:true};
+        case "BNSM": return {cls:"op-BNSM", dark:false};
+        case "BNDB": return {cls:"op-BNDB", dark:true};
+        case "BNVB": return {cls:"op-BNVB", dark:true};
+        case "BNFM": return {cls:"op-BNFM", dark:false};
+        default:     return {cls:"",       dark:true};
+      }
+    }
+
+    function computeOperatorCounts(items){
+      const counts = { BNML:0, BNGN:0, BNSM:0, BNDB:0, BNVB:0, BNFM:0 };
+      if(!Array.isArray(items)) return counts;
+      for(const it of items){
+        const refs = (it.operatorRefs || []).map(r => String(r).toUpperCase());
+        const uniq = [...new Set(refs)];
+        for(const r of uniq){
+          if (BEE_OPERATORS.includes(r)) counts[r] = (counts[r] || 0) + 1;
+        }
+      }
+      return counts;
     }
 
     function renderPage(){
@@ -1055,7 +1033,7 @@
       updatePageIndicator();
     }
 
-    /* --- pager controls (no visibility gating) --- */
+    /* --- pager controls --- */
     function stopPager(){
       if (pagerTimer){ clearInterval(pagerTimer); pagerTimer = null; }
     }
@@ -1074,32 +1052,36 @@
       }, PAGE_INTERVAL_MS);
     }
 
-    function operatorTintClass(ref){
-      switch((ref||"").toUpperCase()){
-        case "BNML": return {cls:"op-BNML", dark:false};
-        case "BNGN": return {cls:"op-BNGN", dark:true};
-        case "BNSM": return {cls:"op-BNSM", dark:false};
-        case "BNDB": return {cls:"op-BNDB", dark:true};
-        case "BNVB": return {cls:"op-BNVB", dark:true};
-        case "BNFM": return {cls:"op-BNFM", dark:false};
-        default:     return {cls:"",       dark:true};
-      }
+    /* -------- Map a situation to dashboard item -------- */
+    function mapSituationToItem(s){
+      const operatorRefs = getOperatorRefs(s);
+      const routes = getLineRefs(s);
+      const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
+      const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
+      const nowMs = Date.now();
+      const startMs = st ? st.getTime() : 0;
+      const endMs   = en ? en.getTime() : null;
+
+      const isUFN = (endMs == null);
+      const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
+
+      const timeLines = buildTimesLines(s);
+
+      return {
+        id: getSituationId(s),
+        operatorRefs,
+        singleOperatorForTint: getSingleOperatorRef(s) || "",
+        routes: routes.length ? routes.map(String) : ["?"],
+        timeLines,
+        summary: (s.Summary || s.Description || "").trim(),
+        startMs,
+        endMs,
+        isUFN,
+        ufnOver24h
+      };
     }
 
-    function computeOperatorCounts(items){
-      const counts = { BNML:0, BNGN:0, BNSM:0, BNDB:0, BNVB:0, BNFM:0 };
-      if(!Array.isArray(items)) return counts;
-      for(const it of items){
-        const refs = (it.operatorRefs || []).map(r => String(r).toUpperCase());
-        const uniq = [...new Set(refs)];
-        for(const r of uniq){
-          if (BEE_OPERATORS.includes(r)) counts[r] = (counts[r] || 0) + 1;
-        }
-      }
-      return counts;
-    }
-
-    /* -------- Fetch & Render -------- */
+    /* -------- Fetch & Render (with live vs display separation) -------- */
     async function fetchAll(){
       try{
         const res = await fetch(BODS_URL, { cache:"no-store" });
@@ -1112,11 +1094,60 @@
           parsed = { type:"xml", data: (new DOMParser()).parseFromString(await res.text(),"application/xml") };
         }
 
-        let situations = parsed.type==="json"
+        // Extract all situations
+        const extractSituationsFromJSON = (json) => {
+          const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+          if(!sd) return [];
+          const sed = Array.isArray(sd.SituationExchangeDelivery)
+            ? sd.SituationExchangeDelivery
+            : [sd.SituationExchangeDelivery].filter(Boolean);
+          const out=[];
+          for(const d of sed){
+            const pe = d?.Situations?.PtSituationElement;
+            if(Array.isArray(pe)) out.push(...pe);
+            else if(pe) out.push(pe);
+          }
+          return out;
+        };
+        const extractSituationsFromXML = (doc) => {
+          const els = [...doc.querySelectorAll("PtSituationElement")];
+          return els.map(el=>{
+            const T = s => el.querySelector(s)?.textContent?.trim() || null;
+            const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
+                            .map(n=>n.textContent.trim()).filter(Boolean);
+            const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
+                            .map(n=>n.textContent.trim()).filter(Boolean);
+            return {
+              Summary: T("Summary") || T("Description"),
+              Description: T("Description"),
+              Severity: T("Severity") || "unknown",
+              Planned: T("Planned"),
+              SituationNumber: T("SituationNumber") || T("SituationRef"),
+              ParticipantRef: T("ParticipantRef"),
+              ValidityPeriod: {
+                StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
+                EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
+              },
+              CreationTime: T("CreationTime") || T("RecordedAtTime") || T("VersionedAtTime"),
+              Affects: {
+                VehicleJourneys: {
+                  AffectedVehicleJourney: lines.length
+                    ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
+                    : []
+                }
+              },
+              __operatorRefs: opsRef,
+              __lineRefs: lines
+            };
+          });
+        };
+
+        let allSituations = parsed.type==="json"
           ? extractSituationsFromJSON(parsed.data)
           : extractSituationsFromXML(parsed.data);
 
-        situations = situations.filter(sit=>{
+        // Bee-only
+        allSituations = allSituations.filter(sit=>{
           const refs = getOperatorRefs(sit);
           const single = getSingleOperatorRef(sit);
           const anyBee = (refs && refs.some(r => BEE_OPERATORS.includes(r))) ||
@@ -1124,103 +1155,60 @@
           return !!anyBee;
         });
 
-        situations = situations.filter(isDiversion);
-        situations = situations.filter(isCurrentlyValid);
+        // Diversions only
+        allSituations = allSituations.filter(isDiversion);
 
-        situations = situations.filter(sit=>{
-          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-
-          const now = new Date();
-          const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
-          const endOfToday   = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59,999);
-
-          const windowStart = new Date(startOfToday.getTime() - 7*24*60*60*1000);
-          const windowEnd   = new Date(endOfToday.getTime()   + 7*24*60*60*1000);
-
-          const inWindow = d => d && d >= windowStart && d <= windowEnd;
-          return inWindow(s) || inWindow(e);
-        });
-
+        // ---- LIVE POOL (used for overlays): currently-valid + (optional) unplanned ----
+        let liveSituations = allSituations.filter(isCurrentlyValid);
         if(UNPLANNED_ONLY) {
-          situations = situations.filter(sit=>{
+          liveSituations = liveSituations.filter(sit=>{
             const p = sit?.Planned;
             return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
           });
         }
 
-        const nowMs = Date.now();
-
-        let items = situations.map(s=>{
-          const operatorRefs = getOperatorRefs(s);
-          const routes = getLineRefs(s);
-          const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
-          const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
-
-          const startMs = st ? st.getTime() : 0;
-          const endMs   = en ? en.getTime() : null;
-
-          const isUFN = (endMs == null);
-          const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
-
-          const timeLines = buildTimesLines(s);
-
-          return {
-            id: getSituationId(s),
-            operatorRefs,
-            singleOperatorForTint: getSingleOperatorRef(s) || "",
-            routes: routes.length ? routes.map(String) : ["?"],
-            timeLines,
-            summary: (s.Summary || s.Description || "").trim(),
-            startMs,
-            endMs,
-            isUFN,
-            ufnOver24h
-          };
-        })
-        .sort((a, b) => {
-          if (a.ufnOver24h && !b.ufnOver24h) return -1;
-          if (!a.ufnOver24h && b.ufnOver24h) return 1;
-          if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs; // older first
-          if (a.isUFN && !b.isUFN) return -1;
-          if (!a.isUFN && b.isUFN) return 1;
-          if (a.isUFN && b.isUFN) return b.startMs - a.startMs;
-          const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
-          const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
-          if (aEnd !== bEnd) return aEnd - bEnd;
-          return b.startMs - a.startMs;
+        // ---- DISPLAY POOL (grid): from live, restrict to start today OR end today OR UFN ----
+        let displaySituations = liveSituations.filter(sit => {
+          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+          const startIsToday = !!(s && isToday(s));
+          const endIsToday   = !!(e && isToday(e)); // since live, e is later today (not past)
+          const isUFN        = !e;
+          return startIsToday || endIsToday || isUFN;
         });
 
-        const currIndex = new Map(items.map(it => [it.id, it]));
+        // Map to items
+        const liveItems = liveSituations.map(mapSituationToItem);
 
-        let newOnes = [];
-        let removedOnes = [];
-        if(firstFetchDone){
-          newOnes = items.filter(it => !lastItemsIndex.has(it.id));
-          removedOnes = [...lastItemsIndex.values()].filter(prev => !currIndex.has(prev.id));
-        }
+        let items = displaySituations.map(mapSituationToItem)
+          .sort((a, b) => {
+            // Keep older >24h UFN high (visually) as before
+            if (a.ufnOver24h && !b.ufnOver24h) return -1;
+            if (!a.ufnOver24h && b.ufnOver24h) return 1;
+            if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs; // older first
+            if (a.isUFN && !b.isUFN) return -1;
+            if (!a.isUFN && b.isUFN) return 1;
+            if (a.isUFN && b.isUFN) return b.startMs - a.startMs;
+            const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
+            const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
+            if (aEnd !== bEnd) return aEnd - bEnd;
+            return b.startMs - a.startMs;
+          });
 
-        lastItemsIndex = currIndex;
-        firstFetchDone = true;
-
-        currentItems = items;
-
+        // Maintain pager
         const prevIndex = pager.pageIndex || 0;
-
         pager.pageSize = 6;
         pager.pages = chunk(items, pager.pageSize);
         pager.total = items.length;
+        pager.pageIndex = pager.pages.length === 0 ? 0 : Math.min(prevIndex, pager.pages.length - 1);
 
-        if (pager.pages.length === 0){
-          pager.pageIndex = 0;
-        } else {
-          pager.pageIndex = Math.min(prevIndex, pager.pages.length - 1);
-        }
-
+        // Update counts/meta
         const opCounts = computeOperatorCounts(items);
         updateOperatorCounts(opCounts);
         updatePageIndicator();
 
+        // Render
+        currentItems = items; // for keyboard tests
         requestAnimationFrame(()=>{
           setFixedGridSizing();
           renderPage();
@@ -1228,17 +1216,41 @@
           startPager();
         });
 
-        // Overlays:
-        // - ADD: Only new UFN diverts
+        // ===== Overlay detection based on LIVE set changes =====
+        const currLiveIndex = new Map(liveItems.map(it => [it.id, it]));
+
+        let newOnes = [];
+        let removedOnes = [];
+        if(firstFetchDone){
+          newOnes     = liveItems.filter(it => !lastLiveIndex.has(it.id));
+          removedOnes = [...lastLiveIndex.values()].filter(prev => !currLiveIndex.has(prev.id));
+        }
+        lastLiveIndex = currLiveIndex;
+        firstFetchDone = true;
+
+        // ADD overlays only for NEW UFN live items
         if (newOnes.length) {
           const ufnAdds = newOnes.filter(it => it.isUFN);
           if (ufnAdds.length) enqueueOverlays(ufnAdds.map(item => ({ mode:"add", item })));
         }
-        // - END: Show for ALL diverts (not just UFN)
+
+        // END overlays only when a divert actually reaches its end:
+        // - If previous had endMs and endMs <= now -> ended now/past (show overlay)
+        // - If previous was UFN (no endMs) and it drops from live -> end was set to NOW (show overlay)
+        // - If a UFN just changed to a future end time, it remains live -> NO overlay here (by definition)
         if (removedOnes.length) {
           const now = Date.now();
-          removedOnes.forEach(it => { if (!it.endMs) it.endMs = now; });
-          enqueueOverlays(removedOnes.map(item => ({ mode:"remove", item })));
+          const endedNow = removedOnes.filter(prev => {
+            if (prev.endMs == null) return true;             // UFN dropping from live => end set to now
+            return prev.endMs <= now;                         // known end passed
+          }).map(it => {
+            if (!it.endMs) it.endMs = now;                   // set display duration end to now for UFN
+            return it;
+          });
+
+          if (endedNow.length){
+            enqueueOverlays(endedNow.map(item => ({ mode:"remove", item })));
+          }
         }
 
       }catch(e){
@@ -1305,7 +1317,7 @@
           elReason.hidden = false;
         }
 
-        // Location line (same place)
+        // Location line
         const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
         elLoc.textContent = locationStr;
         elLoc.hidden = false;
@@ -1345,68 +1357,67 @@
         }
         elOp.hidden = false;
 
-} else if (mode === "remove") {
-  // END OVERLAY (show for all)
-  overlay.classList.add("ov-remove");
-  elKicker.textContent = "DIVERT ENDED";
+      } else if (mode === "remove") {
+        // END OVERLAY (only when a divert actually ends)
+        overlay.classList.add("ov-remove");
+        elKicker.textContent = "DIVERT ENDED";
 
-  // Reason pill (emoji + text) — mirror "add" fallback behavior
-  const parsed = parseSummaryParts(item.summary);
-  const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
-  if (elReason && elReasonEmoji && elReasonText) {
-    elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
-    elReasonText.textContent  = reasonTextRaw;
-    elReason.hidden = false;
-  }
+        // Reason pill
+        const parsed = parseSummaryParts(item.summary);
+        const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
+        if (elReason && elReasonEmoji && elReasonText) {
+          elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
+          elReasonText.textContent  = reasonTextRaw;
+          elReason.hidden = false;
+        }
 
-  // Location line
-  const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
-  elLoc.textContent = locationStr;
-  elLoc.hidden = false;
+        // Location line
+        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
+        elLoc.textContent = locationStr;
+        elLoc.hidden = false;
 
-  // Routes with 👍 badge
-  elRoutes.replaceChildren();
-  const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-  routes.forEach(rt => {
-    const chip = document.createElement("div");
-    chip.className = "ov-route-chip";
-    chip.textContent = String(rt);
+        // Routes with 👍 badge
+        elRoutes.replaceChildren();
+        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
+        routes.forEach(rt => {
+          const chip = document.createElement("div");
+          chip.className = "ov-route-chip";
+          chip.textContent = String(rt);
 
-    const badge = document.createElement("span");
-    badge.className = "ov-route-badge";
-    badge.setAttribute("aria-label", "Divert ended");
-    badge.textContent = "👍";
+          const badge = document.createElement("span");
+          badge.className = "ov-route-badge";
+          badge.setAttribute("aria-label", "Divert ended");
+          badge.textContent = "👍";
 
-    chip.appendChild(badge);
-    elRoutes.appendChild(chip);
-  });
+          chip.appendChild(badge);
+          elRoutes.appendChild(chip);
+        });
 
-  // Operator pill — mirror "add" behavior, including cycling dot for multiple
-  elOp.replaceChildren();
-  const dot = document.createElement("span");
-  dot.className = "operatorDot";
-  elOp.appendChild(dot);
+        // Operator pill
+        elOp.replaceChildren();
+        const dot = document.createElement("span");
+        dot.className = "operatorDot";
+        elOp.appendChild(dot);
 
-  const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
-  const codes = mapOperators(refs);
-  elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
-  if (refs.length <= 1) {
-    const ref = refs[0];
-    dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
-  } else {
-    dot.style.background = "#cfcfd6";
-    startDotColorCycle(dot, refs, { intervalMs: 900 });
-  }
-  elOp.hidden = false;
+        const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
+        const codes = mapOperators(refs);
+        elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
+        if (refs.length <= 1) {
+          const ref = refs[0];
+          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
+        } else {
+          dot.style.background = "#cfcfd6";
+          startDotColorCycle(dot, refs, { intervalMs: 900 });
+        }
+        elOp.hidden = false;
 
-  // Duration line (from start to now / or to item.endMs if provided)
-  const start = item.startMs ? new Date(item.startMs) : null;
-  const end   = item.endMs   ? new Date(item.endMs)   : new Date();
-  const dur   = formatSingleUnitDuration(start, end);
-  elDur.textContent = `On diversion for ${dur}`;
-  elDur.hidden = false;
-}
-``
+        // Duration line (from start to end)
+        const start = item.startMs ? new Date(item.startMs) : null;
+        const end   = item.endMs   ? new Date(item.endMs)   : new Date();
+        const dur   = formatSingleUnitDuration(start, end);
+        elDur.textContent = `On diversion for ${dur}`;
+        elDur.hidden = false;
+      }
 
       // Show overlay
       overlay.classList.add("show");
@@ -1426,9 +1437,9 @@
     setInterval(fetchAll, FEED_REFRESH_MS);
 
     /* Reflow on resize and after fonts ready */
-    window.addEventListener("resize", ()=> requestAnimationFrame(setFixedGridSizing));
+    window.addEventListener("resize", () => requestAnimationFrame(setFixedGridSizing));
     if(document.fonts && document.fonts.ready){
-      document.fonts.ready.then(()=> requestAnimationFrame(setFixedGridSizing));
+      document.fonts.ready.then(() => requestAnimationFrame(setFixedGridSizing));
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
 
@@ -1446,18 +1457,17 @@
         const testItem = { ...pick };
         testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
         testItem.operatorRefs = Array.isArray(testItem.operatorRefs) ? testItem.operatorRefs : [];
-        // FORCE DEMO: ensure overlay shows even if original wasn't UFN
-        if (!testItem.isUFN) testItem.isUFN = true;
+        if (!testItem.isUFN) testItem.isUFN = true; // force for demo
         enqueueOverlays([{ mode:"add", item: testItem }]);
         console.info("[K TEST] NEW overlay for random item (force demo)", {id:testItem.id, routes:testItem.routes});
       }
       if(key === "d"){
+        // This test simulates an actual END event (used for visual QA)
         const pool = (currentItems || []);
         if (!pool.length) { console.warn("[D TEST] No items to sample."); return; }
         const pick = pool[Math.floor(Math.random() * pool.length)];
         const testItem = { ...pick };
         testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
-        // Duration to now for demo
         if (!testItem.startMs) testItem.startMs = Date.now() - (90 * 60 * 1000); // fallback 90m
         testItem.endMs = Date.now();
         enqueueOverlays([{ mode:"remove", item: testItem }]);
