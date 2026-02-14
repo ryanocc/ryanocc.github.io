@@ -6,11 +6,16 @@
   <title>Unplanned Diversions</title>
   <meta http-equiv="Cache-Control" content="no-store" />
 
-  <!-- IBM Plex Sans Condensed (Option B) -->
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Performance: preconnect for font hosts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Fallback Barlow (optional) -->
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Global UI font -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Optional fallback UI font -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Bus-blind style for route chips -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -37,22 +42,25 @@
       --cardRadius:24px;
       --cardHeight: 420px;
 
-      --summary-line-height: 1.3;
+      /* Your updated tighter line-height for summaries */
+      --summary-line-height: 1;
 
+      /* Route badge sizing (cards) */
       --route-font: clamp(44px, 5.6vw, 80px);
       --route-pad-v: 8px;
       --route-pad-h: 16px;
       --route-radius: 12px;
 
+      /* area height sized for route chips */
+      --route-mini-font: clamp(24px, 3.2vw, 34px);
       --route-rect-h: calc(var(--route-mini-font) * 4.2 + 8px + 8px);
-      --route-mini-font: clamp(18px, 2.2vw, 28px);
 
+      /* Pager progress duration (JS sets this to PAGE_INTERVAL_MS) */
       --page-interval: 10000ms;
     }
 
     *{
       box-sizing:border-box;
-      /* NEW GLOBAL FONT */
       font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
     }
 
@@ -65,9 +73,6 @@
       display:flex;
       flex-direction:column;
     }
-
-    /* --- everything below is unchanged --- */
-
 
     /* ----------- HEADER ----------- */
     .topbar{
@@ -103,7 +108,7 @@
       display:flex;
       align-items:center;
       gap:8px;
-      line-height:1.15;
+      line-height:1;
     }
     .status-meta .opCounts{
       display:flex;
@@ -200,7 +205,7 @@
       border-radius:var(--cardRadius);
       display:flex;
       flex-direction:column;
-      padding:24px;
+      padding:10px;
       box-shadow:
         0 1px 0 rgba(255,255,255,0.04) inset,
         0 10px 25px rgba(0,0,0,0.35),
@@ -211,6 +216,10 @@
       overflow:hidden;
     }
     .chip:hover{ transform:translateY(-1px); transition:transform .15s ease; }
+
+.chip {
+  box-sizing: border-box !important;
+}
 
     .chip.ufn{
       border-color: rgba(255,77,79,0.85) !important;
@@ -247,12 +256,16 @@
       align-items:stretch; justify-items:stretch;
     }
 
-    /* Route chips (filled slots) */
+    /* Route chips (filled slots) — USE OSWALD 700 */
     .route-mini{
-      display:flex; align-items:center; justify-content:center; font-weight:900;
+      display:flex; align-items:center; justify-content:center;
+      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
+      font-weight:700;
       background:var(--accent); color:#000; border-radius:var(--route-radius);
-      letter-spacing:-0.3px; line-height:1; padding:6px 10px; font-size: var(--route-mini-font);
+      letter-spacing:0.3px; line-height:1; padding:6px 10px; font-size: var(--route-mini-font);
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      text-transform:uppercase;
+      font-variant-numeric: tabular-nums;
     }
 
     /* Transparent placeholder for blanks */
@@ -292,13 +305,19 @@
       color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
       margin:6px 2px 12px 2px;
     }
+    
+    
+.detailsLine {
+    margin-top: 12px;   /* or 16px if you want a bit more space */
+}
+
     .detailsLine .town{ font-weight:900; }
 
     .times{
       margin-top:auto; padding-top:12px; border-top:2px solid rgba(255,255,255,0.15);
     }
     .timeLine{
-      font-size:clamp(24px, 2.2vw, 30px); font-weight:900; color:#d9d9e2; line-height:1.25;
+      font-size:clamp(24px, 2.2vw, 30px); font-weight:900; color:#d9d9e2; line-height:1;
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; gap:8px;
     }
     .times .timeLine{ font-weight:600; color: rgba(233,233,239,0.65); }
@@ -307,7 +326,7 @@
     .times .timeLine.ufn{ color: var(--accent); }
     .times .timeLine.ufn .timePrefix,
     .times .timeLine.ufn .timeValue{ color: var(--accent); }
-    .timeLine .ufn-warning{ margin-left:8px; display:inline-block; animation: ufnFlash 1.2s infinite; }
+    .timeLine .ufn-warning{ margin-left:-6px; display:inline-block; animation: ufnFlash 1.2s infinite; }
     @keyframes ufnFlash { 0%,60%{opacity:1;transform:scale(1);} 70%{opacity:.35;transform:scale(0.98);} 100%{opacity:1;transform:scale(1);} }
 
     /* Optional subtle operator tints (cards) */
@@ -366,11 +385,11 @@
       font-weight: 1000;
       letter-spacing: -0.6px;
       font-size: clamp(42px, 5.2vw, 84px);
-      line-height: 1.05;
+      line-height: 1;
       margin: 10px 0 18px;
     }
 
-    /* Enlarged route chips (black/yellow) with top-right floating badge */
+    /* Enlarged route chips (black/yellow) — USE OSWALD 700 */
     .ov-routes{
       display: flex;
       flex-wrap: wrap;
@@ -389,15 +408,18 @@
       border-radius: 18px;
       border: 4px solid rgba(0,0,0,0.95);
       padding: 18px 26px;
-      font-weight: 1000;
-      letter-spacing: -0.4px;
+      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif !important;
+      font-weight:700 !important;
+      letter-spacing: 0.4px;
       font-size: clamp(52px, 7vw, 95px);
       line-height: 1;
       box-shadow: 0 12px 32px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,0.06) inset;
       user-select: none;
       min-width: 6ch;
+      text-transform:uppercase;
+      font-variant-numeric: tabular-nums;
     }
-    /* Top-right floating badge (🔀 for add, 👍 for end) */
+    /* Top-right floating badge (emoji only; circle removed below) */
     .ov-route-badge{
       position: absolute;
       top: -12px; right: -12px;
@@ -434,7 +456,7 @@
       font-weight: 1000;
       letter-spacing: -0.2px;
       font-size: clamp(28px, 3vw, 48px);
-      line-height: 1.15;
+      line-height: 1;
       margin: 6px 0 0;
     }
 
@@ -469,40 +491,22 @@
     }
     #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
     @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
-    
-    /* === Bigger route chip text (simple bump) === */
-:root{
-  /* was: clamp(18px, 2.2vw, 28px) */
-  --route-mini-font: clamp(24px, 3.2vw, 34px);
 
-/* Make route chips bold */
-.route-mini {
-  font-weight: 700;
-}
+    /* ----------------- Overrides requested earlier ----------------- */
 
-
-/* Remove circular badge around overlay emoji */
-.ov-route-badge {
-  background: none !important;
-  border: none !important;
-  width: auto !important;
-  height: auto !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-
-.ov-route-badge {
-  font-size: 0.6em !important;
-}
-
-
-.ov-route-badge {
-  top: -10px !important;
-  right: -20px !important;
-}
-
+    /* Remove circular badge: show emoji only, and position/tune size */
+    .ov-route-badge {
+      background: none !important;
+      border: none !important;
+      width: auto !important;
+      height: auto !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 0.6em !important; /* your chosen size */
+      top: -10px !important;
+      right: -20px !important;
+    }
   </style>
 </head>
 <body>
@@ -786,67 +790,75 @@
       const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out;
     }
 
-    /* Geometry-based card sizing: exact 2 rows, no cutoff */
-    function setFixedGridSizing(){
-      const grid = $("#grid");
-      const main = document.querySelector("main");
-      if(!grid || !main) return;
+    /* Geometry-based card sizing: exact 2 rows, no cutoff
+       FIXED: round UP and remove the "safety" subtraction to prevent clipping at 100% zoom */
+function setFixedGridSizing(){
+  const grid = document.querySelector("#grid");
+  const main = document.querySelector("main");
+  if(!grid || !main) return;
 
-      const csGrid = getComputedStyle(grid);
-      const csMain = getComputedStyle(main);
+  const csGrid = getComputedStyle(grid);
+  const csMain = getComputedStyle(main);
 
-      const rowGap = parseFloat(csGrid.rowGap || csGrid.gap || "20") || 20;
-      const pb     = parseFloat(csMain.paddingBottom || "0") || 0;
+  const rowGap = parseFloat(csGrid.rowGap || csGrid.gap || "20") || 20;
+  const pb     = parseFloat(csMain.paddingBottom || "0") || 0;
 
-      const mainRect = main.getBoundingClientRect();
-      const gridRect = grid.getBoundingClientRect();
+  const mainRect = main.getBoundingClientRect();
+  const gridRect = grid.getBoundingClientRect();
 
-      const available = Math.max(0, Math.floor((mainRect.bottom - pb) - gridRect.top));
-      const safety  = 1;
-      const perRowH = Math.max(200, Math.floor((available - rowGap) / 2) - safety);
+  // Available OUTER height for the grid content area (2 rows + 1 gap)
+  const availableOuter = Math.max(0, Math.floor((mainRect.bottom - pb) - gridRect.top));
 
-      document.documentElement.style.setProperty("--cardHeight", perRowH + "px");
-    }
+  // Compute per-row OUTER height (2 rows share one rowGap)
+  const perRowOuter = Math.max(200, Math.floor((availableOuter - rowGap) / 2));
+
+  // ---- NEW: subtract card chrome to get content height for --cardHeight ----
+  // .chip  padding: 24px (top+bottom => 48), border: 3px (top+bottom => 6)
+  const CARD_PAD_V   = 24 * 2;
+  const CARD_BORDER_V= 3 * 2;
+  const cardChrome   = CARD_PAD_V + CARD_BORDER_V;
+
+  // Content height must be non-negative
+  const contentH = Math.max(140, perRowOuter - cardChrome);
+
+  document.documentElement.style.setProperty("--cardHeight", contentH + "px");
+}
 
     /* ---------- Times footer builder (for cards) ---------- */
-function buildTimesLines(sit){
-  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+    function buildTimesLines(sit){
+      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
-  // Started line
-  let startVal = "—";
-  if (s) {
-    if (isToday(s) && isStartOfService(s)) {
-      // Only call it "Start of Service" when it is today at 00:00
-      startVal = "Start of Service";
-    } else {
-      // Otherwise: if today show "HH:MM Today"; if this week show weekday; else date
-      startVal = formatLabelForDate(s);
+      // Started line
+      let startVal = "—";
+      if (s) {
+        if (isToday(s) && isStartOfService(s)) {
+          startVal = "Start of Service";
+        } else {
+          startVal = formatLabelForDate(s);
+        }
+      }
+      const startLine = `Started // ${startVal}`;
+
+      // Ends line
+      let endVal = "—";
+      if (e) {
+        if (isToday(e) && isEndOfService(e)) {
+          endVal = "End of Service";
+        } else {
+          endVal = formatLabelForDate(e);
+        }
+      } else {
+        endVal = "UFN"; // no end supplied
+      }
+      const endLine = `Ends // ${endVal}`;
+
+      // Duration
+      const durationVal = formatSingleUnitDuration(s, e);
+      const durationLine = `Duration // ${durationVal}`;
+
+      return { startLine, endLine, durationLine, startDate:s, endDate:e };
     }
-  }
-  const startLine = `Started // ${startVal}`;
-
-  // Ends line
-  let endVal = "—";
-  if (e) {
-    if (isToday(e) && isEndOfService(e)) {
-      // Only call it "End of Service" when it is today at 23:59
-      endVal = "End of Service";
-    } else {
-      // Otherwise: if today show "HH:MM Today"; if this week show weekday; else date
-      endVal = formatLabelForDate(e);
-    }
-  } else {
-    endVal = "UFN"; // no end supplied
-  }
-  const endLine = `Ends // ${endVal}`;
-
-  // Duration line unchanged
-  const durationVal = formatSingleUnitDuration(s, e);
-  const durationLine = `Duration // ${durationVal}`;
-
-  return { startLine, endLine, durationLine, startDate:s, endDate:e };
-}
 
     /* -------- Routes 2×2 renderer -------- */
     function renderRoutesAs2x2Grid(routesArea, routes){
@@ -1290,7 +1302,7 @@ function buildTimesLines(sit){
           if (ufnAdds.length) enqueueOverlays(ufnAdds.map(item => ({ mode:"add", item })));
         }
 
-        // END overlays only when a divert actually reaches its end:
+        // END overlays only when a divert actually ends:
         // - If previous had endMs and endMs <= now -> ended now/past (show overlay)
         // - If previous was UFN (no endMs) and it drops from live -> end was set to NOW (show overlay)
         // - If a UFN just changed to a future end time, it remains live -> NO overlay here
