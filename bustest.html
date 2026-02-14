@@ -42,8 +42,8 @@
       --cardRadius:24px;
       --cardHeight: 420px;
 
-      /* Your updated tighter line-height for summaries */
-      --summary-line-height: 1;
+      /* Slight breathing room for summaries to avoid clipping at 100% */
+      --summary-line-height: 1.05;
 
       /* Route badge sizing (cards) */
       --route-font: clamp(44px, 5.6vw, 80px);
@@ -214,12 +214,8 @@
       min-height:var(--cardHeight);
       max-height:var(--cardHeight);
       overflow:hidden;
+      box-sizing: border-box !important;
     }
-    .chip:hover{ transform:translateY(-1px); transition:transform .15s ease; }
-
-.chip {
-  box-sizing: border-box !important;
-}
 
     .chip.ufn{
       border-color: rgba(255,77,79,0.85) !important;
@@ -305,16 +301,13 @@
       color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
       margin:6px 2px 12px 2px;
     }
-    
-    
-.detailsLine {
-    margin-top: 12px;   /* or 16px if you want a bit more space */
-}
+
+    .detailsLine { margin-top: 12px; }
 
     .detailsLine .town{ font-weight:900; }
 
     .times{
-      margin-top:auto; padding-top:12px; border-top:2px solid rgba(255,255,255,0.15);
+      margin-top:auto; padding-top:14px; border-top:2px solid rgba(255,255,255,0.15);
     }
     .timeLine{
       font-size:clamp(24px, 2.2vw, 30px); font-weight:900; color:#d9d9e2; line-height:1;
@@ -422,21 +415,16 @@
     /* Top-right floating badge (emoji only; circle removed below) */
     .ov-route-badge{
       position: absolute;
-      top: -12px; right: -12px;
-      width: clamp(34px, 4.5vw, 54px);
-      height: clamp(34px, 4.5vw, 54px);
-      border-radius: 999px;
-      background: #000; color: var(--accent);
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: clamp(18px, 2.6vw, 32px);
-      font-weight: 900;
-      border: 3px solid rgba(0,0,0,0.95);
-      box-shadow: 0 10px 26px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,0.06) inset;
-      transform-origin: center;
-      animation: badgePop 260ms ease-out both, badgePulse 1600ms ease-in-out 260ms infinite;
+      top: -10px !important; right: -20px !important;
+      background: none !important;
+      border: none !important;
+      width: auto !important;
+      height: auto !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 0.6em !important;
     }
-    @keyframes badgePop { 0%{ transform: scale(0.6); opacity:0; } 100%{ transform: scale(1); opacity:1; } }
-    @keyframes badgePulse { 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.08); } }
 
     .ov-operator{
       display: inline-flex; align-items: center; gap: 12px;
@@ -491,22 +479,6 @@
     }
     #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
     @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
-
-    /* ----------------- Overrides requested earlier ----------------- */
-
-    /* Remove circular badge: show emoji only, and position/tune size */
-    .ov-route-badge {
-      background: none !important;
-      border: none !important;
-      width: auto !important;
-      height: auto !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      font-size: 0.6em !important; /* your chosen size */
-      top: -10px !important;
-      right: -20px !important;
-    }
   </style>
 </head>
 <body>
@@ -791,38 +763,32 @@
     }
 
     /* Geometry-based card sizing: exact 2 rows, no cutoff
-       FIXED: round UP and remove the "safety" subtraction to prevent clipping at 100% zoom */
-function setFixedGridSizing(){
-  const grid = document.querySelector("#grid");
-  const main = document.querySelector("main");
-  if(!grid || !main) return;
+       FIXED: treat --cardHeight as OUTER (border-box) and avoid downward bias */
+    function setFixedGridSizing(){
+      const grid = document.querySelector("#grid");
+      const main = document.querySelector("main");
+      if(!grid || !main) return;
 
-  const csGrid = getComputedStyle(grid);
-  const csMain = getComputedStyle(main);
+      const csGrid = getComputedStyle(grid);
+      const csMain = getComputedStyle(main);
 
-  const rowGap = parseFloat(csGrid.rowGap || csGrid.gap || "20") || 20;
-  const pb     = parseFloat(csMain.paddingBottom || "0") || 0;
+      const rowGap = parseFloat(csGrid.rowGap || csGrid.gap || "20") || 20;
+      const pb     = parseFloat(csMain.paddingBottom || "0") || 0;
 
-  const mainRect = main.getBoundingClientRect();
-  const gridRect = grid.getBoundingClientRect();
+      const mainRect = main.getBoundingClientRect();
+      const gridRect = grid.getBoundingClientRect();
 
-  // Available OUTER height for the grid content area (2 rows + 1 gap)
-  const availableOuter = Math.max(0, Math.floor((mainRect.bottom - pb) - gridRect.top));
+      // Available OUTER height for the grid content area (2 rows + 1 gap)
+      // Ceil to avoid losing a pixel at 100% zoom
+      const availableOuter = Math.max(0, Math.ceil((mainRect.bottom - pb) - gridRect.top));
 
-  // Compute per-row OUTER height (2 rows share one rowGap)
-  const perRowOuter = Math.max(200, Math.floor((availableOuter - rowGap) / 2));
+      // OUTER per-row height across 2 rows and 1 rowGap
+      // Round to avoid downward bias
+      const perRowOuter = Math.max(200, Math.round((availableOuter - rowGap) / 2));
 
-  // ---- NEW: subtract card chrome to get content height for --cardHeight ----
-  // .chip  padding: 24px (top+bottom => 48), border: 3px (top+bottom => 6)
-  const CARD_PAD_V   = 24 * 2;
-  const CARD_BORDER_V= 3 * 2;
-  const cardChrome   = CARD_PAD_V + CARD_BORDER_V;
-
-  // Content height must be non-negative
-  const contentH = Math.max(140, perRowOuter - cardChrome);
-
-  document.documentElement.style.setProperty("--cardHeight", contentH + "px");
-}
+      // .chip uses border-box; set outer height directly
+      document.documentElement.style.setProperty("--cardHeight", perRowOuter + "px");
+    }
 
     /* ---------- Times footer builder (for cards) ---------- */
     function buildTimesLines(sit){
@@ -1303,16 +1269,13 @@ function setFixedGridSizing(){
         }
 
         // END overlays only when a divert actually ends:
-        // - If previous had endMs and endMs <= now -> ended now/past (show overlay)
-        // - If previous was UFN (no endMs) and it drops from live -> end was set to NOW (show overlay)
-        // - If a UFN just changed to a future end time, it remains live -> NO overlay here
+        const now = Date.now();
         if (removedOnes.length) {
-          const now = Date.now();
           const endedNow = removedOnes.filter(prev => {
-            if (prev.endMs == null) return true;             // UFN dropping from live => end set to now
-            return prev.endMs <= now;                         // known end passed
+            if (prev.endMs == null) return true;      // UFN dropping from live => end set to now
+            return prev.endMs <= now;                  // known end passed
           }).map(it => {
-            if (!it.endMs) it.endMs = now;                   // set display duration end to now for UFN
+            if (!it.endMs) it.endMs = now;            // set display duration end to now for UFN
             return it;
           });
 
