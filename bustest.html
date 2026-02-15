@@ -100,7 +100,7 @@
 
     /* Operator totals + page indicator under title */
     .status-meta{
-      font-size:14px;
+      font-size:20px;
       font-weight:700;
       color:var(--muted);
       letter-spacing:0.2px;
@@ -514,16 +514,7 @@
 
       <!-- Operator counts + Page indicator (under title) -->
       <div id="statusMeta" class="status-meta" aria-live="polite">
-        <span class="opCounts">
-          <span data-op="BNML">ML 0</span> •
-          <span data-op="BNGN">GN 0</span> •
-          <span data-op="BNSM">SC 0</span> •
-          <span data-op="BNDB">DB 0</span> •
-          <span data-op="BNVB">VB 0</span> •
-          <span data-op="BNFM">FB 0</span>
-        </span>
-        <span class="sep">|</span>
-        <span id="metricPage">Pg 0/0</span>
+        <span id="metricPage">Checking Pages</span>
       </div>
     </div>
 
@@ -654,7 +645,7 @@
       if(!el) return;
       const totalPages = Array.isArray(pager.pages) ? pager.pages.length : 0;
       const curr = totalPages > 0 ? (pager.pageIndex + 1) : 0;
-      el.textContent = `Pg ${curr}/${totalPages}`;
+      el.textContent = `Page ${curr}/${totalPages}`;
     }
 
     /* --- bottom progress bar control --- */
