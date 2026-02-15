@@ -223,7 +223,7 @@
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.06);
-      white-space: nowrap;
+      white-space: nowrap.
     }
     .network-legend { display:flex; justify-content: space-between; font-size: 12px; opacity: .9; margin-top: 8px; }
 
@@ -630,6 +630,71 @@
 
         const id = stableClusterId(avg);
 
+        clusters.sort?.();
+
+        return null;
+      }
+
+      // (Above block was a logic scaffold; we immediately return the mapped features below)
+    }
+
+    function formatFirstReported(ms){
+      if(!ms || !isFinite(ms)) return 'Time unknown';
+      try{
+        return new Date(Number(ms)).toLocaleString('en-GB', {
+          timeZone: 'Europe/London',
+          hour12: false, year: 'numeric', month: 'short', day: '2-digit',
+          hour: '2-digit', minute: '2-digit'
+        });
+      }catch(e){ return 'Time unavailable'; }
+    }
+
+    // --- Re-insert the correct clusterAccidents (the above scaffold ended prematurely) ---
+    function clusterAccidents(points, mergeMeters = MERGE_METERS){
+      if(points.length === 0) return [];
+
+      const parent = Array(points.length).fill(0).map((_,i)=>i);
+      const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          const d = haversineMeters(points[i].coord, points[j].coord);
+          if(d <= mergeMeters) union(i,j);
+        }
+      }
+
+      const groups = new Map();
+      for(let i=0;i<points.length;i++){
+        const r = find(i);
+        if(!groups.has(r)) groups.set(r, []);
+        groups.get(r).push(points[i]);
+      }
+
+      const clusters = [];
+      for(const members of groups.values()){
+        const count = members.length;
+
+        const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
+        const bestRel10  = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+
+        let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
+        eff10 = Math.max(0, Math.min(12, eff10));
+        const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
+
+        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const minTime = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
+        const firstTime = (minTime === Infinity) ? 0 : minTime;
+
+        const best = members.slice().sort((a,b)=>{
+          const ce = (Number(b.conf10)||0) - (Number(a.conf10)||0);
+          if(ce!==0) return ce;
+          return (Number(b.time)||0) - (Number(a.time)||0);
+        })[0];
+
+        const id = stableClusterId(avg);
+
         clusters.push({
           id,
           coord: avg,
@@ -663,17 +728,7 @@
         }
       }));
     }
-
-    function formatFirstReported(ms){
-      if(!ms || !isFinite(ms)) return 'Time unknown';
-      try{
-        return new Date(Number(ms)).toLocaleString('en-GB', {
-          timeZone: 'Europe/London',
-          hour12: false, year: 'numeric', month: 'short', day: '2-digit',
-          hour: '2-digit', minute: '2-digit'
-        });
-      }catch(e){ return 'Time unavailable'; }
-    }
+    // --- END correct clusterAccidents ---
 
     function createPulsingDot(map, color='red'){
       const size = 340, targetFps = 12, frameMs = 1000/targetFps; let last=0;
@@ -877,7 +932,7 @@
       highlightedCenter = item.center;
       updateHighlightFilters();
 
-      // NEW: Pause/queue TVT sidebar while banner is playing
+      // Pause TVT sidebar while the banner is playing
       pauseTvtForBanner();
 
       document.getElementById('alert-title').textContent = 'New High Confidence Alert';
@@ -901,9 +956,9 @@
           updateHighlightFilters();
           currentBanner = null;
           bannerActive = false;
-          showNextBanner(); // might start next banner immediately
+          showNextBanner();
 
-          // NEW: If no new banner started, resume TVT now
+          // Resume TVT if nothing else queued
           if (!bannerActive) { resumeTvtAfterBanner(); }
         }, ALERT_BAR_MS);
 
@@ -938,7 +993,6 @@
       const t=fmtHHMMSS();
       if(ok){
         pill.classList.remove('status-error');
-        // Uppercase LIVE + bullet
         pill.textContent=`LIVE • ${t}`;
         if(animate && bee){ bee.classList.remove('bee-wibble'); void bee.offsetWidth; bee.classList.add('bee-wibble'); }
       } else {
@@ -1557,20 +1611,16 @@
     let tvtSidebarTimer = null, tvtSidebarHideTimer = null;
     let tvtLastFeatures = []; // for map fit
 
-    // === NEW: TVT pause/queue when alert banners are showing ===
-    let tvtPausedForBanner = false;  // true while banners are active
-    let tvtPending = false;          // request to show TVT once banners finish
-    let tvtInFlightCtrl = null;      // abort controller for in-flight TVT fetch
+    // TVT pause/queue when alert banners are showing
+    let tvtPausedForBanner = false;
+    let tvtPending = false;
+    let tvtInFlightCtrl = null;
 
     function pauseTvtForBanner() {
       tvtPausedForBanner = true;
-      tvtPending = true; // remember to show once banners end
-
-      // Hide sidebar immediately if visible
+      tvtPending = true;
       if (tvtSidebarHideTimer) { clearTimeout(tvtSidebarHideTimer); tvtSidebarHideTimer = null; }
       try { setSidebarVisible(false); } catch (e) {}
-
-      // Abort in-flight TVT fetch
       try { tvtInFlightCtrl?.abort(); } catch (e) {}
       tvtInFlightCtrl = null;
     }
@@ -1579,7 +1629,6 @@
       tvtPausedForBanner = false;
       if (tvtPending && !document.hidden) {
         tvtPending = false;
-        // Give the map a moment to settle after banner animations
         setTimeout(() => { runTvtSidebarCycle(); }, 350);
       }
     }
@@ -1597,17 +1646,14 @@
     }
 
     function setSidebarVisible(show){
-      // NEW: If banners are active or TVT paused for banner, queue and skip opening
       if (show && (bannerActive || tvtPausedForBanner)) {
         tvtPending = true;
         return;
       }
-
       const el = ensureSidebarHost();
       el.classList.toggle('show', show);
       el.setAttribute('aria-hidden', show ? 'false' : 'true');
 
-      // While open: fit map to highlighted corridors, accounting for sidebar width
       if (show) {
         try {
           if (Array.isArray(tvtLastFeatures) && tvtLastFeatures.length) {
@@ -1625,7 +1671,6 @@
           }
         } catch(e) { /* ignore fit errors */ }
       } else {
-        // Return to normal view
         try { map.easeTo(HOME_VIEW); } catch(e) {}
       }
     }
@@ -1651,7 +1696,7 @@
       let c;
       if (h >= 0.5){
         const t = (h - 0.5)/0.5;
-        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp[yellow[2], green[2], t] ];
+        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp(yellow[2], green[2], t) ];
       } else {
         const t = h/0.5;
         c = [ lerp(red[0], yellow[0], t), lerp(red[1], yellow[1], t), lerp(red[2], yellow[2], t) ];
@@ -1735,21 +1780,20 @@
       return bounds;
     }
 
-    /* ========== Trend memory between cycles (per displayed route) ========== */
+    // Trend memory
     const prevShownRoutes = new Map(); // key -> { time }
-
     function routeKey(r){
       return String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
     }
     function trendArrowFor(r){
       const key = routeKey(r);
       const prev = prevShownRoutes.get(key);
-      if (!prev) return ''; // only show if we had it last time
+      if (!prev) return '';
       const curr = Number(r.time) || 0;
       const prevTime = Number(prev.time) || 0;
       if (!(curr > 0) || !(prevTime > 0)) return '';
       const delta = (curr - prevTime) / prevTime;
-      const THRESH = 0.05; // 5% threshold to avoid flicker
+      const THRESH = 0.05;
       if (delta > THRESH) return '⬆️';
       if (delta < -THRESH) return '⬇️';
       return '➡️';
@@ -1758,18 +1802,8 @@
     function renderSidebar(data){
       const host = ensureSidebarHost();
 
-      // Format the update time once
-      const when = new Date(Number(data?.updateTime)||Date.now()).toLocaleString('en-GB', {
-        timeZone:'Europe/London', hour12:false, hour:'2-digit', minute:'2-digit', second:'2-digit'
-      });
-
-      // Build the gradient for the bar
-      const netGrad = networkGradientFromUsersOnJams(data?.usersOnJams || []);
-
-      // Compute top-5
       const top5 = computeTop5Abnormal(data?.routes || []);
 
-      // Item HTML WITHOUT emojis in name; add trend arrow on the right if known
       function itemHTML(r){
         const time = Number(r.time)||0, hist = Number(r.historicTime)||0;
         const h = healthFromTimes(time, hist);
@@ -1790,11 +1824,10 @@
         `;
       }
 
-      // Sidebar content WITHOUT header; time chip next to network bar
       const sidebarHTML = `
         <div class="network-health">
           <div class="network-row">
-            <div class="network-bar" style="background:${netGrad}"></div>
+            <div class="network-bar" style="background:${networkGradientFromUsersOnJams(data?.usersOnJams || [])}"></div>
           </div>
         </div>
 
@@ -1818,7 +1851,7 @@
       const src = map.getSource('tvt-top5');
       if (src) src.setData({ type:'FeatureCollection', features: tvtFeatures });
 
-      // After render: capture current times for trend next cycle
+      // Store for trend arrows next cycle
       top5.forEach(r => {
         prevShownRoutes.set(routeKey(r), { time: Number(r.time)||0 });
       });
@@ -1846,27 +1879,22 @@
 
     async function runTvtSidebarCycle(){
       if (document.hidden) { scheduleTvtNext(TVT_SIDEBAR_INTERVAL_MS); return; }
-
-      // NEW: Defer TVT cycle while banners are showing; resume will trigger a cycle
-      if (bannerActive) {
-        tvtPending = true;
-        return;
-      }
+      if (bannerActive) { tvtPending = true; return; }
 
       let ctrl = new AbortController();
-      tvtInFlightCtrl = ctrl; // NEW: keep a handle to abort if a banner starts mid-fetch
+      tvtInFlightCtrl = ctrl;
       try{
         const data = await fetchTVT(ctrl.signal);
         if (data){
           renderSidebar(data);
-          setSidebarVisible(true); // triggers map fit with right padding
+          setSidebarVisible(true);
           if (tvtSidebarHideTimer) clearTimeout(tvtSidebarHideTimer);
           tvtSidebarHideTimer = setTimeout(()=> setSidebarVisible(false), TVT_SIDEBAR_OPEN_MS);
         }
       }catch(e){
         console.error('[TVT] cycle error:', e);
       }finally{
-        tvtInFlightCtrl = null; // NEW: clear the controller
+        tvtInFlightCtrl = null;
         scheduleTvtNext(TVT_SIDEBAR_INTERVAL_MS);
       }
     }
@@ -1879,39 +1907,77 @@
       }
     });
 
-    // ===== Map TVT highlight layers =====
+    /* ===========================
+       Map TVT highlight layers
+       =========================== */
+
+    // Helper to find first existing marker layer
+    function firstExistingLayer(map, ids) {
+      const style = map.getStyle();
+      if (!style || !Array.isArray(style.layers)) return null;
+      for (const id of ids) {
+        if (style.layers.some(l => l.id === id)) return id;
+      }
+      return null;
+    }
+
+    function addTvtLayersUnderMarkers(map) {
+      const markerPriority = [
+        'accident-highlighted',
+        'accidents-high',
+        'accidents-three',
+        'accidents-two',
+        'accidents-one',
+        'waze-signal-faults-icon',
+        'occ-highlights-dots',
+        'waze-ice-dots',
+        'he-unplanned-dots'
+      ];
+
+      const beforeId = firstExistingLayer(map, markerPriority);
+
+      // Source
+      if (!map.getSource('tvt-top5')) {
+        map.addSource('tvt-top5', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+      }
+
+      // Glow (under)
+      if (!map.getLayer('tvt-top5-glow')) {
+        map.addLayer({
+          id: 'tvt-top5-glow',
+          type: 'line',
+          source: 'tvt-top5',
+          layout: { 'line-cap': 'round', 'line-join': 'round' },
+          paint: {
+            'line-color': varColor('--danger', '#ff2e34'),
+            'line-opacity': 0.9,
+            'line-width': ['interpolate',['linear'],['zoom'], 8, 8.5, 12, 11, 16, 14],
+            'line-blur': 1.2
+          }
+        }, beforeId || undefined);
+      }
+
+      // Core (over)
+      if (!map.getLayer('tvt-top5-core')) {
+        map.addLayer({
+          id: 'tvt-top5-core',
+          type: 'line',
+          source: 'tvt-top5',
+          layout: { 'line-cap': 'round', 'line-join': 'round' },
+          paint: {
+            'line-color': varColor('--danger', '#ff2e34'),
+            'line-opacity': 1.0,
+            'line-width': ['interpolate',['linear'],['zoom'], 8, 4.5, 12, 6, 16, 8]
+          }
+        }, beforeId || undefined);
+      }
+    }
+
+    // Create TVT layers under markers and animate
     map.on('load', () => {
-      // Source to draw top‑5 routes
-      map.addSource('tvt-top5', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+      addTvtLayersUnderMarkers(map);
 
-      // Glow (under) — RED, thicker
-      map.addLayer({
-        id: 'tvt-top5-glow',
-        type: 'line',
-        source: 'tvt-top5',
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: {
-          'line-color': varColor('--danger', '#ff2e34'),
-          'line-opacity': 0.9,
-          'line-width': ['interpolate',['linear'],['zoom'], 8, 8.5, 12, 11, 16, 14],
-          'line-blur': 1.2
-        }
-      });
-
-      // Core (over) — RED, thicker
-      map.addLayer({
-        id: 'tvt-top5-core',
-        type: 'line',
-        source: 'tvt-top5',
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: {
-          'line-color': varColor('--danger', '#ff2e34'),
-          'line-opacity': 1.0,
-          'line-width': ['interpolate',['linear'],['zoom'], 8, 4.5, 12, 6, 16, 8]
-        }
-      });
-
-      // Pulse animation — also pulse opacity for a “red pulsing” effect
+      // Pulse animation for TVT lines
       let tvtPulse = 1.0, tvtDir = 1;
       function applyTvtPulse(){
         const coreW = ['interpolate',['linear'],['zoom'], 8, 4.5*tvtPulse, 12, 6*tvtPulse, 16, 8*tvtPulse];
@@ -1920,10 +1986,9 @@
           map.setPaintProperty('tvt-top5-core','line-width', coreW);
           map.setPaintProperty('tvt-top5-glow','line-width', glowW);
 
-          // subtle opacity pulse
-          const norm = (tvtPulse - 0.85) / (1.25 - 0.85); // 0..1
-          const coreAlpha = Math.min(1, 0.80 + norm * 0.20); // 0.80..1.00
-          const glowAlpha = Math.min(0.95, 0.70 + norm * 0.25); // 0.70..0.95
+          const norm = (tvtPulse - 0.85) / (1.25 - 0.85);
+          const coreAlpha = Math.min(1, 0.80 + norm * 0.20);
+          const glowAlpha = Math.min(0.95, 0.70 + norm * 0.25);
           map.setPaintProperty('tvt-top5-core','line-opacity', coreAlpha);
           map.setPaintProperty('tvt-top5-glow','line-opacity', glowAlpha);
         } catch(e){}
@@ -1938,7 +2003,7 @@
       applyTvtPulse();
       requestAnimationFrame(animateTvt);
 
-      // First run a few seconds after load
+      // First TVT cycle
       setTimeout(runTvtSidebarCycle, 3500);
     });
   </script>
