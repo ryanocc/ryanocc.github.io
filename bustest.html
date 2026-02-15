@@ -589,7 +589,7 @@
       const t = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
       if(ok){
         pill.classList.remove("status-error");
-        pill.textContent = `Live • ${t}`;
+        pill.textContent = `LIVE • ${t}`;
         if (animate && bee){
           bee.classList.remove("bee-wibble");
           void bee.offsetWidth;   // reflow to restart animation
