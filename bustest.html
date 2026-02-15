@@ -1201,15 +1201,29 @@
           });
         }
 
-        // ---- DISPLAY POOL (grid): from live, restrict to start today OR end today OR UFN ----
-        let displaySituations = liveSituations.filter(sit => {
-          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-          const startIsToday = !!(s && isToday(s));
-          const endIsToday   = !!(e && isToday(e)); // since live, e is later today (not past)
-          const isUFN        = !e;
-          return startIsToday || endIsToday || isUFN;
-        });
+// ---- DISPLAY POOL (grid) ----
+// Preferred “tight” filter: start today OR end today OR UFN (unchanged)
+const tightDisplay = liveSituations.filter(sit => {
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  const startIsToday = !!(s && isToday(s));
+  const endIsToday   = !!(e && isToday(e));
+  const isUFN        = !e;
+  return startIsToday || endIsToday || isUFN;
+});
+
+// Fallback “relaxed” filter (used only if tightDisplay is empty):
+// include items that started yesterday OR end tomorrow
+const relaxedDisplay = liveSituations.filter(sit => {
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  const startedYesterday = !!(s && isYesterday(s));
+  const endsTomorrow     = !!(e && isTomorrow(e));
+  return startedYesterday || endsTomorrow;
+});
+
+// Choose which set to render
+let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
 
         // Map to items
         const liveItems = liveSituations.map(mapSituationToItem);
