@@ -385,11 +385,21 @@
     /* Enlarged route chips (black/yellow) — USE OSWALD 700 */
     .ov-routes{
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;        /* one row */
       gap: 18px;
       justify-content: center;
+      align-items: center;
+
+      /* Give space for floating emoji badges & shadows */
+      padding-top: 22px;
+      padding-bottom: 26px;
+
       margin: 8px auto 18px;
       max-width: 1200px;
+
+      /* Let shadows/badges breathe */
+      overflow: visible;
+      white-space: nowrap;
     }
     .ov-route-chip{
       position: relative;
@@ -400,7 +410,10 @@
       color: var(--accent);
       border-radius: 18px;
       border: 4px solid rgba(0,0,0,0.95);
-      padding: 18px 26px;
+
+      /* Expanded a bit to give internal space for badge & shadow */
+      padding: 24px 32px;
+
       font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif !important;
       font-weight:700 !important;
       letter-spacing: 0.4px;
@@ -412,10 +425,11 @@
       text-transform:uppercase;
       font-variant-numeric: tabular-nums;
     }
-    /* Top-right floating badge (emoji only; circle removed below) */
+    /* Top-right floating badge (emoji only) */
     .ov-route-badge{
       position: absolute;
-      top: -10px !important; right: -20px !important;
+      top: -14px !important;
+      right: -22px !important;
       background: none !important;
       border: none !important;
       width: auto !important;
@@ -479,13 +493,24 @@
     }
     #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
     @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+
+    /* === EXIT ANIMATION: Drop downward + fade === */
+    @keyframes overlayDropOut {
+      0%   { opacity: 1;   transform: translateY(0)    scale(1); }
+      40%  { opacity: 0.65;transform: translateY(20px) scale(0.99); }
+      100% { opacity: 0;   transform: translateY(60px) scale(0.98); }
+    }
+    #divertOverlay.closing .ov-card {
+      animation: overlayDropOut 260ms ease-out forwards;
+    }
+    #divertOverlay.closing { pointer-events: none; }
   </style>
 </head>
 <body>
 
   <header class="topbar">
     <div class="leftHeader">
-      <h1 class="title">TfGM Travel Alerts - Key Diversions</h1>
+      <h1 class="title">Bee Network - Key Travel Alerts</h1>
 
       <!-- Operator counts + Page indicator (under title) -->
       <div id="statusMeta" class="status-meta" aria-live="polite">
@@ -571,6 +596,10 @@
 
     /* Dashboard state (pool for tests) */
     let currentItems = [];
+
+    /* Keep the last live and display items to enable test-key sampling */
+    let lastLiveItems = [];     // all currently-live mapped items
+    let lastDisplayItems = [];  // the items currently in the grid (paged)
 
     /* Set CSS duration for the progress bar to match page dwell */
     document.documentElement.style.setProperty('--page-interval', PAGE_INTERVAL_MS + 'ms');
@@ -826,7 +855,7 @@
       return { startLine, endLine, durationLine, startDate:s, endDate:e };
     }
 
-    /* -------- Routes 2×2 renderer -------- */
+    /* -------- Routes 2×2 renderer (cards) -------- */
     function renderRoutesAs2x2Grid(routesArea, routes){
       const MAX_SLOTS = 4;
       const gridRoutes = document.createElement("div");
@@ -1201,29 +1230,29 @@
           });
         }
 
-// ---- DISPLAY POOL (grid) ----
-// Preferred “tight” filter: start today OR end today OR UFN (unchanged)
-const tightDisplay = liveSituations.filter(sit => {
-  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-  const startIsToday = !!(s && isToday(s));
-  const endIsToday   = !!(e && isToday(e));
-  const isUFN        = !e;
-  return startIsToday || endIsToday || isUFN;
-});
+        // ---- DISPLAY POOL (grid) ----
+        // Preferred “tight” filter: start today OR end today OR UFN (unchanged)
+        const tightDisplay = liveSituations.filter(sit => {
+          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+          const startIsToday = !!(s && isToday(s));
+          const endIsToday   = !!(e && isToday(e));
+          const isUFN        = !e;
+          return startIsToday || endIsToday || isUFN;
+        });
 
-// Fallback “relaxed” filter (used only if tightDisplay is empty):
-// include items that started yesterday OR end tomorrow
-const relaxedDisplay = liveSituations.filter(sit => {
-  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-  const startedYesterday = !!(s && isYesterday(s));
-  const endsTomorrow     = !!(e && isTomorrow(e));
-  return startedYesterday || endsTomorrow;
-});
+        // Fallback “relaxed” filter (used only if tightDisplay is empty):
+        // include items that started yesterday OR end tomorrow
+        const relaxedDisplay = liveSituations.filter(sit => {
+          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+          const startedYesterday = !!(s && isYesterday(s));
+          const endsTomorrow     = !!(e && isTomorrow(e));
+          return startedYesterday || endsTomorrow;
+        });
 
-// Choose which set to render
-let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
+        // Choose which set to render
+        let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
 
         // Map to items
         const liveItems = liveSituations.map(mapSituationToItem);
@@ -1257,6 +1286,11 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
 
         // Render
         currentItems = items; // for keyboard tests
+
+        // Store sets for test-key logic
+        lastLiveItems = liveItems.slice();      // all live (mapped)
+        lastDisplayItems = items.slice();       // filtered (grid) items
+
         requestAnimationFrame(()=>{
           setFixedGridSizing();
           renderPage();
@@ -1326,6 +1360,69 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
       showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
     }
 
+    /* ===========================
+       ONE-LINE OVERLAY ROUTES WITH DETERMINISTIC CAP
+       =========================== */
+    /**
+     * Deterministic one-line overlay route renderer:
+     * - If routes.length <= 3: show up to 3 route chips
+     * - If routes.length >= 4: show first 2 routes + one "+x" chip
+     * Always one row, no measurement required.
+     * @param {HTMLElement} container - #ovRoutes
+     * @param {string[]} routes - list of route labels
+     * @param {"add"|"remove"} mode - overlay mode (controls badge)
+     */
+    function renderOverlayRoutesOneLine(container, routes, mode){
+      if (!container) return;
+      const list = Array.isArray(routes) && routes.length ? routes.map(String) : ["?"];
+      container.replaceChildren();
+
+      const n = list.length;
+
+      // Case 1: 0 or 1 route — just show one chip (or "?")
+      if (n <= 1){
+        container.appendChild(buildOverlayRouteChip(list[0] ?? "?", mode));
+        return;
+      }
+
+      // Case 2: 2–3 routes — show up to 3 chips
+      if (n <= 3){
+        for (let i = 0; i < n; i++){
+          container.appendChild(buildOverlayRouteChip(list[i], mode));
+        }
+        return;
+      }
+
+      // Case 3: 4+ routes — show first two chips, then "+x"
+      container.appendChild(buildOverlayRouteChip(list[0], mode));
+      container.appendChild(buildOverlayRouteChip(list[1], mode));
+
+      const remaining = n - 2;
+      const plusChip = buildPlusChip(remaining);
+      container.appendChild(plusChip);
+    }
+
+    function buildOverlayRouteChip(text, mode){
+      const chip = document.createElement("div");
+      chip.className = "ov-route-chip";
+      chip.textContent = String(text);
+
+      const badge = document.createElement("span");
+      badge.className = "ov-route-badge";
+      badge.setAttribute("aria-hidden", "true");
+      badge.textContent = mode === "remove" ? "👍" : "🔀";
+      chip.appendChild(badge);
+      return chip;
+    }
+
+    function buildPlusChip(remaining){
+      const plus = document.createElement("div");
+      plus.className = "ov-route-chip";
+      plus.textContent = `+${remaining}`;
+      plus.setAttribute("aria-label", `${remaining} more routes`);
+      return plus; // no emoji on the "+x" chip
+    }
+
     function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
       const overlay  = $("#divertOverlay");
       const elKicker = $("#ovKicker");
@@ -1337,7 +1434,7 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
       const elOp     = $("#ovOperator");
       const elDur    = $("#ovDuration");
 
-      overlay.classList.remove("ov-add","ov-remove");
+      overlay.classList.remove("ov-add","ov-remove","closing");
 
       // Reset/hide optional blocks
       elReason.hidden = true;
@@ -1367,22 +1464,10 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
         elLoc.textContent = locationStr;
         elLoc.hidden = false;
 
-        // Routes with 🔀 badge
+        // Routes (deterministic one line)
         elRoutes.replaceChildren();
         const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        routes.forEach(rt => {
-          const chip = document.createElement("div");
-          chip.className = "ov-route-chip";
-          chip.textContent = String(rt);
-
-          const badge = document.createElement("span");
-          badge.className = "ov-route-badge";
-          badge.setAttribute("aria-label", "Diverting");
-          badge.textContent = "🔀";
-
-          chip.appendChild(badge);
-          elRoutes.appendChild(chip);
-        });
+        renderOverlayRoutesOneLine(elRoutes, routes, "add");
 
         // Operator pill
         elOp.replaceChildren();
@@ -1421,22 +1506,10 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
         elLoc.textContent = locationStr;
         elLoc.hidden = false;
 
-        // Routes with 👍 badge
+        // Routes (deterministic one line)
         elRoutes.replaceChildren();
         const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        routes.forEach(rt => {
-          const chip = document.createElement("div");
-          chip.className = "ov-route-chip";
-          chip.textContent = String(rt);
-
-          const badge = document.createElement("span");
-          badge.className = "ov-route-badge";
-          badge.setAttribute("aria-label", "Divert ended");
-          badge.textContent = "👍";
-
-          chip.appendChild(badge);
-          elRoutes.appendChild(chip);
-        });
+        renderOverlayRoutesOneLine(elRoutes, routes, "remove");
 
         // Operator pill
         elOp.replaceChildren();
@@ -1464,16 +1537,20 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
         elDur.hidden = false;
       }
 
-      // Show overlay
+      // Show overlay (entrance)
       overlay.classList.add("show");
       overlay.setAttribute("aria-hidden", "false");
       overlayShowing = true;
 
+      // Exit after dwell: apply 'closing' to animate out, then hide
       setTimeout(() => {
-        overlay.classList.remove("show");
-        overlay.setAttribute("aria-hidden", "true");
-        overlayShowing = false;
-        processOverlayQueue();
+        overlay.classList.add("closing");
+        setTimeout(() => {
+          overlay.classList.remove("show", "closing");
+          overlay.setAttribute("aria-hidden", "true");
+          overlayShowing = false;
+          processOverlayQueue();
+        }, 300); // ≥ CSS exit animation (260ms) for safety
       }, durationMs);
     }
 
@@ -1490,9 +1567,12 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
 
     /* Keyboard tests:
        K = ADD overlay on a random dashboard item (force demo => ensure UFN)
-       D = END overlay on a random dashboard item (duration to now) */
+       D = END overlay on a random dashboard item (duration to now)
+       M = NEW overlay for the filtered-out divert with the most routes (forces UFN)
+    */
     window.addEventListener("keydown", (e)=>{
       const key = String(e.key).toLowerCase();
+
       if(key === "k"){
         const ufnPool = (currentItems || []).filter(it => it.isUFN);
         const anyPool = (currentItems || []);
@@ -1506,6 +1586,7 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
         enqueueOverlays([{ mode:"add", item: testItem }]);
         console.info("[K TEST] NEW overlay for random item (force demo)", {id:testItem.id, routes:testItem.routes});
       }
+
       if(key === "d"){
         // This test simulates an actual END event (used for visual QA)
         const pool = (currentItems || []);
@@ -1517,6 +1598,79 @@ let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
         testItem.endMs = Date.now();
         enqueueOverlays([{ mode:"remove", item: testItem }]);
         console.info("[D TEST] END overlay for random item", {id:testItem.id, routes:testItem.routes});
+      }
+
+      if (key === "m") {
+        // Find the filtered-out live item with the most routes and show an "add" overlay
+        const liveById = new Map((lastLiveItems || []).map(it => [it.id, it]));
+        const displayIds = new Set((lastDisplayItems || []).map(it => it.id));
+
+        // Filtered out set = live minus display
+        const filteredOut = [...liveById.values()].filter(it => !displayIds.has(it.id));
+
+        function routeCount(it) {
+          return Array.isArray(it?.routes) ? it.routes.length : 0;
+        }
+
+        let candidate = null;
+
+        if (filteredOut.length) {
+          // Prefer UFN among filtered-out; if none, use all filtered-out
+          const ufnFiltered = filteredOut.filter(it => it.isUFN);
+          const pool = ufnFiltered.length ? ufnFiltered : filteredOut;
+
+          candidate = pool
+            .slice()
+            .sort((a, b) => {
+              // Primary: route count desc
+              const rc = routeCount(b) - routeCount(a);
+              if (rc !== 0) return rc;
+
+              // Secondary: UFN first (if mixed pool)
+              if (a.isUFN !== b.isUFN) return b.isUFN ? 1 : -1;
+
+              // Tertiary: newer start first
+              return (b.startMs ?? 0) - (a.startMs ?? 0);
+            })[0];
+        }
+
+        // Fallback a): any live UFN (or any live) with most routes
+        if (!candidate && (lastLiveItems || []).length) {
+          const ufnLive = lastLiveItems.filter(it => it.isUFN);
+          const pool = ufnLive.length ? ufnLive : lastLiveItems;
+
+          candidate = pool
+            .slice()
+            .sort((a, b) => {
+              const rc = routeCount(b) - routeCount(a);
+              if (rc !== 0) return rc;
+              if (a.isUFN !== b.isUFN) return b.isUFN ? 1 : -1;
+              return (b.startMs ?? 0) - (a.startMs ?? 0);
+            })[0];
+        }
+
+        // Fallback b): any current grid item with most routes
+        if (!candidate && (currentItems || []).length) {
+          candidate = currentItems
+            .slice()
+            .sort((a, b) => routeCount(b) - routeCount(a))[0];
+        }
+
+        if (!candidate) {
+          console.warn("[M TEST] No items available to sample.");
+          return;
+        }
+
+        // Build a safe test copy; ensure it appears as UFN so "NEW DIVERT" overlay is valid
+        const testItem = { ...candidate };
+        testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
+        testItem.operatorRefs = Array.isArray(testItem.operatorRefs) ? testItem.operatorRefs : [];
+        testItem.isUFN = true; // force for demo so it's eligible for "add" overlay
+
+        enqueueOverlays([{ mode: "add", item: testItem }]);
+        console.info("[M TEST] NEW overlay for filtered-out-with-most-routes", {
+          id: testItem.id, routes: testItem.routes, routeCount: routeCount(testItem)
+        });
       }
     });
 
