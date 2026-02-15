@@ -1,0 +1,1405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>LST — Control Centre Wall Screen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts (match your tool) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================
+       THEME — match pasted tool
+       ================================ */
+    :root{
+      --bg:#000;
+      --panel: #0b0b0b;
+      --text:#f2f2f2;
+      --muted:#c9cacc;
+      --danger:#ff2e34;
+      --red:#ff0000;
+      --yellow:#FFFFFF;
+      --green:#28c76f;
+      --blueMedium:#5bb1ff;
+
+      --liveGreen:#42BE4B;
+      --errorRed:#EA5540;
+
+      --accent:#FFE04A;
+      --line: rgba(255,255,255,0.08);  /* thin modern separators */
+
+      --shadow: 0 8px 24px rgba(0,0,0,.35);
+      --radius: 12px;
+      --gap: 12px;
+      --frame-padding: 12px;
+
+      --titlebar-h: 10vh;  /* bottom bar height (≈10%) */
+
+      --highConfMin: 4;   /* accidents confidence threshold for "high" */
+    }
+
+    html, body { height: 100%; margin: 0; }
+    body{
+      background: var(--bg);
+      color: var(--text);
+      font-family: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+    }
+
+    /* ================================
+       LAYOUT: Top content + bottom title bar
+       ================================ */
+    .app{
+      height: 100dvh;
+      display: grid;
+      grid-template-rows: 1fr var(--titlebar-h);
+      overflow: hidden;
+    }
+
+    .content{
+      padding: var(--gap);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; /* three columns */
+      gap: var(--gap);
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .col1{
+      display: grid;
+      grid-template-rows: 1fr 1fr;  /* two stacked frames */
+      gap: var(--gap);
+      min-height: 0;
+    }
+    .col2, .col3{
+      display: grid;
+      grid-template-rows: 1fr; min-height: 0;
+    }
+
+    .frame{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: var(--frame-padding);
+      min-height: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr; /* header + body */
+      gap: 8px;
+    }
+    .frame-header{
+      font-size: clamp(12px, 1.8vh, 14px);
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .frame-body{
+      min-height: 0;              /* critical for grid children to shrink */
+      overflow: hidden;           /* parent can be hidden; child can still scroll */
+      display: block;             /* simple block for predictable height inheritance */
+    }
+
+    /* ================================
+       Bottom Title Bar (10%) + Status
+       ================================ */
+    .titlebar{
+      border-top: 1px solid var(--line);
+      background: linear-gradient(0deg, rgba(255,224,74,0.06), transparent);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+    }
+    .title-left{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand-dot{
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+      flex: 0 0 auto;
+    }
+    .screen-title{
+      font-size: clamp(16px, 2.2vh, 22px);
+      font-weight: 800;
+      letter-spacing: .3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .title-right{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== Status pill & Bee (EXACT aesthetic) ===== */
+    .status-pill{
+      padding: 10px 16px;
+      border-radius: 999px 999px; /* match original: squared on left */
+      font-size: clamp(14px, 2.2vh, 18px);
+      font-weight: 800;
+      background: var(--liveGreen);
+      color:#000;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
+      transition: background .2s ease, color .2s ease;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .status-error{ background: var(--errorRed); color:#fff; }
+
+    #beeLogo{
+      width: clamp(40px, 6vh, 64px);
+      height: clamp(40px, 6vh, 64px);
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
+      transition: transform 0.2s ease-out;
+      user-select: none;
+    }
+    @keyframes wibble {
+      0%   { transform: rotate(0deg) scale(1); }
+      20%  { transform: rotate(4deg) scale(1.05); }
+      40%  { transform: rotate(-4deg) scale(1.05); }
+      60%  { transform: rotate(3deg) scale(1.03); }
+      80%  { transform: rotate(-3deg) scale(1.03); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+    .bee-wibble{ animation: wibble 650ms ease-out; }
+
+    /* ================================
+       ABNORMAL TRAFFIC PANEL (TVT clone)
+       ================================ */
+    .tvt-panel{
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 10px;
+      min-height: 0;  /* important */
+      height: 100%;   /* ensure child 1fr gets a definite size */
+      overflow: hidden;
+    }
+
+    .network-health { margin: 0 2px; }
+    .network-row { display:flex; align-items:center; gap:10px; }
+    .network-bar{
+      flex:1 1 auto;
+      height: clamp(10px, 1.8vh, 16px);
+      border-radius: 999px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.30);
+    }
+
+    /* === Abnormals list: visible manual scrollbar (simplified block layout) === */
+    .corridor-list{
+      display: block;             /* simpler than grid for scroll panes */
+      height: 100%;               /* fill the 1fr track */
+      overflow: auto;             /* manual scroll */
+      scrollbar-gutter: stable;   /* reserve space for scrollbar */
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch; /* iOS/Safari momentum */
+      padding-right: 2px;         /* small buffer so scrollbar doesn't overlap content */
+    }
+    .corridor{ margin: 0 0 8px 0; }
+    .corridor:last-child{ margin-bottom: 0; }
+
+    /* Custom scrollbar */
+    /* Firefox */
+    .corridor-list{
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,.35) transparent;
+    }
+    /* WebKit (Chrome/Edge/Safari) */
+    .corridor-list::-webkit-scrollbar{
+      width: 10px;
+    }
+    .corridor-list::-webkit-scrollbar-track{
+      background: transparent;
+    }
+    .corridor-list::-webkit-scrollbar-thumb{
+      background-color: rgba(255,255,255,0.28);
+      border-radius: 8px;
+      border: 2px solid transparent;
+    }
+    .corridor-list::-webkit-scrollbar-thumb:hover{
+      background-color: rgba(255,255,255,0.40);
+    }
+
+    .corridor{
+      display: grid;
+      grid-template-rows: auto auto auto;
+      align-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.04);
+      min-height: 0;
+    }
+    .corridor .title{
+      display:flex; align-items:center; gap:10px;
+      font-size: clamp(16px, 2.5vh, 24px);
+      font-weight: 900; line-height: 1.12; letter-spacing: .3px;
+      overflow: hidden;
+    }
+    .corridor .title .name{
+      flex:1 1 auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    }
+    .corridor .title .trend{
+      flex:0 0 auto; font-size: clamp(14px, 2vh, 20px); line-height: 1;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4));
+    }
+    .corridor .bar{
+      height: clamp(10px, 2vh, 16px);
+      border-radius: 999px;
+      background: #2ecc71; /* replaced per item */
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .corridor .meta{
+      font-size: clamp(12px, 2.0vh, 18px);
+      font-weight: 900; color:#fff; letter-spacing:.1px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+      opacity: 0.95;
+    }
+
+    /* ================================
+       WAZE ALERTS LIST (Right column)
+       ================================ */
+    .waze-panel{
+      display: grid;
+      grid-auto-rows: auto;
+      gap: 10px;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .section{
+      display: grid;
+      grid-auto-rows: auto;
+      gap: 8px;
+      min-height: 0;
+    }
+    .section-title{
+      font-size: clamp(11px, 1.6vh, 13px);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      opacity: 0.95;
+      border-left: 3px solid rgba(255,255,255,0.15);
+      padding-left: 8px;
+    }
+    .cards{
+      display: grid;
+      grid-auto-rows: minmax(0, auto);
+      gap: 8px;
+      min-height: 0;
+    }
+    .card{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "title meta"
+        "desc  desc";
+      gap: 6px 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.045);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.045) inset, 0 2px 6px rgba(0,0,0,0.25) inset;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .card:hover{ background: rgba(255,255,255,0.065); }
+    .card .title{
+      grid-area: title;
+      font-weight: 800;
+      font-size: clamp(14px, 2.2vh, 18px);
+      display: flex; align-items: center; gap: 8px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .card .meta{
+      grid-area: meta;
+      font-size: clamp(11px, 1.7vh, 13px);
+      opacity: 0.85;
+      text-align: right;
+    }
+    .card .desc{
+      grid-area: desc;
+      font-size: clamp(11px, 1.8vh, 14px);
+      color: #d6d7db;
+      opacity: 0.95;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* Road-number shields (matches banner styles) */
+    .road-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.85);
+      box-shadow:
+        0 0 0 2px rgba(0,0,0,0.35) inset,
+        0 2px 6px rgba(0,0,0,0.35),
+        0 0 8px rgba(255,255,255,0.25);
+      background: linear-gradient(180deg, #1f1f1f 0%, #000 100%);
+      font-size: 0.85em;
+    }
+    .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); }
+    .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); }
+    .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); }
+
+    /* Buttons (Hide + Unhide all) */
+    .hide-btn, .toolbar-btn{
+      appearance: none;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-weight: 800;
+      font-size: clamp(10px, 1.6vh, 12px);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .05s ease;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .hide-btn:hover, .toolbar-btn:hover{
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border-color: rgba(255,224,74,0.85);
+    }
+    .hide-btn:active, .toolbar-btn:active{ transform: translateY(1px); }
+
+    /* Keep title rows tidy when we insert the Hide button on the right */
+    .title .spacer{ margin-left: auto; }
+
+    /* Responsive fallback: stack columns on narrow */
+    @media (max-width: 900px){
+      .content{ grid-template-columns: 1fr; }
+      .col1{ grid-template-rows: 45vh 45vh; }
+      .col2, .col3{ grid-template-rows: 50vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- =========================
+         CONTENT (Top 90%)
+         ========================= -->
+    <section class="content" aria-label="Main dashboard area">
+      <!-- Column 1 -->
+      <div class="col1">
+        <!-- Top-left: Abnormal Traffic -->
+        <div class="frame" id="frame-a" aria-labelledby="frame-a-title">
+          <div class="frame-header" id="frame-a-title">Highways Health & Abnormal Traffic</div>
+          <div class="frame-body">
+            <div class="tvt-panel" id="abnormal-traffic" aria-live="polite">
+              <!-- Filled by JS -->
+              <div class="network-health">
+                <div class="network-row">
+                  <div class="network-bar" style="background:linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)"></div>
+                </div>
+              </div>
+              <div class="corridor-list" id="tvt-corridors">
+                <!-- up to 15 rows render here (manual scroll) -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom-left: Route Operator Checker (placeholder) -->
+        <div class="frame" id="frame-b" aria-labelledby="frame-b-title">
+          <div class="frame-header" id="frame-b-title">Route Operator Checker</div>
+          <div class="frame-body" style="display:grid;place-items:center;color:#c7cbd1;border:1px dashed rgba(255,255,255,0.08);border-radius:10px;">
+            Placeholder — wire in your ROC view here
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle column: Key Travel Alerts (placeholder) -->
+      <div class="col2">
+        <div class="frame" id="frame-c" aria-labelledby="frame-c-title">
+          <div class="frame-header" id="frame-c-title">Key Travel Alerts</div>
+          <div class="frame-body" style="display:grid;place-items:center;color:#c7cbd1;border:1px dashed rgba(255,255,255,0.08);border-radius:10px;">
+            Placeholder — alerts list or tiles
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: Waze Alerts -->
+      <div class="col3">
+        <div class="frame" id="frame-d" aria-labelledby="frame-d-title">
+          <div class="frame-header" id="frame-d-title">Waze Alerts</div>
+          <div class="frame-body">
+            <div class="waze-panel" id="waze-panel" aria-live="polite">
+              <div class="section" id="sec-accidents">
+                <div class="section-title">Accidents</div>
+                <div class="cards" id="cards-acc-high"></div>   <!-- high confidence -->
+                <div class="cards" id="cards-acc-low"></div>    <!-- lower confidence (trim first) -->
+              </div>
+              <div class="section" id="sec-signals">
+                <div class="section-title">Traffic Light Faults</div>
+                <div class="cards" id="cards-signals"></div>
+              </div>
+              <div class="section" id="sec-weather">
+                <div class="section-title">Weather Reports</div>
+                <div class="cards" id="cards-weather"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================
+         TITLE BAR (Bottom 10%)
+         ========================= -->
+    <footer class="titlebar" role="contentinfo" aria-label="Title bar">
+      <div class="title-left">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <h1 class="screen-title" title="LST">LST</h1>
+      </div>
+
+      <div class="title-right" aria-label="Status and controls">
+        <!-- Unhide all button -->
+        <button id="unhideAllBtn"
+                class="toolbar-btn"
+                title="Unhide all hidden alerts"
+                aria-label="Unhide all hidden alerts"
+                type="button">
+          Unhide all
+        </button>
+        <div id="statusPill" class="status-pill">Initialising…</div>
+        <img id="beeLogo"
+             src="https://tfgm.com/static/android-chrome-192x192.png"
+             alt="Bee Network logo"
+             width="64" height="64"
+             decoding="async" />
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    /* =======================================================
+       Utilities & Aesthetic helpers
+       ======================================================= */
+    function withCacheBust(url){
+      const sep = url.includes('?') ? '&' : '?';
+      return `${url}${sep}ts=${Date.now()}`;
+    }
+
+    function fmtHHMMSS(){
+      try{
+        return new Intl.DateTimeFormat('en-GB', { hour:'2-digit', minute:'2-digit', second:'2-digit' })
+          .format(new Date());
+      }catch(e){
+        const d = new Date();
+        const pad = n => String(n).padStart(2,'0');
+        return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+      }
+    }
+    function setStatusPill(ok, {animate=false}={}){
+      const pill = document.getElementById('statusPill');
+      const bee  = document.getElementById('beeLogo');
+      const t = fmtHHMMSS();
+      if (ok){
+        pill.classList.remove('status-error');
+        pill.textContent = `LIVE • ${t}`;
+        if (animate && bee){
+          bee.classList.remove('bee-wibble');
+          void bee.offsetWidth; // reflow
+          bee.classList.add('bee-wibble');
+        }
+      } else {
+        pill.classList.add('status-error');
+        pill.textContent = `Stand By • ${t}`;
+      }
+    }
+
+    /* ========= HIDE / SUPPRESSION (60 minutes) with baselines ========= */
+    const HIDE_MS = 60 * 60 * 1000; // 60 minutes
+
+    function hideStorageKey(prefix, id){
+      return `hide_${prefix}_${id}`;
+    }
+    function getHideEntry(prefix, id){
+      const raw = localStorage.getItem(hideStorageKey(prefix, id));
+      if (!raw) return null;
+      if (/^\d+$/.test(raw)) { // legacy numeric-only "until"
+        return { until: Number(raw) };
+      }
+      try{
+        const obj = JSON.parse(raw);
+        if (obj && typeof obj.until === 'number') return obj;
+      }catch(e){}
+      const n = Number(raw);
+      return Number.isFinite(n) ? { until:n } : null;
+    }
+    function setHideEntry(prefix, id, entry){
+      localStorage.setItem(hideStorageKey(prefix, id), JSON.stringify(entry));
+    }
+    function clearHide(prefix, id){
+      localStorage.removeItem(hideStorageKey(prefix, id));
+    }
+
+    function hideForHour(prefix, id, baseline={}){
+      setHideEntry(prefix, id, { until: Date.now() + HIDE_MS, baseline, createdAt: Date.now() });
+    }
+
+    /**
+     * Returns true if still hidden; false if visible.
+     * Performs expiry AND auto-unhide checks.
+     *  - Corridors: auto-unhide if current abnPct >= baselineAbnPct * 1.5 (+50% increase)
+     *  - Accidents: auto-unhide if current conf >= baselineConf + 2
+     */
+    function isHiddenWithAutoCheck(prefix, id, currentMetrics={}){
+      const entry = getHideEntry(prefix, id);
+      if (!entry) return false;
+
+      // Expired?
+      if (Date.now() > (Number(entry.until)||0)){
+        clearHide(prefix, id);
+        return false;
+      }
+
+      const base = entry.baseline || {};
+      let autoUnhide = false;
+
+      if (prefix === 'corr'){
+        const curr = Number(currentMetrics.abnPct);
+        const b = Number(base.abnPct);
+        if (Number.isFinite(curr) && Number.isFinite(b) && b > 0 && curr >= b * 1.5){
+          autoUnhide = true;
+        }
+      } else if (prefix === 'acc'){
+        const curr = Number(currentMetrics.conf);
+        const b = Number(base.conf);
+        if (Number.isFinite(curr) && Number.isFinite(b) && curr >= b + 2){
+          autoUnhide = true;
+        }
+      }
+
+      if (autoUnhide){
+        clearHide(prefix, id);
+        return false;
+      }
+      return true;
+    }
+
+    // Global, single event delegation for all Hide buttons
+    document.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('.hide-btn');
+      if (!btn) return;
+
+      // Make sure clicking Hide NEVER triggers card open
+      ev.preventDefault();
+      ev.stopPropagation();
+
+      const prefix = btn.getAttribute('data-prefix') || '';
+      const id     = btn.getAttribute('data-id') || '';
+      if (!prefix || !id) return;
+
+      // Capture baselines from attributes for auto-unhide rules
+      const baseline = {};
+      const abn = btn.getAttribute('data-baseline-abnpct');
+      const conf = btn.getAttribute('data-baseline-conf');
+      if (abn != null && abn !== '' && isFinite(Number(abn))) baseline.abnPct = Number(abn);
+      if (conf != null && conf !== '' && isFinite(Number(conf))) baseline.conf = Number(conf);
+
+      hideForHour(prefix, id, baseline);
+
+      // Remove the visible element immediately
+      const container = btn.closest('.card, .corridor');
+      if (container) {
+        container.remove();
+        // Re-fit Waze panel smoothly if we hid a Waze card
+        const wazeHost = document.getElementById('waze-panel');
+        if (wazeHost && wazeHost.contains(container)) {
+          requestAnimationFrame(ensureWazeFits);
+        }
+      }
+    }, { passive: false });
+
+    // "Unhide all" control – clears all hides and refreshes both panels
+    function unhideAll(){
+      const keys = [];
+      for (let i=0; i<localStorage.length; i++){
+        const k = localStorage.key(i);
+        if (k && k.startsWith('hide_')) keys.push(k);
+      }
+      keys.forEach(k => localStorage.removeItem(k));
+
+      // Force immediate refresh/rerender
+      try{ clearTimeout(tvtTimer); }catch{}
+      try{ clearTimeout(wazeTimer); }catch{}
+      tvtTimer = null; wazeTimer = null;
+      tvtCycle();
+      wazeCycle();
+    }
+
+    /* =======================================================
+       TVT PANEL — Top 15 abnormal routes (manual scroll)
+       ======================================================= */
+    const TVT_URL = 'https://occproxy-6dem.vercel.app/api/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
+    const TVT_REFRESH_MS = 5 * 60 * 1000; // 5 minutes
+    let tvtTimer = null;
+
+    function escapeHTML(str){
+      return String(str).replace(/[&<>\"']/g, ch =>
+        ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])
+      );
+    }
+    function corridorDisplayName(r){
+      const base = String(r?.name || r?.toName || 'Unnamed corridor');
+      const parts = base.split(' - ');
+      return (parts[0] || base).trim();
+    }
+    function fmtMins(secOrMs){
+      const s = typeof secOrMs === 'number' && secOrMs > 5e6 ? Math.round(secOrMs/1000) : Math.round(secOrMs||0);
+      const m = Math.max(0, Math.round(s/60));
+      return `${m} min`;
+    }
+    function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
+    function lerp(a,b,t){ return a + (b-a)*t; }
+
+    // 1.0 green if time <= historic; 0.0 red if time >= 2x historic
+    function healthFromTimes(current, historic){
+      if (!Number.isFinite(current) || !Number.isFinite(historic) || historic <= 0) return 0.5;
+      const ratio = current / historic;
+      if (ratio <= 1) return clamp(0.8 + (1 - ratio) * 0.2, 0.0, 1.0);
+      const t = clamp((ratio - 1) / 1.0, 0, 1);
+      return clamp(0.8 * (1 - t), 0, 0.8);
+    }
+    function solidColorFromHealth(h){
+      const green=[46,204,113], yellow=[255,224,74], red=[255,77,79];
+      let c;
+      if (h >= 0.5){
+        const t = (h - 0.5)/0.5;
+        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp(yellow[2], green[2], t) ];
+      } else {
+        const t = h/0.5;
+        c = [ lerp(red[0], yellow[0], t), lerp(red[1], yellow[1], t), lerp(red[2], yellow[2], t) ];
+      }
+      return `rgb(${c.map(v=>Math.round(v)).join(',')})`;
+    }
+    function networkGradientFromUsersOnJams(usersOnJams){
+      if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
+        return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
+      }
+      const levelColors = { 0:'#42BE4B', 1:'#9ddc43', 2:'#ffe04a', 3:'#ff9a1f', 4:'#ff4d4f' };
+      const total = usersOnJams.reduce((a,u)=>a + (Number(u.wazersCount)||0), 0) || 1;
+      let acc = 0, stops=[];
+      usersOnJams.slice().sort((a,b)=>a.jamLevel-b.jamLevel).forEach(u=>{
+        const pct = (Number(u.wazersCount)||0)/total*100;
+        const start = acc, end = acc + pct;
+        stops.push(`${levelColors[u.jamLevel] || '#666'} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+        acc = end;
+      });
+      return `linear-gradient(90deg, ${stops.join(', ')})`;
+    }
+
+    function computeTopNAbnormal(routesRaw, n = 15){
+      const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
+      const candidates = routes
+        .map(r => {
+          const time = Number(r.time)||0;
+          const hist = Number(r.historicTime)||0;
+          const abn  = (hist > 0 && time > 0) ? (time - hist) / hist : -Infinity;
+          return { r, time, hist, abn };
+        })
+        .filter(x => Number.isFinite(x.abn));
+      const topN = candidates
+        .sort((a,b)=> b.abn - a.abn || b.time - a.time)
+        .slice(0, n)
+        .map(x => x.r);
+      return topN;
+    }
+
+    // Trend memory (per key) for arrow hints
+    const prevShownRoutes = new Map();
+    const routeKey = (r) => String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
+    function trendArrowFor(r){
+      const key = routeKey(r);
+      const prev = prevShownRoutes.get(key);
+      const curr = Number(r.time) || 0;
+      const prevTime = prev ? Number(prev.time) || 0 : 0;
+      if (!(curr > 0) || !(prevTime > 0)) return '';
+      const delta = (curr - prevTime) / prevTime;
+      const THRESH = 0.05;
+      if (delta >  THRESH) return '⬆️';
+      if (delta < -THRESH) return '⬇️';
+      return '➡️';
+    }
+
+    function renderTvtPanel(data){
+      const host = document.getElementById('abnormal-traffic');
+      const list = document.getElementById('tvt-corridors');
+
+      // Network bar
+      const net = host.querySelector('.network-bar');
+      if (net){
+        net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []);
+      }
+
+      // Compute top N with metrics
+      const rawTop = computeTopNAbnormal(data?.routes || [], 15);
+      const withMetrics = rawTop.map(r => {
+        const time = Number(r.time)||0, hist = Number(r.historicTime)||0;
+        const abnPct = (hist>0 && time>0) ? Math.round(((time - hist)/hist)*100) : 0;
+        return { r, id: routeKey(r), time, hist, abnPct };
+      });
+
+      // Filter by hide WITH auto-unhide rule
+      const filtered = withMetrics.filter(it => !isHiddenWithAutoCheck('corr', it.id, { abnPct: it.abnPct }));
+
+      const itemHTML = (it) => {
+        const { r, time, hist, abnPct, id } = it;
+        const h = healthFromTimes(time, hist);
+        const color = solidColorFromHealth(h);
+        const title = escapeHTML(corridorDisplayName(r));
+        const trend = trendArrowFor(r);
+        return `
+          <div class="corridor" title="${escapeHTML(r?.name||'')}">
+            <div class="title">
+              <span class="name">${title}</span>
+              <span class="trend" aria-hidden="true">${trend}</span>
+              <span class="spacer"></span>
+              <button
+                class="hide-btn"
+                data-prefix="corr"
+                data-id="${escapeHTML(id)}"
+                data-baseline-abnpct="${abnPct}"
+                title="Hide alert for 1 hour"
+                aria-label="Hide alert for 1 hour"
+                type="button"
+              >Hide</button>
+            </div>
+            <div class="bar" style="background:${color}"></div>
+            <div class="meta">Now: ${fmtMins(time)} • Historic: ${fmtMins(hist)} ${Number.isFinite(abnPct)? `• ${abnPct>=0?'+':''}${abnPct}%` : ''}</div>
+          </div>
+        `;
+      };
+
+      list.innerHTML = filtered.length
+        ? filtered.map(itemHTML).join('')
+        : `
+          <div class="corridor">
+            <div class="title"><span class="name">No abnormal corridors</span></div>
+            <div class="bar"></div>
+            <div class="meta">—</div>
+          </div>
+        `;
+
+      // Remember for trend next tick
+      filtered.forEach(it => prevShownRoutes.set(it.id, { time: Number(it.time)||0 }));
+
+      // Reset scroll to top on each refresh (ensures consistent starting point)
+      list.scrollTop = 0;
+    }
+
+    async function fetchTVT(signal){
+      const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      const trimmed = text.replace(/^\uFEFF/, '').trim();
+      return JSON.parse(trimmed);
+    }
+
+    async function tvtCycle(){
+      let ctrl = new AbortController();
+      try{
+        const data = await fetchTVT(ctrl.signal);
+        renderTvtPanel(data);
+        setStatusPill(true, { animate:true });
+      }catch(e){
+        console.error('[TVT] fetch failed:', e);
+        setStatusPill(false, { animate:false });
+      }finally{
+        clearTimeout(tvtTimer);
+        tvtTimer = setTimeout(tvtCycle, TVT_REFRESH_MS);
+      }
+    }
+
+    /* =======================================================
+       WAZE ALERTS — Accidents / Signals / Weather (Ice)
+       + De-duplication (phantom queue suppression)
+       ======================================================= */
+    const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
+    const WAZE_REFRESH_MS = 30000;
+
+    // Proxies (match your tool)
+    const PROXIES = [
+      (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
+      (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+    ];
+
+    async function fetchViaProxies(url, signal){
+      const busted = withCacheBust(url);
+      const errors = [];
+      for(const build of PROXIES){
+        const proxied = build(busted);
+        try{
+          const res = await fetch(proxied, { cache:'no-store', signal });
+          if(!res.ok) throw new Error(`HTTP ${res.status}`);
+          const text = await res.text();
+          const trimmed = text.replace(/^\uFEFF/, '').trim();
+          if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
+          return JSON.parse(trimmed);
+        }catch(e){ errors.push(`${proxied}: ${e.message}`); }
+      }
+      throw new Error(`All proxies failed\n${errors.join('\n')}`);
+    }
+
+    // --- Waze parsing helpers (with useful labels) ---
+    function getLngLatFromAlert(a){
+      try{
+        if(a){
+          if(a.location){
+            const loc = a.location;
+            if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
+            if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
+            if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
+            if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
+          }
+          if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
+            const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
+          }
+          if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
+        }
+      }catch(e){}
+      return null;
+    }
+    const readConfidence = a => Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0;
+    const readReliability = a => Number(a.reliability ?? a.reliabilityScore ?? 0) || 0;
+    function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
+    function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
+    function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
+
+    function isAccident(a){
+      const t = readType(a);
+      const st = readSubType(a);
+      return t.includes('ACCIDENT') || st.includes('ACCIDENT');
+    }
+    function isIceAlert(a){
+      const t = readType(a), st = readSubType(a), d = readDesc(a);
+      return (
+        t.includes('ICE') || st.includes('ICE') ||
+        /RECENT(LY)?\s+FORMED\s+ICE|BLACK\s*ICE|\bICE\b|\BICY\b/.test(d)
+      );
+    }
+    function isTrafficLightFault(a){
+      const t = readType(a), st = readSubType(a), d = readDesc(a);
+      return (
+        t.includes('TRAFFIC') && t.includes('LIGHT') ||
+        st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
+        /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
+      );
+    }
+
+    function alertsToAccidentPoints(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        if(!isAccident(a)) continue;
+        const conf10 = readConfidence(a);
+        if(!(conf10 > 0)) continue;
+
+        const rel10 = readReliability(a);
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
+
+        out.push({
+          id: a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`,
+          coord,
+          street: a.street || a.roadName || a.address || 'Unknown road',
+          city: a.city || a.town || '',
+          conf10, rel10,
+          time: a.pubMillis || a.updateTime || a.reportMillis || 0
+        });
+      }
+      return out;
+    }
+    function alertsToSignalFaults(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        if(!isTrafficLightFault(a)) continue;
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
+        out.push({
+          id: a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`,
+          coord,
+          street: a.street || a.roadName || a.address || '',
+          city: a.city || a.town || '',
+          time: a.pubMillis || a.updateTime || a.reportMillis || 0,
+          desc: a.description || a.reportDescription || a.title || 'Traffic signal fault'
+        });
+      }
+      return out;
+    }
+    function alertsToWeather(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        if(!isIceAlert(a)) continue;
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
+        out.push({
+          id: a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`,
+          coord,
+          street: a.street || a.roadName || a.address || '',
+          city: a.city || a.town || '',
+          time: a.pubMillis || a.updateTime || a.reportMillis || 0,
+          desc: a.description || a.reportDescription || a.title || 'Weather Alert'
+        });
+      }
+      return out;
+    }
+
+    // Accident clustering (effective confidence 1–5)
+    function toRad(deg){ return deg * Math.PI / 180; }
+    function haversineMeters([lon1, lat1], [lon2, lat2]){
+      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+    function stableClusterId(coord){
+      const lon = Number(coord[0]).toFixed(4);
+      const lat = Number(coord[1]).toFixed(4);
+      return `cluster-${lon},${lat}`;
+    }
+    function clusterAccidents(points, mergeMeters = 200){
+      if(points.length === 0) return [];
+      const parent = Array(points.length).fill(0).map((_,i)=>i);
+      const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          const d = haversineMeters(points[i].coord, points[j].coord);
+          if(d <= mergeMeters) union(i,j);
+        }
+      }
+
+      const groups = new Map();
+      for(let i=0;i<points.length;i++){
+        const r = find(i);
+        if(!groups.has(r)) groups.set(r, []);
+        groups.get(r).push(points[i]);
+      }
+
+      const clusters = [];
+      for(const members of groups.values()){
+        const count = members.length;
+        const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
+        const bestRel10  = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+
+        let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
+        eff10 = Math.max(0, Math.min(12, eff10));
+        const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
+
+        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const best = members.slice().sort((a,b)=>{
+          const ce = (Number(b.conf10)||0) - (Number(a.conf10)||0);
+          if(ce!==0) return ce;
+          return (Number(b.time)||0) - (Number(a.time)||0);
+        })[0];
+
+        clusters.push({
+          id: stableClusterId(avg),
+          coord: avg,
+          street: best.street,
+          city: best.city,
+          effectiveConfidence: eff5,
+          time: maxTime,
+          reportCount: count
+        });
+      }
+
+      clusters.sort((a,b)=>
+        (Number(b.effectiveConfidence)||0) - (Number(a.effectiveConfidence)||0) ||
+        (Number(b.time)||0) - (Number(a.time)||0)
+      );
+      return clusters;
+    }
+
+    /* =======================================================
+       DEDUP LOGIC — suppress phantom queue duplicates
+       ======================================================= */
+    function extractRoadToken(street=''){
+      const m = String(street).toUpperCase().match(/\b([MBA]\d{1,4})\b/);
+      return m ? m[1] : '';
+    }
+    function normRoadName(s=''){
+      return String(s)
+        .toUpperCase()
+        .replace(/[^A-Z0-9 ]+/g,' ')
+        .replace(/\b(ROAD|RD|STREET|ST|AVENUE|AVE|LANE|LN|CRESCENT|CCT|COURT|CRT|DRIVE|DR|WAY|HWY|HIGHWAY|MOTORWAY|MWAY|BYPASS|BYP)\b/g,'')
+        .replace(/\s+/g,' ')
+        .trim();
+    }
+    function bearingBetween([lon1,lat1],[lon2,lat2]){
+      const toRad = d => d*Math.PI/180;
+      const dLon = toRad(lon2-lon1);
+      const y = Math.sin(dLon)*Math.cos(toRad(lat2));
+      const x = Math.cos(toRad(lat1))*Math.sin(toRad(lat2)) - Math.sin(toRad(lat1))*Math.cos(toRad(lat2))*Math.cos(dLon);
+      let brng = Math.atan2(y,x)*180/Math.PI;
+      return (brng+360)%360;
+    }
+    function bearingDiff(a,b){
+      let d = Math.abs(a-b); if(d>180) d=360-d; return d;
+    }
+
+    function dedupAccidentClusters(clusters, opts={}){
+      const { corridorMeters = 8000, bearingTolerance = 35 } = opts;
+      if (!Array.isArray(clusters) || clusters.length === 0) return [];
+
+      // Group by token or normalized name
+      const groups = new Map();
+      for (const c of clusters){
+        const token = extractRoadToken(c.street||'');
+        const key = token || normRoadName(c.street||'') || '___unknown___';
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(c);
+      }
+
+      const kept = [];
+      for (const arr of groups.values()){
+        arr.sort((a,b)=>
+          (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) ||
+          (Number(b.time||0) - Number(a.time||0))
+        );
+
+        const chosen = [];
+        for (const c of arr){
+          let dup = false;
+          for (const k of chosen){
+            const dist = haversineMeters(c.coord, k.coord);
+            if (dist <= corridorMeters){
+              const aligned =
+                dist <= 1500 // very close, ignore bearing
+                || bearingDiff(
+                     bearingBetween(k.coord, c.coord),
+                     (bearingBetween(c.coord, k.coord)+180)%360
+                   ) <= bearingTolerance;
+              if (aligned){ dup = true; break; }
+            }
+          }
+          if (!dup) chosen.push(c);
+        }
+        kept.push(...chosen);
+      }
+
+      kept.sort((a,b)=>
+        (Number(b.effectiveConfidence||0) - (Number(a.effectiveConfidence||0))) ||
+        (Number(b.time||0) - (Number(a.time||0)))
+      );
+      return kept;
+    }
+
+    function dedupByRoadAndProximity(items, {meters = 300, timeMs = 60*60*1000} = {}){
+      if (!Array.isArray(items) || items.length === 0) return [];
+      const groups = new Map();
+      for (const it of items){
+        const token = extractRoadToken(it.street||'');
+        const key = token || normRoadName(it.street||'') || '___no_name___';
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(it);
+      }
+
+      const out = [];
+      for (const arr of groups.values()){
+        arr.sort((a,b)=> (Number(b.time||0) - Number(a.time||0))); // newest first
+        const chosen = [];
+        for (const it of arr){
+          let dup = false;
+          for (const k of chosen){
+            const dist = haversineMeters(it.coord, k.coord);
+            const closeInTime = Math.abs((Number(it.time)||0) - (Number(k.time)||0)) <= timeMs;
+            if (dist <= meters && closeInTime){ dup = true; break; }
+          }
+          if (!dup) chosen.push(it);
+        }
+        out.push(...chosen);
+      }
+      return out;
+    }
+
+    // Formatting helpers
+    function formatWhen(ms){
+      if(!ms || !isFinite(ms)) return '';
+      try{
+        return new Date(Number(ms)).toLocaleString('en-GB', {
+          timeZone: 'Europe/London', hour12: false,
+          hour: '2-digit', minute: '2-digit'
+        });
+      }catch(e){ return ''; }
+    }
+    function stylizeRoad(street, city){
+      const s = escapeHTML((street || '').trim());
+      const c = escapeHTML((city || '').trim());
+      if (!s && !c) return 'Unknown road';
+      const roadTokenRegex = /\b([MBA]\d{1,4})\b/i;
+      let displayStreet = s;
+      const match = s.match(roadTokenRegex);
+      if (match) {
+        const token = match[1].toUpperCase();
+        const cls = token.startsWith('M') ? 'motorway' : token.startsWith('A') ? 'aprimary' : 'broad';
+        displayStreet = s.replace(roadTokenRegex, `<span class="road-badge ${cls}">${token}</span>`);
+      }
+      return `${displayStreet}${c ? ` — ${c}` : ''}`;
+    }
+
+    // Open Waze PartnerHub map-tool with lat/lon
+    function openWazeTool(lon, lat){
+      const u = new URL('https://www.waze.com/partnerhub/map-tool');
+      u.searchParams.set('lon', String(lon));
+      u.searchParams.set('lat', String(lat));
+      window.open(u.toString(), '_blank', 'noopener');
+    }
+
+    // Render cards with Hide buttons
+    function cardAccidentHTML(item){
+      const heading = stylizeRoad(item.street, item.city);
+      const conf = Number(item.effectiveConfidence)||0;
+      const when = formatWhen(item.time);
+      const meta = `Confidence: ${conf}/5${item.reportCount?` • Reports: ${item.reportCount}`:''}${when?` • ${when}`:''}`;
+      return `
+        <div class="card" data-type="accident" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}" data-conf="${conf}">
+          <div class="title">
+            ${heading}
+            <span class="spacer"></span>
+            <button
+              class="hide-btn"
+              data-prefix="acc"
+              data-id="${item.id}"
+              data-baseline-conf="${conf}"
+              title="Hide alert for 1 hour"
+              aria-label="Hide alert for 1 hour"
+              type="button"
+            >Hide</button>
+          </div>
+          <div class="meta">${meta}</div>
+          <div class="desc">Accident cluster</div>
+        </div>
+      `;
+    }
+    function cardSignalHTML(item){
+      const heading = stylizeRoad(item.street, item.city) || 'Traffic signal fault';
+      const when = formatWhen(item.time);
+      const meta = when ? `${when}` : '';
+      const desc = escapeHTML(item.desc || 'Traffic signal fault');
+      return `
+        <div class="card" data-type="signal" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+          <div class="title">
+            ${heading}
+            <span class="spacer"></span>
+            <button
+              class="hide-btn"
+              data-prefix="sig"
+              data-id="${item.id}"
+              title="Hide alert for 1 hour"
+              aria-label="Hide alert for 1 hour"
+              type="button"
+            >Hide</button>
+          </div>
+          <div class="meta">${meta}</div>
+          <div class="desc">${desc}</div>
+        </div>
+      `;
+    }
+    function cardWeatherHTML(item){
+      const heading = stylizeRoad(item.street, item.city) || 'Weather report';
+      const when = formatWhen(item.time);
+      const meta = when ? `${when}` : '';
+      const desc = escapeHTML(item.desc || 'Weather report');
+      return `
+        <div class="card" data-type="weather" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+          <div class="title">
+            ${heading}
+            <span class="spacer"></span>
+            <button
+              class="hide-btn"
+              data-prefix="wx"
+              data-id="${item.id}"
+              title="Hide alert for 1 hour"
+              aria-label="Hide alert for 1 hour"
+              type="button"
+            >Hide</button>
+          </div>
+          <div class="meta">${meta}</div>
+          <div class="desc">${desc}</div>
+        </div>
+      `;
+    }
+
+    // Fit logic: keep inside the box with priority
+    function ensureWazeFits(){
+      const host = document.getElementById('waze-panel');
+      if (!host) return;
+
+      const highAccWrap = document.getElementById('cards-acc-high');
+      const lowAccWrap  = document.getElementById('cards-acc-low');
+      const weatherWrap = document.getElementById('cards-weather');
+
+      let guard = 0;
+      const fits = () => host.scrollHeight <= host.clientHeight + 2; // tolerance
+
+      // First try to trim weather
+      while(!fits() && weatherWrap && weatherWrap.lastElementChild && guard++ < 500){
+        weatherWrap.removeChild(weatherWrap.lastElementChild);
+      }
+      // Then trim lower-confidence accidents
+      while(!fits() && lowAccWrap && lowAccWrap.lastElementChild && guard++ < 1000){
+        lowAccWrap.removeChild(lowAccWrap.lastElementChild);
+      }
+
+      // If still overflowing (extreme cases), allow panel scroll
+      host.style.overflow = fits() ? 'hidden' : 'auto';
+
+      // Hide section shells if empty
+      const toggleSection = (secId, wrapIds) => {
+        const sec = document.getElementById(secId);
+        const hasAny = wrapIds.some(id => {
+          const el = document.getElementById(id);
+          return el && el.children.length > 0;
+        });
+        sec.style.display = hasAny ? 'grid' : 'none';
+      };
+      toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
+      toggleSection('sec-weather', ['cards-weather']);
+      toggleSection('sec-signals', ['cards-signals']);
+    }
+
+    // Card clicks open Waze map-tool (but NOT when hide button is clicked)
+    function bindCardClicks(){
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', (ev) => {
+          if (ev.target && ev.target.closest('.hide-btn')) {
+            return; // hide button handled elsewhere
+          }
+          const lon = Number(card.getAttribute('data-lon'));
+          const lat = Number(card.getAttribute('data-lat'));
+          if (Number.isFinite(lon) && Number.isFinite(lat)){
+            openWazeTool(lon, lat);
+          }
+        }, { passive: true });
+      });
+    }
+
+    let wazeTimer = null;
+    async function wazeCycle(){
+      const ctrl = new AbortController();
+      try{
+        const data = await fetchViaProxies(WAZE_URL, ctrl.signal);
+
+        // Build primitives
+        const accidentPoints = alertsToAccidentPoints(data);
+        const accidentClustersRaw = clusterAccidents(accidentPoints, 200);
+
+        const signalsRaw = alertsToSignalFaults(data)
+          .sort((a,b)=> (Number(b.time||0)) - (Number(a.time||0)));
+
+        const weatherRaw = alertsToWeather(data)
+          .sort((a,b)=> (Number(b.time||0)) - (Number(a.time||0)));
+
+        // Apply de-duplication
+        const accidentClusters0 = dedupAccidentClusters(accidentClustersRaw, {
+          corridorMeters: 8000,       // tune 6–12 km for motorways
+          bearingTolerance: 35        // tighten to ~25° if over-merge
+        });
+
+        const signals0 = dedupByRoadAndProximity(signalsRaw, {
+          meters: 300, timeMs: 90*60*1000
+        });
+
+        const weather0 = dedupByRoadAndProximity(weatherRaw, {
+          meters: 400, timeMs: 120*60*1000
+        });
+
+        // Filter out hidden items with auto-unhide rules
+        const accidentClusters = accidentClusters0.filter(a => !isHiddenWithAutoCheck('acc', a.id, { conf: a.effectiveConfidence }));
+        const signals = signals0.filter(s => !isHiddenWithAutoCheck('sig', s.id, {}));
+        const weather = weather0.filter(w => !isHiddenWithAutoCheck('wx',  w.id, {}));
+
+        // Render accidents split by confidence
+        const highWrap = document.getElementById('cards-acc-high');
+        const lowWrap  = document.getElementById('cards-acc-low');
+        highWrap.innerHTML = '';
+        lowWrap.innerHTML = '';
+
+        const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
+
+        const highs = accidentClusters.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
+        const lows  = accidentClusters.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
+
+        highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
+        lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
+
+        // Render signals (all)
+        const sigWrap = document.getElementById('cards-signals');
+        sigWrap.innerHTML = signals.map(cardSignalHTML).join('');
+
+        // Render weather (lowest priority)
+        const wxWrap = document.getElementById('cards-weather');
+        wxWrap.innerHTML = weather.map(cardWeatherHTML).join('');
+
+        // Bind card clicks
+        bindCardClicks();
+
+        // Fit to panel constraints
+        requestAnimationFrame(ensureWazeFits);
+
+        // Status
+        setStatusPill(true, { animate:true });
+      }catch(e){
+        console.error('[Waze] fetch failed:', e);
+        setStatusPill(false, { animate:false });
+      }finally{
+        clearTimeout(wazeTimer);
+        wazeTimer = setTimeout(wazeCycle, WAZE_REFRESH_MS);
+      }
+    }
+
+    // Pause/resume on tab visibility change
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden){
+        clearTimeout(tvtTimer); tvtTimer = null;
+        clearTimeout(wazeTimer); wazeTimer = null;
+      } else {
+        tvtCycle();
+        wazeCycle();
+      }
+    });
+
+    // Kick off & wire up "Unhide all"
+    window.addEventListener('load', () => {
+      setStatusPill(false, { animate:false });
+      const unhideBtn = document.getElementById('unhideAllBtn');
+      if (unhideBtn){
+        unhideBtn.addEventListener('click', unhideAll, { passive: true });
+      }
+      tvtCycle();  // Abnormal traffic (top-left)
+      wazeCycle(); // Waze alerts (right)
+      // Re-fit on resize
+      window.addEventListener('resize', () => requestAnimationFrame(ensureWazeFits));
+    });
+  </script>
+</body>
+</html>
