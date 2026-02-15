@@ -599,69 +599,69 @@
         }
       }
 
-        const groups = new Map();
-        for(let i=0;i<points.length;i++){
-          const r = find(i);
-          if(!groups.has(r)) groups.set(r, []);
-          groups.get(r).push(points[i]);
-        }
+      const groups = new Map();
+      for(let i=0;i<points.length;i++){
+        const r = find(i);
+        if(!groups.has(r)) groups.set(r, []);
+        groups.get(r).push(points[i]);
+      }
 
-        const clusters = [];
-        for(const members of groups.values()){
-          const count = members.length;
+      const clusters = [];
+      for(const members of groups.values()){
+        const count = members.length;
 
-          const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
-          const bestRel10  = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+        const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
+        const bestRel10  = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
 
-          let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
-          eff10 = Math.max(0, Math.min(12, eff10));
-          const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
+        let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
+        eff10 = Math.max(0, Math.min(12, eff10));
+        const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
 
-          const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
-          const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
-          const minTime = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
-          const firstTime = (minTime === Infinity) ? 0 : minTime;
+        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const minTime = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
+        const firstTime = (minTime === Infinity) ? 0 : minTime;
 
-          const best = members.slice().sort((a,b)=>{
-            const ce = (Number(b.conf10)||0) - (Number(a.conf10)||0);
-            if(ce!==0) return ce;
-            return (Number(b.time)||0) - (Number(a.time)||0);
-          })[0];
-
-          const id = stableClusterId(avg);
-
-          clusters.push({
-            id,
-            coord: avg,
-            street: best.street, city: best.city,
-            eff5, eff10, baseConf10, bestRel10,
-            latestTime: maxTime, firstTime, count
-          });
-        }
-
-        clusters.sort((a,b)=>{
-          const ce = (Number(b.eff5)||0) - (Number(a.eff5)||0);
+        const best = members.slice().sort((a,b)=>{
+          const ce = (Number(b.conf10)||0) - (Number(a.conf10)||0);
           if(ce!==0) return ce;
-          return (Number(b.latestTime)||0) - (Number(a.latestTime)||0);
-        });
+          return (Number(b.time)||0) - (Number(a.time)||0);
+        })[0];
 
-        return clusters.map(c => ({
-          type:'Feature',
+        const id = stableClusterId(avg);
+
+        clusters.push({
+          id,
+          coord: avg,
+          street: best.street, city: best.city,
+          eff5, eff10, baseConf10, bestRel10,
+          latestTime: maxTime, firstTime, count
+        });
+      }
+
+      clusters.sort((a,b)=>{
+        const ce = (Number(b.eff5)||0) - (Number(a.eff5)||0);
+        if(ce!==0) return ce;
+        return (Number(b.latestTime)||0) - (Number(a.latestTime)||0);
+      });
+
+      return clusters.map(c => ({
+        type:'Feature',
+        id: c.id,
+        geometry:{ type:'Point', coordinates: c.coord },
+        properties:{
           id: c.id,
-          geometry:{ type:'Point', coordinates: c.coord },
-          properties:{
-            id: c.id,
-            effectiveConfidence: c.eff5,
-            street: c.street,
-            city: c.city,
-            time: c.latestTime,
-            firstReportedMillis: c.firstTime,
-            reportCount: c.count,
-            rawConfidence10: c.baseConf10,
-            reliability10:   c.bestRel10,
-            effective10:     c.eff10
-          }
-        }));
+          effectiveConfidence: c.eff5,
+          street: c.street,
+          city: c.city,
+          time: c.latestTime,
+          firstReportedMillis: c.firstTime,
+          reportCount: c.count,
+          rawConfidence10: c.baseConf10,
+          reliability10:   c.bestRel10,
+          effective10:     c.eff10
+        }
+      }));
     }
 
     function formatFirstReported(ms){
@@ -877,6 +877,9 @@
       highlightedCenter = item.center;
       updateHighlightFilters();
 
+      // NEW: Pause/queue TVT sidebar while banner is playing
+      pauseTvtForBanner();
+
       document.getElementById('alert-title').textContent = 'New High Confidence Alert';
       locEl.innerHTML = stylizeRoad(item.street, item.city);
       timeEl.textContent = `First reported: ${formatFirstReported(item.firstMillis)}`;
@@ -898,7 +901,10 @@
           updateHighlightFilters();
           currentBanner = null;
           bannerActive = false;
-          showNextBanner();
+          showNextBanner(); // might start next banner immediately
+
+          // NEW: If no new banner started, resume TVT now
+          if (!bannerActive) { resumeTvtAfterBanner(); }
         }, ALERT_BAR_MS);
 
       }, OVERLAY_MS);
@@ -1551,6 +1557,33 @@
     let tvtSidebarTimer = null, tvtSidebarHideTimer = null;
     let tvtLastFeatures = []; // for map fit
 
+    // === NEW: TVT pause/queue when alert banners are showing ===
+    let tvtPausedForBanner = false;  // true while banners are active
+    let tvtPending = false;          // request to show TVT once banners finish
+    let tvtInFlightCtrl = null;      // abort controller for in-flight TVT fetch
+
+    function pauseTvtForBanner() {
+      tvtPausedForBanner = true;
+      tvtPending = true; // remember to show once banners end
+
+      // Hide sidebar immediately if visible
+      if (tvtSidebarHideTimer) { clearTimeout(tvtSidebarHideTimer); tvtSidebarHideTimer = null; }
+      try { setSidebarVisible(false); } catch (e) {}
+
+      // Abort in-flight TVT fetch
+      try { tvtInFlightCtrl?.abort(); } catch (e) {}
+      tvtInFlightCtrl = null;
+    }
+
+    function resumeTvtAfterBanner() {
+      tvtPausedForBanner = false;
+      if (tvtPending && !document.hidden) {
+        tvtPending = false;
+        // Give the map a moment to settle after banner animations
+        setTimeout(() => { runTvtSidebarCycle(); }, 350);
+      }
+    }
+
     function ensureSidebarHost(){
       let el = document.getElementById('corridorSidebar');
       if (!el){
@@ -1564,6 +1597,12 @@
     }
 
     function setSidebarVisible(show){
+      // NEW: If banners are active or TVT paused for banner, queue and skip opening
+      if (show && (bannerActive || tvtPausedForBanner)) {
+        tvtPending = true;
+        return;
+      }
+
       const el = ensureSidebarHost();
       el.classList.toggle('show', show);
       el.setAttribute('aria-hidden', show ? 'false' : 'true');
@@ -1612,7 +1651,7 @@
       let c;
       if (h >= 0.5){
         const t = (h - 0.5)/0.5;
-        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp(yellow[2], green[2], t) ];
+        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp[yellow[2], green[2], t] ];
       } else {
         const t = h/0.5;
         c = [ lerp(red[0], yellow[0], t), lerp(red[1], yellow[1], t), lerp(red[2], yellow[2], t) ];
@@ -1735,7 +1774,7 @@
         const time = Number(r.time)||0, hist = Number(r.historicTime)||0;
         const h = healthFromTimes(time, hist);
         const color = solidColorFromHealth(h);
-               const abnPct = (hist>0 && time>0) ? Math.round(((time - hist)/hist)*100) : 0;
+        const abnPct = (hist>0 && time>0) ? Math.round(((time - hist)/hist)*100) : 0;
         const title = escapeHTML(corridorDisplayName(r));
         const trend = trendArrowFor(r);
 
@@ -1807,7 +1846,15 @@
 
     async function runTvtSidebarCycle(){
       if (document.hidden) { scheduleTvtNext(TVT_SIDEBAR_INTERVAL_MS); return; }
+
+      // NEW: Defer TVT cycle while banners are showing; resume will trigger a cycle
+      if (bannerActive) {
+        tvtPending = true;
+        return;
+      }
+
       let ctrl = new AbortController();
+      tvtInFlightCtrl = ctrl; // NEW: keep a handle to abort if a banner starts mid-fetch
       try{
         const data = await fetchTVT(ctrl.signal);
         if (data){
@@ -1819,7 +1866,7 @@
       }catch(e){
         console.error('[TVT] cycle error:', e);
       }finally{
-        ctrl = null;
+        tvtInFlightCtrl = null; // NEW: clear the controller
         scheduleTvtNext(TVT_SIDEBAR_INTERVAL_MS);
       }
     }
