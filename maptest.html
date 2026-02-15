@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css" />
   <script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
 
-  <!-- Fonts: IBM Plex (pill) + Barlow Semi Condensed (UI) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
 
@@ -18,16 +18,20 @@
     :root{
       --bg:#000;
       --text:#f2f2f2;
-      --danger:#ff2e34;      /* bottom bar red & edge scan red */
+      --danger:#ff2e34;      /* banner red & edge scan red */
       --red:#ff0000;         /* red circles */
-      --yellow:#ffd000;      /* yellow circles */
+      --yellow:#FFFFFF;      /* white circles */
       --green:#28c76f;       /* OCC accent green */
+      --blueMedium:#5bb1ff;  /* medium blue for ice */
 
       /* Bee dashboard colours */
       --liveGreen:#42BE4B;
       --errorRed:#EA5540;
 
-      /* Top-left spacing to mirror the bus dashboard header padding (16px top, 24px left) */
+      --ui-font: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+
+      --accent:#FFE04A;
+
       --pillTop:16px;
       --pillLeft:24px;
     }
@@ -36,14 +40,13 @@
     body {
       background:var(--bg);
       color:var(--text);
-      font-family:"Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+      font-family: var(--ui-font);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       overflow:hidden;
       position:relative;
     }
 
-    /* Map occupies full height normally; shrinks to 75vh when bar is visible */
     #map {
       position:absolute;
       top:0; left:0; right:0;
@@ -55,7 +58,7 @@
     .maplibregl-ctrl-group button { filter: invert(1) hue-rotate(180deg); }
     .maplibregl-ctrl-attrib { background: rgba(0,0,0,0.5); color:#ddd; }
 
-    /* ===== TOP-LEFT unified STATUS WRAPPER (matches bus dashboard spacing & style) ===== */
+    /* ===== TOP-LEFT unified STATUS WRAPPER ===== */
     .statusWrapper{
       position:absolute;
       top:var(--pillTop);
@@ -64,17 +67,19 @@
       display:flex;
       align-items:center;
       gap:16px;
+      pointer-events:none;
     }
     .status-pill{
       padding:10px 16px;
       border-radius:999px;
       font-size:18px;
       font-weight:800;
-      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
+      font-family:var(--ui-font);
       background:var(--liveGreen);
       color:#000;
       box-shadow:0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
       transition:background .2s ease,color .2s ease;
+      pointer-events:auto;
     }
     .status-error{ background:var(--errorRed); color:#fff; }
 
@@ -82,6 +87,7 @@
       width:64px; height:64px; object-fit:contain;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
       transition: transform 0.2s ease-out;
+      pointer-events:auto;
     }
     @keyframes wibble {
       0%   { transform: rotate(0deg) scale(1); }
@@ -93,25 +99,25 @@
     }
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
-    /* ===== Bottom Alert Bar (25% viewport height) ===== */
+    /* ===== Banner ===== */
     #alert-bar {
       position:absolute;
       left:0; right:0; bottom:0;
-      height:25vh;
+      height:25vh;                        /* compact height */
       background:var(--danger);
       color:#fff;
       z-index:10;
-      transform: translateY(100%);
-      transition: transform 300ms ease;
+      transform: translateY(100%);        /* hidden by default */
+      transition: transform 300ms ease, height 320ms ease;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       padding:16px;
       box-sizing:border-box;
-      font-family:var(--ui-font);
     }
     #alert-bar.show { transform: translateY(0); }
+    #alert-bar.full { height:100vh; }      /* full-screen stage */
 
     #alert-content {
       max-width:1200px;
@@ -120,18 +126,14 @@
       grid-template-rows:auto auto auto;
       row-gap:10px;
       padding:0 16px;
-      font-family:var(--ui-font);
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
     }
-
     #alert-title {
       font-size:clamp(20px, 3.2vh, 32px);
       font-weight:700;
       letter-spacing:0.5px;
       text-transform:uppercase;
     }
-
-    /* ===== Subtitle styling ===== */
     #alert-location {
       font-size: clamp(28px, 5.6vh, 72px);
       font-weight: 700;
@@ -142,16 +144,12 @@
       text-shadow:
         0 2px 6px rgba(0,0,0,0.45),
         0 0 2px rgba(0,0,0,0.85);
-      font-family:var(--ui-font);
     }
-
-    /* Road badge element for M/A/B roads */
     .road-badge {
       display: inline-block;
       margin-right: 12px;
       padding: 2px 14px;
       border-radius: 10px;
-      font-size: 1em;
       font-weight: 700;
       letter-spacing: 0.8px;
       text-transform: uppercase;
@@ -161,10 +159,7 @@
         0 0 0 2px rgba(0,0,0,0.35) inset,
         0 4px 12px rgba(0,0,0,0.40),
         0 0 12px rgba(255,255,255,0.35);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       background: linear-gradient(180deg, #1f1f1f 0%, #000 100%);
-      font-family:var(--ui-font);
     }
     .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); }
     .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); }
@@ -172,64 +167,30 @@
 
     .road-sep { margin: 0 8px; opacity: 0.9; }
 
-    /* First reported time */
     #alert-time {
       font-size:clamp(14px, 2.4vh, 24px);
       font-weight:600;
       opacity:0.9;
-      font-family:var(--ui-font);
     }
 
-    /* ===== SVG Border Sweep (RED) ===== */
-    #svg-scan {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9;
-      opacity: 0;
-      transition: opacity 120ms ease;
-    }
+    /* SVG Edge Sweep */
+    #svg-scan { position: absolute; inset: 0; pointer-events: none; z-index: 9; opacity: 0; transition: opacity 120ms ease; }
     body.scan-on #svg-scan { opacity: 1; }
+    #svg-scan .scan-rect { fill: none; stroke: var(--danger); stroke-width: 15; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 8px rgba(255, 46, 52, 0.75)); }
+    @keyframes dashSweep { from { stroke-dashoffset: 0; } to { stroke-dashoffset: var(--dashLen); } }
+    body.scan-on #svg-scan .scan-rect { animation: dashSweep 900ms ease-out 1; }
 
-    #svg-scan .scan-rect {
-      fill: none;
-      stroke: var(--danger);
-      stroke-width: 15;
-      vector-effect: non-scaling-stroke;
-      filter: drop-shadow(0 0 8px rgba(255, 46, 52, 0.75));
-    }
-
-    @keyframes dashSweep {
-      from { stroke-dashoffset: 0; }
-      to   { stroke-dashoffset: var(--dashLen); }
-    }
-    body.scan-on #svg-scan .scan-rect {
-      animation: dashSweep 900ms ease-out 1;
-    }
-
-    /* ===== Feed Health badges (now hidden but kept for JS compatibility) ===== */
     .feed-health { display:none !important; }
 
-    /* ===== Progress bar styling ===== */
-    #alert-progress-wrap {
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 6px;
-      background: rgba(255,255,255,0.2);
-      overflow: hidden;
-    }
-    #alert-progress {
-      transform-origin: left center;
-      width: 100%; height: 100%;
-      background: #fff;
-      transform: scaleX(0);
-    }
+    /* Progress bar */
+    #alert-progress-wrap { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: rgba(255,255,255,0.2); overflow: hidden; }
+    #alert-progress { transform-origin: left center; width: 100%; height: 100%; background: #fff; transform: scaleX(0); }
   </style>
 </head>
 <body>
   <div id="map"></div>
 
-  <!-- TOP-LEFT unified status pill (match: pill left, bee right) -->
+  <!-- TOP-LEFT unified status pill -->
   <div class="statusWrapper" aria-live="polite">
     <div id="statusPill" class="status-pill">Initialising…</div>
     <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async" />
@@ -240,7 +201,7 @@
     <rect class="scan-rect" x="1" y="1" width="100%" height="100%"></rect>
   </svg>
 
-  <!-- Bottom red alert bar -->
+  <!-- Banner -->
   <div id="alert-bar" aria-live="assertive" aria-hidden="true">
     <div id="alert-content">
       <div id="alert-title">New High Confidence Alert</div>
@@ -250,47 +211,43 @@
     <div id="alert-progress-wrap"><div id="alert-progress"></div></div>
   </div>
 
-  <!-- Hidden old feed badges (kept to avoid breaking any legacy references) -->
+  <!-- Hidden legacy feed badges -->
   <div id="feed-health-waze" class="feed-health" aria-live="polite" aria-label="Waze feed status">Waze: initialising…</div>
   <div id="feed-health-he"   class="feed-health" aria-live="polite" aria-label="Highways feed status">Highways: initialising…</div>
 
   <script>
-    // ===== CONFIG =====
+    /* =======================================================
+       CONFIG / CONSTANTS
+       ======================================================= */
     const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
-    const HE_URL   = 'https://m.highwaysengland.co.uk/feeds/rss/UnplannedEvents/North%20West.xml'; // National Highways RSS (North West)
+    const HE_URL   = 'https://m.highwaysengland.co.uk/feeds/rss/UnplannedEvents/North%20West.xml';
     const REFRESH_MS = 30000;
 
-    const ALERT_BAR_MS       = 10000; // 10s visible
-    const MERGE_METERS       = 200;   // merge alerts within 200 m
+    const OVERLAY_MS   = 5000;
+    const ALERT_BAR_MS = 10000;
+    const MERGE_METERS = 200;
+    const STALE_CLEAR_MS = 5 * 60 * 1000;
 
-    // Optional behaviours
-    const STALE_CLEAR_MS = 5 * 60 * 1000;        // clear accidents if feed stale > 5min
-    const SHOW_BANNER_ON_INCREASE = true;        // banner when high-tier increases
-
-    // High confidence definition
+    const SHOW_BANNER_ON_INCREASE = true;
     const HIGH_CONF_MIN = 4;
 
-    // Clustering reinforcement
-    const CLUSTER_BONUS_PER_REPORT = 0.5;
-    const CLUSTER_BONUS_MAX = 2.0;
+    // New: per-cluster throttle for banners (prevents repeat alerts for same place)
+    const BANNER_THROTTLE_MS = 20 * 60 * 1000; // 20 minutes
+    const bannerLastShownAt = new Map();
 
-    // ===== AUDIO CONFIG (15-minute global cooldown) =====
-    const AUDIO_COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
+    // Audio cooldown
+    const AUDIO_COOLDOWN_MS = 15 * 60 * 1000;
     let audioCtx = null;
     let audioEnabled = false;
     let lastSoundAt = Number(localStorage.getItem('lastSoundAt') || 0);
 
     function unlockAudioOnce() {
       try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        audioCtx.resume().then(() => {
-          audioEnabled = (audioCtx.state === 'running');
-        }).catch(() => {});
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        audioCtx.resume().then(() => { audioEnabled = (audioCtx.state === 'running'); }).catch(() => {});
       } catch (e) {}
       document.removeEventListener('pointerdown', unlockAudioOnce);
-      document.removeEventListener('keydown', unlockAudioOnce);
+      document.removeEventListener('keydown',    unlockAudioOnce);
     }
     document.addEventListener('pointerdown', unlockAudioOnce, { once: true });
     document.addEventListener('keydown',    unlockAudioOnce, { once: true });
@@ -300,13 +257,9 @@
       const now = Date.now();
       return (now - lastSoundAt) >= AUDIO_COOLDOWN_MS;
     }
-
     function playAlertSound() {
       if (!canPlayAlertSound()) return;
-
-      const ctx = audioCtx;
-      const now = ctx.currentTime;
-
+      const ctx = audioCtx, now = ctx.currentTime;
       function tone(freq, start, dur, gainPeak = 0.25) {
         const osc = ctx.createOscillator();
         const g   = ctx.createGain();
@@ -319,51 +272,32 @@
         osc.start(now + start);
         osc.stop(now + start + dur);
       }
-
-      // Two-tone chime: A5 -> E6
       tone(880,  0.00, 0.20, 0.30);
       tone(1319, 0.22, 0.22, 0.28);
-
       lastSoundAt = Date.now();
       localStorage.setItem('lastSoundAt', String(lastSoundAt));
     }
 
-    // ===== Tight Greater Manchester bounds (SW, NE) =====
-    const GM_BOUNDS = [
-      [-2.75, 53.33],  // Southwest (lon, lat)
-      [-1.95, 53.62]   // Northeast (lon, lat)
-    ];
+    // GM bounds & camera
+    const GM_BOUNDS = [[-2.75, 53.33], [-1.95, 53.62]];
+    const FOCUS_ZOOM = 12.0, FOCUS_PITCH = 30, FOCUS_BEARING = 0, FOCUS_MS = 1200;
 
-    const FOCUS_ZOOM    = 12.00;
-    const FOCUS_PITCH   = 30;
-    const FOCUS_BEARING = 0;
-    const FOCUS_MS      = 1200;
-
-    // ===== MAP (MapTiler dark style) =====
+    // Map
     const map = new maplibregl.Map({
       container: 'map',
       style: 'https://api.maptiler.com/maps/019aeeff-f216-7688-8555-59ae0793249c/style.json?key=0H39izAoMROVO5bW1Su2',
       center: [-2.3214, 53.4306],
-      zoom: 11.15,
-      bearing: 0,
-      pitch: 58,
+      zoom: 11.15, bearing: 0, pitch: 58,
       maxBounds: GM_BOUNDS
     });
 
-    // ===== Helpers: cache-bust query =====
-    function withCacheBust(url){
-      const sep = url.includes('?') ? '&' : '?';
-      return `${url}${sep}ts=${Date.now()}`;
-    }
-
-    // ===== Shared proxy chain =====
+    function withCacheBust(url){ const sep = url.includes('?') ? '&' : '?'; return `${url}${sep}ts=${Date.now()}`; }
     const PROXIES = [
       (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
       (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
       (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
     ];
 
-    // ===== Waze fetch via proxy chain with JSON guard =====
     async function fetchViaProxies(url, signal){
       const busted = withCacheBust(url);
       const errors = [];
@@ -376,14 +310,11 @@
           const trimmed = text.replace(/^\uFEFF/, '').trim();
           if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
           return JSON.parse(trimmed);
-        }catch(e){
-          errors.push(`${proxied}: ${e.message}`);
-        }
+        }catch(e){ errors.push(`${proxied}: ${e.message}`); }
       }
       throw new Error(`All proxies failed\n${errors.join('\n')}`);
     }
 
-    // ===== XML fetch via proxies (for National Highways RSS) =====
     async function fetchTextViaProxies(url, signal){
       const busted = withCacheBust(url);
       const errors = [];
@@ -395,26 +326,21 @@
           const text = await res.text();
           if(!text || !text.trim()) throw new Error('Empty response');
           return text;
-        }catch(e){
-          errors.push(`${proxied}: ${e.message}`);
-        }
+        }catch(e){ errors.push(`${proxied}: ${e.message}`); }
       }
       throw new Error(`All proxies failed\n${errors.join('\n')}`);
     }
 
-    // ===== Geo helpers =====
     function toRad(deg){ return deg * Math.PI / 180; }
     function haversineMeters([lon1, lat1], [lon2, lat2]){
-      const R = 6371000;
-      const dLat = toRad(lat2 - lat1);
-      const dLon = toRad(lon2 - lon1);
-      const a = Math.sin(dLat/2)**2
-              + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c;
+      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     }
 
-    // ===== Feed shaping (Waze) =====
+    /* =======================================================
+       WAZE ALERT PARSING + SCORING (with reliability boost)
+       ======================================================= */
     function getLngLatFromAlert(a){
       try{
         if(a){
@@ -434,39 +360,141 @@
       return null;
     }
 
-    function alertsToPoints(feed){
-      const out=[];
-      const alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+    // Robust field readers for 0..10 scores
+    const readConfidence = a => Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0;
+    const readReliability = a => Number(a.reliability ?? a.reliabilityScore ?? 0) || 0;
+
+    // Hazard matchers (type/subtype text varies across partner feeds)
+    function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
+    function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
+    function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
+
+    function isAccident(a){
+      const t = readType(a);
+      const st = readSubType(a);
+      return t.includes('ACCIDENT') || st.includes('ACCIDENT');
+    }
+    function isIceAlert(a){
+      const t = readType(a), st = readSubType(a), d = readDesc(a);
+      // Match common Waze hazard families and text
+      // Covers: ICE / ICY / BLACK ICE / RECENTLY FORMED ICE
+      return (
+        t.includes('ICE') || st.includes('ICE') ||
+        /RECENT(LY)?\s+FORMED\s+ICE|BLACK\s*ICE|\bICE\b|\BICY\b/.test(d)
+      );
+    }
+    function isTrafficLightFault(a){
+      const t = readType(a), st = readSubType(a), d = readDesc(a);
+      // Covers: TRAFFIC_LIGHT_FAULT / BROKEN_TRAFFIC_LIGHT / SIGNAL FAULT
+      return (
+        t.includes('TRAFFIC') && t.includes('LIGHT') ||
+        st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
+        /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
+      );
+    }
+
+    function alertsToAccidentPoints(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
       for(const a of alerts){
-        const type = (a.type || a.alertType || '').toString().toUpperCase();
-        if(type !== 'ACCIDENT') continue;
+        if(!isAccident(a)) continue;
+        const conf10 = readConfidence(a);
+        if(!(conf10 > 0)) continue;
 
-        const base = Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0;
-        if(!(base > 0)) continue;
-
-        const coord = getLngLatFromAlert(a);
-        if(!coord) continue;
-
+        const rel10 = readReliability(a);
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
         const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
+
         out.push({
-          id,
-          coord,
+          id, coord,
           street: a.street || a.roadName || a.address || 'Unknown road',
           city: a.city || a.town || '',
-          conf: base,
+          conf10,             // raw 0..10
+          rel10,              // raw 0..10
           time: a.pubMillis || a.updateTime || a.reportMillis || 0
         });
       }
       return out;
     }
 
-    // ===== Clustering =====
+    function alertsToIcePoints(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        if(!isIceAlert(a)) continue;
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
+        const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
+        out.push({
+          id, coord,
+          time: a.pubMillis || a.updateTime || a.reportMillis || 0
+        });
+      }
+      return out;
+    }
+
+    function alertsToSignalFaultPoints(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        if(!isTrafficLightFault(a)) continue;
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
+        const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
+        out.push({
+          id, coord,
+          time: a.pubMillis || a.updateTime || a.reportMillis || 0
+        });
+      }
+      return out;
+    }
+
+    // Stable centroid-based cluster ID (prevents duplicate “new” clusters)
+    function stableClusterId(coord){
+      // ~4 decimal places ~ 10–12 m precision; keeps ID stable across small jitters
+      const lon = Number(coord[0]).toFixed(4);
+      const lat = Number(coord[1]).toFixed(4);
+      return `cluster-${lon},${lat}`;
+    }
+
+    // Generic proximity clustering (no scoring), to suppress duplicates for hazards
+    function clusterGeneric(points, mergeMeters = MERGE_METERS){
+      if(!points.length) return [];
+      const parent = Array(points.length).fill(0).map((_,i)=>i);
+      const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          if(haversineMeters(points[i].coord, points[j].coord) <= mergeMeters) union(i,j);
+        }
+      }
+
+      const groups = new Map();
+      for(let i=0;i<points.length;i++){
+        const r = find(i);
+        if(!groups.has(r)) groups.set(r, []);
+        groups.get(r).push(points[i]);
+      }
+
+      const features = [];
+      for(const members of groups.values()){
+        const count = members.length;
+        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const id = stableClusterId(avg);
+        features.push({
+          type: 'Feature',
+          id,
+          geometry: { type:'Point', coordinates: avg },
+          properties: { id, count, time: maxTime }
+        });
+      }
+      return features;
+    }
+
+    // ACCIDENT clustering with revised scoring (no cluster bonus + reliability>8 adds +2)
     function clusterAccidents(points, mergeMeters = MERGE_METERS){
       if(points.length === 0) return [];
 
       const parent = Array(points.length).fill(0).map((_,i)=>i);
-      function find(x){ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; }
-      function union(a,b){ a=find(a); b=find(b); if(a!==b) parent[a]=b; }
+      const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
 
       for(let i=0;i<points.length;i++){
         for(let j=i+1;j<points.length;j++){
@@ -484,39 +512,48 @@
 
       const clusters = [];
       for(const members of groups.values()){
-        const count     = members.length;
-        const maxConf   = members.reduce((m,p)=>Math.max(m, Number(p.conf)||0), 0);
+        const count = members.length;
 
-        const bonusRaw  = (count - 1) * CLUSTER_BONUS_PER_REPORT;
-        const bonus     = Math.min(CLUSTER_BONUS_MAX, Math.max(0, bonusRaw));
-        const eff       = Math.min(5, Math.max(1, Math.round(maxConf + bonus)));
+        // 1) Base confidence (0..10) = max of members
+        const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
 
-        const avg       = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]], [0,0]).map(v=>v/count);
-        const maxTime   = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
-        const minTime   = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
+        // 2) Reliability (0..10) = max of members
+        const bestRel10  = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+
+        // 3) Reliability rule: if rel > 8, add +2; cap to 12 for safety
+        let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
+        eff10 = Math.max(0, Math.min(12, eff10));
+
+        // 4) Convert to 1..5 display scale
+        const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
+
+        // Representative metadata
+        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const minTime = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
         const firstTime = (minTime === Infinity) ? 0 : minTime;
-        const ids       = members.map(m=>m.id).sort().join('+');
 
+        // Best member for street/city (highest conf; newest if tie)
         const best = members.slice().sort((a,b)=>{
-          const ce = (Number(b.conf)||0) - (Number(a.conf)||0);
+          const ce = (Number(b.conf10)||0) - (Number(a.conf10)||0);
           if(ce!==0) return ce;
           return (Number(b.time)||0) - (Number(a.time)||0);
         })[0];
 
+        const id = stableClusterId(avg); // <-- stable ID (prevents duplicate banners)
+
         clusters.push({
-          id: `cluster-${ids}`,
+          id,
           coord: avg,
-          street: best.street,
-          city: best.city,
-          eff,
-          latestTime: maxTime,
-          firstTime,
-          count
+          street: best.street, city: best.city,
+          eff5, eff10, baseConf10, bestRel10,
+          latestTime: maxTime, firstTime, count
         });
       }
 
+      // Sort by display eff first, then recency
       clusters.sort((a,b)=>{
-        const ce = (Number(b.eff)||0) - (Number(a.eff)||0);
+        const ce = (Number(b.eff5)||0) - (Number(a.eff5)||0);
         if(ce!==0) return ce;
         return (Number(b.latestTime)||0) - (Number(a.latestTime)||0);
       });
@@ -527,129 +564,112 @@
         geometry:{ type:'Point', coordinates: c.coord },
         properties:{
           id: c.id,
-          effectiveConfidence: c.eff,
+          effectiveConfidence: c.eff5,
           street: c.street,
           city: c.city,
           time: c.latestTime,
           firstReportedMillis: c.firstTime,
-          reportCount: c.count
+          reportCount: c.count,
+          rawConfidence10: c.baseConf10,
+          reliability10:   c.bestRel10,
+          effective10:     c.eff10
         }
       }));
     }
 
-    // ===== Time formatting =====
     function formatFirstReported(ms){
       if(!ms || !isFinite(ms)) return 'Time unknown';
       try{
         return new Date(Number(ms)).toLocaleString('en-GB', {
           timeZone: 'Europe/London',
-          hour12: false,
-          year: 'numeric',
-          month: 'short',
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit'
+          hour12: false, year: 'numeric', month: 'short', day: '2-digit',
+          hour: '2-digit', minute: '2-digit'
         });
-      }catch(e){
-        return 'Time unavailable';
-      }
+      }catch(e){ return 'Time unavailable'; }
     }
 
-    // ===== Canvas pulsing icon for high (>=4) =====
     function createPulsingDot(map, color='red'){
-      const size = 340;
-      const targetFps = 12;
-      const frameMs = 1000 / targetFps;
-      let last = 0;
-
+      const size = 340, targetFps = 12, frameMs = 1000/targetFps; let last=0;
       const fillColor = (on)=> color==='white' ? `rgba(255,255,255,${on?1:0.85})` : `rgba(255,0,0,${on?1:0.9})`;
       const ringColor = (on)=> color==='white' ? `rgba(255,255,255,${on?0.95:0.3})` : `rgba(255, 80, 80, ${on?0.95:0.15})`;
-
       return {
         width:size, height:size, data:new Uint8Array(size*size*4),
-        onAdd:function(){
-          const c=document.createElement('canvas'); c.width=this.width; c.height=this.height;
-          this.context=c.getContext('2d');
-        },
-        render:function(){
-          const now = performance.now();
-          if(now - last < frameMs) return false;
-          last = now;
-
-          const duration = 1200; const t = (now % duration) / duration;
-          const on = t < 0.5;
-
+        onAdd(){ const c=document.createElement('canvas'); c.width=this.width; c.height=this.height; this.context=c.getContext('2d'); },
+        render(){
+          const now=performance.now(); if(now-last<frameMs) return false; last=now;
+          const duration=1200; const t=(now%duration)/duration; const on=t<0.5;
           const ctx=this.context, w=this.width, h=this.height;
           ctx.clearRect(0,0,w,h);
-
-          const ringR = (w/2)*(0.30 + 0.20*t);
+          const ringR=(w/2)*(0.30+0.20*t);
           ctx.beginPath(); ctx.arc(w/2,h/2, ringR, 0, Math.PI*2, false);
-          ctx.fillStyle = ringColor(on); ctx.fill();
-
+          ctx.fillStyle=ringColor(on); ctx.fill();
           ctx.beginPath(); ctx.arc(w/2,h/2, (w/2)*0.18, 0, Math.PI*2, false);
-          ctx.fillStyle = fillColor(true);
-          ctx.strokeStyle = 'rgba(255,255,255,1)';
-          ctx.lineWidth = Math.max(2, w*0.025);
+          ctx.fillStyle=fillColor(true); ctx.strokeStyle='rgba(255,255,255,1)'; ctx.lineWidth=Math.max(2,w*0.025);
           ctx.fill(); ctx.stroke();
-
           const img=ctx.getImageData(0,0,w,h); this.data.set(img.data);
-
-          map.triggerRepaint();
-          return true;
+          map.triggerRepaint(); return true;
         }
       };
     }
 
-    // ===== OCC highlight dots (optional points) =====
-    const HIGHLIGHT_POINTS = [
-      // { name: 'TfGM HQ', coordinates: [-2.2455, 53.4793] },
-    ];
+    /* Triangle icon (green) for traffic light faults */
+    function createTriangleIcon(map, color = '#28c76f') {
+      const size = 320, targetFps = 12, frameMs = 1000 / targetFps;
+      let last = 0;
+      return {
+        width: size,
+        height: size,
+        data: new Uint8Array(size * size * 4),
+        onAdd() {
+          const c = document.createElement('canvas');
+          c.width = this.width; c.height = this.height;
+          this.ctx = c.getContext('2d');
+        },
+        render() {
+          const now = performance.now(); if (now - last < frameMs) return false; last = now;
+          const ctx = this.ctx, w = this.width, h = this.height;
+          ctx.clearRect(0,0,w,h);
+          // Equilateral triangle pointing up
+          const pad = w * 0.12;
+          const x1 = w/2, y1 = pad;
+          const x2 = w - pad, y2 = h - pad;
+          const x3 = pad,     y3 = h - pad;
+          ctx.beginPath();
+          ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.lineTo(x3,y3); ctx.closePath();
+          ctx.fillStyle = color; ctx.fill();
+          ctx.lineWidth = Math.max(2, w * 0.028);
+          ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
+          const img = ctx.getImageData(0,0,w,h); this.data.set(img.data);
+          map.triggerRepaint(); return true;
+        }
+      };
+    }
 
+    /* === OCC Highlights support (unchanged) === */
+    const HIGHLIGHT_POINTS = [];
     function buildHighlightsFC(points){
-      const features = (points || []).filter(p =>
-        Array.isArray(p?.coordinates) && p.coordinates.length >= 2 &&
-        typeof p.coordinates[0] === 'number' && typeof p.coordinates[1] === 'number'
-      ).map((p, i) => ({
-        type: 'Feature',
-        id: p.name ? `hl-${p.name}-${i}` : `hl-${i}`,
-        geometry: { type: 'Point', coordinates: p.coordinates },
-        properties: { name: p.name || '' }
-      }));
-      return { type: 'FeatureCollection', features };
+      const features = (points||[]).filter(p => Array.isArray(p?.coordinates) && p.coordinates.length>=2 && typeof p.coordinates[0]==='number' && typeof p.coordinates[1]==='number')
+        .map((p,i)=>({ type:'Feature', id:p.name?`hl-${p.name}-${i}`:`hl-${i}`, geometry:{type:'Point',coordinates:p.coordinates}, properties:{name:p.name||''} }));
+      return { type:'FeatureCollection', features };
     }
+    function setHighlightPoints(points){ const src=map.getSource('occ-highlights'); const fc=buildHighlightsFC(points); if(src) src.setData(fc); }
 
-    function setHighlightPoints(points){
-      const src = map.getSource('occ-highlights');
-      const fc = buildHighlightsFC(points);
-      if(src) src.setData(fc);
-    }
-
-    // ===== UI elements =====
     const barEl = document.getElementById('alert-bar');
     const locEl = document.getElementById('alert-location');
     const timeEl = document.getElementById('alert-time');
     const progressEl = document.getElementById('alert-progress');
-    const healthWazeEl = document.getElementById('feed-health-waze');
-    const healthHeEl   = document.getElementById('feed-health-he');
 
-    let queue = [], bannerActive = false, highlightedId = null;
-    let highlightedCenter = null;
-    let hideTimer = null;
+    let queue = [], bannerActive = false, highlightedId = null, highlightedCenter = null;
+    let hideTimer = null, fullTimer = null;
 
-    /* ===== SVG Scan helpers ===== */
     function initSvgScan() {
       const rect = document.querySelector('#svg-scan .scan-rect');
       const svg  = document.getElementById('svg-scan');
       if (!rect || !svg) return;
-
       const w = Math.max(0, window.innerWidth  - 2);
       const h = Math.max(0, window.innerHeight - 2);
-
-      rect.setAttribute('x', '1');
-      rect.setAttribute('y', '1');
-      rect.setAttribute('width',  `${w}`);
-      rect.setAttribute('height', `${h}`);
-
+      rect.setAttribute('x','1'); rect.setAttribute('y','1');
+      rect.setAttribute('width',`${w}`); rect.setAttribute('height',`${h}`);
       const perimeter = 2 * (w + h);
       rect.style.strokeDasharray  = `${perimeter}`;
       rect.style.strokeDashoffset = `0`;
@@ -676,22 +696,16 @@
       if (show && highlightedCenter) {
         map.easeTo({
           center: highlightedCenter,
-          zoom: FOCUS_ZOOM,
-          pitch: FOCUS_PITCH,
-          bearing: FOCUS_BEARING,
-          duration: FOCUS_MS,
-          essential: true
+          zoom: FOCUS_ZOOM, pitch: FOCUS_PITCH, bearing: FOCUS_BEARING,
+          duration: FOCUS_MS, essential: true
         });
         setTimeout(runSvgScan, 120);
       } else {
         setTimeout(() => {
           map.easeTo({
             center: [-2.3214, 53.4306],
-            zoom: 11.15,
-            bearing: 0,
-            pitch: 58,
-            duration: 1400,
-            essential: true
+            zoom: 11.15, bearing: 0, pitch: 58,
+            duration: 1400, essential: true
           });
         }, 450);
       }
@@ -712,37 +726,24 @@
       }
     }
 
-    // ===== Visibility-aware alert pausing / resuming =====
     let alertsPaused = document.hidden;
     let currentBanner = null;
-
     function pauseAlerts() {
       if (alertsPaused) return;
       alertsPaused = true;
-
+      if (fullTimer) { clearTimeout(fullTimer); fullTimer = null; }
+      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
       if (bannerActive) {
-        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
         setBarVisible(false);
-
-        if (currentBanner) {
-          queue.unshift(currentBanner);
-          currentBanner = null;
-        }
-
-        bannerActive = false;
-        highlightedId = null;
-        highlightedCenter = null;
-        updateHighlightFilters();
+        if (currentBanner) queue.unshift(currentBanner);
+        bannerActive = false; currentBanner = null;
+        highlightedId = null; highlightedCenter = null; updateHighlightFilters();
       }
     }
-
     function resumeAlerts() {
       if (!alertsPaused) return;
       alertsPaused = false;
-
-      if (!bannerActive) {
-        showNextBanner();
-      }
+      if (!bannerActive) showNextBanner();
     }
 
     function enqueueBanner(feature){
@@ -750,43 +751,26 @@
       const city   = (feature.properties.city||'').trim();
       const center = Array.isArray(feature.geometry?.coordinates) ? feature.geometry.coordinates : null;
       const firstMillis = Number(feature.properties.firstReportedMillis)||0;
-
       const item = { id: feature.id, street, city, center, firstMillis };
       queue.push(item);
-
-      if (!alertsPaused && !bannerActive) {
-        showNextBanner();
-      }
+      if (!alertsPaused && !bannerActive) showNextBanner();
     }
 
     function escapeHTML(str){
-      return String(str).replace(/[&<>:"']/g, (ch) => ({
-        '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
-      }[ch]));
+      return String(str).replace(/[&<>:"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
     }
-
     function stylizeRoad(street, city) {
       const s = escapeHTML((street || '').trim());
       const c = escapeHTML((city || '').trim());
-
       if (!s && !c) return 'Unknown road';
-
       const roadTokenRegex = /\b([MBA]\d{1,4})\b/i;
-
       let displayStreet = s;
       const match = s.match(roadTokenRegex);
-
       if (match) {
         const token = match[1].toUpperCase();
-        const cls = token.startsWith('M') ? 'motorway'
-                  : token.startsWith('A') ? 'aprimary'
-                  : 'broad';
-        displayStreet = s.replace(
-          roadTokenRegex,
-          `<span class="road-badge ${cls}">${token}</span>`
-        );
+        const cls = token.startsWith('M') ? 'motorway' : token.startsWith('A') ? 'aprimary' : 'broad';
+        displayStreet = s.replace(roadTokenRegex, `<span class="road-badge ${cls}">${token}</span>`);
       }
-
       const sep = c ? `<span class="road-sep">—</span>` : '';
       return `${displayStreet}${c ? `${sep}${c}` : ''}`;
     }
@@ -807,64 +791,61 @@
       if (bannerActive || alertsPaused) return;
       const item = queue.shift(); if(!item) return;
 
-      bannerActive = true;
-      currentBanner = item;
-      highlightedId = item.id;
+      bannerActive   = true;
+      currentBanner  = item;
+      highlightedId  = item.id;
       highlightedCenter = item.center;
       updateHighlightFilters();
 
+      document.getElementById('alert-title').textContent = 'New High Confidence Alert';
       locEl.innerHTML = stylizeRoad(item.street, item.city);
       timeEl.textContent = `First reported: ${formatFirstReported(item.firstMillis)}`;
 
+      barEl.classList.add('full');
       setBarVisible(true);
-      resetProgressBar();
 
-      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
-      hideTimer = setTimeout(()=>{
-        setBarVisible(false);
-        highlightedId = null;
-        highlightedCenter = null;
-        updateHighlightFilters();
+      if (fullTimer) clearTimeout(fullTimer);
+      fullTimer = setTimeout(() => {
+        barEl.classList.remove('full');
+        map.resize();
+        resetProgressBar();
 
-        currentBanner = null;
-        bannerActive = false;
-        showNextBanner();
-      }, ALERT_BAR_MS);
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(()=>{
+          setBarVisible(false);
+          highlightedId = null;
+          highlightedCenter = null;
+          updateHighlightFilters();
+          currentBanner = null;
+          bannerActive = false;
+          showNextBanner();
+        }, ALERT_BAR_MS);
+
+      }, OVERLAY_MS);
     }
 
     const prevEffByClusterId = new Map();
     const seenClusterIds = new Set();
     let hasInitializedClusters = false;
 
-    // ===== Global repaint ticker =====
     let repaintRAF = null;
-
     function layerExists(id){ try { return !!map.getLayer(id); } catch(e){ return false; } }
-
     function hasPulsingVisible(){
       if(!layerExists('accidents-high') && !layerExists('accident-highlighted')) return false;
-      const red = layerExists('accidents-high') ? map.queryRenderedFeatures({layers:['accidents-high']}) : [];
+      const red   = layerExists('accidents-high') ? map.queryRenderedFeatures({layers:['accidents-high']}) : [];
       const white = layerExists('accident-highlighted') ? map.queryRenderedFeatures({layers:['accident-highlighted']}) : [];
-      return (red && red.length > 0) || (white && white.length > 0);
+      return (red && red.length>0) || (white && white.length>0);
     }
-
     function startGlobalRepaint(){
       if (repaintRAF) return;
       const tick = () => {
-        if (hasPulsingVisible()) {
-          map.triggerRepaint();
-          repaintRAF = requestAnimationFrame(tick);
-        } else {
-          cancelAnimationFrame(repaintRAF); repaintRAF = null;
-        }
+        if (hasPulsingVisible()) { map.triggerRepaint(); repaintRAF = requestAnimationFrame(tick); }
+        else { cancelAnimationFrame(repaintRAF); repaintRAF = null; }
       };
       repaintRAF = requestAnimationFrame(tick);
     }
 
-    // ===== Unified status pill =====
-    function fmtHHMMSS(){
-      return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());
-    }
+    function fmtHHMMSS(){ return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date()); }
     function setStatusPill(ok, {animate=false}={}){
       const pill=document.getElementById('statusPill');
       const bee=document.getElementById('beeLogo');
@@ -872,18 +853,13 @@
       if(ok){
         pill.classList.remove('status-error');
         pill.textContent=`Live  ${t}`;
-        if(animate && bee){
-          bee.classList.remove('bee-wibble');
-          void bee.offsetWidth; // reflow
-          bee.classList.add('bee-wibble');
-        }
+        if(animate && bee){ bee.classList.remove('bee-wibble'); void bee.offsetWidth; bee.classList.add('bee-wibble'); }
       } else {
         pill.classList.add('status-error');
         pill.textContent=`Stand By • ${t}`;
       }
     }
-    let lastOkWaze = 0;
-    let lastOkHe   = 0;
+    let lastOkWaze = 0, lastOkHe = 0;
     const STATUS_STALE_MS = Math.max(REFRESH_MS * 2, 65000);
     function updateGlobalStatus({animate=false}={}){
       const now = Date.now();
@@ -895,7 +871,6 @@
     function markHealthStale_Waze(){ updateGlobalStatus(); clearAccidentsIfTooStale(); }
     function markHealthOK_He(){ lastOkHe = Date.now(); updateGlobalStatus({animate:true}); }
     function markHealthStale_He(){ updateGlobalStatus(); }
-
     function clearAccidentsIfTooStale(){
       const staleMs = Date.now() - (lastOkWaze || 0);
       if (lastOkWaze && staleMs > STALE_CLEAR_MS) {
@@ -903,17 +878,20 @@
       }
     }
 
-    // ===== Hidden-tab fetch throttling =====
-    const HIDDEN_REFRESH_MULTIPLIER = 4;
-    const HIDDEN_REFRESH_MAX_MS     = 180000;
-    function effectiveDelay(ms){
-      return document.hidden ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms;
-    }
+    const HIDDEN_REFRESH_MULTIPLIER = 4, HIDDEN_REFRESH_MAX_MS = 180000;
+    function effectiveDelay(ms){ return document.hidden ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms; }
 
-    // ===== Waze update loop =====
-    let fetchTimer = null;
-    let inFlight = null;
-    let proxyStartIndex = 0;
+    let fetchTimer = null, inFlight = null, proxyStartIndex = 0;
+    let lastClusterFeatures = [];
+
+    function shouldTriggerBanner(f) {
+      const id = f?.id;
+      const now = Date.now();
+      const last = bannerLastShownAt.get(id) || 0;
+      if (now - last < BANNER_THROTTLE_MS) return false;
+      bannerLastShownAt.set(id, now);
+      return true;
+    }
 
     async function runCycle(){
       if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
@@ -927,13 +905,25 @@
 
       try{
         const data = await fetchViaProxies(WAZE_URL, controller.signal);
-        const points = alertsToPoints(data);
-        const clusterFeatures = clusterAccidents(points, MERGE_METERS);
 
-        const geo = { type:'FeatureCollection', features: clusterFeatures };
-        const src = map.getSource('accidents');
-        if(src) src.setData(geo);
+        // --- Parse points ---
+        const accidentPoints = alertsToAccidentPoints(data);
+        const icePoints      = alertsToIcePoints(data);
+        const signalPoints   = alertsToSignalFaultPoints(data);
 
+        // --- Cluster ---
+        const clusterFeatures = clusterAccidents(accidentPoints, MERGE_METERS);
+        lastClusterFeatures = clusterFeatures.slice();
+
+        const iceFeatures    = clusterGeneric(icePoints, MERGE_METERS);
+        const signalFeatures = clusterGeneric(signalPoints, MERGE_METERS);
+
+        // --- Set sources ---
+        map.getSource('accidents')?.setData({ type:'FeatureCollection', features: clusterFeatures });
+        map.getSource('waze-ice')?.setData({ type:'FeatureCollection', features: iceFeatures });
+        map.getSource('waze-signal-faults')?.setData({ type:'FeatureCollection', features: signalFeatures });
+
+        // --- Banner/chime logic ---
         let brandNewCount = 0;
         for (const f of clusterFeatures) {
           if (!seenClusterIds.has(f.id)) {
@@ -952,7 +942,7 @@
           const becameHigherHigh = SHOW_BANNER_ON_INCREASE && (newEff >= HIGH_CONF_MIN) && (oldEff !== undefined) && (newEff > oldEff);
 
           prevEffByClusterId.set(id, newEff);
-          if (becameHigh || becameHigherHigh) newly.push(f);
+          if ((becameHigh || becameHigherHigh) && shouldTriggerBanner(f)) newly.push(f);
         }
 
         if ((brandNewCount > 0 || newly.length > 0) && !document.hidden && canPlayAlertSound()) {
@@ -984,61 +974,36 @@
         startGlobalRepaint();
       }
     }
+    function scheduleNext(ms){ clearTimeout(fetchTimer); fetchTimer = setTimeout(runCycle, effectiveDelay(ms)); }
 
-    function scheduleNext(ms){
-      clearTimeout(fetchTimer);
-      fetchTimer = setTimeout(runCycle, effectiveDelay(ms));
-    }
-
-    // ===== National Highways RSS parser → GeoJSON =====
-    function tryNumber(v){
-      const n = Number(v);
-      return Number.isFinite(n) ? n : null;
-    }
-
+    function tryNumber(v){ const n=Number(v); return Number.isFinite(n) ? n : null; }
     function parseHeRss(xmlString){
-      let doc;
-      try{
-        doc = new DOMParser().parseFromString(xmlString, 'text/xml');
-      }catch(e){
-        return { type:'FeatureCollection', features:[] };
-      }
-      const items = Array.from(doc.querySelectorAll('item'));
-      const feats = [];
-
+      let doc; try{ doc = new DOMParser().parseFromString(xmlString, 'text/xml'); }catch(e){ return { type:'FeatureCollection', features:[] }; }
+      const items = Array.from(doc.querySelectorAll('item')), feats = [];
       for(const item of items){
-        let lat = null, lon = null;
-
+        let lat=null, lon=null;
         const geoPoint = item.querySelector('ge\\:point, georss\\:point, point');
         if(geoPoint && geoPoint.textContent){
           const parts = geoPoint.textContent.trim().split(/[ ,]+/);
-          if(parts.length >= 2){
-            lat = tryNumber(parts[0]); lon = tryNumber(parts[1]);
-          }
+          if(parts.length>=2){ lat = tryNumber(parts[0]); lon = tryNumber(parts[1]); }
         }
-
-        if(lat === null || lon === null){
+        if(lat===null || lon===null){
           const latEl = item.querySelector('geo\\:lat, lat');
           const lonEl = item.querySelector('geo\\:long, lon, long');
-          if(latEl && lonEl){
-            lat = tryNumber(latEl.textContent);
-            lon = tryNumber(lonEl.textContent);
-          }
+          if(latEl && lonEl){ lat = tryNumber(latEl.textContent); lon = tryNumber(lonEl.textContent); }
         }
-
-        if((lat === null || lon === null) && item.querySelector('link')){
+        if((lat===null || lon===null) && item.querySelector('link')){
           try{
             const href = item.querySelector('link')?.textContent?.trim() || '';
             const u = new URL(href, location.href);
             const qLat = tryNumber(u.searchParams.get('lat'));
             const qLon = tryNumber(u.searchParams.get('lon') || u.searchParams.get('lng') || u.searchParams.get('long'));
-            if(qLat != null && qLon != null){
-              lat = qLat; lon = qLon;
-            }else{
+            if(qLat != null && qLon != null){ lat = qLat; lon = qLon; }
+            else {
               const lonlat = u.searchParams.get('lonlat') || u.searchParams.get('ll');
               if(lonlat){
                 const parts = lonlat.split(/[ ,]+/);
-                if(parts.length >= 2){
+                if(parts.length>=2){
                   const qLon2 = tryNumber(parts[0]); const qLat2 = tryNumber(parts[1]);
                   if(qLat2 != null && qLon2 != null){ lat = qLat2; lon = qLon2; }
                 }
@@ -1046,79 +1011,52 @@
             }
           }catch(e){}
         }
-
-        if(lat == null || lon == null) continue;
-
-        const title   = item.querySelector('title')?.textContent?.trim() || 'Unplanned event';
-        const guid    = item.querySelector('guid')?.textContent?.trim() || `${lon},${lat},${title}`;
+        if(lat==null || lon==null) continue;
+        const title = item.querySelector('title')?.textContent?.trim() || 'Unplanned event';
+        const guid  = item.querySelector('guid')?.textContent?.trim() || `${lon},${lat},${title}`;
         const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
-
-        feats.push({
-          type: 'Feature',
-          id: `he-${guid}`,
-          geometry: { type:'Point', coordinates:[lon, lat] },
-          properties: { id:`he-${guid}`, title, pubDate }
-        });
+        feats.push({ type:'Feature', id:`he-${guid}`, geometry:{type:'Point', coordinates:[lon,lat]}, properties:{ id:`he-${guid}`, title, pubDate }});
       }
-
       return { type:'FeatureCollection', features:feats };
     }
 
-    // ===== Highways feed health tracking =====
-    let heTimer = null;
-    let heInFlight = null;
-
+    let heTimer=null, heInFlight=null;
     async function runHeCycle(){
       if(heInFlight){ try{ heInFlight.abort(); }catch(e){} heInFlight = null; }
-
-      const controller = new AbortController();
-      heInFlight = controller;
-
+      const controller = new AbortController(); heInFlight = controller;
       try{
         const xml = await fetchTextViaProxies(HE_URL, controller.signal);
         const fc  = parseHeRss(xml);
-
-        const src = map.getSource('he-unplanned');
-        if(src) src.setData(fc);
-
+        const src = map.getSource('he-unplanned'); if(src) src.setData(fc);
         markHealthOK_He();
         scheduleHeNext(REFRESH_MS);
       }catch(e){
         console.error('Highways fetch failed:', e);
         markHealthStale_He(e?.message || 'request error');
         scheduleHeNext(Math.min(REFRESH_MS * 2, 180000));
-      }finally{
-        heInFlight = null;
-      }
+      }finally{ heInFlight = null; }
     }
+    function scheduleHeNext(ms){ clearTimeout(heTimer); heTimer = setTimeout(runHeCycle, effectiveDelay(ms)); }
 
-    function scheduleHeNext(ms){
-      clearTimeout(heTimer);
-      heTimer = setTimeout(runHeCycle, effectiveDelay(ms));
-    }
-
-    // ===== Page Visibility / Lifecycle bindings =====
     document.addEventListener('visibilitychange', () => { if (document.hidden) pauseAlerts(); else resumeAlerts(); });
     window.addEventListener('pageshow',  () => { if (!document.hidden) resumeAlerts(); });
     window.addEventListener('pagehide',  () => { pauseAlerts(); });
 
-    // ===== Map setup =====
     map.on('load', async () => {
-      // Fit to GM bounds on load (minimal padding)
       map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
 
-      // Images for pulsing (high = >=4)
+      // Pulsing images
       map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
       map.addImage('pulsing-white', createPulsingDot(map,'white'), { pixelRatio: 2 });
 
-      // Accident source
+      // New small green triangle for traffic light faults
+      map.addImage('triangle-green', createTriangleIcon(map, '#28c76f'), { pixelRatio: 2 });
+
+      // ACCIDENTS
       map.addSource('accidents', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
 
-      // = 1 : small YELLOW circle
       map.addLayer({
-        id:'accidents-one',
-        type:'circle',
-        source:'accidents',
+        id:'accidents-one', type:'circle', source:'accidents',
         filter: ['==', ['get','effectiveConfidence'], 1],
         paint:{
           'circle-radius':['interpolate',['linear'],['zoom'], 8,3.0, 12,4.0, 16,5.5],
@@ -1127,12 +1065,8 @@
           'circle-stroke-width': 1.0
         }
       });
-
-      // = 2 : medium YELLOW circle
       map.addLayer({
-        id:'accidents-two',
-        type:'circle',
-        source:'accidents',
+        id:'accidents-two', type:'circle', source:'accidents',
         filter: ['==', ['get','effectiveConfidence'], 2],
         paint:{
           'circle-radius':['interpolate',['linear'],['zoom'], 8,4.4, 12,6.0, 16,7.4],
@@ -1141,12 +1075,8 @@
           'circle-stroke-width': 1.2
         }
       });
-
-      // = 3 : larger RED circle (non-pulsing)
       map.addLayer({
-        id:'accidents-three',
-        type:'circle',
-        source:'accidents',
+        id:'accidents-three', type:'circle', source:'accidents',
         filter: ['==', ['get','effectiveConfidence'], 3],
         paint:{
           'circle-radius':['interpolate',['linear'],['zoom'], 8,6.2, 12,8.2, 16,10.2],
@@ -1155,100 +1085,447 @@
           'circle-stroke-width': 1.6
         }
       });
-
-      // ≥ 4 : pulsing RED symbols (high confidence)
       map.addLayer({
-        id:'accidents-high',
-        type:'symbol',
-        source:'accidents',
-        filter: ['>=', ['get','effectiveConfidence'], HIGH_CONF_MIN],
-        layout:{
-          'icon-image':'pulsing-red',
-          'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95],
-          'icon-allow-overlap':true
-        }
+        id:'accidents-high', type:'symbol', source:'accidents',
+        filter: ['>=', ['get','effectiveConfidence'], 4],
+        layout:{ 'icon-image':'pulsing-red', 'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95], 'icon-allow-overlap':true }
       });
-
-      // Highlighted (bar’s referenced cluster) as pulsing WHITE
       map.addLayer({
-        id:'accident-highlighted',
-        type:'symbol',
-        source:'accidents',
+        id:'accident-highlighted', type:'symbol', source:'accidents',
         filter: ["==", ["get","id"], "___none___"],
-        layout:{
-          'icon-image':'pulsing-white',
-          'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95],
-          'icon-allow-overlap':true
-        }
+        layout:{ 'icon-image':'pulsing-white', 'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95], 'icon-allow-overlap':true }
       });
 
-      // Your OCC highlight dots
-      map.addSource('occ-highlights', {
-        type: 'geojson',
-        data: buildHighlightsFC(HIGHLIGHT_POINTS)
-      });
+      // OCC manual highlights
+      map.addSource('occ-highlights', { type:'geojson', data: buildHighlightsFC(HIGHLIGHT_POINTS) });
       map.addLayer({
-        id: 'occ-highlights-dots',
-        type: 'circle',
-        source: 'occ-highlights',
+        id: 'occ-highlights-dots', type: 'circle', source: 'occ-highlights',
         paint: {
           'circle-radius': ['interpolate', ['linear'], ['zoom'], 8, 3.2, 12, 4.2, 16, 5.8],
-          'circle-color': '#28c76f',
-          'circle-stroke-color': '#ffffff',
-          'circle-stroke-width': 1.2,
-          'circle-blur': 0.03
+          'circle-color': '#28c76f', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.2, 'circle-blur': 0.03
         }
       });
 
-      // National Highways (North West) blue dots (static)
-      map.addSource('he-unplanned', {
-        type: 'geojson',
-        data: { type:'FeatureCollection', features:[] }
-      });
+      // Highways (blue) reference dots
+      map.addSource('he-unplanned', { type: 'geojson', data: { type:'FeatureCollection', features:[] } });
       map.addLayer({
-        id: 'he-unplanned-dots',
-        type: 'circle',
-        source: 'he-unplanned',
+        id: 'he-unplanned-dots', type: 'circle', source: 'he-unplanned',
         paint: {
           'circle-radius': ['interpolate',['linear'],['zoom'], 8, 3.4, 12, 5.2, 16, 7.0],
-          'circle-color': '#3a90ff',
+          'circle-color': '#3a90ff', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.2, 'circle-blur': 0.03
+        }
+      });
+
+      /* =======================================================
+         NEW: Waze ICE + TRAFFIC LIGHT FAULTS
+         ======================================================= */
+      map.addSource('waze-ice', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+      map.addLayer({
+        id: 'waze-ice-dots', type: 'circle', source: 'waze-ice',
+        paint: {
+          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 4.0, 12, 5.5, 16, 7.0], /* medium */
+          'circle-color': varColor('--blueMedium', '#5bb1ff'),
           'circle-stroke-color': '#ffffff',
-          'circle-stroke-width': 1.2,
+          'circle-stroke-width': 1.1,
           'circle-blur': 0.03
         }
       });
 
-      // Controlled update cycles
-      await runCycle();
-      scheduleNext(REFRESH_MS);
+      map.addSource('waze-signal-faults', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+      map.addLayer({
+        id: 'waze-signal-faults-icon', type: 'symbol', source: 'waze-signal-faults',
+        layout: {
+          'icon-image': 'triangle-green',
+          'icon-size': ['interpolate',['linear'],['zoom'], 8, 0.28, 12, 0.40, 16, 0.54], /* small */
+          'icon-allow-overlap': true
+        }
+      });
 
-      await runHeCycle();
-      scheduleHeNext(REFRESH_MS);
+      /* =======================================================
+         BODS (SIRI‑SX) → DIVERT CENTROIDS (hexagon per divert)
+         ======================================================= */
+      const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+      const OP_COLOR_MAP = {
+        BNML:"#ff4d4f",  // ML
+        BNGN:"#003C6E",  // GN
+        BNSM:"#ff9a1f",  // SC
+        BNDB:"#9AC331",  // DB
+        BNVB:"#7a3ffe",  // VB
+        BNFM:"#ff66b3"   // FB
+      };
 
-      // Start global repaint ticker once the style and layers exist
+      const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
+      const BODS_URL = `https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${encodeURIComponent(API_KEY)}`;
+      const BODS_REFRESH_MS = 45000;
+
+      const UNPLANNED_ONLY = true;
+
+      const parseISO = s => s ? new Date(s) : null;
+      function isToday(d){ const n=new Date(); return d && d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate(); }
+      function isCurrentlyValid(sit){
+        const now=new Date();
+        const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+        const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+        if(!s) return false; if(s > now) return false; if(e && e < now) return false; return true;
+      }
+      function isUnplanned(sit){
+        const p = sit?.Planned;
+        if (typeof p === 'boolean') return p === false;
+        if (typeof p === 'string')  return p.trim().toLowerCase() === 'false';
+        return false;
+      }
+      function isDiversion(sit){
+        const txt = (sit?.Description || sit?.Summary || "").toLowerCase();
+        return /\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(txt);
+      }
+      function getOperatorRefs(sit){
+        const out = new Set();
+        const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+        const add = v => { if(v) out.add(String(v).toUpperCase()); };
+        if (Array.isArray(avj)){ avj.forEach(j => add(j?.OperatorRef)); }
+        else if (avj){ add(avj?.OperatorRef); }
+        if (Array.isArray(sit.__operatorRefs)){ sit.__operatorRefs.forEach(r => add(r)); }
+        return [...out];
+      }
+      function singleOperatorForTint(sit){
+        const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+        if (Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef).toUpperCase();
+        if (avj?.OperatorRef) return String(avj.OperatorRef).toUpperCase();
+        if (sit?.OperatorRef) return String(sit.OperatorRef).toUpperCase();
+        if (sit?.__operatorRefs?.length) return String(sit.__operatorRefs[0]).toUpperCase();
+        return "";
+      }
+      function inDisplayPool(sit){
+        const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+        const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+        const startIsToday = !!(s && isToday(s));
+        const endIsToday   = !!(e && isToday(e));
+        const isUFN        = !e;
+        return startIsToday || endIsToday || isUFN;
+      }
+      function withinGMBounds(lon,lat){
+        const sw = GM_BOUNDS[0], ne = GM_BOUNDS[1];
+        return lon>=sw[0] && lon<=ne[0] && lat>=sw[1] && lat<=ne[1];
+      }
+
+      async function fetchBODS(){
+        const url = `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(BODS_URL)}&ts=${Date.now()}`;
+        const res = await fetch(url, { cache:'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const clone = res.clone();
+        try{
+          const j = await res.json();
+          return { type:'json', data: j };
+        }catch{
+          const text = await clone.text();
+          const xml  = new DOMParser().parseFromString(text, 'application/xml');
+          return { type:'xml', data: xml };
+        }
+      }
+
+      function extractSituationsFromJSON(json){
+        const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+        if(!sd) return [];
+        const sed = Array.isArray(sd.SituationExchangeDelivery) ? sd.SituationExchangeDelivery : [sd.SituationExchangeDelivery].filter(Boolean);
+        const out=[];
+        for(const d of sed){
+          const pe = d?.Situations?.PtSituationElement;
+          if(Array.isArray(pe)) out.push(...pe);
+          else if(pe) out.push(pe);
+        }
+        return out;
+      }
+      function extractSituationsFromXML(doc){
+        const els = [...doc.querySelectorAll("PtSituationElement")];
+        return els.map(el=>{
+          const T = s => el.querySelector(s)?.textContent?.trim() || null;
+          const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")].map(n=>n.textContent.trim()).filter(Boolean);
+          const stops   = [...el.querySelectorAll("AffectedStopPoint")];
+          return {
+            Summary: T("Summary") || T("Description"),
+            Description: T("Description"),
+            Planned: (T("Planned") || "")?.toLowerCase(),
+            SituationNumber: T("SituationNumber") || T("SituationRef"),
+            ParticipantRef:  T("ParticipantRef"),
+            ValidityPeriod: {
+              StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
+              EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
+            },
+            Affects: {
+              VehicleJourneys: {},
+              StopPoints: { AffectedStopPoint: stops.map(sEl => {
+                const lon = Number(sEl.querySelector("Location > Longitude")?.textContent);
+                const lat = Number(sEl.querySelector("Location > Latitude")?.textContent);
+                const ref = sEl.querySelector("StopPointRef")?.textContent?.trim() || null;
+                const p = {};
+                if (Number.isFinite(lon) && Number.isFinite(lat)) p.Location = { Longitude:lon, Latitude:lat };
+                if (ref) p.StopPointRef = ref;
+                return p;
+              }) }
+            },
+            __operatorRefs: opsRef
+          };
+        });
+      }
+
+      function getAffectedStops(sit){
+        const points = sit?.Affects?.StopPoints?.AffectedStopPoint;
+        const stops = [];
+        if (Array.isArray(points)){
+          for(const p of points){
+            const lon = Number(p?.Location?.Longitude ?? p?.Longitude);
+            const lat = Number(p?.Location?.Latitude  ?? p?.Latitude);
+            if (Number.isFinite(lon) && Number.isFinite(lat)){
+              if (!GM_BOUNDS || withinGMBounds(lon,lat)){ stops.push({ lon, lat }); }
+            }
+          }
+        }
+        const seen = new Set(); const out=[];
+        for(const s of stops){
+          const k = `${s.lon.toFixed(6)},${s.lat.toFixed(6)}`;
+          if(!seen.has(k)){ seen.add(k); out.push(s); }
+        }
+        return out;
+      }
+
+      function centroidOf(stops){
+        if(!stops.length) return null;
+        const sum = stops.reduce((a,s)=>({ lon:a.lon + s.lon, lat:a.lat + s.lat }), {lon:0, lat:0});
+        return { lon: sum.lon / stops.length, lat: sum.lat / stops.length };
+      }
+
+      function mapSituationToCentroidFeature(sit){
+        const op = (singleOperatorForTint(sit) || getOperatorRefs(sit)[0] || '').toUpperCase();
+        if (!op || !BEE_OPERATORS.includes(op)) return null;
+
+        const stops = getAffectedStops(sit);
+        if (!stops.length) return null;
+        const c = centroidOf(stops);
+        if (!c) return null;
+
+        const id = String(sit?.SituationNumber || sit?.SituationRef || sit?.ParticipantRef || sit?.Summary || Math.random()).slice(0,80);
+        const color = OP_COLOR_MAP[op] || '#cfcfd6';
+        const isUFN = !(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+
+        return {
+          type: 'Feature',
+          id: `centroid-${id}`,
+          geometry: { type:'Point', coordinates: [c.lon, c.lat] },
+          properties: { id, op, color, isUFN: !!isUFN }
+        };
+      }
+
+      map.addSource('divert-centroids', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+
+      map.addLayer({
+        id:'divert-centroids-halo',
+        type:'circle',
+        source:'divert-centroids',
+        paint:{
+          'circle-color': ['get','color'],
+          'circle-opacity': 0.30,
+          'circle-blur': 0.5,
+          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 8, 12, 11, 16, 15]
+        }
+      });
+
+      // Hex icons per operator (animated)
+      function createHexDivertIcon(map, color = '#FFFFFF') {
+        const size = 320; const targetFps = 12; const frameMs = 1000 / targetFps; let last = 0;
+        return {
+          width: size, height: size, data: new Uint8Array(size * size * 4),
+          onAdd() { const c = document.createElement('canvas'); c.width = this.width; c.height = this.height; this.ctx = c.getContext('2d'); },
+          render() {
+            const now = performance.now(); if (now - last < frameMs) return false; last = now;
+            const ctx = this.ctx, w = this.width, h = this.height, cx = w/2, cy = h/2;
+            const dur = 1200; const t = (now % dur) / dur; const glow = 0.85 + Math.sin(t * Math.PI * 2) * 0.15;
+            ctx.clearRect(0,0,w,h);
+            ctx.beginPath(); ctx.arc(cx, cy, (w/2)*0.44, 0, Math.PI*2); ctx.fillStyle='rgba(0,0,0,0.55)'; ctx.shadowColor = color; ctx.shadowBlur = 24 * glow; ctx.fill(); ctx.shadowBlur = 0;
+            const R = (w/2)*0.34; const rotation = Math.PI/2 + Math.PI; // point-down
+            function hexPath(radius) {
+              ctx.beginPath();
+              for (let i = 0; i < 6; i++) {
+                const a = rotation + (i * Math.PI / 3);
+                const x = cx + radius * Math.cos(a);
+                const y = cy + radius * Math.sin(a);
+                if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+              }
+              ctx.closePath();
+            }
+            hexPath(R); ctx.fillStyle = color; ctx.fill();
+            ctx.lineJoin = 'round';
+            ctx.lineWidth = Math.max(2, w * 0.028); ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
+            ctx.lineWidth = Math.max(2, w * 0.010); ctx.strokeStyle = 'rgba(0,0,0,0.70)'; hexPath(R * 1.02); ctx.stroke();
+            const img = ctx.getImageData(0,0,w,h); this.data.set(img.data);
+            map.triggerRepaint(); return true;
+          }
+        };
+      }
+      const DIVERT_DEFAULT_COLOR = '#cfcfd6';
+      function ensureDivertImages() {
+        function addIfMissing(name, color) {
+          if (!map.hasImage(name)) {
+            map.addImage(name, createHexDivertIcon(map, color), { pixelRatio: 2 });
+          }
+        }
+        addIfMissing('divert-default', DIVERT_DEFAULT_COLOR);
+        Object.entries(OP_COLOR_MAP).forEach(([op, col]) => addIfMissing(`divert-${op}`, col));
+      }
+      ensureDivertImages();
+
+      map.addLayer({
+        id: 'divert-centroids-icon',
+        type: 'symbol',
+        source: 'divert-centroids',
+        layout: {
+          'icon-image': [
+            'match', ['get', 'op'],
+            'BNML', 'divert-BNML',
+            'BNGN', 'divert-BNGN',
+            'BNSM', 'divert-BNSM',
+            'BNDB', 'divert-BNDB',
+            'BNVB', 'divert-BNVB',
+            'BNFM', 'divert-BNFM',
+            /* default: */ 'divert-default'
+          ],
+          'icon-size': ['interpolate', ['linear'], ['zoom'], 8, 0.375, 12, 0.54, 16, 0.75],
+          'icon-allow-overlap': true
+        }
+      });
+
+      // UFN pulse animation (size)
+      let pulse = 1.0, pulseDir = 1;
+      function applyPulse(){
+        const factor = ['case', ['get','isUFN'], pulse, 1];
+        map.setPaintProperty('divert-centroids-halo','circle-radius',
+          ['interpolate',['linear'],['zoom'],
+            8,  ['*', 8,  factor],
+            12, ['*', 11, factor],
+            16, ['*', 15, factor]
+          ]
+        );
+        map.setLayoutProperty('divert-centroids-icon','icon-size',
+          ['interpolate',['linear'],['zoom'],
+            8,  ['*', 0.375, factor],
+            12, ['*', 0.54,  factor],
+            16, ['*', 0.75,  factor]
+          ]
+        );
+      }
+      function animateUFN(){
+        pulse += (pulseDir * 0.05);
+        if (pulse >= 1.25) { pulse = 1.25; pulseDir = -1; }
+        if (pulse <= 0.85) { pulse =  0.85; pulseDir =  1; }
+        applyPulse();
+        requestAnimationFrame(animateUFN);
+      }
+      applyPulse();
+      requestAnimationFrame(animateUFN);
+
+      async function updateDivertCentroidsOnce(){
+        try{
+          const { type, data } = await (async function(){
+            const url = `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(BODS_URL)}&ts=${Date.now()}`;
+            const res = await fetch(url, { cache:'no-store' });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const clone = res.clone();
+            try{
+              const j = await res.json();
+              return { type:'json', data: j };
+            }catch{
+              const text = await clone.text();
+              const xml  = new DOMParser().parseFromString(text, 'application/xml');
+              return { type:'xml', data: xml };
+            }
+          })();
+
+          const all = (type === 'json') ? extractSituationsFromJSON(data) : extractSituationsFromXML(data);
+
+          const live = all
+            .filter(s =>
+              getOperatorRefs(s).some(r => BEE_OPERATORS.includes(String(r).toUpperCase())) ||
+              BEE_OPERATORS.includes((singleOperatorForTint(s) || '').toUpperCase())
+            )
+            .filter(isDiversion)
+            .filter(isCurrentlyValid);
+
+          const liveUnplanned = UNPLANNED_ONLY ? live.filter(isUnplanned) : live;
+          const display = liveUnplanned.filter(inDisplayPool);
+
+          const feats = display.map(mapSituationToCentroidFeature).filter(Boolean);
+
+          map.getSource('divert-centroids')?.setData({ type:'FeatureCollection', features:feats });
+        }catch(e){
+          console.error('[BODS centroids] fetch/update failed:', e);
+        }
+      }
+
+      // Kick everything
+      await runCycle(); scheduleNext(REFRESH_MS);
+      await runHeCycle(); scheduleHeNext(REFRESH_MS);
+      await updateDivertCentroidsOnce();
+      setInterval(updateDivertCentroidsOnce, BODS_REFRESH_MS);
+
       startGlobalRepaint();
-
-      // Initialise pill state
       setStatusPill(false, { animate:false });
     });
 
-    // Keep ticker alive after map activity
     map.on('idle', startGlobalRepaint);
     map.on('moveend', startGlobalRepaint);
     map.on('zoomend', startGlobalRepaint);
 
-    // Maintain layout when window resizes
     window.addEventListener('resize', () => { map.resize(); startGlobalRepaint(); });
 
-    // Utility: read CSS variable (fallback to provided colour)
     function varColor(varName, fallback){
-      try{
-        const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-        return val || fallback;
-      }catch(e){
-        return fallback;
-      }
+      try{ const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim(); return val || fallback; }
+      catch(e){ return fallback; }
     }
+
+    /* ===========================
+       TEST UTILITIES
+       =========================== */
+    function makeMockFeature({
+      id = `test-${Date.now()}`,
+      center = map.getCenter().toArray(),
+      street = 'A6 Stockport Rd',
+      city = 'Manchester',
+      firstMillis = Date.now() - 2 * 60 * 1000
+    } = {}) {
+      return {
+        type: 'Feature',
+        id,
+        geometry: { type: 'Point', coordinates: center },
+        properties: {
+          id,
+          effectiveConfidence: Math.max(HIGH_CONF_MIN, 4),
+          street, city,
+          time: Date.now(),
+          firstReportedMillis: firstMillis,
+          reportCount: 1
+        }
+      };
+    }
+    function pickLiveOrMock(opts = {}) {
+      const liveHigh = Array.isArray(lastClusterFeatures)
+        ? lastClusterFeatures.filter(f => (Number(f?.properties?.effectiveConfidence) || 0) >= HIGH_CONF_MIN)
+        : [];
+      return (liveHigh.length ? liveHigh[Math.floor(Math.random() * liveHigh.length)] : makeMockFeature(opts));
+    }
+    window.testHighAlert = (opts = {}) => {
+      const feature = pickLiveOrMock(opts);
+      enqueueBanner(feature);
+      console.info('[TEST] High alert (full→compact→hide)', feature);
+    };
+    window.testBannerOnly = (opts = {}) => {
+      const feature = pickLiveOrMock(opts);
+      enqueueBanner(feature);
+      console.info('[TEST] Banner test queued', feature);
+    };
+    window.addEventListener('keydown', (e) => {
+      const k = String(e.key).toLowerCase();
+      if (k === 't') { window.testHighAlert(); }
+      if (k === 'b') { window.testBannerOnly(); }
+    });
   </script>
 </body>
 </html>
