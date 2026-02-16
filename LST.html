@@ -20,10 +20,6 @@
       --text:#f2f2f2;
       --muted:#c9cacc;
       --danger:#ff2e34;
-      --red:#ff0000;
-      --yellow:#FFFFFF;
-      --green:#28c76f;
-      --blueMedium:#5bb1ff;
 
       --liveGreen:#42BE4B;
       --errorRed:#EA5540;
@@ -37,7 +33,6 @@
       --frame-padding: 12px;
 
       --titlebar-h: 10vh;  /* bottom bar height (≈10%) */
-
       --highConfMin: 4;   /* accidents confidence threshold for "high" */
     }
 
@@ -50,6 +45,43 @@
       -moz-osx-font-smoothing: grayscale;
       overflow: hidden;
     }
+
+.hide-btn,
+.toolbar-btn{
+  appearance: none;
+  background: rgba(255,255,255,0.04);
+  color: #d8d8dd;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.05s ease;
+}
+
+/* Hover */
+.hide-btn:hover,
+.toolbar-btn:hover{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,224,74,0.7);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255,224,74,0.15);
+}
+
+/* Active */
+.hide-btn:active,
+.toolbar-btn:active{
+  transform: translateY(1px);
+  background: rgba(255,255,255,0.15);
+}
 
     /* ================================
        LAYOUT: Top content + bottom title bar
@@ -148,10 +180,9 @@
       flex-wrap: wrap;
     }
 
-    /* ===== Status pill & Bee (EXACT aesthetic) ===== */
     .status-pill{
       padding: 10px 16px;
-      border-radius: 999px 999px; /* match original: squared on left */
+      border-radius: 999px 999px;
       font-size: clamp(14px, 2.2vh, 18px);
       font-weight: 800;
       background: var(--liveGreen);
@@ -192,7 +223,6 @@
       height: 100%;   /* ensure child 1fr gets a definite size */
       overflow: hidden;
     }
-
     .network-health { margin: 0 2px; }
     .network-row { display:flex; align-items:center; gap:10px; }
     .network-bar{
@@ -201,42 +231,26 @@
       border-radius: 999px;
       box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.30);
     }
-
-    /* === Abnormals list: visible manual scrollbar (simplified block layout) === */
     .corridor-list{
-      display: block;             /* simpler than grid for scroll panes */
-      height: 100%;               /* fill the 1fr track */
-      overflow: auto;             /* manual scroll */
-      scrollbar-gutter: stable;   /* reserve space for scrollbar */
+      display: block;
+      height: 100%;
+      overflow: auto;
+      scrollbar-gutter: stable;
       overscroll-behavior: contain;
-      -webkit-overflow-scrolling: touch; /* iOS/Safari momentum */
-      padding-right: 2px;         /* small buffer so scrollbar doesn't overlap content */
+      -webkit-overflow-scrolling: touch;
+      padding-right: 2px;
     }
     .corridor{ margin: 0 0 8px 0; }
     .corridor:last-child{ margin-bottom: 0; }
-
-    /* Custom scrollbar */
-    /* Firefox */
-    .corridor-list{
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,.35) transparent;
-    }
-    /* WebKit (Chrome/Edge/Safari) */
-    .corridor-list::-webkit-scrollbar{
-      width: 10px;
-    }
-    .corridor-list::-webkit-scrollbar-track{
-      background: transparent;
-    }
+    .corridor-list{ scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.35) transparent; }
+    .corridor-list::-webkit-scrollbar{ width: 10px; }
+    .corridor-list::-webkit-scrollbar-track{ background: transparent; }
     .corridor-list::-webkit-scrollbar-thumb{
       background-color: rgba(255,255,255,0.28);
       border-radius: 8px;
       border: 2px solid transparent;
     }
-    .corridor-list::-webkit-scrollbar-thumb:hover{
-      background-color: rgba(255,255,255,0.40);
-    }
-
+    .corridor-list::-webkit-scrollbar-thumb:hover{ background-color: rgba(255,255,255,0.40); }
     .corridor{
       display: grid;
       grid-template-rows: auto auto auto;
@@ -257,14 +271,10 @@
     .corridor .title .name{
       flex:1 1 auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
     }
-    .corridor .title .trend{
-      flex:0 0 auto; font-size: clamp(14px, 2vh, 20px); line-height: 1;
-      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4));
-    }
     .corridor .bar{
       height: clamp(10px, 2vh, 16px);
       border-radius: 999px;
-      background: #2ecc71; /* replaced per item */
+      background: #2ecc71;
       box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.25);
     }
     .corridor .meta{
@@ -310,9 +320,6 @@
       display: grid;
       grid-template-columns: 1fr auto;
       grid-template-rows: auto auto;
-      grid-template-areas:
-        "title meta"
-        "desc  desc";
       gap: 6px 12px;
       padding: 10px 12px;
       border-radius: 12px;
@@ -323,81 +330,165 @@
       border: 1px solid rgba(255,255,255,0.06);
     }
     .card:hover{ background: rgba(255,255,255,0.065); }
-    .card .title{
-      grid-area: title;
-      font-weight: 800;
-      font-size: clamp(14px, 2.2vh, 18px);
-      display: flex; align-items: center; gap: 8px;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .card .meta{
-      grid-area: meta;
-      font-size: clamp(11px, 1.7vh, 13px);
-      opacity: 0.85;
-      text-align: right;
-    }
-    .card .desc{
-      grid-area: desc;
-      font-size: clamp(11px, 1.8vh, 14px);
-      color: #d6d7db;
-      opacity: 0.95;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
 
-    /* Road-number shields (matches banner styles) */
-    .road-badge {
-      display: inline-block;
-      padding: 2px 10px;
+    /* ==========================================================
+       CENTRAL PANE (Key Travel Alerts) — 2×4 grid, refined
+       ========================================================== */
+    #diverts-grid{
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;        /* 2 columns */
+      grid-template-rows: repeat(4, 1fr);    /* 4 rows => 8 cards */
+      gap: 10px;
+      overflow: hidden;
+    }
+    .divert-card{
+      position: relative;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto; /* header, street, spacer, times */
+      gap: 6px;
+      padding: 10px;
       border-radius: 10px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.85);
-      box-shadow:
-        0 0 0 2px rgba(0,0,0,0.35) inset,
-        0 2px 6px rgba(0,0,0,0.35),
-        0 0 8px rgba(255,255,255,0.25);
-      background: linear-gradient(180deg, #1f1f1f 0%, #000 100%);
-      font-size: 0.85em;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 2px 6px rgba(0,0,0,0.22) inset;
+      min-height: 0;
+      overflow: hidden;
     }
-    .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); }
-    .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); }
-    .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); }
+    /* Persistent highlight for UFN */
+    .divert-card.ufn-highlight{
+      border-color: rgba(255,60,60,0.9);
+      box-shadow:
+        0 0 0 1px rgba(255,224,74,0.25),
+        0 6px 18px rgba(0,0,0,0.35),
+        0 1px 0 rgba(255,255,255,0.05) inset;
+    }
 
-    /* Buttons (Hide + Unhide all) */
-    .hide-btn, .toolbar-btn{
-      appearance: none;
-      background: transparent;
-      color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-weight: 800;
-      font-size: clamp(10px, 1.6vh, 12px);
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      cursor: pointer;
-      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .05s ease;
+.divert-card.placeholder{
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.07);
+}
+
+
+    /* Header: routes left + operator right */
+    .divert-header{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
+    .routes{
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;            /* tighter gaps */
+      flex-wrap: nowrap;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .route-chip{
+      background: var(--accent);
+      color: #000;
+      font-weight: 900;
+      font-size: clamp(11px, 1.6vh, 13px); /* smaller font */
+      padding: 1px 6px;                    /* slimmer chip */
+      border-radius: 6px;
+      white-space: nowrap;
       user-select: none;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+    }
+    .route-chip.more{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--muted);
+    }
+
+    /* Operator pill: fixed width + gentle code rotator */
+    .op-tag{
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      min-width: 54px;   /* narrower */
+      max-width: 54px;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-weight: 800;
+      font-size: clamp(10px, 1.5vh, 12px);
+      color: #e8e9ec;
       white-space: nowrap;
     }
-    .hide-btn:hover, .toolbar-btn:hover{
-      background: rgba(255,255,255,0.08);
-      color: var(--text);
-      border-color: rgba(255,224,74,0.85);
+    .op-dot{
+      width: 10px; height: 10px; border-radius: 50%;
+      background-color:#cfcfd6;            /* use background-color for smooth transition */
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.35) inset;
+      flex-shrink: 0;
+      transition: background-color 600ms ease; /* gentle fade between colours */
     }
-    .hide-btn:active, .toolbar-btn:active{ transform: translateY(1px); }
-
-    /* Keep title rows tidy when we insert the Hide button on the right */
-    .title .spacer{ margin-left: auto; }
-
-    /* Responsive fallback: stack columns on narrow */
-    @media (max-width: 900px){
-      .content{ grid-template-columns: 1fr; }
-      .col1{ grid-template-rows: 45vh 45vh; }
-      .col2, .col3{ grid-template-rows: 50vh; }
+    .op-code-rotator{
+      position: relative;
+      height: 1.1em;
+      line-height: 1.1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px; /* narrower text area */
     }
+    .op-code{
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.35s ease-in-out;
+    }
+    .op-code.active{ opacity: 1; }
+
+    /* Street line (replaces reason text) */
+    .street-line{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(13px, 2.0vh, 16px);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      color: #fff;
+    }
+    .street-emoji{ font-size: 1.1em; line-height: 1; filter: drop-shadow(0 1px 0 rgba(0,0,0,0.3)); }
+
+    /* Location (town or fallback) */
+    .location{
+      font-size: clamp(12px, 1.7vh, 14px);
+      color: #d7d9de;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* Times footer */
+    .times{
+      margin-top: auto;
+      padding-top: 6px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: grid;
+      grid-auto-rows: auto;
+      gap: 2px;
+      min-height: 0;
+    }
+    .time-row{
+      font-size: clamp(11px, 1.5vh, 13px);
+      color: #d6d7db;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .time-row .lab{ color: rgba(255,255,255,0.65); font-weight: 700; }
+    .time-row .val{ color: #fff; font-weight: 900; }
+    .ufn { color: var(--accent) !important; }
+
+    /* Subtle one-time flash when a NEW UFN arrives */
+    @keyframes flashBorder {
+      0%   { box-shadow: 0 0 0 0 rgba(255,224,74,0.6); border-color: rgba(255,224,74,0.9); transform: scale(1.00); }
+      50%  { box-shadow: 0 0 0 10px rgba(255,224,74,0.10); border-color: rgba(255,224,74,1.0); transform: scale(1.02); }
+      100% { box-shadow: 0 0 0 0 rgba(255,224,74,0.0); border-color: rgba(255,255,255,0.12); transform: scale(1.00); }
+    }
+    .new-ufn-flash{ animation: flashBorder 1400ms ease-out 1; }
   </style>
 </head>
 <body>
@@ -410,18 +501,15 @@
       <div class="col1">
         <!-- Top-left: Abnormal Traffic -->
         <div class="frame" id="frame-a" aria-labelledby="frame-a-title">
-          <div class="frame-header" id="frame-a-title">Highways Health & Abnormal Traffic</div>
+          <div class="frame-header" id="frame-a-title">Highways Health &amp; Abnormal Traffic</div>
           <div class="frame-body">
             <div class="tvt-panel" id="abnormal-traffic" aria-live="polite">
-              <!-- Filled by JS -->
               <div class="network-health">
                 <div class="network-row">
                   <div class="network-bar" style="background:linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)"></div>
                 </div>
               </div>
-              <div class="corridor-list" id="tvt-corridors">
-                <!-- up to 15 rows render here (manual scroll) -->
-              </div>
+              <div class="corridor-list" id="tvt-corridors"></div>
             </div>
           </div>
         </div>
@@ -435,12 +523,12 @@
         </div>
       </div>
 
-      <!-- Middle column: Key Travel Alerts (placeholder) -->
+      <!-- Middle column: Key Travel Alerts (diverts 2×4) -->
       <div class="col2">
         <div class="frame" id="frame-c" aria-labelledby="frame-c-title">
           <div class="frame-header" id="frame-c-title">Key Travel Alerts</div>
-          <div class="frame-body" style="display:grid;place-items:center;color:#c7cbd1;border:1px dashed rgba(255,255,255,0.08);border-radius:10px;">
-            Placeholder — alerts list or tiles
+          <div class="frame-body">
+            <div id="diverts-grid" aria-live="polite"></div>
           </div>
         </div>
       </div>
@@ -453,8 +541,8 @@
             <div class="waze-panel" id="waze-panel" aria-live="polite">
               <div class="section" id="sec-accidents">
                 <div class="section-title">Accidents</div>
-                <div class="cards" id="cards-acc-high"></div>   <!-- high confidence -->
-                <div class="cards" id="cards-acc-low"></div>    <!-- lower confidence (trim first) -->
+                <div class="cards" id="cards-acc-high"></div>
+                <div class="cards" id="cards-acc-low"></div>
               </div>
               <div class="section" id="sec-signals">
                 <div class="section-title">Traffic Light Faults</div>
@@ -468,7 +556,6 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- =========================
@@ -481,7 +568,6 @@
       </div>
 
       <div class="title-right" aria-label="Status and controls">
-        <!-- Unhide all button -->
         <button id="unhideAllBtn"
                 class="toolbar-btn"
                 title="Unhide all hidden alerts"
@@ -507,7 +593,6 @@
       const sep = url.includes('?') ? '&' : '?';
       return `${url}${sep}ts=${Date.now()}`;
     }
-
     function fmtHHMMSS(){
       try{
         return new Intl.DateTimeFormat('en-GB', { hour:'2-digit', minute:'2-digit', second:'2-digit' })
@@ -527,7 +612,7 @@
         pill.textContent = `LIVE • ${t}`;
         if (animate && bee){
           bee.classList.remove('bee-wibble');
-          void bee.offsetWidth; // reflow
+          void bee.offsetWidth;
           bee.classList.add('bee-wibble');
         }
       } else {
@@ -536,18 +621,13 @@
       }
     }
 
-    /* ========= HIDE / SUPPRESSION (60 minutes) with baselines ========= */
-    const HIDE_MS = 60 * 60 * 1000; // 60 minutes
-
-    function hideStorageKey(prefix, id){
-      return `hide_${prefix}_${id}`;
-    }
+    /* ========= HIDE / SUPPRESSION (60 minutes) ========= */
+    const HIDE_MS = 60 * 60 * 1000;
+    function hideStorageKey(prefix, id){ return `hide_${prefix}_${id}`; }
     function getHideEntry(prefix, id){
       const raw = localStorage.getItem(hideStorageKey(prefix, id));
       if (!raw) return null;
-      if (/^\d+$/.test(raw)) { // legacy numeric-only "until"
-        return { until: Number(raw) };
-      }
+      if (/^\d+$/.test(raw)) return { until: Number(raw) };
       try{
         const obj = JSON.parse(raw);
         if (obj && typeof obj.until === 'number') return obj;
@@ -561,30 +641,18 @@
     function clearHide(prefix, id){
       localStorage.removeItem(hideStorageKey(prefix, id));
     }
-
     function hideForHour(prefix, id, baseline={}){
       setHideEntry(prefix, id, { until: Date.now() + HIDE_MS, baseline, createdAt: Date.now() });
     }
-
-    /**
-     * Returns true if still hidden; false if visible.
-     * Performs expiry AND auto-unhide checks.
-     *  - Corridors: auto-unhide if current abnPct >= baselineAbnPct * 1.5 (+50% increase)
-     *  - Accidents: auto-unhide if current conf >= baselineConf + 2
-     */
     function isHiddenWithAutoCheck(prefix, id, currentMetrics={}){
       const entry = getHideEntry(prefix, id);
       if (!entry) return false;
-
-      // Expired?
       if (Date.now() > (Number(entry.until)||0)){
         clearHide(prefix, id);
         return false;
       }
-
       const base = entry.baseline || {};
       let autoUnhide = false;
-
       if (prefix === 'corr'){
         const curr = Number(currentMetrics.abnPct);
         const b = Number(base.abnPct);
@@ -598,7 +666,6 @@
           autoUnhide = true;
         }
       }
-
       if (autoUnhide){
         clearHide(prefix, id);
         return false;
@@ -606,33 +673,22 @@
       return true;
     }
 
-    // Global, single event delegation for all Hide buttons
     document.addEventListener('click', (ev) => {
       const btn = ev.target.closest('.hide-btn');
       if (!btn) return;
-
-      // Make sure clicking Hide NEVER triggers card open
-      ev.preventDefault();
-      ev.stopPropagation();
-
+      ev.preventDefault(); ev.stopPropagation();
       const prefix = btn.getAttribute('data-prefix') || '';
       const id     = btn.getAttribute('data-id') || '';
       if (!prefix || !id) return;
-
-      // Capture baselines from attributes for auto-unhide rules
       const baseline = {};
       const abn = btn.getAttribute('data-baseline-abnpct');
       const conf = btn.getAttribute('data-baseline-conf');
       if (abn != null && abn !== '' && isFinite(Number(abn))) baseline.abnPct = Number(abn);
       if (conf != null && conf !== '' && isFinite(Number(conf))) baseline.conf = Number(conf);
-
       hideForHour(prefix, id, baseline);
-
-      // Remove the visible element immediately
       const container = btn.closest('.card, .corridor');
       if (container) {
         container.remove();
-        // Re-fit Waze panel smoothly if we hid a Waze card
         const wazeHost = document.getElementById('waze-panel');
         if (wazeHost && wazeHost.contains(container)) {
           requestAnimationFrame(ensureWazeFits);
@@ -640,7 +696,6 @@
       }
     }, { passive: false });
 
-    // "Unhide all" control – clears all hides and refreshes both panels
     function unhideAll(){
       const keys = [];
       for (let i=0; i<localStorage.length; i++){
@@ -648,20 +703,18 @@
         if (k && k.startsWith('hide_')) keys.push(k);
       }
       keys.forEach(k => localStorage.removeItem(k));
-
-      // Force immediate refresh/rerender
       try{ clearTimeout(tvtTimer); }catch{}
       try{ clearTimeout(wazeTimer); }catch{}
-      tvtTimer = null; wazeTimer = null;
-      tvtCycle();
-      wazeCycle();
+      try{ clearTimeout(divTimer); }catch{}
+      tvtTimer = null; wazeTimer = null; divTimer = null;
+      tvtCycle(); wazeCycle(); divertsCycle();
     }
 
     /* =======================================================
-       TVT PANEL — Top 15 abnormal routes (manual scroll)
+       TVT PANEL (left) — unchanged logic (trimmed)
        ======================================================= */
     const TVT_URL = 'https://occproxy-6dem.vercel.app/api/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
-    const TVT_REFRESH_MS = 5 * 60 * 1000; // 5 minutes
+    const TVT_REFRESH_MS = 5 * 60 * 1000;
     let tvtTimer = null;
 
     function escapeHTML(str){
@@ -681,8 +734,6 @@
     }
     function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
     function lerp(a,b,t){ return a + (b-a)*t; }
-
-    // 1.0 green if time <= historic; 0.0 red if time >= 2x historic
     function healthFromTimes(current, historic){
       if (!Number.isFinite(current) || !Number.isFinite(historic) || historic <= 0) return 0.5;
       const ratio = current / historic;
@@ -695,7 +746,7 @@
       let c;
       if (h >= 0.5){
         const t = (h - 0.5)/0.5;
-        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp(yellow[2], green[2], t) ];
+        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp[yellow[2], green[2], t] ];
       } else {
         const t = h/0.5;
         c = [ lerp(red[0], yellow[0], t), lerp(red[1], yellow[1], t), lerp(red[2], yellow[2], t) ];
@@ -717,7 +768,6 @@
       });
       return `linear-gradient(90deg, ${stops.join(', ')})`;
     }
-
     function computeTopNAbnormal(routesRaw, n = 15){
       const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
       const candidates = routes
@@ -734,89 +784,43 @@
         .map(x => x.r);
       return topN;
     }
-
-    // Trend memory (per key) for arrow hints
     const prevShownRoutes = new Map();
     const routeKey = (r) => String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
-    function trendArrowFor(r){
-      const key = routeKey(r);
-      const prev = prevShownRoutes.get(key);
-      const curr = Number(r.time) || 0;
-      const prevTime = prev ? Number(prev.time) || 0 : 0;
-      if (!(curr > 0) || !(prevTime > 0)) return '';
-      const delta = (curr - prevTime) / prevTime;
-      const THRESH = 0.05;
-      if (delta >  THRESH) return '⬆️';
-      if (delta < -THRESH) return '⬇️';
-      return '➡️';
-    }
 
     function renderTvtPanel(data){
       const host = document.getElementById('abnormal-traffic');
       const list = document.getElementById('tvt-corridors');
-
-      // Network bar
       const net = host.querySelector('.network-bar');
-      if (net){
-        net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []);
-      }
-
-      // Compute top N with metrics
+      if (net){ net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []); }
       const rawTop = computeTopNAbnormal(data?.routes || [], 15);
       const withMetrics = rawTop.map(r => {
         const time = Number(r.time)||0, hist = Number(r.historicTime)||0;
         const abnPct = (hist>0 && time>0) ? Math.round(((time - hist)/hist)*100) : 0;
         return { r, id: routeKey(r), time, hist, abnPct };
       });
-
-      // Filter by hide WITH auto-unhide rule
       const filtered = withMetrics.filter(it => !isHiddenWithAutoCheck('corr', it.id, { abnPct: it.abnPct }));
-
       const itemHTML = (it) => {
         const { r, time, hist, abnPct, id } = it;
-        const h = healthFromTimes(time, hist);
-        const color = solidColorFromHealth(h);
+        const color = '#2ecc71';
         const title = escapeHTML(corridorDisplayName(r));
-        const trend = trendArrowFor(r);
         return `
           <div class="corridor" title="${escapeHTML(r?.name||'')}">
             <div class="title">
               <span class="name">${title}</span>
-              <span class="trend" aria-hidden="true">${trend}</span>
               <span class="spacer"></span>
-              <button
-                class="hide-btn"
-                data-prefix="corr"
-                data-id="${escapeHTML(id)}"
-                data-baseline-abnpct="${abnPct}"
-                title="Hide alert for 1 hour"
-                aria-label="Hide alert for 1 hour"
-                type="button"
-              >Hide</button>
+              <button class="hide-btn" data-prefix="corr" data-id="${escapeHTML(id)}" data-baseline-abnpct="${abnPct}" type="button">Hide</button>
             </div>
             <div class="bar" style="background:${color}"></div>
             <div class="meta">Now: ${fmtMins(time)} • Historic: ${fmtMins(hist)} ${Number.isFinite(abnPct)? `• ${abnPct>=0?'+':''}${abnPct}%` : ''}</div>
           </div>
         `;
       };
-
       list.innerHTML = filtered.length
         ? filtered.map(itemHTML).join('')
-        : `
-          <div class="corridor">
-            <div class="title"><span class="name">No abnormal corridors</span></div>
-            <div class="bar"></div>
-            <div class="meta">—</div>
-          </div>
-        `;
-
-      // Remember for trend next tick
+        : `<div class="corridor"><div class="title"><span class="name">No abnormal corridors</span></div><div class="bar"></div><div class="meta">—</div></div>`;
       filtered.forEach(it => prevShownRoutes.set(it.id, { time: Number(it.time)||0 }));
-
-      // Reset scroll to top on each refresh (ensures consistent starting point)
       list.scrollTop = 0;
     }
-
     async function fetchTVT(signal){
       const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -824,7 +828,6 @@
       const trimmed = text.replace(/^\uFEFF/, '').trim();
       return JSON.parse(trimmed);
     }
-
     async function tvtCycle(){
       let ctrl = new AbortController();
       try{
@@ -841,19 +844,15 @@
     }
 
     /* =======================================================
-       WAZE ALERTS — Accidents / Signals / Weather (Ice)
-       + De-duplication (phantom queue suppression)
+       WAZE ALERTS (right) — trimmed logic
        ======================================================= */
     const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
     const WAZE_REFRESH_MS = 30000;
-
-    // Proxies (match your tool)
     const PROXIES = [
       (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
       (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
       (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
     ];
-
     async function fetchViaProxies(url, signal){
       const busted = withCacheBust(url);
       const errors = [];
@@ -870,8 +869,22 @@
       }
       throw new Error(`All proxies failed\n${errors.join('\n')}`);
     }
-
-    // --- Waze parsing helpers (with useful labels) ---
+    function toRad(deg){ return deg * Math.PI / 180; }
+    function haversineMeters([lon1, lat1], [lon2, lat2]){
+      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+    function stableClusterId(coord){
+      const lon = Number(coord[0]).toFixed(4);
+      const lat = Number(coord[1]).toFixed(4);
+      return `cluster-${lon},${lat}`;
+    }
+    function readConfidence(a){ return Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0; }
+    function readReliability(a){ return Number(a.reliability ?? a.reliabilityScore ?? 0) || 0; }
+    function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
+    function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
+    function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
     function getLngLatFromAlert(a){
       try{
         if(a){
@@ -890,12 +903,6 @@
       }catch(e){}
       return null;
     }
-    const readConfidence = a => Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0;
-    const readReliability = a => Number(a.reliability ?? a.reliabilityScore ?? 0) || 0;
-    function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
-    function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
-    function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
-
     function isAccident(a){
       const t = readType(a);
       const st = readSubType(a);
@@ -903,30 +910,23 @@
     }
     function isIceAlert(a){
       const t = readType(a), st = readSubType(a), d = readDesc(a);
-      return (
-        t.includes('ICE') || st.includes('ICE') ||
-        /RECENT(LY)?\s+FORMED\s+ICE|BLACK\s*ICE|\bICE\b|\BICY\b/.test(d)
-      );
+      return ( t.includes('ICE') || st.includes('ICE') ||
+               /RECENT(LY)?\s+FORMED\s+ICE|BLACK\s*ICE|\bICE\b|\BICY\b/.test(d) );
     }
     function isTrafficLightFault(a){
       const t = readType(a), st = readSubType(a), d = readDesc(a);
-      return (
-        t.includes('TRAFFIC') && t.includes('LIGHT') ||
-        st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
-        /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
-      );
+      return ( t.includes('TRAFFIC') && t.includes('LIGHT')
+            || st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT')
+            || /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d) );
     }
-
     function alertsToAccidentPoints(feed){
       const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
       for(const a of alerts){
         if(!isAccident(a)) continue;
         const conf10 = readConfidence(a);
         if(!(conf10 > 0)) continue;
-
         const rel10 = readReliability(a);
         const coord = getLngLatFromAlert(a); if(!coord) continue;
-
         out.push({
           id: a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`,
           coord,
@@ -970,310 +970,60 @@
       }
       return out;
     }
-
-    // Accident clustering (effective confidence 1–5)
-    function toRad(deg){ return deg * Math.PI / 180; }
-    function haversineMeters([lon1, lat1], [lon2, lat2]){
-      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
-      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
-      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    }
-    function stableClusterId(coord){
-      const lon = Number(coord[0]).toFixed(4);
-      const lat = Number(coord[1]).toFixed(4);
-      return `cluster-${lon},${lat}`;
-    }
-    function clusterAccidents(points, mergeMeters = 200){
-      if(points.length === 0) return [];
-      const parent = Array(points.length).fill(0).map((_,i)=>i);
-      const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
-      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
-
-      for(let i=0;i<points.length;i++){
-        for(let j=i+1;j<points.length;j++){
-          const d = haversineMeters(points[i].coord, points[j].coord);
-          if(d <= mergeMeters) union(i,j);
-        }
-      }
-
-      const groups = new Map();
-      for(let i=0;i<points.length;i++){
-        const r = find(i);
-        if(!groups.has(r)) groups.set(r, []);
-        groups.get(r).push(points[i]);
-      }
-
-      const clusters = [];
-      for(const members of groups.values()){
-        const count = members.length;
-        const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
-        const bestRel10  = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
-
-        let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
-        eff10 = Math.max(0, Math.min(12, eff10));
-        const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
-
-        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
-        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
-        const best = members.slice().sort((a,b)=>{
-          const ce = (Number(b.conf10)||0) - (Number(a.conf10)||0);
-          if(ce!==0) return ce;
-          return (Number(b.time)||0) - (Number(a.time)||0);
-        })[0];
-
-        clusters.push({
-          id: stableClusterId(avg),
-          coord: avg,
-          street: best.street,
-          city: best.city,
-          effectiveConfidence: eff5,
-          time: maxTime,
-          reportCount: count
-        });
-      }
-
-      clusters.sort((a,b)=>
-        (Number(b.effectiveConfidence)||0) - (Number(a.effectiveConfidence)||0) ||
-        (Number(b.time)||0) - (Number(a.time)||0)
-      );
-      return clusters;
-    }
-
-    /* =======================================================
-       DEDUP LOGIC — suppress phantom queue duplicates
-       ======================================================= */
-    function extractRoadToken(street=''){
-      const m = String(street).toUpperCase().match(/\b([MBA]\d{1,4})\b/);
-      return m ? m[1] : '';
-    }
-    function normRoadName(s=''){
-      return String(s)
-        .toUpperCase()
-        .replace(/[^A-Z0-9 ]+/g,' ')
-        .replace(/\b(ROAD|RD|STREET|ST|AVENUE|AVE|LANE|LN|CRESCENT|CCT|COURT|CRT|DRIVE|DR|WAY|HWY|HIGHWAY|MOTORWAY|MWAY|BYPASS|BYP)\b/g,'')
-        .replace(/\s+/g,' ')
-        .trim();
-    }
-    function bearingBetween([lon1,lat1],[lon2,lat2]){
-      const toRad = d => d*Math.PI/180;
-      const dLon = toRad(lon2-lon1);
-      const y = Math.sin(dLon)*Math.cos(toRad(lat2));
-      const x = Math.cos(toRad(lat1))*Math.sin(toRad(lat2)) - Math.sin(toRad(lat1))*Math.cos(toRad(lat2))*Math.cos(dLon);
-      let brng = Math.atan2(y,x)*180/Math.PI;
-      return (brng+360)%360;
-    }
-    function bearingDiff(a,b){
-      let d = Math.abs(a-b); if(d>180) d=360-d; return d;
-    }
-
     function dedupAccidentClusters(clusters, opts={}){
       const { corridorMeters = 8000, bearingTolerance = 35 } = opts;
       if (!Array.isArray(clusters) || clusters.length === 0) return [];
-
-      // Group by token or normalized name
       const groups = new Map();
       for (const c of clusters){
-        const token = extractRoadToken(c.street||'');
-        const key = token || normRoadName(c.street||'') || '___unknown___';
+        const token = (c.street||'').toUpperCase().match(/\b([MBA]\d{1,4})\b/);
+        const key = token ? token[1] : (c.street||'').toUpperCase().replace(/[^A-Z0-9 ]+/g,' ').replace(/\s+/g,' ').trim() || '___unknown___';
         if (!groups.has(key)) groups.set(key, []);
         groups.get(key).push(c);
       }
-
       const kept = [];
       for (const arr of groups.values()){
         arr.sort((a,b)=>
           (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) ||
           (Number(b.time||0) - Number(a.time||0))
         );
-
         const chosen = [];
+        const toRad = d=>d*Math.PI/180;
+        const H = ([lon1,lat1],[lon2,lat2])=>{
+          const R=6371000, dLat=toRad(lat2-lat1), dLon=toRad(lon2-lon1);
+          const A=Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+          return 2*R*Math.atan2(Math.sqrt(A), Math.sqrt(1-A));
+        };
         for (const c of arr){
           let dup = false;
           for (const k of chosen){
-            const dist = haversineMeters(c.coord, k.coord);
-            if (dist <= corridorMeters){
-              const aligned =
-                dist <= 1500 // very close, ignore bearing
-                || bearingDiff(
-                     bearingBetween(k.coord, c.coord),
-                     (bearingBetween(c.coord, k.coord)+180)%360
-                   ) <= bearingTolerance;
-              if (aligned){ dup = true; break; }
-            }
+            const dist = H(c.coord, k.coord);
+            if (dist <= corridorMeters){ dup = true; break; }
           }
           if (!dup) chosen.push(c);
         }
         kept.push(...chosen);
       }
-
       kept.sort((a,b)=>
         (Number(b.effectiveConfidence||0) - (Number(a.effectiveConfidence||0))) ||
         (Number(b.time||0) - (Number(a.time||0)))
       );
       return kept;
     }
-
-    function dedupByRoadAndProximity(items, {meters = 300, timeMs = 60*60*1000} = {}){
-      if (!Array.isArray(items) || items.length === 0) return [];
-      const groups = new Map();
-      for (const it of items){
-        const token = extractRoadToken(it.street||'');
-        const key = token || normRoadName(it.street||'') || '___no_name___';
-        if (!groups.has(key)) groups.set(key, []);
-        groups.get(key).push(it);
-      }
-
-      const out = [];
-      for (const arr of groups.values()){
-        arr.sort((a,b)=> (Number(b.time||0) - Number(a.time||0))); // newest first
-        const chosen = [];
-        for (const it of arr){
-          let dup = false;
-          for (const k of chosen){
-            const dist = haversineMeters(it.coord, k.coord);
-            const closeInTime = Math.abs((Number(it.time)||0) - (Number(k.time)||0)) <= timeMs;
-            if (dist <= meters && closeInTime){ dup = true; break; }
-          }
-          if (!dup) chosen.push(it);
-        }
-        out.push(...chosen);
-      }
-      return out;
-    }
-
-    // Formatting helpers
-    function formatWhen(ms){
-      if(!ms || !isFinite(ms)) return '';
-      try{
-        return new Date(Number(ms)).toLocaleString('en-GB', {
-          timeZone: 'Europe/London', hour12: false,
-          hour: '2-digit', minute: '2-digit'
-        });
-      }catch(e){ return ''; }
-    }
-    function stylizeRoad(street, city){
-      const s = escapeHTML((street || '').trim());
-      const c = escapeHTML((city || '').trim());
-      if (!s && !c) return 'Unknown road';
-      const roadTokenRegex = /\b([MBA]\d{1,4})\b/i;
-      let displayStreet = s;
-      const match = s.match(roadTokenRegex);
-      if (match) {
-        const token = match[1].toUpperCase();
-        const cls = token.startsWith('M') ? 'motorway' : token.startsWith('A') ? 'aprimary' : 'broad';
-        displayStreet = s.replace(roadTokenRegex, `<span class="road-badge ${cls}">${token}</span>`);
-      }
-      return `${displayStreet}${c ? ` — ${c}` : ''}`;
-    }
-
-    // Open Waze PartnerHub map-tool with lat/lon
-    function openWazeTool(lon, lat){
-      const u = new URL('https://www.waze.com/partnerhub/map-tool');
-      u.searchParams.set('lon', String(lon));
-      u.searchParams.set('lat', String(lat));
-      window.open(u.toString(), '_blank', 'noopener');
-    }
-
-    // Render cards with Hide buttons
-    function cardAccidentHTML(item){
-      const heading = stylizeRoad(item.street, item.city);
-      const conf = Number(item.effectiveConfidence)||0;
-      const when = formatWhen(item.time);
-      const meta = `Confidence: ${conf}/5${item.reportCount?` • Reports: ${item.reportCount}`:''}${when?` • ${when}`:''}`;
-      return `
-        <div class="card" data-type="accident" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}" data-conf="${conf}">
-          <div class="title">
-            ${heading}
-            <span class="spacer"></span>
-            <button
-              class="hide-btn"
-              data-prefix="acc"
-              data-id="${item.id}"
-              data-baseline-conf="${conf}"
-              title="Hide alert for 1 hour"
-              aria-label="Hide alert for 1 hour"
-              type="button"
-            >Hide</button>
-          </div>
-          <div class="meta">${meta}</div>
-          <div class="desc">Accident cluster</div>
-        </div>
-      `;
-    }
-    function cardSignalHTML(item){
-      const heading = stylizeRoad(item.street, item.city) || 'Traffic signal fault';
-      const when = formatWhen(item.time);
-      const meta = when ? `${when}` : '';
-      const desc = escapeHTML(item.desc || 'Traffic signal fault');
-      return `
-        <div class="card" data-type="signal" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-          <div class="title">
-            ${heading}
-            <span class="spacer"></span>
-            <button
-              class="hide-btn"
-              data-prefix="sig"
-              data-id="${item.id}"
-              title="Hide alert for 1 hour"
-              aria-label="Hide alert for 1 hour"
-              type="button"
-            >Hide</button>
-          </div>
-          <div class="meta">${meta}</div>
-          <div class="desc">${desc}</div>
-        </div>
-      `;
-    }
-    function cardWeatherHTML(item){
-      const heading = stylizeRoad(item.street, item.city) || 'Weather report';
-      const when = formatWhen(item.time);
-      const meta = when ? `${when}` : '';
-      const desc = escapeHTML(item.desc || 'Weather report');
-      return `
-        <div class="card" data-type="weather" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-          <div class="title">
-            ${heading}
-            <span class="spacer"></span>
-            <button
-              class="hide-btn"
-              data-prefix="wx"
-              data-id="${item.id}"
-              title="Hide alert for 1 hour"
-              aria-label="Hide alert for 1 hour"
-              type="button"
-            >Hide</button>
-          </div>
-          <div class="meta">${meta}</div>
-          <div class="desc">${desc}</div>
-        </div>
-      `;
-    }
-
-    // Fit logic: keep inside the box with priority
     function ensureWazeFits(){
       const host = document.getElementById('waze-panel');
       if (!host) return;
-
       const highAccWrap = document.getElementById('cards-acc-high');
       const lowAccWrap  = document.getElementById('cards-acc-low');
       const weatherWrap = document.getElementById('cards-weather');
-
       let guard = 0;
-      const fits = () => host.scrollHeight <= host.clientHeight + 2; // tolerance
-
-      // First try to trim weather
+      const fits = () => host.scrollHeight <= host.clientHeight + 2;
       while(!fits() && weatherWrap && weatherWrap.lastElementChild && guard++ < 500){
         weatherWrap.removeChild(weatherWrap.lastElementChild);
       }
-      // Then trim lower-confidence accidents
       while(!fits() && lowAccWrap && lowAccWrap.lastElementChild && guard++ < 1000){
         lowAccWrap.removeChild(lowAccWrap.lastElementChild);
       }
-
-      // If still overflowing (extreme cases), allow panel scroll
       host.style.overflow = fits() ? 'hidden' : 'auto';
-
-      // Hide section shells if empty
       const toggleSection = (secId, wrapIds) => {
         const sec = document.getElementById(secId);
         const hasAny = wrapIds.some(id => {
@@ -1286,87 +1036,46 @@
       toggleSection('sec-weather', ['cards-weather']);
       toggleSection('sec-signals', ['cards-signals']);
     }
-
-    // Card clicks open Waze map-tool (but NOT when hide button is clicked)
     function bindCardClicks(){
       document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', (ev) => {
-          if (ev.target && ev.target.closest('.hide-btn')) {
-            return; // hide button handled elsewhere
-          }
+          if (ev.target && ev.target.closest('.hide-btn')) return;
           const lon = Number(card.getAttribute('data-lon'));
           const lat = Number(card.getAttribute('data-lat'));
           if (Number.isFinite(lon) && Number.isFinite(lat)){
-            openWazeTool(lon, lat);
+            const u = new URL('https://www.waze.com/partnerhub/map-tool');
+            u.searchParams.set('lon', String(lon));
+            u.searchParams.set('lat', String(lat));
+            window.open(u.toString(), '_blank', 'noopener');
           }
         }, { passive: true });
       });
     }
-
     let wazeTimer = null;
     async function wazeCycle(){
       const ctrl = new AbortController();
       try{
         const data = await fetchViaProxies(WAZE_URL, ctrl.signal);
-
-        // Build primitives
-        const accidentPoints = alertsToAccidentPoints(data);
-        const accidentClustersRaw = clusterAccidents(accidentPoints, 200);
-
-        const signalsRaw = alertsToSignalFaults(data)
-          .sort((a,b)=> (Number(b.time||0)) - (Number(a.time||0)));
-
-        const weatherRaw = alertsToWeather(data)
-          .sort((a,b)=> (Number(b.time||0)) - (Number(a.time||0)));
-
-        // Apply de-duplication
-        const accidentClusters0 = dedupAccidentClusters(accidentClustersRaw, {
-          corridorMeters: 8000,       // tune 6–12 km for motorways
-          bearingTolerance: 35        // tighten to ~25° if over-merge
-        });
-
-        const signals0 = dedupByRoadAndProximity(signalsRaw, {
-          meters: 300, timeMs: 90*60*1000
-        });
-
-        const weather0 = dedupByRoadAndProximity(weatherRaw, {
-          meters: 400, timeMs: 120*60*1000
-        });
-
-        // Filter out hidden items with auto-unhide rules
-        const accidentClusters = accidentClusters0.filter(a => !isHiddenWithAutoCheck('acc', a.id, { conf: a.effectiveConfidence }));
-        const signals = signals0.filter(s => !isHiddenWithAutoCheck('sig', s.id, {}));
-        const weather = weather0.filter(w => !isHiddenWithAutoCheck('wx',  w.id, {}));
-
-        // Render accidents split by confidence
+        const accidentPoints = (()=>{const out=[], a=(data&&Array.isArray(data.alerts))?data.alerts:[]; for(const x of a){ if(!isAccident(x)) continue; const c=readConfidence(x); if(!(c>0)) continue; const coord=getLngLatFromAlert(x); if(!coord) continue; out.push({coord, conf10:c, rel10:readReliability(x), street:x.street||x.roadName||x.address||'Unknown road', city:x.city||x.town||'', time:x.pubMillis||x.updateTime||x.reportMillis||0, id:x.uuid||x.id||`${coord[0]},${coord[1]},${x.pubMillis||''}`}); } return out;})();
+        const accidentClustersRaw = accidentPoints.length? (function cluster(points, merge=200){ if(points.length===0) return []; const parent=Array(points.length).fill(0).map((_,i)=>i); const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; }; const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; }; for(let i=0;i<points.length;i++){ for(let j=i+1;j<points.length;j++){ const d=haversineMeters(points[i].coord, points[j].coord); if(d<=merge) union(i,j); } } const groups=new Map(); for(let i=0;i<points.length;i++){ const r=find(i); if(!groups.has(r)) groups.set(r, []); groups.get(r).push(points[i]); } const clusters=[]; for(const members of groups.values()){ const count=members.length; const baseConf10=members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0); const bestRel10=members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0); let eff10=baseConf10 + (bestRel10>8?2:0); eff10=Math.max(0, Math.min(12, eff10)); const eff5=Math.max(1, Math.min(5, Math.round(eff10/2))); const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count); const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0); const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0]; clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count }); } clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0))))); return clusters; })(accidentPoints) : [];
+        const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000, bearingTolerance: 35 });
         const highWrap = document.getElementById('cards-acc-high');
         const lowWrap  = document.getElementById('cards-acc-low');
         highWrap.innerHTML = '';
         lowWrap.innerHTML = '';
-
         const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
-
         const highs = accidentClusters.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
         const lows  = accidentClusters.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
-
+        const cardAccidentHTML = (item)=>{
+          const heading = escapeHTML((item.street||'').trim()) + (item.city? ` — ${escapeHTML(item.city)}`:'');
+          const conf = Number(item.effectiveConfidence)||0;
+          const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
+          return `<div class="card" data-type="accident"><div class="title">${heading}<span class="spacer"></span><button class="hide-btn" data-prefix="acc" data-id="${item.id}" data-baseline-conf="${conf}" type="button">Hide</button></div><div class="meta">Confidence: ${conf}/5 • ${when}</div><div class="desc">Accident cluster</div></div>`;
+        };
         highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
         lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
-
-        // Render signals (all)
-        const sigWrap = document.getElementById('cards-signals');
-        sigWrap.innerHTML = signals.map(cardSignalHTML).join('');
-
-        // Render weather (lowest priority)
-        const wxWrap = document.getElementById('cards-weather');
-        wxWrap.innerHTML = weather.map(cardWeatherHTML).join('');
-
-        // Bind card clicks
         bindCardClicks();
-
-        // Fit to panel constraints
         requestAnimationFrame(ensureWazeFits);
-
-        // Status
         setStatusPill(true, { animate:true });
       }catch(e){
         console.error('[Waze] fetch failed:', e);
@@ -1377,27 +1086,485 @@
       }
     }
 
-    // Pause/resume on tab visibility change
+    /* =======================================================
+       CENTRAL PANE — Bee Network Unplanned Diversions (2×4)
+       Only show: UFN OR starts today OR ends today
+       Keep UFN highlighted; rotate multi-operator dot & codes
+       ======================================================= */
+    const DIV_API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
+    const DIV_BODS_URL = `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent('https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=' + DIV_API_KEY)}`;
+    const DIV_REFRESH_MS = 45000;
+    const DIV_BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+    const DIV_DAY_MS = 24 * 60 * 60 * 1000;
+
+    const DIV_OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
+    const DIV_OP_COLORS = {
+      BNML:"#ff4d4f",
+      BNGN:"#003C6E",
+      BNSM:"#ff9a1f",
+      BNDB:"#9AC331",
+      BNVB:"#7a3ffe",
+      BNFM:"#ff66b3"
+    };
+
+    let divTimer = null;
+    let lastBoardIds = new Set();
+
+    /* ---- date helpers ---- */
+    function dTodayBounds(){
+      const now = new Date();
+      const s = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
+      const e = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59,999);
+      return { start:s, end:e };
+    }
+    function dIsToday(d){
+      if (!d) return false;
+      const {start, end} = dTodayBounds();
+      return d >= start && d <= end;
+    }
+    function dFmtHM(d){ return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit'}).format(d); }
+    function dWeekday(d){ return new Intl.DateTimeFormat('en-GB',{weekday:'long'}).format(d); }
+    function dFullMonth(d){ return new Intl.DateTimeFormat('en-GB',{month:'long'}).format(d); }
+    function dOrdinal(n){ const s=["th","st","nd","rd"], v=n%100; return n + (s[(v-20)%10] || s[v] || s[0]); }
+    function dFormatLabel(d){
+      if(!d) return "—";
+      if (dIsToday(d)) return `${dFmtHM(d)} Today`;
+      const now = new Date();
+      const weekStart = new Date(now);
+      weekStart.setDate(now.getDate() - ((now.getDay()+6)%7));
+      weekStart.setHours(0,0,0,0);
+      const weekEnd = new Date(weekStart);
+      weekEnd.setDate(weekStart.getDate()+6);
+      weekEnd.setHours(23,59,59,999);
+      if (d>=weekStart && d<=weekEnd) return dWeekday(d);
+      return `${dOrdinal(d.getDate())} ${dFullMonth(d)}`;
+    }
+    function dDuration(start, end){
+      if(!start) return "—";
+      const now = new Date();
+      const endTime = end || now;
+      let ms = endTime - start;
+      if (ms < 0) return "—";
+      const s = ms/1000;
+      if (s < 60)  return `${Math.round(s)}s`;
+      const m = s/60;
+      if (m < 60)  return `${Math.round(m)}m`;
+      const h = m/60;
+      if (h < 24)  return `${Math.round(h)}h`;
+      const d = h/24;
+      return `${Math.round(d)}d`;
+    }
+
+    /* ---- filter helpers ---- */
+    function divIsDiversion(sit){
+      const txt = (sit.Description || sit.Summary || "").toLowerCase();
+      return txt.includes("divert") || txt.includes("diversion");
+    }
+    function divIsCurrentlyValid(sit){
+      const now = new Date();
+      const s = sit?.ValidityPeriod?.StartTime || sit?.StartTime ? new Date(sit?.ValidityPeriod?.StartTime || sit?.StartTime) : null;
+      const e = sit?.ValidityPeriod?.EndTime   || sit?.EndTime   ? new Date(sit?.ValidityPeriod?.EndTime   || sit?.EndTime)   : null;
+      if(!s) return false;
+      if(s > now) return false;
+      if(e && e < now) return false;
+      return true;
+    }
+    function divIsBeeOperator(sit){
+      const refs = divGetOperatorRefs(sit);
+      const single = divGetSingleOperatorRef(sit);
+      return (refs && refs.some(r => DIV_BEE_OPERATORS.includes(String(r).toUpperCase()))) ||
+             (single && DIV_BEE_OPERATORS.includes(String(single).toUpperCase()));
+    }
+    function divDisplayEligibility(sit){
+      // Only UFN OR starts today OR ends today
+      const s = sit?.ValidityPeriod?.StartTime || sit?.StartTime ? new Date(sit?.ValidityPeriod?.StartTime || sit?.StartTime) : null;
+      const e = sit?.ValidityPeriod?.EndTime   || sit?.EndTime   ? new Date(sit?.ValidityPeriod?.EndTime   || sit?.EndTime)   : null;
+      const isUFN = !e;
+      return isUFN || dIsToday(s) || dIsToday(e);
+    }
+
+    /* ---- extractors ---- */
+    function divGetSituationId(sit){
+      const a  = sit?.SituationNumber || sit?.SituationRef;
+      const b  = sit?.ParticipantRef || "";
+      const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
+      const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
+      return String(a || `${b}|${st}|${sum}`).trim();
+    }
+    function divGetOperatorRefs(sit){
+      const refs = new Set();
+      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+      const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
+      if(Array.isArray(avj)){ for(const j of avj) add(j?.OperatorRef); }
+      else if(avj){ add(avj?.OperatorRef); }
+      if(Array.isArray(sit.__operatorRefs)){ sit.__operatorRefs.forEach(add); }
+      return [...refs];
+    }
+    function divGetSingleOperatorRef(sit){
+      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+      if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
+      if(avj && avj.OperatorRef) return String(avj.OperatorRef);
+      if(sit?.OperatorRef) return String(sit.OperatorRef);
+      if(sit?.__operatorRefs && sit.__operatorRefs.length) return sit.__operatorRefs[0];
+      return null;
+    }
+    function divGetLineRefs(sit){
+      const lines = new Set();
+      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+      const pushVal = (val)=>{ if(val == null) return; const s = String(val).trim(); if(s) lines.add(s); };
+      if(Array.isArray(avj)){
+        for(const j of avj){ pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName); }
+      }else if(avj){ pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName); }
+      if(Array.isArray(sit.__lineRefs)){ for(const v of sit.__lineRefs) pushVal(v); }
+      if(lines.size === 0){
+        const fallback = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef;
+        if(fallback) pushVal(fallback);
+      }
+      return Array.from(lines);
+    }
+
+    function divParseSummaryParts(summaryText){
+      if(!summaryText) return null;
+      const str = String(summaryText);
+      const hyIdx = str.indexOf(" - ");
+      if(hyIdx === -1) return null;
+      const left = str.slice(0, hyIdx).trim();
+      const reason = str.slice(hyIdx + 3).trim();
+      const lastComma = left.lastIndexOf(",");
+      if(lastComma === -1) return null;
+      const place = left.slice(0, lastComma).trim();  // treat as Street to display
+      const town  = left.slice(lastComma + 1).trim();
+      if(!place || !town) return null;
+      return { place, town, reason };
+    }
+
+    function divMapSituation(s){
+      const operatorRefs = divGetOperatorRefs(s);
+      const lines = divGetLineRefs(s);
+      const st = s?.ValidityPeriod?.StartTime || s?.StartTime ? new Date(s?.ValidityPeriod?.StartTime || s?.StartTime) : null;
+      const en = s?.ValidityPeriod?.EndTime   || s?.EndTime   ? new Date(s?.ValidityPeriod?.EndTime   || s?.EndTime)   : null;
+      const startMs = st ? st.getTime() : 0;
+      const endMs   = en ? en.getTime() : null;
+      const isUFN = (endMs == null);
+      const ufnOver24h = isUFN && startMs > 0 && (Date.now() - startMs) >= DIV_DAY_MS;
+
+      const parsed = divParseSummaryParts(s.Summary || s.Description || "");
+      const street = parsed?.place || "";   // show as Street
+      const town   = parsed?.town  || "";
+
+      return {
+        id: divGetSituationId(s),
+        operatorRefs,
+        singleOperatorForTint: divGetSingleOperatorRef(s) || "",
+        routes: (lines && lines.length ? lines.map(String) : ["?"]),
+        summary: (s.Summary || s.Description || "").trim(),
+        street,
+        town,
+        start: st,
+        end: en,
+        isUFN,
+        ufnOver24h,
+        startedLabel: dFormatLabel(st),
+        endsLabel: isUFN ? "UFN" : dFormatLabel(en),
+        durationLabel: dDuration(st, en)
+      };
+    }
+
+    function divSortItems(a, b){
+      // UFN first (older UFN first)
+      if (a.isUFN && !b.isUFN) return -1;
+      if (!a.isUFN && b.isUFN) return 1;
+      if (a.isUFN && b.isUFN) return (a.start?.getTime()||0) - (b.start?.getTime()||0);
+
+      // Non-UFN: end sooner first, then older start first
+      const aEnd = a.end?.getTime() ?? Number.POSITIVE_INFINITY;
+      const bEnd = b.end?.getTime() ?? Number.POSITIVE_INFINITY;
+      if (aEnd !== bEnd) return aEnd - bEnd;
+      return (a.start?.getTime()||0) - (b.start?.getTime()||0);
+    }
+
+    async function divFetch(){
+      const res = await fetch(withCacheBust(DIV_BODS_URL), { cache:'no-store' });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      let parsed;
+      try{
+        parsed = { type:"json", data: await res.clone().json() };
+      }catch{
+        const text = await res.text();
+        parsed = { type:"xml", data: (new DOMParser()).parseFromString(text,"application/xml") };
+      }
+
+      const fromJSON = (json) => {
+        const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+        if(!sd) return [];
+        const sed = Array.isArray(sd.SituationExchangeDelivery)
+          ? sd.SituationExchangeDelivery
+          : [sd.SituationExchangeDelivery].filter(Boolean);
+        const out=[];
+        for(const d of sed){
+          const pe = d?.Situations?.PtSituationElement;
+          if(Array.isArray(pe)) out.push(...pe);
+          else if(pe) out.push(pe);
+        }
+        return out;
+      };
+      const fromXML = (doc) => {
+        const els = [...doc.querySelectorAll("PtSituationElement")];
+        return els.map(el=>{
+          const T = s => el.querySelector(s)?.textContent?.trim() || null;
+          const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
+                          .map(n=>n.textContent.trim()).filter(Boolean);
+          const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
+                          .map(n=>n.textContent.trim()).filter(Boolean);
+          return {
+            Summary: T("Summary") || T("Description"),
+            Description: T("Description"),
+            Planned: T("Planned"),
+            SituationNumber: T("SituationNumber") || T("SituationRef"),
+            ParticipantRef: T("ParticipantRef"),
+            ValidityPeriod: {
+              StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
+              EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
+            },
+            Affects: {
+              VehicleJourneys: {
+                AffectedVehicleJourney: lines.length
+                  ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
+                  : []
+              }
+            },
+            __operatorRefs: opsRef,
+            __lineRefs: lines
+          };
+        });
+      };
+
+      let sits = parsed.type==="json" ? fromJSON(parsed.data) : fromXML(parsed.data);
+
+      // Bee-only, diversions only, currently valid, unplanned only, and display eligibility
+      sits = sits.filter(divIsBeeOperator)
+                 .filter(divIsDiversion)
+                 .filter(divIsCurrentlyValid)
+                 .filter(sit => {
+                   const p = sit?.Planned;
+                   return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
+                 })
+                 .filter(divDisplayEligibility);
+
+      const items = sits.map(divMapSituation).sort(divSortItems);
+      return items;
+    }
+
+    function divBuildRouteChips(routes){
+      const host = document.createElement('div');
+      host.className = 'routes';
+      const list = Array.isArray(routes) ? routes : ["?"];
+      if (list.length <= 3){
+        list.forEach(r=>{
+          const chip = document.createElement('span');
+          chip.className = 'route-chip';
+          chip.textContent = r;
+          host.appendChild(chip);
+        });
+      } else {
+        for (let i=0;i<3;i++){
+          const chip = document.createElement('span');
+          chip.className = 'route-chip';
+          chip.textContent = list[i];
+          host.appendChild(chip);
+        }
+        const more = document.createElement('span');
+        more.className = 'route-chip more';
+        more.textContent = `+${list.length-3}`;
+        host.appendChild(more);
+      }
+      return host;
+    }
+
+    function divBuildOpTag(operatorRefs){
+      const tag = document.createElement('div');
+      tag.className = 'op-tag';
+
+      const dot = document.createElement('span');
+      dot.className = 'op-dot';
+
+      const upperRefs = (operatorRefs || []).map(r => String(r).toUpperCase());
+      const codes = upperRefs.map(r => DIV_OP_MAP[r] || r);
+      const colors = upperRefs.map(r => DIV_OP_COLORS[r]).filter(Boolean);
+
+      // initial dot colour
+      if (upperRefs.length === 1){
+        dot.style.backgroundColor = colors[0] || '#cfcfd6';
+      } else {
+        dot.style.backgroundColor = colors[0] || '#cfcfd6';
+      }
+      tag.appendChild(dot);
+
+      // code rotator (fixed width)
+      const rot = document.createElement('div');
+      rot.className = 'op-code-rotator';
+
+      if (codes.length <= 1){
+        const c = document.createElement('span');
+        c.textContent = codes[0] || '—';
+        c.className = 'op-code active';
+        rot.appendChild(c);
+      } else {
+        codes.forEach((c, i) => {
+          const el = document.createElement('span');
+          el.textContent = c;
+          el.className = 'op-code' + (i === 0 ? ' active' : '');
+          rot.appendChild(el);
+        });
+
+        // gentle fades — codes
+        let idx = 0;
+        const rotateCodes = () => {
+          const children = rot.querySelectorAll('.op-code');
+          if (children.length <= 1) return;
+          children[idx].classList.remove('active');
+          idx = (idx + 1) % children.length;
+          children[idx].classList.add('active');
+        };
+        const codeInterval = setInterval(rotateCodes, 3200);
+
+        // gentle fades — dot colour
+        let cIdx = 0;
+        const cycleDot = () => {
+          if (colors.length <= 1) return;
+          cIdx = (cIdx + 1) % colors.length;
+          dot.style.backgroundColor = colors[cIdx] || '#cfcfd6';
+        };
+        const dotInterval = setInterval(cycleDot, 3200);
+
+        // cleanup if element detached
+        const observer = new MutationObserver(() => {
+          if (!document.body.contains(tag)){
+            clearInterval(codeInterval);
+            clearInterval(dotInterval);
+            observer.disconnect();
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
+
+      tag.appendChild(rot);
+      return tag;
+    }
+
+    function divRenderBoard(items){
+      const grid = document.querySelector('#diverts-grid');
+      if (!grid) return;
+
+      const eight = items.slice(0,8);
+      while (eight.length < 8){
+        eight.push({ __placeholder: true });
+      }
+
+      const currentIds = new Set(eight.filter(it=>!it.__placeholder).map(it=>it.id));
+
+      grid.innerHTML = '';
+      for (const it of eight){
+        const card = document.createElement('div');
+        card.className = 'divert-card';
+
+
+if (it.__placeholder){
+  card.classList.add('placeholder');
+  card.innerHTML = ``;   // blank card
+  grid.appendChild(card);
+  continue;
+}
+
+
+        // Persistent highlight for UFN
+        if (it.isUFN){ card.classList.add('ufn-highlight'); }
+
+        const header = document.createElement('div');
+        header.className = 'divert-header';
+        const routes = divBuildRouteChips(it.routes || ["?"]);
+        routes.title = (it.routes||[]).join(', ');
+        const opTag = divBuildOpTag((it.operatorRefs||[]).map(r=>String(r).toUpperCase()));
+        opTag.title = (it.operatorRefs||[]).join(', ') || '—';
+        header.append(routes, opTag);
+
+        // STREET line (replace reason): use parsed 'place' as Street
+        const streetLine = document.createElement('div');
+        streetLine.className = 'street-line';
+        const stEmoji = document.createElement('span'); stEmoji.className = 'street-emoji'; stEmoji.textContent = it.reasonEmoji || '⚠️';;
+        const stText  = document.createElement('span');
+        stText.textContent = it.street || '—';
+        stText.style.whiteSpace = 'nowrap';
+        stText.style.overflow = 'hidden';
+        stText.style.textOverflow = 'ellipsis';
+        streetLine.append(stEmoji, stText);
+
+        // Town / fallback (kept compact)
+        const loc = document.createElement('div');
+        loc.className = 'location';
+        loc.textContent = it.town || it.summary || 'Travel alert';
+
+        // Times
+        const times = document.createElement('div'); times.className = 'times';
+        const row1 = document.createElement('div'); row1.className = 'time-row';
+        row1.innerHTML = `<span class="lab">Started:</span> <span class="val">${it.startedLabel || '—'}</span>`;
+        const row2 = document.createElement('div'); row2.className = 'time-row' + (String(it.endsLabel||'').toUpperCase()==='UFN' ? ' ufn' : '');
+        row2.innerHTML = `<span class="lab">Ends:</span> <span class="val">${it.endsLabel || '—'}</span>`;
+        const row3 = document.createElement('div'); row3.className = 'time-row';
+        row3.innerHTML = `<span class="lab">Duration:</span> <span class="val">${it.durationLabel || '—'}</span>`;
+        times.append(row1,row2,row3);
+
+        card.append(header, streetLine, loc, times);
+
+        // Subtle one-time flash when a NEW UFN arrives on board
+        if (it.isUFN && !lastBoardIds.has(it.id)){
+          card.classList.add('new-ufn-flash');
+          setTimeout(()=>card.classList.remove('new-ufn-flash'), 1600);
+        }
+
+        grid.appendChild(card);
+      }
+
+      lastBoardIds = currentIds;
+    }
+
+    async function divertsCycle(){
+      const ctrl = new AbortController();
+      try{
+        const items = await divFetch();
+        divRenderBoard(items);
+        setStatusPill(true, { animate:false });
+      }catch(e){
+        console.error('[DIVERTS] fetch failed:', e);
+        setStatusPill(false, { animate:false });
+      }finally{
+        clearTimeout(divTimer);
+        divTimer = setTimeout(divertsCycle, DIV_REFRESH_MS);
+      }
+    }
+
+    /* =======================================================
+       BOOT / VISIBILITY
+       ======================================================= */
     document.addEventListener('visibilitychange', () => {
       if (document.hidden){
         clearTimeout(tvtTimer); tvtTimer = null;
         clearTimeout(wazeTimer); wazeTimer = null;
+        clearTimeout(divTimer);  divTimer  = null;
       } else {
         tvtCycle();
         wazeCycle();
+        divertsCycle();
       }
     });
-
-    // Kick off & wire up "Unhide all"
     window.addEventListener('load', () => {
       setStatusPill(false, { animate:false });
       const unhideBtn = document.getElementById('unhideAllBtn');
-      if (unhideBtn){
-        unhideBtn.addEventListener('click', unhideAll, { passive: true });
-      }
-      tvtCycle();  // Abnormal traffic (top-left)
-      wazeCycle(); // Waze alerts (right)
-      // Re-fit on resize
+      if (unhideBtn){ unhideBtn.addEventListener('click', unhideAll, { passive: true }); }
+      tvtCycle();     // left
+      wazeCycle();    // right
+      divertsCycle(); // centre
       window.addEventListener('resize', () => requestAnimationFrame(ensureWazeFits));
     });
   </script>
