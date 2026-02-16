@@ -317,48 +317,55 @@
     const BANNER_THROTTLE_MS = 20 * 60 * 1000;
     const bannerLastShownAt = new Map();
 
-    // Audio cooldown
-    const AUDIO_COOLDOWN_MS = 15 * 60 * 1000;
-    let audioCtx = null;
+    // === Audio: WAV with 30-minute cooldown, play when banner shows ===
+    const ALERT_SOUND_URL = 'https://ryanocc.github.io/notify.wav';
+    const AUDIO_COOLDOWN_MS = 30 * 60 * 1000; // 30 minutes
+    let audioEl = null;
     let audioEnabled = false;
     let lastSoundAt = Number(localStorage.getItem('lastSoundAt') || 0);
 
-    function unlockAudioOnce() {
+    function ensureAudioEl() {
+      if (!audioEl) {
+        audioEl = new Audio(ALERT_SOUND_URL);
+        audioEl.preload = 'auto';
+        audioEl.volume = 1.0;
+      }
+    }
+    function canPlayAlertSound() {
+      const now = Date.now();
+      return audioEnabled && (now - lastSoundAt) >= AUDIO_COOLDOWN_MS;
+    }
+    async function playAlertSound() {
+      if (!canPlayAlertSound()) return;
       try {
-        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        audioCtx.resume().then(() => { audioEnabled = (audioCtx.state === 'running'); }).catch(() => {});
-      } catch (e) {}
-      document.removeEventListener('pointerdown', unlockAudioOnce);
-      document.removeEventListener('keydown',    unlockAudioOnce);
+        ensureAudioEl();
+        audioEl.currentTime = 0;
+        await audioEl.play();
+        lastSoundAt = Date.now();
+        localStorage.setItem('lastSoundAt', String(lastSoundAt));
+      } catch (e) {
+        console.warn('Alert sound blocked:', e);
+      }
+    }
+    async function unlockAudioOnce() {
+      try {
+        ensureAudioEl();
+        // Some browsers require a successful play() after user gesture. Prime muted.
+        audioEl.muted = true;
+        await audioEl.play();
+        audioEl.pause();
+        audioEl.currentTime = 0;
+        audioEl.muted = false;
+        audioEnabled = true;
+      } catch (e) {
+        // Will retry on next interaction
+      } finally {
+        document.removeEventListener('pointerdown', unlockAudioOnce);
+        document.removeEventListener('keydown',    unlockAudioOnce);
+      }
     }
     document.addEventListener('pointerdown', unlockAudioOnce, { once: true });
     document.addEventListener('keydown',    unlockAudioOnce, { once: true });
-
-    function canPlayAlertSound() {
-      if (!audioCtx || !audioEnabled) return false;
-      const now = Date.now();
-      return (now - lastSoundAt) >= AUDIO_COOLDOWN_MS;
-    }
-    function playAlertSound() {
-      if (!canPlayAlertSound()) return;
-      const ctx = audioCtx, now = ctx.currentTime;
-      function tone(freq, start, dur, gainPeak = 0.25) {
-        const osc = ctx.createOscillator();
-        const g   = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, now + start);
-        g.gain.setValueAtTime(0.0001, now + start);
-        g.gain.exponentialRampToValueAtTime(gainPeak, now + start + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001,  now + start + dur);
-        osc.connect(g).connect(ctx.destination);
-        osc.start(now + start);
-        osc.stop(now + start + dur);
-      }
-      tone(880,  0.00, 0.20, 0.30);
-      tone(1319, 0.22, 0.22, 0.28);
-      lastSoundAt = Date.now();
-      localStorage.setItem('lastSoundAt', String(lastSoundAt));
-    }
 
     // GM bounds & camera
     const GM_BOUNDS = [[-2.75, 53.33], [-1.95, 53.62]];
@@ -841,7 +848,7 @@
     }
 
     function escapeHTML(str){
-      return String(str).replace(/[&<>:"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+      return String(str).replace(/[&<>:\"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
     }
     function stylizeRoad(street, city) {
       const s = escapeHTML((street || '').trim());
@@ -887,6 +894,11 @@
       document.getElementById('alert-title').textContent = 'New High Confidence Alert';
       locEl.innerHTML = stylizeRoad(item.street, item.city);
       timeEl.textContent = `First reported: ${formatFirstReported(item.firstMillis)}`;
+
+      // 🔔 Play WAV when the banner displays (30-min cooldown)
+      if (!document.hidden && canPlayAlertSound()) {
+        playAlertSound();
+      }
 
       barEl.classList.add('full');
       setBarVisible(true);
@@ -1026,9 +1038,7 @@
           if ((becameHigh || becameHigherHigh) && shouldTriggerBanner(f)) newly.push(f);
         }
 
-        if ((brandNewCount > 0 || newly.length > 0) && !document.hidden && canPlayAlertSound()) {
-          playAlertSound();
-        }
+        // 🔔 (moved chime to banner display; do not play here)
 
         if(newly.length){
           newly.sort((a,b)=>{
@@ -1120,6 +1130,46 @@
     window.addEventListener('pageshow',  () => { if (!document.hidden) resumeAlerts(); });
     window.addEventListener('pagehide',  () => { pauseAlerts(); });
 
+    // Helper to add external SVG as MapLibre image (with fallback path)
+    async function addExternalSvgImage(map, id, url) {
+      function loadViaImg(src) {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+          img.onload = () => {
+            try { map.addImage(id, img, { pixelRatio: 2 }); resolve(); }
+            catch (e) { resolve(); } // already added? resolve silently
+          };
+          img.onerror = reject;
+          img.src = src;
+        });
+      }
+      try {
+        const bust = url + (url.includes('?') ? '&' : '?') + 'ts=' + Date.now();
+        await loadViaImg(bust);
+      } catch {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          const text = await res.text();
+          const blob = new Blob([text], { type: 'image/svg+xml' });
+          const objUrl = URL.createObjectURL(blob);
+          await new Promise((resolve, reject) => {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => {
+              try { map.addImage(id, img, { pixelRatio: 2 }); resolve(); }
+              catch (e) { resolve(); }
+              URL.revokeObjectURL(objUrl);
+            };
+            img.onerror = reject;
+            img.src = objUrl;
+          });
+        } catch (e) {
+          console.error('[SVG icon] Failed to load', url, e);
+        }
+      }
+    }
+
     map.on('load', async () => {
       map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
 
@@ -1127,7 +1177,7 @@
       map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
       map.addImage('pulsing-white', createPulsingDot(map,'white'), { pixelRatio: 2 });
 
-      // Small green triangle for traffic light faults
+      // Small green triangle for fallback (if SVG fails)
       map.addImage('triangle-green', createTriangleIcon(map, '#28c76f'), { pixelRatio: 2 });
 
       // ACCIDENTS
@@ -1217,12 +1267,15 @@
         }
       });
 
+      // Load your traffic light SVG icon
+      await addExternalSvgImage(map, 'tl-icon', 'https://ryanocc.github.io/tl.svg');
+
       map.addSource('waze-signal-faults', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
       map.addLayer({
         id: 'waze-signal-faults-icon', type: 'symbol', source: 'waze-signal-faults',
         layout: {
-          'icon-image': 'triangle-green',
-          'icon-size': ['interpolate',['linear'],['zoom'], 8,0.22, 12,0.35, 16,0.48],
+          'icon-image': map.hasImage('tl-icon') ? 'tl-icon' : 'triangle-green', // fallback to triangle if SVG fails
+          'icon-size': ['interpolate',['linear'],['zoom'], 8,0.40, 12,0.60, 16,0.85],
           'icon-allow-overlap': true
         }
       });
@@ -1920,6 +1973,7 @@
 
     // (Optional) Nightly refresh to clear GPU/driver state
     // setTimeout(() => location.reload(), 12 * 60 * 60 * 1000);
+
   </script>
 </body>
 </html>
