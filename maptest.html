@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css" />
   <script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
 
-  <!-- Fonts -->
+  <!-- Fonts (optional: self-host these to avoid third-party storage access warnings) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -218,6 +218,7 @@
       padding: 8px 12px 12px 12px;
       overflow: hidden;
     }
+
     .corridor {
       display: grid;
       grid-template-rows: auto auto auto;
@@ -632,18 +633,20 @@
     }
 
     /* =========================
-       Smaller, slower custom images
+       Animated custom images — smaller & with readback hints
        ========================= */
     function createPulsingDot(map, color='red'){
+      // Small canvas + lower FPS; hint that we'll read back frequently
       const size = 128, targetFps = 8, frameMs = 1000/targetFps; let last=0;
       const fillColor = (on)=> color==='white' ? `rgba(255,255,255,${on?1:0.85})` : `rgba(255,0,0,${on?1:0.9})`;
       const ringColor = (on)=> color==='white' ? `rgba(255,255,255,${on?0.95:0.3})` : `rgba(255, 80, 80, ${on?0.95:0.15})`;
       return {
         width:size, height:size, data:new Uint8Array(size*size*4),
-        onAdd(){ const c=document.createElement('canvas'); c.width=this.width; c.height=this.height; 
-this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: true });
-}
-,
+        onAdd(){
+          const c=document.createElement('canvas');
+          c.width=this.width; c.height=this.height;
+          this.context=c.getContext('2d', { willReadFrequently:true, desynchronized:true });
+        },
         render(){
           const now=performance.now(); if(now-last<frameMs) return false; last=now;
           const duration=1200; const t=(now%duration)/duration; const on=t<0.5;
@@ -671,7 +674,7 @@ this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: tr
         onAdd() {
           const c = document.createElement('canvas');
           c.width = this.width; c.height = this.height;
-          this.ctx = c.getContext('2d', { willReadFrequently: true, desynchronized: true });
+          this.ctx = c.getContext('2d', { willReadFrequently:true, desynchronized:true });
         },
         render() {
           const now = performance.now(); if (now - last < frameMs) return false; last = now;
@@ -687,6 +690,44 @@ this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: tr
           ctx.lineWidth = Math.max(2, w * 0.028);
           ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
           const img = this.ctx.getImageData(0,0,w,h); this.data.set(img.data);
+          map.triggerRepaint(); return true;
+        }
+      };
+    }
+
+    function createHexDivertIcon(map, color = '#FFFFFF') {
+      const size = 128; const targetFps = 8; const frameMs = 1000 / targetFps; let last = 0;
+      return {
+        width: size, height: size, data: new Uint8Array(size * size * 4),
+        onAdd() {
+          const c = document.createElement('canvas');
+          c.width = this.width; c.height = this.height;
+          this.ctx = c.getContext('2d', { willReadFrequently:true, desynchronized:true });
+        },
+        render() {
+          const now = performance.now(); if (now - last < frameMs) return false; last = now;
+          const ctx = this.ctx, w = this.width, h = this.height, cx = w/2, cy = h/2;
+          const dur = 1200; const t = (now % dur) / dur; const glow = 0.85 + Math.sin(t * Math.PI * 2) * 0.15;
+          ctx.clearRect(0,0,w,h);
+          ctx.beginPath(); ctx.arc(cx, cy, (w/2)*0.44, 0, Math.PI*2); ctx.fillStyle='rgba(0,0,0,0.55)';
+          ctx.shadowColor = color; ctx.shadowBlur = 24 * glow; ctx.fill(); ctx.shadowBlur = 0;
+
+          const R = (w/2)*0.34; const rotation = Math.PI/2 + Math.PI; // point-down
+          function hexPath(radius) {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+              const a = rotation + (i * Math.PI / 3);
+              const x = cx + radius * Math.cos(a);
+              const y = cy + radius * Math.sin(a);
+              if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+          }
+          hexPath(R); ctx.fillStyle = color; ctx.fill();
+          ctx.lineJoin = 'round';
+          ctx.lineWidth = Math.max(2, w * 0.028); ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
+          ctx.lineWidth = Math.max(2, w * 0.010); ctx.strokeStyle = 'rgba(0,0,0,0.70)'; hexPath(R * 1.02); ctx.stroke();
+          const img = ctx.getImageData(0,0,w,h); this.data.set(img.data);
           map.triggerRepaint(); return true;
         }
       };
@@ -738,7 +779,7 @@ this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: tr
       barEl.setAttribute('aria-hidden', show ? 'false' : 'true');
       document.body.classList.toggle('bar-open', show);
       map.resize();
-      startGlobalRepaint(); // no-op after refactor
+      startGlobalRepaint(); // no-op
 
       if (show && highlightedCenter) {
         map.easeTo({
@@ -1082,11 +1123,11 @@ this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: tr
     map.on('load', async () => {
       map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
 
-      // Pulsing images (smaller + slower)
+      // Pulsing images (smaller + slower, with readback hints)
       map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
       map.addImage('pulsing-white', createPulsingDot(map,'white'), { pixelRatio: 2 });
 
-      // New small green triangle for traffic light faults
+      // Small green triangle for traffic light faults
       map.addImage('triangle-green', createTriangleIcon(map, '#28c76f'), { pixelRatio: 2 });
 
       // ACCIDENTS
@@ -1363,37 +1404,6 @@ this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: tr
         }
       });
 
-      function createHexDivertIcon(map, color = '#FFFFFF') {
-        const size = 128; const targetFps = 8; const frameMs = 1000 / targetFps; let last = 0;
-        return {
-          width: size, height: size, data: new Uint8Array(size * size * 4),
-          onAdd() { const c = document.createElement('canvas'); c.width = this.width; c.height = this.height; this.ctx = c.getContext('2d', { willReadFrequently: true, desynchronized: true }); },
-          render() {
-            const now = performance.now(); if (now - last < frameMs) return false; last = now;
-            const ctx = this.ctx, w = this.width, h = this.height, cx = w/2, cy = h/2;
-            const dur = 1200; const t = (now % dur) / dur; const glow = 0.85 + Math.sin(t * Math.PI * 2) * 0.15;
-            ctx.clearRect(0,0,w,h);
-            ctx.beginPath(); ctx.arc(cx, cy, (w/2)*0.44, 0, Math.PI*2); ctx.fillStyle='rgba(0,0,0,0.55)'; ctx.shadowColor = color; ctx.shadowBlur = 24 * glow; ctx.fill(); ctx.shadowBlur = 0;
-            const R = (w/2)*0.34; const rotation = Math.PI/2 + Math.PI; // point-down
-            function hexPath(radius) {
-              ctx.beginPath();
-              for (let i = 0; i < 6; i++) {
-                const a = rotation + (i * Math.PI / 3);
-                const x = cx + radius * Math.cos(a);
-                const y = cy + radius * Math.sin(a);
-                if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-              }
-              ctx.closePath();
-            }
-            hexPath(R); ctx.fillStyle = color; ctx.fill();
-            ctx.lineJoin = 'round';
-            ctx.lineWidth = Math.max(2, w * 0.028); ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
-            ctx.lineWidth = Math.max(2, w * 0.010); ctx.strokeStyle = 'rgba(0,0,0,0.70)'; hexPath(R * 1.02); ctx.stroke();
-            const img = ctx.getImageData(0,0,w,h); this.data.set(img.data);
-            map.triggerRepaint(); return true;
-          }
-        };
-      }
       function ensureDivertImages() {
         function addIfMissing(name, color) {
           if (!map.hasImage(name)) {
@@ -1600,7 +1610,7 @@ this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: tr
       let c;
       if (h >= 0.5){
         const t = (h - 0.5)/0.5;
-        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp[yellow[2], green[2], t] ];
+        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp(yellow[2], green[2], t) ];
       } else {
         const t = h/0.5;
         c = [ lerp(red[0], yellow[0], t), lerp(red[1], yellow[1], t), lerp(red[2], yellow[2], t) ];
@@ -1881,6 +1891,7 @@ this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: tr
       // TVT line pulse → throttled interval
       let tvtPulse = 1.0, tvtDir = 1;
       function applyTvtPulse(){
+        const coreW = ['interpolate',['linear'],['zoom'], 8, 4.5*tvtPulse, 12, 6*tvtPulse, 16, 8*tvtPulse];
         const glowW = ['interpolate',['linear'],['zoom'], 8, 8.5*tvtPulse, 12, 11*tvtPulse, 16, 14*tvtPulse];
         try {
           map.setPaintProperty('tvt-top5-core','line-width', coreW);
