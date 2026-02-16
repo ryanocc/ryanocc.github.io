@@ -215,6 +215,118 @@
     /* ================================
        ABNORMAL TRAFFIC PANEL (TVT clone)
        ================================ */
+    .sev-row{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  --sev-p: 0;
+  --sev-color: var(--sev-mild);
+}
+
+.sev-arc{
+  width: 64px;
+  height: 36px;
+  display: block;
+}
+
+.sev-arc .track{
+  fill:none;
+  stroke:rgba(255,255,255,0.18);
+  stroke-width:8;
+  stroke-linecap:round;
+}
+
+.sev-arc .fill{
+  fill:none;
+  stroke:var(--sev-color);
+  stroke-width:8;
+  stroke-linecap:round;
+  stroke-dasharray: var(--sev-p) 100;
+}
+
+.time-bars{
+  display:grid;
+  gap:4px;
+}
+
+.bar-row{
+  display:grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items:center;
+  gap:8px;
+}
+
+.bar{
+  position:relative;
+  height:10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.14);
+  overflow:hidden;
+}
+
+.bar-fill{
+  position:absolute;
+  top:0; left:0; bottom:0;
+  border-radius:999px;
+}
+
+.bar-fill.now{ background:#FFE04A; }
+.bar-fill.norm{ background:rgba(255,255,255,0.55); }
+
+.sev-top{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  font-weight:900;
+  font-size: 1.2rem;
+}
+
+/* === Abnormal Traffic: severity arc + stacked bars === */
+.sev-row{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  --sev-p: 0;                /* 0..100 controls arc fill */
+  --sev-color: #9ddc43;      /* default mild */
+}
+.sev-arc{ width: 64px; height: 36px; display:block; }
+.sev-arc .track{
+  fill:none; stroke:rgba(255,255,255,0.18); stroke-width:8; stroke-linecap:round;
+}
+.sev-arc .fill{
+  fill:none; stroke:var(--sev-color); stroke-width:8; stroke-linecap:round;
+  stroke-dasharray: var(--sev-p) 100;  /* pathLength=100 → % fill */
+}
+.sev-top{
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  font-weight:900; font-size: clamp(16px, 2.6vh, 22px);
+}
+.sev-top .pct{ color: var(--sev-color); }
+.sev-top .delay{ color:#fff; opacity:.98; }
+
+/* Stacked time bars */
+.time-bars{ display:grid; gap:4px; }
+.bar-row{
+  display:grid;
+  grid-template-columns: 56px 1fr auto; /* label | bar | value */
+  align-items:center; gap:8px; min-width:0;
+}
+.bar-label{
+  font-size: clamp(10px, 1.6vh, 12px);
+  color: rgba(255,255,255,0.65); font-weight:800; text-transform:uppercase;
+}
+.tvt-mini-bar{
+  position:relative; height:10px; border-radius:999px;
+  background: rgba(255,255,255,0.14); overflow:hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.35);
+}
+.tvt-mini-fill{ position:absolute; top:0; left:0; bottom:0; border-radius:999px; }
+.tvt-now{  background:#FFE04A; }              /* yellow */
+.tvt-norm{ background:rgba(255,255,255,0.55);} /* light grey/white */
+.bar-val{ font-size: clamp(11px, 1.6vh, 13px); color:#fff; font-weight:800; }
+    
     .tvt-panel{
       display: grid;
       grid-template-rows: auto 1fr;
@@ -733,6 +845,20 @@
   box-shadow: 0 0 0 3px rgba(255,224,74,0.15);
 }
 
+.car-icon{
+  width: clamp(22px, 3.2vh, 28px);
+  height: clamp(22px, 3.2vh, 28px);
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));
+}
+
+.connected-count{
+  font-weight: 900;
+  font-size: clamp(14px, 2.2vh, 18px);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
   </style>
 </head>
 <body>
@@ -817,34 +943,62 @@
     <!-- =========================
          TITLE BAR (Bottom 10%)
          ========================= -->
-    <footer class="titlebar" role="contentinfo" aria-label="Title bar">
-      <div class="title-left">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <h1 class="screen-title" title="LST">LST</h1>
-      </div>
+<footer class="titlebar" role="contentinfo" aria-label="Title bar">
+  <div class="title-left">
+    <img src="https://ryanocc.github.io/car.gif" class="car-icon" alt="car icon">
+    <div id="connectedCitizens" class="connected-count">— Connected Citizens</div>
+  </div>
 
-      <div class="title-right" aria-label="Status and controls">
-        <button id="unhideAllBtn"
-                class="toolbar-btn"
-                title="Unhide all hidden alerts"
-                aria-label="Unhide all hidden alerts"
-                type="button">
-          Unhide all
-        </button>
-        <div id="statusPill" class="status-pill">Initialising…</div>
-        <img id="beeLogo"
-             src="https://tfgm.com/static/android-chrome-192x192.png"
-             alt="Bee Network logo"
-             width="64" height="64"
-             decoding="async" />
-      </div>
-    </footer>
+  <div class="title-right" aria-label="Status and controls">
+    <button id="unhideAllBtn"
+            class="toolbar-btn"
+            title="Unhide all hidden alerts"
+            aria-label="Unhide all hidden alerts"
+            type="button">
+      Unhide all
+    </button>
+
+    <div id="statusPill" class="status-pill">Initialising…</div>
+
+    <img id="beeLogo"
+         src="https://tfgm.com/static/android-chrome-192x192.png"
+         alt="Bee Network logo"
+         width="64" height="64"
+         decoding="async" />
+  </div>
+</footer>
   </div>
 
   <script>
     /* =======================================================
        Utilities & Aesthetic helpers
        ======================================================= */
+    function sevColorForPct(p){
+  if (p >= 100) return '#FF4D4F';  // red
+  if (p >= 40)  return '#FF9A1F';  // orange
+  if (p >= 10)  return '#FFE04A';  // yellow
+  return '#9ddc43';                // mild green
+}
+   
+function sumWazers(usersOnJams){
+  try {
+    const total = (Array.isArray(usersOnJams) ? usersOnJams : [])
+      .reduce((acc,u) => acc + (Number(u.wazersCount)||0), 0);
+    return Math.ceil(total);
+  } catch {
+    return 0;
+  }
+}
+
+function updateConnectedCitizensDisplay(total){
+  const el = document.getElementById('connectedCitizens');
+  if (!el) return;
+  const label = Number.isFinite(total) && total > 0
+    ? total.toLocaleString('en-GB')
+    : '—';
+  el.textContent = `${label} Connected Citizens`;
+}
+    
     function withCacheBust(url){
       const sep = url.includes('?') ? '&' : '?';
       return `${url}${sep}ts=${Date.now()}`;
@@ -1025,40 +1179,118 @@
     const prevShownRoutes = new Map();
     const routeKey = (r) => String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
 
-    function renderTvtPanel(data){
-      const host = document.getElementById('abnormal-traffic');
-      const list = document.getElementById('tvt-corridors');
-      const net = host.querySelector('.network-bar');
-      if (net){ net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []); }
-      const rawTop = computeTopNAbnormal(data?.routes || [], 15);
-      const withMetrics = rawTop.map(r => {
-        const time = Number(r.time)||0, hist = Number(r.historicTime)||0;
-        const abnPct = (hist>0 && time>0) ? Math.round(((time - hist)/hist)*100) : 0;
-        return { r, id: routeKey(r), time, hist, abnPct };
-      });
-      const filtered = withMetrics.filter(it => !isHiddenWithAutoCheck('corr', it.id, { abnPct: it.abnPct }));
-      const itemHTML = (it) => {
-        const { r, time, hist, abnPct, id } = it;
-        const color = '#2ecc71';
-        const title = escapeHTML(corridorDisplayName(r));
-        return `
-          <div class="corridor" title="${escapeHTML(r?.name||'')}">
-            <div class="title">
-              <span class="name">${title}</span>
-              <span class="spacer"></span>
-              <button class="hide-btn" data-prefix="corr" data-id="${escapeHTML(id)}" data-baseline-abnpct="${abnPct}" type="button">Hide</button>
+
+function renderTvtPanel(data){
+  const host = document.getElementById('abnormal-traffic');
+  if (!host) return;
+
+  const list = document.getElementById('tvt-corridors');
+  const net  = host.querySelector('.network-bar');
+
+  // 1) Update the network health gradient (once)
+  if (net){
+    net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []);
+  }
+
+  // 2) Update the footer "Connected Citizens" count (once)
+  updateConnectedCitizensDisplay(
+    sumWazers(data?.usersOnJams || [])
+  );
+
+
+  // Compute top abnormal corridors (your existing logic)
+  const rawTop = computeTopNAbnormal(data?.routes || [], 15);
+  const withMetrics = rawTop.map(r => {
+    const time = Number(r.time)||0;
+    const hist = Number(r.historicTime)||0;
+    const abnPct = (hist>0 && time>0) ? Math.round(((time - hist)/hist)*100) : 0;
+    return { r, id: routeKey(r), time, hist, abnPct };
+  });
+
+  // Hide/suppress logic (unchanged)
+  const filtered = withMetrics.filter(it => !isHiddenWithAutoCheck('corr', it.id, { abnPct: it.abnPct }));
+
+  const itemHTML = (it) => {
+    const { r, time, hist, abnPct, id } = it;
+    const title = escapeHTML(corridorDisplayName(r));
+
+    // === NEW: metrics for arc + stacked bars ===
+    const delayMin = Math.max(0, Math.round((time - hist) / 60));
+    const arcPart  = Math.max(0, Math.min(100, Number(abnPct) || 0));  // 0..100 controls arc fill
+    const sevCol   = sevColorForPct(Number(abnPct) || 0);
+
+    // Bar widths relative to larger of now vs normal
+    const maxVal = Math.max(1, time, hist);
+    const wNow   = Math.round((time / maxVal) * 100);
+    const wNorm  = Math.round((hist / maxVal) * 100);
+
+    return `
+      <div class="corridor" title="${escapeHTML(r?.name||'')}">
+        <div class="title">
+          <span class="name">${title}</span>
+          <span class="spacer"></span>
+          <button class="hide-btn"
+                  data-prefix="corr"
+                  data-id="${escapeHTML(id)}"
+                  data-baseline-abnpct="${abnPct}"
+                  type="button">Hide</button>
+        </div>
+
+        <!-- NEW: semicircle severity arc + bold % and delay -->
+        <div class="sev-row" style="--sev-p:${arcPart}; --sev-color:${sevCol};">
+          <svg class="sev-arc" viewBox="0 0 120 60" aria-hidden="true">
+            <path class="track" d="M10,50 A50,50 0 0 1 110,50"></path>
+            <path class="fill"  d="M10,50 A50,50 0 0 1 110,50" pathLength="100"></path>
+          </svg>
+          <div class="sev-metrics">
+            <div class="sev-top">
+              <span class="pct">${Number.isFinite(abnPct) ? (abnPct>=0?'+':'') : ''}${Number.isFinite(abnPct)?abnPct:0}%</span>
+              <span class="delay">+${delayMin} min</span>
             </div>
-            <div class="bar" style="background:${color}"></div>
-            <div class="meta">Now: ${fmtMins(time)} • Historic: ${fmtMins(hist)} ${Number.isFinite(abnPct)? `• ${abnPct>=0?'+':''}${abnPct}%` : ''}</div>
           </div>
-        `;
-      };
-      list.innerHTML = filtered.length
-        ? filtered.map(itemHTML).join('')
-        : `<div class="corridor"><div class="title"><span class="name">No abnormal corridors</span></div><div class="bar"></div><div class="meta">—</div></div>`;
-      filtered.forEach(it => prevShownRoutes.set(it.id, { time: Number(it.time)||0 }));
-      list.scrollTop = 0;
-    }
+        </div>
+
+        <!-- NEW: stacked time bars (Now vs Normal) -->
+        <div class="time-bars">
+          <div class="bar-row">
+            <span class="bar-label">Now</span>
+            <div class="tvt-mini-bar">
+              <span class="tvt-mini-fill tvt-now"  style="width:${wNow}%;"></span>
+            </div>
+            <span class="bar-val">${fmtMins(time)}</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Normal</span>
+            <div class="tvt-mini-bar">
+              <span class="tvt-mini-fill tvt-norm" style="width:${wNorm}%;"></span>
+            </div>
+            <span class="bar-val">${fmtMins(hist)}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  };
+
+  list.innerHTML = filtered.length
+    ? filtered.map(itemHTML).join('')
+    : `
+      <div class="corridor">
+        <div class="title"><span class="name">No abnormal corridors</span></div>
+        <div class="sev-row" style="--sev-p:0; --sev-color:rgba(255,255,255,0.35);">
+          <svg class="sev-arc" viewBox="0 0 120 60" aria-hidden="true">
+            <path class="track" d="M10,50 A50,50 0 0 1 110,50"></path>
+            <path class="fill"  d="M10,50 A50,50 0 0 1 110,50" pathLength="100" style="stroke-dasharray:0 100;"></path>
+          </svg>
+          <div class="sev-metrics">
+            <div class="sev-top"><span class="pct" style="color:rgba(255,255,255,0.6)">Normal</span></div>
+          </div>
+        </div>
+      </div>`;
+
+  // Preserve your previous “shown” cache + scroll reset
+  filtered.forEach(it => prevShownRoutes.set(it.id, { time: Number(it.time)||0 }));
+  list.scrollTop = 0;
+}
     async function fetchTVT(signal){
       const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -1792,15 +2024,14 @@
         opTag.title = (it.operatorRefs||[]).join(', ') || '—';
         header.append(routes, opTag);
 
-        const streetLine = document.createElement('div');
-        streetLine.className = 'street-line';
-        const stEmoji = document.createElement('span'); stEmoji.className = 'street-emoji'; stEmoji.textContent = it.reasonEmoji || '⚠️';
-        const stText  = document.createElement('span');
-        stText.textContent = it.street || '—';
-        stText.style.whiteSpace = 'nowrap';
-        stText.style.overflow = 'hidden';
-        stText.style.textOverflow = 'ellipsis';
-        streetLine.append(stEmoji, stText);
+const streetLine = document.createElement('div');
+streetLine.className = 'street-line';
+
+const st = document.createElement('span');
+st.className = 'street';     // This gets bold via CSS
+st.textContent = it.street || '—';
+
+streetLine.append(st);
 
         const loc = document.createElement('div');
         loc.className = 'location';
