@@ -1313,337 +1313,418 @@ function renderTvtPanel(data){
       }
     }
 
-    /* =======================================================
-       WAZE ALERTS (right) — trimmed logic + SIGNALS support
-       ======================================================= */
-    const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
-    const WAZE_REFRESH_MS = 30000;
-    const PROXIES = [
-      (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
-      (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
-    ];
-    async function fetchViaProxies(url, signal){
-      const busted = withCacheBust(url);
-      const errors = [];
-      for(const build of PROXIES){
-        const proxied = build(busted);
-        try{
-          const res = await fetch(proxied, { cache:'no-store', signal });
-          if(!res.ok) throw new Error(`HTTP ${res.status}`);
-          const text = await res.text();
-          const trimmed = text.replace(/^\uFEFF/, '').trim();
-          if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
-          return JSON.parse(trimmed);
-        }catch(e){ errors.push(`${proxied}: ${e.message}`); }
+/* =======================================================
+   WAZE ALERTS (right) — accidents, signals, weather (ice)
+   ======================================================= */
+const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
+const WAZE_REFRESH_MS = 30000;
+const PROXIES = [
+  (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
+  (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+  (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+];
+
+async function fetchViaProxies(url, signal){
+  const busted = withCacheBust(url);
+  const errors = [];
+  for(const build of PROXIES){
+    const proxied = build(busted);
+    try{
+      const res = await fetch(proxied, { cache:'no-store', signal });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      const trimmed = text.replace(/^\uFEFF/, '').trim();
+      if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
+      return JSON.parse(trimmed);
+    }catch(e){ errors.push(`${proxied}: ${e.message}`); }
+  }
+  throw new Error(`All proxies failed\n${errors.join('\n')}`);
+}
+
+function toRad(deg){ return deg * Math.PI / 180; }
+function haversineMeters([lon1, lat1], [lon2, lat2]){
+  const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+  return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+function stableClusterId(coord){
+  const lon = Number(coord[0]).toFixed(4);
+  const lat = Number(coord[1]).toFixed(4);
+  return `cluster-${lon},${lat}`;
+}
+function readConfidence(a){ return Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0; }
+function readReliability(a){ return Number(a.reliability ?? a.reliabilityScore ?? 0) || 0; }
+function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
+function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
+function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
+function getLngLatFromAlert(a){
+  try{
+    if(a){
+      if(a.location){
+        const loc = a.location;
+        if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
+        if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
+        if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
+        if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
       }
-      throw new Error(`All proxies failed\n${errors.join('\n')}`);
-    }
-    function toRad(deg){ return deg * Math.PI / 180; }
-    function haversineMeters([lon1, lat1], [lon2, lat2]){
-      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
-      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
-      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    }
-    function stableClusterId(coord){
-      const lon = Number(coord[0]).toFixed(4);
-      const lat = Number(coord[1]).toFixed(4);
-      return `cluster-${lon},${lat}`;
-    }
-    function readConfidence(a){ return Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0; }
-    function readReliability(a){ return Number(a.reliability ?? a.reliabilityScore ?? 0) || 0; }
-    function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
-    function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
-    function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
-    function getLngLatFromAlert(a){
-      try{
-        if(a){
-          if(a.location){
-            const loc = a.location;
-            if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
-            if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
-            if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
-            if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
-          }
-          if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
-            const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
-          }
-          if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
-        }
-      }catch(e){}
-      return null;
-    }
-    function isAccident(a){
-      const t = readType(a);
-      const st = readSubType(a);
-      return t.includes('ACCIDENT') || st.includes('ACCIDENT');
-    }
-    function isIceAlert(a){
-      const t = readType(a), st = readSubType(a), d = readDesc(a);
-      return ( t.includes('ICE') || st.includes('ICE') ||
-               /RECENT(LY)?\s+FORMED\s+ICE|BLACK\s*ICE|\bICE\b|\BICY\b/.test(d) );
-    }
-    function isTrafficLightFault(a){
-      const t = readType(a), st = readSubType(a), d = readDesc(a);
-      return (
-        st === 'HAZARD_ON_ROAD_TRAFFIC_LIGHT_FAULT' ||
-        (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
-        st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
-        /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
-      );
-    }
-    function dedupAccidentClusters(clusters, opts={}){
-      const { corridorMeters = 8000 } = opts;
-      if (!Array.isArray(clusters) || clusters.length === 0) return [];
-      const groups = new Map();
-      for (const c of clusters){
-        const token = (c.street||'').toUpperCase().match(/\b([MBA]\d{1,4})\b/);
-        const key = token ? token[1] : (c.street||'').toUpperCase().replace(/[^A-Z0-9 ]+/g,' ').replace(/\s+/g,' ').trim() || '___unknown___';
-        if (!groups.has(key)) groups.set(key, []);
-        groups.get(key).push(c);
+      if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
+        const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
       }
-      const kept = [];
-      for (const arr of groups.values()){
-        arr.sort((a,b)=>
-          (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) ||
-          (Number(b.time||0) - Number(a.time||0))
-        );
-        const chosen = [];
-        const H = ([lon1,lat1],[lon2,lat2])=>{
-          const R=6371000, dLat=(lat2-lat1)*Math.PI/180, dLon=(lon2-lon1)*Math.PI/180;
-          const A=Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
-          return 2*R*Math.atan2(Math.sqrt(A), Math.sqrt(1-A));
-        };
-        for (const c of arr){
-          let dup = false;
-          for (const k of chosen){
-            const dist = H(c.coord, k.coord);
-            if (dist <= corridorMeters){ dup = true; break; }
-          }
-          if (!dup) chosen.push(c);
-        }
-        kept.push(...chosen);
-      }
-      kept.sort((a,b)=>
-        (Number(b.effectiveConfidence||0) - (Number(a.effectiveConfidence||0))) ||
-        (Number(b.time||0) - (Number(a.time||0)))
-      );
-      return kept;
+      if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
     }
-    function ensureWazeFits(){
-      const host = document.getElementById('waze-panel');
-      if (!host) return;
-      const highAccWrap = document.getElementById('cards-acc-high');
-      const lowAccWrap  = document.getElementById('cards-acc-low');
-      const weatherWrap = document.getElementById('cards-weather');
-      let guard = 0;
-      const fits = () => host.scrollHeight <= host.clientHeight + 2;
-      while(!fits() && weatherWrap && weatherWrap.lastElementChild && guard++ < 500){
-        weatherWrap.removeChild(weatherWrap.lastElementChild);
+  }catch(e){}
+  return null;
+}
+
+function isAccident(a){
+  const t = readType(a);
+  const st = readSubType(a);
+  return t.includes('ACCIDENT') || st.includes('ACCIDENT');
+}
+
+function isIceAlert(a){
+  const st = String(a?.subtype ?? a?.subType ?? a?.sub_type ?? '').toUpperCase();
+  if (st === 'HAZARD_ON_ROAD_ICE') return true;
+
+  // Conservative fallback (keep if some feeds omit subtype)
+  const t  = String(a?.type || a?.alertType || '').toUpperCase();
+  const d  = String(a?.description || a?.reportDescription || a?.title || '').toUpperCase();
+  return (
+    t.includes('ICE') ||
+    /\bICE\b|\BICY\b|BLACK\s*ICE|RECENT(LY)?\s+FORMED\s+ICE/.test(d)
+  );
+}
+// If you prefer strict matching only, replace the entire function body with:
+//   return String(a?.subtype ?? a?.subType ?? a?.sub_type ?? '').toUpperCase() === 'HAZARD_ON_ROAD_ICE';
+
+function isTrafficLightFault(a){
+  const t = readType(a), st = readSubType(a), d = readDesc(a);
+  return (
+    st === 'HAZARD_ON_ROAD_TRAFFIC_LIGHT_FAULT' ||
+    (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
+    st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
+    /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
+  );
+}
+
+function dedupAccidentClusters(clusters, opts={}){
+  const { corridorMeters = 8000 } = opts;
+  if (!Array.isArray(clusters) || clusters.length === 0) return [];
+  const groups = new Map();
+  for (const c of clusters){
+    const token = (c.street||'').toUpperCase().match(/\b([MBA]\d{1,4})\b/);
+    const key = token ? token[1] : (c.street||'').toUpperCase().replace(/[^A-Z0-9 ]+/g,' ').replace(/\s+/g,' ').trim() || '___unknown___';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(c);
+  }
+  const kept = [];
+  for (const arr of groups.values()){
+    arr.sort((a,b)=>
+      (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) ||
+      (Number(b.time||0) - Number(a.time||0))
+    );
+    const chosen = [];
+    const H = ([lon1,lat1],[lon2,lat2])=>{
+      const R=6371000, dLat=(lat2-lat1)*Math.PI/180, dLon=(lon2-lon1)*Math.PI/180;
+      const A=Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
+      return 2*R*Math.atan2(Math.sqrt(A), Math.sqrt(1-A));
+    };
+    for (const c of arr){
+      let dup = false;
+      for (const k of chosen){
+        const dist = H(c.coord, k.coord);
+        if (dist <= corridorMeters){ dup = true; break; }
       }
-      while(!fits() && lowAccWrap && lowAccWrap.lastElementChild && guard++ < 1000){
-        lowAccWrap.removeChild(lowAccWrap.lastElementChild);
+      if (!dup) chosen.push(c);
+    }
+    kept.push(...chosen);
+  }
+  kept.sort((a,b)=>
+    (Number(b.effectiveConfidence||0) - (Number(a.effectiveConfidence||0))) ||
+    (Number(b.time||0) - (Number(a.time||0)))
+  );
+  return kept;
+}
+
+function ensureWazeFits(){
+  const host = document.getElementById('waze-panel');
+  if (!host) return;
+  const highAccWrap = document.getElementById('cards-acc-high');
+  const lowAccWrap  = document.getElementById('cards-acc-low');
+  const weatherWrap = document.getElementById('cards-weather');
+  let guard = 0;
+  const fits = () => host.scrollHeight <= host.clientHeight + 2;
+
+  while(!fits() && weatherWrap && weatherWrap.lastElementChild && guard++ < 500){
+    weatherWrap.removeChild(weatherWrap.lastElementChild);
+  }
+  while(!fits() && lowAccWrap && lowAccWrap.lastElementChild && guard++ < 1000){
+    lowAccWrap.removeChild(lowAccWrap.lastElementChild);
+  }
+
+  host.style.overflow = fits() ? 'hidden' : 'auto';
+
+  const toggleSection = (secId, wrapIds) => {
+    const sec = document.getElementById(secId);
+    const hasAny = wrapIds.some(id => {
+      const el = document.getElementById(id);
+      return el && el.children.length > 0;
+    });
+    if (sec) sec.style.display = hasAny ? 'grid' : 'none';
+  };
+  toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
+  toggleSection('sec-weather',   ['cards-weather']);
+  toggleSection('sec-signals',   ['cards-signals']);
+}
+
+function bindCardClicks(){
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', (ev) => {
+      if (ev.target && ev.target.closest('.hide-btn')) return;
+      const lon = Number(card.getAttribute('data-lon'));
+      const lat = Number(card.getAttribute('data-lat'));
+      if (Number.isFinite(lon) && Number.isFinite(lat)){
+        const u = new URL('https://www.waze.com/partnerhub/map-tool');
+        u.searchParams.set('lon', String(lon));
+        u.searchParams.set('lat', String(lat));
+        window.open(u.toString(), '_blank', 'noopener');
       }
-      host.style.overflow = fits() ? 'hidden' : 'auto';
-      const toggleSection = (secId, wrapIds) => {
-        const sec = document.getElementById(secId);
-        const hasAny = wrapIds.some(id => {
-          const el = document.getElementById(id);
-          return el && el.children.length > 0;
+    }, { passive: true });
+  });
+}
+
+// Normalize any future timestamp to now (prevents future-looking times)
+function normalizeMillis(raw){
+  const n = Number(raw) || 0;
+  return n > Date.now() ? Date.now() : n;
+}
+
+let wazeTimer = null;
+async function wazeCycle(){
+  const ctrl = new AbortController();
+  try{
+    const data = await fetchViaProxies(WAZE_URL, ctrl.signal);
+
+    // -----------------------------
+    // ACCIDENTS
+    // -----------------------------
+    const accidentPoints = (()=> {
+      const out = [], a = (data && Array.isArray(data.alerts)) ? data.alerts : [];
+      for(const x of a){
+        if(!isAccident(x)) continue;
+        const c = readConfidence(x);
+        if(!(c > 0)) continue;                 // require confidence > 0
+        const coord = getLngLatFromAlert(x); if(!coord) continue;
+        const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+        out.push({
+          coord, conf10:c, rel10:readReliability(x),
+          street:x.street||x.roadName||x.address||'Unknown road',
+          city:x.city||x.town||'',
+          time: normalizeMillis(rawTime),
+          id:x.uuid||x.id||`${coord[0]},${coord[1]},${rawTime||''}`
         });
-        if (sec) sec.style.display = hasAny ? 'grid' : 'none';
-      };
-      toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
-      toggleSection('sec-weather', ['cards-weather']);
-      toggleSection('sec-signals', ['cards-signals']);
-    }
-    function bindCardClicks(){
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', (ev) => {
-          if (ev.target && ev.target.closest('.hide-btn')) return;
-          const lon = Number(card.getAttribute('data-lon'));
-          const lat = Number(card.getAttribute('data-lat'));
-          if (Number.isFinite(lon) && Number.isFinite(lat)){
-            const u = new URL('https://www.waze.com/partnerhub/map-tool');
-            u.searchParams.set('lon', String(lon));
-            u.searchParams.set('lat', String(lat));
-            window.open(u.toString(), '_blank', 'noopener');
-          }
-        }, { passive: true });
-      });
-    }
+      }
+      return out;
+    })();
 
-    // Normalize any future timestamp to now (prevents future-looking times)
-    function normalizeMillis(raw){
-      const n = Number(raw) || 0;
-      return n > Date.now() ? Date.now() : n;
-    }
+    const accidentClustersRaw = accidentPoints.length ? (function cluster(points, merge=200){
+      if(points.length===0) return [];
+      const parent=Array(points.length).fill(0).map((_,i)=>i);
+      const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          const d=haversineMeters(points[i].coord, points[j].coord);
+          if(d<=merge) union(i,j);
+        }
+      }
+      const groups=new Map();
+      for(let i=0;i<points.length;i++){
+        const r=find(i);
+        if(!groups.has(r)) groups.set(r, []);
+        groups.get(r).push(points[i]);
+      }
+      const clusters=[];
+      for(const members of groups.values()){
+        const count=members.length;
+        const baseConf10=members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
+        const bestRel10=members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+        let eff10=baseConf10 + (bestRel10>8?2:0);
+        eff10=Math.max(0, Math.min(12, eff10));
+        const eff5=Math.max(1, Math.min(5, Math.round(eff10/2)));
+        const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+        const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0];
+        clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count });
+      }
+      clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0)))));
+      return clusters;
+    })(accidentPoints) : [];
 
-    let wazeTimer = null;
-    async function wazeCycle(){
-      const ctrl = new AbortController();
-      try{
-        const data = await fetchViaProxies(WAZE_URL, ctrl.signal);
+    const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000 });
 
-        // -----------------------------
-        // ACCIDENTS
-        // -----------------------------
-        const accidentPoints = (()=>{
-          const out=[], a=(data&&Array.isArray(data.alerts))?data.alerts:[];
-          for(const x of a){
-            if(!isAccident(x)) continue;
-            const c=readConfidence(x);
-            if(!(c>0)) continue;                    // accidents still require confidence > 0
-            const coord=getLngLatFromAlert(x); if(!coord) continue;
-            const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-            out.push({
-              coord, conf10:c, rel10:readReliability(x),
-              street:x.street||x.roadName||x.address||'Unknown road',
-              city:x.city||x.town||'',
-              time: normalizeMillis(rawTime),
-              id:x.uuid||x.id||`${coord[0]},${coord[1]},${rawTime||''}`
-            });
-          } return out;
-        })();
+    const highWrap = document.getElementById('cards-acc-high');
+    const lowWrap  = document.getElementById('cards-acc-low');
+    if (highWrap) highWrap.innerHTML = '';
+    if (lowWrap)  lowWrap.innerHTML  = '';
 
-        const accidentClustersRaw = accidentPoints.length? (function cluster(points, merge=200){
-          if(points.length===0) return [];
-          const parent=Array(points.length).fill(0).map((_,i)=>i);
-          const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
-          const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
-          for(let i=0;i<points.length;i++){
-            for(let j=i+1;j<points.length;j++){
-              const d=haversineMeters(points[i].coord, points[j].coord);
-              if(d<=merge) union(i,j);
-            }
-          }
-          const groups=new Map();
-          for(let i=0;i<points.length;i++){
-            const r=find(i);
-            if(!groups.has(r)) groups.set(r, []);
-            groups.get(r).push(points[i]);
-          }
-          const clusters=[];
-          for(const members of groups.values()){
-            const count=members.length;
-            const baseConf10=members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
-            const bestRel10=members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
-            let eff10=baseConf10 + (bestRel10>8?2:0);
-            eff10=Math.max(0, Math.min(12, eff10));
-            const eff5=Math.max(1, Math.min(5, Math.round(eff10/2)));
-            const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
-            const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
-            const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0];
-            clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count });
-          }
-          clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0)))));
-          return clusters;
-        })(accidentPoints) : [];
+    const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
 
-        const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000 });
+    // Filter out hidden accident clusters before rendering
+    const accidentVisible = accidentClusters.filter(a => !isHiddenWithAutoCheck('acc', a.id, { conf: Number(a.effectiveConfidence||0) }));
 
-        const highWrap = document.getElementById('cards-acc-high');
-        const lowWrap  = document.getElementById('cards-acc-low');
-        highWrap.innerHTML = '';
-        lowWrap.innerHTML = '';
+    const highs = accidentVisible.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
+    const lows  = accidentVisible.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
 
-        const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
-
-        // Filter out hidden accident clusters before rendering
-        const accidentVisible = accidentClusters.filter(a => !isHiddenWithAutoCheck('acc', a.id, { conf: Number(a.effectiveConfidence||0) }));
-
-        const highs = accidentVisible.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
-        const lows  = accidentVisible.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
-
-        const cardAccidentHTML = (item)=>{
-          const heading = escapeHTML((item.street||'').trim()) + (item.city? ` — ${escapeHTML(item.city)}`:'');
-          const conf = Number(item.effectiveConfidence)||0;
-          const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-          return `<div class="card" data-type="accident"
-                     data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-                    <div class="title">
-                      ${heading}
-                      <span class="spacer"></span>
-                      <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
-                    </div>
-                    <div class="meta">Confidence: ${conf}/5 • ${when}</div>
-                    <div class="desc">Accident cluster</div>
-                  </div>`;
-        };
-        highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
-        lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
-
-        // -----------------------------
-        // TRAFFIC LIGHT FAULTS (Signals)
-        // -----------------------------
-        const sigWrap = document.getElementById('cards-signals');
-        if (sigWrap) {
-          sigWrap.innerHTML = '';
-
-          const signalsRaw = Array.isArray(data?.alerts) ? data.alerts : [];
-          const signals = [];
-          for (const x of signalsRaw) {
-            if (!isTrafficLightFault(x)) continue;
-
-            const coord = getLngLatFromAlert(x);
-            if (!coord) continue;
-
-            const rel10 = readReliability(x);              // Prefer reliability for signals
-            const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-            const time  = normalizeMillis(rawTime);
-            const id    = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
-            const street = x.street || x.roadName || x.address || 'Unknown road';
-            const city = x.city || x.town || '';
-            const desc = x.reportDescription || x.description || x.title || '';
-
-            // Respect "hide" persistence (no auto-unhide for 'sig')
-            if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
-
-            signals.push({ id, coord, street, city, time, rel10, desc });
-          }
-
-          // Sort: highest reliability, then newest
-          signals.sort((a, b) => (b.rel10 - a.rel10) || (b.time - a.time));
-
-          const cardSignalHTML = (item) => {
-            const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
-            const when = new Date(Number(item.time) || 0).toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
-            const rel = Number(item.rel10) || 0;
-            const desc = escapeHTML(item.desc || 'Traffic signal fault');
-
-            return `
-              <div class="card" data-type="signal"
-                   data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+    const cardAccidentHTML = (item)=>{
+      const heading = escapeHTML((item.street||'').trim()) + (item.city? ` — ${escapeHTML(item.city)}`:'');
+      const conf = Number(item.effectiveConfidence)||0;
+      const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
+      return `<div class="card" data-type="accident"
+                    data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
                 <div class="title">
                   ${heading}
                   <span class="spacer"></span>
-                  <button class="hide-btn"
-                          data-prefix="sig"
-                          data-id="${escapeHTML(item.id)}"
-                          data-baseline-conf="${rel}"
-                          type="button">Hide</button>
+                  <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
                 </div>
-                <div class="meta">Reliability: ${rel}/10 • ${when}</div>
-                <div class="desc">${desc}</div>
-              </div>
-            `;
-          };
+                <div class="meta">Confidence: ${conf}/5 • ${when}</div>
+                <div class="desc">Accident cluster</div>
+              </div>`;
+    };
+    if (highWrap) highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
+    if (lowWrap)  lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
 
-          sigWrap.innerHTML = signals.map(cardSignalHTML).join('');
-        }
+    // -----------------------------
+    // TRAFFIC LIGHT FAULTS (Signals)
+    // -----------------------------
+    const sigWrap = document.getElementById('cards-signals');
+    if (sigWrap) {
+      sigWrap.innerHTML = '';
 
-        bindCardClicks();
-        requestAnimationFrame(ensureWazeFits);
-        setStatusPill(true, { animate:true });
-      }catch(e){
-        console.error('[Waze] fetch failed:', e);
-        setStatusPill(false, { animate:false });
-      }finally{
-        clearTimeout(wazeTimer);
-        wazeTimer = setTimeout(wazeCycle, WAZE_REFRESH_MS);
+      const signalsRaw = Array.isArray(data?.alerts) ? data.alerts : [];
+      const signals = [];
+      for (const x of signalsRaw) {
+        if (!isTrafficLightFault(x)) continue;
+
+        const coord = getLngLatFromAlert(x);
+        if (!coord) continue;
+
+        const rel10 = readReliability(x);              // Prefer reliability for signals
+        const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+        const time  = normalizeMillis(rawTime);
+        const id    = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
+        const street = x.street || x.roadName || x.address || 'Unknown road';
+        const city = x.city || x.town || '';
+        const desc = x.reportDescription || x.description || x.title || '';
+
+        // Respect "hide" persistence (no auto-unhide for 'sig')
+        if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
+
+        signals.push({ id, coord, street, city, time, rel10, desc });
       }
+
+      // Sort: highest reliability, then newest
+      signals.sort((a, b) => (b.rel10 - a.rel10) || (b.time - a.time));
+
+      const cardSignalHTML = (item) => {
+        const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
+        const when = new Date(Number(item.time) || 0).toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
+        const rel = Number(item.rel10) || 0;
+        const desc = escapeHTML(item.desc || 'Traffic signal fault');
+
+        return `
+          <div class="card" data-type="signal"
+               data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+            <div class="title">
+              ${heading}
+              <span class="spacer"></span>
+              <button class="hide-btn"
+                      data-prefix="sig"
+                      data-id="${escapeHTML(item.id)}"
+                      data-baseline-conf="${rel}"
+                      type="button">Hide</button>
+            </div>
+            <div class="meta">Reliability: ${rel}/10 • ${when}</div>
+            <div class="desc">${desc}</div>
+          </div>
+        `;
+      };
+
+      sigWrap.innerHTML = signals.map(cardSignalHTML).join('');
     }
 
+    // -----------------------------
+    // WEATHER (Ice) — subtype-based
+    // -----------------------------
+    const weatherWrap = document.getElementById('cards-weather');
+    if (weatherWrap) {
+      weatherWrap.innerHTML = '';
+
+      const wxRaw = Array.isArray(data?.alerts) ? data.alerts : [];
+      const wx = [];
+      for (const x of wxRaw) {
+        if (!isIceAlert(x)) continue;
+
+        const coord = getLngLatFromAlert(x);
+        if (!coord) continue;
+
+        // Time & identity
+        const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+        const time    = normalizeMillis(rawTime);
+        const id      = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
+
+        // Location & text
+        const street = x.street || x.roadName || x.address || 'Unknown road';
+        const city   = x.city   || x.town   || '';
+        const desc   = x.reportDescription || x.description || x.title || 'Ice alert';
+
+        // Respect hide for 60 mins (no auto-unhide for weather)
+        if (isHiddenWithAutoCheck('wx', id, {})) continue;
+
+        wx.push({ id, coord, street, city, time, desc });
+      }
+
+      // Sort newest first
+      wx.sort((a, b) => (b.time - a.time));
+
+      const cardWeatherHTML = (item) => {
+        const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
+        const when = new Date(Number(item.time) || 0)
+          .toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
+
+        return `
+          <div class="card" data-type="weather"
+               data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+            <div class="title">
+              ${heading}
+              <span class="spacer"></span>
+              <button class="hide-btn"
+                      data-prefix="wx"
+                      data-id="${escapeHTML(item.id)}"
+                      type="button">Hide</button>
+            </div>
+            <div class="meta">${when}</div>
+            <div class="desc">❄️ ${escapeHTML(item.desc || 'Ice alert')}</div>
+          </div>
+        `;
+      };
+
+      weatherWrap.innerHTML = wx.map(cardWeatherHTML).join('');
+    }
+
+    // After all three sections are rendered:
+    bindCardClicks();
+    requestAnimationFrame(ensureWazeFits);
+    setStatusPill(true, { animate:true });
+
+  }catch(e){
+    console.error('[Waze] fetch failed:', e);
+    setStatusPill(false, { animate:false });
+  }finally{
+    clearTimeout(wazeTimer);
+    wazeTimer = setTimeout(wazeCycle, WAZE_REFRESH_MS);
+  }
+}
     /* =======================================================
        CENTRAL PANE — Bee Network Unplanned Diversions (2×4)
        ======================================================= */
