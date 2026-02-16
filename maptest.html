@@ -107,7 +107,6 @@
       height:25vh;
       background:var(--danger);
       color:#fff;
-      /* Ensure overlay covers Live pill & Bee logo (above z-index 30) */
       z-index:60;
       transform: translateY(100%);
       transition: transform 300ms ease, height 320ms ease;
@@ -141,7 +140,6 @@
       font-weight: 700;
       letter-spacing: 0.5px;
       line-height: 1.15;
-      text-transform: none;
       color: #fff;
       text-shadow:
         0 2px 6px rgba(0,0,0,0.45),
@@ -166,7 +164,6 @@
     .road-badge.motorway { background: linear-gradient(180deg, #004b8d 0%, #00345f 100%); }
     .road-badge.aprimary { background: linear-gradient(180deg, #2f8f09 0%, #1e5e06 100%); }
     .road-badge.broad    { background: linear-gradient(180deg, #7a5c00 0%, #4e3a00 100%); }
-
     .road-sep { margin: 0 8px; opacity: 0.9; }
 
     #alert-time {
@@ -199,7 +196,6 @@
       transition: transform 360ms ease;
       z-index: 40;
       display: grid;
-      /* Remove header row: now just network and list */
       grid-template-rows: auto 1fr;
       overflow: hidden;
       backdrop-filter: blur(4px);
@@ -214,20 +210,7 @@
       border-radius: 999px;
       box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.30);
     }
-    .time-chip {
-      flex:0 0 auto;
-      font-size: 12px;
-      letter-spacing: .2px;
-      opacity: .9;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      white-space: nowrap.
-    }
-    .network-legend { display:flex; justify-content: space-between; font-size: 12px; opacity: .9; margin-top: 8px; }
 
-    /* Corridor list: exactly 5 rows, no section title row */
     .corridor-list{
       display: grid;
       grid-template-rows: repeat(5, minmax(0, 1fr));
@@ -235,18 +218,16 @@
       padding: 8px 12px 12px 12px;
       overflow: hidden;
     }
-
-    /* ===== Corridor item (larger for wallscreen readability) ===== */
     .corridor {
       display: grid;
-      grid-template-rows: auto auto auto; /* title, bar, meta */
+      grid-template-rows: auto auto auto;
       align-content: center;
       gap: 6px;
       padding: 10px 12px;
       border-radius: 12px;
       background: rgba(255,255,255,0.04);
       box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.04);
-      min-height: 0; /* allow shrink */
+      min-height: 0;
     }
     .corridor .title {
       display:flex; align-items:center; gap:10px;
@@ -272,7 +253,7 @@
     .corridor .bar {
       height: clamp(12px, 2.2vh, 18px);
       border-radius: 999px;
-      background: #2ecc71; /* replaced inline per item */
+      background: #2ecc71;
       box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.25);
     }
     .corridor .meta {
@@ -281,7 +262,6 @@
       text-shadow: 0 1px 2px rgba(0,0,0,0.35);
     }
 
-    /* Compact mode when banner is open */
     body.bar-open #corridorSidebar { height: 75vh; top: auto; }
   </style>
 </head>
@@ -395,43 +375,26 @@
     });
 
     function withCacheBust(url){ const sep = url.includes('?') ? '&' : '?'; return `${url}${sep}ts=${Date.now()}`; }
-    const PROXIES = [
-      (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
-      (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
-    ];
 
-    async function fetchViaProxies(url, signal){
-      const busted = withCacheBust(url);
-      const errors = [];
-      for(const build of PROXIES){
-        const proxied = build(busted);
-        try{
-          const res = await fetch(proxied, { cache:'no-store', signal });
-          if(!res.ok) throw new Error(`HTTP ${res.status}`);
-          const text = await res.text();
-          const trimmed = text.replace(/^\uFEFF/, '').trim();
-          if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
-          return JSON.parse(trimmed);
-        }catch(e){ errors.push(`${proxied}: ${e.message}`); }
-      }
-      throw new Error(`All proxies failed\n${errors.join('\n')}`);
+    /* ========= OCC Proxy helpers (single proxy only) ========= */
+    const OCC_PROXY = 'https://occproxy-6dem.vercel.app/api/proxy';
+    async function fetchJsonViaOccProxy(url, signal){
+      const proxied = `${OCC_PROXY}?url=${encodeURIComponent(withCacheBust(url))}`;
+      const res = await fetch(proxied, { cache:'no-store', signal });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      const trimmed = text.replace(/^\uFEFF/, '').trim();
+      if(!trimmed) throw new Error('Empty response');
+      try { return JSON.parse(trimmed); }
+      catch { throw new Error('Non-JSON response'); }
     }
-
-    async function fetchTextViaProxies(url, signal){
-      const busted = withCacheBust(url);
-      const errors = [];
-      for(const build of PROXIES){
-        const proxied = build(busted);
-        try{
-          const res = await fetch(proxied, { cache:'no-store', signal });
-          if(!res.ok) throw new Error(`HTTP ${res.status}`);
-          const text = await res.text();
-          if(!text || !text.trim()) throw new Error('Empty response');
-          return text;
-        }catch(e){ errors.push(`${proxied}: ${e.message}`); }
-      }
-      throw new Error(`All proxies failed\n${errors.join('\n')}`);
+    async function fetchTextViaOccProxy(url, signal){
+      const proxied = `${OCC_PROXY}?url=${encodeURIComponent(withCacheBust(url))}`;
+      const res = await fetch(proxied, { cache:'no-store', signal });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      if(!text || !text.trim()) throw new Error('Empty response');
+      return text;
     }
 
     function toRad(deg){ return deg * Math.PI / 180; }
@@ -442,7 +405,7 @@
     }
 
     /* =======================================================
-       WAZE ALERT PARSING + SCORING (with reliability boost)
+       WAZE ALERT PARSING + SCORING
        ======================================================= */
     function getLngLatFromAlert(a){
       try{
@@ -519,10 +482,7 @@
         if(!isIceAlert(a)) continue;
         const coord = getLngLatFromAlert(a); if(!coord) continue;
         const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
-        out.push({
-          id, coord,
-          time: a.pubMillis || a.updateTime || a.reportMillis || 0
-        });
+        out.push({ id, coord, time: a.pubMillis || a.updateTime || a.reportMillis || 0 });
       }
       return out;
     }
@@ -533,10 +493,7 @@
         if(!isTrafficLightFault(a)) continue;
         const coord = getLngLatFromAlert(a); if(!coord) continue;
         const theId = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
-        out.push({
-          id: theId, coord,
-          time: a.pubMillis || a.updateTime || a.reportMillis || 0
-        });
+        out.push({ id: theId, coord, time: a.pubMillis || a.updateTime || a.reportMillis || 0 });
       }
       return out;
     }
@@ -584,72 +541,6 @@
       return features;
     }
 
-    // Accident clustering with revised scoring
-    function clusterAccidents(points, mergeMeters = MERGE_METERS){
-      if(points.length === 0) return [];
-
-      const parent = Array(points.length).fill(0).map((_,i)=>i);
-      const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
-      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
-
-      for(let i=0;i<points.length;i++){
-        for(let j=i+1;j<points.length;j++){
-          const d = haversineMeters(points[i].coord, points[j].coord);
-          if(d <= mergeMeters) union(i,j);
-        }
-      }
-
-      const groups = new Map();
-      for(let i=0;i<points.length;i++){
-        const r = find(i);
-        if(!groups.has(r)) groups.set(r, []);
-        groups.get(r).push(points[i]);
-      }
-
-      const clusters = [];
-      for(const members of groups.values()){
-        const count = members.length;
-
-        const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
-        const bestRel10  = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
-
-        let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
-        eff10 = Math.max(0, Math.min(12, eff10));
-        const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
-
-        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
-        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
-        const minTime = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
-        const firstTime = (minTime === Infinity) ? 0 : minTime;
-
-        const best = members.slice().sort((a,b)=>{
-          const ce = (Number(b.conf10)||0) - (Number(a.conf10)||0);
-          if(ce!==0) return ce;
-          return (Number(b.time)||0) - (Number(a.time)||0);
-        })[0];
-
-        const id = stableClusterId(avg);
-
-        clusters.sort?.();
-
-        return null;
-      }
-
-      // (Above block was a logic scaffold; we immediately return the mapped features below)
-    }
-
-    function formatFirstReported(ms){
-      if(!ms || !isFinite(ms)) return 'Time unknown';
-      try{
-        return new Date(Number(ms)).toLocaleString('en-GB', {
-          timeZone: 'Europe/London',
-          hour12: false, year: 'numeric', month: 'short', day: '2-digit',
-          hour: '2-digit', minute: '2-digit'
-        });
-      }catch(e){ return 'Time unavailable'; }
-    }
-
-    // --- Re-insert the correct clusterAccidents (the above scaffold ended prematurely) ---
     function clusterAccidents(points, mergeMeters = MERGE_METERS){
       if(points.length === 0) return [];
 
@@ -728,10 +619,23 @@
         }
       }));
     }
-    // --- END correct clusterAccidents ---
 
+    function formatFirstReported(ms){
+      if(!ms || !isFinite(ms)) return 'Time unknown';
+      try{
+        return new Date(Number(ms)).toLocaleString('en-GB', {
+          timeZone: 'Europe/London',
+          hour12: false, year: 'numeric', month: 'short', day: '2-digit',
+          hour: '2-digit', minute: '2-digit'
+        });
+      }catch(e){ return 'Time unavailable'; }
+    }
+
+    /* =========================
+       Smaller, slower custom images
+       ========================= */
     function createPulsingDot(map, color='red'){
-      const size = 340, targetFps = 12, frameMs = 1000/targetFps; let last=0;
+      const size = 128, targetFps = 8, frameMs = 1000/targetFps; let last=0;
       const fillColor = (on)=> color==='white' ? `rgba(255,255,255,${on?1:0.85})` : `rgba(255,0,0,${on?1:0.9})`;
       const ringColor = (on)=> color==='white' ? `rgba(255,255,255,${on?0.95:0.3})` : `rgba(255, 80, 80, ${on?0.95:0.15})`;
       return {
@@ -754,9 +658,8 @@
       };
     }
 
-    /* Triangle icon (green) for traffic light faults */
     function createTriangleIcon(map, color = '#28c76f') {
-      const size = 320, targetFps = 12, frameMs = 1000 / targetFps;
+      const size = 128, targetFps = 8, frameMs = 1000 / targetFps;
       let last = 0;
       return {
         width: size,
@@ -780,7 +683,7 @@
           ctx.fillStyle = color; ctx.fill();
           ctx.lineWidth = Math.max(2, w * 0.028);
           ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
-          const img = ctx.getImageData(0,0,w,h); this.data.set(img.data);
+          const img = this.ctx.getImageData(0,0,w,h); this.data.set(img.data);
           map.triggerRepaint(); return true;
         }
       };
@@ -832,7 +735,7 @@
       barEl.setAttribute('aria-hidden', show ? 'false' : 'true');
       document.body.classList.toggle('bar-open', show);
       map.resize();
-      startGlobalRepaint();
+      startGlobalRepaint(); // no-op after refactor
 
       if (show && highlightedCenter) {
         map.easeTo({
@@ -887,6 +790,8 @@
       const center = Array.isArray(feature.geometry?.coordinates) ? feature.geometry.coordinates : null;
       const firstMillis = Number(feature.properties.firstReportedMillis)||0;
       const item = { id: feature.id, street, city, center, firstMillis };
+      // Cap queue to avoid build-up
+      if (queue.length >= 5) queue.shift();
       queue.push(item);
       if (!alertsPaused && !bannerActive) showNextBanner();
     }
@@ -969,22 +874,8 @@
     const seenClusterIds = new Set();
     let hasInitializedClusters = false;
 
-    let repaintRAF = null;
-    function layerExists(id){ try { return !!map.getLayer(id); } catch(e){ return false; } }
-    function hasPulsingVisible(){
-      if(!layerExists('accidents-high') && !layerExists('accident-highlighted')) return false;
-      const red   = layerExists('accidents-high') ? map.queryRenderedFeatures({layers:['accidents-high']}) : [];
-      const white = layerExists('accident-highlighted') ? map.queryRenderedFeatures({layers:['accident-highlighted']}) : [];
-      return (red && red.length>0) || (white && white.length>0);
-    }
-    function startGlobalRepaint(){
-      if (repaintRAF) return;
-      const tick = () => {
-        if (hasPulsingVisible()) { map.triggerRepaint(); repaintRAF = requestAnimationFrame(tick); }
-        else { cancelAnimationFrame(repaintRAF); repaintRAF = null; }
-      };
-      repaintRAF = requestAnimationFrame(tick);
-    }
+    // After refactor: keep a no-op to satisfy existing calls
+    function startGlobalRepaint(){ /* no-op (previous repaint driver removed) */ }
 
     function fmtHHMMSS(){ return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date()); }
     function setStatusPill(ok, {animate=false}={}){
@@ -1022,7 +913,7 @@
     const HIDDEN_REFRESH_MULTIPLIER = 4, HIDDEN_REFRESH_MAX_MS = 180000;
     function effectiveDelay(ms){ return document.hidden ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms; }
 
-    let fetchTimer = null, inFlight = null, proxyStartIndex = 0;
+    let fetchTimer = null, inFlight = null;
     let lastClusterFeatures = [];
 
     function shouldTriggerBanner(f) {
@@ -1040,12 +931,8 @@
       const controller = new AbortController();
       inFlight = controller;
 
-      const origOrder = PROXIES.slice();
-      const rotated = PROXIES.slice(proxyStartIndex).concat(PROXIES.slice(0, proxyStartIndex));
-      PROXIES.length = 0; PROXIES.push(...rotated);
-
       try{
-        const data = await fetchViaProxies(WAZE_URL, controller.signal);
+        const data = await fetchJsonViaOccProxy(WAZE_URL, controller.signal);
 
         // --- Parse points ---
         const accidentPoints = alertsToAccidentPoints(data);
@@ -1063,6 +950,15 @@
         map.getSource('accidents')?.setData({ type:'FeatureCollection', features: clusterFeatures });
         map.getSource('waze-ice')?.setData({ type:'FeatureCollection', features: iceFeatures });
         map.getSource('waze-signal-faults')?.setData({ type:'FeatureCollection', features: signalFeatures });
+
+        // --- Memory pruning of cluster maps/sets & throttle map ---
+        const currentIds = new Set(clusterFeatures.map(f => f.id));
+        for (const k of prevEffByClusterId.keys()) if (!currentIds.has(k)) prevEffByClusterId.delete(k);
+        for (const k of Array.from(seenClusterIds)) if (!currentIds.has(k)) seenClusterIds.delete(k);
+        // TTL for banner throttle
+        const TTL = 2 * 60 * 60 * 1000; // 2 hours
+        const now = Date.now();
+        for (const [k, t] of bannerLastShownAt) { if (now - t > TTL) bannerLastShownAt.delete(k); }
 
         // --- Banner/chime logic ---
         let brandNewCount = 0;
@@ -1101,18 +997,15 @@
 
         hasInitializedClusters = true;
 
-        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
         markHealthOK_Waze();
         scheduleNext(REFRESH_MS);
       }catch(e){
         console.error('Waze fetch failed:', e);
         markHealthStale_Waze(e?.message || 'request error');
-        proxyStartIndex = (proxyStartIndex + 1) % PROXIES.length;
         scheduleNext(Math.min(REFRESH_MS * 2, 180000));
       }finally{
-        PROXIES.length = 0; PROXIES.push(...origOrder);
         inFlight = null;
-        startGlobalRepaint();
+        startGlobalRepaint(); // no-op
       }
     }
     function scheduleNext(ms){ clearTimeout(fetchTimer); fetchTimer = setTimeout(runCycle, effectiveDelay(ms)); }
@@ -1166,7 +1059,7 @@
       if(heInFlight){ try{ heInFlight.abort(); }catch(e){} heInFlight = null; }
       const controller = new AbortController(); heInFlight = controller;
       try{
-        const xml = await fetchTextViaProxies(HE_URL, controller.signal);
+        const xml = await fetchTextViaOccProxy(HE_URL, controller.signal);
         const fc  = parseHeRss(xml);
         const src = map.getSource('he-unplanned'); if(src) src.setData(fc);
         markHealthOK_He();
@@ -1186,7 +1079,7 @@
     map.on('load', async () => {
       map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
 
-      // Pulsing images
+      // Pulsing images (smaller + slower)
       map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
       map.addImage('pulsing-white', createPulsingDot(map,'white'), { pixelRatio: 2 });
 
@@ -1229,12 +1122,20 @@
       map.addLayer({
         id:'accidents-high', type:'symbol', source:'accidents',
         filter: ['>=', ['get','effectiveConfidence'], 4],
-        layout:{ 'icon-image':'pulsing-red', 'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95], 'icon-allow-overlap':true }
+        layout:{
+          'icon-image':'pulsing-red',
+          'icon-size':['interpolate',['linear'],['zoom'], 8,0.80, 12,1.36, 16,2.10],
+          'icon-allow-overlap':true
+        }
       });
       map.addLayer({
         id:'accident-highlighted', type:'symbol', source:'accidents',
         filter: ["==", ["get","id"], "___none___"],
-        layout:{ 'icon-image':'pulsing-white', 'icon-size':['interpolate',['linear'],['zoom'], 8,0.36, 12,0.62, 16,0.95], 'icon-allow-overlap':true }
+        layout:{
+          'icon-image':'pulsing-white',
+          'icon-size':['interpolate',['linear'],['zoom'], 8,0.80, 12,1.36, 16,2.10],
+          'icon-allow-overlap':true
+        }
       });
 
       // OCC manual highlights
@@ -1277,7 +1178,7 @@
         id: 'waze-signal-faults-icon', type: 'symbol', source: 'waze-signal-faults',
         layout: {
           'icon-image': 'triangle-green',
-          'icon-size': ['interpolate',['linear'],['zoom'], 8, 0.10, 12, 0.16, 16, 0.22],
+          'icon-size': ['interpolate',['linear'],['zoom'], 8,0.22, 12,0.35, 16,0.48],
           'icon-allow-overlap': true
         }
       });
@@ -1345,7 +1246,7 @@
       }
 
       async function fetchBODS(){
-        const url = `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(BODS_URL)}&ts=${Date.now()}`;
+        const url = `${OCC_PROXY}?url=${encodeURIComponent(BODS_URL)}&ts=${Date.now()}`;
         const res = await fetch(url, { cache:'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const clone = res.clone();
@@ -1460,7 +1361,7 @@
       });
 
       function createHexDivertIcon(map, color = '#FFFFFF') {
-        const size = 320; const targetFps = 12; const frameMs = 1000 / targetFps; let last = 0;
+        const size = 128; const targetFps = 8; const frameMs = 1000 / targetFps; let last = 0;
         return {
           width: size, height: size, data: new Uint8Array(size * size * 4),
           onAdd() { const c = document.createElement('canvas'); c.width = this.width; c.height = this.height; this.ctx = c.getContext('2d'); },
@@ -1516,12 +1417,12 @@
             'BNFM', 'divert-BNFM',
             'divert-default'
           ],
-          'icon-size': ['interpolate', ['linear'], ['zoom'], 8, 0.375, 12, 0.54, 16, 0.75],
+          'icon-size': ['interpolate', ['linear'], ['zoom'], 8,0.83, 12,1.19, 16,1.65],
           'icon-allow-overlap': true
         }
       });
 
-      // UFN pulse animation (size)
+      // UFN pulse animation (size) → throttled interval
       let pulse = 1.0, pulseDir = 1;
       function applyPulse(){
         const factor = ['case', ['get','isUFN'], pulse, 1];
@@ -1534,25 +1435,25 @@
         );
         map.setLayoutProperty('divert-centroids-icon','icon-size',
           ['interpolate',['linear'],['zoom'],
-            8,  ['*', 0.375, factor],
-            12, ['*', 0.54,  factor],
-            16, ['*', 0.75,  factor]
+            8,  ['*', 0.83, factor],
+            12, ['*', 1.19,  factor],
+            16, ['*', 1.65,  factor]
           ]
         );
       }
-      function animateUFN(){
+      function ufnTick(){
+        if (document.hidden) return;
         pulse += (pulseDir * 0.05);
         if (pulse >= 1.25) { pulse = 1.25; pulseDir = -1; }
-        if (pulse <= 0.85) { pulse =  0.85; pulseDir =  1; }
+        if (pulse <= 0.85) { pulse = 0.85; pulseDir =  1; }
         applyPulse();
-        requestAnimationFrame(animateUFN);
       }
       applyPulse();
-      requestAnimationFrame(animateUFN);
+      const ufnAnimTimer = setInterval(ufnTick, 140); // ~7 FPS
 
       async function updateDivertCentroidsOnce(){
         try{
-          const url = `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(BODS_URL)}&ts=${Date.now()}`;
+          const url = `${OCC_PROXY}?url=${encodeURIComponent(BODS_URL)}&ts=${Date.now()}`;
           const res = await fetch(url, { cache:'no-store' });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const clone = res.clone();
@@ -1587,10 +1488,11 @@
       await updateDivertCentroidsOnce();
       setInterval(updateDivertCentroidsOnce, BODS_REFRESH_MS);
 
-      startGlobalRepaint();
+      startGlobalRepaint(); // no-op
       setStatusPill(false, { animate:false });
     });
 
+    // Keep hooks; now no-op repaint
     map.on('idle', startGlobalRepaint);
     map.on('moveend', startGlobalRepaint);
     map.on('zoomend', startGlobalRepaint);
@@ -1683,7 +1585,6 @@
     function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
     function lerp(a,b,t){ return a + (b-a)*t; }
 
-    // 1.0 green if time<=historic • 0.0 red if time>=2x historic
     function healthFromTimes(current, historic){
       if (!Number.isFinite(current) || !Number.isFinite(historic) || historic <= 0) return 0.5;
       const ratio = current / historic;
@@ -1696,7 +1597,7 @@
       let c;
       if (h >= 0.5){
         const t = (h - 0.5)/0.5;
-        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp(yellow[2], green[2], t) ];
+        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp[yellow[2], green[2], t] ];
       } else {
         const t = h/0.5;
         c = [ lerp(red[0], yellow[0], t), lerp(red[1], yellow[1], t), lerp(red[2], yellow[2], t) ];
@@ -1794,7 +1695,7 @@
       if (!(curr > 0) || !(prevTime > 0)) return '';
       const delta = (curr - prevTime) / prevTime;
       const THRESH = 0.05;
-      if (delta > THRESH) return '⬆️';
+      if (delta >  THRESH) return '⬆️';
       if (delta < -THRESH) return '⬇️';
       return '➡️';
     }
@@ -1851,10 +1752,12 @@
       const src = map.getSource('tvt-top5');
       if (src) src.setData({ type:'FeatureCollection', features: tvtFeatures });
 
-      // Store for trend arrows next cycle
-      top5.forEach(r => {
-        prevShownRoutes.set(routeKey(r), { time: Number(r.time)||0 });
-      });
+      // Store for trend arrows next cycle (and cap memory)
+      top5.forEach(r => { prevShownRoutes.set(routeKey(r), { time: Number(r.time)||0 }); });
+      if (prevShownRoutes.size > 200) {
+        const keys = Array.from(prevShownRoutes.keys());
+        keys.slice(0, Math.max(0, keys.length - 100)).forEach(k => prevShownRoutes.delete(k));
+      }
     }
 
     async function fetchTVT(signal){
@@ -1911,7 +1814,6 @@
        Map TVT highlight layers
        =========================== */
 
-    // Helper to find first existing marker layer
     function firstExistingLayer(map, ids) {
       const style = map.getStyle();
       if (!style || !Array.isArray(style.layers)) return null;
@@ -1936,12 +1838,10 @@
 
       const beforeId = firstExistingLayer(map, markerPriority);
 
-      // Source
       if (!map.getSource('tvt-top5')) {
         map.addSource('tvt-top5', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
       }
 
-      // Glow (under)
       if (!map.getLayer('tvt-top5-glow')) {
         map.addLayer({
           id: 'tvt-top5-glow',
@@ -1957,7 +1857,6 @@
         }, beforeId || undefined);
       }
 
-      // Core (over)
       if (!map.getLayer('tvt-top5-core')) {
         map.addLayer({
           id: 'tvt-top5-core',
@@ -1973,14 +1872,12 @@
       }
     }
 
-    // Create TVT layers under markers and animate
     map.on('load', () => {
       addTvtLayersUnderMarkers(map);
 
-      // Pulse animation for TVT lines
+      // TVT line pulse → throttled interval
       let tvtPulse = 1.0, tvtDir = 1;
       function applyTvtPulse(){
-        const coreW = ['interpolate',['linear'],['zoom'], 8, 4.5*tvtPulse, 12, 6*tvtPulse, 16, 8*tvtPulse];
         const glowW = ['interpolate',['linear'],['zoom'], 8, 8.5*tvtPulse, 12, 11*tvtPulse, 16, 14*tvtPulse];
         try {
           map.setPaintProperty('tvt-top5-core','line-width', coreW);
@@ -1993,19 +1890,22 @@
           map.setPaintProperty('tvt-top5-glow','line-opacity', glowAlpha);
         } catch(e){}
       }
-      function animateTvt(){
+      function tvtTick(){
+        if (document.hidden) return;
         tvtPulse += tvtDir * 0.035;
         if (tvtPulse >= 1.25) { tvtPulse = 1.25; tvtDir = -1; }
         if (tvtPulse <= 0.85) { tvtPulse = 0.85; tvtDir =  1; }
         applyTvtPulse();
-        requestAnimationFrame(animateTvt);
       }
       applyTvtPulse();
-      requestAnimationFrame(animateTvt);
+      const tvtAnimTimer = setInterval(tvtTick, 120); // ~8 FPS
 
       // First TVT cycle
       setTimeout(runTvtSidebarCycle, 3500);
     });
+
+    // (Optional) Nightly refresh to clear GPU/driver state
+    // setTimeout(() => location.reload(), 12 * 60 * 60 * 1000);
   </script>
 </body>
 </html>
