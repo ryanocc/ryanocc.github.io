@@ -640,7 +640,10 @@
       const ringColor = (on)=> color==='white' ? `rgba(255,255,255,${on?0.95:0.3})` : `rgba(255, 80, 80, ${on?0.95:0.15})`;
       return {
         width:size, height:size, data:new Uint8Array(size*size*4),
-        onAdd(){ const c=document.createElement('canvas'); c.width=this.width; c.height=this.height; this.context=c.getContext('2d'); },
+        onAdd(){ const c=document.createElement('canvas'); c.width=this.width; c.height=this.height; 
+this.context = c.getContext('2d', { willReadFrequently: true, desynchronized: true });
+}
+,
         render(){
           const now=performance.now(); if(now-last<frameMs) return false; last=now;
           const duration=1200; const t=(now%duration)/duration; const on=t<0.5;
@@ -668,7 +671,7 @@
         onAdd() {
           const c = document.createElement('canvas');
           c.width = this.width; c.height = this.height;
-          this.ctx = c.getContext('2d');
+          this.ctx = c.getContext('2d', { willReadFrequently: true, desynchronized: true });
         },
         render() {
           const now = performance.now(); if (now - last < frameMs) return false; last = now;
@@ -1364,7 +1367,7 @@
         const size = 128; const targetFps = 8; const frameMs = 1000 / targetFps; let last = 0;
         return {
           width: size, height: size, data: new Uint8Array(size * size * 4),
-          onAdd() { const c = document.createElement('canvas'); c.width = this.width; c.height = this.height; this.ctx = c.getContext('2d'); },
+          onAdd() { const c = document.createElement('canvas'); c.width = this.width; c.height = this.height; this.ctx = c.getContext('2d', { willReadFrequently: true, desynchronized: true }); },
           render() {
             const now = performance.now(); if (now - last < frameMs) return false; last = now;
             const ctx = this.ctx, w = this.width, h = this.height, cx = w/2, cy = h/2;
