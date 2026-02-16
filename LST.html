@@ -568,12 +568,21 @@
     }
     .street-emoji{ font-size: 1.1em; line-height: 1; filter: drop-shadow(0 1px 0 rgba(0,0,0,0.3)); }
 
+.street-line .street {
+  font-weight: 900;       /* or 800 if you prefer */
+  font-size: 1.2em;       /* scale up relative to .street-line */
+}
+
     /* Location (town or fallback) */
     .location{
       font-size: clamp(12px, 1.7vh, 14px);
       color: #d7d9de;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
+
+.location {
+  font-size: clamp(14px, 2.1vh, 18px);
+}
 
     /* Times footer */
     .times{
