@@ -489,6 +489,250 @@
       100% { box-shadow: 0 0 0 0 rgba(255,224,74,0.0); border-color: rgba(255,255,255,0.12); transform: scale(1.00); }
     }
     .new-ufn-flash{ animation: flashBorder 1400ms ease-out 1; }
+
+    /* ================================
+       ROUTE OPERATOR CHECKER styles
+       ================================ */
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+
+    .roc-panel{
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 10px;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .roc-input-row{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .roc-input{
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 800;
+      font-size: clamp(14px, 2.2vh, 18px);
+      letter-spacing: .2px;
+      outline: none;
+      transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .roc-input::placeholder{ color: rgba(255,255,255,0.45); font-weight: 600; }
+    .roc-input:focus{
+      border-color: rgba(255,224,74,0.7);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 0 0 3px rgba(255,224,74,0.12);
+    }
+
+    .roc-result{
+      min-height: 0;
+      overflow: auto;
+      display: grid;
+      gap: 8px;
+      padding-right: 2px;
+      scrollbar-gutter: stable;
+    }
+    .roc-result::-webkit-scrollbar{ width: 10px; }
+    .roc-result::-webkit-scrollbar-thumb{
+      background-color: rgba(255,255,255,0.28);
+      border-radius: 8px;
+      border: 2px solid transparent;
+    }
+    .roc-result::-webkit-scrollbar-thumb:hover{ background-color: rgba(255,255,255,0.40); }
+
+    .roc-card{
+      display: grid;
+      grid-auto-rows: auto;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 2px 6px rgba(0,0,0,0.22) inset;
+    }
+
+    .roc-line{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    .roc-pill{
+      background: var(--accent);
+      color: #000;
+      font-weight: 900;
+      font-size: clamp(11px, 1.6vh, 13px);
+      padding: 2px 8px;
+      border-radius: 999px;
+      user-select: none;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+      flex: 0 0 auto;
+    }
+
+    .roc-title{
+      font-size: clamp(14px, 2.2vh, 18px);
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .roc-sub{
+      font-size: clamp(12px, 1.7vh, 14px);
+      color: #d7d9de;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .roc-operator{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-weight: 800;
+      font-size: clamp(10px, 1.5vh, 12px);
+      color: #e8e9ec;
+      white-space: nowrap;
+    }
+    .roc-op-swatch{
+      width: 10px; height: 10px; border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.35) inset;
+      flex-shrink: 0;
+    }
+
+    .roc-empty{
+      color: #c7cbd1;
+      text-align: center;
+      padding: 18px 8px;
+      border: 1px dashed rgba(255,255,255,0.08);
+      border-radius: 10px;
+    }
+
+    .roc-status{
+      font-size: clamp(11px, 1.5vh, 13px);
+      color: var(--muted);
+      opacity: .95;
+    }
+    
+    /* ===========================================
+   ROUTE CHECKER — NEW BIG MATCHED RESULT STYLE
+   =========================================== */
+
+.roc-card {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25) inset;
+}
+
+/* Big central route chip — match travel alerts route-chip */
+.roc-route-big {
+  display: inline-flex;              /* enables centring */
+  align-items: center;               /* vertical centring */
+  justify-content: center;           /* horizontal centring */
+
+  background: var(--accent);
+  color: #000;
+  font-weight: 900;
+  font-size: clamp(26px, 4vh, 34px);
+  
+  padding: 10px 28px;                /* balanced vertical padding */
+  border-radius: 12px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.35);
+  white-space: nowrap;
+  line-height: 1.1;                  /* prevents tall text box */
+}
+
+/* Description under chip */
+.roc-desc {
+  max-width: 95%;
+  font-size: clamp(16px, 2.4vh, 20px);
+  font-weight: 700;
+  color: #eaeaea;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Operator chip — same centre alignment */
+.roc-operator-big {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: clamp(14px, 2.2vh, 18px);
+  font-weight: 900;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.roc-op-swatch-big {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.4) inset;
+}
+
+/* FULL WIDTH search bar (no clear button) */
+
+.roc-input-row {
+  width: 100%;
+  display: block;              /* no columns, no grid */
+  overflow: hidden;            /* prevent any creeping */
+}
+
+
+
+.roc-input-full {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;      /* critical fix: prevents overflow */
+  
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.06);
+
+  color: var(--text);
+  font-weight: 800;
+  font-size: clamp(15px, 2.4vh, 20px);
+  letter-spacing: .3px;
+
+  outline: none;
+  transition: border-color .2s ease,
+              background .2s ease,
+              box-shadow .2s ease;
+}
+
+.roc-input-full:focus {
+  border-color: rgba(255,224,74,0.7);
+  background: rgba(255,255,255,0.10);
+  box-shadow: 0 0 0 3px rgba(255,224,74,0.15);
+}
+
   </style>
 </head>
 <body>
@@ -514,11 +758,23 @@
           </div>
         </div>
 
-        <!-- Bottom-left: Route Operator Checker (placeholder) -->
+        <!-- Bottom-left: Route Operator Checker -->
         <div class="frame" id="frame-b" aria-labelledby="frame-b-title">
           <div class="frame-header" id="frame-b-title">Route Operator Checker</div>
-          <div class="frame-body" style="display:grid;place-items:center;color:#c7cbd1;border:1px dashed rgba(255,255,255,0.08);border-radius:10px;">
-            Placeholder — wire in your ROC view here
+          <div class="frame-body">
+            <div class="roc-panel" id="roc-panel" aria-live="polite">
+              <div class="roc-input-row">
+    <label for="roc-input" class="visually-hidden">Bus route number</label>
+    <input id="roc-input" class="roc-input-full" type="text"
+           placeholder="Enter bus route (e.g. 1, 17, 43A)…" autocomplete="off" />
+</div>
+
+              <div class="roc-result" id="roc-result">
+                <div class="roc-empty">Type a route number to see its description and operator.</div>
+              </div>
+
+              <div class="roc-status" id="roc-status" aria-live="polite" aria-atomic="true"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -711,7 +967,7 @@
     }
 
     /* =======================================================
-       TVT PANEL (left) — unchanged logic (trimmed)
+       TVT PANEL (left) — trimmed logic
        ======================================================= */
     const TVT_URL = 'https://occproxy-6dem.vercel.app/api/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
     const TVT_REFRESH_MS = 5 * 60 * 1000;
@@ -734,25 +990,7 @@
     }
     function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
     function lerp(a,b,t){ return a + (b-a)*t; }
-    function healthFromTimes(current, historic){
-      if (!Number.isFinite(current) || !Number.isFinite(historic) || historic <= 0) return 0.5;
-      const ratio = current / historic;
-      if (ratio <= 1) return clamp(0.8 + (1 - ratio) * 0.2, 0.0, 1.0);
-      const t = clamp((ratio - 1) / 1.0, 0, 1);
-      return clamp(0.8 * (1 - t), 0, 0.8);
-    }
-    function solidColorFromHealth(h){
-      const green=[46,204,113], yellow=[255,224,74], red=[255,77,79];
-      let c;
-      if (h >= 0.5){
-        const t = (h - 0.5)/0.5;
-        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp[yellow[2], green[2], t] ];
-      } else {
-        const t = h/0.5;
-        c = [ lerp(red[0], yellow[0], t), lerp(red[1], yellow[1], t), lerp(red[2], yellow[2], t) ];
-      }
-      return `rgb(${c.map(v=>Math.round(v)).join(',')})`;
-    }
+
     function networkGradientFromUsersOnJams(usersOnJams){
       if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
         return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
@@ -919,59 +1157,8 @@
             || st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT')
             || /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d) );
     }
-    function alertsToAccidentPoints(feed){
-      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
-      for(const a of alerts){
-        if(!isAccident(a)) continue;
-        const conf10 = readConfidence(a);
-        if(!(conf10 > 0)) continue;
-        const rel10 = readReliability(a);
-        const coord = getLngLatFromAlert(a); if(!coord) continue;
-        out.push({
-          id: a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`,
-          coord,
-          street: a.street || a.roadName || a.address || 'Unknown road',
-          city: a.city || a.town || '',
-          conf10, rel10,
-          time: a.pubMillis || a.updateTime || a.reportMillis || 0
-        });
-      }
-      return out;
-    }
-    function alertsToSignalFaults(feed){
-      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
-      for(const a of alerts){
-        if(!isTrafficLightFault(a)) continue;
-        const coord = getLngLatFromAlert(a); if(!coord) continue;
-        out.push({
-          id: a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`,
-          coord,
-          street: a.street || a.roadName || a.address || '',
-          city: a.city || a.town || '',
-          time: a.pubMillis || a.updateTime || a.reportMillis || 0,
-          desc: a.description || a.reportDescription || a.title || 'Traffic signal fault'
-        });
-      }
-      return out;
-    }
-    function alertsToWeather(feed){
-      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
-      for(const a of alerts){
-        if(!isIceAlert(a)) continue;
-        const coord = getLngLatFromAlert(a); if(!coord) continue;
-        out.push({
-          id: a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`,
-          coord,
-          street: a.street || a.roadName || a.address || '',
-          city: a.city || a.town || '',
-          time: a.pubMillis || a.updateTime || a.reportMillis || 0,
-          desc: a.description || a.reportDescription || a.title || 'Weather Alert'
-        });
-      }
-      return out;
-    }
     function dedupAccidentClusters(clusters, opts={}){
-      const { corridorMeters = 8000, bearingTolerance = 35 } = opts;
+      const { corridorMeters = 8000 } = opts;
       if (!Array.isArray(clusters) || clusters.length === 0) return [];
       const groups = new Map();
       for (const c of clusters){
@@ -987,10 +1174,9 @@
           (Number(b.time||0) - Number(a.time||0))
         );
         const chosen = [];
-        const toRad = d=>d*Math.PI/180;
         const H = ([lon1,lat1],[lon2,lat2])=>{
-          const R=6371000, dLat=toRad(lat2-lat1), dLon=toRad(lon2-lon1);
-          const A=Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+          const R=6371000, dLat=(lat2-lat1)*Math.PI/180, dLon=(lon2-lon1)*Math.PI/180;
+          const A=Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
           return 2*R*Math.atan2(Math.sqrt(A), Math.sqrt(1-A));
         };
         for (const c of arr){
@@ -1030,7 +1216,7 @@
           const el = document.getElementById(id);
           return el && el.children.length > 0;
         });
-        sec.style.display = hasAny ? 'grid' : 'none';
+        if (sec) sec.style.display = hasAny ? 'grid' : 'none';
       };
       toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
       toggleSection('sec-weather', ['cards-weather']);
@@ -1056,9 +1242,56 @@
       const ctrl = new AbortController();
       try{
         const data = await fetchViaProxies(WAZE_URL, ctrl.signal);
-        const accidentPoints = (()=>{const out=[], a=(data&&Array.isArray(data.alerts))?data.alerts:[]; for(const x of a){ if(!isAccident(x)) continue; const c=readConfidence(x); if(!(c>0)) continue; const coord=getLngLatFromAlert(x); if(!coord) continue; out.push({coord, conf10:c, rel10:readReliability(x), street:x.street||x.roadName||x.address||'Unknown road', city:x.city||x.town||'', time:x.pubMillis||x.updateTime||x.reportMillis||0, id:x.uuid||x.id||`${coord[0]},${coord[1]},${x.pubMillis||''}`}); } return out;})();
-        const accidentClustersRaw = accidentPoints.length? (function cluster(points, merge=200){ if(points.length===0) return []; const parent=Array(points.length).fill(0).map((_,i)=>i); const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; }; const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; }; for(let i=0;i<points.length;i++){ for(let j=i+1;j<points.length;j++){ const d=haversineMeters(points[i].coord, points[j].coord); if(d<=merge) union(i,j); } } const groups=new Map(); for(let i=0;i<points.length;i++){ const r=find(i); if(!groups.has(r)) groups.set(r, []); groups.get(r).push(points[i]); } const clusters=[]; for(const members of groups.values()){ const count=members.length; const baseConf10=members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0); const bestRel10=members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0); let eff10=baseConf10 + (bestRel10>8?2:0); eff10=Math.max(0, Math.min(12, eff10)); const eff5=Math.max(1, Math.min(5, Math.round(eff10/2))); const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count); const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0); const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0]; clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count }); } clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0))))); return clusters; })(accidentPoints) : [];
-        const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000, bearingTolerance: 35 });
+        const accidentPoints = (()=>{
+          const out=[], a=(data&&Array.isArray(data.alerts))?data.alerts:[];
+          for(const x of a){
+            if(!isAccident(x)) continue;
+            const c=readConfidence(x);
+            if(!(c>0)) continue;
+            const coord=getLngLatFromAlert(x); if(!coord) continue;
+            out.push({
+              coord, conf10:c, rel10:readReliability(x),
+              street:x.street||x.roadName||x.address||'Unknown road',
+              city:x.city||x.town||'',
+              time:x.pubMillis||x.updateTime||x.reportMillis||0,
+              id:x.uuid||x.id||`${coord[0]},${coord[1]},${x.pubMillis||''}`
+            });
+          } return out;
+        })();
+        const accidentClustersRaw = accidentPoints.length? (function cluster(points, merge=200){
+          if(points.length===0) return [];
+          const parent=Array(points.length).fill(0).map((_,i)=>i);
+          const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+          const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+          for(let i=0;i<points.length;i++){
+            for(let j=i+1;j<points.length;j++){
+              const d=haversineMeters(points[i].coord, points[j].coord);
+              if(d<=merge) union(i,j);
+            }
+          }
+          const groups=new Map();
+          for(let i=0;i<points.length;i++){
+            const r=find(i);
+            if(!groups.has(r)) groups.set(r, []);
+            groups.get(r).push(points[i]);
+          }
+          const clusters=[];
+          for(const members of groups.values()){
+            const count=members.length;
+            const baseConf10=members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
+            const bestRel10=members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+            let eff10=baseConf10 + (bestRel10>8?2:0);
+            eff10=Math.max(0, Math.min(12, eff10));
+            const eff5=Math.max(1, Math.min(5, Math.round(eff10/2)));
+            const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+            const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+            const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0];
+            clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count });
+          }
+          clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0)))));
+          return clusters;
+        })(accidentPoints) : [];
+        const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000 });
         const highWrap = document.getElementById('cards-acc-high');
         const lowWrap  = document.getElementById('cards-acc-low');
         highWrap.innerHTML = '';
@@ -1088,8 +1321,6 @@
 
     /* =======================================================
        CENTRAL PANE — Bee Network Unplanned Diversions (2×4)
-       Only show: UFN OR starts today OR ends today
-       Keep UFN highlighted; rotate multi-operator dot & codes
        ======================================================= */
     const DIV_API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
     const DIV_BODS_URL = `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent('https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=' + DIV_API_KEY)}`;
@@ -1110,7 +1341,6 @@
     let divTimer = null;
     let lastBoardIds = new Set();
 
-    /* ---- date helpers ---- */
     function dTodayBounds(){
       const now = new Date();
       const s = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
@@ -1155,7 +1385,6 @@
       return `${Math.round(d)}d`;
     }
 
-    /* ---- filter helpers ---- */
     function divIsDiversion(sit){
       const txt = (sit.Description || sit.Summary || "").toLowerCase();
       return txt.includes("divert") || txt.includes("diversion");
@@ -1176,14 +1405,12 @@
              (single && DIV_BEE_OPERATORS.includes(String(single).toUpperCase()));
     }
     function divDisplayEligibility(sit){
-      // Only UFN OR starts today OR ends today
       const s = sit?.ValidityPeriod?.StartTime || sit?.StartTime ? new Date(sit?.ValidityPeriod?.StartTime || sit?.StartTime) : null;
       const e = sit?.ValidityPeriod?.EndTime   || sit?.EndTime   ? new Date(sit?.ValidityPeriod?.EndTime   || sit?.EndTime)   : null;
       const isUFN = !e;
       return isUFN || dIsToday(s) || dIsToday(e);
     }
 
-    /* ---- extractors ---- */
     function divGetSituationId(sit){
       const a  = sit?.SituationNumber || sit?.SituationRef;
       const b  = sit?.ParticipantRef || "";
@@ -1229,13 +1456,12 @@
       const hyIdx = str.indexOf(" - ");
       if(hyIdx === -1) return null;
       const left = str.slice(0, hyIdx).trim();
-      const reason = str.slice(hyIdx + 3).trim();
       const lastComma = left.lastIndexOf(",");
       if(lastComma === -1) return null;
-      const place = left.slice(0, lastComma).trim();  // treat as Street to display
+      const place = left.slice(0, lastComma).trim();
       const town  = left.slice(lastComma + 1).trim();
       if(!place || !town) return null;
-      return { place, town, reason };
+      return { place, town };
     }
 
     function divMapSituation(s){
@@ -1271,12 +1497,9 @@
     }
 
     function divSortItems(a, b){
-      // UFN first (older UFN first)
       if (a.isUFN && !b.isUFN) return -1;
       if (!a.isUFN && b.isUFN) return 1;
       if (a.isUFN && b.isUFN) return (a.start?.getTime()||0) - (b.start?.getTime()||0);
-
-      // Non-UFN: end sooner first, then older start first
       const aEnd = a.end?.getTime() ?? Number.POSITIVE_INFINITY;
       const bEnd = b.end?.getTime() ?? Number.POSITIVE_INFINITY;
       if (aEnd !== bEnd) return aEnd - bEnd;
@@ -1342,7 +1565,6 @@
 
       let sits = parsed.type==="json" ? fromJSON(parsed.data) : fromXML(parsed.data);
 
-      // Bee-only, diversions only, currently valid, unplanned only, and display eligibility
       sits = sits.filter(divIsBeeOperator)
                  .filter(divIsDiversion)
                  .filter(divIsCurrentlyValid)
@@ -1393,15 +1615,9 @@
       const codes = upperRefs.map(r => DIV_OP_MAP[r] || r);
       const colors = upperRefs.map(r => DIV_OP_COLORS[r]).filter(Boolean);
 
-      // initial dot colour
-      if (upperRefs.length === 1){
-        dot.style.backgroundColor = colors[0] || '#cfcfd6';
-      } else {
-        dot.style.backgroundColor = colors[0] || '#cfcfd6';
-      }
+      dot.style.backgroundColor = colors[0] || '#cfcfd6';
       tag.appendChild(dot);
 
-      // code rotator (fixed width)
       const rot = document.createElement('div');
       rot.className = 'op-code-rotator';
 
@@ -1418,7 +1634,6 @@
           rot.appendChild(el);
         });
 
-        // gentle fades — codes
         let idx = 0;
         const rotateCodes = () => {
           const children = rot.querySelectorAll('.op-code');
@@ -1429,7 +1644,6 @@
         };
         const codeInterval = setInterval(rotateCodes, 3200);
 
-        // gentle fades — dot colour
         let cIdx = 0;
         const cycleDot = () => {
           if (colors.length <= 1) return;
@@ -1438,7 +1652,6 @@
         };
         const dotInterval = setInterval(cycleDot, 3200);
 
-        // cleanup if element detached
         const observer = new MutationObserver(() => {
           if (!document.body.contains(tag)){
             clearInterval(codeInterval);
@@ -1469,16 +1682,13 @@
         const card = document.createElement('div');
         card.className = 'divert-card';
 
+        if (it.__placeholder){
+          card.classList.add('placeholder');
+          card.innerHTML = ``;
+          grid.appendChild(card);
+          continue;
+        }
 
-if (it.__placeholder){
-  card.classList.add('placeholder');
-  card.innerHTML = ``;   // blank card
-  grid.appendChild(card);
-  continue;
-}
-
-
-        // Persistent highlight for UFN
         if (it.isUFN){ card.classList.add('ufn-highlight'); }
 
         const header = document.createElement('div');
@@ -1489,10 +1699,9 @@ if (it.__placeholder){
         opTag.title = (it.operatorRefs||[]).join(', ') || '—';
         header.append(routes, opTag);
 
-        // STREET line (replace reason): use parsed 'place' as Street
         const streetLine = document.createElement('div');
         streetLine.className = 'street-line';
-        const stEmoji = document.createElement('span'); stEmoji.className = 'street-emoji'; stEmoji.textContent = it.reasonEmoji || '⚠️';;
+        const stEmoji = document.createElement('span'); stEmoji.className = 'street-emoji'; stEmoji.textContent = it.reasonEmoji || '⚠️';
         const stText  = document.createElement('span');
         stText.textContent = it.street || '—';
         stText.style.whiteSpace = 'nowrap';
@@ -1500,12 +1709,10 @@ if (it.__placeholder){
         stText.style.textOverflow = 'ellipsis';
         streetLine.append(stEmoji, stText);
 
-        // Town / fallback (kept compact)
         const loc = document.createElement('div');
         loc.className = 'location';
         loc.textContent = it.town || it.summary || 'Travel alert';
 
-        // Times
         const times = document.createElement('div'); times.className = 'times';
         const row1 = document.createElement('div'); row1.className = 'time-row';
         row1.innerHTML = `<span class="lab">Started:</span> <span class="val">${it.startedLabel || '—'}</span>`;
@@ -1517,7 +1724,6 @@ if (it.__placeholder){
 
         card.append(header, streetLine, loc, times);
 
-        // Subtle one-time flash when a NEW UFN arrives on board
         if (it.isUFN && !lastBoardIds.has(it.id)){
           card.classList.add('new-ufn-flash');
           setTimeout(()=>card.classList.remove('new-ufn-flash'), 1600);
@@ -1545,6 +1751,214 @@ if (it.__placeholder){
     }
 
     /* =======================================================
+       ROUTE OPERATOR CHECKER — live CSV lookup (Routes.csv)
+       Exact match only; ignore leading zeros; operator priority & colour.
+       ======================================================= */
+    const ROC_CSV_URL = 'https://ryanocc.github.io/Routes.csv';
+
+    const ROC_OPERATOR_PRIORITY = [
+      { name: 'STAGECOACH MANCHESTER', code: 'SC', color: '#ff9a1f' },
+      { name: 'METROLINE MANCHESTER',  code: 'ML', color: '#ff4d4f' },
+      { name: 'GO NORTH WEST',         code: 'GN', color: '#003C6E' },
+      { name: 'DIAMOND',               code: 'DB', color: '#9AC331' },
+      { name: 'FIRST MANCHESTER',      code: 'FB', color: '#ff66b3' },
+      { name: 'VISION BUS',            code: 'VB', color: '#7a3ffe' }
+    ];
+    const ROC_OPERATOR_INDEX = ROC_OPERATOR_PRIORITY.reduce((m,o)=>{ m[o.name]=o; return m; }, {});
+
+    const ROC_STATE = {
+      rows: [],
+      fetched: false,
+      fetching: false,
+      lastQuery: ''
+    };
+
+    function rocNormalizeRoute(raw){
+      const s = String(raw||'').toUpperCase().replace(/\s+/g,'');
+      const m = s.match(/^([A-Z]*)(\d+)?([A-Z]*)$/);
+      if (!m) return s;
+      const prefix = m[1] || '';
+      const digits = (m[2] || '').replace(/^0+/, '') || (m[2] ? '0' : '');
+      const suffix = m[3] || '';
+      return `${prefix}${digits}${suffix}`;
+    }
+
+    function textColorForBg(hex){
+      try{
+        const h = hex.replace('#','');
+        const r = parseInt(h.substring(0,2),16);
+        const g = parseInt(h.substring(2,4),16);
+        const b = parseInt(h.substring(4,6),16);
+        const yiq = (r*299 + g*587 + b*114) / 1000;
+        return yiq >= 150 ? '#000' : '#fff';
+      }catch{ return '#000'; }
+    }
+
+    async function rocFetchCSV(){
+      if (ROC_STATE.fetching || ROC_STATE.fetched) return;
+      ROC_STATE.fetching = true;
+
+      const status = document.getElementById('roc-status');
+      if (status) status.textContent = 'Loading route list…';
+
+      try{
+        const res = await fetch(ROC_CSV_URL, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+
+        const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
+        const header = lines.shift() || '';
+        const delim = header.includes(';') ? ';' : ',';
+
+        const h = header.split(delim).map(s => s.trim().toLowerCase());
+        const idxRoute = h.indexOf('route');
+        const idxDesc  = h.indexOf('description');
+        const idxOper  = h.indexOf('operator');
+
+        if (idxRoute === -1 || idxDesc === -1 || idxOper === -1){
+          throw new Error('Unexpected CSV header. Expected: route, description, operator');
+        }
+
+        const rows = [];
+        for (const line of lines){
+          const parts = line.split(delim);
+          if (parts.length < 3) continue;
+          const route = (parts[idxRoute] || '').trim();
+          const description = (parts[idxDesc] || '').trim();
+          const operator = (parts[idxOper] || '').trim();
+          if (!route) continue;
+          rows.push({ route, description, operator });
+        }
+
+        ROC_STATE.rows = rows;
+        ROC_STATE.fetched = true;
+
+        if (status) status.textContent = `Loaded ${rows.length} routes`;
+      }catch(e){
+        console.error('[ROC] CSV fetch failed:', e);
+        const status = document.getElementById('roc-status');
+        if (status) status.textContent = 'Unable to load routes (stand by)';
+      }finally{
+        ROC_STATE.fetching = false;
+      }
+    }
+
+    function rocRenderPrompt(){
+      const host = document.getElementById('roc-result');
+      if (!host) return;
+      host.innerHTML = `<div class="roc-empty">Type a route number to see its description and operator.</div>`;
+    }
+
+    function rocRenderNoMatch(){
+      const host = document.getElementById('roc-result');
+      if (!host) return;
+      host.innerHTML = `<div class="roc-empty">No matching route found.</div>`;
+    }
+
+    function rocRenderResult(row, mappedOp){
+      const host = document.getElementById('roc-result');
+      if (!host) return;
+
+      const opName = String(row.operator || '').trim().toUpperCase();
+      const map = ROC_OPERATOR_INDEX[opName] || mappedOp || null;
+
+      const code  = map?.code  || '';
+      const color = map?.color || '';
+      const pillStyle = color ? `background:${color}; border-color: rgba(255,255,255,0.22); color:${textColorForBg(color)}` : '';
+
+const html = `
+  <div class="roc-card">
+
+    <div class="roc-route-big">
+      ${escapeHTML(row.route)}
+    </div>
+
+    <div class="roc-desc">
+      ${escapeHTML(row.description || '—')}
+    </div>
+
+    <div class="roc-operator-big" style="${pillStyle}">
+      <span class="roc-op-swatch-big" style="${color ? `background:${color}` : ''}"></span>
+      <span>${code || '—'}</span>
+      <span>• ${escapeHTML(row.operator || 'Unknown')}</span>
+    </div>
+
+  </div>
+`;
+host.innerHTML = html;
+    }
+
+    function chooseBestRowForExactRoute(candidates){
+      if (!Array.isArray(candidates) || candidates.length === 0) return null;
+      const byName = new Map();
+      candidates.forEach((r,i) => byName.set(String(r.operator||'').trim().toUpperCase(), i));
+      for (const pref of ROC_OPERATOR_PRIORITY){
+        const idx = byName.get(pref.name);
+        if (idx != null) return { row: candidates[idx], mapped: pref };
+      }
+      return { row: candidates[0], mapped: null };
+    }
+
+    function rocSearch(q){
+      const status = document.getElementById('roc-status');
+      const host = document.getElementById('roc-result');
+      if (!host) return;
+
+      const normInput = rocNormalizeRoute(q);
+      if (!normInput){
+        rocRenderPrompt();
+        if (status) status.textContent = '';
+        return;
+      }
+
+      const exactCandidates = ROC_STATE.rows.filter(r => rocNormalizeRoute(r.route) === normInput);
+
+      if (exactCandidates.length === 0){
+        rocRenderNoMatch();
+        if (status) status.textContent = '';
+        return;
+      }
+
+      const picked = chooseBestRowForExactRoute(exactCandidates);
+      if (!picked){
+        rocRenderNoMatch();
+        if (status) status.textContent = '';
+        return;
+      }
+
+      rocRenderResult(picked.row, picked.mapped);
+      if (status) status.textContent = exactCandidates.length > 1
+        ? `Found ${exactCandidates.length} entries • showing best operator match`
+        : `Found 1 match`;
+    }
+
+    function rocBind(){
+      const input = document.getElementById('roc-input');
+
+      if (!input) return;
+
+      let t = null;
+      const onChange = () => {
+        const q = input.value || '';
+        ROC_STATE.lastQuery = q;
+        clearTimeout(t);
+        t = setTimeout(() => rocSearch(q), 120);
+      };
+
+      input.addEventListener('input', onChange, { passive: true });
+      input.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter') {
+          clearTimeout(t);
+          rocSearch(input.value || '');
+        }
+      });
+
+
+
+      rocRenderPrompt();
+    }
+
+    /* =======================================================
        BOOT / VISIBILITY
        ======================================================= */
     document.addEventListener('visibilitychange', () => {
@@ -1565,6 +1979,15 @@ if (it.__placeholder){
       tvtCycle();     // left
       wazeCycle();    // right
       divertsCycle(); // centre
+
+      // ROC
+      rocBind();
+      rocFetchCSV().then(() => {
+        if ((ROC_STATE.lastQuery || '').trim()){
+          rocSearch(ROC_STATE.lastQuery);
+        }
+      });
+
       window.addEventListener('resize', () => requestAnimationFrame(ensureWazeFits));
     });
   </script>
