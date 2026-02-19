@@ -151,6 +151,80 @@
   overflow: hidden;   /* ✅ scrolling lives below */
 }
 
+/* =========================
+   FORCE WAZE COLUMN TO SCROLL
+   ========================= */
+#frame-d {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+#frame-d .frame-body {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+
+.waze-panel {
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  display: block !important;
+}
+
+
+#frame-d .frame-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: visible;
+  flex: 1 1 auto;
+}
+
+.waze-panel {
+  display: grid;
+  grid-auto-rows: auto;
+  gap: 10px;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* --- Waze column: make the scroll container the waze-panel and give it breathing room --- */
+#frame-d{
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
+
+#frame-d .frame-body{
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden; /* keep scrolling inside the panel, not the frame */
+  display:flex;
+}
+
+#waze-panel{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  /* ✅ fixes last card being cut off */
+  padding-bottom: 16px;
+
+  /* optional: keeps last card clear of scrollbar on Windows */
+  padding-right: 6px;
+  box-sizing: border-box;
+}
+
+
+
 /* ✅ Key Travel Alerts: allow inner grid to scroll */
 #frame-c .frame-body{
   display: flex;
@@ -263,6 +337,15 @@
   gap: 10px;
   min-height: 0;
   overflow-y: auto;
+
+  /* NEW: force uniform card sizes */
+  grid-auto-rows: var(--corridor-card-h);
+  align-content: start; /* keeps rows packed neatly at the top */
+}
+
+/* Pick a height that suits your wall display */
+:root{
+  --corridor-card-h: clamp(140px, 16vh, 190px);
 }
 
     .corridor-list{ scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.35) transparent; }
@@ -275,21 +358,25 @@
     }
     .corridor-list::-webkit-scrollbar-thumb:hover{ background-color: rgba(255,255,255,0.40); }
 
-    .corridor{
-      display: grid;
-      grid-template-rows: auto auto auto;
-      gap: 6px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.04);
-      min-width: 0;
-      
-  position: relative;   /* ✅ REQUIRED */
-  padding-bottom: 36px; /* ✅ space for Hide button */
+.corridor{
+  display: grid;
+  grid-template-rows: auto auto auto; /* ✅ no 1fr */
+  align-content: start;              /* ✅ pack upward */
+  gap: 6px;
 
-    }
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.04);
+
+  height: 100%;
+  box-sizing: border-box;
+
+  position: relative;
+  padding-bottom: 36px; /* keep space for Hide */
+  overflow: hidden;     /* can stay */
+}
 
 .corridor .hide-btn{
   position: absolute;
@@ -319,8 +406,9 @@
       font-size: clamp(22px, 4.2vh, 34px);
       font-weight: 900;
       letter-spacing: .3px;
-      line-height: 1;
+      line-height: 0.95;
       color: var(--delay-col);
+      margin-bottom: 2px;
       text-shadow: 0 1px 2px rgba(0,0,0,0.35);
     }
     .corridor-times{
@@ -886,16 +974,16 @@
           <div class="frame-body">
             <div class="waze-panel" id="waze-panel" aria-live="polite">
               <div class="section" id="sec-accidents">
-                <div class="section-title">Accidents</div>
+                <div class="section-title">💥 Accidents</div>
                 <div class="cards" id="cards-acc-high"></div>
                 <div class="cards" id="cards-acc-low"></div>
               </div>
               <div class="section" id="sec-signals">
-                <div class="section-title">Traffic Light Faults</div>
+                <div class="section-title">🚦 Traffic Light Faults</div>
                 <div class="cards" id="cards-signals"></div>
               </div>
               <div class="section" id="sec-weather">
-                <div class="section-title">Weather Reports</div>
+                <div class="section-title">🌨️ Weather Reports</div>
                 <div class="cards" id="cards-weather"></div>
               </div>
             </div>
@@ -1227,6 +1315,7 @@
         ? filtered.map(itemHTML).join('')
         : `
           <div class="corridor" style="grid-column: 1 / -1;">
+          
             <div class="corridor-top">
               <div class="corridor-title">No corridors above +${TVT_MIN_DELAY}m</div>
             </div>
@@ -1408,36 +1497,26 @@
       return kept;
     }
 
-    function ensureWazeFits(){
-      const host = document.getElementById('waze-panel');
-      if (!host) return;
-      const highAccWrap = document.getElementById('cards-acc-high');
-      const lowAccWrap  = document.getElementById('cards-acc-low');
-      const weatherWrap = document.getElementById('cards-weather');
-      let guard = 0;
-      const fits = () => host.scrollHeight <= host.clientHeight + 2;
+function ensureWazeFits(){
+  const host = document.getElementById('waze-panel');
+  if (!host) return;
 
-      while(!fits() && weatherWrap && weatherWrap.lastElementChild && guard++ < 500){
-        weatherWrap.removeChild(weatherWrap.lastElementChild);
-      }
-      while(!fits() && lowAccWrap && lowAccWrap.lastElementChild && guard++ < 1000){
-        lowAccWrap.removeChild(lowAccWrap.lastElementChild);
-      }
+  host.style.overflowY = 'auto';
+  host.style.overflowX = 'hidden';
 
-      host.style.overflow = fits() ? 'hidden' : 'auto';
-
-      const toggleSection = (secId, wrapIds) => {
-        const sec = document.getElementById(secId);
-        const hasAny = wrapIds.some(id => {
-          const el = document.getElementById(id);
-          return el && el.children.length > 0;
-        });
-        if (sec) sec.style.display = hasAny ? 'grid' : 'none';
-      };
-      toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
-      toggleSection('sec-weather',   ['cards-weather']);
-      toggleSection('sec-signals',   ['cards-signals']);
-    }
+  // Keep section show/hide behaviour
+  const toggleSection = (secId, wrapIds) => {
+    const sec = document.getElementById(secId);
+    const hasAny = wrapIds.some(id => {
+      const el = document.getElementById(id);
+      return el && el.children.length > 0;
+    });
+    if (sec) sec.style.display = hasAny ? 'grid' : 'none';
+  };
+  toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
+  toggleSection('sec-weather',   ['cards-weather']);
+  toggleSection('sec-signals',   ['cards-signals']);
+}
 
     function bindCardClicks(){
       document.querySelectorAll('.card').forEach(card => {
@@ -1547,7 +1626,7 @@
                       <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
                     </div>
                     <div class="meta">Confidence: ${conf}/5 • ${when}</div>
-                    <div class="desc">Accident cluster</div>
+                    <div class="desc">Accident Report</div>
                   </div>`;
         };
         if (highWrap) highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
