@@ -1522,9 +1522,17 @@ body.bar-open #bottomStatusRow{
             .filter(isCurrentlyValid);
 
           const liveUnplanned = UNPLANNED_ONLY ? live.filter(isUnplanned) : live;
-          const display = liveUnplanned.filter(inDisplayPool);
+// ONLY show UFN diverts (no end time)
+const display = liveUnplanned
+  .filter(inDisplayPool)
+  .filter(sit => {
+    const e = sit?.ValidityPeriod?.EndTime || sit?.EndTime;
+    return !e; // UFN only
+  });
 
-          const feats = display.map(mapSituationToCentroidFeature).filter(Boolean);
+const feats = display
+  .map(mapSituationToCentroidFeature)
+  .filter(f => f?.properties?.isUFN === true);
 
           map.getSource('divert-centroids')?.setData({ type:'FeatureCollection', features:feats });
         }catch(e){
