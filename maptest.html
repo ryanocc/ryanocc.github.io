@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>OCC Dashboard - Highways Alerts</title>
+  <title>OCC Wall Board - Highways Alerts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- MapLibre CSS/JS -->
@@ -1259,7 +1259,7 @@ body.bar-open #bottomStatusRow{
         id: 'waze-signal-faults-icon', type: 'symbol', source: 'waze-signal-faults',
         layout: {
           'icon-image': map.hasImage('tl-icon') ? 'tl-icon' : 'triangle-green', // fallback to triangle if SVG fails
-          'icon-size': ['interpolate',['linear'],['zoom'], 8,0.40, 12,0.60, 16,0.85],
+          'icon-size': ['interpolate',['linear'],['zoom'], 8,2, 12,2, 16,2],
           'icon-allow-overlap': true
         }
       });
