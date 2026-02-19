@@ -185,85 +185,75 @@
     #alert-progress-wrap { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: rgba(255,255,255,0.2); overflow: hidden; }
     #alert-progress { transform-origin: left center; width: 100%; height: 100%; background: #fff; transform: scaleX(0); }
 
-    /* ===== Corridor Sidebar (TVT) ===== */
-    #corridorSidebar {
-      position: absolute; top: 0; right: 0; bottom: 0;
-      width: var(--sidebarWidth);
-      background: rgba(0,0,0,0.88);
-      color: var(--text);
-      box-shadow: -10px 0 24px rgba(0,0,0,0.45), 0 0 0 2px rgba(255,255,255,0.06) inset;
-      transform: translateX(100%);
-      transition: transform 360ms ease;
-      z-index: 40;
-      display: grid;
-      grid-template-rows: auto 1fr;
-      overflow: hidden;
-      backdrop-filter: blur(4px);
-    }
-    #corridorSidebar.show { transform: translateX(0); }
+:root{
+  /* Match your UI style */
+  --bottomRowPad: 12px;
+  --chipH: 28px;                 /* target height for both bar + chip */
+  --chipRadius: 999px;
+  --chipBg: rgba(0,0,0,0.72);
+  --chipBorder: rgba(255,255,255,0.14);
+  --chipShadow: 0 6px 18px rgba(0,0,0,0.35);
+}
 
-    .network-health { margin: 10px 18px 8px 18px; }
-    .network-row { display:flex; align-items:center; gap:10px; }
-    .network-bar {
-      flex:1 1 auto;
-      height: 16px;
-      border-radius: 999px;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.30);
-    }
+/* Bottom row overlay */
+#bottomStatusRow{
+  position: absolute;
+  left: var(--bottomRowPad);
+  right: var(--bottomRowPad);
+  bottom: var(--bottomRowPad);
+  z-index: 70;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  pointer-events: none; /* enable clicks only on children */
+}
 
-    .corridor-list{
-      display: grid;
-      grid-template-rows: repeat(5, minmax(0, 1fr));
-      gap: 8px;
-      padding: 8px 12px 12px 12px;
-      overflow: hidden;
-    }
+/* Ensure alert banner always sits above the bottom health/attrib row */
+body.bar-open #bottomStatusRow{
+  z-index: 50 !important;
+}
 
-    .corridor {
-      display: grid;
-      grid-template-rows: auto auto auto;
-      align-content: center;
-      gap: 6px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.04);
-      min-height: 0;
-    }
-    .corridor .title {
-      display:flex; align-items:center; gap:10px;
-      font-size: clamp(20px, 3.0vh, 28px);
-      font-weight: 900; 
-      line-height: 1.12;
-      letter-spacing: .3px;
-      overflow: hidden;
-    }
-    .corridor .title .name {
-      flex:1 1 auto;
-      display:block;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-    }
-    .corridor .title .trend {
-      flex:0 0 auto;
-      font-size: clamp(18px, 2.4vh, 22px);
-      line-height: 1;
-      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4));
-    }
-    .corridor .bar {
-      height: clamp(12px, 2.2vh, 18px);
-      border-radius: 999px;
-      background: #2ecc71;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.25);
-    }
-    .corridor .meta {
-      font-size: clamp(16px, 2.5vh, 22px);
-      font-weight: 900; color: #fff; letter-spacing: .1px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
-    }
 
-    body.bar-open #corridorSidebar { height: 75vh; top: auto; }
+/* Network health gradient bar (fills remaining width) */
+#networkHealthBar{
+  flex: 1 1 auto;
+  height: var(--chipH);
+  border-radius: var(--chipRadius);
+  background: linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f); /* fallback */
+  box-shadow: 0 0 0 1px var(--chipBorder) inset, var(--chipShadow);
+  pointer-events: auto;
+}
+
+/* Attribution chip (right side) */
+#attribChip{
+  flex: 0 0 auto;
+  height: var(--chipH);
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: var(--chipRadius);
+  background: var(--chipBg);
+  box-shadow: 0 0 0 1px var(--chipBorder) inset, var(--chipShadow);
+  color: #ddd;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: auto; /* clickable links */
+}
+
+/* Make MapLibre attribution links look “chip friendly” */
+#attribChip a{
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.92;
+}
+#attribChip a:hover{ opacity: 1; text-decoration: underline; }
+
+/* Hide the default MapLibre attribution control so we don't have duplicates */
+.maplibregl-ctrl-attrib{
+  display: none !important;
+}
+
   </style>
 </head>
 <body>
@@ -290,8 +280,6 @@
     <div id="alert-progress-wrap"><div id="alert-progress"></div></div>
   </div>
 
-  <!-- Corridor Sidebar host -->
-  <div id="corridorSidebar" aria-live="polite" aria-hidden="true"></div>
 
   <!-- Hidden legacy feed badges -->
   <div id="feed-health-waze" class="feed-health" aria-live="polite" aria-label="Waze feed status">Waze: initialising…</div>
@@ -319,7 +307,7 @@
 
     // === Audio: WAV with 30-minute cooldown, play when banner shows ===
     const ALERT_SOUND_URL = 'https://ryanocc.github.io/notify.wav';
-    const AUDIO_COOLDOWN_MS = 30 * 60 * 1000; // 30 minutes
+    const AUDIO_COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
     let audioEl = null;
     let audioEnabled = false;
     let lastSoundAt = Number(localStorage.getItem('lastSoundAt') || 0);
@@ -369,8 +357,8 @@
 
     // GM bounds & camera
     const GM_BOUNDS = [[-2.75, 53.33], [-1.95, 53.62]];
-    const HOME_CENTER = [-2.3214, 53.4306];
-    const HOME_VIEW = { center: HOME_CENTER, zoom: 11.15, pitch: 58, bearing: 0, duration: 1400, essential: true };
+    const HOME_CENTER = [-2.3297, 53.5];
+    const HOME_VIEW = { center: HOME_CENTER, zoom: 10.44, pitch: 0, bearing: 0, duration: 1400, essential: true };
     const FOCUS_ZOOM = 12.0, FOCUS_PITCH = 30, FOCUS_BEARING = 0, FOCUS_MS = 1200;
 
     // Map
@@ -379,7 +367,6 @@
       style: 'https://api.maptiler.com/maps/019aeeff-f216-7688-8555-59ae0793249c/style.json?key=0H39izAoMROVO5bW1Su2',
       center: HOME_CENTER,
       zoom: HOME_VIEW.zoom, bearing: HOME_VIEW.bearing, pitch: HOME_VIEW.pitch,
-      maxBounds: GM_BOUNDS
     });
 
     function withCacheBust(url){ const sep = url.includes('?') ? '&' : '?'; return `${url}${sep}ts=${Date.now()}`; }
@@ -888,8 +875,6 @@
       highlightedCenter = item.center;
       updateHighlightFilters();
 
-      // Pause TVT sidebar while the banner is playing
-      pauseTvtForBanner();
 
       document.getElementById('alert-title').textContent = 'New High Confidence Alert';
       locEl.innerHTML = stylizeRoad(item.street, item.city);
@@ -919,8 +904,7 @@
           bannerActive = false;
           showNextBanner();
 
-          // Resume TVT if nothing else queued
-          if (!bannerActive) { resumeTvtAfterBanner(); }
+
         }, ALERT_BAR_MS);
 
       }, OVERLAY_MS);
@@ -1569,411 +1553,113 @@
       try{ const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim(); return val || fallback; }
       catch(e){ return fallback; }
     }
+/* =======================================================
+   Bottom row: Network health bar + custom attribution chip
+   ======================================================= */
 
-    /* =======================================================
-       TVT CORRIDOR SIDEBAR (Top 5 abnormal only) — NO SCROLL + MAP FIT
-       ======================================================= */
-    const TVT_URL = 'https://occproxy-6dem.vercel.app/api/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
-    const TVT_SIDEBAR_INTERVAL_MS = 5 * 60 * 1000;
-    const TVT_SIDEBAR_OPEN_MS     = 24000;
-    let tvtSidebarTimer = null, tvtSidebarHideTimer = null;
-    let tvtLastFeatures = []; // for map fit
+// Use your existing TVT feed (already in your code earlier)
+const TVT_URL = 'https://occproxy-6dem.vercel.app/api/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
+const NET_HEALTH_REFRESH_MS = 60 * 1000; // 1 min (tweak as you like)
 
-    // TVT pause/queue when alert banners are showing
-    let tvtPausedForBanner = false;
-    let tvtPending = false;
-    let tvtInFlightCtrl = null;
+function networkGradientFromUsersOnJams(usersOnJams){
+  // Same logic you had in the sidebar (kept here standalone)
+  if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
+    return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
+  }
+  const levelColors = { 0:'#42BE4B', 1:'#9ddc43', 2:'#ffe04a', 3:'#ff9a1f', 4:'#ff4d4f' };
+  const total = usersOnJams.reduce((a,u)=>a + (Number(u.wazersCount)||0), 0) || 1;
+  let acc = 0, stops = [];
+  usersOnJams.slice().sort((a,b)=>a.jamLevel-b.jamLevel).forEach(u=>{
+    const pct = (Number(u.wazersCount)||0)/total*100;
+    const start = acc, end = acc + pct;
+    stops.push(`${levelColors[u.jamLevel] || '#666'} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+    acc = end;
+  });
+  return `linear-gradient(90deg, ${stops.join(', ')})`;
+}
 
-    function pauseTvtForBanner() {
-      tvtPausedForBanner = true;
-      tvtPending = true;
-      if (tvtSidebarHideTimer) { clearTimeout(tvtSidebarHideTimer); tvtSidebarHideTimer = null; }
-      try { setSidebarVisible(false); } catch (e) {}
-      try { tvtInFlightCtrl?.abort(); } catch (e) {}
-      tvtInFlightCtrl = null;
-    }
+async function fetchTVTUsersOnJams(signal){
+  try{
+    const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+    const trimmed = text.replace(/^\uFEFF/, '').trim();
+    const data = JSON.parse(trimmed);
+    return Array.isArray(data?.usersOnJams) ? data.usersOnJams : [];
+  }catch(e){
+    console.warn('[NetworkHealth] TVT fetch failed:', e);
+    return null;
+  }
+}
 
-    function resumeTvtAfterBanner() {
-      tvtPausedForBanner = false;
-      if (tvtPending && !document.hidden) {
-        tvtPending = false;
-        setTimeout(() => { runTvtSidebarCycle(); }, 350);
-      }
-    }
+let netHealthCtrl = null;
+async function updateNetworkHealthOnce(){
+  if (document.hidden) return;
 
-    function ensureSidebarHost(){
-      let el = document.getElementById('corridorSidebar');
-      if (!el){
-        el = document.createElement('div');
-        el.id = 'corridorSidebar';
-        el.setAttribute('aria-live','polite');
-        el.setAttribute('aria-hidden','true');
-        document.body.appendChild(el);
-      }
-      return el;
-    }
+  if (netHealthCtrl) { try{ netHealthCtrl.abort(); }catch(e){} }
+  netHealthCtrl = new AbortController();
 
-    function setSidebarVisible(show){
-      if (show && (bannerActive || tvtPausedForBanner)) {
-        tvtPending = true;
-        return;
-      }
-      const el = ensureSidebarHost();
-      el.classList.toggle('show', show);
-      el.setAttribute('aria-hidden', show ? 'false' : 'true');
+  const usersOnJams = await fetchTVTUsersOnJams(netHealthCtrl.signal);
+  const bar = document.getElementById('networkHealthBar');
+  if (!bar) return;
 
-      if (show) {
-        try {
-          if (Array.isArray(tvtLastFeatures) && tvtLastFeatures.length) {
-            const bounds = computeBoundsFromFeatures(tvtLastFeatures);
-            if (bounds) {
-              const rightPad = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sidebarWidth')) || 520;
-              map.fitBounds(bounds, {
-                padding: { top: 40, bottom: 40, left: 40, right: rightPad + 60 },
-                duration: 1100,
-                pitch: 45,
-                bearing: 0,
-                essential: true
-              });
-            }
-          }
-        } catch(e) { /* ignore fit errors */ }
-      } else {
-        try { map.easeTo(HOME_VIEW); } catch(e) {}
-      }
-    }
+  if (usersOnJams){
+    bar.style.background = networkGradientFromUsersOnJams(usersOnJams);
+    bar.title = `Network health • Updated ${new Date().toLocaleTimeString('en-GB',{hour12:false})}`;
+  } else {
+    // Keep last good gradient; if none, fallback stays
+    bar.title = `Network health • Update failed ${new Date().toLocaleTimeString('en-GB',{hour12:false})}`;
+  }
+}
 
-    function fmtMins(secOrMs){
-      const s = typeof secOrMs === 'number' && secOrMs > 5e6 ? Math.round(secOrMs/1000) : Math.round(secOrMs);
-      const m = Math.max(0, Math.round(s/60));
-      return `${m} min`;
-    }
-    function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
-    function lerp(a,b,t){ return a + (b-a)*t; }
+function syncAttributionIntoChip(){
+  const chip = document.getElementById('attribChip');
+  if (!chip) return;
 
-    function healthFromTimes(current, historic){
-      if (!Number.isFinite(current) || !Number.isFinite(historic) || historic <= 0) return 0.5;
-      const ratio = current / historic;
-      if (ratio <= 1) return clamp(0.8 + (1 - ratio) * 0.2, 0.0, 1.0);
-      const t = clamp((ratio - 1) / 1.0, 0, 1);
-      return clamp(0.8 * (1 - t), 0, 0.8);
-    }
-    function solidColorFromHealth(h){
-      const green=[46,204,113], yellow=[255,224,74], red=[255,77,79];
-      let c;
-      if (h >= 0.5){
-        const t = (h - 0.5)/0.5;
-        c = [ lerp(yellow[0], green[0], t), lerp(yellow[1], green[1], t), lerp(yellow[2], green[2], t) ];
-      } else {
-        const t = h/0.5;
-        c = [ lerp(red[0], yellow[0], t), lerp(red[1], yellow[1], t), lerp(red[2], yellow[2], t) ];
-      }
-      return `rgb(${c.map(v=>Math.round(v)).join(',')})`;
-    }
+  // Default MapLibre attribution element (hidden by CSS)
+  const attrib = document.querySelector('.maplibregl-ctrl-attrib');
+  if (!attrib) return;
 
-    function networkGradientFromUsersOnJams(usersOnJams){
-      if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
-        return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
-      }
-      const levelColors = { 0:'#42BE4B', 1:'#9ddc43', 2:'#ffe04a', 3:'#ff9a1f', 4:'#ff4d4f' };
-      const total = usersOnJams.reduce((a,u)=>a + (Number(u.wazersCount)||0), 0) || 1;
-      let acc = 0, stops=[];
-      usersOnJams.slice().sort((a,b)=>a.jamLevel-b.jamLevel).forEach(u=>{
-        const pct = (Number(u.wazersCount)||0)/total*100;
-        const start = acc, end = acc + pct;
-        stops.push(`${levelColors[u.jamLevel] || '#666'} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
-        acc = end;
-      });
-      return `linear-gradient(90deg, ${stops.join(', ')})`;
-    }
+  // Copy its content into our chip
+  chip.innerHTML = attrib.innerHTML;
 
-    function corridorDisplayName(r){
-      const base = String(r?.name || r?.toName || 'Unnamed corridor');
-      const parts = base.split(' - ');
-      return (parts[0] || base).trim();
-    }
+  // Ensure our chip height matches actual attrib height if it differs
+  // (optional: uncomment if you want dynamic sizing)
+  // const h = Math.max(24, Math.min(36, attrib.getBoundingClientRect().height || 28));
+  // document.documentElement.style.setProperty('--chipH', `${h}px`);
+}
 
-    function computeTop5Abnormal(routesRaw){
-      const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
-      const candidates = routes
-        .map(r => {
-          const time = Number(r.time)||0;
-          const hist = Number(r.historicTime)||0;
-          const abn  = (hist > 0 && time > 0) ? (time - hist) / hist : -Infinity;
-          return { r, time, hist, abn };
-        })
-        .filter(x => Number.isFinite(x.abn));
-      const top5 = candidates
-        .sort((a,b)=> b.abn - a.abn || b.time - a.time)
-        .slice(0, 5)
-        .map(x => x.r);
-      return top5;
-    }
+// Keep attribution chip in sync if style/attribution changes
+function observeAttribution(){
+  const attrib = document.querySelector('.maplibregl-ctrl-attrib');
+  if (!attrib) return;
+  const obs = new MutationObserver(()=>syncAttributionIntoChip());
+  obs.observe(attrib, { childList:true, subtree:true, characterData:true });
+}
 
-    function routeToLineFeatures(r){
-      const features = [];
-      function coordsFrom(lineArr){
-        const coords = Array.isArray(lineArr)
-          ? lineArr.map(p => [Number(p.x), Number(p.y)]).filter(pt => Number.isFinite(pt[0]) && Number.isFinite(pt[1]))
-          : [];
-        return coords.length >= 2 ? coords : null;
-      }
-      const mainCoords = coordsFrom(r?.line);
-      if (mainCoords) {
-        features.push({ type:'Feature', geometry:{ type:'LineString', coordinates: mainCoords }, properties:{ id: String(r?.id || ''), name: r?.name || '' }});
-      }
-      const subs = Array.isArray(r?.subRoutes) ? r.subRoutes : [];
-      for(const sr of subs){
-        const sc = coordsFrom(sr?.line);
-        if (sc) features.push({ type:'Feature', geometry:{ type:'LineString', coordinates: sc }, properties:{ id: String(sr?.id || r?.id || ''), name: r?.name || '' }});
-      }
-      return features;
-    }
+// Hook into map load
+map.on('load', () => {
+  syncAttributionIntoChip();
+  observeAttribution();
 
-    function computeBoundsFromFeatures(features){
-      if (!Array.isArray(features) || !features.length) return null;
-      let bounds = null;
-      try{
-        features.forEach(f=>{
-          if (f?.geometry?.type === 'LineString' && Array.isArray(f.geometry.coordinates)){
-            f.geometry.coordinates.forEach(([lon,lat])=>{
-              if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
-              if (!bounds){ bounds = new maplibregl.LngLatBounds([lon,lat],[lon,lat]); }
-              else { bounds.extend([lon,lat]); }
-            });
-          }
-        });
-      }catch(e){ return null; }
-      return bounds;
-    }
+  // Prime + refresh loop
+  updateNetworkHealthOnce();
+  setInterval(updateNetworkHealthOnce, NET_HEALTH_REFRESH_MS);
+});
 
-    // Trend memory
-    const prevShownRoutes = new Map(); // key -> { time }
-    function routeKey(r){
-      return String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
-    }
-    function trendArrowFor(r){
-      const key = routeKey(r);
-      const prev = prevShownRoutes.get(key);
-      if (!prev) return '';
-      const curr = Number(r.time) || 0;
-      const prevTime = Number(prev.time) || 0;
-      if (!(curr > 0) || !(prevTime > 0)) return '';
-      const delta = (curr - prevTime) / prevTime;
-      const THRESH = 0.05;
-      if (delta >  THRESH) return '⬆️';
-      if (delta < -THRESH) return '⬇️';
-      return '➡️';
-    }
-
-    function renderSidebar(data){
-      const host = ensureSidebarHost();
-
-      const top5 = computeTop5Abnormal(data?.routes || []);
-
-      function itemHTML(r){
-        const time = Number(r.time)||0, hist = Number(r.historicTime)||0;
-        const h = healthFromTimes(time, hist);
-        const color = solidColorFromHealth(h);
-        const abnPct = (hist>0 && time>0) ? Math.round(((time - hist)/hist)*100) : 0;
-        const title = escapeHTML(corridorDisplayName(r));
-        const trend = trendArrowFor(r);
-
-        return `
-          <div class="corridor" title="${escapeHTML(r?.name||'')}">
-            <div class="title">
-              <span class="name">${title}</span>
-              <span class="trend" aria-hidden="true">${trend}</span>
-            </div>
-            <div class="bar" style="background:${color}"></div>
-            <div class="meta">Now: ${fmtMins(time)} • Historic: ${fmtMins(hist)} ${Number.isFinite(abnPct)? `• ${abnPct>=0?'+':''}${abnPct}%` : ''}</div>
-          </div>
-        `;
-      }
-
-      const sidebarHTML = `
-        <div class="network-health">
-          <div class="network-row">
-            <div class="network-bar" style="background:${networkGradientFromUsersOnJams(data?.usersOnJams || [])}"></div>
-          </div>
-        </div>
-
-        <div class="corridor-list">
-          ${top5.length ? top5.map(itemHTML).join('') : `
-            <div class="corridor">
-              <div class="title"><span class="name">No abnormal corridors</span></div>
-              <div class="bar"></div>
-              <div class="meta">—</div>
-            </div>
-          `}
-        </div>
-      `;
-
-      host.innerHTML = sidebarHTML;
-
-      // Update map highlights + store features for fit
-      const tvtFeatures = [];
-      for(const r of top5){ tvtFeatures.push(...routeToLineFeatures(r)); }
-      tvtLastFeatures = tvtFeatures;
-      const src = map.getSource('tvt-top5');
-      if (src) src.setData({ type:'FeatureCollection', features: tvtFeatures });
-
-      // Store for trend arrows next cycle (and cap memory)
-      top5.forEach(r => { prevShownRoutes.set(routeKey(r), { time: Number(r.time)||0 }); });
-      if (prevShownRoutes.size > 200) {
-        const keys = Array.from(prevShownRoutes.keys());
-        keys.slice(0, Math.max(0, keys.length - 100)).forEach(k => prevShownRoutes.delete(k));
-      }
-    }
-
-    async function fetchTVT(signal){
-      try{
-        const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const text = await res.text();
-        const trimmed = text.replace(/^\uFEFF/, '').trim();
-        const data = JSON.parse(trimmed);
-        if (!data || typeof data !== 'object') throw new Error('Bad TVT payload');
-        return data;
-      }catch(e){
-        console.error('[TVT] fetch failed:', e);
-        return null;
-      }
-    }
-
-    function scheduleTvtNext(ms){
-      clearTimeout(tvtSidebarTimer);
-      tvtSidebarTimer = setTimeout(runTvtSidebarCycle, effectiveDelay(ms));
-    }
-
-    async function runTvtSidebarCycle(){
-      if (document.hidden) { scheduleTvtNext(TVT_SIDEBAR_INTERVAL_MS); return; }
-      if (bannerActive) { tvtPending = true; return; }
-
-      let ctrl = new AbortController();
-      tvtInFlightCtrl = ctrl;
-      try{
-        const data = await fetchTVT(ctrl.signal);
-        if (data){
-          renderSidebar(data);
-          setSidebarVisible(true);
-          if (tvtSidebarHideTimer) clearTimeout(tvtSidebarHideTimer);
-          tvtSidebarHideTimer = setTimeout(()=> setSidebarVisible(false), TVT_SIDEBAR_OPEN_MS);
-        }
-      }catch(e){
-        console.error('[TVT] cycle error:', e);
-      }finally{
-        tvtInFlightCtrl = null;
-        scheduleTvtNext(TVT_SIDEBAR_INTERVAL_MS);
-      }
-    }
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden){
-        if (tvtSidebarHideTimer) { clearTimeout(tvtSidebarHideTimer); tvtSidebarHideTimer=null; }
-        setSidebarVisible(false);
-        const src = map.getSource('tvt-top5'); if (src) src.setData({ type:'FeatureCollection', features:[] });
-      }
-    });
-
-    /* ===========================
-       Map TVT highlight layers
-       =========================== */
-
-    function firstExistingLayer(map, ids) {
-      const style = map.getStyle();
-      if (!style || !Array.isArray(style.layers)) return null;
-      for (const id of ids) {
-        if (style.layers.some(l => l.id === id)) return id;
-      }
-      return null;
-    }
-
-    function addTvtLayersUnderMarkers(map) {
-      const markerPriority = [
-        'accident-highlighted',
-        'accidents-high',
-        'accidents-three',
-        'accidents-two',
-        'accidents-one',
-        'waze-signal-faults-icon',
-        'occ-highlights-dots',
-        'waze-ice-dots',
-        'he-unplanned-dots'
-      ];
-
-      const beforeId = firstExistingLayer(map, markerPriority);
-
-      if (!map.getSource('tvt-top5')) {
-        map.addSource('tvt-top5', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
-      }
-
-      if (!map.getLayer('tvt-top5-glow')) {
-        map.addLayer({
-          id: 'tvt-top5-glow',
-          type: 'line',
-          source: 'tvt-top5',
-          layout: { 'line-cap': 'round', 'line-join': 'round' },
-          paint: {
-            'line-color': varColor('--danger', '#ff2e34'),
-            'line-opacity': 0.9,
-            'line-width': ['interpolate',['linear'],['zoom'], 8, 8.5, 12, 11, 16, 14],
-            'line-blur': 1.2
-          }
-        }, beforeId || undefined);
-      }
-
-      if (!map.getLayer('tvt-top5-core')) {
-        map.addLayer({
-          id: 'tvt-top5-core',
-          type: 'line',
-          source: 'tvt-top5',
-          layout: { 'line-cap': 'round', 'line-join': 'round' },
-          paint: {
-            'line-color': varColor('--danger', '#ff2e34'),
-            'line-opacity': 1.0,
-            'line-width': ['interpolate',['linear'],['zoom'], 8, 4.5, 12, 6, 16, 8]
-          }
-        }, beforeId || undefined);
-      }
-    }
-
-    map.on('load', () => {
-      addTvtLayersUnderMarkers(map);
-
-      // TVT line pulse → throttled interval
-      let tvtPulse = 1.0, tvtDir = 1;
-      function applyTvtPulse(){
-        const coreW = ['interpolate',['linear'],['zoom'], 8, 4.5*tvtPulse, 12, 6*tvtPulse, 16, 8*tvtPulse];
-        const glowW = ['interpolate',['linear'],['zoom'], 8, 8.5*tvtPulse, 12, 11*tvtPulse, 16, 14*tvtPulse];
-        try {
-          map.setPaintProperty('tvt-top5-core','line-width', coreW);
-          map.setPaintProperty('tvt-top5-glow','line-width', glowW);
-
-          const norm = (tvtPulse - 0.85) / (1.25 - 0.85);
-          const coreAlpha = Math.min(1, 0.80 + norm * 0.20);
-          const glowAlpha = Math.min(0.95, 0.70 + norm * 0.25);
-          map.setPaintProperty('tvt-top5-core','line-opacity', coreAlpha);
-          map.setPaintProperty('tvt-top5-glow','line-opacity', glowAlpha);
-        } catch(e){}
-      }
-      function tvtTick(){
-        if (document.hidden) return;
-        tvtPulse += tvtDir * 0.035;
-        if (tvtPulse >= 1.25) { tvtPulse = 1.25; tvtDir = -1; }
-        if (tvtPulse <= 0.85) { tvtPulse = 0.85; tvtDir =  1; }
-        applyTvtPulse();
-      }
-      applyTvtPulse();
-      const tvtAnimTimer = setInterval(tvtTick, 120); // ~8 FPS
-
-      // First TVT cycle
-      setTimeout(runTvtSidebarCycle, 3500);
-    });
-
-    // (Optional) Nightly refresh to clear GPU/driver state
-    // setTimeout(() => location.reload(), 12 * 60 * 60 * 1000);
+// Also refresh once when tab becomes visible again
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    syncAttributionIntoChip();
+    updateNetworkHealthOnce();
+  }
+});
 
   </script>
+  <!-- Bottom status row: Network health bar + Attribution chip -->
+<div id="bottomStatusRow" aria-label="Network health and attribution">
+  <div id="networkHealthBar" title="Network health"></div>
+  <div id="attribChip" aria-label="Map attribution"></div>
+</div>
 </body>
 </html>
