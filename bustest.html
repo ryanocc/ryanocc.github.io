@@ -28,6 +28,8 @@
       --op-BNVB:#7a3ffe;
       --op-BNFM:#ff66b3;
 
+      --op-KM:#FFE04A; /* Metrolink (KM) yellow dot */
+
       --neutral:#16161b;
       --neutralElev:#1b1b22;
 
@@ -46,12 +48,6 @@
       --summary-line-height: 1.05;
 
       /* Route badge sizing (cards) */
-      --route-font: clamp(44px, 5.6vw, 80px);
-      --route-pad-v: 8px;
-      --route-pad-h: 16px;
-      --route-radius: 12px;
-
-      /* area height sized for route chips */
       --route-mini-font: clamp(24px, 3.2vw, 34px);
       --route-rect-h: calc(var(--route-mini-font) * 4.2 + 8px + 8px);
 
@@ -97,8 +93,6 @@
       letter-spacing:-0.3px;
       line-height:1;
     }
-
-    /* Operator totals + page indicator under title */
     .status-meta{
       font-size:20px;
       font-weight:700;
@@ -110,51 +104,14 @@
       gap:8px;
       line-height:1;
     }
-    .status-meta .opCounts{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    .status-meta .opCounts span{
-      position:relative;
-      padding-left:14px;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      white-space:nowrap;
-    }
-    .status-meta .opCounts span::before{
-      content:"";
-      position:absolute;
-      left:0; top:50%;
-      width:8px; height:8px; border-radius:50%;
-      transform:translateY(-50%);
-      background:#cfcfd6;
-      box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
-    }
-    .status-meta .sep{ opacity:.6; user-select:none; }
-    .status-meta .opCounts span[data-op="BNML"]::before{ background: var(--op-BNML); }
-    .status-meta .opCounts span[data-op="BNGN"]::before{ background: var(--op-BNGN); }
-    .status-meta .opCounts span[data-op="BNSM"]::before{ background: var(--op-BNSM); }
-    .status-meta .opCounts span[data-op="BNDB"]::before{ background: var(--op-BNDB); }
-    .status-meta .opCounts span[data-op="BNVB"]::before{ background: var(--op-BNVB); }
-    .status-meta .opCounts span[data-op="BNFM"]::before{ background: var(--op-BNFM); }
-
     .statusWrapper{
       display:flex;
       align-items:center;
       gap:16px;
       flex-shrink:0;
+      margin-right: 0;
     }
-    
-    
-.statusWrapper {
-  margin-right: 0;
-}
-
-.topbar {
-  padding-right: 0;   /* removes the 24px right padding */
-}
+    .topbar { padding-right: 0; }
 
     #beeLogo{
       width:64px; height:64px; object-fit:contain;
@@ -224,7 +181,6 @@
       min-height:var(--cardHeight);
       max-height:var(--cardHeight);
       overflow:hidden;
-      box-sizing: border-box !important;
     }
 
     .chip.ufn{
@@ -235,6 +191,17 @@
         0 6px 18px rgba(0,0,0,0.45),
         0 0 0 4px rgba(255,77,79,0.10);
     }
+
+    /* Tram service change highlight (pinned + yellow) */
+    .chip.tram-servicechange{
+      border-color: rgba(255,224,74,0.95) !important;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.04) inset,
+        0 10px 25px rgba(0,0,0,0.35),
+        0 6px 18px rgba(0,0,0,0.45),
+        0 0 0 5px rgba(255,224,74,0.12);
+    }
+
     @keyframes pulseRed {
       0% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.4); border-color: rgba(255,77,79,0.55); }
       50% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 10px rgba(255,77,79,0.12); border-color: rgba(255,77,79,0.95); }
@@ -243,7 +210,7 @@
     .chip.pulse-ufn { border-color: var(--errorRed); animation: pulseRed 1200ms ease-in-out infinite; }
 
     .chipHeader{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:0; width:100%;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; width:100%;
     }
     .headerLeft{ display:flex; flex-direction:column; gap:8px; flex:1 1 auto; min-width:0; }
 
@@ -267,8 +234,13 @@
       display:flex; align-items:center; justify-content:center;
       font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
       font-weight:700;
-      background:var(--accent); color:#000; border-radius:var(--route-radius);
-      letter-spacing:0.3px; line-height:1; padding:6px 10px; font-size: var(--route-mini-font);
+      background:var(--accent);
+      color:#000;
+      border-radius:12px;
+      letter-spacing:0.3px;
+      line-height:1;
+      padding:6px 10px;
+      font-size: var(--route-mini-font);
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
       text-transform:uppercase;
       font-variant-numeric: tabular-nums;
@@ -280,7 +252,7 @@
       border: 2px dashed rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.22);
       display:flex; align-items:center; justify-content:center;
-      border-radius: var(--route-radius);
+      border-radius:12px;
       letter-spacing:-0.3px; line-height:1;
       padding:6px 10px; font-size: var(--route-mini-font);
       backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
@@ -288,40 +260,37 @@
     }
 
     .rightCol{ display:flex; flex-direction:column; gap:8px; align-items:stretch; width:max-content; }
-    .reasonEmojiChip{
+    .reasonEmojiChip,
+    .operatorTag{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       padding:8px 14px; border-radius:999px;
       background:rgba(255,255,255,0.12); border:2px solid rgba(255,255,255,0.18);
       font-size:28px; font-weight:800; color:#e6e6ee; white-space:nowrap; width:100%; line-height:1;
     }
-    .operatorTag{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px;
-      background:rgba(255,255,255,0.12); border:2px solid rgba(255,255,255,0.18);
-      font-size:28px; font-weight:800; color:#e6e6ee; white-space:nowrap; width:100%; line-height:1;
-    }
+    .operatorTag{ justify-content:flex-start; }
     .operatorDot{
       width:18px; height:18px; border-radius:50%;
       background:#cfcfd6; box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
-      display:inline-block; flex-shrink:0; transition: background-color 400ms ease, background 400ms ease;
+      display:inline-block; flex-shrink:0;
+      transition: background-color 400ms ease, background 400ms ease;
     }
 
     .detailsLine{
       font-size:clamp(26px, 2.6vw, 32px);
-      line-height: var(--summary-line-height);
+      line-height: 1.05;
       color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-      margin:6px 2px 12px 2px;
+      margin:12px 2px 12px 2px;
     }
-
-    .detailsLine { margin-top: 12px; }
-
     .detailsLine .town{ font-weight:900; }
 
     .times{
       margin-top:auto; padding-top:14px; border-top:2px solid rgba(255,255,255,0.15);
     }
     .timeLine{
-      font-size:clamp(24px, 2.2vw, 30px); font-weight:900; color:#d9d9e2; line-height:1;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; gap:8px;
+      font-size:clamp(24px, 2.2vw, 30px);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      display:flex; align-items:center; gap:8px;
+      line-height:1;
     }
     .times .timeLine{ font-weight:600; color: rgba(233,233,239,0.65); }
     .times .timeLine .timePrefix{ font-weight:600; color: rgba(233,233,239,0.55); }
@@ -336,16 +305,7 @@
     .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
     .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
     .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
-    .op-BNDB{
-      background: linear-gradient(180deg, rgba(47,137,255,0.10), transparent), var(--neutralElev);
-      border-color: rgba(47,137,255,0.35);
-    }
-    @supports (background: color-mix(in oklab, red, blue)) {
-      .op-BNDB{
-        background: linear-gradient(180deg, color-mix(in oklab, var(--op-BNDB) 18%, transparent), transparent), var(--neutralElev);
-        border-color: color-mix(in oklab, var(--op-BNDB) 35%, #2a2a33);
-      }
-    }
+    .op-BNDB{ background:linear-gradient(180deg, rgba(47,137,255,0.10), transparent), var(--neutralElev); border-color: rgba(47,137,255,0.35); }
     .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
     .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
 
@@ -359,7 +319,6 @@
 
     .ov-card{ width:min(1200px, 100%); text-align:center; }
 
-    /* ======== OVERLAY PIECES ======== */
     .ov-kicker{
       font-weight: 1000;
       letter-spacing: 1.4px;
@@ -368,7 +327,6 @@
       margin-bottom: 12px;
     }
 
-    /* Reason pill (add overlay only) */
     .ov-reason{
       display:inline-flex; align-items:center; gap:10px;
       background:#000; color:var(--accent);
@@ -392,91 +350,78 @@
       margin: 10px 0 18px;
     }
 
-    /* Enlarged route chips (black/yellow) — USE OSWALD 700 */
     .ov-routes{
-      display: flex;
-      flex-wrap: nowrap;        /* one row */
-      gap: 18px;
-      justify-content: center;
-      align-items: center;
-
-      /* Give space for floating emoji badges & shadows */
-      padding-top: 22px;
-      padding-bottom: 26px;
-
-      margin: 8px auto 18px;
-      max-width: 1200px;
-
-      /* Let shadows/badges breathe */
-      overflow: visible;
-      white-space: nowrap;
+      display:flex;
+      flex-wrap:nowrap;
+      gap:18px;
+      justify-content:center;
+      align-items:center;
+      padding-top:22px;
+      padding-bottom:26px;
+      margin:8px auto 18px;
+      max-width:1200px;
+      overflow:visible;
+      white-space:nowrap;
     }
     .ov-route-chip{
       position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-      color: var(--accent);
-      border-radius: 18px;
-      border: 4px solid rgba(0,0,0,0.95);
-
-      /* Expanded a bit to give internal space for badge & shadow */
-      padding: 24px 32px;
-
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:#000; /* default; JS may override */
+      color:var(--accent); /* default; JS may override */
+      border-radius:18px;
+      border:4px solid rgba(0,0,0,0.95);
+      padding:24px 32px;
       font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif !important;
       font-weight:700 !important;
-      letter-spacing: 0.4px;
+      letter-spacing:0.4px;
       font-size: clamp(52px, 7vw, 95px);
-      line-height: 1;
+      line-height:1;
       box-shadow: 0 12px 32px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,0.06) inset;
-      user-select: none;
-      min-width: 6ch;
+      user-select:none;
+      min-width:6ch;
       text-transform:uppercase;
       font-variant-numeric: tabular-nums;
     }
-    /* Top-right floating badge (emoji only) */
     .ov-route-badge{
-      position: absolute;
-      top: -14px !important;
-      right: -22px !important;
-      background: none !important;
-      border: none !important;
-      width: auto !important;
-      height: auto !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      font-size: 0.6em !important;
+      position:absolute;
+      top:-14px !important;
+      right:-22px !important;
+      background:none !important;
+      border:none !important;
+      width:auto !important;
+      height:auto !important;
+      box-shadow:none !important;
+      padding:0 !important;
+      margin:0 !important;
+      font-size:0.6em !important;
     }
 
     .ov-operator{
-      display: inline-flex; align-items: center; gap: 12px;
-      background: #000; color: var(--accent);
-      border: 2px solid rgba(0,0,0,0.9); border-radius: 999px;
-      font-weight: 1000; font-size: clamp(26px, 3vw, 40px);
-      padding: 12px 20px; margin-top: 10px;
+      display:inline-flex; align-items:center; gap:12px;
+      background:#000; color:var(--accent);
+      border:2px solid rgba(0,0,0,0.9); border-radius:999px;
+      font-weight:1000; font-size: clamp(26px, 3vw, 40px);
+      padding:12px 20px; margin-top:10px;
       box-shadow: 0 12px 30px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,0.06) inset;
     }
     .ov-operator .operatorDot{
-      width: 22px; height: 22px; border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(0,0,0,0.25) inset; flex-shrink: 0;
+      width:22px; height:22px; border-radius:50%;
+      box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset; flex-shrink:0;
     }
 
-    /* Duration line (end overlay) */
     .ov-duration{
-      font-weight: 1000;
-      letter-spacing: -0.2px;
+      font-weight:1000;
+      letter-spacing:-0.2px;
       font-size: clamp(28px, 3vw, 48px);
-      line-height: 1;
-      margin: 6px 0 0;
+      line-height:1;
+      margin:6px 0 0;
     }
 
-    /* Add vs End backgrounds */
     #divertOverlay.ov-add    { background: var(--alert-add-bg);    color:#000; }
     #divertOverlay.ov-remove { background: var(--alert-remove-bg); color:#000; }
 
-    /* Attention animations */
     @keyframes overlayPop { 0%{opacity:0;transform:scale(0.96);} 100%{opacity:1;transform:scale(1);} }
     @keyframes pulseGlow {
       0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.0), 0 24px 80px rgba(0,0,0,.35); }
@@ -504,15 +449,12 @@
     #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
     @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
 
-    /* === EXIT ANIMATION: Drop downward + fade === */
     @keyframes overlayDropOut {
       0%   { opacity: 1;   transform: translateY(0)    scale(1); }
       40%  { opacity: 0.65;transform: translateY(20px) scale(0.99); }
       100% { opacity: 0;   transform: translateY(60px) scale(0.98); }
     }
-    #divertOverlay.closing .ov-card {
-      animation: overlayDropOut 260ms ease-out forwards;
-    }
+    #divertOverlay.closing .ov-card { animation: overlayDropOut 260ms ease-out forwards; }
     #divertOverlay.closing { pointer-events: none; }
   </style>
 </head>
@@ -521,14 +463,11 @@
   <header class="topbar">
     <div class="leftHeader">
       <h1 class="title">Bee Network - Key Travel Alerts</h1>
-
-      <!-- Operator counts + Page indicator (under title) -->
       <div id="statusMeta" class="status-meta" aria-live="polite">
         <span id="metricPage">Checking Pages</span>
       </div>
     </div>
 
-    <!-- Right side: bee + live pill only -->
     <div class="statusWrapper">
       <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
       <div id="statusPill" class="status-pill">Pulling from DfT</div>
@@ -544,25 +483,20 @@
     <div class="ov-card" role="dialog" aria-label="Travel alert">
       <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
 
-      <!-- Add overlay: reason + location + routes + operator -->
       <div id="ovReason" class="ov-reason" aria-label="Reason" hidden>
         <span class="ov-reason-emoji" aria-hidden="true">⚠️</span>
         <span class="ov-reason-text">Reason</span>
       </div>
       <div id="ovLocation" class="ov-location" hidden>–</div>
 
-      <!-- Shared: routes block -->
       <div id="ovRoutes" class="ov-routes"></div>
 
-      <!-- Add/End overlay: operator chip -->
       <div id="ovOperator" class="ov-operator" aria-label="Operator" hidden></div>
 
-      <!-- End overlay: duration line -->
       <div id="ovDuration" class="ov-duration" hidden>On diversion for —</div>
     </div>
   </div>
 
-  <!-- Page turn progress (fills over the dwell interval) -->
   <div id="pageProgress" aria-hidden="true"></div>
 
   <script>
@@ -573,13 +507,16 @@
     const BODS_URL =
       `https://occproxy-6dem.vercel.app/api/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
 
-    /* TfGM Bee Network operator refs (strict) */
+    /* Bee bus operator refs (strict) */
     const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+
+    /* Tram operator refs (Metrolink) */
+    const TRAM_OPERATORS = ["METL"];
 
     /* Behaviour flags */
     const UNPLANNED_ONLY = true;
-    const PAGE_INTERVAL_MS = 10000; // page dwell (10s)
-    const FEED_REFRESH_MS = 45000;  // feed refresh (45s)
+    const PAGE_INTERVAL_MS = 10000;
+    const FEED_REFRESH_MS = 45000;
 
     /* UFN >24h helper */
     const DAY_MS = 24 * 60 * 60 * 1000;
@@ -589,18 +526,18 @@
 
     /* Live-set change detection (for overlays) */
     let firstFetchDone = false;
-    let lastLiveIndex = new Map();  // id -> last live item (previous poll)
+    let lastLiveIndex = new Map();
 
     /* Overlay queue control */
     let overlayQueue = [];
     let overlayShowing = false;
 
-    /* Dashboard state (pool for tests) */
+    /* Dashboard state */
     let currentItems = [];
 
     /* Keep the last live and display items to enable test-key sampling */
-    let lastLiveItems = [];     // all currently-live mapped items
-    let lastDisplayItems = [];  // the items currently in the grid (paged)
+    let lastLiveItems = [];
+    let lastDisplayItems = [];
 
     /* Set CSS duration for the progress bar to match page dwell */
     document.documentElement.style.setProperty('--page-interval', PAGE_INTERVAL_MS + 'ms');
@@ -622,7 +559,7 @@
         pill.textContent = `LIVE • ${t}`;
         if (animate && bee){
           bee.classList.remove("bee-wibble");
-          void bee.offsetWidth;   // reflow to restart animation
+          void bee.offsetWidth;
           bee.classList.add("bee-wibble");
         }
       } else {
@@ -632,24 +569,45 @@
     }
 
     /* Operator short-code mapping */
-    const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
+    const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB", METL:"KM" };
     function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
+
     const OP_COLOR_MAP = {
       BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
-      BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
+      BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)",
+      METL:"var(--op-KM)"
     };
 
-    /* --- status meta updaters (counts + page indicator) --- */
-    function updateOperatorCounts(counts){
-      (BEE_OPERATORS || []).forEach(op => {
-        const el = document.querySelector(`.status-meta .opCounts span[data-op="${op}"]`);
-        if (el){
-          const code = OP_MAP[op] || op;
-          const val = counts && Number.isFinite(counts[op]) ? counts[op] : 0;
-          el.textContent = `${code} ${val}`;
-        }
-      });
+    /* ===== Tram line colour palette (edit here if you want different shades) =====
+       Blue = light MCFC sky blue */
+    const TRAM_LINE_COLORS = {
+      Blue:   { bg: "#6CABDD", fg: "#001018" }, // MCFC-ish sky blue
+      Green:  { bg: "#2ECC71", fg: "#001018" },
+      Navy:   { bg: "#001F5B", fg: "#FFFFFF" },
+      Pink:   { bg: "#FF4FA3", fg: "#001018" },
+      Purple: { bg: "#7A3FFE", fg: "#FFFFFF" },
+      Red:    { bg: "#FF4D4F", fg: "#FFFFFF" },
+      Yellow: { bg: "#FFE04A", fg: "#001018" }
+    };
+
+    function parseLineRefColorKey(lineRef){
+      const s = String(lineRef || "").trim();
+      const m = /^([A-Za-z]+)_Line$/i.exec(s);
+      if (!m) return null;
+      const key = m[1].charAt(0).toUpperCase() + m[1].slice(1).toLowerCase();
+      return TRAM_LINE_COLORS[key] ? key : null;
     }
+
+    function applyRouteChipStyle(el, { colorKey } = {}){
+      if (!el || !colorKey) return;
+      const c = TRAM_LINE_COLORS[colorKey];
+      if (!c) return;
+      el.style.background = c.bg;
+      el.style.color = c.fg;
+      el.style.border = "2px solid rgba(0,0,0,0.25)";
+      el.style.boxShadow = "0 1px 0 rgba(255,255,255,0.05) inset, 0 6px 14px rgba(0,0,0,0.28)";
+    }
+
     function updatePageIndicator(){
       const el = document.getElementById('metricPage');
       if(!el) return;
@@ -658,7 +616,6 @@
       el.textContent = `Page ${curr}/${totalPages}`;
     }
 
-    /* --- bottom progress bar control --- */
     function restartProgressBar(){
       const bar = document.getElementById('pageProgress');
       if (!bar) return;
@@ -671,7 +628,7 @@
       }
       bar.style.display = 'block';
       bar.classList.remove('run');
-      void bar.offsetWidth; // reflow to reset animation
+      void bar.offsetWidth;
       bar.classList.add('run');
     }
 
@@ -695,7 +652,6 @@
     function isStartOfService(d){ return d && d.getHours()===0 && d.getMinutes()===0; }
     function isEndOfService(d){ return d && d.getHours()===23 && d.getMinutes()===59; }
 
-    /* ---------- single-unit, rounded duration ---------- */
     function formatSingleUnitDuration(start, end){
       if(!start) return "—";
       const now = new Date();
@@ -721,60 +677,96 @@
       return String(a || `${b}|${st}|${sum}`).trim();
     }
 
+    /* ---- Affects.Networks helper (tram structure) ---- */
+    function getNetworkAffectedLines(sit){
+      const out = [];
+      const nets = sit?.Affects?.Networks?.AffectedNetwork;
+      const list = Array.isArray(nets) ? nets : (nets ? [nets] : []);
+      for(const n of list){
+        const mode = (n?.VehicleMode || "").toLowerCase();
+        const lines = n?.AffectedLine;
+        const llist = Array.isArray(lines) ? lines : (lines ? [lines] : []);
+        for(const ln of llist){
+          const opRef = ln?.AffectedOperator?.OperatorRef || ln?.AffectedOperatorRef || null;
+          const lineRef = ln?.LineRef || ln?.PublishedLineName || null;
+          const pubName = ln?.PublishedLineName || ln?.LineName || null;
+          out.push({ mode, opRef, lineRef, pubName });
+        }
+      }
+      return out;
+    }
+
+    function isTramSituation(sit){
+      const fromNet = getNetworkAffectedLines(sit).some(x => x.mode === "tram");
+      if (fromNet) return true;
+      return Array.isArray(sit.__vehicleModes) && sit.__vehicleModes.some(m => String(m).toLowerCase() === "tram");
+    }
+
     /* Collect *all* operator refs (deduped) */
     function getOperatorRefs(sit){
       const refs = new Set();
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
       const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
 
+      // Bus structure
+      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
       if(Array.isArray(avj)){
         for(const j of avj) add(j?.OperatorRef);
       } else if(avj){
         add(avj?.OperatorRef);
       }
+
+      // Tram structure (Networks)
+      for(const x of getNetworkAffectedLines(sit)){
+        add(x.opRef);
+      }
+
+      // XML extras
       if(Array.isArray(sit.__operatorRefs)){
         sit.__operatorRefs.forEach(add);
       }
       return [...refs];
     }
 
-    /* Single operator ref for background tint (optional) */
     function getSingleOperatorRef(sit){
       const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
       if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
       if(avj && avj.OperatorRef) return String(avj.OperatorRef);
       if(sit?.OperatorRef) return String(sit.OperatorRef);
       if(sit?.__operatorRefs && sit.__operatorRefs.length) return sit.__operatorRefs[0];
+      const ops = getOperatorRefs(sit);
+      if (ops.includes("METL")) return "METL";
       return null;
     }
 
-    /* Line refs */
+    /* Line refs (bus) + (tram lineRef if present) */
     function getLineRefs(sit){
       const lines = new Set();
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
       const pushVal = (val)=>{ if(val == null) return; const s = String(val).trim(); if(s) lines.add(s); };
+
+      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
       if(Array.isArray(avj)){
         for(const j of avj){
           pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
         }
-      }else if(avj){
-        pushVal(avj?.LineRef || avj?.PublishedLineName || j?.LineName);
+      } else if(avj){
+        pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName);
       }
+
+      for(const x of getNetworkAffectedLines(sit)){
+        pushVal(x.lineRef || x.pubName);
+      }
+
       if(Array.isArray(sit.__lineRefs)){
         for(const v of sit.__lineRefs) pushVal(v);
-      }
-      if(lines.size === 0){
-        const fallback = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef;
-        if(fallback) pushVal(fallback);
       }
       return Array.from(lines);
     }
 
-    /* Diversion filtering and validity */
     function isDiversion(sit){
       const txt = (sit.Description || sit.Summary || "").toLowerCase();
       return txt.includes("divert") || txt.includes("diversion");
     }
+
     function isCurrentlyValid(sit){
       const now = new Date();
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
@@ -785,6 +777,43 @@
       return true;
     }
 
+    function isBusOperator(sit){
+      const refs = getOperatorRefs(sit);
+      const single = getSingleOperatorRef(sit);
+      return (refs && refs.some(r => BEE_OPERATORS.includes(r))) ||
+             (single && BEE_OPERATORS.includes(String(single).toUpperCase()));
+    }
+
+    function isTramOperator(sit){
+      const refs = getOperatorRefs(sit);
+      return refs.some(r => TRAM_OPERATORS.includes(r));
+    }
+
+    function parseTramSummary(summary){
+      const s = String(summary || "");
+      const parts = s.split(" - ").map(x => x.trim()).filter(Boolean);
+      if(parts.length < 2) return null;
+      const lineName = parts[0];
+      const status   = parts.slice(1).join(" - ");
+      return { lineName, status };
+    }
+
+    function tramStatusRank(status){
+      const t = String(status || "").toLowerCase();
+      if (t.includes("service change")) return 3;
+      if (t.includes("severe"))         return 2;
+      if (t.includes("minor"))          return 1;
+      return 0;
+    }
+
+    function isTramAlert(sit){
+      if (!isTramSituation(sit)) return false;
+      if (!isTramOperator(sit)) return false;
+      const ts = parseTramSummary(sit?.Summary || sit?.Description || "");
+      if(!ts) return false;
+      return tramStatusRank(ts.status) > 0;
+    }
+
     /* -------- Paging -------- */
     const pager={pages:[],pageIndex:0,pageSize:6,total:0};
     function chunk(arr,size){
@@ -792,8 +821,6 @@
       const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out;
     }
 
-    /* Geometry-based card sizing: exact 2 rows, no cutoff
-       FIXED: treat --cardHeight as OUTER (border-box) and avoid downward bias */
     function setFixedGridSizing(){
       const grid = document.querySelector("#grid");
       const main = document.querySelector("main");
@@ -808,96 +835,84 @@
       const mainRect = main.getBoundingClientRect();
       const gridRect = grid.getBoundingClientRect();
 
-      // Available OUTER height for the grid content area (2 rows + 1 gap)
-      // Ceil to avoid losing a pixel at 100% zoom
       const availableOuter = Math.max(0, Math.ceil((mainRect.bottom - pb) - gridRect.top));
-
-      // OUTER per-row height across 2 rows and 1 rowGap
-      // Round to avoid downward bias
       const perRowOuter = Math.max(200, Math.round((availableOuter - rowGap) / 2));
-
-      // .chip uses border-box; set outer height directly
       document.documentElement.style.setProperty("--cardHeight", perRowOuter + "px");
     }
 
-    /* ---------- Times footer builder (for cards) ---------- */
     function buildTimesLines(sit){
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
 
-      // Started line
       let startVal = "—";
       if (s) {
-        if (isToday(s) && isStartOfService(s)) {
-          startVal = "Start of Service";
-        } else {
-          startVal = formatLabelForDate(s);
-        }
+        if (isToday(s) && isStartOfService(s)) startVal = "Start of Service";
+        else startVal = formatLabelForDate(s);
       }
       const startLine = `Started // ${startVal}`;
 
-      // Ends line
       let endVal = "—";
       if (e) {
-        if (isToday(e) && isEndOfService(e)) {
-          endVal = "End of Service";
-        } else {
-          endVal = formatLabelForDate(e);
-        }
+        if (isToday(e) && isEndOfService(e)) endVal = "End of Service";
+        else endVal = formatLabelForDate(e);
       } else {
-        endVal = "UFN"; // no end supplied
+        endVal = "UFN";
       }
       const endLine = `Ends // ${endVal}`;
 
-      // Duration
       const durationVal = formatSingleUnitDuration(s, e);
       const durationLine = `Duration // ${durationVal}`;
 
       return { startLine, endLine, durationLine, startDate:s, endDate:e };
     }
 
-    /* -------- Routes 2×2 renderer (cards) -------- */
+    /* ===== Route label rule: first 3 letters (unless numeric route like 42A) ===== */
+    function formatRouteChipLabel(raw){
+      const s = String(raw ?? "").trim();
+      if (!s) return "?";
+      if (/^\d+[a-z]?$/i.test(s)) return s.toUpperCase(); // bus route
+      const clean = s.replace(/[^A-Za-z0-9]/g, "");
+      const out = (clean || s).slice(0,3).toUpperCase();
+      return out || "?";
+    }
+
+    /* -------- Routes 2×2 renderer (cards) --------
+       Accepts either string routes or objects: { raw, colorKey } */
     function renderRoutesAs2x2Grid(routesArea, routes){
       const MAX_SLOTS = 4;
       const gridRoutes = document.createElement("div");
       gridRoutes.className = "routesGrid";
 
-      const list = Array.isArray(routes) ? routes.map(String) : ["?"];
+      const list = Array.isArray(routes) ? routes : ["?"];
       const count = list.length;
 
+      const addCell = (routeObj, glass=false) => {
+        const cell = document.createElement("div");
+        cell.className = glass ? "route-mini route-mini--glass" : "route-mini";
+
+        if (!glass){
+          const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
+          cell.textContent = formatRouteChipLabel(raw);
+          const colorKey = (routeObj && typeof routeObj === "object") ? routeObj.colorKey : null;
+          applyRouteChipStyle(cell, { colorKey });
+        } else {
+          cell.textContent = "";
+        }
+        gridRoutes.appendChild(cell);
+      };
+
       if (count <= MAX_SLOTS) {
-        // Fill existing routes, then placeholders to reach 4
-        list.forEach(rt => {
-          const cell = document.createElement("div");
-          cell.className = "route-mini";
-          cell.textContent = rt;
-          gridRoutes.appendChild(cell);
-        });
-        for (let i = count; i < MAX_SLOTS; i++) {
-          const filler = document.createElement("div");
-          filler.className = "route-mini route-mini--glass";
-          filler.textContent = ""; // transparent placeholder
-          gridRoutes.appendChild(filler);
-        }
+        list.forEach(rt => addCell(rt, false));
+        for (let i = count; i < MAX_SLOTS; i++) addCell("", true);
       } else {
-        // More than 4: first 3, then "+x"
-        for (let i = 0; i < 3; i++) {
-          const cell = document.createElement("div");
-          cell.className = "route-mini";
-          cell.textContent = list[i];
-          gridRoutes.appendChild(cell);
-        }
+        for (let i = 0; i < 3; i++) addCell(list[i], false);
         const overflow = count - 3;
-        const plus = document.createElement("div");
-        plus.className = "route-mini";
-        plus.textContent = `+${overflow}`;
-        gridRoutes.appendChild(plus);
+        addCell(`+${overflow}`, false);
       }
 
       routesArea.replaceChildren(gridRoutes);
     }
 
-    /* -------- Overlay helpers -------- */
     function startDotColorCycle(dotEl, operatorRefs, { intervalMs = 1200 } = {}){
       const uniqueRefs = [...new Set((operatorRefs || [])
         .map(r => String(r).toUpperCase())
@@ -910,7 +925,6 @@
         i = (i + 1) % colors.length;
         dotEl.style.background = colors[i];
       }, intervalMs);
-      // short-lived overlay; cleanup is not critical
     }
 
     function parseSummaryParts(summaryText){
@@ -933,6 +947,7 @@
       if (idx === -1) return [line, ""];
       return [line.slice(0, idx), line.slice(idx + 4)];
     }
+
     function escapeHtml(s){
       return String(s ?? "")
         .replace(/&/g,"&amp;")
@@ -954,19 +969,6 @@
       }
     }
 
-    function computeOperatorCounts(items){
-      const counts = { BNML:0, BNGN:0, BNSM:0, BNDB:0, BNVB:0, BNFM:0 };
-      if(!Array.isArray(items)) return counts;
-      for(const it of items){
-        const refs = (it.operatorRefs || []).map(r => String(r).toUpperCase());
-        const uniq = [...new Set(refs)];
-        for(const r of uniq){
-          if (BEE_OPERATORS.includes(r)) counts[r] = (counts[r] || 0) + 1;
-        }
-      }
-      return counts;
-    }
-
     function renderPage(){
       const grid = $("#grid");
       const pg = pager.pages[pager.pageIndex] || [];
@@ -980,9 +982,7 @@
         chip.className = "chip " + oc.cls;
         if (it.isUFN) chip.classList.add("ufn");
         if (it.ufnOver24h) chip.classList.add("pulse-ufn");
-
-        const inner = document.createElement("div");
-        inner.className = "chipContent " + (oc.dark ? "on-dark" : "");
+        if (it.isTram && it.isServiceChange) chip.classList.add("tram-servicechange");
 
         const header = document.createElement("div");
         header.className = "chipHeader";
@@ -992,10 +992,10 @@
 
         const routesArea = document.createElement("div");
         routesArea.className = "routesArea";
-        routesArea.title = (it.routes || []).join(", ");
+        routesArea.title = (it.routesTitle || (it.routes || [])).join(", ");
 
-        const routes = Array.isArray(it.routes) && it.routes.length ? it.routes : ["?"];
-        renderRoutesAs2x2Grid(routesArea, routes);
+        const routesToRender = Array.isArray(it.routesRender) ? it.routesRender : (Array.isArray(it.routes) ? it.routes : ["?"]);
+        renderRoutesAs2x2Grid(routesArea, routesToRender);
         headerLeft.appendChild(routesArea);
 
         const rightCol = document.createElement("div");
@@ -1024,7 +1024,8 @@
 
         const parsed = parseSummaryParts(it.summary);
         const reasonText = (parsed && parsed.reason) ? parsed.reason : (it.summary || "");
-        const reasonEmoji = getReasonEmoji(reasonText);
+        const reasonEmoji = it.isTram ? "🚋" : getReasonEmoji(reasonText);
+
         const reasonEmojiChip = document.createElement("div");
         reasonEmojiChip.className = "reasonEmojiChip";
         reasonEmojiChip.textContent = reasonEmoji;
@@ -1034,10 +1035,12 @@
 
         header.append(headerLeft, rightCol);
 
-        let detailsEl;
-        if(parsed){
-          detailsEl = document.createElement("div");
-          detailsEl.className = "detailsLine";
+        const detailsEl = document.createElement("div");
+        detailsEl.className = "detailsLine";
+        if(it.isTram){
+          const ts = parseTramSummary(it.summary) || { lineName: "Metrolink", status: it.tramStatus || "" };
+          detailsEl.textContent = `${ts.lineName} // ${ts.status}`;
+        } else if(parsed){
           const placeSpan = document.createElement("span");
           placeSpan.textContent = parsed.place;
           const sep = document.createElement("span");
@@ -1047,8 +1050,6 @@
           townSpan.textContent = parsed.town;
           detailsEl.append(placeSpan, sep, townSpan);
         } else {
-          detailsEl = document.createElement("div");
-          detailsEl.className = "detailsLine";
           detailsEl.textContent = it.summary || "";
         }
 
@@ -1089,15 +1090,13 @@
           `<span class="timeValue">${escapeHtml(durValue)}</span>`;
         times.appendChild(durDiv);
 
-        inner.append(header, detailsEl, times);
-        chip.append(inner);
+        chip.append(header, detailsEl, times);
         grid.append(chip);
       }
 
       updatePageIndicator();
     }
 
-    /* --- pager controls --- */
     function stopPager(){
       if (pagerTimer){ clearInterval(pagerTimer); pagerTimer = null; }
     }
@@ -1116,10 +1115,8 @@
       }, PAGE_INTERVAL_MS);
     }
 
-    /* -------- Map a situation to dashboard item -------- */
     function mapSituationToItem(s){
       const operatorRefs = getOperatorRefs(s);
-      const routes = getLineRefs(s);
       const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
       const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
       const nowMs = Date.now();
@@ -1128,24 +1125,59 @@
 
       const isUFN = (endMs == null);
       const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
-
       const timeLines = buildTimesLines(s);
+
+      const isTram = isTramSituation(s) && operatorRefs.includes("METL");
+
+      let tramStatus = "";
+      let tramRank = 0;
+      let isServiceChange = false;
+
+      let tramLineName = "";
+      let tramColorKey = null;
+
+      if (isTram){
+        const ts = parseTramSummary((s.Summary || s.Description || "").trim());
+        if (ts){
+          tramLineName = (ts.lineName || "Metrolink").replace(/\s*line\s*$/i,"").trim();
+          tramStatus = ts.status;
+          tramRank = tramStatusRank(ts.status);
+          isServiceChange = tramRank === 3;
+        }
+        // pick the first tram lineRef for colour (e.g. Green_Line)
+        const net = getNetworkAffectedLines(s).find(x => String(x.mode).toLowerCase() === "tram");
+        tramColorKey = parseLineRefColorKey(net?.lineRef);
+      }
+
+      // Render routes:
+      // - Bus: keep existing extracted route list
+      // - Tram: render one chip labelled from line name, but coloured by LineRef
+      const busRoutes = getLineRefs(s);
+      const routesTitle = isTram ? [tramLineName || "Metrolink"] : (busRoutes.length ? busRoutes.map(String) : ["?"]);
+      const routesRender = isTram
+        ? [{ raw: tramLineName || "Metrolink", colorKey: tramColorKey }]
+        : (busRoutes.length ? busRoutes.map(String) : ["?"]);
 
       return {
         id: getSituationId(s),
-        operatorRefs,
-        singleOperatorForTint: getSingleOperatorRef(s) || "",
-        routes: routes.length ? routes.map(String) : ["?"],
-        timeLines,
+        operatorRefs: isTram ? ["METL"] : operatorRefs,
+        singleOperatorForTint: isTram ? "METL" : (getSingleOperatorRef(s) || ""),
+        routesTitle,
+        routesRender,
         summary: (s.Summary || s.Description || "").trim(),
+        timeLines,
         startMs,
         endMs,
         isUFN,
-        ufnOver24h
+        ufnOver24h,
+        isTram,
+        tramStatus,
+        tramRank,
+        isServiceChange,
+        tramColorKey
       };
     }
 
-    /* -------- Fetch & Render (with live vs display separation) -------- */
     async function fetchAll(){
       try{
         const res = await fetch(BODS_URL, { cache:"no-store" });
@@ -1158,7 +1190,6 @@
           parsed = { type:"xml", data: (new DOMParser()).parseFromString(await res.text(),"application/xml") };
         }
 
-        // Extract all situations
         const extractSituationsFromJSON = (json) => {
           const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
           if(!sd) return [];
@@ -1173,14 +1204,32 @@
           }
           return out;
         };
+
         const extractSituationsFromXML = (doc) => {
           const els = [...doc.querySelectorAll("PtSituationElement")];
           return els.map(el=>{
             const T = s => el.querySelector(s)?.textContent?.trim() || null;
-            const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
-                            .map(n=>n.textContent.trim()).filter(Boolean);
-            const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
-                            .map(n=>n.textContent.trim()).filter(Boolean);
+
+            const opsRef = [
+              ...el.querySelectorAll(
+                "AffectedVehicleJourney > OperatorRef, OperatorRef, " +
+                "Affects > Networks AffectedOperator > OperatorRef, " +
+                "Affects > Networks > AffectedNetwork > AffectedLine > AffectedOperator > OperatorRef"
+              )
+            ].map(n=>n.textContent.trim()).filter(Boolean);
+
+            const lines  = [
+              ...el.querySelectorAll(
+                "AffectedVehicleJourney > LineRef, PublishedLineName, LineName, " +
+                "Affects > Networks > AffectedNetwork > AffectedLine > LineRef, " +
+                "Affects > Networks > AffectedNetwork > AffectedLine > PublishedLineName"
+              )
+            ].map(n=>n.textContent.trim()).filter(Boolean);
+
+            const vehicleModes = [
+              ...el.querySelectorAll("Affects > Networks > AffectedNetwork > VehicleMode")
+            ].map(n=>n.textContent.trim()).filter(Boolean);
+
             return {
               Summary: T("Summary") || T("Description"),
               Description: T("Description"),
@@ -1201,7 +1250,8 @@
                 }
               },
               __operatorRefs: opsRef,
-              __lineRefs: lines
+              __lineRefs: lines,
+              __vehicleModes: vehicleModes
             };
           });
         };
@@ -1210,19 +1260,10 @@
           ? extractSituationsFromJSON(parsed.data)
           : extractSituationsFromXML(parsed.data);
 
-        // Bee-only
-        allSituations = allSituations.filter(sit=>{
-          const refs = getOperatorRefs(sit);
-          const single = getSingleOperatorRef(sit);
-          const anyBee = (refs && refs.some(r => BEE_OPERATORS.includes(r))) ||
-                         (single && BEE_OPERATORS.includes(single.toUpperCase()));
-          return !!anyBee;
-        });
+        // Keep only: bus diversions OR tram alerts
+        allSituations = allSituations.filter(sit => (isBusOperator(sit) && isDiversion(sit)) || isTramAlert(sit));
 
-        // Diversions only
-        allSituations = allSituations.filter(isDiversion);
-
-        // ---- LIVE POOL (used for overlays): currently-valid + (optional) unplanned ----
+        // ---- LIVE POOL ----
         let liveSituations = allSituations.filter(isCurrentlyValid);
         if(UNPLANNED_ONLY) {
           liveSituations = liveSituations.filter(sit=>{
@@ -1231,9 +1272,11 @@
           });
         }
 
-        // ---- DISPLAY POOL (grid) ----
-        // Preferred “tight” filter: start today OR end today OR UFN (unchanged)
-        const tightDisplay = liveSituations.filter(sit => {
+        // ---- DISPLAY POOL ----
+        const busLive = liveSituations.filter(sit => isBusOperator(sit));
+        const tramLive = liveSituations.filter(sit => isTramAlert(sit)); // always show tram alerts
+
+        const tightBusDisplay = busLive.filter(sit => {
           const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
           const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
           const startIsToday = !!(s && isToday(s));
@@ -1242,9 +1285,7 @@
           return startIsToday || endIsToday || isUFN;
         });
 
-        // Fallback “relaxed” filter (used only if tightDisplay is empty):
-        // include items that started yesterday OR end tomorrow
-        const relaxedDisplay = liveSituations.filter(sit => {
+        const relaxedBusDisplay = busLive.filter(sit => {
           const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
           const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
           const startedYesterday = !!(s && isYesterday(s));
@@ -1252,25 +1293,51 @@
           return startedYesterday || endsTomorrow;
         });
 
-        // Choose which set to render
-        let displaySituations = tightDisplay.length ? tightDisplay : relaxedDisplay;
+        const busDisplaySituations = tightBusDisplay.length ? tightBusDisplay : relaxedBusDisplay;
+
+        // Final display: bus (tight/relaxed) + ALL tram
+        const displaySituations = [...busDisplaySituations, ...tramLive];
 
         // Map to items
         const liveItems = liveSituations.map(mapSituationToItem);
 
+        // Sort rules:
+        // 0 bus UFN, 1 tram service change, 2 other bus, 3 tram delays (end)
+        function groupKey(it){
+          if (!it.isTram && it.isUFN) return 0;
+          if (it.isTram && it.isServiceChange) return 1;
+          if (!it.isTram) return 2;
+          return 3;
+        }
+
         let items = displaySituations.map(mapSituationToItem)
           .sort((a, b) => {
-            // Keep older >24h UFN high (visually) as before
-            if (a.ufnOver24h && !b.ufnOver24h) return -1;
-            if (!a.ufnOver24h && b.ufnOver24h) return 1;
-            if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs; // older first
-            if (a.isUFN && !b.isUFN) return -1;
-            if (!a.isUFN && b.isUFN) return 1;
-            if (a.isUFN && b.isUFN) return b.startMs - a.startMs;
-            const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
-            const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
-            if (aEnd !== bEnd) return aEnd - bEnd;
-            return b.startMs - a.startMs;
+            const ga = groupKey(a), gb = groupKey(b);
+            if (ga !== gb) return ga - gb;
+
+            if (ga === 0){
+              if (a.ufnOver24h && !b.ufnOver24h) return -1;
+              if (!a.ufnOver24h && b.ufnOver24h) return 1;
+              if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs;
+              return b.startMs - a.startMs;
+            }
+
+            if (ga === 1) return b.startMs - a.startMs;
+
+            if (ga === 2){
+              if (a.isUFN && !b.isUFN) return -1;
+              if (!a.isUFN && b.isUFN) return 1;
+              const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
+              const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
+              if (aEnd !== bEnd) return aEnd - bEnd;
+              return b.startMs - a.startMs;
+            }
+
+            if (ga === 3){
+              if (b.tramRank !== a.tramRank) return b.tramRank - a.tramRank; // severe before minor
+              return b.startMs - a.startMs;
+            }
+            return 0;
           });
 
         // Maintain pager
@@ -1280,17 +1347,9 @@
         pager.total = items.length;
         pager.pageIndex = pager.pages.length === 0 ? 0 : Math.min(prevIndex, pager.pages.length - 1);
 
-        // Update counts/meta
-        const opCounts = computeOperatorCounts(items);
-        updateOperatorCounts(opCounts);
-        updatePageIndicator();
-
-        // Render
-        currentItems = items; // for keyboard tests
-
-        // Store sets for test-key logic
-        lastLiveItems = liveItems.slice();      // all live (mapped)
-        lastDisplayItems = items.slice();       // filtered (grid) items
+        currentItems = items;
+        lastLiveItems = liveItems.slice();
+        lastDisplayItems = items.slice();
 
         requestAnimationFrame(()=>{
           setFixedGridSizing();
@@ -1311,37 +1370,37 @@
         lastLiveIndex = currLiveIndex;
         firstFetchDone = true;
 
-        // ADD overlays only for NEW UFN live items
+        // ADD overlays for: new bus UFN OR new tram service change
         if (newOnes.length) {
-          const ufnAdds = newOnes.filter(it => it.isUFN);
-          if (ufnAdds.length) enqueueOverlays(ufnAdds.map(item => ({ mode:"add", item })));
+          const addables = newOnes.filter(it => (!it.isTram && it.isUFN) || (it.isTram && it.isServiceChange));
+          if (addables.length) enqueueOverlays(addables.map(item => ({ mode:"add", item })));
         }
 
-        // END overlays only when a divert actually ends:
+        // END overlays: only bus UFN OR tram service change (avoid delay spam)
         const now = Date.now();
         if (removedOnes.length) {
           const endedNow = removedOnes.filter(prev => {
-            if (prev.endMs == null) return true;      // UFN dropping from live => end set to now
-            return prev.endMs <= now;                  // known end passed
+            if (prev.endMs == null) return true;
+            return prev.endMs <= now;
           }).map(it => {
-            if (!it.endMs) it.endMs = now;            // set display duration end to now for UFN
+            if (!it.endMs) it.endMs = now;
             return it;
           });
 
-          if (endedNow.length){
-            enqueueOverlays(endedNow.map(item => ({ mode:"remove", item })));
+          const removable = endedNow.filter(it => (!it.isTram && it.isUFN) || (it.isTram && it.isServiceChange));
+          if (removable.length){
+            enqueueOverlays(removable.map(item => ({ mode:"remove", item })));
           }
         }
 
       }catch(e){
         console.error(e);
-        setStatusPill(false, { animate: false });
+        setStatusPill(false);
       }
     }
 
-    /* Dynamic dwell: 10s for one route, 15s for 2-4, 20s for 5+ */
     function computeOverlayDurationMs(item){
-      const count = (item?.routes && item.routes.length) ? item.routes.length : 1;
+      const count = (item?.routesRender && item.routesRender.length) ? item.routesRender.length : 1;
       if (count === 1) return 10000;
       if (count <= 4)  return 15000;
       return 20000;
@@ -1362,31 +1421,20 @@
     }
 
     /* ===========================
-       ONE-LINE OVERLAY ROUTES WITH DETERMINISTIC CAP
+       OVERLAY ROUTES ONE LINE (with colour + 3-letter labels)
        =========================== */
-    /**
-     * Deterministic one-line overlay route renderer:
-     * - If routes.length <= 3: show up to 3 route chips
-     * - If routes.length >= 4: show first 2 routes + one "+x" chip
-     * Always one row, no measurement required.
-     * @param {HTMLElement} container - #ovRoutes
-     * @param {string[]} routes - list of route labels
-     * @param {"add"|"remove"} mode - overlay mode (controls badge)
-     */
-    function renderOverlayRoutesOneLine(container, routes, mode){
+    function renderOverlayRoutesOneLine(container, routesRender, mode){
       if (!container) return;
-      const list = Array.isArray(routes) && routes.length ? routes.map(String) : ["?"];
+      const list = Array.isArray(routesRender) && routesRender.length ? routesRender : ["?"];
       container.replaceChildren();
 
       const n = list.length;
 
-      // Case 1: 0 or 1 route — just show one chip (or "?")
       if (n <= 1){
         container.appendChild(buildOverlayRouteChip(list[0] ?? "?", mode));
         return;
       }
 
-      // Case 2: 2–3 routes — show up to 3 chips
       if (n <= 3){
         for (let i = 0; i < n; i++){
           container.appendChild(buildOverlayRouteChip(list[i], mode));
@@ -1394,19 +1442,26 @@
         return;
       }
 
-      // Case 3: 4+ routes — show first two chips, then "+x"
       container.appendChild(buildOverlayRouteChip(list[0], mode));
       container.appendChild(buildOverlayRouteChip(list[1], mode));
 
       const remaining = n - 2;
-      const plusChip = buildPlusChip(remaining);
-      container.appendChild(plusChip);
+      container.appendChild(buildPlusChip(remaining));
     }
 
-    function buildOverlayRouteChip(text, mode){
+    function buildOverlayRouteChip(routeObj, mode){
       const chip = document.createElement("div");
       chip.className = "ov-route-chip";
-      chip.textContent = String(text);
+
+      const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
+      chip.textContent = formatRouteChipLabel(raw);
+
+      const colorKey = (routeObj && typeof routeObj === "object") ? routeObj.colorKey : null;
+      if (colorKey && TRAM_LINE_COLORS[colorKey]){
+        chip.style.background = TRAM_LINE_COLORS[colorKey].bg;
+        chip.style.color = TRAM_LINE_COLORS[colorKey].fg;
+        chip.style.border = "4px solid rgba(0,0,0,0.65)";
+      }
 
       const badge = document.createElement("span");
       badge.className = "ov-route-badge";
@@ -1421,7 +1476,7 @@
       plus.className = "ov-route-chip";
       plus.textContent = `+${remaining}`;
       plus.setAttribute("aria-label", `${remaining} more routes`);
-      return plus; // no emoji on the "+x" chip
+      return plus;
     }
 
     function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
@@ -1437,40 +1492,38 @@
 
       overlay.classList.remove("ov-add","ov-remove","closing");
 
-      // Reset/hide optional blocks
       elReason.hidden = true;
       elLoc.hidden    = true;
       elOp.hidden     = true;
       elDur.hidden    = true;
 
       if (mode === "add") {
-        // ADD OVERLAY (UFN only)
-        if (!item?.isUFN) return;
+        if (!(item?.isUFN || item?.isServiceChange)) return;
 
         overlay.classList.add("ov-add");
-        elKicker.textContent = "NEW DIVERT";
+        elKicker.textContent = item.isServiceChange ? "SERVICE CHANGE" : "NEW DIVERT";
 
-        // Reason pill (emoji + text)
         const parsed = parseSummaryParts(item.summary);
-        const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
-        const reasonEmoji = getReasonEmoji(reasonTextRaw);
+        const reasonTextRaw = item.isTram
+          ? (parseTramSummary(item.summary)?.status || item.summary || "")
+          : ((parsed && parsed.reason) ? parsed.reason : (item.summary || ""));
+
+        const reasonEmoji = item.isTram ? "🚋" : getReasonEmoji(reasonTextRaw);
         if (elReason && elReasonEmoji && elReasonText){
           elReasonEmoji.textContent = reasonEmoji;
           elReasonText.textContent  = reasonTextRaw;
           elReason.hidden = false;
         }
 
-        // Location line
-        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
+        const locationStr = item.isTram
+          ? (parseTramSummary(item.summary)?.lineName || "Metrolink")
+          : (parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert"));
         elLoc.textContent = locationStr;
         elLoc.hidden = false;
 
-        // Routes (deterministic one line)
         elRoutes.replaceChildren();
-        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        renderOverlayRoutesOneLine(elRoutes, routes, "add");
+        renderOverlayRoutesOneLine(elRoutes, item.routesRender, "add");
 
-        // Operator pill
         elOp.replaceChildren();
         const dot = document.createElement("span");
         dot.className = "operatorDot";
@@ -1489,30 +1542,29 @@
         elOp.hidden = false;
 
       } else if (mode === "remove") {
-        // END OVERLAY (only when a divert actually ends)
         overlay.classList.add("ov-remove");
-        elKicker.textContent = "DIVERT ENDED";
+        elKicker.textContent = item.isServiceChange ? "SERVICE NORMAL" : "DIVERT ENDED";
 
-        // Reason pill
         const parsed = parseSummaryParts(item.summary);
-        const reasonTextRaw = (parsed && parsed.reason) ? parsed.reason : (item.summary || "");
+        const reasonTextRaw = item.isTram
+          ? (parseTramSummary(item.summary)?.status || item.summary || "")
+          : ((parsed && parsed.reason) ? parsed.reason : (item.summary || ""));
+
         if (elReason && elReasonEmoji && elReasonText) {
-          elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
+          elReasonEmoji.textContent = item.isTram ? "🚋" : getReasonEmoji(reasonTextRaw);
           elReasonText.textContent  = reasonTextRaw;
           elReason.hidden = false;
         }
 
-        // Location line
-        const locationStr = parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert");
+        const locationStr = item.isTram
+          ? (parseTramSummary(item.summary)?.lineName || "Metrolink")
+          : (parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert"));
         elLoc.textContent = locationStr;
         elLoc.hidden = false;
 
-        // Routes (deterministic one line)
         elRoutes.replaceChildren();
-        const routes = (item.routes && item.routes.length) ? item.routes : ["?"];
-        renderOverlayRoutesOneLine(elRoutes, routes, "remove");
+        renderOverlayRoutesOneLine(elRoutes, item.routesRender, "remove");
 
-        // Operator pill
         elOp.replaceChildren();
         const dot = document.createElement("span");
         dot.className = "operatorDot";
@@ -1530,7 +1582,6 @@
         }
         elOp.hidden = false;
 
-        // Duration line (from start to end)
         const start = item.startMs ? new Date(item.startMs) : null;
         const end   = item.endMs   ? new Date(item.endMs)   : new Date();
         const dur   = formatSingleUnitDuration(start, end);
@@ -1538,12 +1589,10 @@
         elDur.hidden = false;
       }
 
-      // Show overlay (entrance)
       overlay.classList.add("show");
       overlay.setAttribute("aria-hidden", "false");
       overlayShowing = true;
 
-      // Exit after dwell: apply 'closing' to animate out, then hide
       setTimeout(() => {
         overlay.classList.add("closing");
         setTimeout(() => {
@@ -1551,7 +1600,7 @@
           overlay.setAttribute("aria-hidden", "true");
           overlayShowing = false;
           processOverlayQueue();
-        }, 300); // ≥ CSS exit animation (260ms) for safety
+        }, 300);
       }, durationMs);
     }
 
@@ -1559,121 +1608,11 @@
     fetchAll();
     setInterval(fetchAll, FEED_REFRESH_MS);
 
-    /* Reflow on resize and after fonts ready */
     window.addEventListener("resize", () => requestAnimationFrame(setFixedGridSizing));
     if(document.fonts && document.fonts.ready){
       document.fonts.ready.then(() => requestAnimationFrame(setFixedGridSizing));
     }
     window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
-
-    /* Keyboard tests:
-       K = ADD overlay on a random dashboard item (force demo => ensure UFN)
-       D = END overlay on a random dashboard item (duration to now)
-       M = NEW overlay for the filtered-out divert with the most routes (forces UFN)
-    */
-    window.addEventListener("keydown", (e)=>{
-      const key = String(e.key).toLowerCase();
-
-      if(key === "k"){
-        const ufnPool = (currentItems || []).filter(it => it.isUFN);
-        const anyPool = (currentItems || []);
-        const pool = ufnPool.length ? ufnPool : anyPool;
-        if (!pool.length) { console.warn("[K TEST] No items to sample."); return; }
-        const pick = pool[Math.floor(Math.random() * pool.length)];
-        const testItem = { ...pick };
-        testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
-        testItem.operatorRefs = Array.isArray(testItem.operatorRefs) ? testItem.operatorRefs : [];
-        if (!testItem.isUFN) testItem.isUFN = true; // force for demo
-        enqueueOverlays([{ mode:"add", item: testItem }]);
-        console.info("[K TEST] NEW overlay for random item (force demo)", {id:testItem.id, routes:testItem.routes});
-      }
-
-      if(key === "d"){
-        // This test simulates an actual END event (used for visual QA)
-        const pool = (currentItems || []);
-        if (!pool.length) { console.warn("[D TEST] No items to sample."); return; }
-        const pick = pool[Math.floor(Math.random() * pool.length)];
-        const testItem = { ...pick };
-        testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
-        if (!testItem.startMs) testItem.startMs = Date.now() - (90 * 60 * 1000); // fallback 90m
-        testItem.endMs = Date.now();
-        enqueueOverlays([{ mode:"remove", item: testItem }]);
-        console.info("[D TEST] END overlay for random item", {id:testItem.id, routes:testItem.routes});
-      }
-
-      if (key === "m") {
-        // Find the filtered-out live item with the most routes and show an "add" overlay
-        const liveById = new Map((lastLiveItems || []).map(it => [it.id, it]));
-        const displayIds = new Set((lastDisplayItems || []).map(it => it.id));
-
-        // Filtered out set = live minus display
-        const filteredOut = [...liveById.values()].filter(it => !displayIds.has(it.id));
-
-        function routeCount(it) {
-          return Array.isArray(it?.routes) ? it.routes.length : 0;
-        }
-
-        let candidate = null;
-
-        if (filteredOut.length) {
-          // Prefer UFN among filtered-out; if none, use all filtered-out
-          const ufnFiltered = filteredOut.filter(it => it.isUFN);
-          const pool = ufnFiltered.length ? ufnFiltered : filteredOut;
-
-          candidate = pool
-            .slice()
-            .sort((a, b) => {
-              // Primary: route count desc
-              const rc = routeCount(b) - routeCount(a);
-              if (rc !== 0) return rc;
-
-              // Secondary: UFN first (if mixed pool)
-              if (a.isUFN !== b.isUFN) return b.isUFN ? 1 : -1;
-
-              // Tertiary: newer start first
-              return (b.startMs ?? 0) - (a.startMs ?? 0);
-            })[0];
-        }
-
-        // Fallback a): any live UFN (or any live) with most routes
-        if (!candidate && (lastLiveItems || []).length) {
-          const ufnLive = lastLiveItems.filter(it => it.isUFN);
-          const pool = ufnLive.length ? ufnLive : lastLiveItems;
-
-          candidate = pool
-            .slice()
-            .sort((a, b) => {
-              const rc = routeCount(b) - routeCount(a);
-              if (rc !== 0) return rc;
-              if (a.isUFN !== b.isUFN) return b.isUFN ? 1 : -1;
-              return (b.startMs ?? 0) - (a.startMs ?? 0);
-            })[0];
-        }
-
-        // Fallback b): any current grid item with most routes
-        if (!candidate && (currentItems || []).length) {
-          candidate = currentItems
-            .slice()
-            .sort((a, b) => routeCount(b) - routeCount(a))[0];
-        }
-
-        if (!candidate) {
-          console.warn("[M TEST] No items available to sample.");
-          return;
-        }
-
-        // Build a safe test copy; ensure it appears as UFN so "NEW DIVERT" overlay is valid
-        const testItem = { ...candidate };
-        testItem.routes = Array.isArray(testItem.routes) && testItem.routes.length ? testItem.routes : ["?"];
-        testItem.operatorRefs = Array.isArray(testItem.operatorRefs) ? testItem.operatorRefs : [];
-        testItem.isUFN = true; // force for demo so it's eligible for "add" overlay
-
-        enqueueOverlays([{ mode: "add", item: testItem }]);
-        console.info("[M TEST] NEW overlay for filtered-out-with-most-routes", {
-          id: testItem.id, routes: testItem.routes, routeCount: routeCount(testItem)
-        });
-      }
-    });
 
     function getReasonEmoji(text){
       if(!text) return "⚠️";
