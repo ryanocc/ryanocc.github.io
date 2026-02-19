@@ -895,6 +895,86 @@
       color: var(--muted);
       opacity: .95;
     }
+    
+    /* =========================
+   Waze title: shield // street // town(bold)
+   ========================= */
+
+.card .title{
+  /* keep your existing title styles, but allow inline layout */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Title content wrapper */
+.waze-title{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Divider “//” */
+.waze-sep{
+  opacity: .55;
+  font-weight: 900;
+}
+
+/* Street / town segments */
+.waze-street,
+.waze-town{
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.waze-town{
+  font-weight: 900; /* bold town */
+}
+
+/* UK road shield (simple, readable, high-contrast) */
+.road-shield{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px 3px;
+  border-radius: 7px;
+  border: 2px solid rgba(255,255,255,0.92);
+  font-weight: 900;
+  letter-spacing: .2px;
+  line-height: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.35);
+  flex: 0 0 auto;
+}
+
+/* Motorway: blue background, white text (UK style) */
+.road-shield.m{
+  background: #0b4dbb;
+  color: #fff;
+}
+
+/* A-road primary: green background, white border, yellow text */
+.road-shield.a{
+  background: #0b6b3a;
+  color: #ffe04a;
+}
+
+/* B-road: white bg with black text (common map-style marker) */
+.road-shield.b{
+  background: #f2f2f2;
+  color: #111;
+  border-color: rgba(255,255,255,0.75);
+}
+
+/* If you ever need to show brackets like A1(M) */
+.road-shield small{
+  font-size: .85em;
+  opacity: .95;
+}
+
   </style>
 </head>
 
@@ -1684,21 +1764,27 @@ function ensureWazeFits(){
         const highs = accidentVisible.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
         const lows  = accidentVisible.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
 
-        const cardAccidentHTML = (item)=>{
-          const heading = escapeHTML((item.street||'').trim()) + (item.city? ` — ${escapeHTML(item.city)}`:'');
-          const conf = Number(item.effectiveConfidence)||0;
-          const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-          return `<div class="card" data-type="accident"
-                        data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-                    <div class="title">
-                      ${heading}
-                      <span class="spacer"></span>
-                      <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
-                    </div>
-                    <div class="meta">Confidence: ${conf}/5 • ${when}</div>
-                    <div class="desc">Accident Report</div>
-                  </div>`;
-        };
+const cardAccidentHTML = (item)=>{
+  const conf = Number(item.effectiveConfidence)||0;
+  const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
+
+  const titleHTML = buildWazeTitleHTML({
+    street: item.street || '',
+    town: item.city || '',
+    roadText: item.street || ''
+  });
+
+  return `<div class="card" data-type="accident"
+                data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+            <div class="title">
+              ${titleHTML}
+              <span class="spacer"></span>
+              <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
+            </div>
+            <div class="meta">Confidence: ${conf}/5 • ${when}</div>
+            <div class="desc">Accident Report</div>
+          </div>`;
+};
         if (highWrap) highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
         if (lowWrap)  lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
 
@@ -1733,7 +1819,12 @@ function ensureWazeFits(){
           signals.sort((a, b) => (b.rel10 - a.rel10) || (b.time - a.time));
 
           const cardSignalHTML = (item) => {
-            const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
+
+const titleHTML = buildWazeTitleHTML({
+  street: item.street || '',
+  town: item.city || '',
+  roadText: item.street || ''
+});
             const when = new Date(Number(item.time) || 0).toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
             const rel = Number(item.rel10) || 0;
             const desc = escapeHTML(item.desc || 'Traffic signal fault');
@@ -1741,8 +1832,10 @@ function ensureWazeFits(){
             return `
               <div class="card" data-type="signal"
                    data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-                <div class="title">
-                  ${heading}
+
+<div class="title">
+${titleHTML}
+
                   <span class="spacer"></span>
                   <button class="hide-btn"
                           data-prefix="sig"
@@ -1790,7 +1883,12 @@ function ensureWazeFits(){
           wx.sort((a, b) => (b.time - a.time));
 
           const cardWeatherHTML = (item) => {
-            const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
+
+const titleHTML = buildWazeTitleHTML({
+  street: item.street || '',
+  town: item.city || '',
+  roadText: item.street || ''
+});
             const when = new Date(Number(item.time) || 0)
               .toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
 
@@ -1798,7 +1896,7 @@ function ensureWazeFits(){
               <div class="card" data-type="weather"
                    data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
                 <div class="title">
-                  ${heading}
+                  ${titleHTML}
                   <span class="spacer"></span>
                   <button class="hide-btn"
                           data-prefix="wx"
@@ -2580,6 +2678,96 @@ bindDivertCardClicks();
 
       window.addEventListener('resize', () => requestAnimationFrame(ensureWazeFits));
     });
+    
+    /* =========================
+   Road shield parsing + title formatting
+   ========================= */
+
+// Try to find a UK road token: M60, A6, A57(M), B5218 etc.
+
+function extractUkRoadNumber(text){
+  const s = String(text || '').toUpperCase();
+
+  // Capture full token so we can remove it later (e.g. "A57(M)", "M60", "A6")
+  const m = s.match(/\b([MAB])\s?(\d{1,4})(?:\s?\((M)\))?\b/);
+  if (!m) return null;
+
+  const letter = m[1];
+  const digits = m[2];
+  const hasMotorwaySuffix = !!m[3];
+
+  const label = hasMotorwaySuffix ? `${letter}${digits}(M)` : `${letter}${digits}`;
+  const type  = (letter === 'M' || hasMotorwaySuffix) ? 'm' : (letter === 'A' ? 'a' : 'b');
+
+  // tokenMatched is what we remove from the street string
+  const tokenMatched = m[0]; // could be "A57(M)" or "A57 (M)" depending on input
+
+  return { label, type, tokenMatched };
+}
+
+
+function buildWazeTitleHTML({ street='', town='', roadText='' }){
+  const road = extractUkRoadNumber(roadText || street || '');
+
+  // If we found a road number, remove it from the street string
+  const streetClean = road ? stripRoadToken(street, road.tokenMatched) : String(street || '').trim();
+
+  const safeStreet = escapeHTML(streetClean || 'Unknown road');
+  const safeTown   = escapeHTML(String(town || '').trim());
+
+  const shieldHTML = road
+    ? `<span class="road-shield ${road.type}">${escapeHTML(road.label)}</span>`
+    : '';
+
+  const townHTML = safeTown
+    ? `<span class="waze-sep">//</span><span class="waze-town">${safeTown}</span>`
+    : '';
+
+  return `
+    <span class="waze-title">
+      ${shieldHTML}
+      ${shieldHTML ? `<span class="waze-sep">//</span>` : ``}
+      <span class="waze-street">${safeStreet}</span>
+      ${townHTML}
+    </span>
+  `.trim();
+}
+
+function stripRoadToken(street, token){
+  let s = String(street || '');
+
+  if (token){
+    // Build a tolerant regex for spaces + (M)
+    const raw = String(token).trim().toUpperCase();
+    const re = raw
+      .replace(/\s+/g, '\\s*')
+      .replace(/\(/g, '\\(')
+      .replace(/\)/g, '\\)');
+
+    const rx = new RegExp(`\\b${re}\\b`, 'i');
+    s = s.replace(rx, '');
+  }
+
+  // 1) Collapse whitespace
+  s = s.replace(/\s{2,}/g, ' ');
+
+  // 2) If token was at the start, you often get " - Something" — remove that
+  //    Handles hyphen-minus -, en dash –, em dash — (and multiple)
+  s = s.replace(/^\s*[-–—]+\s*/g, '');
+
+  // 3) Also remove a leading comma/slash if it becomes the first char
+  s = s.replace(/^\s*[,/]+\s*/g, '');
+
+  // 4) Normalize spaces around punctuation/dashes inside the string
+  s = s
+    .replace(/\s+([,;:/])/g, '$1')     // no space before punctuation
+    .replace(/([,;:/])\s+/g, '$1 ')    // single space after punctuation
+    .replace(/\s+([-–—])\s+/g, ' $1 ') // normalize dash spacing " A – B "
+    .replace(/\s{2,}/g, ' ');
+
+  return s.trim();
+}
+    
   </script>
 </body>
 </html>
