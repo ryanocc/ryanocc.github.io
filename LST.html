@@ -621,7 +621,8 @@
         0 6px 18px rgba(0,0,0,0.35),
         0 1px 0 rgba(255,255,255,0.05) inset;
     }
-
+.divert-card{ cursor: pointer; }
+.divert-card:hover{ background: rgba(255,255,255,0.06); }
 
     .divert-header{
       display: grid;
@@ -937,7 +938,7 @@
   <span>Key Travel Alerts</span>
 
   <div class="div-filters" id="div-filters" role="group" aria-label="Travel alert filters">
-    <button type="button" data-filter="CURRENT" class="active" title="UFN OR starting today OR ending today">DFT</button>
+    <button type="button" data-filter="CURRENT" class="active" title="UFN OR starting today OR ending today">DEF</button>
     <button type="button" data-filter="UFN">UFN</button>
     <button type="button" data-filter="START_TODAY">START</button>
     <button type="button" data-filter="END_TODAY">END</button>
@@ -1872,6 +1873,21 @@ function bindDivFilters(){
   }, { passive: true });
 }
 
+function bindDivertCardClicks(){
+  const grid = document.getElementById('diverts-grid');
+  if (!grid) return;
+
+  grid.addEventListener('click', (ev) => {
+    const card = ev.target.closest('.divert-card');
+    if (!card) return;
+
+    const sit = (card.getAttribute('data-sit') || '').trim();
+    if (!sit) return;
+
+    const url = `https://disruption-data.dft.gov.uk/disruption-detail/${encodeURIComponent(sit)}`;
+    window.open(url, '_blank', 'noopener');
+  }, { passive: true });
+}
 
     const DIV_OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
     const DIV_OP_COLORS = {
@@ -2243,6 +2259,7 @@ function divRenderBoard(items){
   for (const it of list){
     const card = document.createElement('div');
     card.className = 'divert-card';
+    card.setAttribute('data-sit', String(it.id || '').trim());
 
     if (it.isUFN){ card.classList.add('ufn-highlight'); }
 
@@ -2544,8 +2561,11 @@ function divRenderBoard(items){
 
       bindTvtFilters();
       bindDivFilters();
+      
+      
 
 bindCorridorClicks();
+bindDivertCardClicks();
 
       tvtCycle();
       wazeCycle();
