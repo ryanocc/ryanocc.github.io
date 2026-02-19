@@ -12,28 +12,27 @@
 
   <style>
     /* ================================
-       THEME — match pasted tool
+       THEME
        ================================ */
     :root{
       --bg:#000;
-      --panel: #0b0b0b;
+      --panel:#0b0b0b;
       --text:#f2f2f2;
       --muted:#c9cacc;
-      --danger:#ff2e34;
 
       --liveGreen:#42BE4B;
       --errorRed:#EA5540;
 
       --accent:#FFE04A;
-      --line: rgba(255,255,255,0.08);  /* thin modern separators */
+      --line: rgba(255,255,255,0.08);
 
       --shadow: 0 8px 24px rgba(0,0,0,.35);
       --radius: 12px;
       --gap: 12px;
       --frame-padding: 12px;
 
-      --titlebar-h: 10vh;  /* bottom bar height (≈10%) */
-      --highConfMin: 4;   /* accidents confidence threshold for "high" */
+      --titlebar-h: 10vh;
+      --highConfMin: 4;
     }
 
     html, body { height: 100%; margin: 0; }
@@ -46,85 +45,96 @@
       overflow: hidden;
     }
 
-.hide-btn,
-.toolbar-btn{
-  appearance: none;
-  background: rgba(255,255,255,0.04);
-  color: #d8d8dd;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 8px;
-  padding: 4px 10px;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition:
-      background 0.25s ease,
-      color 0.25s ease,
-      border-color 0.25s ease,
-      box-shadow 0.25s ease,
-      transform 0.05s ease;
-}
-
-/* Hover */
-.hide-btn:hover,
-.toolbar-btn:hover{
-  background: rgba(255,255,255,0.10);
-  border-color: rgba(255,224,74,0.7);
-  color: #fff;
-  box-shadow: 0 0 10px rgba(255,224,74,0.15);
-}
-
-/* Active */
-.hide-btn:active,
-.toolbar-btn:active{
-  transform: translateY(1px);
-  background: rgba(255,255,255,0.15);
-}
+    .hide-btn,
+    .toolbar-btn{
+      appearance: none;
+      background: rgba(255,255,255,0.04);
+      color: #d8d8dd;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.05s ease;
+    }
+    .hide-btn:hover,
+    .toolbar-btn:hover{
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,224,74,0.7);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(255,224,74,0.15);
+    }
+    .hide-btn:active,
+    .toolbar-btn:active{
+      transform: translateY(1px);
+      background: rgba(255,255,255,0.15);
+    }
 
     /* ================================
        LAYOUT: Top content + bottom title bar
        ================================ */
-    .app{
-      height: 100dvh;
-      display: grid;
-      grid-template-rows: 1fr var(--titlebar-h);
-      overflow: hidden;
-    }
 
-    .content{
-      padding: var(--gap);
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr; /* three columns */
-      gap: var(--gap);
-      min-height: 0;
-      overflow: hidden;
-    }
+.app{
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr var(--titlebar-h);
+  overflow: hidden;     /* ✅ critical */
+  min-height: 0;        /* ✅ critical */
+}
+
+
+
+.content{
+  padding: var(--gap);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--gap);
+  min-height: 0;        /* ✅ REQUIRED */
+  overflow: hidden;     /* ✅ REQUIRED */
+}
+
 
     .col1{
       display: grid;
-      grid-template-rows: 1fr 1fr;  /* two stacked frames */
+      grid-template-rows: 1fr;
       gap: var(--gap);
       min-height: 0;
     }
-    .col2, .col3{
+    .col2{
       display: grid;
-      grid-template-rows: 1fr; min-height: 0;
+      grid-template-rows: 3fr 1fr;
+      gap: var(--gap);
+      min-height: 0;
     }
 
-    .frame{
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: var(--frame-padding);
-      min-height: 0;
-      overflow: hidden;
-      display: grid;
-      grid-template-rows: auto 1fr; /* header + body */
-      gap: 8px;
-    }
+.col1,
+.col2,
+.col3{
+  min-height: 0;        /* ✅ THIS fixes the overflow */
+  overflow: hidden;     /* ✅ contain children */
+}
+
+.frame{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--frame-padding);
+  min-height: 0;      /* ✅ REQUIRED */
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 8px;
+}
+
     .frame-header{
       font-size: clamp(12px, 1.8vh, 14px);
       font-weight: 800;
@@ -135,14 +145,21 @@
       align-items: center;
       gap: 8px;
     }
-    .frame-body{
-      min-height: 0;              /* critical for grid children to shrink */
-      overflow: hidden;           /* parent can be hidden; child can still scroll */
-      display: block;             /* simple block for predictable height inheritance */
-    }
 
+.frame-body{
+  min-height: 0;      /* ✅ REQUIRED */
+  overflow: hidden;   /* ✅ scrolling lives below */
+}
+
+/* ✅ Key Travel Alerts: allow inner grid to scroll */
+#frame-c .frame-body{
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
     /* ================================
-       Bottom Title Bar (10%) + Status
+       Bottom Title Bar
        ================================ */
     .titlebar{
       border-top: 1px solid var(--line);
@@ -159,20 +176,6 @@
       gap: 12px;
       min-width: 0;
     }
-    .brand-dot{
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 12px var(--accent);
-      flex: 0 0 auto;
-    }
-    .screen-title{
-      font-size: clamp(16px, 2.2vh, 22px);
-      font-weight: 800;
-      letter-spacing: .3px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
     .title-right{
       display: flex;
       align-items: center;
@@ -182,7 +185,7 @@
 
     .status-pill{
       padding: 10px 16px;
-      border-radius: 999px 999px;
+      border-radius: 999px;
       font-size: clamp(14px, 2.2vh, 18px);
       font-weight: 800;
       background: var(--liveGreen);
@@ -212,127 +215,28 @@
     }
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
-    /* ================================
-       ABNORMAL TRAFFIC PANEL (TVT clone)
-       ================================ */
-    .sev-row{
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px;
-  align-items: center;
-  --sev-p: 0;
-  --sev-color: var(--sev-mild);
-}
+    .car-icon{
+      width: clamp(22px, 3.2vh, 28px);
+      height: clamp(22px, 3.2vh, 28px);
+      object-fit: contain;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));
+    }
+    .connected-count{
+      font-weight: 900;
+      font-size: clamp(14px, 2.2vh, 18px);
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
 
-.sev-arc{
-  width: 64px;
-  height: 36px;
-  display: block;
-}
-
-.sev-arc .track{
-  fill:none;
-  stroke:rgba(255,255,255,0.18);
-  stroke-width:8;
-  stroke-linecap:round;
-}
-
-.sev-arc .fill{
-  fill:none;
-  stroke:var(--sev-color);
-  stroke-width:8;
-  stroke-linecap:round;
-  stroke-dasharray: var(--sev-p) 100;
-}
-
-.time-bars{
-  display:grid;
-  gap:4px;
-}
-
-.bar-row{
-  display:grid;
-  grid-template-columns: 56px 1fr auto;
-  align-items:center;
-  gap:8px;
-}
-
-.bar{
-  position:relative;
-  height:10px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.14);
-  overflow:hidden;
-}
-
-.bar-fill{
-  position:absolute;
-  top:0; left:0; bottom:0;
-  border-radius:999px;
-}
-
-.bar-fill.now{ background:#FFE04A; }
-.bar-fill.norm{ background:rgba(255,255,255,0.55); }
-
-.sev-top{
-  display:flex;
-  align-items:baseline;
-  gap:12px;
-  font-weight:900;
-  font-size: 1.2rem;
-}
-
-/* === Abnormal Traffic: severity arc + stacked bars === */
-.sev-row{
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px;
-  align-items: center;
-  --sev-p: 0;                /* 0..100 controls arc fill */
-  --sev-color: #9ddc43;      /* default mild */
-}
-.sev-arc{ width: 64px; height: 36px; display:block; }
-.sev-arc .track{
-  fill:none; stroke:rgba(255,255,255,0.18); stroke-width:8; stroke-linecap:round;
-}
-.sev-arc .fill{
-  fill:none; stroke:var(--sev-color); stroke-width:8; stroke-linecap:round;
-  stroke-dasharray: var(--sev-p) 100;  /* pathLength=100 → % fill */
-}
-.sev-top{
-  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
-  font-weight:900; font-size: clamp(16px, 2.6vh, 22px);
-}
-.sev-top .pct{ color: var(--sev-color); }
-.sev-top .delay{ color:#fff; opacity:.98; }
-
-/* Stacked time bars */
-.time-bars{ display:grid; gap:4px; }
-.bar-row{
-  display:grid;
-  grid-template-columns: 56px 1fr auto; /* label | bar | value */
-  align-items:center; gap:8px; min-width:0;
-}
-.bar-label{
-  font-size: clamp(10px, 1.6vh, 12px);
-  color: rgba(255,255,255,0.65); font-weight:800; text-transform:uppercase;
-}
-.tvt-mini-bar{
-  position:relative; height:10px; border-radius:999px;
-  background: rgba(255,255,255,0.14); overflow:hidden;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.35);
-}
-.tvt-mini-fill{ position:absolute; top:0; left:0; bottom:0; border-radius:999px; }
-.tvt-now{  background:#FFE04A; }              /* yellow */
-.tvt-norm{ background:rgba(255,255,255,0.55);} /* light grey/white */
-.bar-val{ font-size: clamp(11px, 1.6vh, 13px); color:#fff; font-weight:800; }
-    
+    /* =======================================================
+       ABNORMAL TRAFFIC — 2-WIDE GRID, 3-LINE CARDS
+       ======================================================= */
     .tvt-panel{
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto 1fr auto;
       gap: 10px;
-      min-height: 0;  /* important */
-      height: 100%;   /* ensure child 1fr gets a definite size */
+      min-height: 0;
+      height: 100%;
       overflow: hidden;
     }
     .network-health { margin: 0 2px; }
@@ -343,17 +247,24 @@
       border-radius: 999px;
       box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.30);
     }
-    .corridor-list{
-      display: block;
-      height: 100%;
-      overflow: auto;
-      scrollbar-gutter: stable;
-      overscroll-behavior: contain;
-      -webkit-overflow-scrolling: touch;
-      padding-right: 2px;
-    }
-    .corridor{ margin: 0 0 8px 0; }
-    .corridor:last-child{ margin-bottom: 0; }
+
+    /* The 2-wide grid that scrolls */
+  
+  .travel-alerts-body{
+  display: flex;
+  flex-direction: column;
+  min-height: 0;        /* ✅ critical */
+  overflow: hidden;     /* ✅ contain scroll */
+}
+  
+.corridor-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
     .corridor-list{ scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.35) transparent; }
     .corridor-list::-webkit-scrollbar{ width: 10px; }
     .corridor-list::-webkit-scrollbar-track{ background: transparent; }
@@ -363,49 +274,143 @@
       border: 2px solid transparent;
     }
     .corridor-list::-webkit-scrollbar-thumb:hover{ background-color: rgba(255,255,255,0.40); }
+
     .corridor{
       display: grid;
       grid-template-rows: auto auto auto;
-      align-content: center;
       gap: 6px;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.04);
-      min-height: 0;
-    }
-    .corridor .title{
-      display:flex; align-items:center; gap:10px;
-      font-size: clamp(16px, 2.5vh, 24px);
-      font-weight: 900; line-height: 1.12; letter-spacing: .3px;
-      overflow: hidden;
-    }
-    .corridor .title .name{
-      flex:1 1 auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-    }
-    .corridor .bar{
-      height: clamp(10px, 2vh, 16px);
-      border-radius: 999px;
-      background: #2ecc71;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.25);
-    }
-    .corridor .meta{
-      font-size: clamp(12px, 2.0vh, 18px);
-      font-weight: 900; color:#fff; letter-spacing:.1px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
-      opacity: 0.95;
+      min-width: 0;
+      
+  position: relative;   /* ✅ REQUIRED */
+  padding-bottom: 36px; /* ✅ space for Hide button */
+
     }
 
-    /* ================================
-       WAZE ALERTS LIST (Right column)
-       ================================ */
-    .waze-panel{
+.corridor .hide-btn{
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font-size: 10px;
+  padding: 3px 8px;
+}
+
+    .corridor-top{
       display: grid;
-      grid-auto-rows: auto;
+      grid-template-columns: 1fr auto;
+      align-items: center;
       gap: 10px;
-      min-height: 0;
-      overflow: hidden;
+      min-width: 0;
     }
+    .corridor-title{
+      font-size: clamp(15px, 2.4vh, 20px);
+      font-weight: 900;
+      letter-spacing: .2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .corridor-delay{
+      font-size: clamp(22px, 4.2vh, 34px);
+      font-weight: 900;
+      letter-spacing: .3px;
+      line-height: 1;
+      color: var(--delay-col);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+    }
+    .corridor-times{
+      font-size: clamp(12px, 1.8vh, 15px);
+      font-weight: 800;
+      color: rgba(255,255,255,0.86);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tvt-filters{
+      display: flex;
+      gap: 8px;
+      padding-top: 2px;
+    }
+    .tvt-filters button{
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-weight: 900;
+      padding: 8px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      letter-spacing: .2px;
+      transition: background .2s ease, border-color .2s ease, transform .05s ease;
+    }
+    .tvt-filters button:hover{
+      border-color: rgba(255,224,74,0.7);
+      background: rgba(255,255,255,0.10);
+    }
+    .tvt-filters button:active{ transform: translateY(1px); }
+    .tvt-filters button.active{
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+
+/* Travel alert filter toggles in the frame header */
+.frame-header-row{
+  justify-content: space-between;
+  width: 100%;
+}
+
+.div-filters{
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.div-filters button{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: .2px;
+  transition: background .2s ease, border-color .2s ease, transform .05s ease;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.div-filters button:hover{
+  border-color: rgba(255,224,74,0.7);
+  background: rgba(255,255,255,0.10);
+}
+
+.div-filters button:active{ transform: translateY(1px); }
+
+.div-filters button.active{
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+    /* =======================================================
+       WAZE PANEL (right) — keep your existing look
+       ======================================================= */
+.waze-panel{
+  display: grid;
+  grid-auto-rows: auto;
+  gap: 10px;
+  min-height: 0;      /* ✅ REQUIRED */
+  overflow-y: auto;   /* ✅ scrolls within frame */
+}
+
     .section{
       display: grid;
       grid-auto-rows: auto;
@@ -440,26 +445,77 @@
       cursor: pointer;
       user-select: none;
       border: 1px solid rgba(255,255,255,0.06);
-    }
-    .card:hover{ background: rgba(255,255,255,0.065); }
+      min-width: 0;
+      
+  position: relative;   /* ✅ REQUIRED */
+  padding-bottom: 36px; /* ✅ space for Hide button */
 
-    /* ==========================================================
-       CENTRAL PANE (Key Travel Alerts) — 2×4 grid, refined
-       ========================================================== */
-    #diverts-grid{
-      height: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;        /* 2 columns */
-      grid-template-rows: repeat(4, 1fr);    /* 4 rows => 8 cards */
-      gap: 10px;
-      overflow: hidden;
     }
+    
+  .card .hide-btn{
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font-size: 10px;
+  padding: 3px 8px;
+}
+    
+    .card:hover{ background: rgba(255,255,255,0.065); }
+    .card .title{
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: clamp(14px, 2.2vh, 18px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card .meta{
+      grid-column: 1 / -1;
+      font-weight: 800;
+      font-size: clamp(12px, 1.8vh, 14px);
+      color: rgba(255,255,255,0.85);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card .desc{
+      grid-column: 1 / -1;
+      font-weight: 700;
+      font-size: clamp(12px, 1.8vh, 14px);
+      color: rgba(255,255,255,0.75);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .spacer{ flex: 1 1 auto; }
+
+    /* =======================================================
+       CENTRAL PANE (Key Travel Alerts) — your existing 2×4 grid
+       ======================================================= */
+
+#diverts-grid{
+  flex: 1 1 auto;       /* ✅ THIS creates height */
+  min-height: 0;        /* ✅ allows shrinking */
+  overflow-y: auto;     /* ✅ scrolling finally works */
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  gap: 10px;
+}
+
     .divert-card{
       position: relative;
-      display: grid;
-      grid-template-rows: auto auto 1fr auto; /* header, street, spacer, times */
-      gap: 6px;
-      padding: 10px;
+      
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  align-content: start;     /* ✅ pack content from the top */
+
+      gap: 4px;
+      padding: 8px;
       border-radius: 10px;
       background: rgba(255,255,255,0.045);
       border: 1px solid rgba(255,255,255,0.08);
@@ -467,7 +523,6 @@
       min-height: 0;
       overflow: hidden;
     }
-    /* Persistent highlight for UFN */
     .divert-card.ufn-highlight{
       border-color: rgba(255,60,60,0.9);
       box-shadow:
@@ -476,13 +531,7 @@
         0 1px 0 rgba(255,255,255,0.05) inset;
     }
 
-.divert-card.placeholder{
-  background: rgba(255,255,255,0.02);
-  border: 1px dashed rgba(255,255,255,0.07);
-}
 
-
-    /* Header: routes left + operator right */
     .divert-header{
       display: grid;
       grid-template-columns: 1fr auto;
@@ -493,7 +542,7 @@
     .routes{
       display: inline-flex;
       align-items: center;
-      gap: 4px;            /* tighter gaps */
+      gap: 4px;
       flex-wrap: nowrap;
       min-width: 0;
       overflow: hidden;
@@ -502,8 +551,8 @@
       background: var(--accent);
       color: #000;
       font-weight: 900;
-      font-size: clamp(11px, 1.6vh, 13px); /* smaller font */
-      padding: 1px 6px;                    /* slimmer chip */
+      font-size: clamp(11px, 1.6vh, 13px);
+      padding: 1px 6px;
       border-radius: 6px;
       white-space: nowrap;
       user-select: none;
@@ -515,14 +564,13 @@
       color: var(--muted);
     }
 
-    /* Operator pill: fixed width + gentle code rotator */
     .op-tag{
       position: relative;
       display: flex;
       align-items: center;
       gap: 6px;
       padding: 3px 8px;
-      min-width: 54px;   /* narrower */
+      min-width: 54px;
       max-width: 54px;
       justify-content: center;
       overflow: hidden;
@@ -536,10 +584,10 @@
     }
     .op-dot{
       width: 10px; height: 10px; border-radius: 50%;
-      background-color:#cfcfd6;            /* use background-color for smooth transition */
+      background-color:#cfcfd6;
       box-shadow: 0 0 0 1px rgba(0,0,0,0.35) inset;
       flex-shrink: 0;
-      transition: background-color 600ms ease; /* gentle fade between colours */
+      transition: background-color 600ms ease;
     }
     .op-code-rotator{
       position: relative;
@@ -548,7 +596,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 26px; /* narrower text area */
+      width: 26px;
     }
     .op-code{
       position: absolute;
@@ -557,34 +605,23 @@
     }
     .op-code.active{ opacity: 1; }
 
-    /* Street line (replaces reason text) */
     .street-line{
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: clamp(13px, 2.0vh, 16px);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      white-space: normal; overflow: hidden; text-overflow: ellipsis;
       color: #fff;
     }
-    .street-emoji{ font-size: 1.1em; line-height: 1; filter: drop-shadow(0 1px 0 rgba(0,0,0,0.3)); }
-
-.street-line .street {
-  font-weight: 900;       /* or 800 if you prefer */
-  font-size: 1.2em;       /* scale up relative to .street-line */
-}
-
-    /* Location (town or fallback) */
-    .location{
-      font-size: clamp(12px, 1.7vh, 14px);
-      color: #d7d9de;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    .street-line .street {
+      font-weight: 900;
+      font-size: 1.2em;
     }
-
-.location {
-  font-size: clamp(14px, 2.1vh, 18px);
-}
-
-    /* Times footer */
+    .location{
+      font-size: clamp(14px, 2.1vh, 18px);
+      color: #d7d9de;
+      white-space: normal; overflow: hidden; text-overflow: ellipsis;
+    }
     .times{
       margin-top: auto;
       padding-top: 6px;
@@ -597,13 +634,12 @@
     .time-row{
       font-size: clamp(11px, 1.5vh, 13px);
       color: #d6d7db;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      white-space: normal; overflow: hidden; text-overflow: ellipsis;
     }
     .time-row .lab{ color: rgba(255,255,255,0.65); font-weight: 700; }
     .time-row .val{ color: #fff; font-weight: 900; }
     .ufn { color: var(--accent) !important; }
 
-    /* Subtle one-time flash when a NEW UFN arrives */
     @keyframes flashBorder {
       0%   { box-shadow: 0 0 0 0 rgba(255,224,74,0.6); border-color: rgba(255,224,74,0.9); transform: scale(1.00); }
       50%  { box-shadow: 0 0 0 10px rgba(255,224,74,0.10); border-color: rgba(255,224,74,1.0); transform: scale(1.02); }
@@ -611,58 +647,50 @@
     }
     .new-ufn-flash{ animation: flashBorder 1400ms ease-out 1; }
 
-    /* ================================
-       ROUTE OPERATOR CHECKER styles
-       ================================ */
+    /* =======================================================
+       ROUTE OPERATOR CHECKER
+       ======================================================= */
     .visually-hidden {
       position: absolute !important;
       height: 1px; width: 1px;
       overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
       white-space: nowrap;
     }
-
     .roc-panel{
       display: grid;
       grid-template-rows: auto 1fr auto;
-      gap: 10px;
+      gap: 8px;
       height: 100%;
       min-height: 0;
     }
-
-    .roc-input-row{
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .roc-input{
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 10px;
+    .roc-input-row{ width: 100%; display:block; overflow:hidden; }
+    .roc-input-full{
+      display:block;
+      width:100%;
+      box-sizing:border-box;
+      padding: 8px 12px;
+      border-radius: 8px;
       border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.05);
       color: var(--text);
       font-weight: 800;
-      font-size: clamp(14px, 2.2vh, 18px);
+      font-size: clamp(12px, 1.8vh, 14px);
       letter-spacing: .2px;
-      outline: none;
+      outline:none;
       transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
     }
-    .roc-input::placeholder{ color: rgba(255,255,255,0.45); font-weight: 600; }
-    .roc-input:focus{
+    .roc-input-full:focus {
       border-color: rgba(255,224,74,0.7);
-      background: rgba(255,255,255,0.06);
-      box-shadow: 0 0 0 3px rgba(255,224,74,0.12);
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 0 0 3px rgba(255,224,74,0.15);
     }
-
     .roc-result{
       min-height: 0;
       overflow: auto;
       display: grid;
       gap: 8px;
-      padding-right: 2px;
-      scrollbar-gutter: stable;
+      padding-right: 0px;
+      scrollbar-gutter: auto;
     }
     .roc-result::-webkit-scrollbar{ width: 10px; }
     .roc-result::-webkit-scrollbar-thumb{
@@ -670,215 +698,123 @@
       border-radius: 8px;
       border: 2px solid transparent;
     }
-    .roc-result::-webkit-scrollbar-thumb:hover{ background-color: rgba(255,255,255,0.40); }
+    
+    /* ===== Modern minimal scrollbar ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.35) transparent;
+}
 
+/* WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(
+    180deg,
+    rgba(255,224,74,0.55),
+    rgba(255,255,255,0.35)
+  );
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(
+    180deg,
+    rgba(255,224,74,0.85),
+    rgba(255,255,255,0.55)
+  );
+}
+
+    .roc-result::-webkit-scrollbar-thumb:hover{ background-color: rgba(255,255,255,0.40); }
     .roc-card{
       display: grid;
-      grid-auto-rows: auto;
-      gap: 6px;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 10px;
       padding: 10px 12px;
       border-radius: 12px;
       background: rgba(255,255,255,0.045);
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 2px 6px rgba(0,0,0,0.22) inset;
     }
-
-    .roc-line{
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-
-    .roc-pill{
+    .roc-route-chip{
       background: var(--accent);
-      color: #000;
+      color:#000;
       font-weight: 900;
-      font-size: clamp(11px, 1.6vh, 13px);
-      padding: 2px 8px;
-      border-radius: 999px;
-      user-select: none;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.25);
-      flex: 0 0 auto;
+      font-size: clamp(14px, 2.0vh, 18px);
+      padding: 6px 10px;
+      border-radius: 10px;
+      line-height: 1;
+      white-space: nowrap;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.35);
     }
-
-    .roc-title{
-      font-size: clamp(14px, 2.2vh, 18px);
-      font-weight: 900;
-      color: #fff;
+    .roc-right{
+      min-width: 0;
+      display: grid;
+      grid-auto-rows: auto;
+      gap: 6px;
     }
-
-    .roc-sub{
+    .roc-desc{
+      max-width: 100%;
       font-size: clamp(12px, 1.7vh, 14px);
-      color: #d7d9de;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      font-weight: 800;
+      color: #eaeaea;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-
-    .roc-operator{
+    .roc-operator-chip{
+      justify-self: start;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.16);
-      font-weight: 800;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
       font-size: clamp(10px, 1.5vh, 12px);
-      color: #e8e9ec;
+      font-weight: 900;
+      color: #fff;
       white-space: nowrap;
     }
     .roc-op-swatch{
-      width: 10px; height: 10px; border-radius: 50%;
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.35) inset;
-      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.4) inset;
     }
-
     .roc-empty{
-      color: #c7cbd1;
-      text-align: center;
-      padding: 18px 8px;
-      border: 1px dashed rgba(255,255,255,0.08);
-      border-radius: 10px;
+      padding: 10px 8px;
+      font-size: clamp(11px, 1.6vh, 13px);
+      color: rgba(255,255,255,0.75);
+      font-weight: 700;
     }
-
     .roc-status{
       font-size: clamp(11px, 1.5vh, 13px);
       color: var(--muted);
       opacity: .95;
     }
-    
-    /* ===========================================
-   ROUTE CHECKER — NEW BIG MATCHED RESULT STYLE
-   =========================================== */
-
-.roc-card {
-  display: grid;
-  justify-items: center;
-  text-align: center;
-  gap: 14px;
-  padding: 20px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25) inset;
-}
-
-/* Big central route chip — match travel alerts route-chip */
-.roc-route-big {
-  display: inline-flex;              /* enables centring */
-  align-items: center;               /* vertical centring */
-  justify-content: center;           /* horizontal centring */
-
-  background: var(--accent);
-  color: #000;
-  font-weight: 900;
-  font-size: clamp(26px, 4vh, 34px);
-  
-  padding: 10px 28px;                /* balanced vertical padding */
-  border-radius: 12px;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.35);
-  white-space: nowrap;
-  line-height: 1.1;                  /* prevents tall text box */
-}
-
-/* Description under chip */
-.roc-desc {
-  max-width: 95%;
-  font-size: clamp(16px, 2.4vh, 20px);
-  font-weight: 700;
-  color: #eaeaea;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* Operator chip — same centre alignment */
-.roc-operator-big {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 22px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.18);
-  font-size: clamp(14px, 2.2vh, 18px);
-  font-weight: 900;
-  color: #fff;
-  white-space: nowrap;
-}
-
-.roc-op-swatch-big {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.4) inset;
-}
-
-/* FULL WIDTH search bar (no clear button) */
-
-.roc-input-row {
-  width: 100%;
-  display: block;              /* no columns, no grid */
-  overflow: hidden;            /* prevent any creeping */
-}
-
-
-
-.roc-input-full {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;      /* critical fix: prevents overflow */
-  
-  padding: 12px 16px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.06);
-
-  color: var(--text);
-  font-weight: 800;
-  font-size: clamp(15px, 2.4vh, 20px);
-  letter-spacing: .3px;
-
-  outline: none;
-  transition: border-color .2s ease,
-              background .2s ease,
-              box-shadow .2s ease;
-}
-
-.roc-input-full:focus {
-  border-color: rgba(255,224,74,0.7);
-  background: rgba(255,255,255,0.10);
-  box-shadow: 0 0 0 3px rgba(255,224,74,0.15);
-}
-
-.car-icon{
-  width: clamp(22px, 3.2vh, 28px);
-  height: clamp(22px, 3.2vh, 28px);
-  object-fit: contain;
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));
-}
-
-.connected-count{
-  font-weight: 900;
-  font-size: clamp(14px, 2.2vh, 18px);
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-}
-
   </style>
 </head>
+
 <body>
   <div class="app">
     <!-- =========================
          CONTENT (Top 90%)
          ========================= -->
     <section class="content" aria-label="Main dashboard area">
-      <!-- Column 1 -->
+
+      <!-- Column 1: Abnormal Traffic -->
       <div class="col1">
-        <!-- Top-left: Abnormal Traffic -->
         <div class="frame" id="frame-a" aria-labelledby="frame-a-title">
           <div class="frame-header" id="frame-a-title">Highways Health &amp; Abnormal Traffic</div>
           <div class="frame-body">
@@ -888,12 +824,41 @@
                   <div class="network-bar" style="background:linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)"></div>
                 </div>
               </div>
+
               <div class="corridor-list" id="tvt-corridors"></div>
+
+              <div class="tvt-filters" id="tvt-filters" aria-label="Abnormal traffic filters">
+                <button type="button" data-min="1">+1m</button>
+                <button type="button" data-min="5">+5m</button>
+                <button type="button" data-min="10">+10m</button>
+                <button type="button" data-min="15" class="active">+15m</button>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Bottom-left: Route Operator Checker -->
+      <!-- Column 2 -->
+      <div class="col2">
+        <!-- Top 75%: Key Travel Alerts -->
+        <div class="frame" id="frame-c" aria-labelledby="frame-c-title">
+<div class="frame-header frame-header-row" id="frame-c-title">
+  <span>Key Travel Alerts</span>
+
+  <div class="div-filters" id="div-filters" role="group" aria-label="Travel alert filters">
+    <button type="button" data-filter="CURRENT" class="active" title="UFN OR starting today OR ending today">DFT</button>
+    <button type="button" data-filter="UFN">UFN</button>
+    <button type="button" data-filter="START_TODAY">START</button>
+    <button type="button" data-filter="END_TODAY">END</button>
+    <button type="button" data-filter="HIGH_IMPACT">HIGH</button>
+  </div>
+</div>
+          <div class="frame-body">
+            <div id="diverts-grid" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <!-- Bottom 25%: Route Operator Checker -->
         <div class="frame" id="frame-b" aria-labelledby="frame-b-title">
           <div class="frame-header" id="frame-b-title">Route Operator Checker</div>
           <div class="frame-body">
@@ -914,17 +879,7 @@
         </div>
       </div>
 
-      <!-- Middle column: Key Travel Alerts (diverts 2×4) -->
-      <div class="col2">
-        <div class="frame" id="frame-c" aria-labelledby="frame-c-title">
-          <div class="frame-header" id="frame-c-title">Key Travel Alerts</div>
-          <div class="frame-body">
-            <div id="diverts-grid" aria-live="polite"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right column: Waze Alerts -->
+      <!-- Column 3: Waze Alerts -->
       <div class="col3">
         <div class="frame" id="frame-d" aria-labelledby="frame-d-title">
           <div class="frame-header" id="frame-d-title">Waze Alerts</div>
@@ -947,71 +902,66 @@
           </div>
         </div>
       </div>
+
     </section>
 
     <!-- =========================
          TITLE BAR (Bottom 10%)
          ========================= -->
-<footer class="titlebar" role="contentinfo" aria-label="Title bar">
-  <div class="title-left">
-    <img src="https://ryanocc.github.io/car.gif" class="car-icon" alt="car icon">
-    <div id="connectedCitizens" class="connected-count">— Connected Citizens</div>
-  </div>
+    <footer class="titlebar" role="contentinfo" aria-label="Title bar">
+      <div class="title-left">
+        <img src="https://ryanocc.github.io/car.gif" class="car-icon" alt="car icon">
+        <div id="connectedCitizens" class="connected-count">— Connected Citizens</div>
+      </div>
 
-  <div class="title-right" aria-label="Status and controls">
-    <button id="unhideAllBtn"
-            class="toolbar-btn"
-            title="Unhide all hidden alerts"
-            aria-label="Unhide all hidden alerts"
-            type="button">
-      Unhide all
-    </button>
+      <div class="title-right" aria-label="Status and controls">
+        <button id="unhideAllBtn"
+                class="toolbar-btn"
+                title="Unhide all hidden alerts"
+                aria-label="Unhide all hidden alerts"
+                type="button">
+          Unhide all
+        </button>
 
-    <div id="statusPill" class="status-pill">Initialising…</div>
+        <div id="statusPill" class="status-pill">Initialising…</div>
 
-    <img id="beeLogo"
-         src="https://tfgm.com/static/android-chrome-192x192.png"
-         alt="Bee Network logo"
-         width="64" height="64"
-         decoding="async" />
-  </div>
-</footer>
+        <img id="beeLogo"
+             src="https://tfgm.com/static/android-chrome-192x192.png"
+             alt="Bee Network logo"
+             width="64" height="64"
+             decoding="async" />
+      </div>
+    </footer>
   </div>
 
   <script>
     /* =======================================================
-       Utilities & Aesthetic helpers
+       Utilities & helpers
        ======================================================= */
-    function sevColorForPct(p){
-  if (p >= 100) return '#FF4D4F';  // red
-  if (p >= 40)  return '#FF9A1F';  // orange
-  if (p >= 10)  return '#FFE04A';  // yellow
-  return '#9ddc43';                // mild green
-}
-   
-function sumWazers(usersOnJams){
-  try {
-    const total = (Array.isArray(usersOnJams) ? usersOnJams : [])
-      .reduce((acc,u) => acc + (Number(u.wazersCount)||0), 0);
-    return Math.ceil(total);
-  } catch {
-    return 0;
-  }
-}
+    function sumWazers(usersOnJams){
+      try {
+        const total = (Array.isArray(usersOnJams) ? usersOnJams : [])
+          .reduce((acc,u) => acc + (Number(u.wazersCount)||0), 0);
+        return Math.ceil(total);
+      } catch {
+        return 0;
+      }
+    }
 
-function updateConnectedCitizensDisplay(total){
-  const el = document.getElementById('connectedCitizens');
-  if (!el) return;
-  const label = Number.isFinite(total) && total > 0
-    ? total.toLocaleString('en-GB')
-    : '—';
-  el.textContent = `${label} Connected Citizens`;
-}
-    
+    function updateConnectedCitizensDisplay(total){
+      const el = document.getElementById('connectedCitizens');
+      if (!el) return;
+      const label = Number.isFinite(total) && total > 0
+        ? total.toLocaleString('en-GB')
+        : '—';
+      el.textContent = `${label} Connected Citizens`;
+    }
+
     function withCacheBust(url){
       const sep = url.includes('?') ? '&' : '?';
       return `${url}${sep}ts=${Date.now()}`;
     }
+
     function fmtHHMMSS(){
       try{
         return new Intl.DateTimeFormat('en-GB', { hour:'2-digit', minute:'2-digit', second:'2-digit' })
@@ -1022,6 +972,7 @@ function updateConnectedCitizensDisplay(total){
         return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
       }
     }
+
     function setStatusPill(ok, {animate=false}={}){
       const pill = document.getElementById('statusPill');
       const bee  = document.getElementById('beeLogo');
@@ -1042,7 +993,9 @@ function updateConnectedCitizensDisplay(total){
 
     /* ========= HIDE / SUPPRESSION (60 minutes) ========= */
     const HIDE_MS = 60 * 60 * 1000;
+
     function hideStorageKey(prefix, id){ return `hide_${prefix}_${id}`; }
+
     function getHideEntry(prefix, id){
       const raw = localStorage.getItem(hideStorageKey(prefix, id));
       if (!raw) return null;
@@ -1054,29 +1007,38 @@ function updateConnectedCitizensDisplay(total){
       const n = Number(raw);
       return Number.isFinite(n) ? { until:n } : null;
     }
+
     function setHideEntry(prefix, id, entry){
       localStorage.setItem(hideStorageKey(prefix, id), JSON.stringify(entry));
     }
+
     function clearHide(prefix, id){
       localStorage.removeItem(hideStorageKey(prefix, id));
     }
+
     function hideForHour(prefix, id, baseline={}){
       setHideEntry(prefix, id, { until: Date.now() + HIDE_MS, baseline, createdAt: Date.now() });
     }
+
     function isHiddenWithAutoCheck(prefix, id, currentMetrics={}){
       const entry = getHideEntry(prefix, id);
       if (!entry) return false;
+
       if (Date.now() > (Number(entry.until)||0)){
         clearHide(prefix, id);
         return false;
       }
+
       const base = entry.baseline || {};
       let autoUnhide = false;
+
+      // Abnormal traffic: auto-unhide if delay worsens materially
       if (prefix === 'corr'){
-        const curr = Number(currentMetrics.abnPct);
-        const b = Number(base.abnPct);
-        if (Number.isFinite(curr) && Number.isFinite(b) && b > 0 && curr >= b * 1.5){
-          autoUnhide = true;
+        const curr = Number(currentMetrics.delayMin);
+        const b = Number(base.delayMin);
+        if (Number.isFinite(curr) && Number.isFinite(b)){
+          const threshold = b > 0 ? Math.max(b + 5, Math.round(b * 1.5)) : 10;
+          if (curr >= threshold) autoUnhide = true;
         }
       } else if (prefix === 'acc'){
         const curr = Number(currentMetrics.conf);
@@ -1085,10 +1047,12 @@ function updateConnectedCitizensDisplay(total){
           autoUnhide = true;
         }
       }
+
       if (autoUnhide){
         clearHide(prefix, id);
         return false;
       }
+
       return true;
     }
 
@@ -1096,15 +1060,20 @@ function updateConnectedCitizensDisplay(total){
       const btn = ev.target.closest('.hide-btn');
       if (!btn) return;
       ev.preventDefault(); ev.stopPropagation();
+
       const prefix = btn.getAttribute('data-prefix') || '';
       const id     = btn.getAttribute('data-id') || '';
       if (!prefix || !id) return;
+
       const baseline = {};
-      const abn = btn.getAttribute('data-baseline-abnpct');
-      const conf = btn.getAttribute('data-baseline-conf');
-      if (abn != null && abn !== '' && isFinite(Number(abn))) baseline.abnPct = Number(abn);
-      if (conf != null && conf !== '' && isFinite(Number(conf))) baseline.conf = Number(conf);
+      const delay = btn.getAttribute('data-baseline-delay');
+      const conf  = btn.getAttribute('data-baseline-conf');
+
+      if (delay != null && delay !== '' && isFinite(Number(delay))) baseline.delayMin = Number(delay);
+      if (conf  != null && conf  !== '' && isFinite(Number(conf ))) baseline.conf    = Number(conf);
+
       hideForHour(prefix, id, baseline);
+
       const container = btn.closest('.card, .corridor');
       if (container) {
         container.remove();
@@ -1122,37 +1091,36 @@ function updateConnectedCitizensDisplay(total){
         if (k && k.startsWith('hide_')) keys.push(k);
       }
       keys.forEach(k => localStorage.removeItem(k));
+
       try{ clearTimeout(tvtTimer); }catch{}
       try{ clearTimeout(wazeTimer); }catch{}
       try{ clearTimeout(divTimer); }catch{}
       tvtTimer = null; wazeTimer = null; divTimer = null;
+
       tvtCycle(); wazeCycle(); divertsCycle();
     }
 
     /* =======================================================
-       TVT PANEL (left) — trimmed logic
+       TVT PANEL (left) — GRID CARDS, 3 LINES
        ======================================================= */
     const TVT_URL = 'https://occproxy-6dem.vercel.app/api/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
     const TVT_REFRESH_MS = 5 * 60 * 1000;
     let tvtTimer = null;
 
+    let TVT_MIN_DELAY = 15;
+    let lastTvtData = null;
+
     function escapeHTML(str){
-      return String(str).replace(/[&<>\"']/g, ch =>
+      return String(str).replace(/[&<>"']/g, ch =>
         ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])
       );
     }
+
     function corridorDisplayName(r){
       const base = String(r?.name || r?.toName || 'Unnamed corridor');
       const parts = base.split(' - ');
       return (parts[0] || base).trim();
     }
-    function fmtMins(secOrMs){
-      const s = typeof secOrMs === 'number' && secOrMs > 5e6 ? Math.round(secOrMs/1000) : Math.round(secOrMs||0);
-      const m = Math.max(0, Math.round(s/60));
-      return `${m} min`;
-    }
-    function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
-    function lerp(a,b,t){ return a + (b-a)*t; }
 
     function networkGradientFromUsersOnJams(usersOnJams){
       if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
@@ -1169,137 +1137,123 @@ function updateConnectedCitizensDisplay(total){
       });
       return `linear-gradient(90deg, ${stops.join(', ')})`;
     }
-    function computeTopNAbnormal(routesRaw, n = 15){
+
+    function delayColor(delayMin){
+      // 15m delay threshold = RED
+      if (delayMin >= 15) return '#FF4D4F';
+      if (delayMin >= 10) return '#FF9A1F';
+      if (delayMin >= 5)  return '#FFE04A';
+      return '#9DDC43';
+    }
+
+    function computeTopNDelays(routesRaw, n = 16, minDelay = 15){
       const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
       const candidates = routes
         .map(r => {
           const time = Number(r.time)||0;
           const hist = Number(r.historicTime)||0;
-          const abn  = (hist > 0 && time > 0) ? (time - hist) / hist : -Infinity;
-          return { r, time, hist, abn };
+          const delaySec = Math.max(0, time - hist);
+          const delayMin = Math.round(delaySec / 60);
+          return { r, time, hist, delayMin };
         })
-        .filter(x => Number.isFinite(x.abn));
-      const topN = candidates
-        .sort((a,b)=> b.abn - a.abn || b.time - a.time)
-        .slice(0, n)
-        .map(x => x.r);
-      return topN;
+        .filter(x => Number.isFinite(x.delayMin) && x.delayMin >= minDelay);
+
+      candidates.sort((a,b) =>
+        (b.delayMin - a.delayMin) ||
+        (b.time - a.time)
+      );
+
+      return candidates.slice(0, n);
     }
-    const prevShownRoutes = new Map();
+
     const routeKey = (r) => String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
 
+    function renderTvtPanel(data){
+      lastTvtData = data;
 
-function renderTvtPanel(data){
-  const host = document.getElementById('abnormal-traffic');
-  if (!host) return;
+      const host = document.getElementById('abnormal-traffic');
+      if (!host) return;
 
-  const list = document.getElementById('tvt-corridors');
-  const net  = host.querySelector('.network-bar');
+      const list = document.getElementById('tvt-corridors');
+      const net  = host.querySelector('.network-bar');
 
-  // 1) Update the network health gradient (once)
-  if (net){
-    net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []);
-  }
+      // Update network health gradient
+      if (net){
+        net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []);
+      }
 
-  // 2) Update the footer "Connected Citizens" count (once)
-  updateConnectedCitizensDisplay(
-    sumWazers(data?.usersOnJams || [])
-  );
+      // Update footer "Connected Citizens"
+      updateConnectedCitizensDisplay(sumWazers(data?.usersOnJams || []));
 
+      const rows = computeTopNDelays(data?.routes || [], 16, TVT_MIN_DELAY);
 
-  // Compute top abnormal corridors (your existing logic)
-  const rawTop = computeTopNAbnormal(data?.routes || [], 15);
-  const withMetrics = rawTop.map(r => {
-    const time = Number(r.time)||0;
-    const hist = Number(r.historicTime)||0;
-    const abnPct = (hist>0 && time>0) ? Math.round(((time - hist)/hist)*100) : 0;
-    return { r, id: routeKey(r), time, hist, abnPct };
-  });
+      const filtered = rows
+        .map(x => ({ ...x, id: routeKey(x.r) }))
+        .filter(it => !isHiddenWithAutoCheck('corr', it.id, { delayMin: it.delayMin }));
 
-  // Hide/suppress logic (unchanged)
-  const filtered = withMetrics.filter(it => !isHiddenWithAutoCheck('corr', it.id, { abnPct: it.abnPct }));
+      const itemHTML = (it) => {
+        const street = escapeHTML(corridorDisplayName(it.r));
+        const id = escapeHTML(it.id);
 
-  const itemHTML = (it) => {
-    const { r, time, hist, abnPct, id } = it;
-    const title = escapeHTML(corridorDisplayName(r));
+        const delayMin = Math.max(0, Number(it.delayMin)||0);
+        const col = delayColor(delayMin);
 
-    // === NEW: metrics for arc + stacked bars ===
-    const delayMin = Math.max(0, Math.round((time - hist) / 60));
-    const arcPart  = Math.max(0, Math.min(100, Number(abnPct) || 0));  // 0..100 controls arc fill
-    const sevCol   = sevColorForPct(Number(abnPct) || 0);
+        const normMin = Math.max(0, Math.round((Number(it.hist)||0) / 60));
+        const nowMin  = Math.max(0, Math.round((Number(it.time)||0) / 60));
 
-    // Bar widths relative to larger of now vs normal
-    const maxVal = Math.max(1, time, hist);
-    const wNow   = Math.round((time / maxVal) * 100);
-    const wNorm  = Math.round((hist / maxVal) * 100);
+        return `
+          <div class="corridor" title="${escapeHTML(it.r?.name||'')}" data-delay="${delayMin}">
+            <div class="corridor-top">
+              <div class="corridor-title">${street}</div>
+              <button class="hide-btn"
+                      data-prefix="corr"
+                      data-id="${id}"
+                      data-baseline-delay="${delayMin}"
+                      type="button">Hide</button>
+            </div>
 
-    return `
-      <div class="corridor" title="${escapeHTML(r?.name||'')}">
-        <div class="title">
-          <span class="name">${title}</span>
-          <span class="spacer"></span>
-          <button class="hide-btn"
-                  data-prefix="corr"
-                  data-id="${escapeHTML(id)}"
-                  data-baseline-abnpct="${abnPct}"
-                  type="button">Hide</button>
-        </div>
+            <div class="corridor-delay" style="--delay-col:${col}">
+              +${delayMin}m
+            </div>
 
-        <!-- NEW: semicircle severity arc + bold % and delay -->
-        <div class="sev-row" style="--sev-p:${arcPart}; --sev-color:${sevCol};">
-          <svg class="sev-arc" viewBox="0 0 120 60" aria-hidden="true">
-            <path class="track" d="M10,50 A50,50 0 0 1 110,50"></path>
-            <path class="fill"  d="M10,50 A50,50 0 0 1 110,50" pathLength="100"></path>
-          </svg>
-          <div class="sev-metrics">
-            <div class="sev-top">
-              <span class="pct">${Number.isFinite(abnPct) ? (abnPct>=0?'+':'') : ''}${Number.isFinite(abnPct)?abnPct:0}%</span>
-              <span class="delay">+${delayMin} min</span>
+            <div class="corridor-times">
+              ${normMin}m → ${nowMin}m
             </div>
           </div>
-        </div>
+        `;
+      };
 
-        <!-- NEW: stacked time bars (Now vs Normal) -->
-        <div class="time-bars">
-          <div class="bar-row">
-            <span class="bar-label">Now</span>
-            <div class="tvt-mini-bar">
-              <span class="tvt-mini-fill tvt-now"  style="width:${wNow}%;"></span>
+      list.innerHTML = filtered.length
+        ? filtered.map(itemHTML).join('')
+        : `
+          <div class="corridor" style="grid-column: 1 / -1;">
+            <div class="corridor-top">
+              <div class="corridor-title">No corridors above +${TVT_MIN_DELAY}m</div>
             </div>
-            <span class="bar-val">${fmtMins(time)}</span>
+            <div class="corridor-delay" style="--delay-col:rgba(255,255,255,0.7)">Normal</div>
+            <div class="corridor-times">Use the filter buttons below to view smaller delays</div>
           </div>
-          <div class="bar-row">
-            <span class="bar-label">Normal</span>
-            <div class="tvt-mini-bar">
-              <span class="tvt-mini-fill tvt-norm" style="width:${wNorm}%;"></span>
-            </div>
-            <span class="bar-val">${fmtMins(hist)}</span>
-          </div>
-        </div>
-      </div>
-    `;
-  };
+        `;
+    }
 
-  list.innerHTML = filtered.length
-    ? filtered.map(itemHTML).join('')
-    : `
-      <div class="corridor">
-        <div class="title"><span class="name">No abnormal corridors</span></div>
-        <div class="sev-row" style="--sev-p:0; --sev-color:rgba(255,255,255,0.35);">
-          <svg class="sev-arc" viewBox="0 0 120 60" aria-hidden="true">
-            <path class="track" d="M10,50 A50,50 0 0 1 110,50"></path>
-            <path class="fill"  d="M10,50 A50,50 0 0 1 110,50" pathLength="100" style="stroke-dasharray:0 100;"></path>
-          </svg>
-          <div class="sev-metrics">
-            <div class="sev-top"><span class="pct" style="color:rgba(255,255,255,0.6)">Normal</span></div>
-          </div>
-        </div>
-      </div>`;
+    function bindTvtFilters(){
+      const wrap = document.getElementById('tvt-filters');
+      if (!wrap) return;
 
-  // Preserve your previous “shown” cache + scroll reset
-  filtered.forEach(it => prevShownRoutes.set(it.id, { time: Number(it.time)||0 }));
-  list.scrollTop = 0;
-}
+      wrap.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-min]');
+        if (!btn) return;
+
+        TVT_MIN_DELAY = Number(btn.dataset.min) || 15;
+
+        wrap.querySelectorAll('button[data-min]').forEach(b => {
+          b.classList.toggle('active', b === btn);
+        });
+
+        if (lastTvtData) renderTvtPanel(lastTvtData);
+      }, { passive: true });
+    }
+
     async function fetchTVT(signal){
       const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -1307,6 +1261,7 @@ function renderTvtPanel(data){
       const trimmed = text.replace(/^\uFEFF/, '').trim();
       return JSON.parse(trimmed);
     }
+
     async function tvtCycle(){
       let ctrl = new AbortController();
       try{
@@ -1322,418 +1277,407 @@ function renderTvtPanel(data){
       }
     }
 
-/* =======================================================
-   WAZE ALERTS (right) — accidents, signals, weather (ice)
-   ======================================================= */
-const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
-const WAZE_REFRESH_MS = 30000;
-const PROXIES = [
-  (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
-  (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-  (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
-];
+    /* =======================================================
+       WAZE ALERTS (right) — accidents, signals, weather (ice)
+       ======================================================= */
+    const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
+    const WAZE_REFRESH_MS = 30000;
+    const PROXIES = [
+      (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
+      (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+    ];
 
-async function fetchViaProxies(url, signal){
-  const busted = withCacheBust(url);
-  const errors = [];
-  for(const build of PROXIES){
-    const proxied = build(busted);
-    try{
-      const res = await fetch(proxied, { cache:'no-store', signal });
-      if(!res.ok) throw new Error(`HTTP ${res.status}`);
-      const text = await res.text();
-      const trimmed = text.replace(/^\uFEFF/, '').trim();
-      if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
-      return JSON.parse(trimmed);
-    }catch(e){ errors.push(`${proxied}: ${e.message}`); }
-  }
-  throw new Error(`All proxies failed\n${errors.join('\n')}`);
-}
-
-function toRad(deg){ return deg * Math.PI / 180; }
-function haversineMeters([lon1, lat1], [lon2, lat2]){
-  const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
-  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
-  return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-}
-function stableClusterId(coord){
-  const lon = Number(coord[0]).toFixed(4);
-  const lat = Number(coord[1]).toFixed(4);
-  return `cluster-${lon},${lat}`;
-}
-function readConfidence(a){ return Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0; }
-function readReliability(a){ return Number(a.reliability ?? a.reliabilityScore ?? 0) || 0; }
-function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
-function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
-function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
-function getLngLatFromAlert(a){
-  try{
-    if(a){
-      if(a.location){
-        const loc = a.location;
-        if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
-        if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
-        if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
-        if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
+    async function fetchViaProxies(url, signal){
+      const busted = withCacheBust(url);
+      const errors = [];
+      for(const build of PROXIES){
+        const proxied = build(busted);
+        try{
+          const res = await fetch(proxied, { cache:'no-store', signal });
+          if(!res.ok) throw new Error(`HTTP ${res.status}`);
+          const text = await res.text();
+          const trimmed = text.replace(/^\uFEFF/, '').trim();
+          if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
+          return JSON.parse(trimmed);
+        }catch(e){ errors.push(`${proxied}: ${e.message}`); }
       }
-      if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
-        const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
-      }
-      if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
+      throw new Error(`All proxies failed\n${errors.join('\n')}`);
     }
-  }catch(e){}
-  return null;
-}
 
-function isAccident(a){
-  const t = readType(a);
-  const st = readSubType(a);
-  return t.includes('ACCIDENT') || st.includes('ACCIDENT');
-}
-
-function isIceAlert(a){
-  const st = String(a?.subtype ?? a?.subType ?? a?.sub_type ?? '').toUpperCase();
-  if (st === 'HAZARD_ON_ROAD_ICE') return true;
-
-  // Conservative fallback (keep if some feeds omit subtype)
-  const t  = String(a?.type || a?.alertType || '').toUpperCase();
-  const d  = String(a?.description || a?.reportDescription || a?.title || '').toUpperCase();
-  return (
-    t.includes('ICE') ||
-    /\bICE\b|\BICY\b|BLACK\s*ICE|RECENT(LY)?\s+FORMED\s+ICE/.test(d)
-  );
-}
-// If you prefer strict matching only, replace the entire function body with:
-//   return String(a?.subtype ?? a?.subType ?? a?.sub_type ?? '').toUpperCase() === 'HAZARD_ON_ROAD_ICE';
-
-function isTrafficLightFault(a){
-  const t = readType(a), st = readSubType(a), d = readDesc(a);
-  return (
-    st === 'HAZARD_ON_ROAD_TRAFFIC_LIGHT_FAULT' ||
-    (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
-    st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
-    /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
-  );
-}
-
-function dedupAccidentClusters(clusters, opts={}){
-  const { corridorMeters = 8000 } = opts;
-  if (!Array.isArray(clusters) || clusters.length === 0) return [];
-  const groups = new Map();
-  for (const c of clusters){
-    const token = (c.street||'').toUpperCase().match(/\b([MBA]\d{1,4})\b/);
-    const key = token ? token[1] : (c.street||'').toUpperCase().replace(/[^A-Z0-9 ]+/g,' ').replace(/\s+/g,' ').trim() || '___unknown___';
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(c);
-  }
-  const kept = [];
-  for (const arr of groups.values()){
-    arr.sort((a,b)=>
-      (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) ||
-      (Number(b.time||0) - Number(a.time||0))
-    );
-    const chosen = [];
-    const H = ([lon1,lat1],[lon2,lat2])=>{
-      const R=6371000, dLat=(lat2-lat1)*Math.PI/180, dLon=(lon2-lon1)*Math.PI/180;
-      const A=Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
-      return 2*R*Math.atan2(Math.sqrt(A), Math.sqrt(1-A));
-    };
-    for (const c of arr){
-      let dup = false;
-      for (const k of chosen){
-        const dist = H(c.coord, k.coord);
-        if (dist <= corridorMeters){ dup = true; break; }
-      }
-      if (!dup) chosen.push(c);
+    function toRad(deg){ return deg * Math.PI / 180; }
+    function haversineMeters([lon1, lat1], [lon2, lat2]){
+      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     }
-    kept.push(...chosen);
-  }
-  kept.sort((a,b)=>
-    (Number(b.effectiveConfidence||0) - (Number(a.effectiveConfidence||0))) ||
-    (Number(b.time||0) - (Number(a.time||0)))
-  );
-  return kept;
-}
+    function stableClusterId(coord){
+      const lon = Number(coord[0]).toFixed(4);
+      const lat = Number(coord[1]).toFixed(4);
+      return `cluster-${lon},${lat}`;
+    }
+    function readConfidence(a){ return Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0; }
+    function readReliability(a){ return Number(a.reliability ?? a.reliabilityScore ?? 0) || 0; }
+    function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
+    function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
+    function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
 
-function ensureWazeFits(){
-  const host = document.getElementById('waze-panel');
-  if (!host) return;
-  const highAccWrap = document.getElementById('cards-acc-high');
-  const lowAccWrap  = document.getElementById('cards-acc-low');
-  const weatherWrap = document.getElementById('cards-weather');
-  let guard = 0;
-  const fits = () => host.scrollHeight <= host.clientHeight + 2;
-
-  while(!fits() && weatherWrap && weatherWrap.lastElementChild && guard++ < 500){
-    weatherWrap.removeChild(weatherWrap.lastElementChild);
-  }
-  while(!fits() && lowAccWrap && lowAccWrap.lastElementChild && guard++ < 1000){
-    lowAccWrap.removeChild(lowAccWrap.lastElementChild);
-  }
-
-  host.style.overflow = fits() ? 'hidden' : 'auto';
-
-  const toggleSection = (secId, wrapIds) => {
-    const sec = document.getElementById(secId);
-    const hasAny = wrapIds.some(id => {
-      const el = document.getElementById(id);
-      return el && el.children.length > 0;
-    });
-    if (sec) sec.style.display = hasAny ? 'grid' : 'none';
-  };
-  toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
-  toggleSection('sec-weather',   ['cards-weather']);
-  toggleSection('sec-signals',   ['cards-signals']);
-}
-
-function bindCardClicks(){
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', (ev) => {
-      if (ev.target && ev.target.closest('.hide-btn')) return;
-      const lon = Number(card.getAttribute('data-lon'));
-      const lat = Number(card.getAttribute('data-lat'));
-      if (Number.isFinite(lon) && Number.isFinite(lat)){
-        const u = new URL('https://www.waze.com/partnerhub/map-tool');
-        u.searchParams.set('lon', String(lon));
-        u.searchParams.set('lat', String(lat));
-        window.open(u.toString(), '_blank', 'noopener');
-      }
-    }, { passive: true });
-  });
-}
-
-// Normalize any future timestamp to now (prevents future-looking times)
-function normalizeMillis(raw){
-  const n = Number(raw) || 0;
-  return n > Date.now() ? Date.now() : n;
-}
-
-let wazeTimer = null;
-async function wazeCycle(){
-  const ctrl = new AbortController();
-  try{
-    const data = await fetchViaProxies(WAZE_URL, ctrl.signal);
-
-    // -----------------------------
-    // ACCIDENTS
-    // -----------------------------
-    const accidentPoints = (()=> {
-      const out = [], a = (data && Array.isArray(data.alerts)) ? data.alerts : [];
-      for(const x of a){
-        if(!isAccident(x)) continue;
-        const c = readConfidence(x);
-        if(!(c > 0)) continue;                 // require confidence > 0
-        const coord = getLngLatFromAlert(x); if(!coord) continue;
-        const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-        out.push({
-          coord, conf10:c, rel10:readReliability(x),
-          street:x.street||x.roadName||x.address||'Unknown road',
-          city:x.city||x.town||'',
-          time: normalizeMillis(rawTime),
-          id:x.uuid||x.id||`${coord[0]},${coord[1]},${rawTime||''}`
-        });
-      }
-      return out;
-    })();
-
-    const accidentClustersRaw = accidentPoints.length ? (function cluster(points, merge=200){
-      if(points.length===0) return [];
-      const parent=Array(points.length).fill(0).map((_,i)=>i);
-      const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
-      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
-      for(let i=0;i<points.length;i++){
-        for(let j=i+1;j<points.length;j++){
-          const d=haversineMeters(points[i].coord, points[j].coord);
-          if(d<=merge) union(i,j);
+    function getLngLatFromAlert(a){
+      try{
+        if(a){
+          if(a.location){
+            const loc = a.location;
+            if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
+            if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
+            if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
+            if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
+          }
+          if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
+            const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
+          }
+          if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
         }
+      }catch(e){}
+      return null;
+    }
+
+    function isAccident(a){
+      const t = readType(a);
+      const st = readSubType(a);
+      return t.includes('ACCIDENT') || st.includes('ACCIDENT');
+    }
+
+    function isIceAlert(a){
+      const st = String(a?.subtype ?? a?.subType ?? a?.sub_type ?? '').toUpperCase();
+      if (st === 'HAZARD_ON_ROAD_ICE') return true;
+
+      const t  = String(a?.type || a?.alertType || '').toUpperCase();
+      const d  = String(a?.description || a?.reportDescription || a?.title || '').toUpperCase();
+      return (
+        t.includes('ICE') ||
+        /\bICE\b|\BICY\b|BLACK\s*ICE|RECENT(LY)?\s+FORMED\s+ICE/.test(d)
+      );
+    }
+
+    function isTrafficLightFault(a){
+      const t = readType(a), st = readSubType(a), d = readDesc(a);
+      return (
+        st === 'HAZARD_ON_ROAD_TRAFFIC_LIGHT_FAULT' ||
+        (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
+        st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
+        /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
+      );
+    }
+
+    function dedupAccidentClusters(clusters, opts={}){
+      const { corridorMeters = 8000 } = opts;
+      if (!Array.isArray(clusters) || clusters.length === 0) return [];
+      const groups = new Map();
+      for (const c of clusters){
+        const token = (c.street||'').toUpperCase().match(/\b([MBA]\d{1,4})\b/);
+        const key = token ? token[1] : (c.street||'').toUpperCase().replace(/[^A-Z0-9 ]+/g,' ').replace(/\s+/g,' ').trim() || '___unknown___';
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(c);
       }
-      const groups=new Map();
-      for(let i=0;i<points.length;i++){
-        const r=find(i);
-        if(!groups.has(r)) groups.set(r, []);
-        groups.get(r).push(points[i]);
+      const kept = [];
+      for (const arr of groups.values()){
+        arr.sort((a,b)=>
+          (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) ||
+          (Number(b.time||0) - Number(a.time||0))
+        );
+        const chosen = [];
+        const H = ([lon1,lat1],[lon2,lat2])=>{
+          const R=6371000, dLat=(lat2-lat1)*Math.PI/180, dLon=(lon2-lon1)*Math.PI/180;
+          const A=Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
+          return 2*R*Math.atan2(Math.sqrt(A), Math.sqrt(1-A));
+        };
+        for (const c of arr){
+          let dup = false;
+          for (const k of chosen){
+            const dist = H(c.coord, k.coord);
+            if (dist <= corridorMeters){ dup = true; break; }
+          }
+          if (!dup) chosen.push(c);
+        }
+        kept.push(...chosen);
       }
-      const clusters=[];
-      for(const members of groups.values()){
-        const count=members.length;
-        const baseConf10=members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
-        const bestRel10=members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
-        let eff10=baseConf10 + (bestRel10>8?2:0);
-        eff10=Math.max(0, Math.min(12, eff10));
-        const eff5=Math.max(1, Math.min(5, Math.round(eff10/2)));
-        const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
-        const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
-        const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0];
-        clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count });
+      kept.sort((a,b)=>
+        (Number(b.effectiveConfidence||0) - (Number(a.effectiveConfidence||0))) ||
+        (Number(b.time||0) - (Number(a.time||0)))
+      );
+      return kept;
+    }
+
+    function ensureWazeFits(){
+      const host = document.getElementById('waze-panel');
+      if (!host) return;
+      const highAccWrap = document.getElementById('cards-acc-high');
+      const lowAccWrap  = document.getElementById('cards-acc-low');
+      const weatherWrap = document.getElementById('cards-weather');
+      let guard = 0;
+      const fits = () => host.scrollHeight <= host.clientHeight + 2;
+
+      while(!fits() && weatherWrap && weatherWrap.lastElementChild && guard++ < 500){
+        weatherWrap.removeChild(weatherWrap.lastElementChild);
       }
-      clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0)))));
-      return clusters;
-    })(accidentPoints) : [];
+      while(!fits() && lowAccWrap && lowAccWrap.lastElementChild && guard++ < 1000){
+        lowAccWrap.removeChild(lowAccWrap.lastElementChild);
+      }
 
-    const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000 });
+      host.style.overflow = fits() ? 'hidden' : 'auto';
 
-    const highWrap = document.getElementById('cards-acc-high');
-    const lowWrap  = document.getElementById('cards-acc-low');
-    if (highWrap) highWrap.innerHTML = '';
-    if (lowWrap)  lowWrap.innerHTML  = '';
+      const toggleSection = (secId, wrapIds) => {
+        const sec = document.getElementById(secId);
+        const hasAny = wrapIds.some(id => {
+          const el = document.getElementById(id);
+          return el && el.children.length > 0;
+        });
+        if (sec) sec.style.display = hasAny ? 'grid' : 'none';
+      };
+      toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
+      toggleSection('sec-weather',   ['cards-weather']);
+      toggleSection('sec-signals',   ['cards-signals']);
+    }
 
-    const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
+    function bindCardClicks(){
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', (ev) => {
+          if (ev.target && ev.target.closest('.hide-btn')) return;
+          const lon = Number(card.getAttribute('data-lon'));
+          const lat = Number(card.getAttribute('data-lat'));
+          if (Number.isFinite(lon) && Number.isFinite(lat)){
+            const u = new URL('https://www.waze.com/partnerhub/map-tool');
+            u.searchParams.set('lon', String(lon));
+            u.searchParams.set('lat', String(lat));
+            window.open(u.toString(), '_blank', 'noopener');
+          }
+        }, { passive: true });
+      });
+    }
 
-    // Filter out hidden accident clusters before rendering
-    const accidentVisible = accidentClusters.filter(a => !isHiddenWithAutoCheck('acc', a.id, { conf: Number(a.effectiveConfidence||0) }));
+    function normalizeMillis(raw){
+      const n = Number(raw) || 0;
+      return n > Date.now() ? Date.now() : n;
+    }
 
-    const highs = accidentVisible.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
-    const lows  = accidentVisible.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
+    let wazeTimer = null;
+    async function wazeCycle(){
+      const ctrl = new AbortController();
+      try{
+        const data = await fetchViaProxies(WAZE_URL, ctrl.signal);
 
-    const cardAccidentHTML = (item)=>{
-      const heading = escapeHTML((item.street||'').trim()) + (item.city? ` — ${escapeHTML(item.city)}`:'');
-      const conf = Number(item.effectiveConfidence)||0;
-      const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-      return `<div class="card" data-type="accident"
-                    data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+        /* =========================
+           ACCIDENTS
+           ========================= */
+        const accidentPoints = (()=> {
+          const out = [], a = (data && Array.isArray(data.alerts)) ? data.alerts : [];
+          for(const x of a){
+            if(!isAccident(x)) continue;
+            const c = readConfidence(x);
+            if(!(c > 0)) continue;
+            const coord = getLngLatFromAlert(x); if(!coord) continue;
+            const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+            out.push({
+              coord, conf10:c, rel10:readReliability(x),
+              street:x.street||x.roadName||x.address||'Unknown road',
+              city:x.city||x.town||'',
+              time: normalizeMillis(rawTime),
+              id:x.uuid||x.id||`${coord[0]},${coord[1]},${rawTime||''}`
+            });
+          }
+          return out;
+        })();
+
+        const accidentClustersRaw = accidentPoints.length ? (function cluster(points, merge=200){
+          if(points.length===0) return [];
+          const parent=Array(points.length).fill(0).map((_,i)=>i);
+          const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+          const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+          for(let i=0;i<points.length;i++){
+            for(let j=i+1;j<points.length;j++){
+              const d=haversineMeters(points[i].coord, points[j].coord);
+              if(d<=merge) union(i,j);
+            }
+          }
+          const groups=new Map();
+          for(let i=0;i<points.length;i++){
+            const r=find(i);
+            if(!groups.has(r)) groups.set(r, []);
+            groups.get(r).push(points[i]);
+          }
+          const clusters=[];
+          for(const members of groups.values()){
+            const count=members.length;
+            const baseConf10=members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
+            const bestRel10=members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+            let eff10=baseConf10 + (bestRel10>8?2:0);
+            eff10=Math.max(0, Math.min(12, eff10));
+            const eff5=Math.max(1, Math.min(5, Math.round(eff10/2)));
+            const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+            const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+            const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0];
+            clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count });
+          }
+          clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0)))));
+          return clusters;
+        })(accidentPoints) : [];
+
+        const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000 });
+
+        const highWrap = document.getElementById('cards-acc-high');
+        const lowWrap  = document.getElementById('cards-acc-low');
+        if (highWrap) highWrap.innerHTML = '';
+        if (lowWrap)  lowWrap.innerHTML  = '';
+
+        const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
+
+        const accidentVisible = accidentClusters.filter(a => !isHiddenWithAutoCheck('acc', a.id, { conf: Number(a.effectiveConfidence||0) }));
+        const highs = accidentVisible.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
+        const lows  = accidentVisible.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
+
+        const cardAccidentHTML = (item)=>{
+          const heading = escapeHTML((item.street||'').trim()) + (item.city? ` — ${escapeHTML(item.city)}`:'');
+          const conf = Number(item.effectiveConfidence)||0;
+          const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
+          return `<div class="card" data-type="accident"
+                        data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+                    <div class="title">
+                      ${heading}
+                      <span class="spacer"></span>
+                      <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
+                    </div>
+                    <div class="meta">Confidence: ${conf}/5 • ${when}</div>
+                    <div class="desc">Accident cluster</div>
+                  </div>`;
+        };
+        if (highWrap) highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
+        if (lowWrap)  lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
+
+        /* =========================
+           SIGNALS
+           ========================= */
+        const sigWrap = document.getElementById('cards-signals');
+        if (sigWrap) {
+          sigWrap.innerHTML = '';
+
+          const signalsRaw = Array.isArray(data?.alerts) ? data.alerts : [];
+          const signals = [];
+          for (const x of signalsRaw) {
+            if (!isTrafficLightFault(x)) continue;
+
+            const coord = getLngLatFromAlert(x);
+            if (!coord) continue;
+
+            const rel10 = readReliability(x);
+            const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+            const time  = normalizeMillis(rawTime);
+            const id    = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
+            const street = x.street || x.roadName || x.address || 'Unknown road';
+            const city = x.city || x.town || '';
+            const desc = x.reportDescription || x.description || x.title || '';
+
+            if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
+
+            signals.push({ id, coord, street, city, time, rel10, desc });
+          }
+
+          signals.sort((a, b) => (b.rel10 - a.rel10) || (b.time - a.time));
+
+          const cardSignalHTML = (item) => {
+            const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
+            const when = new Date(Number(item.time) || 0).toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
+            const rel = Number(item.rel10) || 0;
+            const desc = escapeHTML(item.desc || 'Traffic signal fault');
+
+            return `
+              <div class="card" data-type="signal"
+                   data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
                 <div class="title">
                   ${heading}
                   <span class="spacer"></span>
-                  <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
+                  <button class="hide-btn"
+                          data-prefix="sig"
+                          data-id="${escapeHTML(item.id)}"
+                          data-baseline-conf="${rel}"
+                          type="button">Hide</button>
                 </div>
-                <div class="meta">Confidence: ${conf}/5 • ${when}</div>
-                <div class="desc">Accident cluster</div>
-              </div>`;
-    };
-    if (highWrap) highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
-    if (lowWrap)  lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
+                <div class="meta">Reliability: ${rel}/10 • ${when}</div>
+                <div class="desc">${desc}</div>
+              </div>
+            `;
+          };
 
-    // -----------------------------
-    // TRAFFIC LIGHT FAULTS (Signals)
-    // -----------------------------
-    const sigWrap = document.getElementById('cards-signals');
-    if (sigWrap) {
-      sigWrap.innerHTML = '';
+          sigWrap.innerHTML = signals.map(cardSignalHTML).join('');
+        }
 
-      const signalsRaw = Array.isArray(data?.alerts) ? data.alerts : [];
-      const signals = [];
-      for (const x of signalsRaw) {
-        if (!isTrafficLightFault(x)) continue;
+        /* =========================
+           WEATHER (ICE)
+           ========================= */
+        const weatherWrap = document.getElementById('cards-weather');
+        if (weatherWrap) {
+          weatherWrap.innerHTML = '';
 
-        const coord = getLngLatFromAlert(x);
-        if (!coord) continue;
+          const wxRaw = Array.isArray(data?.alerts) ? data.alerts : [];
+          const wx = [];
+          for (const x of wxRaw) {
+            if (!isIceAlert(x)) continue;
 
-        const rel10 = readReliability(x);              // Prefer reliability for signals
-        const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-        const time  = normalizeMillis(rawTime);
-        const id    = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
-        const street = x.street || x.roadName || x.address || 'Unknown road';
-        const city = x.city || x.town || '';
-        const desc = x.reportDescription || x.description || x.title || '';
+            const coord = getLngLatFromAlert(x);
+            if (!coord) continue;
 
-        // Respect "hide" persistence (no auto-unhide for 'sig')
-        if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
+            const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+            const time    = normalizeMillis(rawTime);
+            const id      = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
 
-        signals.push({ id, coord, street, city, time, rel10, desc });
+            const street = x.street || x.roadName || x.address || 'Unknown road';
+            const city   = x.city   || x.town   || '';
+            const desc   = x.reportDescription || x.description || x.title || 'Ice alert';
+
+            if (isHiddenWithAutoCheck('wx', id, {})) continue;
+
+            wx.push({ id, coord, street, city, time, desc });
+          }
+
+          wx.sort((a, b) => (b.time - a.time));
+
+          const cardWeatherHTML = (item) => {
+            const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
+            const when = new Date(Number(item.time) || 0)
+              .toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
+
+            return `
+              <div class="card" data-type="weather"
+                   data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+                <div class="title">
+                  ${heading}
+                  <span class="spacer"></span>
+                  <button class="hide-btn"
+                          data-prefix="wx"
+                          data-id="${escapeHTML(item.id)}"
+                          type="button">Hide</button>
+                </div>
+                <div class="meta">${when}</div>
+                <div class="desc">❄️ ${escapeHTML(item.desc || 'Ice alert')}</div>
+              </div>
+            `;
+          };
+
+          weatherWrap.innerHTML = wx.map(cardWeatherHTML).join('');
+        }
+
+        bindCardClicks();
+        requestAnimationFrame(ensureWazeFits);
+        setStatusPill(true, { animate:true });
+
+      }catch(e){
+        console.error('[Waze] fetch failed:', e);
+        setStatusPill(false, { animate:false });
+      }finally{
+        clearTimeout(wazeTimer);
+        wazeTimer = setTimeout(wazeCycle, WAZE_REFRESH_MS);
       }
-
-      // Sort: highest reliability, then newest
-      signals.sort((a, b) => (b.rel10 - a.rel10) || (b.time - a.time));
-
-      const cardSignalHTML = (item) => {
-        const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
-        const when = new Date(Number(item.time) || 0).toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
-        const rel = Number(item.rel10) || 0;
-        const desc = escapeHTML(item.desc || 'Traffic signal fault');
-
-        return `
-          <div class="card" data-type="signal"
-               data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-            <div class="title">
-              ${heading}
-              <span class="spacer"></span>
-              <button class="hide-btn"
-                      data-prefix="sig"
-                      data-id="${escapeHTML(item.id)}"
-                      data-baseline-conf="${rel}"
-                      type="button">Hide</button>
-            </div>
-            <div class="meta">Reliability: ${rel}/10 • ${when}</div>
-            <div class="desc">${desc}</div>
-          </div>
-        `;
-      };
-
-      sigWrap.innerHTML = signals.map(cardSignalHTML).join('');
     }
 
-    // -----------------------------
-    // WEATHER (Ice) — subtype-based
-    // -----------------------------
-    const weatherWrap = document.getElementById('cards-weather');
-    if (weatherWrap) {
-      weatherWrap.innerHTML = '';
-
-      const wxRaw = Array.isArray(data?.alerts) ? data.alerts : [];
-      const wx = [];
-      for (const x of wxRaw) {
-        if (!isIceAlert(x)) continue;
-
-        const coord = getLngLatFromAlert(x);
-        if (!coord) continue;
-
-        // Time & identity
-        const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-        const time    = normalizeMillis(rawTime);
-        const id      = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
-
-        // Location & text
-        const street = x.street || x.roadName || x.address || 'Unknown road';
-        const city   = x.city   || x.town   || '';
-        const desc   = x.reportDescription || x.description || x.title || 'Ice alert';
-
-        // Respect hide for 60 mins (no auto-unhide for weather)
-        if (isHiddenWithAutoCheck('wx', id, {})) continue;
-
-        wx.push({ id, coord, street, city, time, desc });
-      }
-
-      // Sort newest first
-      wx.sort((a, b) => (b.time - a.time));
-
-      const cardWeatherHTML = (item) => {
-        const heading = escapeHTML((item.street || '').trim()) + (item.city ? ` — ${escapeHTML(item.city)}` : '');
-        const when = new Date(Number(item.time) || 0)
-          .toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
-
-        return `
-          <div class="card" data-type="weather"
-               data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-            <div class="title">
-              ${heading}
-              <span class="spacer"></span>
-              <button class="hide-btn"
-                      data-prefix="wx"
-                      data-id="${escapeHTML(item.id)}"
-                      type="button">Hide</button>
-            </div>
-            <div class="meta">${when}</div>
-            <div class="desc">❄️ ${escapeHTML(item.desc || 'Ice alert')}</div>
-          </div>
-        `;
-      };
-
-      weatherWrap.innerHTML = wx.map(cardWeatherHTML).join('');
-    }
-
-    // After all three sections are rendered:
-    bindCardClicks();
-    requestAnimationFrame(ensureWazeFits);
-    setStatusPill(true, { animate:true });
-
-  }catch(e){
-    console.error('[Waze] fetch failed:', e);
-    setStatusPill(false, { animate:false });
-  }finally{
-    clearTimeout(wazeTimer);
-    wazeTimer = setTimeout(wazeCycle, WAZE_REFRESH_MS);
-  }
-}
     /* =======================================================
        CENTRAL PANE — Bee Network Unplanned Diversions (2×4)
        ======================================================= */
@@ -1742,6 +1686,44 @@ async function wazeCycle(){
     const DIV_REFRESH_MS = 45000;
     const DIV_BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
     const DIV_DAY_MS = 24 * 60 * 60 * 1000;
+
+/* ========= Travel Alerts (Diverts) filter state ========= */
+const DIV_FILTER_KEY = "div_filter_mode";
+let DIV_FILTER_MODE = localStorage.getItem(DIV_FILTER_KEY) || "CURRENT";
+
+function setDivFilterMode(mode){
+  DIV_FILTER_MODE = mode || "CURRENT";
+  localStorage.setItem(DIV_FILTER_KEY, DIV_FILTER_MODE);
+
+  const wrap = document.getElementById("div-filters");
+  if (wrap){
+    wrap.querySelectorAll("button[data-filter]").forEach(b => {
+      b.classList.toggle("active", b.dataset.filter === DIV_FILTER_MODE);
+    });
+  }
+
+  // Refresh immediately
+  try { clearTimeout(divTimer); } catch {}
+  divTimer = null;
+  divertsCycle();
+}
+
+function bindDivFilters(){
+  const wrap = document.getElementById("div-filters");
+  if (!wrap) return;
+
+  // Ensure correct active button on load
+  wrap.querySelectorAll("button[data-filter]").forEach(b => {
+    b.classList.toggle("active", b.dataset.filter === DIV_FILTER_MODE);
+  });
+
+  wrap.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-filter]");
+    if (!btn) return;
+    setDivFilterMode(btn.dataset.filter);
+  }, { passive: true });
+}
+
 
     const DIV_OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
     const DIV_OP_COLORS = {
@@ -1813,18 +1795,6 @@ async function wazeCycle(){
       if(e && e < now) return false;
       return true;
     }
-    function divIsBeeOperator(sit){
-      const refs = divGetOperatorRefs(sit);
-      const single = divGetSingleOperatorRef(sit);
-      return (refs && refs.some(r => DIV_BEE_OPERATORS.includes(String(r).toUpperCase()))) ||
-             (single && DIV_BEE_OPERATORS.includes(String(single).toUpperCase()));
-    }
-    function divDisplayEligibility(sit){
-      const s = sit?.ValidityPeriod?.StartTime || sit?.StartTime ? new Date(sit?.ValidityPeriod?.StartTime || sit?.StartTime) : null;
-      const e = sit?.ValidityPeriod?.EndTime   || sit?.EndTime   ? new Date(sit?.ValidityPeriod?.EndTime   || sit?.EndTime)   : null;
-      const isUFN = !e;
-      return isUFN || dIsToday(s) || dIsToday(e);
-    }
 
     function divGetSituationId(sit){
       const a  = sit?.SituationNumber || sit?.SituationRef;
@@ -1858,12 +1828,46 @@ async function wazeCycle(){
         for(const j of avj){ pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName); }
       }else if(avj){ pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName); }
       if(Array.isArray(sit.__lineRefs)){ for(const v of sit.__lineRefs) pushVal(v); }
-      if(lines.size === 0){
-        const fallback = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney?.[0]?.LineRef;
-        if(fallback) pushVal(fallback);
-      }
-      return Array.from(lines);
+      return Array.from(lines.size ? lines : ["?"]);
     }
+
+    function divIsBeeOperator(sit){
+      const refs = divGetOperatorRefs(sit);
+      const single = divGetSingleOperatorRef(sit);
+      return (refs && refs.some(r => DIV_BEE_OPERATORS.includes(String(r).toUpperCase()))) ||
+             (single && DIV_BEE_OPERATORS.includes(String(single).toUpperCase()));
+    }
+function divMatchesMode(sit){
+  const stRaw = sit?.ValidityPeriod?.StartTime || sit?.StartTime;
+  const enRaw = sit?.ValidityPeriod?.EndTime   || sit?.EndTime;
+
+  const st = stRaw ? new Date(stRaw) : null;
+  const en = enRaw ? new Date(enRaw) : null;
+
+  const isUFN = !en;
+
+  // Count how many routes are affected (LineRefs)
+  const routeCount = (divGetLineRefs(sit) || []).length;
+
+  switch (String(DIV_FILTER_MODE || "CURRENT").toUpperCase()){
+    case "UFN":
+      return isUFN;
+
+    case "END_TODAY":
+      return !!en && dIsToday(en);
+
+    case "START_TODAY":
+      return !!st && dIsToday(st);
+
+    case "HIGH_IMPACT":
+      return routeCount > 5;
+
+    case "CURRENT":
+    default:
+      // Your original behaviour
+      return isUFN || (st && dIsToday(st)) || (en && dIsToday(en));
+  }
+}
 
     function divParseSummaryParts(summaryText){
       if(!summaryText) return null;
@@ -1884,27 +1888,23 @@ async function wazeCycle(){
       const lines = divGetLineRefs(s);
       const st = s?.ValidityPeriod?.StartTime || s?.StartTime ? new Date(s?.ValidityPeriod?.StartTime || s?.StartTime) : null;
       const en = s?.ValidityPeriod?.EndTime   || s?.EndTime   ? new Date(s?.ValidityPeriod?.EndTime   || s?.EndTime)   : null;
-      const startMs = st ? st.getTime() : 0;
-      const endMs   = en ? en.getTime() : null;
-      const isUFN = (endMs == null);
-      const ufnOver24h = isUFN && startMs > 0 && (Date.now() - startMs) >= DIV_DAY_MS;
 
       const parsed = divParseSummaryParts(s.Summary || s.Description || "");
-      const street = parsed?.place || "";   // show as Street
+      const street = parsed?.place || "";
       const town   = parsed?.town  || "";
+
+      const isUFN = !en;
 
       return {
         id: divGetSituationId(s),
         operatorRefs,
-        singleOperatorForTint: divGetSingleOperatorRef(s) || "",
-        routes: (lines && lines.length ? lines.map(String) : ["?"]),
+        routes: lines,
         summary: (s.Summary || s.Description || "").trim(),
         street,
         town,
         start: st,
         end: en,
         isUFN,
-        ufnOver24h,
         startedLabel: dFormatLabel(st),
         endsLabel: isUFN ? "UFN" : dFormatLabel(en),
         durationLabel: dDuration(st, en)
@@ -1947,6 +1947,7 @@ async function wazeCycle(){
         }
         return out;
       };
+
       const fromXML = (doc) => {
         const els = [...doc.querySelectorAll("PtSituationElement")];
         return els.map(el=>{
@@ -1987,10 +1988,9 @@ async function wazeCycle(){
                    const p = sit?.Planned;
                    return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
                  })
-                 .filter(divDisplayEligibility);
+                 .filter(divMatchesMode);
 
-      const items = sits.map(divMapSituation).sort(divSortItems);
-      return items;
+      return sits.map(divMapSituation).sort(divSortItems);
     }
 
     function divBuildRouteChips(routes){
@@ -2081,73 +2081,83 @@ async function wazeCycle(){
       return tag;
     }
 
-    function divRenderBoard(items){
-      const grid = document.querySelector('#diverts-grid');
-      if (!grid) return;
+function divRenderBoard(items){
+  const grid = document.querySelector('#diverts-grid');
+  if (!grid) return;
 
-      const eight = items.slice(0,8);
-      while (eight.length < 8){
-        eight.push({ __placeholder: true });
-      }
+  const list = Array.isArray(items) ? items : [];
 
-      const currentIds = new Set(eight.filter(it=>!it.__placeholder).map(it=>it.id));
+  // Track IDs so "new UFN flash" still works correctly
+  const currentIds = new Set(list.map(it => it.id));
 
-      grid.innerHTML = '';
-      for (const it of eight){
-        const card = document.createElement('div');
-        card.className = 'divert-card';
+  grid.innerHTML = '';
 
-        if (it.__placeholder){
-          card.classList.add('placeholder');
-          card.innerHTML = ``;
-          grid.appendChild(card);
-          continue;
-        }
+  for (const it of list){
+    const card = document.createElement('div');
+    card.className = 'divert-card';
 
-        if (it.isUFN){ card.classList.add('ufn-highlight'); }
+    if (it.isUFN){ card.classList.add('ufn-highlight'); }
 
-        const header = document.createElement('div');
-        header.className = 'divert-header';
-        const routes = divBuildRouteChips(it.routes || ["?"]);
-        routes.title = (it.routes||[]).join(', ');
-        const opTag = divBuildOpTag((it.operatorRefs||[]).map(r=>String(r).toUpperCase()));
-        opTag.title = (it.operatorRefs||[]).join(', ') || '—';
-        header.append(routes, opTag);
+    // Header
+    const header = document.createElement('div');
+    header.className = 'divert-header';
 
-const streetLine = document.createElement('div');
-streetLine.className = 'street-line';
+    const routes = divBuildRouteChips(it.routes || ["?"]);
+    routes.title = (it.routes || []).join(', ');
 
-const st = document.createElement('span');
-st.className = 'street';     // This gets bold via CSS
-st.textContent = it.street || '—';
+    const opTag = divBuildOpTag((it.operatorRefs || []).map(r => String(r).toUpperCase()));
+    opTag.title = (it.operatorRefs || []).join(', ') || '—';
 
-streetLine.append(st);
+    header.append(routes, opTag);
 
-        const loc = document.createElement('div');
-        loc.className = 'location';
-        loc.textContent = it.town || it.summary || 'Travel alert';
+    // Street
+    const streetLine = document.createElement('div');
+    streetLine.className = 'street-line';
 
-        const times = document.createElement('div'); times.className = 'times';
-        const row1 = document.createElement('div'); row1.className = 'time-row';
-        row1.innerHTML = `<span class="lab">Started:</span> <span class="val">${it.startedLabel || '—'}</span>`;
-        const row2 = document.createElement('div'); row2.className = 'time-row' + (String(it.endsLabel||'').toUpperCase()==='UFN' ? ' ufn' : '');
-        row2.innerHTML = `<span class="lab">Ends:</span> <span class="val">${it.endsLabel || '—'}</span>`;
-        const row3 = document.createElement('div'); row3.className = 'time-row';
-        row3.innerHTML = `<span class="lab">Duration:</span> <span class="val">${it.durationLabel || '—'}</span>`;
-        times.append(row1,row2,row3);
+    const st = document.createElement('span');
+    st.className = 'street';
+    st.textContent = it.street || '—';
 
-        card.append(header, streetLine, loc, times);
+    streetLine.append(st);
 
-        if (it.isUFN && !lastBoardIds.has(it.id)){
-          card.classList.add('new-ufn-flash');
-          setTimeout(()=>card.classList.remove('new-ufn-flash'), 1600);
-        }
+    // Location / summary
+    const loc = document.createElement('div');
+    loc.className = 'location';
+    loc.textContent = it.town || it.summary || 'Travel alert';
 
-        grid.appendChild(card);
-      }
+    // Times
+    const times = document.createElement('div');
+    times.className = 'times';
 
-      lastBoardIds = currentIds;
+    const row1 = document.createElement('div');
+    row1.className = 'time-row';
+    row1.innerHTML = `<span class="lab">Started:</span> <span class="val">${it.startedLabel || '—'}</span>`;
+
+    const row2 = document.createElement('div');
+    row2.className = 'time-row' + (String(it.endsLabel || '').toUpperCase() === 'UFN' ? ' ufn' : '');
+    row2.innerHTML = `<span class="lab">Ends:</span> <span class="val">${it.endsLabel || '—'}</span>`;
+
+    const row3 = document.createElement('div');
+    row3.className = 'time-row';
+    row3.innerHTML = `<span class="lab">Duration:</span> <span class="val">${it.durationLabel || '—'}</span>`;
+
+    times.append(row1, row2, row3);
+
+    // Assemble card
+    card.append(header, streetLine, loc, times);
+
+    // Keep your "new UFN flash" behaviour
+    if (it.isUFN && !lastBoardIds.has(it.id)){
+      card.classList.add('new-ufn-flash');
+      setTimeout(() => card.classList.remove('new-ufn-flash'), 1600);
     }
+
+    grid.appendChild(card);
+  }
+
+  // Save for next refresh
+  lastBoardIds = currentIds;
+}
 
     async function divertsCycle(){
       const ctrl = new AbortController();
@@ -2277,28 +2287,23 @@ streetLine.append(st);
 
       const code  = map?.code  || '';
       const color = map?.color || '';
-      const pillStyle = color ? `background:${color}; border-color: rgba(255,255,255,0.22); color:${textColorForBg(color)}` : '';
+      const pillStyle = color
+        ? `background:${color}; border-color: rgba(255,255,255,0.22); color:${textColorForBg(color)}`
+        : '';
 
-const html = `
-  <div class="roc-card">
-
-    <div class="roc-route-big">
-      ${escapeHTML(row.route)}
-    </div>
-
-    <div class="roc-desc">
-      ${escapeHTML(row.description || '—')}
-    </div>
-
-    <div class="roc-operator-big" style="${pillStyle}">
-      <span class="roc-op-swatch-big" style="${color ? `background:${color}` : ''}"></span>
-      <span>${code || '—'}</span>
-      <span>• ${escapeHTML(row.operator || 'Unknown')}</span>
-    </div>
-
-  </div>
-`;
-host.innerHTML = html;
+      host.innerHTML = `
+        <div class="roc-card">
+          <div class="roc-route-chip">${escapeHTML(row.route)}</div>
+          <div class="roc-right">
+            <div class="roc-desc">${escapeHTML(row.description || '—')}</div>
+            <div class="roc-operator-chip" style="${pillStyle}">
+              <span class="roc-op-swatch" style="${color ? `background:${color}` : ''}"></span>
+              <span>${escapeHTML(code || '—')}</span>
+              <span>• ${escapeHTML(row.operator || 'Unknown')}</span>
+            </div>
+          </div>
+        </div>
+      `;
     }
 
     function chooseBestRowForExactRoute(candidates){
@@ -2347,7 +2352,6 @@ host.innerHTML = html;
 
     function rocBind(){
       const input = document.getElementById('roc-input');
-
       if (!input) return;
 
       let t = null;
@@ -2383,15 +2387,20 @@ host.innerHTML = html;
         divertsCycle();
       }
     });
+
     window.addEventListener('load', () => {
       setStatusPill(false, { animate:false });
+
       const unhideBtn = document.getElementById('unhideAllBtn');
       if (unhideBtn){ unhideBtn.addEventListener('click', unhideAll, { passive: true }); }
-      tvtCycle();     // left
-      wazeCycle();    // right
-      divertsCycle(); // centre
 
-      // ROC
+      bindTvtFilters();
+      bindDivFilters();
+
+      tvtCycle();
+      wazeCycle();
+      divertsCycle();
+
       rocBind();
       rocFetchCSV().then(() => {
         if ((ROC_STATE.lastQuery || '').trim()){
