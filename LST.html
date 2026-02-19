@@ -454,6 +454,9 @@
   width: 100%;
 }
 
+.corridor{ cursor: pointer; }
+.corridor .hide-btn{ cursor: pointer; }
+
 .div-filters{
   display: inline-flex;
   gap: 8px;
@@ -1256,6 +1259,63 @@
 
     const routeKey = (r) => String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
 
+/* =======================================================
+   ABNORMAL TRAFFIC → click corridor to open Waze Map Tool
+   Uses bbox centre if present, else averages the polyline.
+   ======================================================= */
+function getCorridorCenterLngLat(route){
+  // Returns [lon, lat] or null
+  try{
+    // 1) Best: bbox center (your feed has bbox.minX/minY/maxX/maxY)
+    const bb = route?.bbox;
+    if (bb){
+      const minX = Number(bb.minX), maxX = Number(bb.maxX);
+      const minY = Number(bb.minY), maxY = Number(bb.maxY);
+      if ([minX, maxX, minY, maxY].every(Number.isFinite)){
+        return [(minX + maxX) / 2, (minY + maxY) / 2];
+      }
+    }
+
+    // 2) Fallback: average of line points (your feed has line[].x/.y)
+    const pts = Array.isArray(route?.line) ? route.line : [];
+    let sumX = 0, sumY = 0, n = 0;
+    for (const p of pts){
+      const x = Number(p?.x);
+      const y = Number(p?.y);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
+      sumX += x; sumY += y; n++;
+    }
+    if (n > 0){
+      return [sumX / n, sumY / n];
+    }
+  }catch(e){}
+  return null;
+}
+
+function bindCorridorClicks(){
+  const list = document.getElementById('tvt-corridors');
+  if (!list) return;
+
+  // Event delegation: survives re-renders (innerHTML updates)
+  list.addEventListener('click', (ev) => {
+    // ✅ Do nothing if user clicked Hide button (keep hide behaviour)
+    if (ev.target && ev.target.closest('.hide-btn')) return;
+
+    const card = ev.target.closest('.corridor');
+    if (!card) return;
+
+    const lon = Number(card.getAttribute('data-lon'));
+    const lat = Number(card.getAttribute('data-lat'));
+    if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
+
+    const u = new URL('https://www.waze.com/partnerhub/map-tool');
+    u.searchParams.set('lon', String(lon));
+    u.searchParams.set('lat', String(lat));
+
+    window.open(u.toString(), '_blank', 'noopener');
+  }, { passive: true });
+}
+
     function renderTvtPanel(data){
       lastTvtData = data;
 
@@ -1288,9 +1348,18 @@
 
         const normMin = Math.max(0, Math.round((Number(it.hist)||0) / 60));
         const nowMin  = Math.max(0, Math.round((Number(it.time)||0) / 60));
+        const center = getCorridorCenterLngLat(it.r);
+        const cLon = center ? Number(center[0]) : NaN;
+        const cLat = center ? Number(center[1]) : NaN;
+        const hasCenter = Number.isFinite(cLon) && Number.isFinite(cLat);
+        
 
         return `
-          <div class="corridor" title="${escapeHTML(it.r?.name||'')}" data-delay="${delayMin}">
+
+  <div class="corridor"
+       title="${escapeHTML(it.r?.name||'')}"
+       data-delay="${delayMin}"
+       ${hasCenter ? `data-lon="${cLon}" data-lat="${cLat}"` : ''}>
             <div class="corridor-top">
               <div class="corridor-title">${street}</div>
               <button class="hide-btn"
@@ -2475,6 +2544,8 @@ function divRenderBoard(items){
 
       bindTvtFilters();
       bindDivFilters();
+
+bindCorridorClicks();
 
       tvtCycle();
       wazeCycle();
