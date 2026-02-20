@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;📍&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Location Helper
+  </title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+   :root {
+  --bg-color: #f9fafb;
+  --text-color: #333;
+  --input-bg: #fff;
+  --button-bg: #FFCC33;
+  --button-hover: #FFD966;
+  --iframe-border: #ccc;
+  --font-main: 'Merriweather', serif;
+}
+
+body.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #f0f0f0;
+  --input-bg: #2c2c2c;
+  --button-bg: #FFCC33;
+  --button-hover: #FFD966;
+  --iframe-border: #444;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: black;
+  border: 2px solid black;
+  padding: 10px 16px;
+  margin: 5px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: var(--font-main);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+
+
+
+.button-container {
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px auto 0 auto; /* This centers the container */
+}
+
+
+.button-container button {
+  flex: 1 1 150px; /* Allows buttons to grow/shrink and wrap nicely */
+  min-width: 120px;
+}
+
+
+iframe {
+  width: 80%;
+  height: 500px;
+  border: 1px solid var(--iframe-border);
+  border-radius: 8px;
+  margin-top: 0; /* Remove top margin */
+ justify-content: center;
+}
+
+
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  
+
+
+body {
+    font-family: 'Merriweather', serif;
+}
+
+
+.title-box {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  padding: 12px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 20px;
+  border: 2px solid var(--iframe-border);
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+
+input#coordInput {
+  width: 60%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid var(--iframe-border);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  margin-top: 15px;
+}
+
+
+.title-box {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  padding: 12px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 20px;
+  border: 2px solid var(--iframe-border);
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.input-container input,
+.input-container button {
+  flex: 1;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+input#coordInput {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.input-container button {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.input-container input,
+.input-container button {
+  flex: 1;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+input#coordInput {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.input-container button {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+button.open-all,
+button.falcon-copy {
+  background-color: #3399FF; /* Complementary blue */
+  color: white;
+  border-color: #1a73e8;
+}
+
+button.open-all:hover,
+button.falcon-copy:hover {
+  background-color: #1a73e8;
+}
+
+
+input#coordInput {
+    width: 50%;
+    padding: 6px 10px;
+    font-size: 14px;
+    border: 2px solid var(--iframe-border);
+    border-radius: 6px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+button[onclick="generateLinks()"] {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+/* Specific styles for .open-all and .falcon-copy buttons */
+button.open-all,
+button.falcon-copy {
+  background-color: #3399FF; /* Complementary blue */
+  color: white;
+  border-color: #1a73e8;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.input-container input,
+.input-container button {
+  flex: 1;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+input#coordInput {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.input-container button {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.input-container button {
+    height: 100%;
+    padding: 10px 16px;
+    font-size: 16px;
+}
+
+.route-chip {
+  display: inline-block;
+  background-color: white;
+  color: #3399FF;
+  border: 1px solid #3399FF;
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin: 2px;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+<script>const routeOperatorMap = {
+  "100": "TFGM Stagecoach",
+  "101": "TFGM Metroline",
+  "102": "TFGM Metroline",
+  "103": "TFGM Metroline",
+  "10B": "TFGM GNW",
+  "11": "TFGM Stagecoach",
+  "111": "TFGM Metroline",
+  "112": "TFGM Stagecoach",
+  "113": "TFGM Stagecoach",
+  "114": "TFGM Stagecoach",
+  "115": "TFGM Stagecoach",
+  "116": "TFGM Stagecoach",
+  "117": "TFGM Stagecoach",
+  "118": "TFGM Stagecoach",
+  "119": "TFGM Stagecoach",
+  "125": "TFGM Stagecoach",
+  "126": "TFGM Diamond Bus",
+  "129A": "TFGM Stagecoach",
+  "132": "TFGM Diamond Bus",
+  "135": "TFGM Stagecoach",
+  "142": "TFGM Metroline",
+  "143": "TFGM Metroline",
+  "147": "TFGM Metroline",
+  "147T": "TFGM Metroline",
+  "149": "TFGM Stagecoach",
+  "15": "TFGM Metroline",
+  "150": "TFGM Metroline",
+  "150T": "TFGM Metroline",
+  "151": "TFGM Diamond Bus",
+  "156": "TFGM Stagecoach",
+  "159": "TFGM Diamond Bus",
+  "163": "TFGM GNW",
+  "17": "TFGM Stagecoach",
+  "171": "TFGM Stagecoach",
+  "172": "TFGM Stagecoach",
+  "17A": "TFGM Stagecoach",
+  "18": "TFGM Stagecoach",
+  "180": "TFGM Stagecoach",
+  "181": "TFGM Stagecoach",
+  "182": "TFGM Stagecoach",
+  "183": "TFGM Stagecoach",
+  "184": "TFGM Stagecoach",
+  "189": "TFGM Stagecoach",
+  "191": "TFGM Stagecoach",
+  "192": "TFGM Stagecoach",
+  "197": "TFGM Stagecoach",
+  "1A": "TFGM Stagecoach",
+  "20": "TFGM GNW",
+  "201": "TFGM Metroline",
+  "202": "TFGM Metroline",
+  "203": "TFGM Metroline",
+  "205": "TFGM Metroline",
+  "20A": "TFGM GNW",
+  "21": "TFGM GNW",
+  "216": "TFGM Metroline",
+  "219": "TFGM Metroline",
+  "22": "TFGM GNW",
+  "220": "TFGM Metroline",
+  "221": "TFGM Metroline",
+  "23": "TFGM Stagecoach",
+  "230": "TFGM Metroline",
+  "231": "TFGM Metroline",
+  "237": "TFGM Metroline",
+  "245": "TFGM Metroline",
+  "245T": "TFGM Metroline",
+  "247": "TFGM Metroline",
+  "248": "TFGM Metroline",
+  "249": "TFGM Metroline",
+  "25": "TFGM Stagecoach",
+  "250": "TFGM Metroline",
+  "253": "TFGM Metroline",
+  "254": "TFGM Diamond Bus",
+  "255": "TFGM Metroline",
+  "256": "TFGM Metroline",
+  "263": "TFGM Metroline",
+  "263T": "TFGM Metroline",
+  "279": "TFGM Diamond Bus",
+  "280": "TFGM Diamond Bus",
+  "281": "TFGM Metroline",
+  "281T": "TFGM Metroline",
+  "282": "TFGM Metroline",
+  "282T": "TFGM Metroline",
+  "283": "TFGM Metroline",
+  "283T": "TFGM Metroline",
+  "284": "TFGM Metroline",
+  "284T": "TFGM Metroline",
+  "285": "TFGM Metroline",
+  "285T": "TFGM Metroline",
+  "286": "TFGM Metroline",
+  "286T": "TFGM Metroline",
+  "287": "TFGM Diamond Bus",
+  "288": "TFGM Diamond Bus",
+  "29": "TFGM Diamond Bus",
+  "2A": "TFGM Stagecoach",
+  "309": "TFGM Diamond Bus",
+  "310": "TFGM Diamond Bus",
+  "312": "TFGM Stagecoach",
+  "313": "TFGM Metroline",
+  "313T": "TFGM Metroline",
+  "314": "TFGM Stagecoach",
+  "322": "TFGM Stagecoach",
+  "325": "TFGM Stagecoach",
+  "327": "TFGM Stagecoach",
+  "33": "TFGM Stagecoach",
+  "330": "TFGM Stagecoach",
+  "335": "TFGM GNW",
+  "336": "TFGM Metroline",
+  "337": "TFGM Metroline",
+  "339": "TFGM GNW",
+  "33B": "TFGM Stagecoach",
+  "341": "TFGM GNW",
+  "341T": "TFGM GNW",
+  "342": "TFGM GNW",
+  "343": "TFGM Diamond Bus",
+  "344": "TFGM GNW",
+  "345": "TFGM GNW",
+  "346": "TFGM Metroline",
+  "347": "TFGM Metroline",
+  "348": "TFGM Stagecoach",
+  "35": "TFGM GNW",
+  "350": "TFGM Stagecoach",
+  "356": "TFGM Diamond Bus",
+  "358": "TFGM Stagecoach",
+  "358T": "TFGM Stagecoach",
+  "36": "TFGM GNW",
+  "360": "TFGM Stagecoach",
+  "360T": "TFGM Stagecoach",
+  "364": "TFGM Diamond Bus",
+  "368": "TFGM Metroline",
+  "37": "TFGM GNW",
+  "370": "TFGM Metroline",
+  "370T": "TFGM Metroline",
+  "371": "TFGM Metroline",
+  "371T": "TFGM Metroline",
+  "374": "TFGM Stagecoach",
+  "374A": "TFGM Metroline",
+  "378": "TFGM Stagecoach",
+  "378A": "TFGM Stagecoach",
+  "379": "TFGM Stagecoach",
+  "38": "TFGM Metroline",
+  "382": "TFGM Metroline",
+  "383": "TFGM Stagecoach",
+  "384": "TFGM Stagecoach",
+  "385": "TFGM Diamond Bus",
+  "387": "TFGM GNW",
+  "389": "TFGM Metroline",
+  "396": "TFGM GNW",
+  "402": "TFGM Stagecoach",
+  "403": "TFGM Stagecoach",
+  "406": "TFGM First North",
+  "409": "TFGM Stagecoach",
+  "41": "TFGM Stagecoach",
+  "411": "TFGM Stagecoach",
+  "415": "TFGM Stagecoach",
+  "42": "TFGM Metroline",
+  "425": "TFGM Stagecoach",
+  "426": "TFGM Stagecoach",
+  "42A": "TFGM Metroline",
+  "42B": "TFGM Metroline",
+  "42C": "TFGM Metroline",
+  "43": "TFGM Metroline",
+  "433": "TFGM First North",
+  "434": "TFGM First North",
+  "435": "TFGM First North",
+  "436": "TFGM First North",
+  "437": "TFGM First North",
+  "440": "TFGM First North",
+  "442": "TFGM First North",
+  "447": "TFGM First North",
+  "450": "TFGM First North",
+  "451": "TFGM First North",
+  "455": "TFGM First North",
+  "456": "TFGM First North",
+  "457": "TFGM First North",
+  "458": "TFGM First North",
+  "461": "TFGM First North",
+  "467": "TFGM First North",
+  "468": "TFGM First North",
+  "469": "TFGM Stagecoach",
+  "471": "TFGM GNW",
+  "472": "TFGM GNW",
+  "474": "TFGM GNW",
+  "475": "TFGM Stagecoach",
+  "477": "TFGM Stagecoach",
+  "480": "TFGM Stagecoach",
+  "487": "TFGM Stagecoach",
+  "50": "TFGM Metroline",
+  "501": "TFGM GNW",
+  "507": "TFGM Diamond Bus",
+  "51": "TFGM Metroline",
+  "511": "TFGM Diamond Bus",
+  "512": "TFGM Diamond Bus",
+  "512A": "TFGM Diamond Bus",
+  "512B": "TFGM Diamond Bus",
+  "513": "TFGM Diamond Bus",
+  "513A": "TFGM Diamond Bus",
+  "513B": "TFGM Diamond Bus",
+  "516": "TFGM Diamond Bus",
+  "52": "TFGM Stagecoach",
+  "520": "TFGM GNW",
+  "521": "TFGM Diamond Bus",
+  "524": "TFGM GNW",
+  "525": "TFGM Diamond Bus",
+  "526": "TFGM Diamond Bus",
+  "527": "TFGM Diamond Bus",
+  "53": "TFGM Stagecoach",
+  "533": "TFGM Diamond Bus",
+  "534": "TFGM GNW",
+  "535": "TFGM Diamond Bus",
+  "537": "TFGM Diamond Bus",
+  "541": "TFGM Diamond Bus",
+  "544": "TFGM Diamond Bus",
+  "553": "TFGM Diamond Bus",
+  "557": "TFGM Diamond Bus",
+  "559": "TFGM Diamond Bus",
+  "56": "TFGM Stagecoach",
+  "561": "TFGM GNW",
+  "562": "TFGM GNW",
+  "57": "TFGM Stagecoach",
+  "571": "TFGM GNW",
+  "572": "TFGM GNW",
+  "573": "TFGM Diamond Bus",
+  "574": "TFGM Diamond Bus",
+  "575": "TFGM GNW",
+  "576": "TFGM GNW",
+  "582": "TFGM GNW",
+  "583": "TFGM Diamond Bus",
+  "584": "TFGM Diamond Bus",
+  "588": "TFGM Diamond Bus",
+  "589": "TFGM Diamond Bus",
+  "59": "TFGM Stagecoach",
+  "594": "TFGM Diamond Bus",
+  "596": "TFGM Diamond Bus",
+  "597": "TFGM Diamond Bus",
+  "598": "TFGM GNW",
+  "601": "TFGM GNW",
+  "602": "TFGM GNW",
+  "603A": "TFGM GNW",
+  "604": "TFGM GNW",
+  "605": "TFGM GNW",
+  "606": "TFGM GNW",
+  "607": "TFGM GNW",
+  "608": "TFGM GNW",
+  "609": "TFGM GNW",
+  "610": "TFGM GNW",
+  "611": "TFGM GNW",
+  "613": "TFGM GNW",
+  "615": "TFGM GNW",
+  "630": "TFGM GNW",
+  "632": "TFGM GNW",
+  "633": "TFGM GNW",
+  "634": "TFGM Diamond Bus",
+  "635": "TFGM GNW",
+  "639": "TFGM GNW",
+  "640": "TFGM GNW",
+  "641": "TFGM GNW",
+  "65": "TFGM Diamond Bus",
+  "66": "TFGM Diamond Bus",
+  "660": "TFGM Stagecoach",
+  "661": "TFGM Stagecoach",
+  "662": "TFGM Stagecoach",
+  "663A": "TFGM Stagecoach",
+  "664": "TFGM Stagecoach",
+  "665": "TFGM Stagecoach",
+  "666": "TFGM Stagecoach",
+  "667": "TFGM Stagecoach",
+  "669S": "TFGM Stagecoach",
+  "67": "TFGM Stagecoach",
+  "67A": "TFGM Stagecoach",
+  "688": "TFGM Diamond Bus",
+  "7": "TFGM Metroline",
+  "70": "TFGM Diamond Bus",
+  "700": "TFGM GNW",
+  "700A": "TFGM Metroline",
+  "701": "TFGM Metroline",
+  "702": "TFGM Diamond Bus",
+  "703": "TFGM Metroline",
+  "704": "TFGM Metroline",
+  "705": "TFGM Diamond Bus",
+  "706": "TFGM Metroline",
+  "708": "TFGM First North",
+  "709": "TFGM First North",
+  "710": "TFGM Diamond Bus",
+  "711": "TFGM Stagecoach",
+  "713": "TFGM Diamond Bus",
+  "715": "TFGM Stagecoach",
+  "716": "TFGM Diamond Bus",
+  "717": "TFGM Stagecoach",
+  "718": "TFGM Stagecoach",
+  "719": "TFGM Diamond Bus",
+  "719A": "TFGM Metroline",
+  "720": "TFGM Metroline",
+  "720A": "TFGM Metroline",
+  "721": "TFGM Metroline",
+  "722": "TFGM First North",
+  "724": "TFGM Metroline",
+  "725": "TFGM Metroline",
+  "726": "TFGM Diamond Bus",
+  "727": "TFGM Metroline",
+  "728": "TFGM Diamond Bus",
+  "729": "TFGM Diamond Bus",
+  "733": "TFGM Diamond Bus",
+  "739": "TFGM Diamond Bus",
+  "74": "TFGM Diamond Bus",
+  "740": "TFGM Diamond Bus",
+  "741": "TFGM Diamond Bus",
+  "742": "TFGM Metroline",
+  "743": "TFGM Metroline",
+  "744": "TFGM Diamond Bus",
+  "745": "TFGM Diamond Bus",
+  "746": "TFGM Diamond Bus",
+  "747": "TFGM Metroline",
+  "748": "TFGM Diamond Bus",
+  "748A": "TFGM Metroline",
+  "749": "TFGM Metroline",
+  "75": "TFGM Diamond Bus",
+  "750": "TFGM Metroline",
+  "750B": "TFGM Metroline",
+  "751": "TFGM Metroline",
+  "751B": "TFGM Metroline",
+  "752": "TFGM Metroline",
+  "753": "TFGM Metroline",
+  "754": "TFGM Diamond Bus",
+  "755": "TFGM Diamond Bus",
+  "756": "TFGM Metroline",
+  "757": "TFGM Metroline",
+  "758": "TFGM Diamond Bus",
+  "758A": "TFGM Metroline",
+  "758B": "TFGM Metroline",
+  "758C": "TFGM Metroline",
+  "759": "TFGM Diamond Bus",
+  "76": "TFGM Metroline",
+  "760": "TFGM Diamond Bus",
+  "761": "TFGM Diamond Bus",
+  "762": "TFGM Diamond Bus",
+  "763": "TFGM Metroline",
+  "764": "TFGM Metroline",
+  "765": "TFGM Metroline",
+  "766": "TFGM Metroline",
+  "767": "TFGM Diamond Bus",
+  "768": "TFGM Diamond Bus",
+  "768A": "TFGM Metroline",
+  "769": "TFGM Diamond Bus",
+  "76A": "TFGM Metroline",
+  "76B": "TFGM Metroline",
+  "770": "TFGM GNW",
+  "770A": "TFGM Metroline",
+  "771": "TFGM GNW",
+  "771A": "TFGM Metroline",
+  "772": "TFGM Metroline",
+  "773": "TFGM Diamond Bus",
+  "773A": "TFGM Metroline",
+  "774": "TFGM GNW",
+  "774A": "TFGM Diamond Bus",
+  "775": "TFGM GNW",
+  "776": "TFGM Metroline",
+  "777": "TFGM Diamond Bus",
+  "778": "TFGM Metroline",
+  "780": "TFGM Diamond Bus",
+  "781": "TFGM Stagecoach",
+  "781B": "TFGM Metroline",
+  "782": "TFGM Metroline",
+  "783": "TFGM Metroline",
+  "784": "TFGM Stagecoach",
+  "785": "TFGM Diamond Bus",
+  "786": "TFGM GNW",
+  "786A": "TFGM Metroline",
+  "788": "TFGM Stagecoach",
+  "789": "TFGM Diamond Bus",
+  "789A": "TFGM Metroline",
+  "79": "TFGM Diamond Bus",
+  "790": "TFGM GNW",
+  "791": "TFGM GNW",
+  "792": "TFGM Metroline",
+  "793": "TFGM GNW",
+  "794": "TFGM Stagecoach",
+  "795": "TFGM Diamond Bus",
+  "797": "TFGM Metroline",
+  "798": "TFGM Metroline",
+  "799": "TFGM Metroline",
+  "800": "TFGM First North",
+  "801": "TFGM Diamond Bus",
+  "802": "TFGM Metroline",
+  "803": "TFGM GNW",
+  "804": "TFGM GNW",
+  "805": "TFGM Diamond Bus",
+  "806": "TFGM Diamond Bus",
+  "807": "TFGM Diamond Bus",
+  "808": "TFGM Metroline",
+  "809": "TFGM GNW",
+  "81": "TFGM Stagecoach",
+  "810": "TFGM GNW",
+  "811": "TFGM Metroline",
+  "812": "TFGM Metroline",
+  "813": "TFGM Diamond Bus",
+  "814": "TFGM Diamond Bus",
+  "815": "TFGM Metroline",
+  "816": "TFGM GNW",
+  "816A": "TFGM Metroline",
+  "817": "TFGM Metroline",
+  "818": "TFGM Metroline",
+  "819": "TFGM Metroline",
+  "82": "TFGM Stagecoach",
+  "820": "TFGM GNW",
+  "821": "TFGM GNW",
+  "821A": "TFGM Metroline",
+  "822": "TFGM Stagecoach",
+  "823": "TFGM Stagecoach",
+  "824": "TFGM GNW",
+  "825": "TFGM GNW",
+  "826": "TFGM GNW",
+  "827": "TFGM Metroline",
+  "828": "TFGM First North",
+  "829": "TFGM Stagecoach",
+  "829A": "TFGM Diamond Bus",
+  "83": "TFGM Stagecoach",
+  "830": "TFGM GNW",
+  "831": "TFGM First North",
+  "832": "TFGM GNW",
+  "833": "TFGM GNW",
+  "834": "TFGM Metroline",
+  "835": "TFGM Stagecoach",
+  "836": "TFGM Stagecoach",
+  "837": "TFGM GNW",
+  "838": "TFGM GNW",
+  "839": "TFGM First North",
+  "84": "TFGM Stagecoach",
+  "840": "TFGM Diamond Bus",
+  "841": "TFGM GNW",
+  "842": "TFGM GNW",
+  "843": "TFGM Metroline",
+  "843A": "TFGM Diamond Bus",
+  "844": "TFGM Metroline",
+  "845": "TFGM Metroline",
+  "846": "TFGM GNW",
+  "847": "TFGM Metroline",
+  "847A": "TFGM Metroline",
+  "848": "TFGM Stagecoach",
+  "849": "TFGM GNW",
+  "85": "TFGM Metroline",
+  "850": "TFGM First North",
+  "850A": "TFGM Metroline",
+  "851": "TFGM GNW",
+  "852": "TFGM Metroline",
+  "853": "TFGM Diamond Bus",
+  "857": "TFGM Metroline",
+  "85A": "TFGM Metroline",
+  "86": "TFGM Metroline",
+  "861": "TFGM Stagecoach",
+  "862": "TFGM First North",
+  "863": "TFGM Metroline",
+  "864": "TFGM GNW",
+  "864A": "TFGM Metroline",
+  "865": "TFGM First North",
+  "866": "TFGM Metroline",
+  "867": "TFGM Stagecoach",
+  "868": "TFGM Diamond Bus",
+  "87": "TFGM Diamond Bus",
+  "870": "TFGM GNW",
+  "870A": "TFGM Metroline",
+  "871": "TFGM GNW",
+  "874": "TFGM Metroline",
+  "875": "TFGM Stagecoach",
+  "877": "TFGM Metroline",
+  "879": "TFGM Stagecoach",
+  "880": "TFGM First North",
+  "881": "TFGM First North",
+  "882": "TFGM GNW",
+  "883": "TFGM GNW",
+  "884": "TFGM GNW",
+  "885": "TFGM GNW",
+  "886": "TFGM GNW",
+  "887A": "TFGM Stagecoach",
+  "887G": "TFGM GNW",
+  "888": "TFGM Stagecoach",
+  "889": "TFGM Stagecoach",
+  "890": "TFGM Stagecoach",
+  "891": "TFGM Stagecoach",
+  "891A": "TFGM Metroline",
+  "891T": "TFGM Metroline",
+  "892": "TFGM Stagecoach",
+  "893": "TFGM Stagecoach",
+  "894": "TFGM First North",
+  "895": "TFGM First North",
+  "896": "TFGM Stagecoach",
+  "897": "TFGM Stagecoach",
+  "898": "TFGM Stagecoach",
+  "899": "TFGM Stagecoach",
+  "8B": "TFGM GNW",
+  "90": "TFGM Stagecoach",
+  "900": "TFGM Stagecoach",
+  "901": "TFGM Vision Bus",
+  "902": "TFGM Vision Bus",
+  "903": "TFGM Vision Bus",
+  "904": "TFGM GNW",
+  "905": "TFGM Vision Bus",
+  "906": "TFGM GNW",
+  "907P": "TFGM Diamond Bus",
+  "907V": "TFGM Vision Bus",
+  "908": "TFGM Stagecoach",
+  "909": "TFGM Vision Bus",
+  "910": "TFGM Vision Bus",
+  "911": "TFGM Vision Bus",
+  "913": "TFGM Vision Bus",
+  "913P": "TFGM GNW",
+  "914": "TFGM GNW",
+  "915": "TFGM Diamond Bus",
+  "916": "TFGM Diamond Bus",
+  "918": "TFGM Vision Bus",
+  "918P": "TFGM Diamond Bus",
+  "919": "TFGM Vision Bus",
+  "920": "TFGM Vision Bus",
+  "921": "TFGM Stagecoach",
+  "922": "TFGM Vision Bus",
+  "923": "TFGM Stagecoach",
+  "923V": "TFGM Vision Bus",
+  "924": "TFGM Vision Bus",
+  "926": "TFGM Stagecoach",
+  "927": "TFGM Stagecoach",
+  "928": "TFGM Stagecoach",
+  "93": "TFGM Stagecoach",
+  "930": "TFGM GNW",
+  "931": "TFGM GNW",
+  "932": "TFGM GNW",
+  "933": "TFGM GNW",
+  "934": "TFGM Stagecoach",
+  "935": "TFGM Stagecoach",
+  "936": "TFGM Stagecoach",
+  "937": "TFGM Stagecoach",
+  "938": "TFGM Stagecoach",
+  "939": "TFGM Vision Bus",
+  "94": "TFGM Stagecoach",
+  "940": "TFGM Stagecoach",
+  "941": "TFGM Stagecoach",
+  "942": "TFGM GNW",
+  "943": "TFGM Stagecoach",
+  "944": "TFGM Stagecoach",
+  "946": "TFGM Stagecoach",
+  "947": "TFGM GNW",
+  "948": "TFGM GNW",
+  "949": "TFGM Stagecoach",
+  "95": "TFGM Stagecoach",
+  "950": "TFGM Vision Bus",
+  "951": "TFGM Vision Bus",
+  "952": "TFGM Vision Bus",
+  "953": "TFGM Vision Bus",
+  "953S": "TFGM Stagecoach",
+  "954": "TFGM Vision Bus",
+  "955": "TFGM Vision Bus",
+  "956": "TFGM Stagecoach",
+  "957": "TFGM Vision Bus",
+  "958": "TFGM Vision Bus",
+  "958P": "TFGM GNW",
+  "959": "TFGM Vision Bus",
+  "960": "TFGM Vision Bus",
+  "961": "TFGM Stagecoach",
+  "962": "TFGM Stagecoach",
+  "966": "TFGM Stagecoach",
+  "967": "TFGM First North",
+  "968": "TFGM First North",
+  "97": "TFGM Stagecoach",
+  "970": "TFGM Vision Bus",
+  "972": "TFGM GNW",
+  "973": "TFGM GNW",
+  "974": "TFGM Stagecoach",
+  "976": "TFGM Vision Bus",
+  "977": "TFGM Vision Bus",
+  "978": "TFGM Vision Bus",
+  "979": "TFGM Vision Bus",
+  "98": "TFGM Stagecoach",
+  "980": "TFGM Vision Bus",
+  "981": "TFGM Vision Bus",
+  "982": "TFGM Vision Bus",
+  "983": "TFGM Vision Bus",
+  "984": "TFGM Vision Bus",
+  "984P": "TFGM Diamond Bus",
+  "985": "TFGM Vision Bus",
+  "986": "TFGM Vision Bus",
+  "987": "TFGM Vision Bus",
+  "988": "TFGM Stagecoach",
+  "989": "TFGM Vision Bus",
+  "99": "TFGM Stagecoach",
+  "990": "TFGM Diamond Bus",
+  "991": "TFGM Stagecoach",
+  "992": "TFGM Stagecoach",
+  "993": "TFGM Stagecoach",
+  "994A": "TFGM Vision Bus",
+  "994G": "TFGM Vision Bus",
+  "995": "TFGM Stagecoach",
+  "996": "TFGM Stagecoach",
+  "997": "TFGM Stagecoach",
+  "998": "TFGM Stagecoach",
+  "999": "TFGM Stagecoach",
+  "PILOT100": "TFGM Stagecoach",
+  "PILOT102": "TFGM Metroline",
+  "PILOT147": "TFGM Metroline",
+  "PILOT151": "TFGM Diamond Bus",
+  "PILOT163": "TFGM GNW",
+  "PILOT250": "TFGM Metroline",
+  "PILOT279": "TFGM Diamond Bus",
+  "PILOT33": "TFGM Stagecoach",
+  "PILOT336": "TFGM Metroline",
+  "PILOT37": "TFGM GNW",
+  "PILOT406": "TFGM First North",
+  "PILOT433": "TFGM First North",
+  "S350": "TFGM Stagecoach",
+  "S350A": "TFGM Stagecoach",
+  "S350B": "TFGM Stagecoach",
+  "S84": "TFGM Stagecoach",
+  "V1": "TFGM GNW",
+  "V2": "TFGM GNW",
+  "V4": "TFGM GNW",
+  "W1": "TFGM GNW",
+  "W1a": "TFGM Diamond Bus",
+  "W2": "TFGM Diamond Bus",
+  "W3": "TFGM GNW",
+  "X22": "TFGM GNW",
+  "X39": "TFGM GNW",
+  "X50": "TFGM Metroline",
+  "X92": "TFGM Stagecoach",
+};</script><script src="https://unpkg.com/leaflet/dist/leaflet.js">
+</script>
+<style>
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+.custom-marker {
+  --radar-color: #00ffcc; /* default color */
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: var(--radar-color);
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--radar-color);
+}
+
+.custom-marker::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--radar-color);
+  animation: radar-ping 1.5s infinite ease-out;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes radar-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+</style></head>
+<body class="dark">
+<button class="theme-toggle" onclick="toggleTheme()">
+   🌓 Toggle Theme
+  </button>
+<h2 class="title-box title-box">
+   OCC Location Helper 📍
+  </h2>
+<div class="input-container">
+<input autofocus="" id="coordInput" placeholder="Paste" type="text"/>
+<button onclick="generateLinks()">
+    Go! 🚀
+   </button>
+<button class="open-all" onclick="openAllLinks()">
+    🌐 Open All Links
+   </button>
+<button class="falcon-copy" onclick="copyGoogleMapsLink()">
+    🦅 Falcon Copy
+   </button>
+</div>
+<div class="button-container" id="linksContainer">
+</div>
+<div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+</div>
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; margin: 20px auto; width: 80%;">
+<div id="mapPreview" style="flex: 4; height: 500px; border: 1px solid var(--iframe-border); border-radius: 8px;">
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; gap: 10px; align-self: flex-start; max-height: 500px;">
+<div id="addressBox" style="flex: 1; border: 1px solid var(--iframe-border); border-radius: 8px; background-color: #FFCC33; color: #333; text-align: left; padding-left: 15px;;line-height:0.9;align-self:flex-start;padding:10px 15px;">
+<h3 style="font-weight: 800; font-size: 1.2em;;margin:0;padding:0;">
+      Location Info
+     </h3>
+<p style=";margin:0;padding:0;">
+<strong>
+       Street:
+      </strong>
+<span id="streetName">
+       -
+      </span>
+</p>
+<p style=";margin:0;padding:0;">
+<strong>
+       LA:
+      </strong>
+<span id="cityName">
+       -
+      </span>
+</p>
+<p style=";margin:0;padding:0;">
+<strong>
+       Postcode:
+      </strong>
+<span id="postcode">
+       -
+      </span>
+</p>
+</div>
+<div id="busRoutesBox" style="border: 1px solid #1a73e8; border-radius: 8px; background-color: #3399FF; color: white; text-align: left; padding: 10px 15px; line-height: 1.2;">
+<h3 style="font-weight: 800; font-size: 1.2em; margin: 0;">
+      Bus Routes
+     </h3>
+<p style="margin: 0;">
+<span id="busRoutes">
+       Loading...
+      </span>
+</p>
+</div>
+</div>
+</div>
+<script>
+   let leafletMap;
+let leafletMarker;
+
+function initLeafletMap(lat, lon) {
+  if (!leafletMap) {
+    leafletMap = L.map('mapPreview').setView([lat, lon], 16);
+    L.tileLayer('https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=ec4c98ec4e394899a63ccecdf9712e54', {
+      attribution: '© <a href="https://www.thunderforest.com/">Thunderforest</a>, © OpenStreetMap contributors'
+    }).addTo(leafletMap);
+  } else {
+    leafletMap.setView([lat, lon], 16);
+    if (leafletMarker) {
+      leafletMap.removeLayer(leafletMarker);
+    }
+  }
+
+  // Always recreate the marker to apply updated CSS variable
+  leafletMarker = L.marker([lat, lon], {
+    icon: L.divIcon({
+      className: 'custom-marker',
+      iconSize: [20, 20]
+    })
+  }).addTo(leafletMap);
+}
+
+
+function fetchBusRoutes(lat, lon) {
+  const query = `
+    [out:json];
+    (
+      relation["route"="bus"](around:50,${lat},${lon});
+    );
+    out tags;
+  `;
+  fetch("https://overpass-api.de/api/interpreter", {
+    method: "POST",
+    body: query,
+  })
+  .then(response => response.json())
+  .then(data => {
+    const routes = new Set();
+    data.elements.forEach(el => {
+      if (el.tags && el.tags.ref) {
+        routes.add(el.tags.ref);
+      }
+    });
+    const routeList = Array.from(routes).sort().join(", ");
+    
+const busRoutesContainer = document.getElementById("busRoutes");
+busRoutesContainer.innerHTML = "";
+
+if (routeList.length === 0) {
+  busRoutesContainer.textContent = "None found";
+} else {
+  Array.from(routes).sort().forEach(route => {
+    const chip = document.createElement("span");
+    chip.className = "route-chip";
+    chip.textContent = route;
+const bgColor = getOperatorColor(route);
+chip.style.backgroundColor = bgColor;
+chip.style.color = getTextColor(bgColor);
+chip.style.border = "none";
+    busRoutesContainer.appendChild(chip);
+  });
+}
+
+  })
+  .catch(err => {
+    console.error("Bus route fetch error:", err);
+    document.getElementById("busRoutes").textContent = "Error fetching";
+  });
+}
+  </script>
+<script>
+function getOperatorColor(route) {
+    const routeOperatorMap = {
+  "100": "TFGM Stagecoach",
+  "101": "TFGM Metroline",
+  "102": "TFGM Metroline",
+  "103": "TFGM Metroline",
+  "10B": "TFGM GNW",
+  "11": "TFGM Stagecoach",
+  "111": "TFGM Metroline",
+  "112": "TFGM Stagecoach",
+  "113": "TFGM Stagecoach",
+  "114": "TFGM Stagecoach",
+  "115": "TFGM Stagecoach",
+  "116": "TFGM Stagecoach",
+  "117": "TFGM Stagecoach",
+  "118": "TFGM Stagecoach",
+  "119": "TFGM Stagecoach",
+  "125": "TFGM Stagecoach",
+  "126": "TFGM Diamond Bus",
+  "129A": "TFGM Stagecoach",
+  "132": "TFGM Diamond Bus",
+  "135": "TFGM Stagecoach",
+  "142": "TFGM Metroline",
+  "143": "TFGM Metroline",
+  "147": "TFGM Metroline",
+  "147T": "TFGM Metroline",
+  "149": "TFGM Stagecoach",
+  "15": "TFGM Metroline",
+  "150": "TFGM Metroline",
+  "150T": "TFGM Metroline",
+  "151": "TFGM Diamond Bus",
+  "156": "TFGM Stagecoach",
+  "159": "TFGM Diamond Bus",
+  "163": "TFGM GNW",
+  "17": "TFGM Stagecoach",
+  "171": "TFGM Stagecoach",
+  "172": "TFGM Stagecoach",
+  "17A": "TFGM Stagecoach",
+  "18": "TFGM Stagecoach",
+  "180": "TFGM Stagecoach",
+  "181": "TFGM Stagecoach",
+  "182": "TFGM Stagecoach",
+  "183": "TFGM Stagecoach",
+  "184": "TFGM Stagecoach",
+  "189": "TFGM Stagecoach",
+  "191": "TFGM Stagecoach",
+  "192": "TFGM Stagecoach",
+  "197": "TFGM Stagecoach",
+  "1A": "TFGM Stagecoach",
+  "20": "TFGM GNW",
+  "201": "TFGM Metroline",
+  "202": "TFGM Metroline",
+  "203": "TFGM Metroline",
+  "205": "TFGM Metroline",
+  "20A": "TFGM GNW",
+  "21": "TFGM GNW",
+  "216": "TFGM Metroline",
+  "219": "TFGM Metroline",
+  "22": "TFGM GNW",
+  "220": "TFGM Metroline",
+  "221": "TFGM Metroline",
+  "23": "TFGM Stagecoach",
+  "230": "TFGM Metroline",
+  "231": "TFGM Metroline",
+  "237": "TFGM Metroline",
+  "245": "TFGM Metroline",
+  "245T": "TFGM Metroline",
+  "247": "TFGM Metroline",
+  "248": "TFGM Metroline",
+  "249": "TFGM Metroline",
+  "25": "TFGM Stagecoach",
+  "250": "TFGM Metroline",
+  "253": "TFGM Metroline",
+  "254": "TFGM Diamond Bus",
+  "255": "TFGM Metroline",
+  "256": "TFGM Metroline",
+  "263": "TFGM Metroline",
+  "263T": "TFGM Metroline",
+  "279": "TFGM Diamond Bus",
+  "280": "TFGM Diamond Bus",
+  "281": "TFGM Metroline",
+  "281T": "TFGM Metroline",
+  "282": "TFGM Metroline",
+  "282T": "TFGM Metroline",
+  "283": "TFGM Metroline",
+  "283T": "TFGM Metroline",
+  "284": "TFGM Metroline",
+  "284T": "TFGM Metroline",
+  "285": "TFGM Metroline",
+  "285T": "TFGM Metroline",
+  "286": "TFGM Metroline",
+  "286T": "TFGM Metroline",
+  "287": "TFGM Diamond Bus",
+  "288": "TFGM Diamond Bus",
+  "29": "TFGM Diamond Bus",
+  "2A": "TFGM Stagecoach",
+  "309": "TFGM Diamond Bus",
+  "310": "TFGM Diamond Bus",
+  "312": "TFGM Stagecoach",
+  "313": "TFGM Metroline",
+  "313T": "TFGM Metroline",
+  "314": "TFGM Stagecoach",
+  "322": "TFGM Stagecoach",
+  "325": "TFGM Stagecoach",
+  "327": "TFGM Stagecoach",
+  "33": "TFGM Stagecoach",
+  "330": "TFGM Stagecoach",
+  "335": "TFGM GNW",
+  "336": "TFGM Metroline",
+  "337": "TFGM Metroline",
+  "339": "TFGM GNW",
+  "33B": "TFGM Stagecoach",
+  "341": "TFGM GNW",
+  "341T": "TFGM GNW",
+  "342": "TFGM GNW",
+  "343": "TFGM Diamond Bus",
+  "344": "TFGM GNW",
+  "345": "TFGM GNW",
+  "346": "TFGM Metroline",
+  "347": "TFGM Metroline",
+  "348": "TFGM Stagecoach",
+  "35": "TFGM GNW",
+  "350": "TFGM Stagecoach",
+  "356": "TFGM Diamond Bus",
+  "358": "TFGM Stagecoach",
+  "358T": "TFGM Stagecoach",
+  "36": "TFGM GNW",
+  "360": "TFGM Stagecoach",
+  "360T": "TFGM Stagecoach",
+  "364": "TFGM Diamond Bus",
+  "368": "TFGM Metroline",
+  "37": "TFGM GNW",
+  "370": "TFGM Metroline",
+  "370T": "TFGM Metroline",
+  "371": "TFGM Metroline",
+  "371T": "TFGM Metroline",
+  "374": "TFGM Stagecoach",
+  "374A": "TFGM Metroline",
+  "378": "TFGM Stagecoach",
+  "378A": "TFGM Stagecoach",
+  "379": "TFGM Stagecoach",
+  "38": "TFGM Metroline",
+  "382": "TFGM Metroline",
+  "383": "TFGM Stagecoach",
+  "384": "TFGM Stagecoach",
+  "385": "TFGM Diamond Bus",
+  "387": "TFGM GNW",
+  "389": "TFGM Metroline",
+  "396": "TFGM GNW",
+  "402": "TFGM Stagecoach",
+  "403": "TFGM Stagecoach",
+  "406": "TFGM First North",
+  "409": "TFGM Stagecoach",
+  "41": "TFGM Stagecoach",
+  "411": "TFGM Stagecoach",
+  "415": "TFGM Stagecoach",
+  "42": "TFGM Metroline",
+  "425": "TFGM Stagecoach",
+  "426": "TFGM Stagecoach",
+  "42A": "TFGM Metroline",
+  "42B": "TFGM Metroline",
+  "42C": "TFGM Metroline",
+  "43": "TFGM Metroline",
+  "433": "TFGM First North",
+  "434": "TFGM First North",
+  "435": "TFGM First North",
+  "436": "TFGM First North",
+  "437": "TFGM First North",
+  "440": "TFGM First North",
+  "442": "TFGM First North",
+  "447": "TFGM First North",
+  "450": "TFGM First North",
+  "451": "TFGM First North",
+  "455": "TFGM First North",
+  "456": "TFGM First North",
+  "457": "TFGM First North",
+  "458": "TFGM First North",
+  "461": "TFGM First North",
+  "467": "TFGM First North",
+  "468": "TFGM First North",
+  "469": "TFGM Stagecoach",
+  "471": "TFGM GNW",
+  "472": "TFGM GNW",
+  "474": "TFGM GNW",
+  "475": "TFGM Stagecoach",
+  "477": "TFGM Stagecoach",
+  "480": "TFGM Stagecoach",
+  "487": "TFGM Stagecoach",
+  "50": "TFGM Metroline",
+  "501": "TFGM GNW",
+  "507": "TFGM Diamond Bus",
+  "51": "TFGM Metroline",
+  "511": "TFGM Diamond Bus",
+  "512": "TFGM Diamond Bus",
+  "512A": "TFGM Diamond Bus",
+  "512B": "TFGM Diamond Bus",
+  "513": "TFGM Diamond Bus",
+  "513A": "TFGM Diamond Bus",
+  "513B": "TFGM Diamond Bus",
+  "516": "TFGM Diamond Bus",
+  "52": "TFGM Stagecoach",
+  "520": "TFGM GNW",
+  "521": "TFGM Diamond Bus",
+  "524": "TFGM GNW",
+  "525": "TFGM Diamond Bus",
+  "526": "TFGM Diamond Bus",
+  "527": "TFGM Diamond Bus",
+  "53": "TFGM Stagecoach",
+  "533": "TFGM Diamond Bus",
+  "534": "TFGM GNW",
+  "535": "TFGM Diamond Bus",
+  "537": "TFGM Diamond Bus",
+  "541": "TFGM Diamond Bus",
+  "544": "TFGM Diamond Bus",
+  "553": "TFGM Diamond Bus",
+  "557": "TFGM Diamond Bus",
+  "559": "TFGM Diamond Bus",
+  "56": "TFGM Stagecoach",
+  "561": "TFGM GNW",
+  "562": "TFGM GNW",
+  "57": "TFGM Stagecoach",
+  "571": "TFGM GNW",
+  "572": "TFGM GNW",
+  "573": "TFGM Diamond Bus",
+  "574": "TFGM Diamond Bus",
+  "575": "TFGM GNW",
+  "576": "TFGM GNW",
+  "582": "TFGM GNW",
+  "583": "TFGM Diamond Bus",
+  "584": "TFGM Diamond Bus",
+  "588": "TFGM Diamond Bus",
+  "589": "TFGM Diamond Bus",
+  "59": "TFGM Stagecoach",
+  "594": "TFGM Diamond Bus",
+  "596": "TFGM Diamond Bus",
+  "597": "TFGM Diamond Bus",
+  "598": "TFGM GNW",
+  "601": "TFGM GNW",
+  "602": "TFGM GNW",
+  "603A": "TFGM GNW",
+  "604": "TFGM GNW",
+  "605": "TFGM GNW",
+  "606": "TFGM GNW",
+  "607": "TFGM GNW",
+  "608": "TFGM GNW",
+  "609": "TFGM GNW",
+  "610": "TFGM GNW",
+  "611": "TFGM GNW",
+  "613": "TFGM GNW",
+  "615": "TFGM GNW",
+  "630": "TFGM GNW",
+  "632": "TFGM GNW",
+  "633": "TFGM GNW",
+  "634": "TFGM Diamond Bus",
+  "635": "TFGM GNW",
+  "639": "TFGM GNW",
+  "640": "TFGM GNW",
+  "641": "TFGM GNW",
+  "65": "TFGM Diamond Bus",
+  "66": "TFGM Diamond Bus",
+  "660": "TFGM Stagecoach",
+  "661": "TFGM Stagecoach",
+  "662": "TFGM Stagecoach",
+  "663A": "TFGM Stagecoach",
+  "664": "TFGM Stagecoach",
+  "665": "TFGM Stagecoach",
+  "666": "TFGM Stagecoach",
+  "667": "TFGM Stagecoach",
+  "669S": "TFGM Stagecoach",
+  "67": "TFGM Stagecoach",
+  "67A": "TFGM Stagecoach",
+  "688": "TFGM Diamond Bus",
+  "7": "TFGM Metroline",
+  "70": "TFGM Diamond Bus",
+  "700": "TFGM GNW",
+  "700A": "TFGM Metroline",
+  "701": "TFGM Metroline",
+  "702": "TFGM Diamond Bus",
+  "703": "TFGM Metroline",
+  "704": "TFGM Metroline",
+  "705": "TFGM Diamond Bus",
+  "706": "TFGM Metroline",
+  "708": "TFGM First North",
+  "709": "TFGM First North",
+  "710": "TFGM Diamond Bus",
+  "711": "TFGM Stagecoach",
+  "713": "TFGM Diamond Bus",
+  "715": "TFGM Stagecoach",
+  "716": "TFGM Diamond Bus",
+  "717": "TFGM Stagecoach",
+  "718": "TFGM Stagecoach",
+  "719": "TFGM Diamond Bus",
+  "719A": "TFGM Metroline",
+  "720": "TFGM Metroline",
+  "720A": "TFGM Metroline",
+  "721": "TFGM Metroline",
+  "722": "TFGM First North",
+  "724": "TFGM Metroline",
+  "725": "TFGM Metroline",
+  "726": "TFGM Diamond Bus",
+  "727": "TFGM Metroline",
+  "728": "TFGM Diamond Bus",
+  "729": "TFGM Diamond Bus",
+  "733": "TFGM Diamond Bus",
+  "739": "TFGM Diamond Bus",
+  "74": "TFGM Diamond Bus",
+  "740": "TFGM Diamond Bus",
+  "741": "TFGM Diamond Bus",
+  "742": "TFGM Metroline",
+  "743": "TFGM Metroline",
+  "744": "TFGM Diamond Bus",
+  "745": "TFGM Diamond Bus",
+  "746": "TFGM Diamond Bus",
+  "747": "TFGM Metroline",
+  "748": "TFGM Diamond Bus",
+  "748A": "TFGM Metroline",
+  "749": "TFGM Metroline",
+  "75": "TFGM Diamond Bus",
+  "750": "TFGM Metroline",
+  "750B": "TFGM Metroline",
+  "751": "TFGM Metroline",
+  "751B": "TFGM Metroline",
+  "752": "TFGM Metroline",
+  "753": "TFGM Metroline",
+  "754": "TFGM Diamond Bus",
+  "755": "TFGM Diamond Bus",
+  "756": "TFGM Metroline",
+  "757": "TFGM Metroline",
+  "758": "TFGM Diamond Bus",
+  "758A": "TFGM Metroline",
+  "758B": "TFGM Metroline",
+  "758C": "TFGM Metroline",
+  "759": "TFGM Diamond Bus",
+  "76": "TFGM Metroline",
+  "760": "TFGM Diamond Bus",
+  "761": "TFGM Diamond Bus",
+  "762": "TFGM Diamond Bus",
+  "763": "TFGM Metroline",
+  "764": "TFGM Metroline",
+  "765": "TFGM Metroline",
+  "766": "TFGM Metroline",
+  "767": "TFGM Diamond Bus",
+  "768": "TFGM Diamond Bus",
+  "768A": "TFGM Metroline",
+  "769": "TFGM Diamond Bus",
+  "76A": "TFGM Metroline",
+  "76B": "TFGM Metroline",
+  "770": "TFGM GNW",
+  "770A": "TFGM Metroline",
+  "771": "TFGM GNW",
+  "771A": "TFGM Metroline",
+  "772": "TFGM Metroline",
+  "773": "TFGM Diamond Bus",
+  "773A": "TFGM Metroline",
+  "774": "TFGM GNW",
+  "774A": "TFGM Diamond Bus",
+  "775": "TFGM GNW",
+  "776": "TFGM Metroline",
+  "777": "TFGM Diamond Bus",
+  "778": "TFGM Metroline",
+  "780": "TFGM Diamond Bus",
+  "781": "TFGM Stagecoach",
+  "781B": "TFGM Metroline",
+  "782": "TFGM Metroline",
+  "783": "TFGM Metroline",
+  "784": "TFGM Stagecoach",
+  "785": "TFGM Diamond Bus",
+  "786": "TFGM GNW",
+  "786A": "TFGM Metroline",
+  "788": "TFGM Stagecoach",
+  "789": "TFGM Diamond Bus",
+  "789A": "TFGM Metroline",
+  "79": "TFGM Diamond Bus",
+  "790": "TFGM GNW",
+  "791": "TFGM GNW",
+  "792": "TFGM Metroline",
+  "793": "TFGM GNW",
+  "794": "TFGM Stagecoach",
+  "795": "TFGM Diamond Bus",
+  "797": "TFGM Metroline",
+  "798": "TFGM Metroline",
+  "799": "TFGM Metroline",
+  "800": "TFGM First North",
+  "801": "TFGM Diamond Bus",
+  "802": "TFGM Metroline",
+  "803": "TFGM GNW",
+  "804": "TFGM GNW",
+  "805": "TFGM Diamond Bus",
+  "806": "TFGM Diamond Bus",
+  "807": "TFGM Diamond Bus",
+  "808": "TFGM Metroline",
+  "809": "TFGM GNW",
+  "81": "TFGM Stagecoach",
+  "810": "TFGM GNW",
+  "811": "TFGM Metroline",
+  "812": "TFGM Metroline",
+  "813": "TFGM Diamond Bus",
+  "814": "TFGM Diamond Bus",
+  "815": "TFGM Metroline",
+  "816": "TFGM GNW",
+  "816A": "TFGM Metroline",
+  "817": "TFGM Metroline",
+  "818": "TFGM Metroline",
+  "819": "TFGM Metroline",
+  "82": "TFGM Stagecoach",
+  "820": "TFGM GNW",
+  "821": "TFGM GNW",
+  "821A": "TFGM Metroline",
+  "822": "TFGM Stagecoach",
+  "823": "TFGM Stagecoach",
+  "824": "TFGM GNW",
+  "825": "TFGM GNW",
+  "826": "TFGM GNW",
+  "827": "TFGM Metroline",
+  "828": "TFGM First North",
+  "829": "TFGM Stagecoach",
+  "829A": "TFGM Diamond Bus",
+  "83": "TFGM Stagecoach",
+  "830": "TFGM GNW",
+  "831": "TFGM First North",
+  "832": "TFGM GNW",
+  "833": "TFGM GNW",
+  "834": "TFGM Metroline",
+  "835": "TFGM Stagecoach",
+  "836": "TFGM Stagecoach",
+  "837": "TFGM GNW",
+  "838": "TFGM GNW",
+  "839": "TFGM First North",
+  "84": "TFGM Stagecoach",
+  "840": "TFGM Diamond Bus",
+  "841": "TFGM GNW",
+  "842": "TFGM GNW",
+  "843": "TFGM Metroline",
+  "843A": "TFGM Diamond Bus",
+  "844": "TFGM Metroline",
+  "845": "TFGM Metroline",
+  "846": "TFGM GNW",
+  "847": "TFGM Metroline",
+  "847A": "TFGM Metroline",
+  "848": "TFGM Stagecoach",
+  "849": "TFGM GNW",
+  "85": "TFGM Metroline",
+  "850": "TFGM First North",
+  "850A": "TFGM Metroline",
+  "851": "TFGM GNW",
+  "852": "TFGM Metroline",
+  "853": "TFGM Diamond Bus",
+  "857": "TFGM Metroline",
+  "85A": "TFGM Metroline",
+  "86": "TFGM Metroline",
+  "861": "TFGM Stagecoach",
+  "862": "TFGM First North",
+  "863": "TFGM Metroline",
+  "864": "TFGM GNW",
+  "864A": "TFGM Metroline",
+  "865": "TFGM First North",
+  "866": "TFGM Metroline",
+  "867": "TFGM Stagecoach",
+  "868": "TFGM Diamond Bus",
+  "87": "TFGM Diamond Bus",
+  "870": "TFGM GNW",
+  "870A": "TFGM Metroline",
+  "871": "TFGM GNW",
+  "874": "TFGM Metroline",
+  "875": "TFGM Stagecoach",
+  "877": "TFGM Metroline",
+  "879": "TFGM Stagecoach",
+  "880": "TFGM First North",
+  "881": "TFGM First North",
+  "882": "TFGM GNW",
+  "883": "TFGM GNW",
+  "884": "TFGM GNW",
+  "885": "TFGM GNW",
+  "886": "TFGM GNW",
+  "887A": "TFGM Stagecoach",
+  "887G": "TFGM GNW",
+  "888": "TFGM Stagecoach",
+  "889": "TFGM Stagecoach",
+  "890": "TFGM Stagecoach",
+  "891": "TFGM Stagecoach",
+  "891A": "TFGM Metroline",
+  "891T": "TFGM Metroline",
+  "892": "TFGM Stagecoach",
+  "893": "TFGM Stagecoach",
+  "894": "TFGM First North",
+  "895": "TFGM First North",
+  "896": "TFGM Stagecoach",
+  "897": "TFGM Stagecoach",
+  "898": "TFGM Stagecoach",
+  "899": "TFGM Stagecoach",
+  "8B": "TFGM GNW",
+  "90": "TFGM Stagecoach",
+  "900": "TFGM Stagecoach",
+  "901": "TFGM Vision Bus",
+  "902": "TFGM Vision Bus",
+  "903": "TFGM Vision Bus",
+  "904": "TFGM GNW",
+  "905": "TFGM Vision Bus",
+  "906": "TFGM GNW",
+  "907P": "TFGM Diamond Bus",
+  "907V": "TFGM Vision Bus",
+  "908": "TFGM Stagecoach",
+  "909": "TFGM Vision Bus",
+  "910": "TFGM Vision Bus",
+  "911": "TFGM Vision Bus",
+  "913": "TFGM Vision Bus",
+  "913P": "TFGM GNW",
+  "914": "TFGM GNW",
+  "915": "TFGM Diamond Bus",
+  "916": "TFGM Diamond Bus",
+  "918": "TFGM Vision Bus",
+  "918P": "TFGM Diamond Bus",
+  "919": "TFGM Vision Bus",
+  "920": "TFGM Vision Bus",
+  "921": "TFGM Stagecoach",
+  "922": "TFGM Vision Bus",
+  "923": "TFGM Stagecoach",
+  "923V": "TFGM Vision Bus",
+  "924": "TFGM Vision Bus",
+  "926": "TFGM Stagecoach",
+  "927": "TFGM Stagecoach",
+  "928": "TFGM Stagecoach",
+  "93": "TFGM Stagecoach",
+  "930": "TFGM GNW",
+  "931": "TFGM GNW",
+  "932": "TFGM GNW",
+  "933": "TFGM GNW",
+  "934": "TFGM Stagecoach",
+  "935": "TFGM Stagecoach",
+  "936": "TFGM Stagecoach",
+  "937": "TFGM Stagecoach",
+  "938": "TFGM Stagecoach",
+  "939": "TFGM Vision Bus",
+  "94": "TFGM Stagecoach",
+  "940": "TFGM Stagecoach",
+  "941": "TFGM Stagecoach",
+  "942": "TFGM GNW",
+  "943": "TFGM Stagecoach",
+  "944": "TFGM Stagecoach",
+  "946": "TFGM Stagecoach",
+  "947": "TFGM GNW",
+  "948": "TFGM GNW",
+  "949": "TFGM Stagecoach",
+  "95": "TFGM Stagecoach",
+  "950": "TFGM Vision Bus",
+  "951": "TFGM Vision Bus",
+  "952": "TFGM Vision Bus",
+  "953": "TFGM Vision Bus",
+  "953S": "TFGM Stagecoach",
+  "954": "TFGM Vision Bus",
+  "955": "TFGM Vision Bus",
+  "956": "TFGM Stagecoach",
+  "957": "TFGM Vision Bus",
+  "958": "TFGM Vision Bus",
+  "958P": "TFGM GNW",
+  "959": "TFGM Vision Bus",
+  "960": "TFGM Vision Bus",
+  "961": "TFGM Stagecoach",
+  "962": "TFGM Stagecoach",
+  "966": "TFGM Stagecoach",
+  "967": "TFGM First North",
+  "968": "TFGM First North",
+  "97": "TFGM Stagecoach",
+  "970": "TFGM Vision Bus",
+  "972": "TFGM GNW",
+  "973": "TFGM GNW",
+  "974": "TFGM Stagecoach",
+  "976": "TFGM Vision Bus",
+  "977": "TFGM Vision Bus",
+  "978": "TFGM Vision Bus",
+  "979": "TFGM Vision Bus",
+  "98": "TFGM Stagecoach",
+  "980": "TFGM Vision Bus",
+  "981": "TFGM Vision Bus",
+  "982": "TFGM Vision Bus",
+  "983": "TFGM Vision Bus",
+  "984": "TFGM Vision Bus",
+  "984P": "TFGM Diamond Bus",
+  "985": "TFGM Vision Bus",
+  "986": "TFGM Vision Bus",
+  "987": "TFGM Vision Bus",
+  "988": "TFGM Stagecoach",
+  "989": "TFGM Vision Bus",
+  "99": "TFGM Stagecoach",
+  "990": "TFGM Diamond Bus",
+  "991": "TFGM Stagecoach",
+  "992": "TFGM Stagecoach",
+  "993": "TFGM Stagecoach",
+  "994A": "TFGM Vision Bus",
+  "994G": "TFGM Vision Bus",
+  "995": "TFGM Stagecoach",
+  "996": "TFGM Stagecoach",
+  "997": "TFGM Stagecoach",
+  "998": "TFGM Stagecoach",
+  "999": "TFGM Stagecoach",
+  "PILOT100": "TFGM Stagecoach",
+  "PILOT102": "TFGM Metroline",
+  "PILOT147": "TFGM Metroline",
+  "PILOT151": "TFGM Diamond Bus",
+  "PILOT163": "TFGM GNW",
+  "PILOT250": "TFGM Metroline",
+  "PILOT279": "TFGM Diamond Bus",
+  "PILOT33": "TFGM Stagecoach",
+  "PILOT336": "TFGM Metroline",
+  "PILOT37": "TFGM GNW",
+  "PILOT406": "TFGM First North",
+  "PILOT433": "TFGM First North",
+  "S350": "TFGM Stagecoach",
+  "S350A": "TFGM Stagecoach",
+  "S350B": "TFGM Stagecoach",
+  "S84": "TFGM Stagecoach",
+  "V1": "TFGM GNW",
+  "V2": "TFGM GNW",
+  "V4": "TFGM GNW",
+  "W1": "TFGM GNW",
+  "W1a": "TFGM Diamond Bus",
+  "W2": "TFGM Diamond Bus",
+  "W3": "TFGM GNW",
+  "X22": "TFGM GNW",
+  "X39": "TFGM GNW",
+  "X50": "TFGM Metroline",
+  "X92": "TFGM Stagecoach",
+};
+    const operatorColors = {'TFGM GNW': '#03fca5', 'TFGM Vision Bus': '#030ffc', 'TFGM First North': '#fc03b1', 'TFGM Diamond Bus': '#000000', 'TFGM Stagecoach': '#fc8b00', 'TFGM Metroline': '#fc1d00'};
+    const operator = routeOperatorMap[route];
+    return operatorColors[operator] || "#FFFFFF";
+}
+
+
+function getTextColor(bgColor) {
+    const color = bgColor.charAt(0) === '#' ? bgColor.substring(1, 7) : bgColor;
+    const r = parseInt(color.substring(0, 2), 16);
+    const g = parseInt(color.substring(2, 4), 16);
+    const b = parseInt(color.substring(4, 6), 16);
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness > 128 ? '#000' : '#fff';
+}
+</script>
+<script>
+   function extractCoordinates(input) {
+  const match = input.match(/(-?\d+(?:\.\d+)?)[^\d.-]*(-?\d+(?:\.\d+)?)/);
+  return match ? [match[1], match[2]] : null;
+}
+
+ 
+
+function generateLinks() {
+  const input = document.getElementById("coordInput").value;
+  const coords = extractCoordinates(input);
+  if (!coords) {
+    alert("Invalid input. Please enter some coordinates.");
+    return;
+
+
+const city = address.city || address.town || address.village || address.county || "-";
+document.getElementById("cityName").textContent = city;
+
+// Define city colors
+const cityColors = {
+  "Manchester": "#00ffcc",
+  "Salford": "#ff6600",
+  "Stockport": "#3399ff",
+  "Oldham": "#cc33ff",
+  "Bolton": "#ff3366",
+  "Rochdale": "#33cc33",
+  "Wigan": "#ffcc00",
+  "Tameside": "#9966ff",
+  "Bury": "#00ccff"
+};
+
+// Set radar color
+const radarColor = cityColors[city] || "#00ffcc";
+document.documentElement.style.setProperty('--radar-color', radarColor);
+
+  }
+
+
+const [lat, lon] = coords;
+initLeafletMap(lat, lon); // <-- Add this line
+
+
+  // Fetch address info
+  fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+    .then(response => response.json())
+.then(data => {
+  const address = data.address || {};
+  document.getElementById("streetName").textContent = address.road || "-";
+  const city = address.city || address.town || "-";
+  document.getElementById("cityName").textContent = city;
+  document.getElementById("postcode").textContent = address.postcode || "-";
+
+  const cityColors = {
+    "Manchester": "#00ffcc",
+    "Salford": "#ff6600",
+    "Stockport": "#3399ff",
+    "Oldham": "#cc33ff",
+    "Bolton": "#ff3366",
+    "Rochdale": "#33cc33",
+    "Wigan": "#ffcc00",
+    "Tameside": "#9966ff",
+    "Bury": "#00ccff"
+  };
+  const radarColor = cityColors[city] || "#00ffcc";
+  document.documentElement.style.setProperty('--radar-color', radarColor);
+})
+
+
+  // Generate links
+  const links = [
+    { name: "🗺️ Google Maps", url: `https://www.google.com/maps/@${lat},${lon},316m/` },
+    { name: "🚌 BusTimes", url: `https://bustimes.org/map#16.53/${lat}/${lon}` },
+    { name: "🚨 Waze Alerts", url: `https://www.waze.com/partnerhub/map-tool?lon=${lon}&lat=${lat}&initialZoom=20` },
+    { name: "🚧 Waze Closures", url: `https://www.waze.com/en-US/editor?env=row&lat=${lat}&lon=${lon}&zoomLevel=17` },
+    { name: "🧭 TomTom", url: `https://plan.tomtom.com/en/?p=${lat},${lon},14.48z` },
+    { name: "🚏 Nearest Stops", url: `https://www.google.com/maps/search/bus+stop/@${lat},${lon},721m/` },
+    { name: "📢 VMS", url: `https://www.stratostraffic.com/Modules/DriverInformationUi/informationSigns?lat=${lat}&lng=${lon}&zoom=14` }
+  ];
+
+  const container = document.getElementById("linksContainer");
+  container.innerHTML = "";
+  links.forEach(link => {
+    const btn = document.createElement("button");
+    btn.textContent = link.name;
+    btn.onclick = () => window.open(link.url, "_blank");
+    container.appendChild(btn);
+  });
+
+  
+    fetchBusRoutes(lat, lon);
+}
+
+
+    function openAllLinks() {
+      const buttons = document.getElementById("linksContainer").getElementsByTagName("button");
+      for (let btn of buttons) {
+        btn.click();
+      }
+    }
+
+
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+
+
+function copyGoogleMapsLink() {
+  const input = document.getElementById("coordInput").value;
+  const coords = extractCoordinates(input);
+  if (!coords) {
+    alert("Invalid input. Please enter coordinates or a valid URL.");
+    return;
+  }
+  const [lat, lon] = coords;
+  const googleMapsUrl = `https://www.google.com/maps/@${lat},${lon},316m/`;
+
+  navigator.clipboard.writeText(googleMapsUrl)
+    .then(() => alert("📋 Google Maps link copied to clipboard!"))
+    .catch(err => alert("Failed to copy link: " + err));
+}
+
+document.getElementById("coordInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      generateLinks();
+    }
+  
+    const cityColors = {
+      "Manchester": "#00ffcc",
+      "Salford": "#ff6600",
+      "Stockport": "#3399ff",
+      "Oldham": "#cc33ff",
+      "Bolton": "#ff3366",
+      "Rochdale": "#33cc33",
+      "Wigan": "#ffcc00",
+      "Tameside": "#9966ff",
+      "Bury": "#00ccff"
+    };
+    const radarColor = cityColors[city] || "#00ffcc";
+    document.documentElement.style.setProperty('--radar-color', radarColor);
+
+    if (leafletMarker) {
+      leafletMap.removeLayer(leafletMarker);
+    }
+    leafletMarker = L.marker([lat, lon], {
+      icon: L.divIcon({
+        className: 'custom-marker',
+        iconSize: [20, 20]
+      })
+    }).addTo(leafletMap);
+    leafletMap.setView([lat, lon], 15);
+});
+
+
+  </script></body>
+</html>
