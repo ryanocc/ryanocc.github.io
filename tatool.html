@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TA Call Sheet</title>
+
+  <style>
+  :root{
+    --bg:#05070c;
+    --fg:#f4f7ff;
+    --mut:#aebad4;
+    --line:#253458;
+    --accent:#ffd24a;
+    --shadow:0 18px 40px rgba(0,0,0,.45);
+
+    /* Operator colours */
+    --metroline:#ff4d4f;
+    --gnw:#003C6E;
+    --stagecoach:#ff9a1f;
+    --diamond:#9AC331;
+    --vision:#7a3ffe;
+    --first:#ff66b3;
+  }
+
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 700px at 10% -10%, rgba(255,210,74,.18), transparent 55%),
+      radial-gradient(1200px 700px at 90% 0%, rgba(122,63,254,.16), transparent 55%),
+      var(--bg);
+    color:var(--fg);
+    font-family: system-ui, Segoe UI, Roboto, Arial;
+  }
+
+  .wrap{max-width:1400px;margin:0 auto;padding:16px}
+
+  /* ===== INPUT (compact) ===== */
+  .input-card{
+    background: linear-gradient(180deg, rgba(13,20,34,.96), rgba(8,12,22,.96));
+    border:1px solid rgba(37,52,88,.9);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    padding:12px;
+    margin-bottom:12px;
+  }
+
+  .label{
+    font-size:14px;
+    font-weight:800;
+    color:var(--mut);
+    margin-bottom:8px;
+    line-height:1.25;
+  }
+
+  textarea{
+    box-sizing:border-box; /* prevents overflow */
+    width:100%;
+    max-width:100%;
+    min-height:88px;
+    resize:vertical;
+
+    border-radius:16px;
+    border:1px solid rgba(37,52,88,.9);
+    background:rgba(0,0,0,.45);
+    color:var(--fg);
+
+    padding:14px;
+    font-size:20px;
+    font-weight:850;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    line-height:1.25;
+    outline:none;
+    display:block;
+  }
+  textarea::placeholder{color:rgba(174,186,212,.55);font-weight:800}
+  textarea:focus{
+    border-color:rgba(255,210,74,.8);
+    box-shadow:0 0 0 6px rgba(255,210,74,.18);
+  }
+
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  button{
+    height:46px;
+    padding:0 16px;
+    border-radius:14px;
+    border:1px solid rgba(255,210,74,.6);
+    background:rgba(255,210,74,.18);
+    color:var(--fg);
+    font-size:18px;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+  }
+  button.secondary{
+    background:rgba(13,20,34,.75);
+    border-color:rgba(37,52,88,.9);
+    font-size:16px;
+  }
+  button:active{transform:translateY(1px)}
+
+  @media (max-width: 520px){
+    .actions{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    #go{grid-column:1 / -1;}
+  }
+
+  #meta{
+    margin:10px 4px 12px;
+    font-size:16px;
+    font-weight:700;
+    color:var(--mut);
+  }
+
+  /* ===== OUTPUT ===== */
+  .ops{display:grid;gap:12px}
+
+  .op{
+    --opcolor:#5b6b86;
+    background:rgba(10,14,24,.50);
+    border:1px solid rgba(37,52,88,.9);
+    border-left:16px solid var(--opcolor);
+    border-radius:22px;
+    padding:14px 16px 16px;
+    position:relative;
+
+    /* ✅ FIX: allow tooltips to escape card */
+    overflow:visible;  /* was hidden */
+  }
+
+  /* subtle tinted wash using operator colour */
+  .op::before{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--opcolor) 18%, transparent), transparent 55%);
+    pointer-events:none;
+    opacity:.65;
+
+    /* keep wash rounded even though overflow is visible */
+    border-radius:22px;
+  }
+
+  .op > *{position:relative}
+
+  .ophead{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:10px;
+  }
+  .opname{font-size:22px;font-weight:1000}
+  .opcount{
+    font-size:18px;
+    font-weight:900;
+    color:var(--mut);
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+  }
+
+  .routes{display:flex;flex-wrap:wrap;gap:10px}
+
+  .route{
+    position:relative; /* tooltip anchor */
+    z-index:1;         /* base */
+
+    padding:10px 16px;
+    border-radius:999px;
+    background:rgba(13,20,34,.85);
+    border:2px solid color-mix(in srgb, var(--opcolor) 70%, rgba(37,52,88,.9));
+    font-size:22px;
+    font-weight:1000;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    letter-spacing:.6px;
+    cursor:default;
+  }
+
+  /* ✅ FIX: raise hovered pill above nearby cards */
+  .route:hover{ z-index:9999; }
+
+  .route.miss{
+    border-color: rgba(255,176,32,.95);
+    background:rgba(255,176,32,.12);
+    color:#ffd9a3;
+  }
+
+  /* ===== Styled tooltip (description on hover) ===== */
+  .route[data-desc]::after,
+  .route[data-desc]::before{
+    opacity:0;
+    transform: translateX(-50%) translateY(6px);
+    transition: opacity .12s ease, transform .12s ease;
+    pointer-events:none;
+  }
+
+  .route[data-desc]:hover::after{
+    content: attr(data-desc);
+    position:absolute;
+    left:50%;
+    bottom: calc(100% + 12px);
+    transform: translateX(-50%) translateY(0);
+
+    /* ✅ ensure tooltip is above everything */
+    z-index:10000;
+
+    max-width: min(560px, 82vw);
+    white-space: normal;
+    padding:10px 12px;
+    border-radius:12px;
+
+    background: rgba(8,12,22,.96);
+    border:1px solid rgba(255,210,74,.55);
+    box-shadow: 0 18px 40px rgba(0,0,0,.55);
+
+    color: var(--fg);
+    font-size:14px;
+    font-weight:850;
+    letter-spacing:.2px;
+    line-height:1.25;
+
+    opacity:1;
+  }
+
+  .route[data-desc]:hover::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom: calc(100% + 4px);
+    transform: translateX(-50%) translateY(0);
+    border:8px solid transparent;
+    border-top-color: rgba(255,210,74,.55);
+
+    z-index:10001;
+    opacity:1;
+  }
+
+  /* If description is empty, don't show tooltip visuals */
+  .route[data-desc=""]::after,
+  .route[data-desc=""]::before{
+    display:none !important;
+  }
+
+  .hidden{display:none}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="input-card">
+      <div class="label">
+        Paste route numbers (commas, spaces, new lines, “&amp;” or “and” all OK). Ctrl+Enter to run.
+      </div>
+
+      <textarea id="input" placeholder="36, 37 &amp; V1 and V2"></textarea>
+
+      <div class="actions">
+        <button id="go">Generate call sheet</button>
+        <button class="secondary" id="copy" disabled>Copy</button>
+        <button class="secondary" id="clear">Clear</button>
+      </div>
+    </div>
+
+    <div id="meta">Loading Routes.csv…</div>
+    <div id="out" class="ops"></div>
+    <div id="raw" class="hidden"></div>
+  </div>
+
+  <script>
+  (() => {
+    const CSV_URL = "https://ryanocc.github.io/Routes.csv";
+
+    const OP_COLORS = {
+      "Metroline Manchester": "#ff4d4f",
+      "Go North West": "#003C6E",
+      "Stagecoach Manchester": "#ff9a1f",
+      "Diamond": "#9AC331",
+      "Vision Bus": "#7a3ffe",
+      "First Manchester": "#ff66b3"
+    };
+    const OP_PRIORITY = Object.keys(OP_COLORS);
+
+    const $ = id => document.getElementById(id);
+    const input = $("input"), out = $("out"), meta = $("meta"), copyBtn = $("copy");
+
+    let rows = [];
+    let exact = new Map();
+    let loose = new Map();
+    let lastCallSheet = "";
+
+    function splitCSVLine(line){
+      const out=[]; let cur=""; let inQ=false;
+      for(let i=0;i<line.length;i++){
+        const ch=line[i];
+        if(ch === '"'){
+          if(inQ && line[i+1] === '"'){ cur+='"'; i++; }
+          else inQ=!inQ;
+        } else if(ch === "," && !inQ){
+          out.push(cur); cur="";
+        } else cur+=ch;
+      }
+      out.push(cur);
+      return out;
+    }
+
+    function parseCSV(text){
+      const lines = text.replace(/\r\n/g,"\n").replace(/\r/g,"\n")
+                        .split("\n").filter(l=>l.trim().length);
+      if(!lines.length) return [];
+
+      const header = splitCSVLine(lines[0].replace(/^\uFEFF/,"")).map(h=>h.trim().toLowerCase());
+      const iRoute = header.indexOf("route");
+      const iDesc  = header.indexOf("description");
+      const iOp    = header.indexOf("operator");
+      if(iRoute<0 || iDesc<0 || iOp<0) throw new Error("CSV must have route, description, operator headers");
+
+      const out=[];
+      for(let i=1;i<lines.length;i++){
+        const p = splitCSVLine(lines[i]);
+        const route = (p[iRoute]||"").trim();
+        if(!route) continue;
+        out.push({
+          route: route.trim(),
+          description: (p[iDesc]||"").trim(),
+          operator: (p[iOp]||"").trim()
+        });
+      }
+      return out;
+    }
+
+    function buildIndexes(){
+      exact.clear(); loose.clear();
+      const add = (m, k, row) => {
+        k = String(k).toUpperCase();
+        if(!m.has(k)) m.set(k, []);
+        m.get(k).push(row);
+      };
+
+      for(const r of rows){
+        const ru = String(r.route).toUpperCase();
+        add(exact, ru, r);
+
+        if(/^\d+$/.test(ru)){
+          const k = (ru.replace(/^0+/, "") || "0");
+          add(loose, k, r);
+        }
+      }
+    }
+
+    function tokensFrom(raw){
+      if(!raw) return [];
+      let s = raw.replace(/&amp;/gi,"&")
+                 .replace(/\band\b/gi,",")
+                 .replace(/&/g,",")
+                 .replace(/[\n;\t]/g,",")
+                 .replace(/\s*,\s*/g,",")
+                 .replace(/,+/g,",");
+      const toks = s.split(/[\s,]+/)
+                    .map(x=>x.trim().toUpperCase().replace(/[^0-9A-Z]/g,""))
+                    .filter(Boolean);
+
+      const seen=new Set(), out=[];
+      for(const t of toks) if(!seen.has(t)){ seen.add(t); out.push(t); }
+      return out;
+    }
+
+    function bestMatch(token, candidates){
+      if(!candidates || !candidates.length) return null;
+
+      const preferred = candidates.filter(r => OP_COLORS.hasOwnProperty(r.operator));
+      const pool = preferred.length ? preferred : candidates;
+
+      const exactHit = pool.find(r => String(r.route).toUpperCase() === token);
+      if(exactHit) return exactHit;
+
+      const sorted = [...pool].sort((a,b)=>{
+        const ai = OP_PRIORITY.indexOf(a.operator);
+        const bi = OP_PRIORITY.indexOf(b.operator);
+        return (ai===-1?999:ai) - (bi===-1?999:bi);
+      });
+      return sorted[0];
+    }
+
+    function lookup(token){
+      const T = token.toUpperCase();
+      const candidates = [];
+
+      if(exact.has(T)) candidates.push(...exact.get(T));
+
+      if(/^\d+$/.test(T)){
+        const k = (T.replace(/^0+/,"") || "0");
+        if(loose.has(k)) candidates.push(...loose.get(k));
+
+        const p2 = T.padStart(2,"0");
+        const p3 = T.padStart(3,"0");
+        if(exact.has(p2)) candidates.push(...exact.get(p2));
+        if(exact.has(p3)) candidates.push(...exact.get(p3));
+      }
+
+      const uniq = [];
+      const seen = new Set();
+      for(const r of candidates){
+        const key = `${String(r.route).toUpperCase()}|${r.operator}|${r.description}`;
+        if(!seen.has(key)){ seen.add(key); uniq.push(r); }
+      }
+
+      return bestMatch(T, uniq);
+    }
+
+    function sortOps(a,b){
+      const ai = OP_PRIORITY.indexOf(a);
+      const bi = OP_PRIORITY.indexOf(b);
+      return (ai===-1?999:ai) - (bi===-1?999:bi) || a.localeCompare(b);
+    }
+
+    function escapeHtml(s){
+      return String(s).replace(/[&<>"']/g, c => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+      }[c]));
+    }
+
+    function render(groups, misses, parsedCount, matchedCount){
+      out.innerHTML = "";
+      const ops = Object.keys(groups).sort(sortOps);
+
+      const lines = [];
+      for(const op of ops){
+        lines.push(`${op}: ${groups[op].map(x => x.token).join(", ")}`);
+      }
+      if(misses.length) lines.push(`UNMATCHED: ${misses.join(", ")}`);
+      lastCallSheet = lines.join("\n");
+      $("raw").textContent = lastCallSheet;
+      copyBtn.disabled = !lastCallSheet;
+
+      meta.textContent = `Parsed ${parsedCount} • Matched ${matchedCount} • Unmatched ${misses.length}`;
+
+      for(const op of ops){
+        const sec = document.createElement("div");
+        sec.className = "op";
+        const color = OP_COLORS[op] || "#5b6b86";
+        sec.style.setProperty("--opcolor", color);
+
+        sec.innerHTML = `
+          <div class="ophead">
+            <div class="opname">${escapeHtml(op)}</div>
+            <div class="opcount">${groups[op].length}</div>
+          </div>
+          <div class="routes">
+            ${groups[op].map(item => `
+              <div class="route" data-desc="${escapeHtml(item.desc || "")}">
+                ${escapeHtml(item.token)}
+              </div>
+            `).join("")}
+          </div>
+        `;
+        out.appendChild(sec);
+      }
+
+      if(misses.length){
+        const sec = document.createElement("div");
+        sec.className = "op";
+        sec.style.setProperty("--opcolor", "#ffb020");
+        sec.innerHTML = `
+          <div class="ophead">
+            <div class="opname">UNMATCHED</div>
+            <div class="opcount">${misses.length}</div>
+          </div>
+          <div class="routes">
+            ${misses.map(r=>`<div class="route miss">${escapeHtml(r)}</div>`).join("")}
+          </div>
+        `;
+        out.appendChild(sec);
+      }
+    }
+
+    function run(){
+      const toks = tokensFrom(input.value);
+      const groups = {};
+      const misses = [];
+      let matched = 0;
+
+      for(const t of toks){
+        const row = lookup(t);
+        if(!row){ misses.push(t); continue; }
+        matched++;
+
+        const op = row.operator || "Unknown operator";
+        (groups[op] ||= []).push({
+          token: t,
+          desc: row.description || ""
+        });
+      }
+
+      render(groups, misses, toks.length, matched);
+    }
+
+    $("go").addEventListener("click", run);
+    input.addEventListener("keydown", e => { if(e.ctrlKey && e.key==="Enter") run(); });
+
+    $("copy").addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(lastCallSheet);
+        meta.textContent = "Copied ✓";
+      }catch{
+        meta.textContent = "Copy blocked by browser.";
+      }
+    });
+
+    $("clear").addEventListener("click", () => {
+      input.value = "";
+      out.innerHTML = "";
+      meta.textContent = "Cleared";
+      copyBtn.disabled = true;
+    });
+
+    async function load(){
+      meta.textContent = "Loading Routes.csv…";
+      try{
+        const res = await fetch(CSV_URL, { cache:"no-store" });
+        if(!res.ok) throw new Error("HTTP " + res.status);
+        const text = await res.text();
+        rows = parseCSV(text);
+        buildIndexes();
+        meta.textContent = `Loaded ${rows.length} routes • Paste and Generate`;
+        input.focus();
+      }catch(e){
+        console.error(e);
+        meta.textContent = "Failed to load Routes.csv (check URL/connection).";
+      }
+    }
+
+    load();
+  })();
+  </script>
+</body>
+</html>
