@@ -372,7 +372,7 @@ body.bar-open #bottomStatusRow{
     function withCacheBust(url){ const sep = url.includes('?') ? '&' : '?'; return `${url}${sep}ts=${Date.now()}`; }
 
     /* ========= OCC Proxy helpers (single proxy only) ========= */
-    const OCC_PROXY = 'https://occproxy-6dem.vercel.app/api/proxy';
+    const OCC_PROXY = 'https://renderproxy-990x.onrender.com/proxy';
     async function fetchJsonViaOccProxy(url, signal){
       const proxied = `${OCC_PROXY}?url=${encodeURIComponent(withCacheBust(url))}`;
       const res = await fetch(proxied, { cache:'no-store', signal });
@@ -1566,7 +1566,7 @@ const feats = display
    ======================================================= */
 
 // Use your existing TVT feed (already in your code earlier)
-const TVT_URL = 'https://occproxy-6dem.vercel.app/api/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
+const TVT_URL = 'https://renderproxy-990x.onrender.com/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
 const NET_HEALTH_REFRESH_MS = 60 * 1000; // 1 min (tweak as you like)
 
 function networkGradientFromUsersOnJams(usersOnJams){
