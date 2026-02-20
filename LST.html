@@ -1275,7 +1275,7 @@
     /* =======================================================
        TVT PANEL (left) — GRID CARDS, 3 LINES
        ======================================================= */
-    const TVT_URL = 'https://occproxy-6dem.vercel.app/api/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
+    const TVT_URL = 'https://renderproxy-990x.onrender.com/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
     const TVT_REFRESH_MS = 5 * 60 * 1000;
     let tvtTimer = null;
 
@@ -1522,7 +1522,7 @@ function bindCorridorClicks(){
     const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
     const WAZE_REFRESH_MS = 30000;
     const PROXIES = [
-      (url) => `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent(url)}`,
+      (url) => `https://renderproxy-990x.onrender.com/proxy?url=${encodeURIComponent(url)}`,
       (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
       (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
     ];
@@ -1929,7 +1929,7 @@ const titleHTML = buildWazeTitleHTML({
        CENTRAL PANE — Bee Network Unplanned Diversions (2×4)
        ======================================================= */
     const DIV_API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
-    const DIV_BODS_URL = `https://occproxy-6dem.vercel.app/api/proxy?url=${encodeURIComponent('https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=' + DIV_API_KEY)}`;
+    const DIV_BODS_URL = `https://renderproxy-990x.onrender.com/proxy?url=${encodeURIComponent('https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=' + DIV_API_KEY)}`;
     const DIV_REFRESH_MS = 45000;
     const DIV_BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
     const DIV_DAY_MS = 24 * 60 * 60 * 1000;
