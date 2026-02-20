@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>TA Call Sheet</title>
+  <title>TA Tool</title>
 
   <style>
   :root{
@@ -114,6 +114,8 @@
 
   /* ===== OUTPUT ===== */
   .ops{display:grid;gap:12px}
+  
+  .op{ background: rgba(10,14,24,.78); }
 
   .op{
     --opcolor:#5b6b86;
@@ -127,6 +129,18 @@
     /* ✅ FIX: allow tooltips to escape card */
     overflow:visible;  /* was hidden */
   }
+
+
+.wrap{
+  max-width:1400px;
+  margin:0 auto;
+  padding:16px;
+
+  /* ✅ THIS is the fix */
+  background: var(--bg);
+  min-height: 100vh;
+}
+
 
   /* subtle tinted wash using operator colour */
   .op::before{
