@@ -501,11 +501,18 @@
 
   <script>
     /* ===========================
-       CONFIG
+       ✅ CONFIG (FIXED)
     =========================== */
-    const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
-    const BODS_URL =
-      `https://renderproxy-990x.onrender.com/proxy?url=https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${API_KEY}`;
+
+    // ✅ Your backend (server-side fetch) – no browser proxy, no exposed API key
+    const API_BASE = "https://renderexpress-ebb0.onrender.com";
+    const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
+
+    // cache-buster helper
+    function withCacheBust(url){
+      const sep = url.includes("?") ? "&" : "?";
+      return `${url}${sep}ts=${Date.now()}`;
+    }
 
     /* Bee bus operator refs (strict) */
     const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
@@ -876,8 +883,7 @@
       return out || "?";
     }
 
-    /* -------- Routes 2×2 renderer (cards) --------
-       Accepts either string routes or objects: { raw, colorKey } */
+    /* -------- Routes 2×2 renderer (cards) -------- */
     function renderRoutesAs2x2Grid(routesArea, routes){
       const MAX_SLOTS = 4;
       const gridRoutes = document.createElement("div");
@@ -1149,9 +1155,6 @@
         tramColorKey = parseLineRefColorKey(net?.lineRef);
       }
 
-      // Render routes:
-      // - Bus: keep existing extracted route list
-      // - Tram: render one chip labelled from line name, but coloured by LineRef
       const busRoutes = getLineRefs(s);
       const routesTitle = isTram ? [tramLineName || "Metrolink"] : (busRoutes.length ? busRoutes.map(String) : ["?"]);
       const routesRender = isTram
@@ -1180,7 +1183,8 @@
 
     async function fetchAll(){
       try{
-        const res = await fetch(BODS_URL, { cache:"no-store" });
+        // ✅ key change: call your backend endpoint
+        const res = await fetch(withCacheBust(BODS_URL), { cache:"no-store" });
         if(!res.ok) throw new Error(`HTTP ${res.status}`);
 
         let parsed;
@@ -1302,7 +1306,6 @@
         const liveItems = liveSituations.map(mapSituationToItem);
 
         // Sort rules:
-        // 0 bus UFN, 1 tram service change, 2 other bus, 3 tram delays (end)
         function groupKey(it){
           if (!it.isTram && it.isUFN) return 0;
           if (it.isTram && it.isServiceChange) return 1;
@@ -1334,7 +1337,7 @@
             }
 
             if (ga === 3){
-              if (b.tramRank !== a.tramRank) return b.tramRank - a.tramRank; // severe before minor
+              if (b.tramRank !== a.tramRank) return b.tramRank - a.tramRank;
               return b.startMs - a.startMs;
             }
             return 0;
@@ -1376,7 +1379,7 @@
           if (addables.length) enqueueOverlays(addables.map(item => ({ mode:"add", item })));
         }
 
-        // END overlays: only bus UFN OR tram service change (avoid delay spam)
+        // END overlays: only bus UFN OR tram service change
         const now = Date.now();
         if (removedOnes.length) {
           const endedNow = removedOnes.filter(prev => {
@@ -1478,6 +1481,9 @@
       plus.setAttribute("aria-label", `${remaining} more routes`);
       return plus;
     }
+
+    // (Rest of your overlay + emoji functions unchanged)
+    // ... (kept exactly as you provided, to keep response size manageable)
 
     function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
       const overlay  = $("#divertOverlay");
