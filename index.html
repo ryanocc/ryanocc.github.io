@@ -1,4 +1,246 @@
-https://ryanocc.github.io/bustest.html
-https://ryanocc.github.io/maptest.html
-https://ryanocc.github.io/LST.html
-https://ryanocc.github.io/cot.html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OCC Tools</title>
+  <meta name="theme-color" content="#0b0f14" />
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.09);
+      --text: #e9eef6;
+      --muted: rgba(233,238,246,0.70);
+      --accent: #ffd24a;   /* friendly yellow */
+      --accent2:#3ea6ff;   /* soft blue */
+      --shadow: 0 14px 38px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(62,166,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 80% 20%, rgba(255,210,74,.16), transparent 55%),
+        radial-gradient(1100px 700px at 50% 120%, rgba(255,255,255,.08), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px;
+    }
+
+    .wrap{
+      width:min(980px, 100%);
+    }
+
+    header{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom: 18px;
+    }
+
+    .title-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: 0.4px;
+    }
+
+    .subtitle{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.4;
+    }
+
+    .card{
+      background: linear-gradient(180deg, var(--panel), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 720px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .tool{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      width:100%;
+      text-decoration:none;
+      color:inherit;
+      padding: 16px 16px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, var(--panel2), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      position:relative;
+      overflow:hidden;
+      min-height: 78px;
+    }
+
+    .tool::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(420px 160px at 20% 20%, rgba(255,210,74,.18), transparent 60%),
+        radial-gradient(420px 160px at 80% 0%, rgba(62,166,255,.16), transparent 60%);
+      opacity:.0;
+      transition: opacity .12s ease;
+      pointer-events:none;
+    }
+
+    .tool:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,210,74,0.40);
+      background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.05));
+    }
+    .tool:hover::before{ opacity:1; }
+
+    .icon{
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      flex: 0 0 48px;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .label{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+
+    .label strong{
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+
+    .label span{
+      font-size: 12.5px;
+      color: var(--muted);
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .pill{
+      margin-left:auto;
+      font-size:12px;
+      color: rgba(233,238,246,0.78);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.18);
+      padding: 6px 10px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+    }
+
+    footer{
+      margin-top: 12px;
+      color: rgba(233,238,246,0.55);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .kbd{
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.18);
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      color: rgba(233,238,246,0.75);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="card">
+      <div class="title-row">
+        <h1>OCC Tools</h1>
+        <div class="pill" title="Quick links dashboard">Quick Launch</div>
+      </div>
+      <p class="subtitle">
+        Handy shortcuts for the Operational Control Centre — click a tool to open in a new tab.
+      </p>
+
+      <section class="grid" aria-label="OCC tools links">
+        <a class="tool" href="https://ryanocc.github.io/bustest.html" target="_blank" rel="noopener">
+          <div class="icon" aria-hidden="true">🚌</div>
+          <div class="label">
+            <strong>Key Travel Alerts</strong>
+            <span>https://ryanocc.github.io/bustest.html</span>
+          </div>
+          <div class="pill">Open</div>
+        </a>
+
+        <a class="tool" href="https://ryanocc.github.io/maptest.html" target="_blank" rel="noopener">
+          <div class="icon" aria-hidden="true">🗺️</div>
+          <div class="label">
+            <strong>Waze Alert Map</strong>
+            <span>https://ryanocc.github.io/maptest.html</span>
+          </div>
+          <div class="pill">Open</div>
+        </a>
+
+        <a class="tool" href="https://ryanocc.github.io/LST.html" target="_blank" rel="noopener">
+          <div class="icon" aria-hidden="true">👮</div>
+          <div class="label">
+            <strong>Officer Screen</strong>
+            <span>https://ryanocc.github.io/LST.html</span>
+          </div>
+          <div class="pill">Open</div>
+        </a>
+
+        <a class="tool" href="https://ryanocc.github.io/cot.html" target="_blank" rel="noopener">
+          <div class="icon" aria-hidden="true">📍</div>
+          <div class="label">
+            <strong>OCC Location Helper</strong>
+            <span>https://ryanocc.github.io/cot.html</span>
+          </div>
+          <div class="pill">Open</div>
+        </a>
+      </section>
+
+      <footer>
+        <span>Tip: Pin this page in your browser for a one-click OCC launcher.</span>
+        <span><span class="kbd">Ctrl</span> + <span class="kbd">L</span> then type “OCC Tools”</span>
+      </footer>
+    </header>
+  </main>
+</body>
+</html>
