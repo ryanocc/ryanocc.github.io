@@ -280,7 +280,6 @@ body.bar-open #bottomStatusRow{
     <div id="alert-progress-wrap"><div id="alert-progress"></div></div>
   </div>
 
-
   <!-- Hidden legacy feed badges -->
   <div id="feed-health-waze" class="feed-health" aria-live="polite" aria-label="Waze feed status">Waze: initialising…</div>
   <div id="feed-health-he"   class="feed-health" aria-live="polite" aria-label="Highways feed status">Highways: initialising…</div>
@@ -289,6 +288,11 @@ body.bar-open #bottomStatusRow{
     /* =======================================================
        CONFIG / CONSTANTS
        ======================================================= */
+
+    /* ✅ NEW: Your backend base URL */
+    const API_BASE = 'https://renderexpress-ebb0.onrender.com';
+
+    /* Originals kept for readability / mapping */
     const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
     const HE_URL   = 'https://m.highwaysengland.co.uk/feeds/rss/UnplannedEvents/North%20West.xml';
     const REFRESH_MS = 30000;
@@ -371,11 +375,46 @@ body.bar-open #bottomStatusRow{
 
     function withCacheBust(url){ const sep = url.includes('?') ? '&' : '?'; return `${url}${sep}ts=${Date.now()}`; }
 
-    /* ========= OCC Proxy helpers (single proxy only) ========= */
-    const OCC_PROXY = 'https://renderproxy-990x.onrender.com/proxy';
+    /* ========= ✅ Rewired "OCC Proxy helpers" to your backend ========= */
+
+    function mapUpstreamToBackend(url){
+      try{
+        if(!url) return url;
+        // Direct backend URL already?
+        if (String(url).startsWith(API_BASE)) return String(url);
+
+        const u = String(url);
+
+        // Waze partner feed
+        if (u.includes('/row-partnerhub-api/partners/') && u.includes('/waze-feeds/')) {
+          return `${API_BASE}/api/waze/partner-feed`;
+        }
+
+        // Waze TVT
+        if (u.includes('/row-partnerhub-api/feeds-tvt')) {
+          return `${API_BASE}/api/waze/tvt`;
+        }
+
+        // Highways RSS
+        if (u.includes('highwaysengland.co.uk/feeds/rss/UnplannedEvents')) {
+          return `${API_BASE}/api/highways-nw`;
+        }
+
+        // BODS SIRI-SX
+        if (u.includes('data.bus-data.dft.gov.uk/api/v1/siri-sx')) {
+          return `${API_BASE}/api/bods-siri-sx`;
+        }
+
+        // Default: try direct (may be CORS-blocked if used elsewhere)
+        return u;
+      }catch(e){
+        return url;
+      }
+    }
+
     async function fetchJsonViaOccProxy(url, signal){
-      const proxied = `${OCC_PROXY}?url=${encodeURIComponent(withCacheBust(url))}`;
-      const res = await fetch(proxied, { cache:'no-store', signal });
+      const finalUrl = mapUpstreamToBackend(url);
+      const res = await fetch(withCacheBust(finalUrl), { cache:'no-store', signal });
       if(!res.ok) throw new Error(`HTTP ${res.status}`);
       const text = await res.text();
       const trimmed = text.replace(/^\uFEFF/, '').trim();
@@ -383,9 +422,10 @@ body.bar-open #bottomStatusRow{
       try { return JSON.parse(trimmed); }
       catch { throw new Error('Non-JSON response'); }
     }
+
     async function fetchTextViaOccProxy(url, signal){
-      const proxied = `${OCC_PROXY}?url=${encodeURIComponent(withCacheBust(url))}`;
-      const res = await fetch(proxied, { cache:'no-store', signal });
+      const finalUrl = mapUpstreamToBackend(url);
+      const res = await fetch(withCacheBust(finalUrl), { cache:'no-store', signal });
       if(!res.ok) throw new Error(`HTTP ${res.status}`);
       const text = await res.text();
       if(!text || !text.trim()) throw new Error('Empty response');
@@ -835,7 +875,7 @@ body.bar-open #bottomStatusRow{
     }
 
     function escapeHTML(str){
-      return String(str).replace(/[&<>:\"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+      return String(str).replace(/[&<>:"']/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
     }
     function stylizeRoad(street, city) {
       const s = escapeHTML((street || '').trim());
@@ -875,7 +915,6 @@ body.bar-open #bottomStatusRow{
       highlightedCenter = item.center;
       updateHighlightFilters();
 
-
       document.getElementById('alert-title').textContent = 'New High Confidence Alert';
       locEl.innerHTML = stylizeRoad(item.street, item.city);
       timeEl.textContent = `First reported: ${formatFirstReported(item.firstMillis)}`;
@@ -903,8 +942,6 @@ body.bar-open #bottomStatusRow{
           currentBanner = null;
           bannerActive = false;
           showNextBanner();
-
-
         }, ALERT_BAR_MS);
 
       }, OVERLAY_MS);
@@ -1021,8 +1058,6 @@ body.bar-open #bottomStatusRow{
           prevEffByClusterId.set(id, newEff);
           if ((becameHigh || becameHigherHigh) && shouldTriggerBanner(f)) newly.push(f);
         }
-
-        // 🔔 (moved chime to banner display; do not play here)
 
         if(newly.length){
           newly.sort((a,b)=>{
@@ -1273,8 +1308,8 @@ body.bar-open #bottomStatusRow{
         BNDB:"#9AC331",  BNVB:"#7a3ffe",  BNFM:"#ff66b3"
       };
 
-      const API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
-      const BODS_URL = `https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=${encodeURIComponent(API_KEY)}`;
+      /* ✅ Changed: no API key in frontend */
+      const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
       const BODS_REFRESH_MS = 45000;
       const UNPLANNED_ONLY = true;
 
@@ -1324,15 +1359,6 @@ body.bar-open #bottomStatusRow{
       function withinGMBounds(lon,lat){
         const sw = GM_BOUNDS[0], ne = GM_BOUNDS[1];
         return lon>=sw[0] && lon<=ne[0] && lat>=sw[1] && lat<=ne[1];
-      }
-
-      async function fetchBODS(){
-        const url = `${OCC_PROXY}?url=${encodeURIComponent(BODS_URL)}&ts=${Date.now()}`;
-        const res = await fetch(url, { cache:'no-store' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const clone = res.clone();
-        try{ const j = await res.json(); return { type:'json', data: j }; }
-        catch{ const text = await clone.text(); const xml  = new DOMParser().parseFromString(text, 'application/xml'); return { type:'xml', data: xml }; }
       }
 
       function extractSituationsFromJSON(json){
@@ -1503,8 +1529,8 @@ body.bar-open #bottomStatusRow{
 
       async function updateDivertCentroidsOnce(){
         try{
-          const url = `${OCC_PROXY}?url=${encodeURIComponent(BODS_URL)}&ts=${Date.now()}`;
-          const res = await fetch(url, { cache:'no-store' });
+          // ✅ Now fetched from backend (JSON expected, but XML fallback kept)
+          const res = await fetch(withCacheBust(BODS_URL), { cache:'no-store' });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const clone = res.clone();
           let data, type;
@@ -1522,17 +1548,18 @@ body.bar-open #bottomStatusRow{
             .filter(isCurrentlyValid);
 
           const liveUnplanned = UNPLANNED_ONLY ? live.filter(isUnplanned) : live;
-// ONLY show UFN diverts (no end time)
-const display = liveUnplanned
-  .filter(inDisplayPool)
-  .filter(sit => {
-    const e = sit?.ValidityPeriod?.EndTime || sit?.EndTime;
-    return !e; // UFN only
-  });
 
-const feats = display
-  .map(mapSituationToCentroidFeature)
-  .filter(f => f?.properties?.isUFN === true);
+          // ONLY show UFN diverts (no end time)
+          const display = liveUnplanned
+            .filter(inDisplayPool)
+            .filter(sit => {
+              const e = sit?.ValidityPeriod?.EndTime || sit?.EndTime;
+              return !e; // UFN only
+            });
+
+          const feats = display
+            .map(mapSituationToCentroidFeature)
+            .filter(f => f?.properties?.isUFN === true);
 
           map.getSource('divert-centroids')?.setData({ type:'FeatureCollection', features:feats });
         }catch(e){
@@ -1561,113 +1588,108 @@ const feats = display
       try{ const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim(); return val || fallback; }
       catch(e){ return fallback; }
     }
-/* =======================================================
-   Bottom row: Network health bar + custom attribution chip
-   ======================================================= */
 
-// Use your existing TVT feed (already in your code earlier)
-const TVT_URL = 'https://renderproxy-990x.onrender.com/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
-const NET_HEALTH_REFRESH_MS = 60 * 1000; // 1 min (tweak as you like)
+    /* =======================================================
+       Bottom row: Network health bar + custom attribution chip
+       ======================================================= */
 
-function networkGradientFromUsersOnJams(usersOnJams){
-  // Same logic you had in the sidebar (kept here standalone)
-  if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
-    return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
-  }
-  const levelColors = { 0:'#42BE4B', 1:'#9ddc43', 2:'#ffe04a', 3:'#ff9a1f', 4:'#ff4d4f' };
-  const total = usersOnJams.reduce((a,u)=>a + (Number(u.wazersCount)||0), 0) || 1;
-  let acc = 0, stops = [];
-  usersOnJams.slice().sort((a,b)=>a.jamLevel-b.jamLevel).forEach(u=>{
-    const pct = (Number(u.wazersCount)||0)/total*100;
-    const start = acc, end = acc + pct;
-    stops.push(`${levelColors[u.jamLevel] || '#666'} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
-    acc = end;
-  });
-  return `linear-gradient(90deg, ${stops.join(', ')})`;
-}
+    // ✅ Updated: TVT now from backend
+    const TVT_URL = `${API_BASE}/api/waze/tvt`;
+    const NET_HEALTH_REFRESH_MS = 60 * 1000; // 1 min (tweak as you like)
 
-async function fetchTVTUsersOnJams(signal){
-  try{
-    const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
-    if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    const text = await res.text();
-    const trimmed = text.replace(/^\uFEFF/, '').trim();
-    const data = JSON.parse(trimmed);
-    return Array.isArray(data?.usersOnJams) ? data.usersOnJams : [];
-  }catch(e){
-    console.warn('[NetworkHealth] TVT fetch failed:', e);
-    return null;
-  }
-}
+    function networkGradientFromUsersOnJams(usersOnJams){
+      if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
+        return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
+      }
+      const levelColors = { 0:'#42BE4B', 1:'#9ddc43', 2:'#ffe04a', 3:'#ff9a1f', 4:'#ff4d4f' };
+      const total = usersOnJams.reduce((a,u)=>a + (Number(u.wazersCount)||0), 0) || 1;
+      let acc = 0, stops = [];
+      usersOnJams.slice().sort((a,b)=>a.jamLevel-b.jamLevel).forEach(u=>{
+        const pct = (Number(u.wazersCount)||0)/total*100;
+        const start = acc, end = acc + pct;
+        stops.push(`${levelColors[u.jamLevel] || '#666'} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+        acc = end;
+      });
+      return `linear-gradient(90deg, ${stops.join(', ')})`;
+    }
 
-let netHealthCtrl = null;
-async function updateNetworkHealthOnce(){
-  if (document.hidden) return;
+    async function fetchTVTUsersOnJams(signal){
+      try{
+        const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
+        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        const trimmed = text.replace(/^\uFEFF/, '').trim();
+        const data = JSON.parse(trimmed);
+        return Array.isArray(data?.usersOnJams) ? data.usersOnJams : [];
+      }catch(e){
+        console.warn('[NetworkHealth] TVT fetch failed:', e);
+        return null;
+      }
+    }
 
-  if (netHealthCtrl) { try{ netHealthCtrl.abort(); }catch(e){} }
-  netHealthCtrl = new AbortController();
+    let netHealthCtrl = null;
+    async function updateNetworkHealthOnce(){
+      if (document.hidden) return;
 
-  const usersOnJams = await fetchTVTUsersOnJams(netHealthCtrl.signal);
-  const bar = document.getElementById('networkHealthBar');
-  if (!bar) return;
+      if (netHealthCtrl) { try{ netHealthCtrl.abort(); }catch(e){} }
+      netHealthCtrl = new AbortController();
 
-  if (usersOnJams){
-    bar.style.background = networkGradientFromUsersOnJams(usersOnJams);
-    bar.title = `Network health • Updated ${new Date().toLocaleTimeString('en-GB',{hour12:false})}`;
-  } else {
-    // Keep last good gradient; if none, fallback stays
-    bar.title = `Network health • Update failed ${new Date().toLocaleTimeString('en-GB',{hour12:false})}`;
-  }
-}
+      const usersOnJams = await fetchTVTUsersOnJams(netHealthCtrl.signal);
+      const bar = document.getElementById('networkHealthBar');
+      if (!bar) return;
 
-function syncAttributionIntoChip(){
-  const chip = document.getElementById('attribChip');
-  if (!chip) return;
+      if (usersOnJams){
+        bar.style.background = networkGradientFromUsersOnJams(usersOnJams);
+        bar.title = `Network health • Updated ${new Date().toLocaleTimeString('en-GB',{hour12:false})}`;
+      } else {
+        bar.title = `Network health • Update failed ${new Date().toLocaleTimeString('en-GB',{hour12:false})}`;
+      }
+    }
 
-  // Default MapLibre attribution element (hidden by CSS)
-  const attrib = document.querySelector('.maplibregl-ctrl-attrib');
-  if (!attrib) return;
+    function syncAttributionIntoChip(){
+      const chip = document.getElementById('attribChip');
+      if (!chip) return;
 
-  // Copy its content into our chip
-  chip.innerHTML = attrib.innerHTML;
+      // Default MapLibre attribution element (hidden by CSS)
+      const attrib = document.querySelector('.maplibregl-ctrl-attrib');
+      if (!attrib) return;
 
-  // Ensure our chip height matches actual attrib height if it differs
-  // (optional: uncomment if you want dynamic sizing)
-  // const h = Math.max(24, Math.min(36, attrib.getBoundingClientRect().height || 28));
-  // document.documentElement.style.setProperty('--chipH', `${h}px`);
-}
+      // Copy its content into our chip
+      chip.innerHTML = attrib.innerHTML;
+    }
 
-// Keep attribution chip in sync if style/attribution changes
-function observeAttribution(){
-  const attrib = document.querySelector('.maplibregl-ctrl-attrib');
-  if (!attrib) return;
-  const obs = new MutationObserver(()=>syncAttributionIntoChip());
-  obs.observe(attrib, { childList:true, subtree:true, characterData:true });
-}
+    // Keep attribution chip in sync if style/attribution changes
+    function observeAttribution(){
+      const attrib = document.querySelector('.maplibregl-ctrl-attrib');
+      if (!attrib) return;
+      const obs = new MutationObserver(()=>syncAttributionIntoChip());
+      obs.observe(attrib, { childList:true, subtree:true, characterData:true });
+    }
 
-// Hook into map load
-map.on('load', () => {
-  syncAttributionIntoChip();
-  observeAttribution();
+    // Hook into map load
+    map.on('load', () => {
+      syncAttributionIntoChip();
+      observeAttribution();
 
-  // Prime + refresh loop
-  updateNetworkHealthOnce();
-  setInterval(updateNetworkHealthOnce, NET_HEALTH_REFRESH_MS);
-});
+      // Prime + refresh loop
+      updateNetworkHealthOnce();
+      setInterval(updateNetworkHealthOnce, NET_HEALTH_REFRESH_MS);
+    });
 
-// Also refresh once when tab becomes visible again
-document.addEventListener('visibilitychange', () => {
-  if (!document.hidden) {
-    syncAttributionIntoChip();
-    updateNetworkHealthOnce();
-  }
-});
+    // Also refresh once when tab becomes visible again
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        syncAttributionIntoChip();
+        updateNetworkHealthOnce();
+      }
+    });
 
   </script>
+
   <!-- Bottom status row: Network health bar + Attribution chip -->
-<div id="bottomStatusRow" aria-label="Network health and attribution">
-  <div id="networkHealthBar" title="Network health"></div>
-  <div id="attribChip" aria-label="Map attribution"></div>
-</div>
+  <div id="bottomStatusRow" aria-label="Network health and attribution">
+    <div id="networkHealthBar" title="Network health"></div>
+    <div id="attribChip" aria-label="Map attribution"></div>
+  </div>
 </body>
 </html>
