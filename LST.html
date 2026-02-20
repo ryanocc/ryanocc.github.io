@@ -1129,10 +1129,30 @@
       el.textContent = `${label} Connected Citizens`;
     }
 
-    function withCacheBust(url){
-      const sep = url.includes('?') ? '&' : '?';
-      return `${url}${sep}ts=${Date.now()}`;
-    }
+const API_BASE = "https://renderexpress-ebb0.onrender.com";
+
+function withCacheBust(url){
+  const sep = url.includes('?') ? '&' : '?';
+  return `${url}${sep}ts=${Date.now()}`;
+}
+
+async function fetchJsonFromAPI(pathOrUrl, signal){
+  const url = pathOrUrl.startsWith("http")
+    ? pathOrUrl
+    : `${API_BASE}${pathOrUrl}`;
+  const res = await fetch(withCacheBust(url), { cache: 'no-store', signal });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.json();
+}
+
+async function fetchTextFromAPI(pathOrUrl, signal){
+  const url = pathOrUrl.startsWith("http")
+    ? pathOrUrl
+    : `${API_BASE}${pathOrUrl}`;
+  const res = await fetch(withCacheBust(url), { cache: 'no-store', signal });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.text();
+}
 
     function fmtHHMMSS(){
       try{
@@ -1275,8 +1295,7 @@
     /* =======================================================
        TVT PANEL (left) — GRID CARDS, 3 LINES
        ======================================================= */
-    const TVT_URL = 'https://renderproxy-990x.onrender.com/proxy?url=https://www.waze.com/row-partnerhub-api/feeds-tvt/?id=1709296452339';
-    const TVT_REFRESH_MS = 5 * 60 * 1000;
+const TVT_URL = `${API_BASE}/api/waze/tvt`;    const TVT_REFRESH_MS = 5 * 60 * 1000;
     let tvtTimer = null;
 
     let TVT_MIN_DELAY = 15;
@@ -1493,13 +1512,11 @@ function bindCorridorClicks(){
       }, { passive: true });
     }
 
-    async function fetchTVT(signal){
-      const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const text = await res.text();
-      const trimmed = text.replace(/^\uFEFF/, '').trim();
-      return JSON.parse(trimmed);
-    }
+
+async function fetchTVT(signal){
+  return await fetchJsonFromAPI(TVT_URL, signal);
+}
+
 
     async function tvtCycle(){
       let ctrl = new AbortController();
@@ -1519,30 +1536,14 @@ function bindCorridorClicks(){
     /* =======================================================
        WAZE ALERTS (right) — accidents, signals, weather (ice)
        ======================================================= */
-    const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
-    const WAZE_REFRESH_MS = 30000;
-    const PROXIES = [
-      (url) => `https://renderproxy-990x.onrender.com/proxy?url=${encodeURIComponent(url)}`,
-      (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
-    ];
+const WAZE_URL = `${API_BASE}/api/waze/partner-feed`;
+const WAZE_REFRESH_MS = 30000;
 
-    async function fetchViaProxies(url, signal){
-      const busted = withCacheBust(url);
-      const errors = [];
-      for(const build of PROXIES){
-        const proxied = build(busted);
-        try{
-          const res = await fetch(proxied, { cache:'no-store', signal });
-          if(!res.ok) throw new Error(`HTTP ${res.status}`);
-          const text = await res.text();
-          const trimmed = text.replace(/^\uFEFF/, '').trim();
-          if(!trimmed || trimmed[0] !== '{') throw new Error('Non-JSON response');
-          return JSON.parse(trimmed);
-        }catch(e){ errors.push(`${proxied}: ${e.message}`); }
-      }
-      throw new Error(`All proxies failed\n${errors.join('\n')}`);
-    }
+// Keep the same function name so the rest of your code stays unchanged
+async function fetchViaProxies(_ignoredUrl, signal){
+  // No proxies anymore — backend fetches Waze server-side
+  return await fetchJsonFromAPI(WAZE_URL, signal);
+}
 
     function toRad(deg){ return deg * Math.PI / 180; }
     function haversineMeters([lon1, lat1], [lon2, lat2]){
@@ -1928,8 +1929,7 @@ const titleHTML = buildWazeTitleHTML({
     /* =======================================================
        CENTRAL PANE — Bee Network Unplanned Diversions (2×4)
        ======================================================= */
-    const DIV_API_KEY = "17889546a31fddeef67fca78252fb66951aedf1a";
-    const DIV_BODS_URL = `https://renderproxy-990x.onrender.com/proxy?url=${encodeURIComponent('https://data.bus-data.dft.gov.uk/api/v1/siri-sx/?api_key=' + DIV_API_KEY)}`;
+const DIV_BODS_URL = `${API_BASE}/api/bods-siri-sx`;
     const DIV_REFRESH_MS = 45000;
     const DIV_BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
     const DIV_DAY_MS = 24 * 60 * 60 * 1000;
@@ -2173,87 +2173,103 @@ function divMatchesMode(sit){
       };
     }
 
-    function divSortItems(a, b){
-      if (a.isUFN && !b.isUFN) return -1;
-      if (!a.isUFN && b.isUFN) return 1;
-      if (a.isUFN && b.isUFN) return (a.start?.getTime()||0) - (b.start?.getTime()||0);
-      const aEnd = a.end?.getTime() ?? Number.POSITIVE_INFINITY;
-      const bEnd = b.end?.getTime() ?? Number.POSITIVE_INFINITY;
-      if (aEnd !== bEnd) return aEnd - bEnd;
-      return (a.start?.getTime()||0) - (b.start?.getTime()||0);
-    }
+function divSortItems(a, b){
+  // UFN first
+  if (a.isUFN && !b.isUFN) return -1;
+  if (!a.isUFN && b.isUFN) return 1;
 
-    async function divFetch(){
-      const res = await fetch(withCacheBust(DIV_BODS_URL), { cache:'no-store' });
-      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+  // If both UFN: oldest (earliest start) first so long-running UFN rises
+  if (a.isUFN && b.isUFN){
+    return (a.start?.getTime() || 0) - (b.start?.getTime() || 0);
+  }
 
-      let parsed;
-      try{
-        parsed = { type:"json", data: await res.clone().json() };
-      }catch{
-        const text = await res.text();
-        parsed = { type:"xml", data: (new DOMParser()).parseFromString(text,"application/xml") };
+  // If both have end times: soonest ending first
+  const aEnd = a.end?.getTime() ?? Number.POSITIVE_INFINITY;
+  const bEnd = b.end?.getTime() ?? Number.POSITIVE_INFINITY;
+  if (aEnd !== bEnd) return aEnd - bEnd;
+
+  // Otherwise: earliest start first
+  return (a.start?.getTime() || 0) - (b.start?.getTime() || 0);
+}
+
+async function divFetch(){
+  // Fetch as text first so we can handle JSON OR XML safely
+  const resText = await fetchTextFromAPI(DIV_BODS_URL);
+
+  // Decide whether it's JSON or XML
+  const trimmed = String(resText || '').trim();
+
+  let sits = [];
+  if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+    // JSON branch
+    const json = JSON.parse(trimmed);
+
+    const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+    if (sd) {
+      const sed = Array.isArray(sd.SituationExchangeDelivery)
+        ? sd.SituationExchangeDelivery
+        : [sd.SituationExchangeDelivery].filter(Boolean);
+
+      for (const d of sed) {
+        const pe = d?.Situations?.PtSituationElement;
+        if (Array.isArray(pe)) sits.push(...pe);
+        else if (pe) sits.push(pe);
       }
-
-      const fromJSON = (json) => {
-        const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
-        if(!sd) return [];
-        const sed = Array.isArray(sd.SituationExchangeDelivery)
-          ? sd.SituationExchangeDelivery
-          : [sd.SituationExchangeDelivery].filter(Boolean);
-        const out=[];
-        for(const d of sed){
-          const pe = d?.Situations?.PtSituationElement;
-          if(Array.isArray(pe)) out.push(...pe);
-          else if(pe) out.push(pe);
-        }
-        return out;
-      };
-
-      const fromXML = (doc) => {
-        const els = [...doc.querySelectorAll("PtSituationElement")];
-        return els.map(el=>{
-          const T = s => el.querySelector(s)?.textContent?.trim() || null;
-          const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
-                          .map(n=>n.textContent.trim()).filter(Boolean);
-          const lines  = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
-                          .map(n=>n.textContent.trim()).filter(Boolean);
-          return {
-            Summary: T("Summary") || T("Description"),
-            Description: T("Description"),
-            Planned: T("Planned"),
-            SituationNumber: T("SituationNumber") || T("SituationRef"),
-            ParticipantRef: T("ParticipantRef"),
-            ValidityPeriod: {
-              StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
-              EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
-            },
-            Affects: {
-              VehicleJourneys: {
-                AffectedVehicleJourney: lines.length
-                  ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
-                  : []
-              }
-            },
-            __operatorRefs: opsRef,
-            __lineRefs: lines
-          };
-        });
-      };
-
-      let sits = parsed.type==="json" ? fromJSON(parsed.data) : fromXML(parsed.data);
-
-      sits = sits.filter(divIsBeeOperator)
-                 .filter(divIsDiversion)
-                 .filter(divIsCurrentlyValid)
-                 .filter(sit => {
-                   const p = sit?.Planned;
-                   return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
-                 })
-                 .filter(divMatchesMode);
-
-      return sits.map(divMapSituation).sort(divSortItems);
     }
+  } else {
+    // XML branch
+    const doc = new DOMParser().parseFromString(trimmed, "application/xml");
+
+    // Guard: if parseerror
+    const pe = doc.querySelector("parsererror");
+    if (pe) throw new Error("BODS XML parse error");
+
+    const els = [...doc.querySelectorAll("PtSituationElement")];
+
+    sits = els.map(el => {
+      const T = (sel) => el.querySelector(sel)?.textContent?.trim() || null;
+
+      const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
+        .map(n => n.textContent.trim()).filter(Boolean);
+
+      const lines = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
+        .map(n => n.textContent.trim()).filter(Boolean);
+
+      return {
+        Summary: T("Summary") || T("Description"),
+        Description: T("Description"),
+        Planned: T("Planned"),
+        SituationNumber: T("SituationNumber") || T("SituationRef"),
+        ParticipantRef: T("ParticipantRef"),
+        ValidityPeriod: {
+          StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
+          EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
+        },
+        Affects: {
+          VehicleJourneys: {
+            AffectedVehicleJourney: lines.length
+              ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
+              : []
+          }
+        },
+        __operatorRefs: opsRef,
+        __lineRefs: lines
+      };
+    });
+  }
+
+  // Apply your existing pipeline
+  sits = sits.filter(divIsBeeOperator)
+             .filter(divIsDiversion)
+             .filter(divIsCurrentlyValid)
+             .filter(sit => {
+               const p = sit?.Planned;
+               return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
+             })
+             .filter(divMatchesMode);
+
+  return sits.map(divMapSituation).sort(divSortItems);
+}
 
     function divBuildRouteChips(routes){
       const host = document.createElement('div');
