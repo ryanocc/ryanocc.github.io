@@ -185,75 +185,73 @@
     #alert-progress-wrap { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: rgba(255,255,255,0.2); overflow: hidden; }
     #alert-progress { transform-origin: left center; width: 100%; height: 100%; background: #fff; transform: scaleX(0); }
 
-:root{
-  /* Match your UI style */
-  --bottomRowPad: 12px;
-  --chipH: 28px;                 /* target height for both bar + chip */
-  --chipRadius: 999px;
-  --chipBg: rgba(0,0,0,0.72);
-  --chipBorder: rgba(255,255,255,0.14);
-  --chipShadow: 0 6px 18px rgba(0,0,0,0.35);
-}
+    :root{
+      /* Match your UI style */
+      --bottomRowPad: 12px;
+      --chipH: 28px;                 /* target height for both bar + chip */
+      --chipRadius: 999px;
+      --chipBg: rgba(0,0,0,0.72);
+      --chipBorder: rgba(255,255,255,0.14);
+      --chipShadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
 
-/* Bottom row overlay */
-#bottomStatusRow{
-  position: absolute;
-  left: var(--bottomRowPad);
-  right: var(--bottomRowPad);
-  bottom: var(--bottomRowPad);
-  z-index: 70;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  pointer-events: none; /* enable clicks only on children */
-}
+    /* Bottom row overlay */
+    #bottomStatusRow{
+      position: absolute;
+      left: var(--bottomRowPad);
+      right: var(--bottomRowPad);
+      bottom: var(--bottomRowPad);
+      z-index: 70;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      pointer-events: none; /* enable clicks only on children */
+    }
 
-/* Ensure alert banner always sits above the bottom health/attrib row */
-body.bar-open #bottomStatusRow{
-  z-index: 50 !important;
-}
+    /* Ensure alert banner always sits above the bottom health/attrib row */
+    body.bar-open #bottomStatusRow{
+      z-index: 50 !important;
+    }
 
+    /* Network health gradient bar (fills remaining width) */
+    #networkHealthBar{
+      flex: 1 1 auto;
+      height: var(--chipH);
+      border-radius: var(--chipRadius);
+      background: linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f); /* fallback */
+      box-shadow: 0 0 0 1px var(--chipBorder) inset, var(--chipShadow);
+      pointer-events: auto;
+    }
 
-/* Network health gradient bar (fills remaining width) */
-#networkHealthBar{
-  flex: 1 1 auto;
-  height: var(--chipH);
-  border-radius: var(--chipRadius);
-  background: linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f); /* fallback */
-  box-shadow: 0 0 0 1px var(--chipBorder) inset, var(--chipShadow);
-  pointer-events: auto;
-}
+    /* Attribution chip (right side) */
+    #attribChip{
+      flex: 0 0 auto;
+      height: var(--chipH);
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: var(--chipRadius);
+      background: var(--chipBg);
+      box-shadow: 0 0 0 1px var(--chipBorder) inset, var(--chipShadow);
+      color: #ddd;
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+      pointer-events: auto; /* clickable links */
+    }
 
-/* Attribution chip (right side) */
-#attribChip{
-  flex: 0 0 auto;
-  height: var(--chipH);
-  display: inline-flex;
-  align-items: center;
-  padding: 0 12px;
-  border-radius: var(--chipRadius);
-  background: var(--chipBg);
-  box-shadow: 0 0 0 1px var(--chipBorder) inset, var(--chipShadow);
-  color: #ddd;
-  font-size: 12px;
-  line-height: 1;
-  white-space: nowrap;
-  pointer-events: auto; /* clickable links */
-}
+    /* Make MapLibre attribution links look “chip friendly” */
+    #attribChip a{
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.92;
+    }
+    #attribChip a:hover{ opacity: 1; text-decoration: underline; }
 
-/* Make MapLibre attribution links look “chip friendly” */
-#attribChip a{
-  color: #fff;
-  text-decoration: none;
-  opacity: 0.92;
-}
-#attribChip a:hover{ opacity: 1; text-decoration: underline; }
-
-/* Hide the default MapLibre attribution control so we don't have duplicates */
-.maplibregl-ctrl-attrib{
-  display: none !important;
-}
-
+    /* Hide the default MapLibre attribution control so we don't have duplicates */
+    .maplibregl-ctrl-attrib{
+      display: none !important;
+    }
   </style>
 </head>
 <body>
@@ -289,7 +287,7 @@ body.bar-open #bottomStatusRow{
        CONFIG / CONSTANTS
        ======================================================= */
 
-    /* ✅ NEW: Your backend base URL */
+    /* ✅ Your backend base URL */
     const API_BASE = 'https://renderexpress-ebb0.onrender.com';
 
     /* Originals kept for readability / mapping */
@@ -299,17 +297,25 @@ body.bar-open #bottomStatusRow{
 
     const OVERLAY_MS   = 5000;
     const ALERT_BAR_MS = 10000;
+
+    // Keep legacy MERGE_METERS for non-banner generic clustering (ice/signal faults, etc.)
     const MERGE_METERS = 200;
+
     const STALE_CLEAR_MS = 5 * 60 * 1000;
 
-    const SHOW_BANNER_ON_INCREASE = true;
+    // Banner behavior
     const HIGH_CONF_MIN = 4;
 
-    // Banner throttle
-    const BANNER_THROTTLE_MS = 20 * 60 * 1000;
-    const bannerLastShownAt = new Map();
+    // ✅ IMPORTANT: banner only once per incident (no banners on increases)
+    const SHOW_BANNER_ON_INCREASE = false;
 
-    // === Audio: WAV with 30-minute cooldown, play when banner shows ===
+    // ===== NEW motorway/non-motorway rules you requested =====
+    const NON_MWAY_MERGE_METERS = 500;     // non-motorway accident clustering distance
+    const MWAY_MERGE_METERS     = 500;     // motorway accident clustering distance (marker dedupe)
+    const MWAY_LINK_METERS      = 5000;    // motorway linking distance for banner suppression (5km)
+    const BANNER_ONCE_TTL_MS    = 24 * 60 * 60 * 1000; // remember shown incidents for 24h
+
+    // === Audio: WAV with cooldown, play when banner shows ===
     const ALERT_SOUND_URL = 'https://ryanocc.github.io/notify.wav';
     const AUDIO_COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
     let audioEl = null;
@@ -440,6 +446,36 @@ body.bar-open #bottomStatusRow{
     }
 
     /* =======================================================
+       Road parsing (Motorway linking + direction-insensitive)
+       ======================================================= */
+
+    function normaliseRoadKey(text){
+      const s = String(text || '').toUpperCase();
+
+      // Motorway token: M + 1-3 digits (M1, M60, M602 etc)
+      const m = s.match(/\b(M\d{1,3})\b/);
+      if (m) return { roadKey: m[1], isMotorway: true };
+
+      // Optional non-motorway keys (useful for incident identity)
+      const a = s.match(/\b(A\d{1,4})\b/);
+      if (a) return { roadKey: a[1], isMotorway: false };
+
+      const b = s.match(/\b(B\d{1,4})\b/);
+      if (b) return { roadKey: b[1], isMotorway: false };
+
+      return { roadKey: '', isMotorway: false };
+    }
+
+    function roadKeyFromAlert(a){
+      const txt = [
+        a?.street, a?.roadName, a?.address, a?.city, a?.town,
+        a?.subtype, a?.subType, a?.sub_type,
+        a?.description, a?.reportDescription, a?.title
+      ].filter(Boolean).join(' ');
+      return normaliseRoadKey(txt);
+    }
+
+    /* =======================================================
        WAZE ALERT PARSING + SCORING
        ======================================================= */
     function getLngLatFromAlert(a){
@@ -500,12 +536,16 @@ body.bar-open #bottomStatusRow{
         const coord = getLngLatFromAlert(a); if(!coord) continue;
         const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
 
+        const { roadKey, isMotorway } = roadKeyFromAlert(a);
+
         out.push({
           id, coord,
           street: a.street || a.roadName || a.address || 'Unknown road',
           city: a.city || a.town || '',
           conf10, rel10,
-          time: a.pubMillis || a.updateTime || a.reportMillis || 0
+          time: a.pubMillis || a.updateTime || a.reportMillis || 0,
+          roadKey,
+          isMotorway
         });
       }
       return out;
@@ -540,7 +580,7 @@ body.bar-open #bottomStatusRow{
       return `cluster-${lon},${lat}`;
     }
 
-    // Generic proximity clustering
+    // Generic proximity clustering (used for ice/signal faults - unchanged)
     function clusterGeneric(points, mergeMeters = MERGE_METERS){
       if(!points.length) return [];
       const parent = Array(points.length).fill(0).map((_,i)=>i);
@@ -576,7 +616,8 @@ body.bar-open #bottomStatusRow{
       return features;
     }
 
-    function clusterAccidents(points, mergeMeters = MERGE_METERS){
+    // ✅ Accident clustering with motorway vs non-motorway distance rules
+    function clusterAccidents(points){
       if(points.length === 0) return [];
 
       const parent = Array(points.length).fill(0).map((_,i)=>i);
@@ -586,7 +627,13 @@ body.bar-open #bottomStatusRow{
       for(let i=0;i<points.length;i++){
         for(let j=i+1;j<points.length;j++){
           const d = haversineMeters(points[i].coord, points[j].coord);
-          if(d <= mergeMeters) union(i,j);
+
+          const mi = !!points[i].isMotorway;
+          const mj = !!points[j].isMotorway;
+
+          const threshold = (mi || mj) ? MWAY_MERGE_METERS : NON_MWAY_MERGE_METERS;
+
+          if (d <= threshold) union(i, j);
         }
       }
 
@@ -625,6 +672,8 @@ body.bar-open #bottomStatusRow{
           id,
           coord: avg,
           street: best.street, city: best.city,
+          roadKey: best.roadKey || '',
+          isMotorway: !!best.isMotorway,
           eff5, eff10, baseConf10, bestRel10,
           latestTime: maxTime, firstTime, count
         });
@@ -650,7 +699,9 @@ body.bar-open #bottomStatusRow{
           reportCount: c.count,
           rawConfidence10: c.baseConf10,
           reliability10:   c.bestRel10,
-          effective10:     c.eff10
+          effective10:     c.eff10,
+          roadKey: c.roadKey,
+          isMotorway: c.isMotorway
         }
       }));
     }
@@ -844,6 +895,7 @@ body.bar-open #bottomStatusRow{
 
     let alertsPaused = document.hidden;
     let currentBanner = null;
+
     function pauseAlerts() {
       if (alertsPaused) return;
       alertsPaused = true;
@@ -862,15 +914,132 @@ body.bar-open #bottomStatusRow{
       if (!bannerActive) showNextBanner();
     }
 
+    /* =======================================================
+       Banner-once memory (incident keys) + motorway linking memory
+       ======================================================= */
+
+    const BANNER_SHOWN_STORE_KEY = 'occ_banner_shown_v2';
+    const BANNER_MWAY_STORE_KEY  = 'occ_banner_mway_groups_v1';
+
+    let bannerShown = new Map(); // incidentKey -> timestamp
+    let mwayShown = [];          // [{roadKey, lon, lat, t}]
+
+    function loadBannerStores(){
+      const now = Date.now();
+
+      // Incident keys
+      try{
+        const raw = localStorage.getItem(BANNER_SHOWN_STORE_KEY);
+        const obj = raw ? JSON.parse(raw) : {};
+        bannerShown = new Map(Object.entries(obj)
+          .map(([k,v]) => [k, Number(v)||0])
+          .filter(([,t]) => now - t <= BANNER_ONCE_TTL_MS)
+        );
+      }catch{
+        bannerShown = new Map();
+      }
+
+      // Motorway corridor records
+      try{
+        const raw2 = localStorage.getItem(BANNER_MWAY_STORE_KEY);
+        const arr = raw2 ? JSON.parse(raw2) : [];
+        mwayShown = Array.isArray(arr) ? arr : [];
+        mwayShown = mwayShown
+          .map(r => ({
+            roadKey: String(r?.roadKey||'').toUpperCase(),
+            lon: Number(r?.lon), lat: Number(r?.lat),
+            t: Number(r?.t)||0
+          }))
+          .filter(r => r.roadKey && Number.isFinite(r.lon) && Number.isFinite(r.lat) && (now - r.t <= BANNER_ONCE_TTL_MS));
+      }catch{
+        mwayShown = [];
+      }
+
+      saveBannerStores(); // persist pruned
+    }
+
+    function saveBannerStores(){
+      try{
+        localStorage.setItem(BANNER_SHOWN_STORE_KEY, JSON.stringify(Object.fromEntries(bannerShown)));
+      }catch{}
+      try{
+        localStorage.setItem(BANNER_MWAY_STORE_KEY, JSON.stringify(mwayShown));
+      }catch{}
+    }
+
+    function hasBannerShown(key){ return bannerShown.has(key); }
+
+    function markBannerShown(key){
+      bannerShown.set(key, Date.now());
+      saveBannerStores();
+    }
+
+    function recordMotorwayBanner(roadKey, coord){
+      if (!roadKey || !Array.isArray(coord) || coord.length < 2) return;
+      const lon = Number(coord[0]), lat = Number(coord[1]);
+      if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
+
+      mwayShown.push({ roadKey: String(roadKey).toUpperCase(), lon, lat, t: Date.now() });
+      // keep array from growing forever
+      const now = Date.now();
+      mwayShown = mwayShown.filter(r => now - r.t <= BANNER_ONCE_TTL_MS);
+      saveBannerStores();
+    }
+
+    function isLinkedToShownMotorway(roadKey, coord){
+      if (!roadKey || !Array.isArray(coord) || coord.length < 2) return false;
+      const rk = String(roadKey).toUpperCase();
+      const lon = Number(coord[0]), lat = Number(coord[1]);
+      if (!Number.isFinite(lon) || !Number.isFinite(lat)) return false;
+
+      const here = [lon, lat];
+      for (const r of mwayShown){
+        if (r.roadKey !== rk) continue;
+        const d = haversineMeters(here, [r.lon, r.lat]);
+        if (d <= MWAY_LINK_METERS) return true;
+      }
+      return false;
+    }
+
+    // Call on startup
+    loadBannerStores();
+
+    function incidentKeyFromFeature(f){
+      const p = f?.properties || {};
+      const c = f?.geometry?.coordinates || [];
+      const lon = Number(c[0]); const lat = Number(c[1]);
+
+      // Round to reduce tiny centroid drift; anchor with firstReportedMillis if present
+      const lonR = Number.isFinite(lon) ? lon.toFixed(4) : 'x';
+      const latR = Number.isFinite(lat) ? lat.toFixed(4) : 'y';
+
+      const first = Number(p.firstReportedMillis || 0) || 0;
+      const roadKey = String(p.roadKey || '').toUpperCase();
+
+      return `${roadKey}|${lonR},${latR}|${first || p.id || f.id}`;
+    }
+
     function enqueueBanner(feature){
       const street = (feature.properties.street||'').trim() || 'Unknown road';
       const city   = (feature.properties.city||'').trim();
       const center = Array.isArray(feature.geometry?.coordinates) ? feature.geometry.coordinates : null;
       const firstMillis = Number(feature.properties.firstReportedMillis)||0;
-      const item = { id: feature.id, street, city, center, firstMillis };
+      const incidentKey = incidentKeyFromFeature(feature);
+
+      const item = {
+        id: feature.id,
+        street, city,
+        center,
+        firstMillis,
+        incidentKey,
+        roadKey: String(feature.properties.roadKey || '').toUpperCase(),
+        isMotorway: !!feature.properties.isMotorway
+      };
+
       // Cap queue to avoid build-up
       if (queue.length >= 5) queue.shift();
       queue.push(item);
+
       if (!alertsPaused && !bannerActive) showNextBanner();
     }
 
@@ -915,11 +1084,19 @@ body.bar-open #bottomStatusRow{
       highlightedCenter = item.center;
       updateHighlightFilters();
 
+      // ✅ Mark as bannered (once-only) at the moment it starts showing
+      markBannerShown(item.incidentKey);
+
+      // ✅ If motorway, record corridor so other incidents within 5km never banner
+      if (item.isMotorway && item.roadKey && Array.isArray(item.center)) {
+        recordMotorwayBanner(item.roadKey, item.center);
+      }
+
       document.getElementById('alert-title').textContent = 'New High Confidence Alert';
       locEl.innerHTML = stylizeRoad(item.street, item.city);
       timeEl.textContent = `First reported: ${formatFirstReported(item.firstMillis)}`;
 
-      // 🔔 Play WAV when the banner displays (30-min cooldown)
+      // 🔔 Play WAV when the banner displays (cooldown)
       if (!document.hidden && canPlayAlertSound()) {
         playAlertSound();
       }
@@ -993,15 +1170,6 @@ body.bar-open #bottomStatusRow{
     let fetchTimer = null, inFlight = null;
     let lastClusterFeatures = [];
 
-    function shouldTriggerBanner(f) {
-      const id = f?.id;
-      const now = Date.now();
-      const last = bannerLastShownAt.get(id) || 0;
-      if (now - last < BANNER_THROTTLE_MS) return false;
-      bannerLastShownAt.set(id, now);
-      return true;
-    }
-
     async function runCycle(){
       if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
 
@@ -1016,10 +1184,11 @@ body.bar-open #bottomStatusRow{
         const icePoints      = alertsToIcePoints(data);
         const signalPoints   = alertsToSignalFaultPoints(data);
 
-        // --- Cluster ---
-        const clusterFeatures = clusterAccidents(accidentPoints, MERGE_METERS);
+        // --- Cluster accidents using new motorway/non-motorway rules ---
+        const clusterFeatures = clusterAccidents(accidentPoints);
         lastClusterFeatures = clusterFeatures.slice();
 
+        // --- Generic clusters (unchanged) ---
         const iceFeatures    = clusterGeneric(icePoints, MERGE_METERS);
         const signalFeatures = clusterGeneric(signalPoints, MERGE_METERS);
 
@@ -1028,44 +1197,72 @@ body.bar-open #bottomStatusRow{
         map.getSource('waze-ice')?.setData({ type:'FeatureCollection', features: iceFeatures });
         map.getSource('waze-signal-faults')?.setData({ type:'FeatureCollection', features: signalFeatures });
 
-        // --- Memory pruning of cluster maps/sets & throttle map ---
+        // --- Memory pruning of cluster maps/sets ---
         const currentIds = new Set(clusterFeatures.map(f => f.id));
         for (const k of prevEffByClusterId.keys()) if (!currentIds.has(k)) prevEffByClusterId.delete(k);
         for (const k of Array.from(seenClusterIds)) if (!currentIds.has(k)) seenClusterIds.delete(k);
-        // TTL for banner throttle
-        const TTL = 2 * 60 * 60 * 1000; // 2 hours
-        const now = Date.now();
-        for (const [k, t] of bannerLastShownAt) { if (now - t > TTL) bannerLastShownAt.delete(k); }
 
-        // --- Banner/chime logic ---
-        let brandNewCount = 0;
-        for (const f of clusterFeatures) {
-          if (!seenClusterIds.has(f.id)) {
-            if (hasInitializedClusters) brandNewCount++;
-            seenClusterIds.add(f.id);
-          }
-        }
+        // --- Banner logic (UPDATED) ---
+        // Rule: Each unique incident banners only once, ever (within TTL),
+        // and motorway incidents within 5km on the same Mxx never banner if linked.
+        const candidates = [];
 
-        const newly = [];
         for(const f of clusterFeatures){
           const id = f.id;
           const newEff = Number(f.properties.effectiveConfidence||0);
           const oldEff = prevEffByClusterId.get(id);
 
+          // Only when it FIRST becomes high-confidence
           const becameHigh = (newEff >= HIGH_CONF_MIN) && (oldEff === undefined || oldEff < HIGH_CONF_MIN);
-          const becameHigherHigh = SHOW_BANNER_ON_INCREASE && (newEff >= HIGH_CONF_MIN) && (oldEff !== undefined) && (newEff > oldEff);
 
           prevEffByClusterId.set(id, newEff);
-          if ((becameHigh || becameHigherHigh) && shouldTriggerBanner(f)) newly.push(f);
+          if (!becameHigh) continue;
+
+          // Once-only key
+          const ik = incidentKeyFromFeature(f);
+          if (hasBannerShown(ik)) continue;
+
+          // Motorway corridor suppression (persisted)
+          const isM = !!f.properties.isMotorway;
+          const rk = String(f.properties.roadKey||'').toUpperCase();
+          const coord = f.geometry?.coordinates;
+
+          if (isM && rk && coord && isLinkedToShownMotorway(rk, coord)) {
+            // linked to previously-bannered motorway incident => never banner
+            continue;
+          }
+
+          candidates.push(f);
         }
 
-        if(newly.length){
-          newly.sort((a,b)=>{
+        if (candidates.length){
+          candidates.sort((a,b)=>{
             const dc = (Number(b.properties.effectiveConfidence||0)) - (Number(a.properties.effectiveConfidence||0));
             if(dc!==0) return dc;
             return (Number(b.properties.time||0)) - (Number(a.properties.time||0));
           });
-          newly.forEach(enqueueBanner);
+
+          // Within the same cycle, also suppress multiple motorway banners within 5km on same road
+          const accepted = [];
+          for (const f of candidates){
+            const isM = !!f.properties.isMotorway;
+            const rk  = String(f.properties.roadKey||'').toUpperCase();
+            const c   = f.geometry?.coordinates;
+
+            if (isM && rk && Array.isArray(c)){
+              const tooCloseToAccepted = accepted.some(g=>{
+                if (!g.properties?.isMotorway) return false;
+                if (String(g.properties.roadKey||'').toUpperCase() !== rk) return false;
+                const gc = g.geometry?.coordinates;
+                return Array.isArray(gc) && haversineMeters(c, gc) <= MWAY_LINK_METERS;
+              });
+              if (tooCloseToAccepted) continue;
+            }
+
+            accepted.push(f);
+          }
+
+          accepted.forEach(enqueueBanner);
         }
 
         hasInitializedClusters = true;
@@ -1272,7 +1469,7 @@ body.bar-open #bottomStatusRow{
       });
 
       /* =======================================================
-         NEW: Waze ICE + TRAFFIC LIGHT FAULTS
+         Waze ICE + TRAFFIC LIGHT FAULTS
          ======================================================= */
       map.addSource('waze-ice', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
       map.addLayer({
@@ -1525,7 +1722,7 @@ body.bar-open #bottomStatusRow{
         applyPulse();
       }
       applyPulse();
-      const ufnAnimTimer = setInterval(ufnTick, 140); // ~7 FPS
+      setInterval(ufnTick, 140); // ~7 FPS
 
       async function updateDivertCentroidsOnce(){
         try{
@@ -1683,7 +1880,6 @@ body.bar-open #bottomStatusRow{
         updateNetworkHealthOnce();
       }
     });
-
   </script>
 
   <!-- Bottom status row: Network health bar + Attribution chip -->
