@@ -254,13 +254,18 @@
     }
   </style>
 </head>
+
 <body>
   <div id="map"></div>
 
   <!-- TOP-LEFT unified status pill -->
   <div class="statusWrapper" aria-live="polite">
     <div id="statusPill" class="status-pill">Initialising…</div>
-    <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async" />
+    <img id="beeLogo"
+         src="https://tfgm.com/static/android-chrome-192x192.png"
+         alt="Bee Network logo"
+         width="64" height="64"
+         decoding="async" />
   </div>
 
   <!-- SVG edge sweep overlay -->
@@ -519,7 +524,7 @@
     function isTrafficLightFault(a){
       const t = readType(a), st = readSubType(a), d = readDesc(a);
       return (
-        t.includes('TRAFFIC') && t.includes('LIGHT') ||
+        (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
         st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
         /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
       );
@@ -534,6 +539,8 @@
 
         const rel10 = readReliability(a);
         const coord = getLngLatFromAlert(a); if(!coord) continue;
+
+        // stable raw-alert id
         const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
 
         const { roadKey, isMotorway } = roadKeyFromAlert(a);
@@ -573,11 +580,29 @@
       return out;
     }
 
-    // Stable centroid-based cluster ID
+    // Stable centroid-based cluster ID (kept for non-accident clustering + fallback only)
     function stableClusterId(coord){
       const lon = Number(coord[0]).toFixed(4);
       const lat = Number(coord[1]).toFixed(4);
       return `cluster-${lon},${lat}`;
+    }
+
+    /* =======================================================
+       ✅ FIX (Cause #1): Stable identity for accident clusters
+       ======================================================= */
+    function safeIdPart(s){
+      return String(s || '')
+        .trim()
+        .slice(0, 120)
+        .replace(/[^a-zA-Z0-9_-]/g, '_');
+    }
+    // Anchor selection: highest confidence, tie-break earliest time
+    function pickAnchor(members){
+      return members.slice().sort((a,b)=>{
+        const c = (Number(b.conf10)||0) - (Number(a.conf10)||0);
+        if (c !== 0) return c;
+        return (Number(a.time)||0) - (Number(b.time)||0);
+      })[0];
     }
 
     // Generic proximity clustering (used for ice/signal faults - unchanged)
@@ -617,6 +642,7 @@
     }
 
     // ✅ Accident clustering with motorway vs non-motorway distance rules
+    // ✅ FIXED: accidents now get a stable ID based on a Waze anchor id (uuid/id), not centroid rounding
     function clusterAccidents(points){
       if(points.length === 0) return [];
 
@@ -632,7 +658,6 @@
           const mj = !!points[j].isMotorway;
 
           const threshold = (mi || mj) ? MWAY_MERGE_METERS : NON_MWAY_MERGE_METERS;
-
           if (d <= threshold) union(i, j);
         }
       }
@@ -666,16 +691,20 @@
           return (Number(b.time)||0) - (Number(a.time)||0);
         })[0];
 
-        const id = stableClusterId(avg);
+        // ✅ Stable identity anchor
+        const anchor = pickAnchor(members);
+        const anchorKey = safeIdPart(anchor?.id || '');
+        const id = anchorKey ? `acc-${anchorKey}` : stableClusterId(avg); // fallback only
 
         clusters.push({
           id,
-          coord: avg,
+          coord: avg, // centroid still used for display
           street: best.street, city: best.city,
           roadKey: best.roadKey || '',
           isMotorway: !!best.isMotorway,
           eff5, eff10, baseConf10, bestRel10,
-          latestTime: maxTime, firstTime, count
+          latestTime: maxTime, firstTime, count,
+          anchorId: anchor?.id || '' // NEW
         });
       }
 
@@ -691,6 +720,7 @@
         geometry:{ type:'Point', coordinates: c.coord },
         properties:{
           id: c.id,
+          anchorId: c.anchorId,          // NEW
           effectiveConfidence: c.eff5,
           street: c.street,
           city: c.city,
@@ -721,7 +751,6 @@
        Animated custom images — smaller & with readback hints
        ========================= */
     function createPulsingDot(map, color='red'){
-      // Small canvas + lower FPS; hint that we'll read back frequently
       const size = 128, targetFps = 8, frameMs = 1000/targetFps; let last=0;
       const fillColor = (on)=> color==='white' ? `rgba(255,255,255,${on?1:0.85})` : `rgba(255,0,0,${on?1:0.9})`;
       const ringColor = (on)=> color==='white' ? `rgba(255,255,255,${on?0.95:0.3})` : `rgba(255, 80, 80, ${on?0.95:0.15})`;
@@ -821,11 +850,22 @@
     /* === OCC Highlights support === */
     const HIGHLIGHT_POINTS = [];
     function buildHighlightsFC(points){
-      const features = (points||[]).filter(p => Array.isArray(p?.coordinates) && p.coordinates.length>=2 && typeof p.coordinates[0]==='number' && typeof p.coordinates[1]==='number')
-        .map((p,i)=>({ type:'Feature', id:p.name?`hl-${p.name}-${i}`:`hl-${i}`, geometry:{type:'Point',coordinates:p.coordinates}, properties:{name:p.name||''} }));
+      const features = (points||[])
+        .filter(p => Array.isArray(p?.coordinates) && p.coordinates.length>=2 &&
+                     typeof p.coordinates[0]==='number' && typeof p.coordinates[1]==='number')
+        .map((p,i)=>({
+          type:'Feature',
+          id:p.name?`hl-${p.name}-${i}`:`hl-${i}`,
+          geometry:{type:'Point',coordinates:p.coordinates},
+          properties:{name:p.name||''}
+        }));
       return { type:'FeatureCollection', features };
     }
-    function setHighlightPoints(points){ const src=map.getSource('occ-highlights'); const fc=buildHighlightsFC(points); if(src) src.setData(fc); }
+    function setHighlightPoints(points){
+      const src=map.getSource('occ-highlights');
+      const fc=buildHighlightsFC(points);
+      if(src) src.setData(fc);
+    }
 
     const barEl = document.getElementById('alert-bar');
     const locEl = document.getElementById('alert-location');
@@ -980,7 +1020,6 @@
       if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
 
       mwayShown.push({ roadKey: String(roadKey).toUpperCase(), lon, lat, t: Date.now() });
-      // keep array from growing forever
       const now = Date.now();
       mwayShown = mwayShown.filter(r => now - r.t <= BANNER_ONCE_TTL_MS);
       saveBannerStores();
@@ -1004,19 +1043,13 @@
     // Call on startup
     loadBannerStores();
 
+    // ✅ FIXED: incident key no longer depends on centroid rounding
     function incidentKeyFromFeature(f){
       const p = f?.properties || {};
-      const c = f?.geometry?.coordinates || [];
-      const lon = Number(c[0]); const lat = Number(c[1]);
-
-      // Round to reduce tiny centroid drift; anchor with firstReportedMillis if present
-      const lonR = Number.isFinite(lon) ? lon.toFixed(4) : 'x';
-      const latR = Number.isFinite(lat) ? lat.toFixed(4) : 'y';
-
-      const first = Number(p.firstReportedMillis || 0) || 0;
       const roadKey = String(p.roadKey || '').toUpperCase();
-
-      return `${roadKey}|${lonR},${latR}|${first || p.id || f.id}`;
+      const anchorId = String(p.anchorId || '').trim();
+      if (anchorId) return `${roadKey}|${safeIdPart(anchorId)}`;
+      return `${roadKey}|${safeIdPart(p.id || f.id || '')}`;
     }
 
     function enqueueBanner(feature){
@@ -1036,7 +1069,6 @@
         isMotorway: !!feature.properties.isMotorway
       };
 
-      // Cap queue to avoid build-up
       if (queue.length >= 5) queue.shift();
       queue.push(item);
 
@@ -1084,10 +1116,8 @@
       highlightedCenter = item.center;
       updateHighlightFilters();
 
-      // ✅ Mark as bannered (once-only) at the moment it starts showing
       markBannerShown(item.incidentKey);
 
-      // ✅ If motorway, record corridor so other incidents within 5km never banner
       if (item.isMotorway && item.roadKey && Array.isArray(item.center)) {
         recordMotorwayBanner(item.roadKey, item.center);
       }
@@ -1096,7 +1126,6 @@
       locEl.innerHTML = stylizeRoad(item.street, item.city);
       timeEl.textContent = `First reported: ${formatFirstReported(item.firstMillis)}`;
 
-      // 🔔 Play WAV when the banner displays (cooldown)
       if (!document.hidden && canPlayAlertSound()) {
         playAlertSound();
       }
@@ -1128,8 +1157,7 @@
     const seenClusterIds = new Set();
     let hasInitializedClusters = false;
 
-    // After refactor: keep a no-op to satisfy existing calls
-    function startGlobalRepaint(){ /* no-op (previous repaint driver removed) */ }
+    function startGlobalRepaint(){ /* no-op */ }
 
     function fmtHHMMSS(){ return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date()); }
     function setStatusPill(ok, {animate=false}={}){
@@ -1168,7 +1196,6 @@
     function effectiveDelay(ms){ return document.hidden ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms; }
 
     let fetchTimer = null, inFlight = null;
-    let lastClusterFeatures = [];
 
     async function runCycle(){
       if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
@@ -1184,9 +1211,8 @@
         const icePoints      = alertsToIcePoints(data);
         const signalPoints   = alertsToSignalFaultPoints(data);
 
-        // --- Cluster accidents using new motorway/non-motorway rules ---
+        // --- Cluster accidents using fixed identity ---
         const clusterFeatures = clusterAccidents(accidentPoints);
-        lastClusterFeatures = clusterFeatures.slice();
 
         // --- Generic clusters (unchanged) ---
         const iceFeatures    = clusterGeneric(icePoints, MERGE_METERS);
@@ -1197,14 +1223,12 @@
         map.getSource('waze-ice')?.setData({ type:'FeatureCollection', features: iceFeatures });
         map.getSource('waze-signal-faults')?.setData({ type:'FeatureCollection', features: signalFeatures });
 
-        // --- Memory pruning of cluster maps/sets ---
+        // --- Memory pruning ---
         const currentIds = new Set(clusterFeatures.map(f => f.id));
         for (const k of prevEffByClusterId.keys()) if (!currentIds.has(k)) prevEffByClusterId.delete(k);
         for (const k of Array.from(seenClusterIds)) if (!currentIds.has(k)) seenClusterIds.delete(k);
 
-        // --- Banner logic (UPDATED) ---
-        // Rule: Each unique incident banners only once, ever (within TTL),
-        // and motorway incidents within 5km on the same Mxx never banner if linked.
+        // --- Banner logic ---
         const candidates = [];
 
         for(const f of clusterFeatures){
@@ -1212,25 +1236,19 @@
           const newEff = Number(f.properties.effectiveConfidence||0);
           const oldEff = prevEffByClusterId.get(id);
 
-          // Only when it FIRST becomes high-confidence
           const becameHigh = (newEff >= HIGH_CONF_MIN) && (oldEff === undefined || oldEff < HIGH_CONF_MIN);
 
           prevEffByClusterId.set(id, newEff);
           if (!becameHigh) continue;
 
-          // Once-only key
           const ik = incidentKeyFromFeature(f);
           if (hasBannerShown(ik)) continue;
 
-          // Motorway corridor suppression (persisted)
           const isM = !!f.properties.isMotorway;
           const rk = String(f.properties.roadKey||'').toUpperCase();
           const coord = f.geometry?.coordinates;
 
-          if (isM && rk && coord && isLinkedToShownMotorway(rk, coord)) {
-            // linked to previously-bannered motorway incident => never banner
-            continue;
-          }
+          if (isM && rk && coord && isLinkedToShownMotorway(rk, coord)) continue;
 
           candidates.push(f);
         }
@@ -1242,7 +1260,6 @@
             return (Number(b.properties.time||0)) - (Number(a.properties.time||0));
           });
 
-          // Within the same cycle, also suppress multiple motorway banners within 5km on same road
           const accepted = [];
           for (const f of candidates){
             const isM = !!f.properties.isMotorway;
@@ -1275,7 +1292,7 @@
         scheduleNext(Math.min(REFRESH_MS * 2, 180000));
       }finally{
         inFlight = null;
-        startGlobalRepaint(); // no-op
+        startGlobalRepaint();
       }
     }
     function scheduleNext(ms){ clearTimeout(fetchTimer); fetchTimer = setTimeout(runCycle, effectiveDelay(ms)); }
@@ -1303,16 +1320,6 @@
             const qLat = tryNumber(u.searchParams.get('lat'));
             const qLon = tryNumber(u.searchParams.get('lon') || u.searchParams.get('lng') || u.searchParams.get('long'));
             if(qLat != null && qLon != null){ lat = qLat; lon = qLon; }
-            else {
-              const lonlat = u.searchParams.get('lonlat') || u.searchParams.get('ll');
-              if(lonlat){
-                const parts = lonlat.split(/[ ,]+/);
-                if(parts.length>=2){
-                  const qLon2 = tryNumber(parts[0]); const qLat2 = tryNumber(parts[1]);
-                  if(qLat2 != null && qLon2 != null){ lat = qLat2; lon = qLon2; }
-                }
-              }
-            }
           }catch(e){}
         }
         if(lat==null || lon==null) continue;
@@ -1354,7 +1361,7 @@
           img.crossOrigin = 'anonymous';
           img.onload = () => {
             try { map.addImage(id, img, { pixelRatio: 2 }); resolve(); }
-            catch (e) { resolve(); } // already added? resolve silently
+            catch (e) { resolve(); }
           };
           img.onerror = reject;
           img.src = src;
@@ -1389,7 +1396,7 @@
     map.on('load', async () => {
       map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
 
-      // Pulsing images (smaller + slower, with readback hints)
+      // Pulsing images
       map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
       map.addImage('pulsing-white', createPulsingDot(map,'white'), { pixelRatio: 2 });
 
@@ -1490,7 +1497,7 @@
       map.addLayer({
         id: 'waze-signal-faults-icon', type: 'symbol', source: 'waze-signal-faults',
         layout: {
-          'icon-image': map.hasImage('tl-icon') ? 'tl-icon' : 'triangle-green', // fallback to triangle if SVG fails
+          'icon-image': map.hasImage('tl-icon') ? 'tl-icon' : 'triangle-green',
           'icon-size': ['interpolate',['linear'],['zoom'], 8,0.5, 12,0.5, 16,0.5],
           'icon-allow-overlap': true
         }
@@ -1505,7 +1512,6 @@
         BNDB:"#9AC331",  BNVB:"#7a3ffe",  BNFM:"#ff66b3"
       };
 
-      /* ✅ Changed: no API key in frontend */
       const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
       const BODS_REFRESH_MS = 45000;
       const UNPLANNED_ONLY = true;
@@ -1726,8 +1732,7 @@
 
       async function updateDivertCentroidsOnce(){
         try{
-          // ✅ Now fetched from backend (JSON expected, but XML fallback kept)
-          const res = await fetch(withCacheBust(BODS_URL), { cache:'no-store' });
+          const res = await fetch(withCacheBust(BODS_URL), { cache: 'no-store' });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const clone = res.clone();
           let data, type;
@@ -1746,7 +1751,6 @@
 
           const liveUnplanned = UNPLANNED_ONLY ? live.filter(isUnplanned) : live;
 
-          // ONLY show UFN diverts (no end time)
           const display = liveUnplanned
             .filter(inDisplayPool)
             .filter(sit => {
@@ -1782,17 +1786,18 @@
     window.addEventListener('resize', () => { map.resize(); startGlobalRepaint(); });
 
     function varColor(varName, fallback){
-      try{ const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim(); return val || fallback; }
-      catch(e){ return fallback; }
+      try{
+        const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+        return val || fallback;
+      }catch(e){ return fallback; }
     }
 
     /* =======================================================
        Bottom row: Network health bar + custom attribution chip
        ======================================================= */
 
-    // ✅ Updated: TVT now from backend
     const TVT_URL = `${API_BASE}/api/waze/tvt`;
-    const NET_HEALTH_REFRESH_MS = 60 * 1000; // 1 min (tweak as you like)
+    const NET_HEALTH_REFRESH_MS = 60 * 1000; // 1 min
 
     function networkGradientFromUsersOnJams(usersOnJams){
       if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
@@ -1846,16 +1851,11 @@
     function syncAttributionIntoChip(){
       const chip = document.getElementById('attribChip');
       if (!chip) return;
-
-      // Default MapLibre attribution element (hidden by CSS)
       const attrib = document.querySelector('.maplibregl-ctrl-attrib');
       if (!attrib) return;
-
-      // Copy its content into our chip
       chip.innerHTML = attrib.innerHTML;
     }
 
-    // Keep attribution chip in sync if style/attribution changes
     function observeAttribution(){
       const attrib = document.querySelector('.maplibregl-ctrl-attrib');
       if (!attrib) return;
@@ -1863,17 +1863,14 @@
       obs.observe(attrib, { childList:true, subtree:true, characterData:true });
     }
 
-    // Hook into map load
     map.on('load', () => {
       syncAttributionIntoChip();
       observeAttribution();
 
-      // Prime + refresh loop
       updateNetworkHealthOnce();
       setInterval(updateNetworkHealthOnce, NET_HEALTH_REFRESH_MS);
     });
 
-    // Also refresh once when tab becomes visible again
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden) {
         syncAttributionIntoChip();
