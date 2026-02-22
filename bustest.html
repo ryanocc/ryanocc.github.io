@@ -6,14 +6,16 @@
   <title>Bee Network - Bus Diversion Alerts</title>
   <meta http-equiv="Cache-Control" content="no-store" />
 
-  <!-- Performance: preconnect for font hosts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+  <!-- MapLibre GL -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.18.0/dist/maplibre-gl.css">
+  <script src="https://unpkg.com/maplibre-gl@5.18.0/dist/maplibre-gl.js"></script>
 
   <style>
     :root{
@@ -39,54 +41,31 @@
 
       --route-mini-font: clamp(26px, 3.4vw, 38px);
 
-      /* Match Highways tool spacing */
       --pillTop:16px;
       --pillGap:16px;
 
-      /* progress duration set dynamically */
       --page-interval: 20000ms;
     }
 
-    *{
-      box-sizing:border-box;
-      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
-    }
-
+    *{ box-sizing:border-box; font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif; }
     html, body { height: 100%; }
     body{
-      margin:0; padding:0; background:var(--bg);
-      color:var(--text);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      position:relative;
+      margin:0; padding:0; background:var(--bg); color:var(--text);
+      overflow:hidden; display:flex; flex-direction:column; position:relative;
     }
 
-    /* ===== Top-right STATUS WRAPPER (matches Highways geometry mirrored) ===== */
+    /* ===== Top-right status ===== */
     .statusWrapper{
-      position:absolute;
-      top:var(--pillTop);
-      right:0;
-      z-index:1000;
-
-      display:flex;
-      align-items:center;
-      gap:var(--pillGap);
-
+      position:absolute; top:var(--pillTop); right:0; z-index:1000;
+      display:flex; align-items:center; gap:var(--pillGap);
       pointer-events:none;
     }
-
     #beeLogo{
-      width:64px;
-      height:64px;
-      min-width:64px;
-      min-height:64px;
-      object-fit:contain;
-      pointer-events:auto;
+      width:64px; height:64px; min-width:64px; min-height:64px;
+      object-fit:contain; pointer-events:auto;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
       transition: transform 0.2s ease-out;
     }
-
     @keyframes wibble {
       0%   { transform: rotate(0deg) scale(1); }
       20%  { transform: rotate(4deg) scale(1.05); }
@@ -97,76 +76,30 @@
     }
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
-    /* ===== Status pill (expanded state remains identical to your previous “match Highways” pill) ===== */
     .status-pill{
       padding:10px 16px;
-
-      font-family:
-        "IBM Plex Sans Condensed",
-        "Barlow Semi Condensed",
-        system-ui,
-        -apple-system,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-
-      font-size:18px;
-      font-weight:800;
-
-      border-radius:999px 0 0 999px;   /* flat RIGHT edge */
-      background:var(--liveGreen);
-      color:#000;
-
-      box-shadow:
-        0 0 0 2px rgba(255,255,255,0.08),
-        0 4px 14px rgba(0,0,0,0.25);
-
-      white-space:nowrap;
-      pointer-events:auto;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      font-size:18px; font-weight:800;
+      border-radius:999px 0 0 999px;
+      background:var(--liveGreen); color:#000;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
+      white-space:nowrap; pointer-events:auto;
+      display:flex; align-items:center; justify-content:center;
       overflow:hidden;
-
-      transition:
-        width 260ms ease,
-        padding 260ms ease,
-        border-radius 260ms ease,
-        background-color 200ms ease,
-        color 200ms ease;
+      transition: width 260ms ease, padding 260ms ease, border-radius 260ms ease, background-color 200ms ease, color 200ms ease;
     }
+    .status-error{ background:var(--errorRed); color:#fff; }
 
-    .status-error{
-      background:var(--errorRed);
-      color:#fff;
-    }
-
-    /* ===== NEW: Compact SEMICIRCLE (flat edge against RIGHT of screen) ===== */
     .status-pill.is-compact{
-      width:28px;
-      height:40px;
-      padding:0;
-      color:transparent;
+      width:28px; height:40px; padding:0; color:transparent;
       border-radius:999px 0 0 999px;
     }
-
     .status-pill.is-compact::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:999px;
+      content:""; width:10px; height:10px; border-radius:999px;
       background:rgba(0,0,0,0.65);
     }
+    .status-pill.status-error.is-compact::before{ background:rgba(255,255,255,0.9); }
 
-    .status-pill.status-error.is-compact::before{
-      background:rgba(255,255,255,0.9);
-    }
-
-
-
-    /* ===== Top-left title block ===== */
+    /* ===== Header ===== */
     .topbar{
       padding:12px 24px;
       border-bottom:1px solid #1d1d25;
@@ -174,9 +107,7 @@
       flex:0 0 auto;
     }
     .leftHeader{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
+      display:flex; flex-direction:column; gap:6px;
       min-width:0;
       padding-right:240px;
     }
@@ -187,7 +118,6 @@
       letter-spacing:-0.3px;
       line-height:1.1;
       padding-bottom:0.08em;
-
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -202,7 +132,6 @@
       text-overflow:ellipsis;
     }
 
-    /* ===== Main & fixed 3×2 grid ===== */
     main{
       padding:0 24px 18px;
       display:flex;
@@ -226,16 +155,11 @@
       transform: translateY(0);
       transition: opacity 260ms ease, transform 260ms ease;
     }
+    #grid.page-out{ opacity:0; transform: translateY(14px); }
+    #grid.page-in{ opacity:1; transform: translateY(0); }
 
-    #grid.page-out{
-      opacity: 0;
-      transform: translateY(14px);
-    }
-
-    #grid.page-in{
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* ✅ Critical: MapLibre canvas must not have transformed ancestors */
+    #grid.mapMode, #grid.mapMode.page-in, #grid.mapMode.page-out { transform:none !important; }
 
     #grid.empty{
       display:flex !important;
@@ -254,7 +178,7 @@
       user-select:none;
     }
 
-    /* ===== Cards ===== */
+    /* ===== Card styling ===== */
     .chip{
       position:relative;
       border:3px solid #2a2a33;
@@ -274,7 +198,6 @@
       overflow:hidden;
       min-width:0;
     }
-
     .chip.ufn{
       border-color: rgba(255,77,79,0.85) !important;
       box-shadow:
@@ -283,7 +206,6 @@
         0 6px 18px rgba(0,0,0,0.45),
         0 0 0 4px rgba(255,77,79,0.10);
     }
-
     @keyframes pulseRed {
       0% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.35); border-color: rgba(255,77,79,0.55); }
       50% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 10px rgba(255,77,79,0.12); border-color: rgba(255,77,79,0.95); }
@@ -291,41 +213,14 @@
     }
     .chip.pulse-ufn { border-color: var(--errorRed); animation: pulseRed 1200ms ease-in-out infinite; }
 
-    .chipTop{
-      display:flex;
-      flex-direction:column;
-      flex:1 1 auto;
-      min-height:0;
-      gap:6px;
-      min-width:0;
-    }
-
+    .chipTop{ display:flex; flex-direction:column; flex:1 1 auto; min-height:0; gap:6px; min-width:0; }
     .chipHeader{
-      display:flex;
-      align-items:stretch;
-      justify-content:space-between;
-      gap:14px;
-      width:100%;
-      flex:1 1 auto;
-      min-height:0;
-      min-width:0;
-      overflow:hidden;
+      display:flex; align-items:stretch; justify-content:space-between;
+      gap:14px; width:100%; flex:1 1 auto; min-height:0; min-width:0; overflow:hidden;
     }
+    .headerLeft{ display:flex; flex-direction:column; flex:1 1 0; min-width:0; min-height:0; }
 
-    .headerLeft{
-      display:flex;
-      flex-direction:column;
-      flex:1 1 0;
-      min-width:0;
-      min-height:0;
-    }
-
-    .routesArea{
-      flex:1 1 auto;
-      min-height:0;
-      display:flex;
-      align-items:stretch;
-    }
+    .routesArea{ flex:1 1 auto; min-height:0; display:flex; align-items:stretch; }
     .routesGrid{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -336,9 +231,7 @@
       min-height:0;
     }
     .route-mini{
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:flex; align-items:center; justify-content:center;
       font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
       font-weight:700;
       background:var(--accent);
@@ -366,19 +259,14 @@
     }
 
     .rightCol{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
+      display:flex; flex-direction:column; gap:8px;
       align-items:stretch;
       flex: 0 0 15%;
       max-width: 15%;
       min-width: 0;
     }
-
-    .operatorTag,
-    .reasonEmojiChip{
-      width:100%;
-      max-width:100%;
+    .operatorTag, .reasonEmojiChip{
+      width:100%; max-width:100%;
       height:50px;
       border-radius:999px;
       background:rgba(255,255,255,0.12);
@@ -392,18 +280,13 @@
       overflow:hidden;
       min-width:0;
     }
-
     .operatorDot{
-      width:16px;
-      height:16px;
-      border-radius:50%;
+      width:16px; height:16px; border-radius:50%;
       background:#cfcfd6;
       box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
       flex-shrink:0;
     }
-
     .operatorCode{
-      font-family: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif !important;
       font-weight: 900;
       font-size: 24px;
       letter-spacing: 0.4px;
@@ -415,12 +298,7 @@
       font-variant-numeric: tabular-nums;
       color:#fff;
     }
-
-    .reasonEmojiChip{
-      font-size:28px;
-      font-weight:800;
-      color:#e6e6ee;
-    }
+    .reasonEmojiChip{ font-size:28px; font-weight:800; color:#e6e6ee; }
 
     .detailsLine{
       margin-top:auto;
@@ -467,94 +345,58 @@
     #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
     @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
 
-    /* Fullscreen overlay */
-    #divertOverlay{
-      position:fixed; inset:0; background:var(--accent); color:#000;
-      display:none; align-items:center; justify-content:center; z-index:9999; padding:6vh 5vw;
-    }
-    #divertOverlay.show{ display:flex; animation: overlayFadeIn 220ms ease-out; }
-    @keyframes overlayFadeIn{ from{ opacity:0; } to{ opacity:1; } }
-    #divertOverlay.ov-add    { background: var(--accent); }
-    #divertOverlay.ov-remove { background: #19c37d; }
-    @keyframes overlayDropOut {
-      0%   { opacity: 1; transform: translateY(0) scale(1); }
-      100% { opacity: 0; transform: translateY(60px) scale(0.98); }
-    }
-    #divertOverlay.closing .ov-card { animation: overlayDropOut 260ms ease-out forwards; }
-    #divertOverlay.closing { pointer-events:none; }
-
-    .ov-card{ width:min(1200px, 100%); text-align:center; }
-    .ov-kicker{ font-weight:1000; letter-spacing:1.4px; font-size: clamp(80px, 10vw, 140px); text-transform:uppercase; margin-bottom:12px; }
-    .ov-reason{
-      display:inline-flex; align-items:center; gap:10px;
-      background:#000; color:var(--accent);
-      border:2px solid rgba(0,0,0,0.9);
-      border-radius:999px;
-      padding:12px 18px;
-      font-weight:1000;
-      font-size: clamp(24px, 3vw, 38px);
-      box-shadow:0 10px 26px rgba(0,0,0,.35);
-      margin: 0 auto 14px;
-      user-select:none;
-    }
-    .ov-reason-emoji{ font-size:1.2em; line-height:1; }
-    .ov-location{ font-weight:1000; letter-spacing:-0.6px; font-size: clamp(42px, 5.2vw, 84px); line-height:1; margin:10px 0 18px; }
-    .ov-routes{
-      display:flex; flex-wrap:nowrap; gap:18px;
-      justify-content:center; align-items:center;
-      padding:22px 0 26px; margin:8px auto 18px;
-      max-width:1200px; white-space:nowrap;
-    }
-    .ov-route-chip{
+    /* ===== Map page ===== */
+    #grid.mapMode{ display:block !important; position:relative; }
+    .mapFrame{
+      width:100%; height:100%;
+      border-radius: var(--cardRadius);
+      overflow:hidden;
+      border:3px solid #2a2a33;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.04) inset,
+        0 10px 25px rgba(0,0,0,0.35),
+        0 6px 18px rgba(0,0,0,0.45);
+      background: #0a0a0d;
       position:relative;
-      display:inline-flex;
-      align-items:center; justify-content:center;
-      background:#000; color:var(--accent);
-      border-radius:18px;
-      border:4px solid rgba(0,0,0,0.95);
-      padding:24px 32px;
-      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
-      font-weight:700;
-      letter-spacing:0.4px;
-      font-size: clamp(52px, 7vw, 95px);
-      line-height:1;
-      box-shadow:0 12px 32px rgba(0,0,0,.45);
+    }
+    #stopClosureMap{ width:100%; height:100%; }
+
+    .mapEmptyOverlay{
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; padding:0 6vw;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.35), rgba(0,0,0,0.65));
+      font-weight:1000; letter-spacing:-0.6px;
+      font-size: clamp(54px, 5.5vw, 96px);
+      color: rgba(233,233,239,0.92);
+      text-shadow: 0 3px 14px rgba(0,0,0,0.45);
       user-select:none;
-      min-width:6ch;
-      text-transform:uppercase;
-      font-variant-numeric: tabular-nums;
+      pointer-events:none;
+      z-index: 5;
     }
-    .ov-route-badge{
-      position:absolute;
-      top:-14px;
-      right:-22px;
-      font-size:0.6em;
-      background:none;
-      border:none;
+
+    /* Hover popup styling */
+    .maplibregl-popup-content{
+      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
+      background: rgba(0,0,0,0.90);
+      color:#fff;
+      border: 2px solid rgba(255,224,74,0.60);
+      border-radius: 14px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.55);
+      padding: 10px 12px;
     }
-    .ov-operator{
-      display:inline-flex; align-items:center; gap:12px;
-      background:#000; color:var(--accent);
-      border:2px solid rgba(0,0,0,0.9);
-      border-radius:999px;
-      font-weight:1000;
-      font-size: clamp(26px, 3vw, 40px);
-      padding:12px 20px;
-      margin-top:10px;
-      box-shadow:0 12px 30px rgba(0,0,0,.4);
+    .maplibregl-popup-tip{
+      border-top-color: rgba(0,0,0,0.90) !important;
     }
-    .ov-duration{ font-weight:1000; letter-spacing:-0.2px; font-size: clamp(28px, 3vw, 48px); margin:6px 0 0; }
   </style>
 </head>
 
 <body>
-  <!-- Top-right status + logo -->
   <div class="statusWrapper" aria-live="polite">
     <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
     <div id="statusPill" class="status-pill is-compact">Initialising…</div>
   </div>
 
-  <!-- Title + page count -->
   <header class="topbar">
     <div class="leftHeader">
       <h1 id="pageTitle" class="title">Checking…</h1>
@@ -565,23 +407,6 @@
   <main>
     <div id="grid"></div>
   </main>
-
-  <!-- Fullscreen overlay -->
-  <div id="divertOverlay" class="ov-add" aria-hidden="true" aria-live="assertive">
-    <div class="ov-card" role="dialog" aria-label="Travel alert">
-      <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
-
-      <div id="ovReason" class="ov-reason" hidden>
-        <span class="ov-reason-emoji" aria-hidden="true">⚠️</span>
-        <span class="ov-reason-text">Reason</span>
-      </div>
-
-      <div id="ovLocation" class="ov-location" hidden>–</div>
-      <div id="ovRoutes" class="ov-routes"></div>
-      <div id="ovOperator" class="ov-operator" hidden></div>
-      <div id="ovDuration" class="ov-duration" hidden></div>
-    </div>
-  </div>
 
   <div id="pageProgress" aria-hidden="true"></div>
 
@@ -595,249 +420,48 @@ const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
 const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 const UNPLANNED_ONLY = true;
 
-const PAGE_DURATION_UFN_MS   = 60000; // 2 minutes
-const PAGE_DURATION_OTHER_MS = 20000;  // 20 seconds
+const PAGE_DURATION_UFN_MS   = 60000;
+const PAGE_DURATION_OTHER_MS = 20000;
+const PAGE_DURATION_STOPCLOSURE_MAP_MS = 10000;
+
 const FEED_REFRESH_MS = 45000;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LONG_TERM_ROUTE_THRESHOLD = 5;
+
+// MapTiler (raster tiles; MapLibre raster source expects XYZ) [2](https://tfgmserverteamoutlook.sharepoint.com/sites/TfGMControlTEST/_layouts/15/Doc.aspx?sourcedoc=%7B0AFA18DC-2175-47C1-8A79-5713F2B1374D%7D&file=20260102%20Guided%20Busway.docx&action=default&mobileredirect=true&DefaultItemOpen=1)[3](https://tfgmserverteamoutlook.sharepoint.com/sites/COM-RailIntelligenceGroup/Shared%20Documents/General/PDFH%206.1/15%20-%20PDFH6.1%20C5%20Punctuality%20and%20Reliability.pdf?web=1)
+const MAPTILER_KEY = "ileJHPYoUxyL17ZpmERr";
+const STOP_MAP_STYLE_OBJ = {
+  version: 8,
+  sources: {
+    "mt-raster": {
+      type: "raster",
+      tileSize: 256,
+      tiles: [
+        `https://api.maptiler.com/maps/uk-openzoomstack-night/256/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`
+      ]
+    }
+  },
+  layers: [
+    { id: "mt-raster", type: "raster", source: "mt-raster" }
+  ]
+};
 
 document.documentElement.style.setProperty('--page-interval', PAGE_DURATION_OTHER_MS + 'ms');
 
 const $ = s => document.querySelector(s);
 const parseISO = s => s ? new Date(s) : null;
 
-function withCacheBust(url){
-  const sep = url.includes("?") ? "&" : "?";
-  return `${url}${sep}ts=${Date.now()}`;
-}
-
 /* ===========================
-   STATUS PILL (NEW BEHAVIOUR)
-   - LIVE: compact semicircle (no text)
-   - Hourly: expands 20s to LIVE • HH:MM:SS then collapses
-   - STALE: turns red then expands to STALE : HH:MM:SS (last OK)
+   DATE HELPERS
 =========================== */
-
-const STALE_AFTER_MS = Math.max(FEED_REFRESH_MS * 2, 120000);
-const HOURLY_POP_MS  = 20000;
-
-let lastOkAt = 0;
-let lastOkLabel = "";
-let staleActive = false;
-let hourlyTimer = null;
-let staleWatchTimer = null;
-
-function nowHHMMSS(){
-  return new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+function startOfToday(){
+  const n = new Date();
+  return new Date(n.getFullYear(), n.getMonth(), n.getDate(), 0,0,0,0);
 }
-
-function collapseToSemi(){
-  const pill = $("#statusPill");
-  if(!pill) return;
-  pill.classList.add("is-compact");
-  pill.textContent = "";
+function endOfToday(){
+  const n = new Date();
+  return new Date(n.getFullYear(), n.getMonth(), n.getDate(), 23,59,59,999);
 }
-
-function expandPill(text){
-  const pill = $("#statusPill");
-  if(!pill) return;
-  pill.classList.remove("is-compact");
-  pill.textContent = text;
-}
-
-function enterStaleMode(){
-  if (staleActive) return;
-  staleActive = true;
-  const pill = $("#statusPill");
-  if(!pill) return;
-
-  pill.classList.add("status-error");
-
-  // red first (compact)
-  collapseToSemi();
-
-  // then pop-out with last OK time
-  setTimeout(() => {
-    const t = lastOkLabel || nowHHMMSS();
-    expandPill(`STALE : ${t}`);
-  }, 180);
-}
-
-function exitStaleMode(){
-  staleActive = false;
-  const pill = $("#statusPill");
-  if(!pill) return;
-  pill.classList.remove("status-error");
-  collapseToSemi();
-}
-
-function startStaleWatchdog(){
-  if (staleWatchTimer) clearInterval(staleWatchTimer);
-  staleWatchTimer = setInterval(() => {
-    if (!lastOkAt) return;
-    const tooOld = (Date.now() - lastOkAt) > STALE_AFTER_MS;
-    if (tooOld) enterStaleMode();
-  }, 2000);
-}
-
-function startHourlyPop(){
-  if (hourlyTimer) clearTimeout(hourlyTimer);
-
-  function msUntilNextHour(){
-    const now = new Date();
-    const next = new Date(now);
-    next.setMinutes(0,0,0);
-    next.setHours(now.getHours() + 1);
-    return next - now;
-  }
-
-  function pop(){
-    // only pop if we have a successful update time and we're not stale
-    if (!lastOkAt || staleActive) { schedule(); return; }
-
-    expandPill(`LIVE • ${lastOkLabel}`);
-
-    setTimeout(() => {
-      if (!staleActive) collapseToSemi();
-      schedule();
-    }, HOURLY_POP_MS);
-  }
-
-  function schedule(){
-    hourlyTimer = setTimeout(pop, msUntilNextHour());
-  }
-
-  schedule();
-}
-
-/* ===== Status pill (used by rest of app) =====
-   IMPORTANT: 'heartbeat:true' calls (page flips) DO NOT update lastOkAt,
-   otherwise STALE would never trigger.
-*/
-function setStatusPill(ok, { animate = false, heartbeat = false } = {}){
-  const pill = $("#statusPill");
-  const bee  = $("#beeLogo");
-  if(!pill) return;
-
-  const t = nowHHMMSS();
-
-  if(ok){
-    if (!heartbeat){
-      lastOkAt = Date.now();
-      lastOkLabel = t;
-    }
-
-    if (staleActive) exitStaleMode();
-
-    pill.classList.remove("status-error");
-    collapseToSemi();
-
-    if (animate && bee){
-      bee.classList.remove("bee-wibble");
-      void bee.offsetWidth;
-      bee.classList.add("bee-wibble");
-    }
-  } else {
-    enterStaleMode();
-  }
-}
-
-// Start compact immediately + watchdogs
-collapseToSemi();
-startStaleWatchdog();
-startHourlyPop();
-
-/* ===========================
-   PAGE TRANSITION RENDER
-=========================== */
-function renderPageWithTransition(){
-  const grid = $("#grid");
-  if (!grid){
-    renderPage();
-    return;
-  }
-
-
-  grid.classList.add("page-out");
-  grid.classList.remove("page-in");
-
-  setTimeout(() => {
-    renderPage();
-    void grid.offsetWidth;
-    grid.classList.remove("page-out");
-    grid.classList.add("page-in");
-  }, 180);
-}
-
-/* ===== Operator mapping ===== */
-const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
-function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
-
-const OP_COLOR_MAP = {
-  BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
-  BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
-};
-
-/* ===== Section title mapping ===== */
-const SECTION_TITLE_MAP = {
-  "UFN DIVERTS": "UFN Diversions",
-  "STARTING / ENDING TODAY": "Diversions Starting/Ending Today",
-  "LONG TERM HIGH IMPACT": "Long Term High Impact Diversions"
-};
-function prettySectionTitle(section){
-  const key = String(section || "").trim();
-  return SECTION_TITLE_MAP[key] || key || "Checking…";
-}
-
-/* ===========================
-   LOCATION PARSER
-=========================== */
-function normaliseSummary(s){
-  return String(s || "").replace(/\s+/g, " ").trim();
-}
-function extractStreetTown(summaryRaw){
-  let raw = normaliseSummary(summaryRaw);
-  if (!raw) return { street:"", town:"", ok:false };
-
-  const idx = Math.max(raw.lastIndexOf(" - "), raw.lastIndexOf(" – "), raw.lastIndexOf(" — "));
-  if (idx !== -1){
-    raw = raw.slice(0, idx).trim();
-  } else {
-    raw = raw.replace(/\s*[-–—]\s*[^-–—]+$/u, "").trim();
-  }
-
-  const commaMatch = raw.match(/^(.+?),\s*([A-Za-z][A-Za-z\s'.-]{2,40})$/);
-  if (commaMatch){
-    return { street: commaMatch[1].trim(), town: commaMatch[2].trim(), ok:true };
-  }
-
-  const placeMatch = raw.match(/^(Manchester|Salford|Trafford|Wigan|Bolton|Stockport|Rochdale|Bury|Oldham|Tameside)\b(.*)?$/i);
-  if (placeMatch){
-    return { street: raw.trim(), town: placeMatch[1].trim(), ok:true };
-  }
-
-  return { street: raw, town: "", ok:false };
-}
-function escapeHtml(s){
-  return String(s ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#39;");
-}
-function buildLocationHTML(street, town){
-  const st = escapeHtml(street || "");
-  const tw = escapeHtml((town || "").toUpperCase());
-  if (st && tw){
-    return `${st}<span class="locSep">//</span><span class="locTown">${tw}</span>`;
-  }
-  return st || tw || "";
-}
-
-/* ===========================
-   DATE + DURATION
-=========================== */
 function isToday(d){
   const n=new Date();
   return d && d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate();
@@ -892,57 +516,162 @@ function formatLabelForDate(d){
   }
   return `${ordinal(d.getDate())} ${fullMonth(d)} ${d.getFullYear()}`;
 }
-function startOfToday(){
-  const n = new Date();
-  return new Date(n.getFullYear(), n.getMonth(), n.getDate(), 0,0,0,0);
-}
-function endOfToday(){
-  const n = new Date();
-  return new Date(n.getFullYear(), n.getMonth(), n.getDate(), 23,59,59,999);
-}
 function isStartOfService(d){ return d && d.getHours()===0 && d.getMinutes()===0; }
 function isEndOfService(d){ return d && d.getHours()===23 && d.getMinutes()===59; }
 
-function formatSingleUnitDuration(start, end){
-  if(!start) return "—";
-  const now = new Date();
-  const endTime = end || now;
-  const ms = endTime - start;
-  if (ms < 0) return "—";
-  const sec = ms / 1000;
-  if (sec < 60) return `${Math.round(sec)}s`;
-  const min = sec / 60;
-  if (min < 60) return `${Math.round(min)}m`;
-  const hr = min / 60;
-  if (hr < 24) return `${Math.round(hr)}h`;
-  const day = hr / 24;
-  return `${Math.round(day)}d`;
+/* ===========================
+   STATUS PILL
+=========================== */
+const STALE_AFTER_MS = Math.max(FEED_REFRESH_MS * 2, 120000);
+const HOURLY_POP_MS  = 20000;
+
+let lastOkAt = 0;
+let lastOkLabel = "";
+let staleActive = false;
+let hourlyTimer = null;
+let staleWatchTimer = null;
+
+function nowHHMMSS(){
+  return new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
 }
-function buildTimesLines(sit){
-  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+function collapseToSemi(){
+  const pill = $("#statusPill");
+  if(!pill) return;
+  pill.classList.add("is-compact");
+  pill.textContent = "";
+}
+function expandPill(text){
+  const pill = $("#statusPill");
+  if(!pill) return;
+  pill.classList.remove("is-compact");
+  pill.textContent = text;
+}
+function enterStaleMode(){
+  if (staleActive) return;
+  staleActive = true;
+  const pill = $("#statusPill");
+  if(!pill) return;
+  pill.classList.add("status-error");
+  collapseToSemi();
+  setTimeout(() => {
+    const t = lastOkLabel || nowHHMMSS();
+    expandPill(`STALE : ${t}`);
+  }, 180);
+}
+function exitStaleMode(){
+  staleActive = false;
+  const pill = $("#statusPill");
+  if(!pill) return;
+  pill.classList.remove("status-error");
+  collapseToSemi();
+}
+function startStaleWatchdog(){
+  if (staleWatchTimer) clearInterval(staleWatchTimer);
+  staleWatchTimer = setInterval(() => {
+    if (!lastOkAt) return;
+    if ((Date.now() - lastOkAt) > STALE_AFTER_MS) enterStaleMode();
+  }, 2000);
+}
+function startHourlyPop(){
+  if (hourlyTimer) clearTimeout(hourlyTimer);
 
-  let startVal = "—";
-  if (s){
-    startVal = (isToday(s) && isStartOfService(s)) ? "Start of Service" : formatLabelForDate(s);
+  function msUntilNextHour(){
+    const now = new Date();
+    const next = new Date(now);
+    next.setMinutes(0,0,0);
+    next.setHours(now.getHours() + 1);
+    return next - now;
   }
-  const startLine = `Started // ${startVal}`;
+  function pop(){
+    if (!lastOkAt || staleActive) { schedule(); return; }
+    expandPill(`LIVE • ${lastOkLabel}`);
+    setTimeout(() => {
+      if (!staleActive) collapseToSemi();
+      schedule();
+    }, HOURLY_POP_MS);
+  }
+  function schedule(){ hourlyTimer = setTimeout(pop, msUntilNextHour()); }
+  schedule();
+}
+function setStatusPill(ok, { animate = false, heartbeat = false } = {}){
+  const pill = $("#statusPill");
+  const bee  = $("#beeLogo");
+  if(!pill) return;
 
-  let endVal = "—";
-  if (e){
-    endVal = (isToday(e) && isEndOfService(e)) ? "End of Service" : formatLabelForDate(e);
+  const t = nowHHMMSS();
+  if(ok){
+    if (!heartbeat){
+      lastOkAt = Date.now();
+      lastOkLabel = t;
+    }
+    if (staleActive) exitStaleMode();
+
+    pill.classList.remove("status-error");
+    collapseToSemi();
+
+    if (animate && bee){
+      bee.classList.remove("bee-wibble");
+      void bee.offsetWidth;
+      bee.classList.add("bee-wibble");
+    }
   } else {
-    endVal = "UFN";
+    enterStaleMode();
   }
-  const endLine = `Ends // ${endVal}`;
+}
+collapseToSemi();
+startStaleWatchdog();
+startHourlyPop();
 
-  const durationLine = `Duration // ${formatSingleUnitDuration(s, e)}`;
-  return { startLine, endLine, durationLine, startDate:s, endDate:e };
+/* ===========================
+   TEXT/HTML HELPERS
+=========================== */
+function escapeHtml(s){
+  return String(s ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#39;");
+}
+function normaliseSummary(s){ return String(s || "").replace(/\s+/g, " ").trim(); }
+function extractStreetTown(summaryRaw){
+  let raw = normaliseSummary(summaryRaw);
+  if (!raw) return { street:"", town:"", ok:false };
+  const idx = Math.max(raw.lastIndexOf(" - "), raw.lastIndexOf(" – "), raw.lastIndexOf(" — "));
+  if (idx !== -1) raw = raw.slice(0, idx).trim();
+  return { street: raw, town:"", ok:false };
+}
+function buildLocationHTML(street, town){
+  const st = escapeHtml(street || "");
+  const tw = escapeHtml((town || "").toUpperCase());
+  if (st && tw) return `${st}<span class="locSep">//</span><span class="locTown">${tw}</span>`;
+  return st || tw || "";
 }
 
 /* ===========================
-   NETWORK EXTRACTORS (BUS ONLY)
+   SECTION TITLES
 =========================== */
+const SECTION_TITLE_MAP = {
+  "UFN DIVERTS": "UFN Diversions",
+  "STARTING / ENDING TODAY": "Diversions Starting/Ending Today",
+  "LONG TERM HIGH IMPACT": "Long Term High Impact Diversions",
+  "BUS STOP CLOSURES MAP": "Bus Stop Closures"
+};
+function prettySectionTitle(section){
+  const key = String(section || "").trim();
+  return SECTION_TITLE_MAP[key] || key || "Checking…";
+}
+
+/* ===========================
+   BUS EXTRACTORS
+=========================== */
+const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
+function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
+const OP_COLOR_MAP = {
+  BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
+  BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
+};
+
 function getNetworkAffectedLines(sit){
   const out = [];
   const nets = sit?.Affects?.Networks?.AffectedNetwork;
@@ -990,15 +719,20 @@ function getLineRefs(sit){
   }
 
   for(const x of getNetworkAffectedLines(sit)) pushVal(x.lineRef || x.pubName);
-  if(Array.isArray(sit.__lineRefs)){
-    for(const v of sit.__lineRefs) pushVal(v);
-  }
-
+  if(Array.isArray(sit.__lineRefs)){ for(const v of sit.__lineRefs) pushVal(v); }
   return Array.from(lines);
+}
+function isBusOperator(sit){
+  const refs = getOperatorRefs(sit);
+  return refs && refs.some(r => BEE_OPERATORS.includes(r));
 }
 function isDiversion(sit){
   const txt = (sit.Description || sit.Summary || "").toLowerCase();
   return txt.includes("divert") || txt.includes("diversion");
+}
+function isStopClosure(sit){
+  const txt = (sit.Summary || sit.Description || "");
+  return /bus\s*stop\s*closur/i.test(txt);
 }
 function isCurrentlyValid(sit){
   const now = new Date();
@@ -1009,13 +743,13 @@ function isCurrentlyValid(sit){
   if(e && e < now) return false;
   return true;
 }
-function isBusOperator(sit){
-  const refs = getOperatorRefs(sit);
-  return refs && refs.some(r => BEE_OPERATORS.includes(r));
-}
 function isUnplanned(sit){
   const p = sit?.Planned;
   return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
+}
+function isTfGMParticipant(sit){
+  const v = (sit?.ParticipantRef?.value ?? sit?.ParticipantRef ?? "").toString().trim().toLowerCase();
+  return v === "tfgm";
 }
 function getSituationId(sit){
   const a  = sit?.SituationNumber || sit?.SituationRef;
@@ -1026,7 +760,79 @@ function getSituationId(sit){
 }
 
 /* ===========================
-   ROUTE CHIPS (+X preserved)
+   STOP POINT EXTRACTOR
+=========================== */
+function getAffectedStopPoints(sit){
+  const out = [];
+  let raw =
+    sit?.Affects?.StopPoints?.AffectedStopPoint ??
+    sit?.Affects?.StopPoints ??
+    null;
+
+  let list = [];
+  if (Array.isArray(raw)) list = raw;
+  else if (raw && raw.AffectedStopPoint) list = Array.isArray(raw.AffectedStopPoint) ? raw.AffectedStopPoint : [raw.AffectedStopPoint];
+  else if (raw) list = [raw];
+
+  for (const sp of list){
+    if (!sp) continue;
+    const ref  = String(sp.StopPointRef || "");
+    const name = String(sp.StopPointName || "");
+    const loc  = sp.Location || null;
+
+    const lon  = loc?.Longitude ?? null;
+    const lat  = loc?.Latitude  ?? null;
+    const lonNum = (lon != null) ? Number(lon) : NaN;
+    const latNum = (lat != null) ? Number(lat) : NaN;
+
+    if (!Number.isFinite(lonNum) || !Number.isFinite(latNum)) continue;
+    if (Math.abs(lonNum) > 180 || Math.abs(latNum) > 90) continue;
+
+    out.push({ ref, name, lon: lonNum, lat: latNum });
+  }
+  return out;
+}
+
+/* ===========================
+   DURATION LINES
+=========================== */
+function formatSingleUnitDuration(start, end){
+  if(!start) return "—";
+  const now = new Date();
+  const endTime = end || now;
+  const ms = endTime - start;
+  if (ms < 0) return "—";
+  const sec = ms / 1000;
+  if (sec < 60) return `${Math.round(sec)}s`;
+  const min = sec / 60;
+  if (min < 60) return `${Math.round(min)}m`;
+  const hr = min / 60;
+  if (hr < 24) return `${Math.round(hr)}h`;
+  return `${Math.round(hr/24)}d`;
+}
+function buildTimesLines(sit){
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+
+  let startVal = "—";
+  if (s){
+    startVal = (isToday(s) && isStartOfService(s)) ? "Start of Service" : formatLabelForDate(s);
+  }
+  const startLine = `Started // ${startVal}`;
+
+  let endVal = "—";
+  if (e){
+    endVal = (isToday(e) && isEndOfService(e)) ? "End of Service" : formatLabelForDate(e);
+  } else {
+    endVal = "UFN";
+  }
+  const endLine = `Ends // ${endVal}`;
+  const durationLine = `Duration // ${formatSingleUnitDuration(s, e)}`;
+  return { startLine, endLine, durationLine, startDate:s, endDate:e };
+}
+
+/* ===========================
+   ROUTE CHIPS
 =========================== */
 function formatRouteChipLabel(raw){
   const s = String(raw ?? "").trim();
@@ -1045,24 +851,19 @@ function renderRoutesAs2x2Grid(routesArea, routes){
   const list = Array.isArray(routes) ? routes : ["?"];
   const count = list.length;
 
-  const addCell = (routeObj, glass=false) => {
+  const addCell = (val, glass=false) => {
     const cell = document.createElement("div");
     cell.className = glass ? "route-mini route-mini--glass" : "route-mini";
-    if (!glass){
-      const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
-      cell.textContent = formatRouteChipLabel(raw);
-    } else {
-      cell.textContent = "";
-    }
+    cell.textContent = glass ? "" : formatRouteChipLabel(val);
     gridRoutes.appendChild(cell);
   };
 
-  if (count <= MAX_SLOTS) {
-    list.forEach(rt => addCell(rt, false));
-    for (let i = count; i < MAX_SLOTS; i++) addCell("", true);
+  if (count <= MAX_SLOTS){
+    list.forEach(rt => addCell(rt,false));
+    for(let i=count;i<MAX_SLOTS;i++) addCell("", true);
   } else {
-    for (let i = 0; i < 3; i++) addCell(list[i], false);
-    addCell(`+${count - 3}`, false);
+    for(let i=0;i<3;i++) addCell(list[i], false);
+    addCell(`+${count-3}`, false);
   }
 
   routesArea.replaceChildren(gridRoutes);
@@ -1139,6 +940,7 @@ function splitLine(line){
 function renderEmptyState(message){
   const grid = $("#grid");
   grid.classList.add("empty");
+  grid.classList.remove("mapMode");
   grid.replaceChildren();
   const el = document.createElement("div");
   el.className = "emptyStateText";
@@ -1160,6 +962,7 @@ function chunk(arr,size){
 function pageDurationForIndex(idx){
   const pg = pager.pages[idx];
   if (!pg) return PAGE_DURATION_OTHER_MS;
+  if (pg.mapPage) return PAGE_DURATION_STOPCLOSURE_MAP_MS;
   return (pg.section === "UFN DIVERTS") ? PAGE_DURATION_UFN_MS : PAGE_DURATION_OTHER_MS;
 }
 function updatePageIndicator(){
@@ -1170,10 +973,8 @@ function updatePageIndicator(){
   const totalPages = Array.isArray(pager.pages) ? pager.pages.length : 0;
   const curr = totalPages > 0 ? (pager.pageIndex + 1) : 0;
   const pg = pager.pages[pager.pageIndex] || {};
-  const sectionLabel = pg.section || "—";
-
   pageEl.textContent = `Page ${curr}/${totalPages}`;
-  titleEl.textContent = prettySectionTitle(sectionLabel);
+  titleEl.textContent = prettySectionTitle(pg.section || "—");
 }
 function restartProgressBar(){
   const bar = document.getElementById('pageProgress');
@@ -1211,25 +1012,29 @@ function scheduleNextAdvance(){
   pagerTimer = setTimeout(() => {
     pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
     renderPageWithTransition();
-
-    // heartbeat only (do NOT reset lastOkAt)
     setStatusPill(true, { animate:false, heartbeat:true });
-
     updatePageIndicator();
     scheduleNextAdvance();
   }, pageDurationForIndex(pager.pageIndex));
 }
+function renderPageWithTransition(){
+  const grid = $("#grid");
+  grid.classList.add("page-out");
+  grid.classList.remove("page-in");
 
-/* Keyboard navigation */
+  setTimeout(() => {
+    renderPage();
+    void grid.offsetWidth;
+    grid.classList.remove("page-out");
+    grid.classList.add("page-in");
+  }, 180);
+}
 function gotoPage(newIndex){
   if (!Array.isArray(pager.pages) || pager.pages.length === 0) return;
   const n = pager.pages.length;
   pager.pageIndex = ((newIndex % n) + n) % n;
   renderPageWithTransition();
-
-  // heartbeat only
   setStatusPill(true, { animate:false, heartbeat:true });
-
   updatePageIndicator();
   scheduleNextAdvance();
 }
@@ -1238,16 +1043,218 @@ window.addEventListener("keydown", (e) => {
   const tag = (t && t.tagName) ? t.tagName.toLowerCase() : "";
   const isTyping = t && (t.isContentEditable || tag === "input" || tag === "textarea" || tag === "select");
   if (isTyping) return;
-
-  if (e.key === "ArrowRight"){
-    e.preventDefault(); gotoPage(pager.pageIndex + 1);
-  } else if (e.key === "ArrowLeft"){
-    e.preventDefault(); gotoPage(pager.pageIndex - 1);
-  }
+  if (e.key === "ArrowRight"){ e.preventDefault(); gotoPage(pager.pageIndex + 1); }
+  else if (e.key === "ArrowLeft"){ e.preventDefault(); gotoPage(pager.pageIndex - 1); }
 }, { passive:false });
 
 /* ===========================
-   MAP SITUATION -> ITEM
+   MAP PAGE (WEBGL SYMBOL LAYER, NOT DOM MARKERS)
+=========================== */
+let stopMap = null;
+let stopMapReady = false;
+let stopHoverPopup = null;
+
+function makeRedXStyleImage(size = 32, stroke = 6, color = "#ff2d2d") {
+  const c = document.createElement("canvas");
+  c.width = size;
+  c.height = size;
+  const ctx = c.getContext("2d");
+
+  ctx.save();
+  ctx.translate(size / 2, size / 2);
+  ctx.lineCap = "round";
+
+  // Outline
+  ctx.strokeStyle = "rgba(0,0,0,0.65)";
+  ctx.lineWidth = stroke + 3;
+  ctx.beginPath();
+  ctx.moveTo(-size * 0.32, -size * 0.32);
+  ctx.lineTo( size * 0.32,  size * 0.32);
+  ctx.moveTo( size * 0.32, -size * 0.32);
+  ctx.lineTo(-size * 0.32,  size * 0.32);
+  ctx.stroke();
+
+  // Red X
+  ctx.strokeStyle = color;
+  ctx.lineWidth = stroke;
+  ctx.beginPath();
+  ctx.moveTo(-size * 0.32, -size * 0.32);
+  ctx.lineTo( size * 0.32,  size * 0.32);
+  ctx.moveTo( size * 0.32, -size * 0.32);
+  ctx.lineTo(-size * 0.32,  size * 0.32);
+  ctx.stroke();
+
+  ctx.restore();
+
+  const img = ctx.getImageData(0, 0, size, size);
+
+  // IMPORTANT: width/height/data provided => avoids “expected 0 got 4096”
+  return {
+    width: size,
+    height: size,
+    data: new Uint8Array(img.data.buffer)
+  };
+}
+
+function pointsToFeatureCollection(points) {
+  const pts = Array.isArray(points) ? points : [];
+  return {
+    type: "FeatureCollection",
+    features: pts.map(p => ({
+      type: "Feature",
+      geometry: { type: "Point", coordinates: [p.lon, p.lat] },
+      properties: {
+        name: p.name || "",
+        ref: p.ref || ""
+      }
+    }))
+  };
+}
+
+function ensureStopMap(container) {
+  if (stopMap && stopMap.getContainer && stopMap.getContainer() === container) return;
+
+  stopMapReady = false;
+
+  stopMap = new maplibregl.Map({
+    container,
+    style: STOP_MAP_STYLE_OBJ,
+    center: [-2.24, 53.48],
+    zoom: 9,
+    interactive: true,
+    keyboard: false,
+    attributionControl: false
+  });
+  stopMap.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
+
+  stopHoverPopup = new maplibregl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    offset: 14
+  });
+
+  stopMap.on("style.load", () => {
+    // Reset image if exists
+    if (stopMap.hasImage("red-x")) {
+      try { stopMap.removeImage("red-x"); } catch {}
+    }
+    stopMap.addImage("red-x", makeRedXStyleImage(32, 6, "#ff2d2d"), { pixelRatio: 2 });
+
+    if (!stopMap.getSource("stop-closures")) {
+      stopMap.addSource("stop-closures", {
+        type: "geojson",
+        data: { type: "FeatureCollection", features: [] }
+      });
+
+      stopMap.addLayer({
+        id: "stop-closures-x",
+        type: "symbol",
+        source: "stop-closures",
+        layout: {
+          "icon-image": "red-x",
+          "icon-size": 1,
+          "icon-allow-overlap": true,
+          "icon-ignore-placement": true
+        }
+      });
+
+      stopMap.on("mousemove", "stop-closures-x", (e) => {
+        stopMap.getCanvas().style.cursor = "pointer";
+        const f = e.features && e.features[0];
+        if (!f) return;
+
+        const coords = f.geometry.coordinates.slice();
+        const name = (f.properties && f.properties.name) ? String(f.properties.name) : "";
+        const ref  = (f.properties && f.properties.ref)  ? String(f.properties.ref)  : "";
+
+        const label = name || ref || "Bus stop";
+        const html =
+          `<div style="font-weight:1000">${escapeHtml(label)}</div>` +
+          (ref ? `<div style="opacity:.85;margin-top:2px">Ref: ${escapeHtml(ref)}</div>` : "");
+
+        stopHoverPopup.setLngLat(coords).setHTML(html).addTo(stopMap);
+      });
+
+      stopMap.on("mouseleave", "stop-closures-x", () => {
+        stopMap.getCanvas().style.cursor = "";
+        stopHoverPopup.remove();
+      });
+    }
+
+    stopMapReady = true;
+  });
+}
+
+function updateStopMap(points) {
+  if (!stopMap) return;
+
+  const fc = pointsToFeatureCollection(points);
+  const apply = () => {
+    const src = stopMap.getSource("stop-closures");
+    if (src && src.setData) src.setData(fc);
+
+    const features = fc.features || [];
+    if (!features.length) {
+      stopMap.jumpTo({ center: [-2.24, 53.48], zoom: 9 });
+      return;
+    }
+
+    if (features.length === 1) {
+      const c = features[0].geometry.coordinates;
+      stopMap.easeTo({ center: c, zoom: 15, duration: 650 });
+      return;
+    }
+
+    const b = new maplibregl.LngLatBounds();
+    for (const f of features) b.extend(f.geometry.coordinates);
+
+    stopMap.fitBounds(b, {
+      padding: { top: 90, left: 90, right: 90, bottom: 90 },
+      duration: 650,
+      maxZoom: 16
+    });
+  };
+
+  if (!stopMapReady) {
+    stopMap.once("style.load", () => setTimeout(apply, 0));
+    return;
+  }
+  apply();
+}
+
+function renderStopClosureMapPage(pgObj) {
+  const grid = $("#grid");
+  grid.classList.remove("empty");
+  grid.classList.add("mapMode");
+  grid.replaceChildren();
+
+  const frame = document.createElement("div");
+  frame.className = "mapFrame";
+
+  const mapDiv = document.createElement("div");
+  mapDiv.id = "stopClosureMap";
+  frame.appendChild(mapDiv);
+
+  const pts = (pgObj && Array.isArray(pgObj.points)) ? pgObj.points : [];
+  if (!pts.length) {
+    const ov = document.createElement("div");
+    ov.className = "mapEmptyOverlay";
+    ov.textContent = (pgObj && pgObj.emptyMessage) ? pgObj.emptyMessage : "No Bus Stop Closures ✅";
+    frame.appendChild(ov);
+  }
+
+  grid.appendChild(frame);
+
+  ensureStopMap(mapDiv);
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    try { stopMap && stopMap.resize(); } catch {}
+    updateStopMap(pts);
+  }));
+}
+
+/* ===========================
+   RENDER PAGE (CARDS / MAP)
 =========================== */
 function mapSituationToItem(s){
   const operatorRefs = getOperatorRefs(s);
@@ -1285,16 +1292,19 @@ function mapSituationToItem(s){
   };
 }
 
-/* ===========================
-   RENDER PAGE
-=========================== */
 function renderPage(){
   clearOpCycles();
 
   const grid = $("#grid");
   const pgObj = pager.pages[pager.pageIndex] || { section:"—", items:[] };
-  const pg = pgObj.items || [];
 
+  if (pgObj.mapPage){
+    renderStopClosureMapPage(pgObj);
+    updatePageIndicator();
+    return;
+  }
+
+  const pg = pgObj.items || [];
   if (pg.length === 1 && pg[0] && pg[0].placeholder){
     renderEmptyState(pg[0].message || "No alerts");
     updatePageIndicator();
@@ -1302,6 +1312,7 @@ function renderPage(){
   }
 
   grid.classList.remove("empty");
+  grid.classList.remove("mapMode");
   grid.replaceChildren();
 
   for(const it of pg){
@@ -1370,7 +1381,7 @@ function renderPage(){
       warn.textContent = " ⚠️";
       endDiv.appendChild(warn);
     }
-    times.appendChild(endDiv);
+    times.append(endDiv);
 
     const durDiv = document.createElement("div");
     durDiv.className = "timeLine";
@@ -1387,149 +1398,11 @@ function renderPage(){
 }
 
 /* ===========================
-   OVERLAY QUEUE (UFN only add/remove)
-=========================== */
-let overlayQueue = [];
-let overlayShowing = false;
-let firstFetchDone = false;
-let lastLiveIndex = new Map();
-
-function computeOverlayDurationMs(item){
-  const count = (item?.routesRender && item.routesRender.length) ? item.routesRender.length : 1;
-  if (count === 1) return 10000;
-  if (count <= 4)  return 15000;
-  return 20000;
-}
-function enqueueOverlays(arr){
-  if(!arr || !arr.length) return;
-  overlayQueue.push(...arr);
-  processOverlayQueue();
-}
-function processOverlayQueue(){
-  if (overlayShowing) return;
-  const next = overlayQueue.shift();
-  if (!next) return;
-  const duration = computeOverlayDurationMs(next.item);
-  showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
-}
-
-function renderOverlayRoutesOneLine(container, routesRender, mode){
-  if (!container) return;
-  const list = Array.isArray(routesRender) && routesRender.length ? routesRender : ["?"];
-  container.replaceChildren();
-
-  const n = list.length;
-
-  const buildChip = (routeObj) => {
-    const chip = document.createElement("div");
-    chip.className = "ov-route-chip";
-    chip.textContent = formatRouteChipLabel(routeObj);
-    const badge = document.createElement("span");
-    badge.className = "ov-route-badge";
-    badge.textContent = mode === "remove" ? "👍" : "🔀";
-    chip.appendChild(badge);
-    return chip;
-  };
-  const buildPlus = (remaining) => {
-    const plus = document.createElement("div");
-    plus.className = "ov-route-chip";
-    plus.textContent = `+${remaining}`;
-    return plus;
-  };
-
-  if (n <= 1){
-    container.appendChild(buildChip(list[0] ?? "?"));
-    return;
-  }
-  if (n <= 3){
-    for (let i = 0; i < n; i++) container.appendChild(buildChip(list[i]));
-    return;
-  }
-
-  container.appendChild(buildChip(list[0]));
-  container.appendChild(buildChip(list[1]));
-  container.appendChild(buildPlus(n - 2));
-}
-
-function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
-  const overlay  = $("#divertOverlay");
-  const elKicker = $("#ovKicker");
-  const elReason = $("#ovReason");
-  const elReasonEmoji = elReason?.querySelector(".ov-reason-emoji");
-  const elReasonText  = elReason?.querySelector(".ov-reason-text");
-  const elLoc    = $("#ovLocation");
-  const elRoutes = $("#ovRoutes");
-  const elOp     = $("#ovOperator");
-  const elDur    = $("#ovDuration");
-
-  overlay.classList.remove("ov-add","ov-remove","closing");
-  elReason.hidden = true;
-  elLoc.hidden    = true;
-  elOp.hidden     = true;
-  elDur.hidden    = true;
-
-  const reasonTextRaw = item.summary || "";
-  const loc = extractStreetTown(reasonTextRaw);
-  const locText = (loc.street && loc.town) ? `${loc.street} // ${loc.town.toUpperCase()}` : (loc.street || reasonTextRaw || "Travel alert");
-
-  if (mode === "add") {
-    overlay.classList.add("ov-add");
-    elKicker.textContent = "NEW DIVERT";
-
-    elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
-    elReasonText.textContent  = reasonTextRaw;
-    elReason.hidden = false;
-
-    elLoc.textContent = locText;
-    elLoc.hidden = false;
-
-    renderOverlayRoutesOneLine(elRoutes, item.routesRender, "add");
-
-    const refs = (item.operatorRefs || []).map(r => String(r).toUpperCase());
-    const codes = mapOperators(refs);
-    elOp.textContent = codes.length ? codes.join("  ") : "—";
-    elOp.hidden = false;
-
-  } else if (mode === "remove") {
-    overlay.classList.add("ov-remove");
-    elKicker.textContent = "DIVERT ENDED";
-
-    elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
-    elReasonText.textContent  = reasonTextRaw;
-    elReason.hidden = false;
-
-    elLoc.textContent = locText;
-    elLoc.hidden = false;
-
-    renderOverlayRoutesOneLine(elRoutes, item.routesRender, "remove");
-
-    const start = item.startMs ? new Date(item.startMs) : null;
-    const end   = item.endMs   ? new Date(item.endMs)   : new Date();
-    elDur.textContent = `On diversion for ${formatSingleUnitDuration(start, end)}`;
-    elDur.hidden = false;
-  }
-
-  overlay.classList.add("show");
-  overlay.setAttribute("aria-hidden", "false");
-  overlayShowing = true;
-
-  setTimeout(() => {
-    overlay.classList.add("closing");
-    setTimeout(() => {
-      overlay.classList.remove("show", "closing");
-      overlay.setAttribute("aria-hidden", "true");
-      overlayShowing = false;
-      processOverlayQueue();
-    }, 300);
-  }, durationMs);
-}
-
-/* ===========================
    FETCHALL (JSON-first, XML fallback)
 =========================== */
 async function fetchAll(){
   try{
-    const res = await fetch(withCacheBust(BODS_URL), {
+    const res = await fetch(BODS_URL + (BODS_URL.includes("?") ? "&" : "?") + "ts=" + Date.now(), {
       cache:"no-store",
       headers: { "Accept": "application/json, application/xml;q=0.8, text/xml;q=0.7" }
     });
@@ -1566,7 +1439,6 @@ async function fetchAll(){
       const readAffectedNetworks = (el) => {
         const nets = [...el.querySelectorAll("Affects > Networks > AffectedNetwork")];
         if (!nets.length) return null;
-
         const mapped = nets.map(n => {
           const affectedLines = [...n.querySelectorAll("AffectedLine")].map(ln => {
             const opRef = ln.querySelector("AffectedOperator > OperatorRef")?.textContent?.trim() || null;
@@ -1580,8 +1452,25 @@ async function fetchAll(){
               LineName: lineName || null
             };
           });
-
           return { AffectedLine: affectedLines.length ? affectedLines : undefined };
+        });
+        return mapped.length ? mapped : null;
+      };
+
+      const readAffectedStopPoints = (el) => {
+        const sps = [...el.querySelectorAll("Affects > StopPoints > AffectedStopPoint")];
+        if (!sps.length) return null;
+
+        const mapped = sps.map(sp => {
+          const ref = sp.querySelector("StopPointRef")?.textContent?.trim() || null;
+          const name = sp.querySelector("StopPointName")?.textContent?.trim() || null;
+          const lon = sp.querySelector("Location > Longitude")?.textContent?.trim() || null;
+          const lat = sp.querySelector("Location > Latitude")?.textContent?.trim() || null;
+          return {
+            StopPointRef: ref,
+            StopPointName: name,
+            Location: (lon && lat) ? { Longitude: lon, Latitude: lat } : undefined
+          };
         });
 
         return mapped.length ? mapped : null;
@@ -1605,11 +1494,15 @@ async function fetchAll(){
         ].map(n=>n.textContent.trim()).filter(Boolean);
 
         const networks = readAffectedNetworks(el);
+        const stopPoints = readAffectedStopPoints(el);
+
+        const affects = {};
+        if (networks) affects.Networks = { AffectedNetwork: networks };
+        if (stopPoints) affects.StopPoints = { AffectedStopPoint: stopPoints };
 
         return {
           Summary: T(el,"Summary") || T(el,"Description"),
           Description: T(el,"Description"),
-          Severity: T(el,"Severity") || "unknown",
           Planned: T(el,"Planned"),
           SituationNumber: T(el,"SituationNumber") || T(el,"SituationRef"),
           ParticipantRef: T(el,"ParticipantRef"),
@@ -1617,8 +1510,7 @@ async function fetchAll(){
             StartTime: T(el,"ValidityPeriod > StartTime") || T(el,"StartTime"),
             EndTime:   T(el,"ValidityPeriod > EndTime")   || T(el,"EndTime")
           },
-          CreationTime: T(el,"CreationTime") || T(el,"RecordedAtTime") || T(el,"VersionedAtTime"),
-          Affects: networks ? { Networks: { AffectedNetwork: networks } } : undefined,
+          Affects: Object.keys(affects).length ? affects : undefined,
           __operatorRefs: opsRef,
           __lineRefs: lines
         };
@@ -1629,22 +1521,25 @@ async function fetchAll(){
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    allSituations = allSituations.filter(sit => (isBusOperator(sit) && isDiversion(sit)));
+    const busSituations = allSituations.filter(sit => isBusOperator(sit));
+    const diversionSituations   = busSituations.filter(sit => isDiversion(sit));
+    const stopClosureSituations = busSituations.filter(sit => isStopClosure(sit));
 
-    const liveBusAll = allSituations.filter(isCurrentlyValid);
-    const baseUnplanned = UNPLANNED_ONLY ? liveBusAll.filter(isUnplanned) : liveBusAll;
-    const baseAll = liveBusAll;
+    const liveDiversions = diversionSituations.filter(isCurrentlyValid);
+    const baseAll = liveDiversions;
+
+    const liveStopClosures = stopClosureSituations
+      .filter(isCurrentlyValid)
+      .filter(isTfGMParticipant);
 
     const todayStart = startOfToday();
     const todayEnd   = endOfToday();
 
-
-// UFN should include BOTH unplanned + planned (UFN = no EndTime)
-const ufnSits = baseAll.filter(sit => {
-  const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
-  return !e;
-});
-
+    // ✅ UFN includes planned + unplanned (no EndTime)
+    const ufnSits = baseAll.filter(sit => {
+      const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+      return !e;
+    });
 
     const todaySits = baseAll.filter(sit => {
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
@@ -1667,13 +1562,9 @@ const ufnSits = baseAll.filter(sit => {
       return (s < todayStart) && (e > todayEnd);
     });
 
-    const ufnItems      = ufnSits.map(mapSituationToItem);
-    const todayItems    = todaySits.map(mapSituationToItem);
-    const longTermItems = longTermSits.map(mapSituationToItem);
-
-    ufnItems.sort((a,b)=> (b.startMs - a.startMs));
-    todayItems.sort((a,b)=> ((a.endMs ?? Infinity) - (b.endMs ?? Infinity)));
-    longTermItems.sort((a,b)=> (b.routeCount - a.routeCount));
+    const ufnItems      = ufnSits.map(mapSituationToItem).sort((a,b)=> (b.startMs - a.startMs));
+    const todayItems    = todaySits.map(mapSituationToItem).sort((a,b)=> ((a.endMs ?? Infinity) - (b.endMs ?? Infinity)));
+    const longTermItems = longTermSits.map(mapSituationToItem).sort((a,b)=> (b.routeCount - a.routeCount));
 
     function buildSectionPages(sectionLabel, items, emptyMessage){
       if (!items.length){
@@ -1683,25 +1574,38 @@ const ufnSits = baseAll.filter(sit => {
     }
 
     const pagesUFN   = buildSectionPages("UFN DIVERTS", ufnItems, "No UFN Diversions ✅");
-    const pagesToday = buildSectionPages("STARTING / ENDING TODAY", todayItems, "No Diversions Starting or Ending today");
+    const pagesToday = buildSectionPages("STARTING / ENDING TODAY", todayItems, "No Diversions Starting/Ending today");
     const pagesLong  = buildSectionPages("LONG TERM HIGH IMPACT", longTermItems, "No Long Term Diversions");
+
+    const stopPointsAll = [];
+    for (const sit of liveStopClosures) stopPointsAll.push(...getAffectedStopPoints(sit));
+
+    const uniq = new Map();
+    for (const p of stopPointsAll){
+      const key = p.ref ? `ref:${p.ref}` : `xy:${p.lon.toFixed(6)},${p.lat.toFixed(6)}`;
+      if (!uniq.has(key)) uniq.set(key, p);
+    }
+    const stopPointsUnique = [...uniq.values()];
+
+    const pageStopMap = [{
+      section: "BUS STOP CLOSURES MAP",
+      mapPage: true,
+      points: stopPointsUnique,
+      emptyMessage: "No TfGM Bus Stop Closures ✅"
+    }];
 
     const prevIndex = pager.pageIndex || 0;
     const oldIndex = pager.pageIndex || 0;
 
-    pager.pageSize = 6;
-    pager.pages = [...pagesUFN, ...pagesToday, ...pagesLong];
+    pager.pages = [...pagesUFN, ...pagesToday, ...pagesLong, ...pageStopMap];
     pager.totalPages = pager.pages.length;
     pager.pageIndex = pager.pages.length ? Math.min(prevIndex, pager.pages.length - 1) : 0;
 
-    const pageSignature = pager.pages.map(p => `${p.section}:${(p.items||[]).length}`).join("|");
+    const pageSignature = pager.pages.map(p => p.mapPage ? `${p.section}:map:${(p.points||[]).length}` : `${p.section}:${(p.items||[]).length}`).join("|");
     const pageIndexChanged = (pager.pageIndex !== oldIndex);
 
     renderPage();
-
-    // THIS is the real “data is OK” signal → updates lastOkAt + wiggles
     setStatusPill(true, { animate:true });
-
     updatePageIndicator();
 
     const shouldRestartPager = (!pagerTimer) || (pageSignature !== lastPageSignature) || pageIndexChanged;
@@ -1710,43 +1614,15 @@ const ufnSits = baseAll.filter(sit => {
       scheduleNextAdvance();
     }
 
-const liveUFNForOverlay = baseAll
-  .map(mapSituationToItem)
-  .filter(it => it.isUFN);
-
-    const currLiveIndex = new Map(liveUFNForOverlay.map(it => [it.id, it]));
-
-    let newOnes = [];
-    let removedOnes = [];
-    if(firstFetchDone){
-      newOnes     = liveUFNForOverlay.filter(it => !lastLiveIndex.has(it.id));
-      removedOnes = [...lastLiveIndex.values()].filter(prev => !currLiveIndex.has(prev.id));
-    }
-    lastLiveIndex = currLiveIndex;
-    firstFetchDone = true;
-
-    if (newOnes.length){
-      enqueueOverlays(newOnes.map(item => ({ mode:"add", item })));
-    }
-
-    const now = Date.now();
-    if (removedOnes.length){
-      const endedNow = removedOnes.map(it => {
-        if (!it.endMs) it.endMs = now;
-        return it;
-      });
-      enqueueOverlays(endedNow.map(item => ({ mode:"remove", item })));
-    }
-
   }catch(e){
     console.error(e);
-
-    // Error means stale immediately (red + pop out)
     setStatusPill(false);
   }
 }
 
-/* Start */
+/* ===========================
+   START
+=========================== */
 fetchAll();
 setInterval(fetchAll, FEED_REFRESH_MS);
 </script>
