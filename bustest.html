@@ -38,17 +38,13 @@
       --cardRadius:24px;
 
       --route-mini-font: clamp(26px, 3.4vw, 38px);
-      
-      
-  --pillTop:16px;   /* match Highways */
-  --pillGap:16px;   /* match Highways */
 
+      /* Match Highways tool spacing */
+      --pillTop:16px;
+      --pillGap:16px;
 
       /* progress duration set dynamically */
       --page-interval: 20000ms;
-
-      /* Match Highways tool spacing (mirrored) */
-      --pillTop:16px;
     }
 
     *{
@@ -63,45 +59,33 @@
       overflow:hidden;
       display:flex;
       flex-direction:column;
-      position:relative;
+      position:relative; /* anchors absolute statusWrapper like Highways */
     }
 
-    /* ===== Mirrored top-right STATUS WRAPPER (match Highways tool) ===== */
+    /* ===== Top-right STATUS WRAPPER — pixel perfect mirror of Highways ===== */
+    .statusWrapper{
+      position:absolute;            /* must match Highways */
+      top:var(--pillTop);           /* 16px */
+      right:0;                      /* flush to screen edge */
+      z-index:1000;
 
+      display:flex;
+      align-items:center;
+      gap:var(--pillGap);           /* 16px */
+      pointer-events:none;
+    }
 
-.statusWrapper{
-  position:fixed;
-  top:16px;                 /* EXACT match */
-  right:0;
-  z-index:1000;
-
-  display:flex;
-  align-items:center;
-  gap:16px;
-
-  pointer-events:none;
-
-  /* 🔒 prevent inherited scaling */
-  transform:none !important;
-  zoom:1;
-}
-
-
-
-
-
-#beeLogo{
-  width:64px;
-  height:64px;
-  min-width:64px;
-  min-height:64px;
-  object-fit:contain;
-  pointer-events:auto;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
-- margin-right:16px;
-}
-
-
+    /* Bee logo — IDENTICAL */
+    #beeLogo{
+      width:64px;
+      height:64px;
+      min-width:64px;
+      min-height:64px;
+      object-fit:contain;
+      pointer-events:auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
+      transition: transform 0.2s ease-out;
+    }
 
     @keyframes wibble {
       0%   { transform: rotate(0deg) scale(1); }
@@ -113,52 +97,38 @@
     }
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
+    /* Status pill — IDENTICAL metrics, mirrored edge (flat RIGHT) */
+    .status-pill{
+      padding:10px 16px;            /* exact */
+      border-radius:999px 0 0 999px;/* flat side on right */
+      font-size:18px;
+      font-weight:800;
 
+      font-family:
+        "IBM Plex Sans Condensed",
+        "Barlow Semi Condensed",
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
 
-/* Status pill — force Highways dimensions */
-.status-pill{
-  padding:10px 16px;
+      background:var(--liveGreen);
+      color:#000;
 
-  height:40px;              /* 🔑 THIS is why yours looked smaller */
-  display:flex;
-  align-items:center;
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,0.08),
+        0 4px 14px rgba(0,0,0,0.25);
 
-  font-family:
-    "IBM Plex Sans Condensed",
-    "Barlow Semi Condensed",
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
+      white-space:nowrap;
+      pointer-events:auto;
+    }
 
-  font-size:18px;
-  font-weight:800;
-  line-height:1;            /* 🔑 matches Highways exactly */
-
-  border-radius:999px 0 0 999px;
-
-  background:var(--liveGreen);
-  color:#000;
-
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,0.08),
-    0 4px 14px rgba(0,0,0,0.25);
-
-  white-space:nowrap;
-  pointer-events:auto;
-
-  /* 🔒 prevent scale bleed */
-  transform:none !important;
-  zoom:1;
-}
-
-.status-error{
-  background:var(--errorRed);
-  color:#fff;
-}
-
+    .status-error{
+      background:var(--errorRed);
+      color:#fff;
+    }
 
     /* ===== Top-left title block ===== */
     .topbar{
@@ -180,7 +150,7 @@
       font-weight:900;
       letter-spacing:-0.3px;
 
-      /* FIX: prevent descenders (g, y, p) getting clipped */
+      /* prevent descenders (g, y, p) getting clipped */
       line-height:1.1;
       padding-bottom:0.08em;
 
@@ -217,6 +187,20 @@
       min-height:0;
       overflow:hidden;
       align-content:stretch;
+
+      /* Page transition */
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 260ms ease, transform 260ms ease;
+    }
+
+    #grid.page-out{
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    #grid.page-in{
+      opacity: 1;
+      transform: translateY(0);
     }
 
     #grid.empty{
@@ -379,47 +363,27 @@
     }
 
     .operatorDot{
-      width:18px; height:18px;
+      width:16px; height:16px;
       border-radius:50%;
       background:#cfcfd6;
       box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
       flex-shrink:0;
     }
+
+    /* Force the operator letters to IBM Plex and size down */
     .operatorCode{
-      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
-      font-weight:700;
-      font-size:30px;
-      letter-spacing:0.6px;
-      text-transform:uppercase;
-      font-variant-numeric: tabular-nums;
-      color:#fff;
-      width:2.2ch;
+      font-family: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif !important;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: 0.4px;
+      line-height: 1;
+      width: 2.2ch;
+      text-transform: uppercase;
       text-align:center;
       flex:0 0 auto;
+      font-variant-numeric: tabular-nums;
+      color:#fff;
     }
-    
-    /* Operator pill: use IBM font + slightly smaller text to fit */
-.operatorTag{
-  /* keep your existing pill styling, but ensure proper centring */
-  align-items: center;
-}
-
-/* Force the operator letters to IBM Plex and size down */
-.operatorCode{
-  font-family: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif !important;
-  font-weight: 900;                 /* keep it bold like the rest of the UI */
-  font-size: 24px;                  /* was 30px — this is the main fix */
-  letter-spacing: 0.4px;            /* slightly tighter so “GN/ML/SC” fits nicely */
-  line-height: 1;                   /* prevents vertical clip */
-  width: 2.2ch;                     /* keep your fixed width */
-  text-transform: uppercase;
-}
-
-/* Optional: shrink the dot a touch so the whole pill feels balanced */
-.operatorDot{
-  width: 16px;
-  height: 16px;
-}
 
     .reasonEmojiChip{
       font-size:28px;
@@ -551,29 +515,11 @@
       box-shadow:0 12px 30px rgba(0,0,0,.4);
     }
     .ov-duration{ font-weight:1000; letter-spacing:-0.2px; font-size: clamp(28px, 3vw, 48px); margin:6px 0 0; }
-    
-    /* Page transition */
-#grid{
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 260ms ease, transform 260ms ease;
-}
-
-#grid.page-out{
-  opacity: 0;
-  transform: translateY(14px);
-}
-
-#grid.page-in{
-  opacity: 1;
-  transform: translateY(0);
-}
-
   </style>
 </head>
 
 <body>
-  <!-- Mirrored top-right status + logo (matches Highways tool geometry) -->
+  <!-- Top-right status + logo (pixel-perfect mirror of Highways: pill flat edge on RIGHT, flush to screen) -->
   <div class="statusWrapper" aria-live="polite">
     <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
     <div id="statusPill" class="status-pill">Initialising…</div>
