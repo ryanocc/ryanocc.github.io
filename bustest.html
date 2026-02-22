@@ -3,18 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unplanned Diversions</title>
+  <title>Bee Network - Key Travel Alerts</title>
   <meta http-equiv="Cache-Control" content="no-store" />
 
   <!-- Performance: preconnect for font hosts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Global UI font -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Optional fallback UI font -->
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- Bus-blind style for route chips -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -27,8 +25,6 @@
       --op-BNDB:#9AC331;
       --op-BNVB:#7a3ffe;
       --op-BNFM:#ff66b3;
-
-      --op-KM:#FFE04A; /* Metrolink (KM) yellow dot */
 
       --neutral:#16161b;
       --neutralElev:#1b1b22;
@@ -44,14 +40,10 @@
       --cardRadius:24px;
       --cardHeight: 420px;
 
-      /* Slight breathing room for summaries to avoid clipping at 100% */
-      --summary-line-height: 1.05;
-
-      /* Route badge sizing (cards) */
       --route-mini-font: clamp(24px, 3.2vw, 34px);
       --route-rect-h: calc(var(--route-mini-font) * 4.2 + 8px + 8px);
 
-      /* Pager progress duration (JS sets this to PAGE_INTERVAL_MS) */
+      /* gets set dynamically */
       --page-interval: 10000ms;
     }
 
@@ -103,6 +95,9 @@
       align-items:center;
       gap:8px;
       line-height:1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
     .statusWrapper{
       display:flex;
@@ -138,6 +133,7 @@
       box-shadow:0 0 0 2px rgba(255,255,255,0.08),
                  0 4px 14px rgba(0,0,0,0.25);
       transition:background .2s ease,color .2s ease;
+      white-space:nowrap;
     }
     .status-error{ background:var(--errorRed); color:#fff; }
 
@@ -160,6 +156,24 @@
       height:100%;
       overflow:hidden;
       align-content:start;
+    }
+
+    /* FULL-FRAME EMPTY STATE */
+    #grid.empty{
+      display:flex !important;
+      align-items:center;
+      justify-content:center;
+    }
+    .emptyStateText{
+      font-weight: 1000;
+      letter-spacing:-0.6px;
+      font-size: clamp(64px, 6vw, 110px);
+      line-height: 1.05;
+      color: rgba(233,233,239,0.86);
+      text-align:center;
+      padding: 0 4vw;
+      text-shadow: 0 3px 14px rgba(0,0,0,0.45);
+      user-select:none;
     }
 
     /* ----------- CARD ----------- */
@@ -192,16 +206,6 @@
         0 0 0 4px rgba(255,77,79,0.10);
     }
 
-    /* Tram service change highlight (pinned + yellow) */
-    .chip.tram-servicechange{
-      border-color: rgba(255,224,74,0.95) !important;
-      box-shadow:
-        0 1px 0 rgba(255,255,255,0.04) inset,
-        0 10px 25px rgba(0,0,0,0.35),
-        0 6px 18px rgba(0,0,0,0.45),
-        0 0 0 5px rgba(255,224,74,0.12);
-    }
-
     @keyframes pulseRed {
       0% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.4); border-color: rgba(255,77,79,0.55); }
       50% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 10px rgba(255,77,79,0.12); border-color: rgba(255,77,79,0.95); }
@@ -220,7 +224,6 @@
       max-width:100%; flex:1 1 auto;
     }
 
-    /* Always a 2×2 routes grid */
     .routesGrid{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -229,7 +232,6 @@
       align-items:stretch; justify-items:stretch;
     }
 
-    /* Route chips (filled slots) — USE OSWALD 700 */
     .route-mini{
       display:flex; align-items:center; justify-content:center;
       font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
@@ -246,15 +248,14 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* Transparent placeholder for blanks */
     .route-mini--glass{
       background: rgba(255,255,255,0.06);
       border: 2px dashed rgba(255,255,255,0.14);
       color: rgba(255,255,255,0.22);
       display:flex; align-items:center; justify-content:center;
       border-radius:12px;
-      letter-spacing:-0.3px; line-height:1;
-      padding:6px 10px; font-size: var(--route-mini-font);
+      padding:6px 10px;
+      font-size: var(--route-mini-font);
       backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
       font-weight: 800;
     }
@@ -281,7 +282,6 @@
       color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
       margin:12px 2px 12px 2px;
     }
-    .detailsLine .town{ font-weight:900; }
 
     .times{
       margin-top:auto; padding-top:14px; border-top:2px solid rgba(255,255,255,0.15);
@@ -301,32 +301,16 @@
     .timeLine .ufn-warning{ margin-left:-6px; display:inline-block; animation: ufnFlash 1.2s infinite; }
     @keyframes ufnFlash { 0%,60%{opacity:1;transform:scale(1);} 70%{opacity:.35;transform:scale(0.98);} 100%{opacity:1;transform:scale(1);} }
 
-    /* Optional subtle operator tints (cards) */
-    .op-BNML{ background:linear-gradient(180deg, rgba(255,77,79,0.08), transparent), var(--neutralElev); }
-    .op-BNGN{ background:linear-gradient(180deg, rgba(58,122,254,0.10), transparent), var(--neutralElev); }
-    .op-BNSM{ background:linear-gradient(180deg, rgba(255,154,31,0.10), transparent), var(--neutralElev); }
-    .op-BNDB{ background:linear-gradient(180deg, rgba(47,137,255,0.10), transparent), var(--neutralElev); border-color: rgba(47,137,255,0.35); }
-    .op-BNVB{ background:linear-gradient(180deg, rgba(122,63,254,0.12), transparent), var(--neutralElev); }
-    .op-BNFM{ background:linear-gradient(180deg, rgba(255,102,179,0.12), transparent), var(--neutralElev); }
-
-    /* ----------- FULLSCREEN ALERT OVERLAY ----------- */
+    /* FULLSCREEN OVERLAY */
     #divertOverlay{
-      position:fixed; inset:0; background:var(--alert-add-bg); color:#000;
+      position:fixed; inset:0; background:var(--accent); color:#000;
       display:none; align-items:center; justify-content:center; z-index:9999; padding:6vh 5vw;
     }
     #divertOverlay.show{ display:flex; animation: overlayFadeIn 220ms ease-out; }
     @keyframes overlayFadeIn{ from{ opacity:0; } to{ opacity:1; } }
 
     .ov-card{ width:min(1200px, 100%); text-align:center; }
-
-    .ov-kicker{
-      font-weight: 1000;
-      letter-spacing: 1.4px;
-      font-size: clamp(80px, 10vw, 140px);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
+    .ov-kicker{ font-weight: 1000; letter-spacing: 1.4px; font-size: clamp(80px, 10vw, 140px); text-transform: uppercase; margin-bottom: 12px; }
     .ov-reason{
       display:inline-flex; align-items:center; gap:10px;
       background:#000; color:var(--accent);
@@ -340,36 +324,18 @@
       user-select: none;
     }
     .ov-reason-emoji{ font-size: 1.2em; line-height: 1; }
-    .ov-reason-text{ letter-spacing: -0.2px; }
-
-    .ov-location{
-      font-weight: 1000;
-      letter-spacing: -0.6px;
-      font-size: clamp(42px, 5.2vw, 84px);
-      line-height: 1;
-      margin: 10px 0 18px;
-    }
+    .ov-location{ font-weight:1000; letter-spacing:-0.6px; font-size: clamp(42px, 5.2vw, 84px); line-height: 1; margin: 10px 0 18px; }
 
     .ov-routes{
-      display:flex;
-      flex-wrap:nowrap;
-      gap:18px;
-      justify-content:center;
-      align-items:center;
-      padding-top:22px;
-      padding-bottom:26px;
-      margin:8px auto 18px;
-      max-width:1200px;
-      overflow:visible;
-      white-space:nowrap;
+      display:flex; flex-wrap:nowrap; gap:18px; justify-content:center; align-items:center;
+      padding-top:22px; padding-bottom:26px; margin:8px auto 18px;
+      max-width:1200px; overflow:visible; white-space:nowrap;
     }
     .ov-route-chip{
       position: relative;
       display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:#000; /* default; JS may override */
-      color:var(--accent); /* default; JS may override */
+      align-items:center; justify-content:center;
+      background:#000; color:var(--accent);
       border-radius:18px;
       border:4px solid rgba(0,0,0,0.95);
       padding:24px 32px;
@@ -406,48 +372,11 @@
       padding:12px 20px; margin-top:10px;
       box-shadow: 0 12px 30px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,0.06) inset;
     }
-    .ov-operator .operatorDot{
-      width:22px; height:22px; border-radius:50%;
-      box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset; flex-shrink:0;
-    }
+    .ov-operator .operatorDot{ width:22px; height:22px; border-radius:50%; box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset; flex-shrink:0; }
+    .ov-duration{ font-weight:1000; letter-spacing:-0.2px; font-size: clamp(28px, 3vw, 48px); line-height:1; margin:6px 0 0; }
 
-    .ov-duration{
-      font-weight:1000;
-      letter-spacing:-0.2px;
-      font-size: clamp(28px, 3vw, 48px);
-      line-height:1;
-      margin:6px 0 0;
-    }
-
-    #divertOverlay.ov-add    { background: var(--alert-add-bg);    color:#000; }
-    #divertOverlay.ov-remove { background: var(--alert-remove-bg); color:#000; }
-
-    @keyframes overlayPop { 0%{opacity:0;transform:scale(0.96);} 100%{opacity:1;transform:scale(1);} }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.0), 0 24px 80px rgba(0,0,0,.35); }
-      50%      { box-shadow: 0 0 0 12px rgba(0,0,0,0.08), 0 24px 80px rgba(0,0,0,.45); }
-    }
-    @keyframes chipPop { 0%{ transform: translateY(6px) scale(0.98); opacity: 0; } 100%{ transform: translateY(0) scale(1); opacity: 1; } }
-
-    #divertOverlay.show .ov-card{ animation: overlayPop 280ms cubic-bezier(.2,.8,.2,1); }
-    #divertOverlay.show .ov-operator{ animation: pulseGlow 1400ms ease-in-out infinite; }
-    #divertOverlay.show .ov-reason{ animation: chipPop 260ms ease-out both; }
-    #divertOverlay.show .ov-route-chip{ animation: chipPop 300ms ease-out both; }
-    #divertOverlay.show .ov-route-chip:nth-child(1){ animation-delay:  90ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(2){ animation-delay: 140ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(3){ animation-delay: 190ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(4){ animation-delay: 240ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(5){ animation-delay: 290ms; }
-    #divertOverlay.show .ov-route-chip:nth-child(6){ animation-delay: 340ms; }
-
-    /* --- Thin yellow progress line at page bottom --- */
-    #pageProgress{
-      position:fixed; left:0; right:0; bottom:0; height:4px; background:var(--accent);
-      transform-origin:left center; transform:scaleX(0); opacity:0.9; z-index:9998;
-      pointer-events:none; display:none; will-change:transform;
-    }
-    #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
-    @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+    #divertOverlay.ov-add    { background: var(--accent); color:#000; }
+    #divertOverlay.ov-remove { background: #19c37d;       color:#000; }
 
     @keyframes overlayDropOut {
       0%   { opacity: 1;   transform: translateY(0)    scale(1); }
@@ -456,10 +385,19 @@
     }
     #divertOverlay.closing .ov-card { animation: overlayDropOut 260ms ease-out forwards; }
     #divertOverlay.closing { pointer-events: none; }
+
+    /* Bottom progress */
+    #pageProgress{
+      position:fixed; left:0; right:0; bottom:0; height:4px; background:var(--accent);
+      transform-origin:left center; transform:scaleX(0); opacity:0.9; z-index:9998;
+      pointer-events:none; display:none; will-change:transform;
+    }
+    #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
+    @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
   </style>
 </head>
-<body>
 
+<body>
   <header class="topbar">
     <div class="leftHeader">
       <h1 class="title">Bee Network - Key Travel Alerts</h1>
@@ -478,7 +416,7 @@
     <div id="grid"></div>
   </main>
 
-  <!-- Fullscreen Alert Overlay (add + end variants) -->
+  <!-- Fullscreen Alert Overlay -->
   <div id="divertOverlay" class="ov-add" aria-hidden="true" aria-live="assertive">
     <div class="ov-card" role="dialog" aria-label="Travel alert">
       <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
@@ -487,1153 +425,1014 @@
         <span class="ov-reason-emoji" aria-hidden="true">⚠️</span>
         <span class="ov-reason-text">Reason</span>
       </div>
+
       <div id="ovLocation" class="ov-location" hidden>–</div>
-
       <div id="ovRoutes" class="ov-routes"></div>
-
       <div id="ovOperator" class="ov-operator" aria-label="Operator" hidden></div>
-
       <div id="ovDuration" class="ov-duration" hidden>On diversion for —</div>
     </div>
   </div>
 
   <div id="pageProgress" aria-hidden="true"></div>
 
-  <script>
-    /* ===========================
-       ✅ CONFIG (FIXED)
-    =========================== */
+<script>
+/* ===========================
+   CONFIG
+=========================== */
+const API_BASE = "https://renderexpress-ebb0.onrender.com";
+const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
 
-    // ✅ Your backend (server-side fetch) – no browser proxy, no exposed API key
-    const API_BASE = "https://renderexpress-ebb0.onrender.com";
-    const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
+const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 
-    // cache-buster helper
-    function withCacheBust(url){
-      const sep = url.includes("?") ? "&" : "?";
-      return `${url}${sep}ts=${Date.now()}`;
+// UFN section respects this; TODAY section ignores this (per your request)
+const UNPLANNED_ONLY = true;
+
+// Timing
+const PAGE_DURATION_UFN_MS   = 120000; // 2 minutes
+const PAGE_DURATION_OTHER_MS = 10000;  // 10 seconds
+
+const FEED_REFRESH_MS = 45000;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+// Long-term high-impact threshold
+const LONG_TERM_ROUTE_THRESHOLD = 5;
+
+// CSS progress duration updated dynamically
+document.documentElement.style.setProperty('--page-interval', PAGE_DURATION_OTHER_MS + 'ms');
+
+/* Helpers */
+const $ = s => document.querySelector(s);
+const parseISO = s => s ? new Date(s) : null;
+
+function withCacheBust(url){
+  const sep = url.includes("?") ? "&" : "?";
+  return `${url}${sep}ts=${Date.now()}`;
+}
+
+function setStatusPill(ok, { animate = false } = {}){
+  const pill = $("#statusPill");
+  const bee = $("#beeLogo");
+  const t = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+  if(ok){
+    pill.classList.remove("status-error");
+    pill.textContent = `LIVE • ${t}`;
+    if (animate && bee){
+      bee.classList.remove("bee-wibble");
+      void bee.offsetWidth;
+      bee.classList.add("bee-wibble");
+    }
+  } else {
+    pill.classList.add("status-error");
+    pill.textContent = `Error • ${t}`;
+  }
+}
+
+/* Operator short-code mapping */
+const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
+function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
+
+const OP_COLOR_MAP = {
+  BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
+  BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
+};
+
+/* ===========================
+   DATE LABELS
+=========================== */
+function isToday(d){
+  const n=new Date();
+  return d && d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate();
+}
+function isYesterday(d){
+  const n=new Date(), y=new Date(n);
+  y.setDate(n.getDate()-1);
+  return d && d.getFullYear()===y.getFullYear() && d.getMonth()===y.getMonth() && d.getDate()===y.getDate();
+}
+function isTomorrow(d){
+  const n=new Date(), t=new Date(n);
+  t.setDate(n.getDate()+1);
+  return d && d.getFullYear()===t.getFullYear() && d.getMonth()===t.getMonth() && d.getDate()===t.getDate();
+}
+function weekBoundsOfToday(){
+  const n=new Date();
+  const s=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  const wd=(s.getDay()+6)%7;
+  s.setDate(s.getDate()-wd);
+  const e=new Date(s);
+  e.setDate(s.getDate()+6);
+  e.setHours(23,59,59,999);
+  return {start:s,end:e};
+}
+function inThisWeek(d){
+  const {start,end}=weekBoundsOfToday();
+  return d && d>=start && d<=end;
+}
+function ordinal(n){
+  const s=["th","st","nd","rd"], v=n%100;
+  return n + (s[(v-20)%10] || s[v] || s[0]);
+}
+function fullMonth(d){
+  return new Intl.DateTimeFormat(undefined, { month: 'long' }).format(d);
+}
+function fullWeekday(d){
+  return new Intl.DateTimeFormat(undefined, { weekday: 'long' }).format(d);
+}
+function fmtHM(d){
+  return new Intl.DateTimeFormat(undefined, {hour:"2-digit",minute:"2-digit"}).format(d);
+}
+function formatLabelForDate(d){
+  if(!d) return "—";
+  const now = new Date();
+  const sameYear = d.getFullYear() === now.getFullYear();
+  if (sameYear){
+    if (isToday(d))     return `${fmtHM(d)} Today`;
+    if (isYesterday(d)) return `Yesterday`;
+    if (isTomorrow(d))  return `Tomorrow`;
+    if (inThisWeek(d))  return fullWeekday(d);
+    return `${ordinal(d.getDate())} ${fullMonth(d)}`;
+  }
+  return `${ordinal(d.getDate())} ${fullMonth(d)} ${d.getFullYear()}`;
+}
+
+function startOfToday(){
+  const n = new Date();
+  return new Date(n.getFullYear(), n.getMonth(), n.getDate(), 0,0,0,0);
+}
+function endOfToday(){
+  const n = new Date();
+  return new Date(n.getFullYear(), n.getMonth(), n.getDate(), 23,59,59,999);
+}
+
+function isStartOfService(d){ return d && d.getHours()===0 && d.getMinutes()===0; }
+function isEndOfService(d){ return d && d.getHours()===23 && d.getMinutes()===59; }
+
+function formatSingleUnitDuration(start, end){
+  if(!start) return "—";
+  const now = new Date();
+  const endTime = end || now;
+  let ms = endTime - start;
+  if (ms < 0) return "—";
+  const sec = ms / 1000;
+  if (sec < 60) return `${Math.round(sec)}s`;
+  const min = sec / 60;
+  if (min < 60) return `${Math.round(min)}m`;
+  const hr = min / 60;
+  if (hr < 24) return `${Math.round(hr)}h`;
+  const day = hr / 24;
+  return `${Math.round(day)}d`;
+}
+
+function buildTimesLines(sit){
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+
+  let startVal = "—";
+  if (s){
+    startVal = (isToday(s) && isStartOfService(s)) ? "Start of Service" : formatLabelForDate(s);
+  }
+  const startLine = `Started // ${startVal}`;
+
+  let endVal = "—";
+  if (e){
+    endVal = (isToday(e) && isEndOfService(e)) ? "End of Service" : formatLabelForDate(e);
+  } else {
+    endVal = "UFN";
+  }
+  const endLine = `Ends // ${endVal}`;
+
+  const durationLine = `Duration // ${formatSingleUnitDuration(s, e)}`;
+  return { startLine, endLine, durationLine, startDate:s, endDate:e };
+}
+
+/* ===========================
+   NETWORK EXTRACTORS (BUS ONLY)
+=========================== */
+function getNetworkAffectedLines(sit){
+  const out = [];
+  const nets = sit?.Affects?.Networks?.AffectedNetwork;
+  const list = Array.isArray(nets) ? nets : (nets ? [nets] : []);
+  for(const n of list){
+    const lines = n?.AffectedLine;
+    const llist = Array.isArray(lines) ? lines : (lines ? [lines] : []);
+    for(const ln of llist){
+      const opRef = ln?.AffectedOperator?.OperatorRef || ln?.AffectedOperatorRef || null;
+      const lineRef = ln?.LineRef || ln?.PublishedLineName || null;
+      const pubName = ln?.PublishedLineName || ln?.LineName || null;
+      out.push({ opRef, lineRef, pubName });
+    }
+  }
+  return out;
+}
+
+function getOperatorRefs(sit){
+  const refs = new Set();
+  const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
+
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+  if(Array.isArray(avj)){
+    for(const j of avj) add(j?.OperatorRef);
+  } else if(avj){
+    add(avj?.OperatorRef);
+  }
+
+  for(const x of getNetworkAffectedLines(sit)) add(x.opRef);
+  if(Array.isArray(sit.__operatorRefs)) sit.__operatorRefs.forEach(add);
+  return [...refs];
+}
+
+function getLineRefs(sit){
+  const lines = new Set();
+  const pushVal = (val)=>{
+    if(val == null) return;
+    const s = String(val).trim();
+    if(s) lines.add(s);
+  };
+
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+  if(Array.isArray(avj)){
+    for(const j of avj) pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
+  } else if(avj){
+    pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName);
+  }
+
+  for(const x of getNetworkAffectedLines(sit)) pushVal(x.lineRef || x.pubName);
+
+  if(Array.isArray(sit.__lineRefs)){
+    for(const v of sit.__lineRefs) pushVal(v);
+  }
+
+  return Array.from(lines);
+}
+
+function isDiversion(sit){
+  const txt = (sit.Description || sit.Summary || "").toLowerCase();
+  return txt.includes("divert") || txt.includes("diversion");
+}
+
+function isCurrentlyValid(sit){
+  const now = new Date();
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  if(!s) return false;
+  if(s > now) return false;
+  if(e && e < now) return false;
+  return true;
+}
+
+function isBusOperator(sit){
+  const refs = getOperatorRefs(sit);
+  return refs && refs.some(r => BEE_OPERATORS.includes(r));
+}
+
+function isUnplanned(sit){
+  const p = sit?.Planned;
+  return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
+}
+
+function getSituationId(sit){
+  const a  = sit?.SituationNumber || sit?.SituationRef;
+  const b  = sit?.ParticipantRef || "";
+  const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
+  const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
+  return String(a || `${b}|${st}|${sum}`).trim();
+}
+
+/* ===========================
+   ROUTE CHIPS (+X preserved)
+=========================== */
+function formatRouteChipLabel(raw){
+  const s = String(raw ?? "").trim();
+  if (!s) return "?";
+  if (/^\+\d+$/i.test(s)) return s;
+  if (/^\d+[a-z]?$/i.test(s)) return s.toUpperCase();
+  const clean = s.replace(/[^A-Za-z0-9]/g, "");
+  const out = (clean || s).slice(0,3).toUpperCase();
+  return out || "?";
+}
+
+function renderRoutesAs2x2Grid(routesArea, routes){
+  const MAX_SLOTS = 4;
+  const gridRoutes = document.createElement("div");
+  gridRoutes.className = "routesGrid";
+
+  const list = Array.isArray(routes) ? routes : ["?"];
+  const count = list.length;
+
+  const addCell = (routeObj, glass=false) => {
+    const cell = document.createElement("div");
+    cell.className = glass ? "route-mini route-mini--glass" : "route-mini";
+
+    if (!glass){
+      const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
+      cell.textContent = formatRouteChipLabel(raw);
+    } else {
+      cell.textContent = "";
+    }
+    gridRoutes.appendChild(cell);
+  };
+
+  if (count <= MAX_SLOTS) {
+    list.forEach(rt => addCell(rt, false));
+    for (let i = count; i < MAX_SLOTS; i++) addCell("", true);
+  } else {
+    for (let i = 0; i < 3; i++) addCell(list[i], false);
+    addCell(`+${count - 3}`, false);
+  }
+
+  routesArea.replaceChildren(gridRoutes);
+}
+
+/* ===========================
+   UI HELPERS
+=========================== */
+function splitLine(line){
+  const idx = line.indexOf(" // ");
+  if (idx === -1) return [line, ""];
+  return [line.slice(0, idx), line.slice(idx + 4)];
+}
+function escapeHtml(s){
+  return String(s ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#39;");
+}
+
+/* ===========================
+   EMPTY STATE RENDER
+=========================== */
+function renderEmptyState(message){
+  const grid = $("#grid");
+  grid.classList.add("empty");
+  grid.replaceChildren();
+  const el = document.createElement("div");
+  el.className = "emptyStateText";
+  el.textContent = message || "No alerts";
+  grid.appendChild(el);
+}
+
+/* ===========================
+   PAGER (SECTIONED + NO RESET ON REFRESH)
+=========================== */
+let pagerTimer = null;
+let lastPageSignature = "";
+const pager = { pages: [], pageIndex: 0, pageSize: 6, totalPages: 0 };
+let busDivertedRouteTotal = 0;
+
+function chunk(arr,size){
+  if (!Array.isArray(arr) || arr.length === 0) return [];
+  const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out;
+}
+
+function pageDurationForIndex(idx){
+  const pg = pager.pages[idx];
+  if (!pg) return PAGE_DURATION_OTHER_MS;
+  return (pg.section === "UFN DIVERTS") ? PAGE_DURATION_UFN_MS : PAGE_DURATION_OTHER_MS;
+}
+
+function updatePageIndicator(){
+  const el = document.getElementById('metricPage');
+  if(!el) return;
+  const totalPages = Array.isArray(pager.pages) ? pager.pages.length : 0;
+  const curr = totalPages > 0 ? (pager.pageIndex + 1) : 0;
+  const pg = pager.pages[pager.pageIndex] || {};
+  const sectionLabel = pg.section || "—";
+  el.textContent = `Page ${curr}/${totalPages} • ${sectionLabel} • Bus routes diverted: ${busDivertedRouteTotal}`;
+}
+
+function restartProgressBar(){
+  const bar = document.getElementById('pageProgress');
+  if (!bar) return;
+
+  const shouldShow = Array.isArray(pager.pages) && pager.pages.length > 1;
+  if (!shouldShow){
+    bar.classList.remove('run');
+    bar.style.display = 'none';
+    bar.style.transform = 'scaleX(0)';
+    return;
+  }
+
+  const dur = pageDurationForIndex(pager.pageIndex);
+  document.documentElement.style.setProperty('--page-interval', dur + 'ms');
+
+  bar.style.display = 'block';
+  bar.classList.remove('run');
+  void bar.offsetWidth;
+  bar.classList.add('run');
+}
+
+function stopPager(){
+  if (pagerTimer){
+    clearTimeout(pagerTimer);
+    pagerTimer = null;
+  }
+}
+
+function scheduleNextAdvance(){
+  stopPager();
+  if (!pager.pages || pager.pages.length <= 1){
+    restartProgressBar();
+    return;
+  }
+  restartProgressBar();
+  pagerTimer = setTimeout(() => {
+    pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
+    renderPage();
+    setStatusPill(true, { animate:false });
+    updatePageIndicator();
+    scheduleNextAdvance();
+  }, pageDurationForIndex(pager.pageIndex));
+}
+
+/* ===========================
+   OVERLAY QUEUE (BUS UFN ONLY)
+=========================== */
+let overlayQueue = [];
+let overlayShowing = false;
+let firstFetchDone = false;
+let lastLiveIndex = new Map();
+
+function computeOverlayDurationMs(item){
+  const count = (item?.routesRender && item.routesRender.length) ? item.routesRender.length : 1;
+  if (count === 1) return 10000;
+  if (count <= 4)  return 15000;
+  return 20000;
+}
+function enqueueOverlays(arr){
+  if(!arr || !arr.length) return;
+  overlayQueue.push(...arr);
+  processOverlayQueue();
+}
+function processOverlayQueue(){
+  if (overlayShowing) return;
+  const next = overlayQueue.shift();
+  if (!next) return;
+  const duration = computeOverlayDurationMs(next.item);
+  showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
+}
+
+/* Overlay routes line (2 chips + +N) */
+function renderOverlayRoutesOneLine(container, routesRender, mode){
+  if (!container) return;
+  const list = Array.isArray(routesRender) && routesRender.length ? routesRender : ["?"];
+  container.replaceChildren();
+
+  const n = list.length;
+
+  if (n <= 1){
+    container.appendChild(buildOverlayRouteChip(list[0] ?? "?", mode));
+    return;
+  }
+  if (n <= 3){
+    for (let i = 0; i < n; i++){
+      container.appendChild(buildOverlayRouteChip(list[i], mode));
+    }
+    return;
+  }
+
+  container.appendChild(buildOverlayRouteChip(list[0], mode));
+  container.appendChild(buildOverlayRouteChip(list[1], mode));
+  container.appendChild(buildPlusChip(n - 2));
+}
+
+function buildOverlayRouteChip(routeObj, mode){
+  const chip = document.createElement("div");
+  chip.className = "ov-route-chip";
+  const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
+  chip.textContent = formatRouteChipLabel(raw);
+
+  const badge = document.createElement("span");
+  badge.className = "ov-route-badge";
+  badge.setAttribute("aria-hidden", "true");
+  badge.textContent = mode === "remove" ? "👍" : "🔀";
+  chip.appendChild(badge);
+  return chip;
+}
+
+function buildPlusChip(remaining){
+  const plus = document.createElement("div");
+  plus.className = "ov-route-chip";
+  plus.textContent = `+${remaining}`;
+  plus.setAttribute("aria-label", `${remaining} more routes`);
+  return plus;
+}
+
+function getReasonEmoji(text){
+  if(!text) return "⚠️";
+  const s = String(text).toLowerCase();
+  if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
+  if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
+  if (/\bcongestion\b/.test(s)) return "🚗🚗";
+  if (/\b(asb|behaviour|youths?|vandalism)\b/i.test(s)) return "💢";
+  if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
+  if (/\brtc\b|\bcollision\b|\baccident\b/.test(s)) return "💥";
+  if (/\bparked\b|\bparking\b/i.test(s)) return "🅿️";
+  if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
+  if (/\b(water|river|flood|mains|burst)\b/i.test(s)) return "💧";
+  return "⚠️";
+}
+
+function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
+  const overlay  = $("#divertOverlay");
+  const elKicker = $("#ovKicker");
+  const elReason = $("#ovReason");
+  const elReasonEmoji = elReason?.querySelector(".ov-reason-emoji");
+  const elReasonText  = elReason?.querySelector(".ov-reason-text");
+  const elLoc    = $("#ovLocation");
+  const elRoutes = $("#ovRoutes");
+  const elOp     = $("#ovOperator");
+  const elDur    = $("#ovDuration");
+
+  overlay.classList.remove("ov-add","ov-remove","closing");
+
+  elReason.hidden = true;
+  elLoc.hidden    = true;
+  elOp.hidden     = true;
+  elDur.hidden    = true;
+
+  const reasonTextRaw = item.summary || "";
+
+  if (mode === "add") {
+    if (!item?.isUFN) return;
+
+    overlay.classList.add("ov-add");
+    elKicker.textContent = "NEW DIVERT";
+
+    if (elReason && elReasonEmoji && elReasonText){
+      elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
+      elReasonText.textContent  = reasonTextRaw;
+      elReason.hidden = false;
     }
 
-    /* Bee bus operator refs (strict) */
-    const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+    elLoc.textContent = item.summary || "Travel alert";
+    elLoc.hidden = false;
 
-    /* Tram operator refs (Metrolink) */
-    const TRAM_OPERATORS = ["METL"];
+    renderOverlayRoutesOneLine(elRoutes, item.routesRender, "add");
 
-    /* Behaviour flags */
-    const UNPLANNED_ONLY = true;
-    const PAGE_INTERVAL_MS = 10000;
-    const FEED_REFRESH_MS = 45000;
+    elOp.replaceChildren();
+    const dot = document.createElement("span");
+    dot.className = "operatorDot";
+    elOp.appendChild(dot);
 
-    /* UFN >24h helper */
-    const DAY_MS = 24 * 60 * 60 * 1000;
+    const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
+    const codes = mapOperators(refs);
+    elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
+    dot.style.background = OP_COLOR_MAP[refs[0]] || "#cfcfd6";
+    elOp.hidden = false;
 
-    /* Pager */
-    let pagerTimer = null;
+  } else if (mode === "remove") {
+    overlay.classList.add("ov-remove");
+    elKicker.textContent = "DIVERT ENDED";
 
-    /* Live-set change detection (for overlays) */
-    let firstFetchDone = false;
-    let lastLiveIndex = new Map();
-
-    /* Overlay queue control */
-    let overlayQueue = [];
-    let overlayShowing = false;
-
-    /* Dashboard state */
-    let currentItems = [];
-
-    /* Keep the last live and display items to enable test-key sampling */
-    let lastLiveItems = [];
-    let lastDisplayItems = [];
-
-    /* Set CSS duration for the progress bar to match page dwell */
-    document.documentElement.style.setProperty('--page-interval', PAGE_INTERVAL_MS + 'ms');
-
-    /* Helpers */
-    const $ = s => document.querySelector(s);
-    const parseISO = s => s ? new Date(s) : null;
-
-    function fmtHM(d){
-      return new Intl.DateTimeFormat(undefined, {hour:"2-digit",minute:"2-digit"}).format(d);
+    if (elReason && elReasonEmoji && elReasonText){
+      elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
+      elReasonText.textContent  = reasonTextRaw;
+      elReason.hidden = false;
     }
 
-    function setStatusPill(ok, { animate = false } = {}){
-      const pill = $("#statusPill");
-      const bee = $("#beeLogo");
-      const t = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
-      if(ok){
-        pill.classList.remove("status-error");
-        pill.textContent = `LIVE • ${t}`;
-        if (animate && bee){
-          bee.classList.remove("bee-wibble");
-          void bee.offsetWidth;
-          bee.classList.add("bee-wibble");
-        }
-      } else {
-        pill.classList.add("status-error");
-        pill.textContent = `Error • ${t}`;
-      }
+    elLoc.textContent = item.summary || "Travel alert";
+    elLoc.hidden = false;
+
+    renderOverlayRoutesOneLine(elRoutes, item.routesRender, "remove");
+
+    const start = item.startMs ? new Date(item.startMs) : null;
+    const end   = item.endMs   ? new Date(item.endMs)   : new Date();
+    elDur.textContent = `On diversion for ${formatSingleUnitDuration(start, end)}`;
+    elDur.hidden = false;
+  }
+
+  overlay.classList.add("show");
+  overlay.setAttribute("aria-hidden", "false");
+  overlayShowing = true;
+
+  setTimeout(() => {
+    overlay.classList.add("closing");
+    setTimeout(() => {
+      overlay.classList.remove("show", "closing");
+      overlay.setAttribute("aria-hidden", "true");
+      overlayShowing = false;
+      processOverlayQueue();
+    }, 300);
+  }, durationMs);
+}
+
+/* ===========================
+   MAP SITUATION -> ITEM (BUS ONLY)
+=========================== */
+function mapSituationToItem(s){
+  const operatorRefs = getOperatorRefs(s);
+  const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
+  const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
+  const nowMs = Date.now();
+  const startMs = st ? st.getTime() : 0;
+  const endMs   = en ? en.getTime() : null;
+
+  const isUFN = (endMs == null);
+  const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
+
+  const timeLines = buildTimesLines(s);
+
+  const busRoutes = getLineRefs(s);
+  const routesTitle = busRoutes.length ? busRoutes.map(String) : ["?"];
+  const routesRender = busRoutes.length ? busRoutes.map(String) : ["?"];
+
+  return {
+    id: getSituationId(s),
+    operatorRefs,
+    routesTitle,
+    routesRender,
+    summary: (s.Summary || s.Description || "").trim(),
+    timeLines,
+    startMs,
+    endMs,
+    isUFN,
+    ufnOver24h,
+    routeCount: routesTitle.length
+  };
+}
+
+/* ===========================
+   RENDER PAGE
+=========================== */
+function renderPage(){
+  const grid = $("#grid");
+  const pgObj = pager.pages[pager.pageIndex] || { section:"—", items:[] };
+  const pg = pgObj.items || [];
+
+  // Empty placeholder page = centered text
+  if (pg.length === 1 && pg[0] && pg[0].placeholder){
+    renderEmptyState(pg[0].message || "No alerts");
+    updatePageIndicator();
+    return;
+  }
+
+  grid.classList.remove("empty");
+  grid.innerHTML = "";
+
+  for(const it of pg){
+    const chip = document.createElement("div");
+    chip.className = "chip";
+    if (it.isUFN) chip.classList.add("ufn");
+    if (it.ufnOver24h) chip.classList.add("pulse-ufn");
+
+    const header = document.createElement("div");
+    header.className = "chipHeader";
+
+    const headerLeft = document.createElement("div");
+    headerLeft.className = "headerLeft";
+
+    const routesArea = document.createElement("div");
+    routesArea.className = "routesArea";
+    routesArea.title = (it.routesTitle || []).join(", ");
+    renderRoutesAs2x2Grid(routesArea, it.routesRender);
+    headerLeft.appendChild(routesArea);
+
+    const rightCol = document.createElement("div");
+    rightCol.className = "rightCol";
+
+    const opTag = document.createElement("div");
+    opTag.className = "operatorTag";
+    const dot = document.createElement("span");
+    dot.className = "operatorDot";
+
+    const refs  = (it.operatorRefs || []).map(r => String(r).toUpperCase());
+    const codes = mapOperators(refs);
+    dot.style.background = OP_COLOR_MAP[refs[0]] || "#cfcfd6";
+    opTag.appendChild(dot);
+    opTag.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
+    rightCol.appendChild(opTag);
+
+    const reasonText = it.summary || "";
+    const reasonEmoji = getReasonEmoji(reasonText);
+
+    const reasonEmojiChip = document.createElement("div");
+    reasonEmojiChip.className = "reasonEmojiChip";
+    reasonEmojiChip.textContent = reasonEmoji;
+    reasonEmojiChip.title = reasonText || "Reason";
+    rightCol.appendChild(reasonEmojiChip);
+
+    header.append(headerLeft, rightCol);
+
+    const detailsEl = document.createElement("div");
+    detailsEl.className = "detailsLine";
+    detailsEl.textContent = it.summary || "";
+
+    const times = document.createElement("div");
+    times.className = "times";
+
+    const [startLabel, startValue] = splitLine(it.timeLines.startLine);
+    const [endLabel, endValue]     = splitLine(it.timeLines.endLine);
+    const [durLabel, durValue]     = splitLine(it.timeLines.durationLine);
+
+    const startDiv = document.createElement("div");
+    startDiv.className = "timeLine";
+    startDiv.innerHTML =
+      `<span class="timePrefix">${escapeHtml(startLabel)} //</span> <span class="timeValue">${escapeHtml(startValue)}</span>`;
+    times.appendChild(startDiv);
+
+    const endDiv = document.createElement("div");
+    endDiv.className = "timeLine";
+    const isUFN = String(endValue || "").trim().toUpperCase() === "UFN";
+    if (isUFN) endDiv.classList.add("ufn");
+    endDiv.innerHTML =
+      `<span class="timePrefix">${escapeHtml(endLabel)} //</span> <span class="timeValue">${escapeHtml(endValue)}</span>`;
+    if (isUFN){
+      const warn = document.createElement("span");
+      warn.className = "ufn-warning";
+      warn.textContent = " ⚠️";
+      endDiv.appendChild(warn);
+    }
+    times.appendChild(endDiv);
+
+    const durDiv = document.createElement("div");
+    durDiv.className = "timeLine";
+    durDiv.innerHTML =
+      `<span class="timePrefix">${escapeHtml(durLabel)} //</span> <span class="timeValue">${escapeHtml(durValue)}</span>`;
+    times.appendChild(durDiv);
+
+    chip.append(header, detailsEl, times);
+    grid.appendChild(chip);
+  }
+
+  updatePageIndicator();
+}
+
+/* ===========================
+   FETCHALL (JSON-first, XML fallback)
+   + SECTION PAGING
+   + TODAY ignores UNPLANNED_ONLY
+   + Long-term threshold 5
+   + CRITICAL FIX: refresh doesn't reset pager unless pages changed
+=========================== */
+async function fetchAll(){
+  try{
+    const res = await fetch(withCacheBust(BODS_URL), {
+      cache:"no-store",
+      headers: { "Accept": "application/json, application/xml;q=0.8, text/xml;q=0.7" }
+    });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    let parsed;
+    const clone = res.clone();
+    try{
+      parsed = { type:"json", data: await res.json() };
+    }catch{
+      const txt = await clone.text();
+      parsed = { type:"xml", data: (new DOMParser()).parseFromString(txt, "application/xml") };
     }
 
-    /* Operator short-code mapping */
-    const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB", METL:"KM" };
-    function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
-
-    const OP_COLOR_MAP = {
-      BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
-      BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)",
-      METL:"var(--op-KM)"
-    };
-
-    /* ===== Tram line colour palette (edit here if you want different shades) =====
-       Blue = light MCFC sky blue */
-    const TRAM_LINE_COLORS = {
-      Blue:   { bg: "#6CABDD", fg: "#001018" }, // MCFC-ish sky blue
-      Green:  { bg: "#2ECC71", fg: "#001018" },
-      Navy:   { bg: "#001F5B", fg: "#FFFFFF" },
-      Pink:   { bg: "#FF4FA3", fg: "#001018" },
-      Purple: { bg: "#7A3FFE", fg: "#FFFFFF" },
-      Red:    { bg: "#FF4D4F", fg: "#FFFFFF" },
-      Yellow: { bg: "#FFE04A", fg: "#001018" }
-    };
-
-    function parseLineRefColorKey(lineRef){
-      const s = String(lineRef || "").trim();
-      const m = /^([A-Za-z]+)_Line$/i.exec(s);
-      if (!m) return null;
-      const key = m[1].charAt(0).toUpperCase() + m[1].slice(1).toLowerCase();
-      return TRAM_LINE_COLORS[key] ? key : null;
-    }
-
-    function applyRouteChipStyle(el, { colorKey } = {}){
-      if (!el || !colorKey) return;
-      const c = TRAM_LINE_COLORS[colorKey];
-      if (!c) return;
-      el.style.background = c.bg;
-      el.style.color = c.fg;
-      el.style.border = "2px solid rgba(0,0,0,0.25)";
-      el.style.boxShadow = "0 1px 0 rgba(255,255,255,0.05) inset, 0 6px 14px rgba(0,0,0,0.28)";
-    }
-
-    function updatePageIndicator(){
-      const el = document.getElementById('metricPage');
-      if(!el) return;
-      const totalPages = Array.isArray(pager.pages) ? pager.pages.length : 0;
-      const curr = totalPages > 0 ? (pager.pageIndex + 1) : 0;
-      el.textContent = `Page ${curr}/${totalPages}`;
-    }
-
-    function restartProgressBar(){
-      const bar = document.getElementById('pageProgress');
-      if (!bar) return;
-      const shouldShow = Array.isArray(pager.pages) && pager.pages.length > 1;
-      if (!shouldShow){
-        bar.classList.remove('run');
-        bar.style.display = 'none';
-        bar.style.transform = 'scaleX(0)';
-        return;
-      }
-      bar.style.display = 'block';
-      bar.classList.remove('run');
-      void bar.offsetWidth;
-      bar.classList.add('run');
-    }
-
-    /* ---------- Date helpers ---------- */
-    function isToday(d){ const n=new Date(); return d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate(); }
-    function isYesterday(d){ const n=new Date(), y=new Date(n); y.setDate(n.getDate()-1); return d.getFullYear()===y.getFullYear() && d.getMonth()===y.getMonth() && d.getDate()===y.getDate(); }
-    function isTomorrow(d){ const n=new Date(), t=new Date(n); t.setDate(n.getDate()+1); return d.getFullYear()===t.getFullYear() && d.getMonth()===t.getMonth() && d.getDate()===t.getDate(); }
-    function weekBoundsOfToday(){ const n=new Date(); const s=new Date(n.getFullYear(),n.getMonth(),n.getDate()); const wd=(s.getDay()+6)%7; s.setDate(s.getDate()-wd); const e=new Date(s); e.setDate(s.getDate()+6); e.setHours(23,59,59,999); return {start:s,end:e}; }
-    function inThisWeek(d){ const {start,end}=weekBoundsOfToday(); return d>=start && d<=end; }
-    function ordinal(n){ const s=["th","st","nd","rd"], v=n%100; return n + (s[(v-20)%10] || s[v] || s[0]); }
-    function fullMonth(d){ return new Intl.DateTimeFormat(undefined, { month: 'long' }).format(d); }
-    function fullWeekday(d){ return new Intl.DateTimeFormat(undefined, { weekday: 'long' }).format(d); }
-    function formatLabelForDate(d){
-      if(!d) return null;
-      if(isToday(d)) return `${fmtHM(d)} Today`;
-      if(isYesterday(d)) return `Yesterday`;
-      if(isTomorrow(d)) return `Tomorrow`;
-      if(inThisWeek(d)) return fullWeekday(d);
-      return `${ordinal(d.getDate())} ${fullMonth(d)}`;
-    }
-    function isStartOfService(d){ return d && d.getHours()===0 && d.getMinutes()===0; }
-    function isEndOfService(d){ return d && d.getHours()===23 && d.getMinutes()===59; }
-
-    function formatSingleUnitDuration(start, end){
-      if(!start) return "—";
-      const now = new Date();
-      const endTime = end || now;
-      let ms = endTime - start;
-      if (ms < 0) return "—";
-      const s = ms / 1000;
-      if (s < 60) return `${Math.round(s)}s`;
-      const m = s / 60;
-      if (m < 60) return `${Math.round(m)}m`;
-      const h = m / 60;
-      if (h < 24) return `${Math.round(h)}h`;
-      const d = h / 24;
-      return `${Math.round(d)}d`;
-    }
-
-    /* Stable-ish Situation ID */
-    function getSituationId(sit){
-      const a  = sit?.SituationNumber || sit?.SituationRef;
-      const b  = sit?.ParticipantRef || "";
-      const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
-      const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
-      return String(a || `${b}|${st}|${sum}`).trim();
-    }
-
-    /* ---- Affects.Networks helper (tram structure) ---- */
-    function getNetworkAffectedLines(sit){
-      const out = [];
-      const nets = sit?.Affects?.Networks?.AffectedNetwork;
-      const list = Array.isArray(nets) ? nets : (nets ? [nets] : []);
-      for(const n of list){
-        const mode = (n?.VehicleMode || "").toLowerCase();
-        const lines = n?.AffectedLine;
-        const llist = Array.isArray(lines) ? lines : (lines ? [lines] : []);
-        for(const ln of llist){
-          const opRef = ln?.AffectedOperator?.OperatorRef || ln?.AffectedOperatorRef || null;
-          const lineRef = ln?.LineRef || ln?.PublishedLineName || null;
-          const pubName = ln?.PublishedLineName || ln?.LineName || null;
-          out.push({ mode, opRef, lineRef, pubName });
-        }
+    const extractSituationsFromJSON = (json) => {
+      const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+      if(!sd) return [];
+      const sed = Array.isArray(sd.SituationExchangeDelivery)
+        ? sd.SituationExchangeDelivery
+        : [sd.SituationExchangeDelivery].filter(Boolean);
+      const out=[];
+      for(const d of sed){
+        const pe = d?.Situations?.PtSituationElement;
+        if(Array.isArray(pe)) out.push(...pe);
+        else if(pe) out.push(pe);
       }
       return out;
-    }
-
-    function isTramSituation(sit){
-      const fromNet = getNetworkAffectedLines(sit).some(x => x.mode === "tram");
-      if (fromNet) return true;
-      return Array.isArray(sit.__vehicleModes) && sit.__vehicleModes.some(m => String(m).toLowerCase() === "tram");
-    }
-
-    /* Collect *all* operator refs (deduped) */
-    function getOperatorRefs(sit){
-      const refs = new Set();
-      const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
-
-      // Bus structure
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      if(Array.isArray(avj)){
-        for(const j of avj) add(j?.OperatorRef);
-      } else if(avj){
-        add(avj?.OperatorRef);
-      }
-
-      // Tram structure (Networks)
-      for(const x of getNetworkAffectedLines(sit)){
-        add(x.opRef);
-      }
-
-      // XML extras
-      if(Array.isArray(sit.__operatorRefs)){
-        sit.__operatorRefs.forEach(add);
-      }
-      return [...refs];
-    }
-
-    function getSingleOperatorRef(sit){
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
-      if(avj && avj.OperatorRef) return String(avj.OperatorRef);
-      if(sit?.OperatorRef) return String(sit.OperatorRef);
-      if(sit?.__operatorRefs && sit.__operatorRefs.length) return sit.__operatorRefs[0];
-      const ops = getOperatorRefs(sit);
-      if (ops.includes("METL")) return "METL";
-      return null;
-    }
-
-    /* Line refs (bus) + (tram lineRef if present) */
-    function getLineRefs(sit){
-      const lines = new Set();
-      const pushVal = (val)=>{ if(val == null) return; const s = String(val).trim(); if(s) lines.add(s); };
-
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      if(Array.isArray(avj)){
-        for(const j of avj){
-          pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
-        }
-      } else if(avj){
-        pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName);
-      }
-
-      for(const x of getNetworkAffectedLines(sit)){
-        pushVal(x.lineRef || x.pubName);
-      }
-
-      if(Array.isArray(sit.__lineRefs)){
-        for(const v of sit.__lineRefs) pushVal(v);
-      }
-      return Array.from(lines);
-    }
-
-    function isDiversion(sit){
-      const txt = (sit.Description || sit.Summary || "").toLowerCase();
-      return txt.includes("divert") || txt.includes("diversion");
-    }
-
-    function isCurrentlyValid(sit){
-      const now = new Date();
-      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-      if(!s) return false;
-      if(s > now) return false;
-      if(e && e < now) return false;
-      return true;
-    }
-
-    function isBusOperator(sit){
-      const refs = getOperatorRefs(sit);
-      const single = getSingleOperatorRef(sit);
-      return (refs && refs.some(r => BEE_OPERATORS.includes(r))) ||
-             (single && BEE_OPERATORS.includes(String(single).toUpperCase()));
-    }
-
-    function isTramOperator(sit){
-      const refs = getOperatorRefs(sit);
-      return refs.some(r => TRAM_OPERATORS.includes(r));
-    }
-
-    function parseTramSummary(summary){
-      const s = String(summary || "");
-      const parts = s.split(" - ").map(x => x.trim()).filter(Boolean);
-      if(parts.length < 2) return null;
-      const lineName = parts[0];
-      const status   = parts.slice(1).join(" - ");
-      return { lineName, status };
-    }
-
-    function tramStatusRank(status){
-      const t = String(status || "").toLowerCase();
-      if (t.includes("service change")) return 3;
-      if (t.includes("severe"))         return 2;
-      if (t.includes("minor"))          return 1;
-      return 0;
-    }
-
-    function isTramAlert(sit){
-      if (!isTramSituation(sit)) return false;
-      if (!isTramOperator(sit)) return false;
-      const ts = parseTramSummary(sit?.Summary || sit?.Description || "");
-      if(!ts) return false;
-      return tramStatusRank(ts.status) > 0;
-    }
-
-    /* -------- Paging -------- */
-    const pager={pages:[],pageIndex:0,pageSize:6,total:0};
-    function chunk(arr,size){
-      if (!Array.isArray(arr) || arr.length === 0) return [];
-      const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out;
-    }
-
-    function setFixedGridSizing(){
-      const grid = document.querySelector("#grid");
-      const main = document.querySelector("main");
-      if(!grid || !main) return;
-
-      const csGrid = getComputedStyle(grid);
-      const csMain = getComputedStyle(main);
-
-      const rowGap = parseFloat(csGrid.rowGap || csGrid.gap || "20") || 20;
-      const pb     = parseFloat(csMain.paddingBottom || "0") || 0;
-
-      const mainRect = main.getBoundingClientRect();
-      const gridRect = grid.getBoundingClientRect();
-
-      const availableOuter = Math.max(0, Math.ceil((mainRect.bottom - pb) - gridRect.top));
-      const perRowOuter = Math.max(200, Math.round((availableOuter - rowGap) / 2));
-      document.documentElement.style.setProperty("--cardHeight", perRowOuter + "px");
-    }
-
-    function buildTimesLines(sit){
-      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-
-      let startVal = "—";
-      if (s) {
-        if (isToday(s) && isStartOfService(s)) startVal = "Start of Service";
-        else startVal = formatLabelForDate(s);
-      }
-      const startLine = `Started // ${startVal}`;
-
-      let endVal = "—";
-      if (e) {
-        if (isToday(e) && isEndOfService(e)) endVal = "End of Service";
-        else endVal = formatLabelForDate(e);
-      } else {
-        endVal = "UFN";
-      }
-      const endLine = `Ends // ${endVal}`;
-
-      const durationVal = formatSingleUnitDuration(s, e);
-      const durationLine = `Duration // ${durationVal}`;
-
-      return { startLine, endLine, durationLine, startDate:s, endDate:e };
-    }
-
-    /* ===== Route label rule: first 3 letters (unless numeric route like 42A) ===== */
-    function formatRouteChipLabel(raw){
-      const s = String(raw ?? "").trim();
-      if (!s) return "?";
-      if (/^\d+[a-z]?$/i.test(s)) return s.toUpperCase(); // bus route
-      const clean = s.replace(/[^A-Za-z0-9]/g, "");
-      const out = (clean || s).slice(0,3).toUpperCase();
-      return out || "?";
-    }
-
-    /* -------- Routes 2×2 renderer (cards) -------- */
-    function renderRoutesAs2x2Grid(routesArea, routes){
-      const MAX_SLOTS = 4;
-      const gridRoutes = document.createElement("div");
-      gridRoutes.className = "routesGrid";
-
-      const list = Array.isArray(routes) ? routes : ["?"];
-      const count = list.length;
-
-      const addCell = (routeObj, glass=false) => {
-        const cell = document.createElement("div");
-        cell.className = glass ? "route-mini route-mini--glass" : "route-mini";
-
-        if (!glass){
-          const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
-          cell.textContent = formatRouteChipLabel(raw);
-          const colorKey = (routeObj && typeof routeObj === "object") ? routeObj.colorKey : null;
-          applyRouteChipStyle(cell, { colorKey });
-        } else {
-          cell.textContent = "";
-        }
-        gridRoutes.appendChild(cell);
-      };
-
-      if (count <= MAX_SLOTS) {
-        list.forEach(rt => addCell(rt, false));
-        for (let i = count; i < MAX_SLOTS; i++) addCell("", true);
-      } else {
-        for (let i = 0; i < 3; i++) addCell(list[i], false);
-        const overflow = count - 3;
-        addCell(`+${overflow}`, false);
-      }
-
-      routesArea.replaceChildren(gridRoutes);
-    }
-
-    function startDotColorCycle(dotEl, operatorRefs, { intervalMs = 1200 } = {}){
-      const uniqueRefs = [...new Set((operatorRefs || [])
-        .map(r => String(r).toUpperCase())
-        .filter(Boolean))];
-      const colors = uniqueRefs.map(ref => OP_COLOR_MAP[ref]).filter(Boolean);
-      if(colors.length <= 1) return;
-      let i = 0;
-      dotEl.style.background = colors[0];
-      setInterval(() => {
-        i = (i + 1) % colors.length;
-        dotEl.style.background = colors[i];
-      }, intervalMs);
-    }
-
-    function parseSummaryParts(summaryText){
-      if(!summaryText) return null;
-      const str = String(summaryText);
-      const hyIdx = str.indexOf(" - ");
-      if(hyIdx === -1) return null;
-      const left = str.slice(0, hyIdx).trim();
-      const reason = str.slice(hyIdx + 3).trim();
-      const lastComma = left.lastIndexOf(",");
-      if(lastComma === -1) return null;
-      const place = left.slice(0, lastComma).trim();
-      const town  = left.slice(lastComma + 1).trim();
-      if(!place || !town || !reason) return null;
-      return { place, town, reason };
-    }
-
-    function splitLine(line){
-      const idx = line.indexOf(" // ");
-      if (idx === -1) return [line, ""];
-      return [line.slice(0, idx), line.slice(idx + 4)];
-    }
-
-    function escapeHtml(s){
-      return String(s ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#39;");
-    }
-
-    function operatorTintClass(ref){
-      switch((ref||"").toUpperCase()){
-        case "BNML": return {cls:"op-BNML", dark:false};
-        case "BNGN": return {cls:"op-BNGN", dark:true};
-        case "BNSM": return {cls:"op-BNSM", dark:false};
-        case "BNDB": return {cls:"op-BNDB", dark:true};
-        case "BNVB": return {cls:"op-BNVB", dark:true};
-        case "BNFM": return {cls:"op-BNFM", dark:false};
-        default:     return {cls:"",       dark:true};
-      }
-    }
-
-    function renderPage(){
-      const grid = $("#grid");
-      const pg = pager.pages[pager.pageIndex] || [];
-
-      grid.innerHTML = "";
-
-      for(const it of pg){
-        const oc = operatorTintClass(it.singleOperatorForTint);
-
-        const chip = document.createElement("div");
-        chip.className = "chip " + oc.cls;
-        if (it.isUFN) chip.classList.add("ufn");
-        if (it.ufnOver24h) chip.classList.add("pulse-ufn");
-        if (it.isTram && it.isServiceChange) chip.classList.add("tram-servicechange");
-
-        const header = document.createElement("div");
-        header.className = "chipHeader";
-
-        const headerLeft = document.createElement("div");
-        headerLeft.className = "headerLeft";
-
-        const routesArea = document.createElement("div");
-        routesArea.className = "routesArea";
-        routesArea.title = (it.routesTitle || (it.routes || [])).join(", ");
-
-        const routesToRender = Array.isArray(it.routesRender) ? it.routesRender : (Array.isArray(it.routes) ? it.routes : ["?"]);
-        renderRoutesAs2x2Grid(routesArea, routesToRender);
-        headerLeft.appendChild(routesArea);
-
-        const rightCol = document.createElement("div");
-        rightCol.className = "rightCol";
-
-        const opTag = document.createElement("div");
-        opTag.className = "operatorTag";
-        opTag.title = (it.operatorRefs || []).join(", ");
-
-        const dot = document.createElement("span");
-        dot.className = "operatorDot";
-
-        const opCodes = mapOperators(it.operatorRefs || []);
-        if(opCodes.length === 1){
-          const ref = (it.operatorRefs[0] || "").toUpperCase();
-          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
-          opTag.appendChild(dot);
-          opTag.appendChild(document.createTextNode(" " + opCodes[0]));
-        } else {
-          dot.style.background = "#cfcfd6";
-          opTag.appendChild(dot);
-          opTag.appendChild(document.createTextNode(" " + (opCodes.length ? opCodes.join(", ") : "—")));
-          startDotColorCycle(dot, it.operatorRefs);
-        }
-        rightCol.appendChild(opTag);
-
-        const parsed = parseSummaryParts(it.summary);
-        const reasonText = (parsed && parsed.reason) ? parsed.reason : (it.summary || "");
-        const reasonEmoji = it.isTram ? "🚋" : getReasonEmoji(reasonText);
-
-        const reasonEmojiChip = document.createElement("div");
-        reasonEmojiChip.className = "reasonEmojiChip";
-        reasonEmojiChip.textContent = reasonEmoji;
-        reasonEmojiChip.title = reasonText || "Reason";
-        reasonEmojiChip.setAttribute("aria-label", `Reason: ${reasonText || 'unknown'}`);
-        rightCol.appendChild(reasonEmojiChip);
-
-        header.append(headerLeft, rightCol);
-
-        const detailsEl = document.createElement("div");
-        detailsEl.className = "detailsLine";
-        if(it.isTram){
-          const ts = parseTramSummary(it.summary) || { lineName: "Metrolink", status: it.tramStatus || "" };
-          detailsEl.textContent = `${ts.lineName} // ${ts.status}`;
-        } else if(parsed){
-          const placeSpan = document.createElement("span");
-          placeSpan.textContent = parsed.place;
-          const sep = document.createElement("span");
-          sep.textContent = " // ";
-          const townSpan = document.createElement("span");
-          townSpan.className = "town";
-          townSpan.textContent = parsed.town;
-          detailsEl.append(placeSpan, sep, townSpan);
-        } else {
-          detailsEl.textContent = it.summary || "";
-        }
-
-        const times = document.createElement("div");
-        times.className = "times";
-
-        const [startLabel, startValue] = splitLine(it.timeLines.startLine);
-        const [endLabel, endValue] = splitLine(it.timeLines.endLine);
-        const [durLabel, durValue] = splitLine(it.timeLines.durationLine);
-
-        const startDiv = document.createElement("div");
-        startDiv.className = "timeLine";
-        startDiv.innerHTML =
-          `<span class="timePrefix">${escapeHtml(startLabel)} //</span> ` +
-          `<span class="timeValue">${escapeHtml(startValue)}</span>`;
-        times.appendChild(startDiv);
-
-        const endDiv = document.createElement("div");
-        endDiv.className = "timeLine";
-        const isUFN = String(endValue || "").trim().toUpperCase() === "UFN";
-        if (isUFN) endDiv.classList.add("ufn");
-        endDiv.innerHTML =
-          `<span class="timePrefix">${escapeHtml(endLabel)} //</span> ` +
-          `<span class="timeValue">${escapeHtml(endValue)}</span>`;
-        if (isUFN) {
-          const warn = document.createElement("span");
-          warn.className = "ufn-warning";
-          warn.setAttribute("aria-label","ongoing");
-          warn.textContent = " ⚠️";
-          endDiv.appendChild(warn);
-        }
-        times.appendChild(endDiv);
-
-        const durDiv = document.createElement("div");
-        durDiv.className = "timeLine";
-        durDiv.innerHTML =
-          `<span class="timePrefix">${escapeHtml(durLabel)} //</span> ` +
-          `<span class="timeValue">${escapeHtml(durValue)}</span>`;
-        times.appendChild(durDiv);
-
-        chip.append(header, detailsEl, times);
-        grid.append(chip);
-      }
-
-      updatePageIndicator();
-    }
-
-    function stopPager(){
-      if (pagerTimer){ clearInterval(pagerTimer); pagerTimer = null; }
-    }
-    function startPager(){
-      if (!pager.pages || pager.pages.length <= 1){
-        stopPager(); restartProgressBar(); return;
-      }
-      stopPager(); restartProgressBar();
-      pagerTimer = setInterval(()=>{
-        pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
-        renderPage();
-        setStatusPill(true, { animate:false });
-        requestAnimationFrame(setFixedGridSizing);
-        updatePageIndicator();
-        restartProgressBar();
-      }, PAGE_INTERVAL_MS);
-    }
-
-    function mapSituationToItem(s){
-      const operatorRefs = getOperatorRefs(s);
-      const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
-      const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
-      const nowMs = Date.now();
-      const startMs = st ? st.getTime() : 0;
-      const endMs   = en ? en.getTime() : null;
-
-      const isUFN = (endMs == null);
-      const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
-      const timeLines = buildTimesLines(s);
-
-      const isTram = isTramSituation(s) && operatorRefs.includes("METL");
-
-      let tramStatus = "";
-      let tramRank = 0;
-      let isServiceChange = false;
-
-      let tramLineName = "";
-      let tramColorKey = null;
-
-      if (isTram){
-        const ts = parseTramSummary((s.Summary || s.Description || "").trim());
-        if (ts){
-          tramLineName = (ts.lineName || "Metrolink").replace(/\s*line\s*$/i,"").trim();
-          tramStatus = ts.status;
-          tramRank = tramStatusRank(ts.status);
-          isServiceChange = tramRank === 3;
-        }
-        // pick the first tram lineRef for colour (e.g. Green_Line)
-        const net = getNetworkAffectedLines(s).find(x => String(x.mode).toLowerCase() === "tram");
-        tramColorKey = parseLineRefColorKey(net?.lineRef);
-      }
-
-      const busRoutes = getLineRefs(s);
-      const routesTitle = isTram ? [tramLineName || "Metrolink"] : (busRoutes.length ? busRoutes.map(String) : ["?"]);
-      const routesRender = isTram
-        ? [{ raw: tramLineName || "Metrolink", colorKey: tramColorKey }]
-        : (busRoutes.length ? busRoutes.map(String) : ["?"]);
-
-      return {
-        id: getSituationId(s),
-        operatorRefs: isTram ? ["METL"] : operatorRefs,
-        singleOperatorForTint: isTram ? "METL" : (getSingleOperatorRef(s) || ""),
-        routesTitle,
-        routesRender,
-        summary: (s.Summary || s.Description || "").trim(),
-        timeLines,
-        startMs,
-        endMs,
-        isUFN,
-        ufnOver24h,
-        isTram,
-        tramStatus,
-        tramRank,
-        isServiceChange,
-        tramColorKey
-      };
-    }
-
-    async function fetchAll(){
-      try{
-        // ✅ key change: call your backend endpoint
-        const res = await fetch(withCacheBust(BODS_URL), { cache:"no-store" });
-        if(!res.ok) throw new Error(`HTTP ${res.status}`);
-
-        let parsed;
-        try{
-          parsed = { type:"json", data: await res.clone().json() };
-        }catch{
-          parsed = { type:"xml", data: (new DOMParser()).parseFromString(await res.text(),"application/xml") };
-        }
-
-        const extractSituationsFromJSON = (json) => {
-          const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
-          if(!sd) return [];
-          const sed = Array.isArray(sd.SituationExchangeDelivery)
-            ? sd.SituationExchangeDelivery
-            : [sd.SituationExchangeDelivery].filter(Boolean);
-          const out=[];
-          for(const d of sed){
-            const pe = d?.Situations?.PtSituationElement;
-            if(Array.isArray(pe)) out.push(...pe);
-            else if(pe) out.push(pe);
-          }
-          return out;
-        };
-
-        const extractSituationsFromXML = (doc) => {
-          const els = [...doc.querySelectorAll("PtSituationElement")];
-          return els.map(el=>{
-            const T = s => el.querySelector(s)?.textContent?.trim() || null;
-
-            const opsRef = [
-              ...el.querySelectorAll(
-                "AffectedVehicleJourney > OperatorRef, OperatorRef, " +
-                "Affects > Networks AffectedOperator > OperatorRef, " +
-                "Affects > Networks > AffectedNetwork > AffectedLine > AffectedOperator > OperatorRef"
-              )
-            ].map(n=>n.textContent.trim()).filter(Boolean);
-
-            const lines  = [
-              ...el.querySelectorAll(
-                "AffectedVehicleJourney > LineRef, PublishedLineName, LineName, " +
-                "Affects > Networks > AffectedNetwork > AffectedLine > LineRef, " +
-                "Affects > Networks > AffectedNetwork > AffectedLine > PublishedLineName"
-              )
-            ].map(n=>n.textContent.trim()).filter(Boolean);
-
-            const vehicleModes = [
-              ...el.querySelectorAll("Affects > Networks > AffectedNetwork > VehicleMode")
-            ].map(n=>n.textContent.trim()).filter(Boolean);
-
+    };
+
+    const extractSituationsFromXML = (doc) => {
+      const els = [...doc.querySelectorAll("PtSituationElement")];
+      const T = (el, sel) => el.querySelector(sel)?.textContent?.trim() || null;
+
+      const readAffectedNetworks = (el) => {
+        const nets = [...el.querySelectorAll("Affects > Networks > AffectedNetwork")];
+        if (!nets.length) return null;
+
+        const mapped = nets.map(n => {
+          const affectedLines = [...n.querySelectorAll("AffectedLine")].map(ln => {
+            const opRef = ln.querySelector("AffectedOperator > OperatorRef")?.textContent?.trim() || null;
+            const lineRef = ln.querySelector("LineRef")?.textContent?.trim() || null;
+            const pubName = ln.querySelector("PublishedLineName")?.textContent?.trim() || null;
+            const lineName = ln.querySelector("LineName")?.textContent?.trim() || null;
             return {
-              Summary: T("Summary") || T("Description"),
-              Description: T("Description"),
-              Severity: T("Severity") || "unknown",
-              Planned: T("Planned"),
-              SituationNumber: T("SituationNumber") || T("SituationRef"),
-              ParticipantRef: T("ParticipantRef"),
-              ValidityPeriod: {
-                StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
-                EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
-              },
-              CreationTime: T("CreationTime") || T("RecordedAtTime") || T("VersionedAtTime"),
-              Affects: {
-                VehicleJourneys: {
-                  AffectedVehicleJourney: lines.length
-                    ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
-                    : []
-                }
-              },
-              __operatorRefs: opsRef,
-              __lineRefs: lines,
-              __vehicleModes: vehicleModes
+              AffectedOperator: opRef ? { OperatorRef: opRef } : undefined,
+              LineRef: lineRef || pubName || lineName || null,
+              PublishedLineName: pubName || null,
+              LineName: lineName || null
             };
           });
+
+          return { AffectedLine: affectedLines.length ? affectedLines : undefined };
+        });
+
+        return mapped.length ? mapped : null;
+      };
+
+      return els.map(el=>{
+        const opsRef = [
+          ...el.querySelectorAll(
+            "AffectedVehicleJourney > OperatorRef, OperatorRef, " +
+            "Affects > Networks AffectedOperator > OperatorRef, " +
+            "Affects > Networks > AffectedNetwork > AffectedLine > AffectedOperator > OperatorRef"
+          )
+        ].map(n=>n.textContent.trim()).filter(Boolean);
+
+        const lines  = [
+          ...el.querySelectorAll(
+            "AffectedVehicleJourney > LineRef, PublishedLineName, LineName, " +
+            "Affects > Networks > AffectedNetwork > AffectedLine > LineRef, " +
+            "Affects > Networks > AffectedNetwork > AffectedLine > PublishedLineName"
+          )
+        ].map(n=>n.textContent.trim()).filter(Boolean);
+
+        const networks = readAffectedNetworks(el);
+
+        return {
+          Summary: T(el,"Summary") || T(el,"Description"),
+          Description: T(el,"Description"),
+          Severity: T(el,"Severity") || "unknown",
+          Planned: T(el,"Planned"),
+          SituationNumber: T(el,"SituationNumber") || T(el,"SituationRef"),
+          ParticipantRef: T(el,"ParticipantRef"),
+          ValidityPeriod: {
+            StartTime: T(el,"ValidityPeriod > StartTime") || T(el,"StartTime"),
+            EndTime:   T(el,"ValidityPeriod > EndTime")   || T(el,"EndTime")
+          },
+          CreationTime: T(el,"CreationTime") || T(el,"RecordedAtTime") || T(el,"VersionedAtTime"),
+          Affects: networks ? { Networks: { AffectedNetwork: networks } } : undefined,
+          __operatorRefs: opsRef,
+          __lineRefs: lines
         };
+      });
+    };
 
-        let allSituations = parsed.type==="json"
-          ? extractSituationsFromJSON(parsed.data)
-          : extractSituationsFromXML(parsed.data);
+    // All situations
+    let allSituations = (parsed.type==="json")
+      ? extractSituationsFromJSON(parsed.data)
+      : extractSituationsFromXML(parsed.data);
 
-        // Keep only: bus diversions OR tram alerts
-        allSituations = allSituations.filter(sit => (isBusOperator(sit) && isDiversion(sit)) || isTramAlert(sit));
+    // Only bus diversions
+    allSituations = allSituations.filter(sit => (isBusOperator(sit) && isDiversion(sit)));
 
-        // ---- LIVE POOL ----
-        let liveSituations = allSituations.filter(isCurrentlyValid);
-        if(UNPLANNED_ONLY) {
-          liveSituations = liveSituations.filter(sit=>{
-            const p = sit?.Planned;
-            return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
-          });
-        }
+    // Live only
+    const liveBusAll = allSituations.filter(isCurrentlyValid);
 
-        // ---- DISPLAY POOL ----
-        const busLive = liveSituations.filter(sit => isBusOperator(sit));
-        const tramLive = liveSituations.filter(sit => isTramAlert(sit)); // always show tram alerts
+    // Bases
+    const baseUnplanned = UNPLANNED_ONLY ? liveBusAll.filter(isUnplanned) : liveBusAll; // for UFN section + overlays
+    const baseAll = liveBusAll; // for TODAY + LONG-TERM
 
-        const tightBusDisplay = busLive.filter(sit => {
-          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-          const startIsToday = !!(s && isToday(s));
-          const endIsToday   = !!(e && isToday(e));
-          const isUFN        = !e;
-          return startIsToday || endIsToday || isUFN;
-        });
+    // Section bounds (defined before use)
+    const todayStart = startOfToday();
+    const todayEnd   = endOfToday();
 
-        const relaxedBusDisplay = busLive.filter(sit => {
-          const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-          const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-          const startedYesterday = !!(s && isYesterday(s));
-          const endsTomorrow     = !!(e && isTomorrow(e));
-          return startedYesterday || endsTomorrow;
-        });
+    // SECTION 1: UFN (respects unplanned-only)
+    const ufnSits = baseUnplanned.filter(sit => {
+      const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+      return !e;
+    });
 
-        const busDisplaySituations = tightBusDisplay.length ? tightBusDisplay : relaxedBusDisplay;
+    // SECTION 2: Starting/Ending Today (IGNORES unplanned-only)
+    const todaySits = baseAll.filter(sit => {
+      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+      if (!s || !e) return false; // excludes UFN
+      return isToday(s) || isToday(e);
+    });
 
-        // Final display: bus (tight/relaxed) + ALL tram
-        const displaySituations = [...busDisplaySituations, ...tramLive];
+    // Dedup IDs so long-term doesn't repeat ones already in today/ufn
+    const ufnIds = new Set(ufnSits.map(getSituationId));
+    const todayIds = new Set(todaySits.map(getSituationId));
 
-        // Map to items
-        const liveItems = liveSituations.map(mapSituationToItem);
+    // SECTION 3: Long term high impact (>=5 routes), spans across today, planned+unplanned
+    const longTermSits = baseAll.filter(sit => {
+      const id = getSituationId(sit);
+      if (ufnIds.has(id) || todayIds.has(id)) return false;
+      const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+      const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+      if (!s || !e) return false;
+      const routes = getLineRefs(sit) || [];
+      if ((routes.length || 0) < LONG_TERM_ROUTE_THRESHOLD) return false;
+      return (s < todayStart) && (e > todayEnd);
+    });
 
-        // Sort rules:
-        function groupKey(it){
-          if (!it.isTram && it.isUFN) return 0;
-          if (it.isTram && it.isServiceChange) return 1;
-          if (!it.isTram) return 2;
-          return 3;
-        }
+    // Items
+    const ufnItems      = ufnSits.map(mapSituationToItem);
+    const todayItems    = todaySits.map(mapSituationToItem);
+    const longTermItems = longTermSits.map(mapSituationToItem);
 
-        let items = displaySituations.map(mapSituationToItem)
-          .sort((a, b) => {
-            const ga = groupKey(a), gb = groupKey(b);
-            if (ga !== gb) return ga - gb;
-
-            if (ga === 0){
-              if (a.ufnOver24h && !b.ufnOver24h) return -1;
-              if (!a.ufnOver24h && b.ufnOver24h) return 1;
-              if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs;
-              return b.startMs - a.startMs;
-            }
-
-            if (ga === 1) return b.startMs - a.startMs;
-
-            if (ga === 2){
-              if (a.isUFN && !b.isUFN) return -1;
-              if (!a.isUFN && b.isUFN) return 1;
-              const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
-              const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
-              if (aEnd !== bEnd) return aEnd - bEnd;
-              return b.startMs - a.startMs;
-            }
-
-            if (ga === 3){
-              if (b.tramRank !== a.tramRank) return b.tramRank - a.tramRank;
-              return b.startMs - a.startMs;
-            }
-            return 0;
-          });
-
-        // Maintain pager
-        const prevIndex = pager.pageIndex || 0;
-        pager.pageSize = 6;
-        pager.pages = chunk(items, pager.pageSize);
-        pager.total = items.length;
-        pager.pageIndex = pager.pages.length === 0 ? 0 : Math.min(prevIndex, pager.pages.length - 1);
-
-        currentItems = items;
-        lastLiveItems = liveItems.slice();
-        lastDisplayItems = items.slice();
-
-        requestAnimationFrame(()=>{
-          setFixedGridSizing();
-          renderPage();
-          setStatusPill(true, { animate: true });
-          startPager();
-        });
-
-        // ===== Overlay detection based on LIVE set changes =====
-        const currLiveIndex = new Map(liveItems.map(it => [it.id, it]));
-
-        let newOnes = [];
-        let removedOnes = [];
-        if(firstFetchDone){
-          newOnes     = liveItems.filter(it => !lastLiveIndex.has(it.id));
-          removedOnes = [...lastLiveIndex.values()].filter(prev => !currLiveIndex.has(prev.id));
-        }
-        lastLiveIndex = currLiveIndex;
-        firstFetchDone = true;
-
-        // ADD overlays for: new bus UFN OR new tram service change
-        if (newOnes.length) {
-          const addables = newOnes.filter(it => (!it.isTram && it.isUFN) || (it.isTram && it.isServiceChange));
-          if (addables.length) enqueueOverlays(addables.map(item => ({ mode:"add", item })));
-        }
-
-        // END overlays: only bus UFN OR tram service change
-        const now = Date.now();
-        if (removedOnes.length) {
-          const endedNow = removedOnes.filter(prev => {
-            if (prev.endMs == null) return true;
-            return prev.endMs <= now;
-          }).map(it => {
-            if (!it.endMs) it.endMs = now;
-            return it;
-          });
-
-          const removable = endedNow.filter(it => (!it.isTram && it.isUFN) || (it.isTram && it.isServiceChange));
-          if (removable.length){
-            enqueueOverlays(removable.map(item => ({ mode:"remove", item })));
-          }
-        }
-
-      }catch(e){
-        console.error(e);
-        setStatusPill(false);
+    // Total unique diverted routes across ALL LIVE
+    const busSet = new Set();
+    for (const sit of liveBusAll){
+      const routes = getLineRefs(sit) || [];
+      for (const r of routes){
+        const v = String(r || "").trim();
+        if (v) busSet.add(v.toUpperCase());
       }
     }
+    busDivertedRouteTotal = busSet.size;
 
-    function computeOverlayDurationMs(item){
-      const count = (item?.routesRender && item.routesRender.length) ? item.routesRender.length : 1;
-      if (count === 1) return 10000;
-      if (count <= 4)  return 15000;
-      return 20000;
+    // Sorts
+    function sortUFN(a,b){
+      if (a.ufnOver24h && !b.ufnOver24h) return -1;
+      if (!a.ufnOver24h && b.ufnOver24h) return 1;
+      if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs;
+      return b.startMs - a.startMs;
+    }
+    function sortToday(a,b){
+      const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
+      const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
+      if (aEnd !== bEnd) return aEnd - bEnd;
+      return b.startMs - a.startMs;
+    }
+    function sortLongTerm(a,b){
+      if ((b.routeCount||0) !== (a.routeCount||0)) return (b.routeCount||0) - (a.routeCount||0);
+      const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
+      const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
+      if (aEnd !== bEnd) return aEnd - bEnd;
+      return b.startMs - a.startMs;
     }
 
-    function enqueueOverlays(arr){
-      if(!arr || !arr.length) return;
-      overlayQueue.push(...arr);
-      processOverlayQueue();
-    }
+    ufnItems.sort(sortUFN);
+    todayItems.sort(sortToday);
+    longTermItems.sort(sortLongTerm);
 
-    function processOverlayQueue(){
-      if (overlayShowing) return;
-      const next = overlayQueue.shift();
-      if (!next) return;
-      const duration = computeOverlayDurationMs(next.item);
-      showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
-    }
-
-    /* ===========================
-       OVERLAY ROUTES ONE LINE (with colour + 3-letter labels)
-       =========================== */
-    function renderOverlayRoutesOneLine(container, routesRender, mode){
-      if (!container) return;
-      const list = Array.isArray(routesRender) && routesRender.length ? routesRender : ["?"];
-      container.replaceChildren();
-
-      const n = list.length;
-
-      if (n <= 1){
-        container.appendChild(buildOverlayRouteChip(list[0] ?? "?", mode));
-        return;
+    // Build sectioned pages (with placeholders)
+    function buildSectionPages(sectionLabel, items, emptyMessage){
+      if (!items.length){
+        return [{ section: sectionLabel, items: [{ placeholder:true, message: emptyMessage }] }];
       }
-
-      if (n <= 3){
-        for (let i = 0; i < n; i++){
-          container.appendChild(buildOverlayRouteChip(list[i], mode));
-        }
-        return;
-      }
-
-      container.appendChild(buildOverlayRouteChip(list[0], mode));
-      container.appendChild(buildOverlayRouteChip(list[1], mode));
-
-      const remaining = n - 2;
-      container.appendChild(buildPlusChip(remaining));
+      return chunk(items, pager.pageSize).map(ch => ({ section: sectionLabel, items: ch }));
     }
 
-    function buildOverlayRouteChip(routeObj, mode){
-      const chip = document.createElement("div");
-      chip.className = "ov-route-chip";
+    const pagesUFN   = buildSectionPages("UFN DIVERTS", ufnItems, "No UFN Diverts ✅");
+    const pagesToday = buildSectionPages("STARTING / ENDING TODAY", todayItems, "No Diverts Starting or Ending today");
+    const pagesLong  = buildSectionPages("LONG TERM HIGH IMPACT", longTermItems, "No Long Term Diverts");
 
-      const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
-      chip.textContent = formatRouteChipLabel(raw);
+    // Preserve index where possible
+    const prevIndex = pager.pageIndex || 0;
+    const oldIndex = pager.pageIndex || 0;
 
-      const colorKey = (routeObj && typeof routeObj === "object") ? routeObj.colorKey : null;
-      if (colorKey && TRAM_LINE_COLORS[colorKey]){
-        chip.style.background = TRAM_LINE_COLORS[colorKey].bg;
-        chip.style.color = TRAM_LINE_COLORS[colorKey].fg;
-        chip.style.border = "4px solid rgba(0,0,0,0.65)";
-      }
+    pager.pageSize = 6;
+    pager.pages = [...pagesUFN, ...pagesToday, ...pagesLong];
+    pager.totalPages = pager.pages.length;
+    pager.pageIndex = pager.pages.length ? Math.min(prevIndex, pager.pages.length - 1) : 0;
 
-      const badge = document.createElement("span");
-      badge.className = "ov-route-badge";
-      badge.setAttribute("aria-hidden", "true");
-      badge.textContent = mode === "remove" ? "👍" : "🔀";
-      chip.appendChild(badge);
-      return chip;
+    // Signature: section + item count per page (detect structural change)
+    const pageSignature = pager.pages.map(p => `${p.section}:${(p.items||[]).length}`).join("|");
+    const pageIndexChanged = (pager.pageIndex !== oldIndex);
+
+    // Render always (so data updates show even without restarting pager)
+    renderPage();
+    setStatusPill(true, { animate:true });
+    updatePageIndicator();
+
+    // CRITICAL FIX:
+    // Only restart pager/progress when:
+    // - pages structure changed (signature)
+    // - pageIndex clamped/changed
+    // - no timer yet running
+    const shouldRestartPager = (!pagerTimer) || (pageSignature !== lastPageSignature) || pageIndexChanged;
+
+    if (shouldRestartPager){
+      lastPageSignature = pageSignature;
+      scheduleNextAdvance();
     }
 
-    function buildPlusChip(remaining){
-      const plus = document.createElement("div");
-      plus.className = "ov-route-chip";
-      plus.textContent = `+${remaining}`;
-      plus.setAttribute("aria-label", `${remaining} more routes`);
-      return plus;
+    // Overlay detection (UFN only, respects unplanned-only)
+    const liveUFNForOverlay = baseUnplanned
+      .map(mapSituationToItem)
+      .filter(it => it.isUFN);
+
+    const currLiveIndex = new Map(liveUFNForOverlay.map(it => [it.id, it]));
+
+    let newOnes = [];
+    let removedOnes = [];
+    if(firstFetchDone){
+      newOnes     = liveUFNForOverlay.filter(it => !lastLiveIndex.has(it.id));
+      removedOnes = [...lastLiveIndex.values()].filter(prev => !currLiveIndex.has(prev.id));
+    }
+    lastLiveIndex = currLiveIndex;
+    firstFetchDone = true;
+
+    if (newOnes.length){
+      enqueueOverlays(newOnes.map(item => ({ mode:"add", item })));
     }
 
-    // (Rest of your overlay + emoji functions unchanged)
-    // ... (kept exactly as you provided, to keep response size manageable)
-
-    function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
-      const overlay  = $("#divertOverlay");
-      const elKicker = $("#ovKicker");
-      const elReason = $("#ovReason");
-      const elReasonEmoji = elReason?.querySelector(".ov-reason-emoji");
-      const elReasonText  = elReason?.querySelector(".ov-reason-text");
-      const elLoc    = $("#ovLocation");
-      const elRoutes = $("#ovRoutes");
-      const elOp     = $("#ovOperator");
-      const elDur    = $("#ovDuration");
-
-      overlay.classList.remove("ov-add","ov-remove","closing");
-
-      elReason.hidden = true;
-      elLoc.hidden    = true;
-      elOp.hidden     = true;
-      elDur.hidden    = true;
-
-      if (mode === "add") {
-        if (!(item?.isUFN || item?.isServiceChange)) return;
-
-        overlay.classList.add("ov-add");
-        elKicker.textContent = item.isServiceChange ? "SERVICE CHANGE" : "NEW DIVERT";
-
-        const parsed = parseSummaryParts(item.summary);
-        const reasonTextRaw = item.isTram
-          ? (parseTramSummary(item.summary)?.status || item.summary || "")
-          : ((parsed && parsed.reason) ? parsed.reason : (item.summary || ""));
-
-        const reasonEmoji = item.isTram ? "🚋" : getReasonEmoji(reasonTextRaw);
-        if (elReason && elReasonEmoji && elReasonText){
-          elReasonEmoji.textContent = reasonEmoji;
-          elReasonText.textContent  = reasonTextRaw;
-          elReason.hidden = false;
-        }
-
-        const locationStr = item.isTram
-          ? (parseTramSummary(item.summary)?.lineName || "Metrolink")
-          : (parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert"));
-        elLoc.textContent = locationStr;
-        elLoc.hidden = false;
-
-        elRoutes.replaceChildren();
-        renderOverlayRoutesOneLine(elRoutes, item.routesRender, "add");
-
-        elOp.replaceChildren();
-        const dot = document.createElement("span");
-        dot.className = "operatorDot";
-        elOp.appendChild(dot);
-
-        const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
-        const codes = mapOperators(refs);
-        elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
-        if (refs.length <= 1) {
-          const ref = refs[0];
-          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
-        } else {
-          dot.style.background = "#cfcfd6";
-          startDotColorCycle(dot, refs, { intervalMs: 900 });
-        }
-        elOp.hidden = false;
-
-      } else if (mode === "remove") {
-        overlay.classList.add("ov-remove");
-        elKicker.textContent = item.isServiceChange ? "SERVICE NORMAL" : "DIVERT ENDED";
-
-        const parsed = parseSummaryParts(item.summary);
-        const reasonTextRaw = item.isTram
-          ? (parseTramSummary(item.summary)?.status || item.summary || "")
-          : ((parsed && parsed.reason) ? parsed.reason : (item.summary || ""));
-
-        if (elReason && elReasonEmoji && elReasonText) {
-          elReasonEmoji.textContent = item.isTram ? "🚋" : getReasonEmoji(reasonTextRaw);
-          elReasonText.textContent  = reasonTextRaw;
-          elReason.hidden = false;
-        }
-
-        const locationStr = item.isTram
-          ? (parseTramSummary(item.summary)?.lineName || "Metrolink")
-          : (parsed ? `${parsed.place} // ${parsed.town}` : (item.summary || "Travel alert"));
-        elLoc.textContent = locationStr;
-        elLoc.hidden = false;
-
-        elRoutes.replaceChildren();
-        renderOverlayRoutesOneLine(elRoutes, item.routesRender, "remove");
-
-        elOp.replaceChildren();
-        const dot = document.createElement("span");
-        dot.className = "operatorDot";
-        elOp.appendChild(dot);
-
-        const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
-        const codes = mapOperators(refs);
-        elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
-        if (refs.length <= 1) {
-          const ref = refs[0];
-          dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
-        } else {
-          dot.style.background = "#cfcfd6";
-          startDotColorCycle(dot, refs, { intervalMs: 900 });
-        }
-        elOp.hidden = false;
-
-        const start = item.startMs ? new Date(item.startMs) : null;
-        const end   = item.endMs   ? new Date(item.endMs)   : new Date();
-        const dur   = formatSingleUnitDuration(start, end);
-        elDur.textContent = `On diversion for ${dur}`;
-        elDur.hidden = false;
-      }
-
-      overlay.classList.add("show");
-      overlay.setAttribute("aria-hidden", "false");
-      overlayShowing = true;
-
-      setTimeout(() => {
-        overlay.classList.add("closing");
-        setTimeout(() => {
-          overlay.classList.remove("show", "closing");
-          overlay.setAttribute("aria-hidden", "true");
-          overlayShowing = false;
-          processOverlayQueue();
-        }, 300);
-      }, durationMs);
+    const now = Date.now();
+    if (removedOnes.length){
+      const endedNow = removedOnes.map(it => {
+        if (!it.endMs) it.endMs = now;
+        return it;
+      });
+      enqueueOverlays(endedNow.map(item => ({ mode:"remove", item })));
     }
 
-    /* Start */
-    fetchAll();
-    setInterval(fetchAll, FEED_REFRESH_MS);
+  }catch(e){
+    console.error(e);
+    setStatusPill(false);
+  }
+}
 
-    window.addEventListener("resize", () => requestAnimationFrame(setFixedGridSizing));
-    if(document.fonts && document.fonts.ready){
-      document.fonts.ready.then(() => requestAnimationFrame(setFixedGridSizing));
-    }
-    window.addEventListener("load", () => requestAnimationFrame(setFixedGridSizing) );
-
-    function getReasonEmoji(text){
-      if(!text) return "⚠️";
-      const s = String(text).toLowerCase();
-      if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
-      if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
-      if (/\bcongestion\b/.test(s)) return "🚗🚗";
-      if (/\b(asb|behaviour|youths?|vandalism)\b/i.test(s)) return "💢";
-      if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
-      if (/\brtc\b|\bcollision\b|\baccident\b/.test(s)) return "💥";
-      if (/\bparked\b|\bparking\b/i.test(s)) return "🅿️";
-      if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
-      if (/\b(water|river|flood|mains|burst)\b/i.test(s)) return "💧";
-      return "⚠️";
-    }
-  </script>
+/* Start */
+fetchAll();
+setInterval(fetchAll, FEED_REFRESH_MS);
+</script>
 </body>
 </html>
