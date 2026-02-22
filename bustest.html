@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bee Network - Key Travel Alerts</title>
+  <title>Bee Network - Bus Diversion Alerts</title>
   <meta http-equiv="Cache-Control" content="no-store" />
 
   <!-- Performance: preconnect for font hosts -->
@@ -39,75 +39,44 @@
 
       --route-mini-font: clamp(26px, 3.4vw, 38px);
 
-      /* gets set dynamically */
-      --page-interval: 10000ms;
+      /* progress duration set dynamically */
+      --page-interval: 20000ms;
+
+      /* Match Highways tool spacing (mirrored) */
+      --pillTop:16px;
     }
 
-    *{ box-sizing:border-box; font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif; }
-    html, body { height: 100%; }
+    *{
+      box-sizing:border-box;
+      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
+    }
 
+    html, body { height: 100%; }
     body{
       margin:0; padding:0; background:var(--bg);
       color:var(--text);
       overflow:hidden;
       display:flex;
       flex-direction:column;
+      position:relative;
     }
 
-    /* ----------- HEADER ----------- */
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      padding:12px 24px;
-      background:#0b0b0e;
-      border-bottom:1px solid #1d1d25;
-      flex:0 0 auto;
-    }
-    .leftHeader{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:6px;
-      min-width:0;
-    }
-.title{
-  margin:0;
-  font-size:56px;
-  font-weight:900;
-  letter-spacing:-0.3px;
-
-  /* FIX: allow descenders to breathe */
-  line-height:1.1;
-  padding-bottom:0.08em;
-
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-    .status-meta{
-      font-size:20px;
-      font-weight:700;
-      color:var(--muted);
-      letter-spacing:0.2px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      line-height:1;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
+    /* ===== Mirrored top-right STATUS WRAPPER (match Highways tool) ===== */
     .statusWrapper{
+      position:fixed;
+      top:var(--pillTop);
+      right:0;
+      z-index:40;
       display:flex;
       align-items:center;
       gap:16px;
-      flex-shrink:0;
+      pointer-events:none;
     }
     #beeLogo{
       width:64px; height:64px; object-fit:contain;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
       transition: transform 0.2s ease-out;
+      pointer-events:auto;
     }
     @keyframes wibble {
       0%   { transform: rotate(0deg) scale(1); }
@@ -121,19 +90,58 @@
 
     .status-pill{
       padding:10px 16px;
-      border-radius:999px 0px 0px 999px;
+      border-radius:999px 0 0 999px; /* opens inward from right edge */
       font-size:18px;
       font-weight:800;
       background:var(--liveGreen);
       color:#000;
       box-shadow:0 0 0 2px rgba(255,255,255,0.08),
                  0 4px 14px rgba(0,0,0,0.25);
+      transition:background .2s ease,color .2s ease;
+      pointer-events:auto;
       white-space:nowrap;
-      transition: background .2s ease, color .2s ease;
     }
     .status-error{ background:var(--errorRed); color:#fff; }
 
-    /* ----------- MAIN ----------- */
+    /* ===== Top-left title block ===== */
+    .topbar{
+      padding:12px 24px;
+      border-bottom:1px solid #1d1d25;
+      background:var(--bg);
+      flex:0 0 auto;
+    }
+    .leftHeader{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-width:0;
+      padding-right:240px; /* gives space so title never collides with top-right pill stack */
+    }
+    .title{
+      margin:0;
+      font-size:56px;
+      font-weight:900;
+      letter-spacing:-0.3px;
+
+      /* FIX: prevent descenders (g, y, p) getting clipped */
+      line-height:1.1;
+      padding-bottom:0.08em;
+
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .status-meta{
+      font-size:20px;
+      font-weight:700;
+      color:var(--muted);
+      letter-spacing:0.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    /* ===== Main & fixed 3×2 grid (no clipping at 100% zoom) ===== */
     main{
       padding:0 24px 18px;
       display:flex;
@@ -142,7 +150,6 @@
       min-height:0;
     }
 
-    /* ----------- FIXED 3×2 GRID (NO CLIP AT 100% ZOOM) ----------- */
     #grid{
       margin-top:12px;
       display:grid;
@@ -155,14 +162,13 @@
       align-content:stretch;
     }
 
-    /* FULL-FRAME EMPTY STATE */
     #grid.empty{
       display:flex !important;
       align-items:center;
       justify-content:center;
     }
     .emptyStateText{
-      font-weight:1000;
+      font-weight: 1000;
       letter-spacing:-0.6px;
       font-size: clamp(64px, 6vw, 110px);
       line-height: 1.05;
@@ -173,7 +179,7 @@
       user-select:none;
     }
 
-    /* ----------- CARD ----------- */
+    /* ===== Cards ===== */
     .chip{
       position:relative;
       border:3px solid #2a2a33;
@@ -193,6 +199,7 @@
       overflow:hidden;
       min-width:0;
     }
+
     .chip.ufn{
       border-color: rgba(255,77,79,0.85) !important;
       box-shadow:
@@ -202,7 +209,13 @@
         0 0 0 4px rgba(255,77,79,0.10);
     }
 
-    /* Card top region: routes+chips, location pinned above time divider */
+    @keyframes pulseRed {
+      0% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.35); border-color: rgba(255,77,79,0.55); }
+      50% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 10px rgba(255,77,79,0.12); border-color: rgba(255,77,79,0.95); }
+      100%{ box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.0); border-color: rgba(255,77,79,0.55); }
+    }
+    .chip.pulse-ufn { border-color: var(--errorRed); animation: pulseRed 1200ms ease-in-out infinite; }
+
     .chipTop{
       display:flex;
       flex-direction:column;
@@ -224,7 +237,7 @@
       overflow:hidden;
     }
 
-    /* LEFT: flexible (fixes spill issue) */
+    /* LEFT flexes naturally */
     .headerLeft{
       display:flex;
       flex-direction:column;
@@ -279,7 +292,7 @@
       font-weight: 800;
     }
 
-    /* RIGHT: exactly 15% and cannot overflow */
+    /* RIGHT is 15% and never overflows */
     .rightCol{
       display:flex;
       flex-direction:column;
@@ -287,8 +300,9 @@
       align-items:stretch;
       flex: 0 0 15%;
       max-width: 15%;
-      min-width: 0; /* critical */
+      min-width: 0;
     }
+
     .operatorTag,
     .reasonEmojiChip{
       width:100%;
@@ -306,6 +320,7 @@
       overflow:hidden;
       min-width:0;
     }
+
     .operatorDot{
       width:18px; height:18px;
       border-radius:50%;
@@ -325,13 +340,14 @@
       text-align:center;
       flex:0 0 auto;
     }
+
     .reasonEmojiChip{
       font-size:28px;
       font-weight:800;
       color:#e6e6ee;
     }
 
-    /* Location pinned just above time divider */
+    /* Location pinned above time divider */
     .detailsLine{
       margin-top:auto;
       font-size:clamp(26px, 2.4vw, 32px);
@@ -367,28 +383,33 @@
     .ufn-warning{ margin-left:-6px; display:inline-block; animation: ufnFlash 1.2s infinite; }
     @keyframes ufnFlash { 0%,60%{opacity:1;transform:scale(1);} 70%{opacity:.35;transform:scale(0.98);} 100%{opacity:1;transform:scale(1);} }
 
-    /* Bottom progress */
+    /* Progress bar */
     #pageProgress{
       position:fixed; left:0; right:0; bottom:0;
       height:4px; background:var(--accent);
       transform-origin:left center; transform:scaleX(0); opacity:0.9;
-      z-index:9998; pointer-events:none; display:none;
+      z-index:30; pointer-events:none; display:none;
       will-change:transform;
     }
     #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
     @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
 
-    /* OVERLAY (kept) */
+    /* Fullscreen overlay */
     #divertOverlay{
-      position:fixed; inset:0;
-      background:var(--accent); color:#000;
-      display:none; align-items:center; justify-content:center;
-      z-index:9999; padding:6vh 5vw;
+      position:fixed; inset:0; background:var(--accent); color:#000;
+      display:none; align-items:center; justify-content:center; z-index:9999; padding:6vh 5vw;
     }
     #divertOverlay.show{ display:flex; animation: overlayFadeIn 220ms ease-out; }
     @keyframes overlayFadeIn{ from{ opacity:0; } to{ opacity:1; } }
-    #divertOverlay.ov-add{ background: var(--accent); }
-    #divertOverlay.ov-remove{ background:#19c37d; }
+    #divertOverlay.ov-add    { background: var(--accent); }
+    #divertOverlay.ov-remove { background: #19c37d; }
+    @keyframes overlayDropOut {
+      0%   { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(60px) scale(0.98); }
+    }
+    #divertOverlay.closing .ov-card { animation: overlayDropOut 260ms ease-out forwards; }
+    #divertOverlay.closing { pointer-events:none; }
+
     .ov-card{ width:min(1200px, 100%); text-align:center; }
     .ov-kicker{ font-weight:1000; letter-spacing:1.4px; font-size: clamp(80px, 10vw, 140px); text-transform:uppercase; margin-bottom:12px; }
     .ov-reason{
@@ -435,6 +456,8 @@
       top:-14px;
       right:-22px;
       font-size:0.6em;
+      background:none;
+      border:none;
     }
     .ov-operator{
       display:inline-flex; align-items:center; gap:12px;
@@ -448,26 +471,21 @@
       box-shadow:0 12px 30px rgba(0,0,0,.4);
     }
     .ov-duration{ font-weight:1000; letter-spacing:-0.2px; font-size: clamp(28px, 3vw, 48px); margin:6px 0 0; }
-
-    @keyframes overlayDropOut {
-      0%   { opacity:1; transform: translateY(0) scale(1); }
-      100% { opacity:0; transform: translateY(60px) scale(0.98); }
-    }
-    #divertOverlay.closing .ov-card { animation: overlayDropOut 260ms ease-out forwards; }
-    #divertOverlay.closing { pointer-events:none; }
   </style>
 </head>
 
 <body>
+  <!-- Mirrored top-right status + logo (matches Highways tool geometry) -->
+  <div class="statusWrapper" aria-live="polite">
+    <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
+    <div id="statusPill" class="status-pill">Initialising…</div>
+  </div>
+
+  <!-- Title + page count -->
   <header class="topbar">
     <div class="leftHeader">
       <h1 id="pageTitle" class="title">Checking…</h1>
-      <div id="metricPage" class="status-meta" aria-live="polite">Page 0/0</div>
-    </div>
-
-    <div class="statusWrapper">
-      <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
-      <div id="statusPill" class="status-pill">Starting…</div>
+      <div id="metricPage" class="status-meta">Page 0/0</div>
     </div>
   </header>
 
@@ -506,7 +524,6 @@ const UNPLANNED_ONLY = true;
 
 const PAGE_DURATION_UFN_MS   = 120000; // 2 minutes
 const PAGE_DURATION_OTHER_MS = 20000;  // 20 seconds
-
 const FEED_REFRESH_MS = 45000;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LONG_TERM_ROUTE_THRESHOLD = 5;
@@ -521,6 +538,7 @@ function withCacheBust(url){
   return `${url}${sep}ts=${Date.now()}`;
 }
 
+/* ===== Status pill ===== */
 function setStatusPill(ok, { animate = false } = {}){
   const pill = $("#statusPill");
   const bee = $("#beeLogo");
@@ -539,15 +557,16 @@ function setStatusPill(ok, { animate = false } = {}){
   }
 }
 
-/* Operator mapping */
+/* ===== Operator mapping ===== */
 const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
 function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
+
 const OP_COLOR_MAP = {
   BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
   BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
 };
 
-/* Section title mapping */
+/* ===== Section title mapping ===== */
 const SECTION_TITLE_MAP = {
   "UFN DIVERTS": "UFN Diversions",
   "STARTING / ENDING TODAY": "Diversions Starting/Ending Today",
@@ -559,7 +578,7 @@ function prettySectionTitle(section){
 }
 
 /* ===========================
-   LOCATION PARSER (FIXED: STRIP ANY DASH SUFFIX)
+   LOCATION PARSER (strips ANY dash suffix)
 =========================== */
 function normaliseSummary(s){
   return String(s || "").replace(/\s+/g, " ").trim();
@@ -573,7 +592,6 @@ function extractStreetTown(summaryRaw){
   if (idx !== -1){
     raw = raw.slice(0, idx).trim();
   } else {
-    // also handle odd spacing around dash types
     raw = raw.replace(/\s*[-–—]\s*[^-–—]+$/u, "").trim();
   }
 
@@ -583,7 +601,7 @@ function extractStreetTown(summaryRaw){
     return { street: commaMatch[1].trim(), town: commaMatch[2].trim(), ok:true };
   }
 
-  // Place-first for key GM authorities
+  // Place-first (key GM authorities)
   const placeMatch = raw.match(/^(Manchester|Salford|Trafford|Wigan|Bolton|Stockport|Rochdale|Bury|Oldham|Tameside)\b(.*)?$/i);
   if (placeMatch){
     return { street: raw.trim(), town: placeMatch[1].trim(), ok:true };
@@ -691,7 +709,6 @@ function formatSingleUnitDuration(start, end){
   const day = hr / 24;
   return `${Math.round(day)}d`;
 }
-
 function buildTimesLines(sit){
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
   const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -800,7 +817,7 @@ function getSituationId(sit){
 }
 
 /* ===========================
-   ROUTE CHIP FORMAT
+   ROUTE CHIPS (+X preserved)
 =========================== */
 function formatRouteChipLabel(raw){
   const s = String(raw ?? "").trim();
@@ -843,7 +860,7 @@ function renderRoutesAs2x2Grid(routesArea, routes){
 }
 
 /* ===========================
-   REASON EMOJI
+   REASON EMOJI (emoji only shown)
 =========================== */
 function getReasonEmoji(text){
   if(!text) return "⚠️";
@@ -861,7 +878,7 @@ function getReasonEmoji(text){
 }
 
 /* ===========================
-   OPERATOR CYCLING (dot + one 2-char code)
+   OPERATOR CYCLING (dot + single 2-char code)
 =========================== */
 let opCycleTimers = [];
 function clearOpCycles(){
@@ -1035,7 +1052,6 @@ function mapSituationToItem(s){
   const routesRender = routes.length ? routes.map(String) : ["?"];
 
   const summaryText = (s.Summary || s.Description || "").trim();
-
   const loc = extractStreetTown(summaryText);
 
   return {
@@ -1076,6 +1092,7 @@ function renderPage(){
   for(const it of pg){
     const chip = document.createElement("div");
     chip.className = "chip" + (it.isUFN ? " ufn" : "");
+    if (it.ufnOver24h) chip.classList.add("pulse-ufn");
 
     const chipTop = document.createElement("div");
     chipTop.className = "chipTop";
@@ -1095,18 +1112,11 @@ function renderPage(){
     const rightCol = document.createElement("div");
     rightCol.className = "rightCol";
 
-    // operator chip
     const opTag = document.createElement("div");
     opTag.className = "operatorTag";
-    const dot = document.createElement("span");
-    dot.className = "operatorDot";
-    const codeEl = document.createElement("span");
-    codeEl.className = "operatorCode";
-    codeEl.textContent = "—";
-    opTag.append(dot, codeEl);
+    opTag.innerHTML = `<span class="operatorDot"></span><span class="operatorCode">—</span>`;
     rightCol.appendChild(opTag);
 
-    // reason emoji chip (emoji only, text hidden)
     const reasonChip = document.createElement("div");
     reasonChip.className = "reasonEmojiChip";
     reasonChip.textContent = getReasonEmoji(it.summary || "");
@@ -1155,7 +1165,6 @@ function renderPage(){
     chip.append(chipTop, times);
     grid.appendChild(chip);
 
-    // Start operator cycle on this card
     startOperatorCycle(opTag, it.operatorRefs || []);
   }
 
@@ -1163,7 +1172,7 @@ function renderPage(){
 }
 
 /* ===========================
-   OVERLAY QUEUE (kept)
+   OVERLAY QUEUE (UFN only add/remove)
 =========================== */
 let overlayQueue = [];
 let overlayShowing = false;
@@ -1188,15 +1197,18 @@ function processOverlayQueue(){
   const duration = computeOverlayDurationMs(next.item);
   showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
 }
+
 function renderOverlayRoutesOneLine(container, routesRender, mode){
   if (!container) return;
   const list = Array.isArray(routesRender) && routesRender.length ? routesRender : ["?"];
   container.replaceChildren();
+
   const n = list.length;
-  const buildChip = (val) => {
+
+  const buildChip = (routeObj) => {
     const chip = document.createElement("div");
     chip.className = "ov-route-chip";
-    chip.textContent = formatRouteChipLabel(val);
+    chip.textContent = formatRouteChipLabel(routeObj);
     const badge = document.createElement("span");
     badge.className = "ov-route-badge";
     badge.textContent = mode === "remove" ? "👍" : "🔀";
@@ -1209,17 +1221,19 @@ function renderOverlayRoutesOneLine(container, routesRender, mode){
     plus.textContent = `+${remaining}`;
     return plus;
   };
+
   if (n <= 1){
     container.appendChild(buildChip(list[0] ?? "?"));
     return;
   }
   if (n <= 3){
-    for (let i=0;i<n;i++) container.appendChild(buildChip(list[i]));
+    for (let i = 0; i < n; i++) container.appendChild(buildChip(list[i]));
     return;
   }
+
   container.appendChild(buildChip(list[0]));
   container.appendChild(buildChip(list[1]));
-  container.appendChild(buildPlus(n-2));
+  container.appendChild(buildPlus(n - 2));
 }
 
 function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
@@ -1240,36 +1254,42 @@ function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
   elDur.hidden    = true;
 
   const reasonTextRaw = item.summary || "";
-
-  // Use parsed location for overlay where possible
   const loc = extractStreetTown(reasonTextRaw);
   const locText = (loc.street && loc.town) ? `${loc.street} // ${loc.town.toUpperCase()}` : (loc.street || reasonTextRaw || "Travel alert");
 
   if (mode === "add") {
     overlay.classList.add("ov-add");
     elKicker.textContent = "NEW DIVERT";
+
     elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
     elReasonText.textContent  = reasonTextRaw;
     elReason.hidden = false;
 
-    elLoc.textContent = locText; elLoc.hidden = false;
+    elLoc.textContent = locText;
+    elLoc.hidden = false;
+
     renderOverlayRoutesOneLine(elRoutes, item.routesRender, "add");
 
-    elOp.replaceChildren();
-    elOp.textContent = (mapOperators((item.operatorRefs||[]).map(String)).join("  ") || "—");
+    const refs = (item.operatorRefs || []).map(r => String(r).toUpperCase());
+    const codes = mapOperators(refs);
+    elOp.textContent = codes.length ? codes.join("  ") : "—";
     elOp.hidden = false;
-  } else {
+
+  } else if (mode === "remove") {
     overlay.classList.add("ov-remove");
     elKicker.textContent = "DIVERT ENDED";
+
     elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
     elReasonText.textContent  = reasonTextRaw;
     elReason.hidden = false;
 
-    elLoc.textContent = locText; elLoc.hidden = false;
+    elLoc.textContent = locText;
+    elLoc.hidden = false;
+
     renderOverlayRoutesOneLine(elRoutes, item.routesRender, "remove");
 
     const start = item.startMs ? new Date(item.startMs) : null;
-    const end   = item.endMs ? new Date(item.endMs) : new Date();
+    const end   = item.endMs   ? new Date(item.endMs)   : new Date();
     elDur.textContent = `On diversion for ${formatSingleUnitDuration(start, end)}`;
     elDur.hidden = false;
   }
@@ -1290,7 +1310,7 @@ function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
 }
 
 /* ===========================
-   FETCHALL (JSON-first, XML fallback)  ✅ fixes “not valid JSON”
+   FETCHALL (JSON-first, XML fallback)  ✅ prevents "invalid JSON" failures
 =========================== */
 async function fetchAll(){
   try{
@@ -1390,24 +1410,32 @@ async function fetchAll(){
       });
     };
 
+    // All situations
     let allSituations = (parsed.type==="json")
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    // Only bus diversions, live
-    allSituations = allSituations
-      .filter(sit => (isBusOperator(sit) && isDiversion(sit)))
-      .filter(isCurrentlyValid);
+    // Only bus diversions
+    allSituations = allSituations.filter(sit => (isBusOperator(sit) && isDiversion(sit)));
 
-    // UFN base respects UNPLANNED_ONLY
-    const baseUnplanned = UNPLANNED_ONLY ? allSituations.filter(isUnplanned) : allSituations;
-    const baseAll = allSituations;
+    // Live only
+    const liveBusAll = allSituations.filter(isCurrentlyValid);
 
+    // Bases
+    const baseUnplanned = UNPLANNED_ONLY ? liveBusAll.filter(isUnplanned) : liveBusAll;
+    const baseAll = liveBusAll;
+
+    // Bounds
     const todayStart = startOfToday();
     const todayEnd   = endOfToday();
 
-    // Sections
-    const ufnSits = baseUnplanned.filter(sit => !parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime));
+    // UFN
+    const ufnSits = baseUnplanned.filter(sit => {
+      const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+      return !e;
+    });
+
+    // Starting/Ending Today
     const todaySits = baseAll.filter(sit => {
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -1415,6 +1443,7 @@ async function fetchAll(){
       return isToday(s) || isToday(e);
     });
 
+    // Long term high impact
     const ufnIds = new Set(ufnSits.map(getSituationId));
     const todayIds = new Set(todaySits.map(getSituationId));
 
@@ -1429,14 +1458,15 @@ async function fetchAll(){
       return (s < todayStart) && (e > todayEnd);
     });
 
-    const ufnItems = ufnSits.map(mapSituationToItem);
-    const todayItems = todaySits.map(mapSituationToItem);
-    const longItems = longTermSits.map(mapSituationToItem);
+    // Items
+    const ufnItems      = ufnSits.map(mapSituationToItem);
+    const todayItems    = todaySits.map(mapSituationToItem);
+    const longTermItems = longTermSits.map(mapSituationToItem);
 
     // Sort
     ufnItems.sort((a,b)=> (b.startMs - a.startMs));
     todayItems.sort((a,b)=> ((a.endMs ?? Infinity) - (b.endMs ?? Infinity)));
-    longItems.sort((a,b)=> (b.routeCount - a.routeCount));
+    longTermItems.sort((a,b)=> (b.routeCount - a.routeCount));
 
     function buildSectionPages(sectionLabel, items, emptyMessage){
       if (!items.length){
@@ -1447,11 +1477,12 @@ async function fetchAll(){
 
     const pagesUFN   = buildSectionPages("UFN DIVERTS", ufnItems, "No UFN Diversions ✅");
     const pagesToday = buildSectionPages("STARTING / ENDING TODAY", todayItems, "No Diversions Starting or Ending today");
-    const pagesLong  = buildSectionPages("LONG TERM HIGH IMPACT", longItems, "No Long Term Diversions");
+    const pagesLong  = buildSectionPages("LONG TERM HIGH IMPACT", longTermItems, "No Long Term Diversions");
 
     const prevIndex = pager.pageIndex || 0;
     const oldIndex = pager.pageIndex || 0;
 
+    pager.pageSize = 6;
     pager.pages = [...pagesUFN, ...pagesToday, ...pagesLong];
     pager.totalPages = pager.pages.length;
     pager.pageIndex = pager.pages.length ? Math.min(prevIndex, pager.pages.length - 1) : 0;
@@ -1469,8 +1500,11 @@ async function fetchAll(){
       scheduleNextAdvance();
     }
 
-    // Overlays: UFN only, new/removed
-    const liveUFNForOverlay = baseUnplanned.map(mapSituationToItem).filter(it => it.isUFN);
+    // Overlay detection: UFN only
+    const liveUFNForOverlay = baseUnplanned
+      .map(mapSituationToItem)
+      .filter(it => it.isUFN);
+
     const currLiveIndex = new Map(liveUFNForOverlay.map(it => [it.id, it]));
 
     let newOnes = [];
@@ -1485,6 +1519,7 @@ async function fetchAll(){
     if (newOnes.length){
       enqueueOverlays(newOnes.map(item => ({ mode:"add", item })));
     }
+
     const now = Date.now();
     if (removedOnes.length){
       const endedNow = removedOnes.map(it => {
