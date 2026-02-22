@@ -84,7 +84,12 @@
       font-weight:900;
       letter-spacing:-0.3px;
       line-height:1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
+
+    /* Keep page number line small like original */
     .status-meta{
       font-size:20px;
       font-weight:700;
@@ -400,7 +405,10 @@
 <body>
   <header class="topbar">
     <div class="leftHeader">
-      <h1 class="title">Bee Network - Key Travel Alerts</h1>
+      <!-- Title is now section title (dynamic) -->
+      <h1 id="pageTitle" class="title">Checking…</h1>
+
+      <!-- Page number only (small) -->
       <div id="statusMeta" class="status-meta" aria-live="polite">
         <span id="metricPage">Checking Pages</span>
       </div>
@@ -449,7 +457,7 @@ const UNPLANNED_ONLY = true;
 
 // Timing
 const PAGE_DURATION_UFN_MS   = 120000; // 2 minutes
-const PAGE_DURATION_OTHER_MS = 10000;  // 10 seconds
+const PAGE_DURATION_OTHER_MS = 20000;  // 20 seconds (UPDATED)
 
 const FEED_REFRESH_MS = 45000;
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -495,6 +503,19 @@ const OP_COLOR_MAP = {
   BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
   BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
 };
+
+/* ===========================
+   SECTION TITLE MAPPING (NEW)
+=========================== */
+const SECTION_TITLE_MAP = {
+  "UFN DIVERTS": "UFN Diversions",
+  "STARTING / ENDING TODAY": "Diversions Starting/Ending Today",
+  "LONG TERM HIGH IMPACT": "Long Term High Impact Diversions"
+};
+function prettySectionTitle(section){
+  const key = String(section || "").trim();
+  return SECTION_TITLE_MAP[key] || key || "Checking…";
+}
 
 /* ===========================
    DATE LABELS
@@ -793,12 +814,19 @@ function pageDurationForIndex(idx){
 
 function updatePageIndicator(){
   const el = document.getElementById('metricPage');
-  if(!el) return;
+  const titleEl = document.getElementById('pageTitle');
+  if(!el || !titleEl) return;
+
   const totalPages = Array.isArray(pager.pages) ? pager.pages.length : 0;
   const curr = totalPages > 0 ? (pager.pageIndex + 1) : 0;
   const pg = pager.pages[pager.pageIndex] || {};
   const sectionLabel = pg.section || "—";
-  el.textContent = `Page ${curr}/${totalPages} • ${sectionLabel} • Bus routes diverted: ${busDivertedRouteTotal}`;
+
+  // Small line: page number only
+  el.textContent = `Page ${curr}/${totalPages}`;
+
+  // Big title: section name (pretty)
+  titleEl.textContent = prettySectionTitle(sectionLabel);
 }
 
 function restartProgressBar(){
@@ -1278,7 +1306,7 @@ async function fetchAll(){
     const baseUnplanned = UNPLANNED_ONLY ? liveBusAll.filter(isUnplanned) : liveBusAll; // for UFN section + overlays
     const baseAll = liveBusAll; // for TODAY + LONG-TERM
 
-    // Section bounds (defined before use)
+    // Section bounds
     const todayStart = startOfToday();
     const todayEnd   = endOfToday();
 
@@ -1296,11 +1324,11 @@ async function fetchAll(){
       return isToday(s) || isToday(e);
     });
 
-    // Dedup IDs so long-term doesn't repeat ones already in today/ufn
+    // Dedup IDs so long-term doesn't repeat
     const ufnIds = new Set(ufnSits.map(getSituationId));
     const todayIds = new Set(todaySits.map(getSituationId));
 
-    // SECTION 3: Long term high impact (>=5 routes), spans across today, planned+unplanned
+    // SECTION 3: Long term high impact (>=5 routes), spans across today
     const longTermSits = baseAll.filter(sit => {
       const id = getSituationId(sit);
       if (ufnIds.has(id) || todayIds.has(id)) return false;
@@ -1317,7 +1345,7 @@ async function fetchAll(){
     const todayItems    = todaySits.map(mapSituationToItem);
     const longTermItems = longTermSits.map(mapSituationToItem);
 
-    // Total unique diverted routes across ALL LIVE
+    // Total unique diverted routes across ALL LIVE (still calculated, not displayed)
     const busSet = new Set();
     for (const sit of liveBusAll){
       const routes = getLineRefs(sit) || [];
@@ -1374,20 +1402,16 @@ async function fetchAll(){
     pager.totalPages = pager.pages.length;
     pager.pageIndex = pager.pages.length ? Math.min(prevIndex, pager.pages.length - 1) : 0;
 
-    // Signature: section + item count per page (detect structural change)
+    // Signature: section + item count per page
     const pageSignature = pager.pages.map(p => `${p.section}:${(p.items||[]).length}`).join("|");
     const pageIndexChanged = (pager.pageIndex !== oldIndex);
 
-    // Render always (so data updates show even without restarting pager)
+    // Render always
     renderPage();
     setStatusPill(true, { animate:true });
     updatePageIndicator();
 
-    // CRITICAL FIX:
-    // Only restart pager/progress when:
-    // - pages structure changed (signature)
-    // - pageIndex clamped/changed
-    // - no timer yet running
+    // Only restart pager/progress when needed
     const shouldRestartPager = (!pagerTimer) || (pageSignature !== lastPageSignature) || pageIndexChanged;
 
     if (shouldRestartPager){
@@ -1395,7 +1419,7 @@ async function fetchAll(){
       scheduleNextAdvance();
     }
 
-    // Overlay detection (UFN only, respects unplanned-only)
+    // Overlay detection (UFN only)
     const liveUFNForOverlay = baseUnplanned
       .map(mapSituationToItem)
       .filter(it => it.isUFN);
