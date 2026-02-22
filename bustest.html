@@ -59,23 +59,23 @@
       overflow:hidden;
       display:flex;
       flex-direction:column;
-      position:relative; /* anchors absolute statusWrapper like Highways */
+      position:relative;
     }
 
-    /* ===== Top-right STATUS WRAPPER — pixel perfect mirror of Highways ===== */
+    /* ===== Top-right STATUS WRAPPER (matches Highways geometry mirrored) ===== */
     .statusWrapper{
-      position:absolute;            /* must match Highways */
-      top:var(--pillTop);           /* 16px */
-      right:0;                      /* flush to screen edge */
+      position:absolute;
+      top:var(--pillTop);
+      right:0;
       z-index:1000;
 
       display:flex;
       align-items:center;
-      gap:var(--pillGap);           /* 16px */
+      gap:var(--pillGap);
+
       pointer-events:none;
     }
 
-    /* Bee logo — IDENTICAL */
     #beeLogo{
       width:64px;
       height:64px;
@@ -97,12 +97,9 @@
     }
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
-    /* Status pill — IDENTICAL metrics, mirrored edge (flat RIGHT) */
+    /* ===== Status pill (expanded state remains identical to your previous “match Highways” pill) ===== */
     .status-pill{
-      padding:10px 16px;            /* exact */
-      border-radius:999px 0 0 999px;/* flat side on right */
-      font-size:18px;
-      font-weight:800;
+      padding:10px 16px;
 
       font-family:
         "IBM Plex Sans Condensed",
@@ -114,6 +111,10 @@
         Arial,
         sans-serif;
 
+      font-size:18px;
+      font-weight:800;
+
+      border-radius:999px 0 0 999px;   /* flat RIGHT edge */
       background:var(--liveGreen);
       color:#000;
 
@@ -123,11 +124,48 @@
 
       white-space:nowrap;
       pointer-events:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+
+      transition:
+        width 260ms ease,
+        padding 260ms ease,
+        border-radius 260ms ease,
+        background-color 200ms ease,
+        color 200ms ease;
     }
 
     .status-error{
       background:var(--errorRed);
       color:#fff;
+    }
+
+    /* ===== NEW: Compact SEMICIRCLE (flat edge against RIGHT of screen) ===== */
+    .status-pill.is-compact{
+      width:28px;
+      height:40px;
+      padding:0;
+      color:transparent;
+      border-radius:999px 0 0 999px;
+    }
+
+    .status-pill.is-compact::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.65);
+    }
+
+    .status-pill.status-error.is-compact::before{
+      background:rgba(255,255,255,0.9);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .status-pill{ transition:none !important; }
     }
 
     /* ===== Top-left title block ===== */
@@ -142,15 +180,13 @@
       flex-direction:column;
       gap:6px;
       min-width:0;
-      padding-right:240px; /* gives space so title never collides with top-right pill stack */
+      padding-right:240px;
     }
     .title{
       margin:0;
       font-size:56px;
       font-weight:900;
       letter-spacing:-0.3px;
-
-      /* prevent descenders (g, y, p) getting clipped */
       line-height:1.1;
       padding-bottom:0.08em;
 
@@ -168,7 +204,7 @@
       text-overflow:ellipsis;
     }
 
-    /* ===== Main & fixed 3×2 grid (no clipping at 100% zoom) ===== */
+    /* ===== Main & fixed 3×2 grid ===== */
     main{
       padding:0 24px 18px;
       display:flex;
@@ -188,7 +224,6 @@
       overflow:hidden;
       align-content:stretch;
 
-      /* Page transition */
       opacity: 1;
       transform: translateY(0);
       transition: opacity 260ms ease, transform 260ms ease;
@@ -198,6 +233,7 @@
       opacity: 0;
       transform: translateY(14px);
     }
+
     #grid.page-in{
       opacity: 1;
       transform: translateY(0);
@@ -278,7 +314,6 @@
       overflow:hidden;
     }
 
-    /* LEFT flexes naturally */
     .headerLeft{
       display:flex;
       flex-direction:column;
@@ -287,7 +322,6 @@
       min-height:0;
     }
 
-    /* Routes fill available vertical space */
     .routesArea{
       flex:1 1 auto;
       min-height:0;
@@ -333,7 +367,6 @@
       font-weight: 800;
     }
 
-    /* RIGHT is 15% and never overflows */
     .rightCol{
       display:flex;
       flex-direction:column;
@@ -363,14 +396,14 @@
     }
 
     .operatorDot{
-      width:16px; height:16px;
+      width:16px;
+      height:16px;
       border-radius:50%;
       background:#cfcfd6;
       box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
       flex-shrink:0;
     }
 
-    /* Force the operator letters to IBM Plex and size down */
     .operatorCode{
       font-family: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif !important;
       font-weight: 900;
@@ -391,7 +424,6 @@
       color:#e6e6ee;
     }
 
-    /* Location pinned above time divider */
     .detailsLine{
       margin-top:auto;
       font-size:clamp(26px, 2.4vw, 32px);
@@ -404,7 +436,6 @@
     .locSep{ opacity:0.75; font-weight:800; padding:0 6px; }
     .locTown{ font-weight:1000; color:#ffffff; letter-spacing:0.2px; }
 
-    /* Times */
     .times{
       border-top:2px solid rgba(255,255,255,0.15);
       padding-top:10px;
@@ -519,10 +550,10 @@
 </head>
 
 <body>
-  <!-- Top-right status + logo (pixel-perfect mirror of Highways: pill flat edge on RIGHT, flush to screen) -->
+  <!-- Top-right status + logo -->
   <div class="statusWrapper" aria-live="polite">
     <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
-    <div id="statusPill" class="status-pill">Initialising…</div>
+    <div id="statusPill" class="status-pill is-compact">Initialising…</div>
   </div>
 
   <!-- Title + page count -->
@@ -582,25 +613,145 @@ function withCacheBust(url){
   return `${url}${sep}ts=${Date.now()}`;
 }
 
-/* ===== Status pill ===== */
-function setStatusPill(ok, { animate = false } = {}){
+/* ===========================
+   STATUS PILL (NEW BEHAVIOUR)
+   - LIVE: compact semicircle (no text)
+   - Hourly: expands 20s to LIVE • HH:MM:SS then collapses
+   - STALE: turns red then expands to STALE : HH:MM:SS (last OK)
+=========================== */
+
+const STALE_AFTER_MS = Math.max(FEED_REFRESH_MS * 2, 120000);
+const HOURLY_POP_MS  = 20000;
+
+let lastOkAt = 0;
+let lastOkLabel = "";
+let staleActive = false;
+let hourlyTimer = null;
+let staleWatchTimer = null;
+
+function nowHHMMSS(){
+  return new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+}
+
+function collapseToSemi(){
   const pill = $("#statusPill");
-  const bee = $("#beeLogo");
-  const t = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+  if(!pill) return;
+  pill.classList.add("is-compact");
+  pill.textContent = "";
+}
+
+function expandPill(text){
+  const pill = $("#statusPill");
+  if(!pill) return;
+  pill.classList.remove("is-compact");
+  pill.textContent = text;
+}
+
+function enterStaleMode(){
+  if (staleActive) return;
+  staleActive = true;
+  const pill = $("#statusPill");
+  if(!pill) return;
+
+  pill.classList.add("status-error");
+
+  // red first (compact)
+  collapseToSemi();
+
+  // then pop-out with last OK time
+  setTimeout(() => {
+    const t = lastOkLabel || nowHHMMSS();
+    expandPill(`STALE : ${t}`);
+  }, 180);
+}
+
+function exitStaleMode(){
+  staleActive = false;
+  const pill = $("#statusPill");
+  if(!pill) return;
+  pill.classList.remove("status-error");
+  collapseToSemi();
+}
+
+function startStaleWatchdog(){
+  if (staleWatchTimer) clearInterval(staleWatchTimer);
+  staleWatchTimer = setInterval(() => {
+    if (!lastOkAt) return;
+    const tooOld = (Date.now() - lastOkAt) > STALE_AFTER_MS;
+    if (tooOld) enterStaleMode();
+  }, 2000);
+}
+
+function startHourlyPop(){
+  if (hourlyTimer) clearTimeout(hourlyTimer);
+
+  function msUntilNextHour(){
+    const now = new Date();
+    const next = new Date(now);
+    next.setMinutes(0,0,0);
+    next.setHours(now.getHours() + 1);
+    return next - now;
+  }
+
+  function pop(){
+    // only pop if we have a successful update time and we're not stale
+    if (!lastOkAt || staleActive) { schedule(); return; }
+
+    expandPill(`LIVE • ${lastOkLabel}`);
+
+    setTimeout(() => {
+      if (!staleActive) collapseToSemi();
+      schedule();
+    }, HOURLY_POP_MS);
+  }
+
+  function schedule(){
+    hourlyTimer = setTimeout(pop, msUntilNextHour());
+  }
+
+  schedule();
+}
+
+/* ===== Status pill (used by rest of app) =====
+   IMPORTANT: 'heartbeat:true' calls (page flips) DO NOT update lastOkAt,
+   otherwise STALE would never trigger.
+*/
+function setStatusPill(ok, { animate = false, heartbeat = false } = {}){
+  const pill = $("#statusPill");
+  const bee  = $("#beeLogo");
+  if(!pill) return;
+
+  const t = nowHHMMSS();
+
   if(ok){
+    if (!heartbeat){
+      lastOkAt = Date.now();
+      lastOkLabel = t;
+    }
+
+    if (staleActive) exitStaleMode();
+
     pill.classList.remove("status-error");
-    pill.textContent = `LIVE • ${t}`;
+    collapseToSemi();
+
     if (animate && bee){
       bee.classList.remove("bee-wibble");
       void bee.offsetWidth;
       bee.classList.add("bee-wibble");
     }
   } else {
-    pill.classList.add("status-error");
-    pill.textContent = `Error • ${t}`;
+    enterStaleMode();
   }
 }
 
+// Start compact immediately + watchdogs
+collapseToSemi();
+startStaleWatchdog();
+startHourlyPop();
+
+/* ===========================
+   PAGE TRANSITION RENDER
+=========================== */
 function renderPageWithTransition(){
   const grid = $("#grid");
   if (!grid){
@@ -608,23 +759,21 @@ function renderPageWithTransition(){
     return;
   }
 
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (reduceMotion){
+    renderPage();
+    return;
+  }
 
-
-  // Start fade-out
   grid.classList.add("page-out");
   grid.classList.remove("page-in");
 
-  // Wait for the fade-out to be visible, then swap content
   setTimeout(() => {
-    renderPage(); // your existing function
-
-    // Force a reflow so the browser acknowledges the new DOM before fade-in
+    renderPage();
     void grid.offsetWidth;
-
-    // Fade-in
     grid.classList.remove("page-out");
     grid.classList.add("page-in");
-  }, 180); // slightly shorter than CSS to feel snappy
+  }, 180);
 }
 
 /* ===== Operator mapping ===== */
@@ -648,7 +797,7 @@ function prettySectionTitle(section){
 }
 
 /* ===========================
-   LOCATION PARSER (strips ANY dash suffix)
+   LOCATION PARSER
 =========================== */
 function normaliseSummary(s){
   return String(s || "").replace(/\s+/g, " ").trim();
@@ -657,7 +806,6 @@ function extractStreetTown(summaryRaw){
   let raw = normaliseSummary(summaryRaw);
   if (!raw) return { street:"", town:"", ok:false };
 
-  // Strip ANY suffix after the last " - " / " – " / " — "
   const idx = Math.max(raw.lastIndexOf(" - "), raw.lastIndexOf(" – "), raw.lastIndexOf(" — "));
   if (idx !== -1){
     raw = raw.slice(0, idx).trim();
@@ -665,13 +813,11 @@ function extractStreetTown(summaryRaw){
     raw = raw.replace(/\s*[-–—]\s*[^-–—]+$/u, "").trim();
   }
 
-  // "Street, Town"
   const commaMatch = raw.match(/^(.+?),\s*([A-Za-z][A-Za-z\s'.-]{2,40})$/);
   if (commaMatch){
     return { street: commaMatch[1].trim(), town: commaMatch[2].trim(), ok:true };
   }
 
-  // Place-first (key GM authorities)
   const placeMatch = raw.match(/^(Manchester|Salford|Trafford|Wigan|Bolton|Stockport|Rochdale|Bury|Oldham|Tameside)\b(.*)?$/i);
   if (placeMatch){
     return { street: raw.trim(), town: placeMatch[1].trim(), ok:true };
@@ -930,34 +1076,25 @@ function renderRoutesAs2x2Grid(routesArea, routes){
 }
 
 /* ===========================
-   REASON EMOJI (emoji only shown)
+   REASON EMOJI
 =========================== */
 function getReasonEmoji(text){
   if(!text) return "⚠️";
   const s = String(text).toLowerCase();
-    if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
-  if (/\bcongestion\b/.test(s)) return "🚗";
+  if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
+  if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
+  if (/\bcongestion\b/.test(s)) return "🚗🚗";
   if (/\b(asb|behaviour|youths?|vandalism)\b/i.test(s)) return "💢";
   if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
   if (/\brtc\b|\bcollision\b|\baccident\b/.test(s)) return "💥";
   if (/\bparked\b|\bparking\b|\bpoorly\b|\bbadly\b/i.test(s)) return "🅿️";
   if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
   if (/\b(water|river|flood|mains|burst)\b/i.test(s)) return "💧";
-  if (/\b(snow|ice|black\s*ice|fog|mist|storm|gale|high\s*winds?)\b/.test(s)) return "🌨️";
-  if (/\b(fallen\s+tree|tree\s+down|branches?\s+down|landslip|mudslide)\b/.test(s)) return "🌲";
-  if (/\b(gas\s+leak|gas\s+main|gas\s+works?)\b/.test(s)) return "🔥";
-  if (/\b(power\s*cut|power\s+out(age)?|electrical\s+fault|cable\s+fault)\b/.test(s)) return "⚡";
-  if (/\b(telecoms?|bt\s+works?|fibre|cable\s+works?|sewer|drain(age)?|manhole)\b/.test(s)) return "🛠️";
-  if (/\b(obstruction|road\s+blocked|blocked\s+road|debris|spillage|fallen\s+load|load\s+on\s+road)\b/.test(s)) return "🚧";
-  if (/\b(march|protest|demonstration|parade|procession|marathon|race|event)\b/.test(s)) return "📢";
-  if (/\b(temp(orary)?\s+lights?|signals?\s+fault|traffic\s+management|lane\s+closed?|contraflow)\b/.test(s)) return "🚦";
-  if (/\b(security\s+alert|suspicious\s+package|cordon)\b/.test(s)) return "🔒";
-  if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
   return "⚠️";
 }
 
 /* ===========================
-   OPERATOR CYCLING (dot + single 2-char code)
+   OPERATOR CYCLING
 =========================== */
 let opCycleTimers = [];
 function clearOpCycles(){
@@ -1081,7 +1218,10 @@ function scheduleNextAdvance(){
   pagerTimer = setTimeout(() => {
     pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
     renderPageWithTransition();
-    setStatusPill(true, { animate:false });
+
+    // heartbeat only (do NOT reset lastOkAt)
+    setStatusPill(true, { animate:false, heartbeat:true });
+
     updatePageIndicator();
     scheduleNextAdvance();
   }, pageDurationForIndex(pager.pageIndex));
@@ -1093,7 +1233,10 @@ function gotoPage(newIndex){
   const n = pager.pages.length;
   pager.pageIndex = ((newIndex % n) + n) % n;
   renderPageWithTransition();
-  setStatusPill(true, { animate:false });
+
+  // heartbeat only
+  setStatusPill(true, { animate:false, heartbeat:true });
+
   updatePageIndicator();
   scheduleNextAdvance();
 }
@@ -1389,7 +1532,7 @@ function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
 }
 
 /* ===========================
-   FETCHALL (JSON-first, XML fallback)  ✅ prevents "invalid JSON" failures
+   FETCHALL (JSON-first, XML fallback)
 =========================== */
 async function fetchAll(){
   try{
@@ -1489,32 +1632,24 @@ async function fetchAll(){
       });
     };
 
-    // All situations
     let allSituations = (parsed.type==="json")
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    // Only bus diversions
     allSituations = allSituations.filter(sit => (isBusOperator(sit) && isDiversion(sit)));
 
-    // Live only
     const liveBusAll = allSituations.filter(isCurrentlyValid);
-
-    // Bases
     const baseUnplanned = UNPLANNED_ONLY ? liveBusAll.filter(isUnplanned) : liveBusAll;
     const baseAll = liveBusAll;
 
-    // Bounds
     const todayStart = startOfToday();
     const todayEnd   = endOfToday();
 
-    // UFN
     const ufnSits = baseUnplanned.filter(sit => {
       const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
       return !e;
     });
 
-    // Starting/Ending Today
     const todaySits = baseAll.filter(sit => {
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
@@ -1522,7 +1657,6 @@ async function fetchAll(){
       return isToday(s) || isToday(e);
     });
 
-    // Long term high impact
     const ufnIds = new Set(ufnSits.map(getSituationId));
     const todayIds = new Set(todaySits.map(getSituationId));
 
@@ -1537,12 +1671,10 @@ async function fetchAll(){
       return (s < todayStart) && (e > todayEnd);
     });
 
-    // Items
     const ufnItems      = ufnSits.map(mapSituationToItem);
     const todayItems    = todaySits.map(mapSituationToItem);
     const longTermItems = longTermSits.map(mapSituationToItem);
 
-    // Sort
     ufnItems.sort((a,b)=> (b.startMs - a.startMs));
     todayItems.sort((a,b)=> ((a.endMs ?? Infinity) - (b.endMs ?? Infinity)));
     longTermItems.sort((a,b)=> (b.routeCount - a.routeCount));
@@ -1570,7 +1702,10 @@ async function fetchAll(){
     const pageIndexChanged = (pager.pageIndex !== oldIndex);
 
     renderPage();
+
+    // THIS is the real “data is OK” signal → updates lastOkAt + wiggles
     setStatusPill(true, { animate:true });
+
     updatePageIndicator();
 
     const shouldRestartPager = (!pagerTimer) || (pageSignature !== lastPageSignature) || pageIndexChanged;
@@ -1610,6 +1745,8 @@ async function fetchAll(){
 
   }catch(e){
     console.error(e);
+
+    // Error means stale immediately (red + pop out)
     setStatusPill(false);
   }
 }
