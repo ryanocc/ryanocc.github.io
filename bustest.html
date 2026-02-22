@@ -757,11 +757,6 @@ function renderPageWithTransition(){
     return;
   }
 
-  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-  if (reduceMotion){
-    renderPage();
-    return;
-  }
 
   grid.classList.add("page-out");
   grid.classList.remove("page-in");
