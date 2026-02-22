@@ -397,6 +397,29 @@
       text-align:center;
       flex:0 0 auto;
     }
+    
+    /* Operator pill: use IBM font + slightly smaller text to fit */
+.operatorTag{
+  /* keep your existing pill styling, but ensure proper centring */
+  align-items: center;
+}
+
+/* Force the operator letters to IBM Plex and size down */
+.operatorCode{
+  font-family: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif !important;
+  font-weight: 900;                 /* keep it bold like the rest of the UI */
+  font-size: 24px;                  /* was 30px — this is the main fix */
+  letter-spacing: 0.4px;            /* slightly tighter so “GN/ML/SC” fits nicely */
+  line-height: 1;                   /* prevents vertical clip */
+  width: 2.2ch;                     /* keep your fixed width */
+  text-transform: uppercase;
+}
+
+/* Optional: shrink the dot a touch so the whole pill feels balanced */
+.operatorDot{
+  width: 16px;
+  height: 16px;
+}
 
     .reasonEmojiChip{
       font-size:28px;
