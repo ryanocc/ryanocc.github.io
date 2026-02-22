@@ -1710,10 +1710,9 @@ const ufnSits = baseAll.filter(sit => {
       scheduleNextAdvance();
     }
 
-    // Overlay detection: UFN only
-    const liveUFNForOverlay = baseUnplanned
-      .map(mapSituationToItem)
-      .filter(it => it.isUFN);
+const liveUFNForOverlay = baseAll
+  .map(mapSituationToItem)
+  .filter(it => it.isUFN);
 
     const currLiveIndex = new Map(liveUFNForOverlay.map(it => [it.id, it]));
 
