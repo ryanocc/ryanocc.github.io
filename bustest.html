@@ -935,15 +935,24 @@ function renderRoutesAs2x2Grid(routesArea, routes){
 function getReasonEmoji(text){
   if(!text) return "⚠️";
   const s = String(text).toLowerCase();
-  if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
-  if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
-  if (/\bcongestion\b/.test(s)) return "🚗🚗";
+    if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
+  if (/\bcongestion\b/.test(s)) return "🚗";
   if (/\b(asb|behaviour|youths?|vandalism)\b/i.test(s)) return "💢";
   if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
   if (/\brtc\b|\bcollision\b|\baccident\b/.test(s)) return "💥";
   if (/\bparked\b|\bparking\b|\bpoorly\b|\bbadly\b/i.test(s)) return "🅿️";
   if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
   if (/\b(water|river|flood|mains|burst)\b/i.test(s)) return "💧";
+  if (/\b(snow|ice|black\s*ice|fog|mist|storm|gale|high\s*winds?)\b/.test(s)) return "🌨️";
+  if (/\b(fallen\s+tree|tree\s+down|branches?\s+down|landslip|mudslide)\b/.test(s)) return "🌲";
+  if (/\b(gas\s+leak|gas\s+main|gas\s+works?)\b/.test(s)) return "🔥";
+  if (/\b(power\s*cut|power\s+out(age)?|electrical\s+fault|cable\s+fault)\b/.test(s)) return "⚡";
+  if (/\b(telecoms?|bt\s+works?|fibre|cable\s+works?|sewer|drain(age)?|manhole)\b/.test(s)) return "🛠️";
+  if (/\b(obstruction|road\s+blocked|blocked\s+road|debris|spillage|fallen\s+load|load\s+on\s+road)\b/.test(s)) return "🚧";
+  if (/\b(march|protest|demonstration|parade|procession|marathon|race|event)\b/.test(s)) return "📢";
+  if (/\b(temp(orary)?\s+lights?|signals?\s+fault|traffic\s+management|lane\s+closed?|contraflow)\b/.test(s)) return "🚦";
+  if (/\b(security\s+alert|suspicious\s+package|cordon)\b/.test(s)) return "🔒";
+  if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
   return "⚠️";
 }
 
