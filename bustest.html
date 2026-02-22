@@ -1083,7 +1083,7 @@ function getReasonEmoji(text){
   const s = String(text).toLowerCase();
   if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
   if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
-  if (/\bcongestion\b/.test(s)) return "🚗🚗";
+  if (/\bcongestion\b/.test(s)) return "🚗";
   if (/\b(asb|behaviour|youths?|vandalism)\b/i.test(s)) return "💢";
   if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
   if (/\brtc\b|\bcollision\b|\baccident\b/.test(s)) return "💥";
