@@ -30,28 +30,20 @@
       --neutralElev:#1b1b22;
 
       --accent:#FFE04A;
-      --alert-add-bg: var(--accent);
-      --alert-remove-bg: #19c37d;
 
       --liveGreen:#42BE4B;
       --errorRed:#EA5540;
 
       --gridGap:20px;
       --cardRadius:24px;
-      --cardHeight: 420px;
 
-      --route-mini-font: clamp(24px, 3.2vw, 34px);
-      --route-rect-h: calc(var(--route-mini-font) * 4.2 + 8px + 8px);
+      --route-mini-font: clamp(26px, 3.4vw, 38px);
 
       /* gets set dynamically */
       --page-interval: 10000ms;
     }
 
-    *{
-      box-sizing:border-box;
-      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
-    }
-
+    *{ box-sizing:border-box; font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif; }
     html, body { height: 100%; }
 
     body{
@@ -67,15 +59,16 @@
       display:flex;
       justify-content:space-between;
       align-items:flex-start;
-      padding:16px 24px;
+      padding:12px 24px;
       background:#0b0b0e;
       border-bottom:1px solid #1d1d25;
+      flex:0 0 auto;
     }
     .leftHeader{
       display:flex;
       flex-direction:column;
       justify-content:center;
-      gap:8px;
+      gap:6px;
       min-width:0;
     }
     .title{
@@ -88,14 +81,11 @@
       overflow:hidden;
       text-overflow:ellipsis;
     }
-
-    /* Keep page number line small like original */
     .status-meta{
       font-size:20px;
       font-weight:700;
       color:var(--muted);
       letter-spacing:0.2px;
-      text-shadow: 0 1px 0 rgba(0,0,0,0.25);
       display:flex;
       align-items:center;
       gap:8px;
@@ -109,10 +99,7 @@
       align-items:center;
       gap:16px;
       flex-shrink:0;
-      margin-right: 0;
     }
-    .topbar { padding-right: 0; }
-
     #beeLogo{
       width:64px; height:64px; object-fit:contain;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
@@ -137,30 +124,31 @@
       color:#000;
       box-shadow:0 0 0 2px rgba(255,255,255,0.08),
                  0 4px 14px rgba(0,0,0,0.25);
-      transition:background .2s ease,color .2s ease;
       white-space:nowrap;
+      transition: background .2s ease, color .2s ease;
     }
     .status-error{ background:var(--errorRed); color:#fff; }
 
     /* ----------- MAIN ----------- */
     main{
-      padding:0 24px 24px;
+      padding:0 24px 18px;
       display:flex;
       flex-direction:column;
       flex:1 1 auto;
       min-height:0;
     }
 
-    /* ----------- FIXED 3×2 GRID ----------- */
+    /* ----------- FIXED 3×2 GRID (NO CLIP AT 100% ZOOM) ----------- */
     #grid{
-      margin-top:14px;
+      margin-top:12px;
       display:grid;
       grid-template-columns:repeat(3, 1fr);
+      grid-template-rows:repeat(2, minmax(0, 1fr));
       gap:var(--gridGap);
       flex:1;
-      height:100%;
+      min-height:0;
       overflow:hidden;
-      align-content:start;
+      align-content:stretch;
     }
 
     /* FULL-FRAME EMPTY STATE */
@@ -170,7 +158,7 @@
       justify-content:center;
     }
     .emptyStateText{
-      font-weight: 1000;
+      font-weight:1000;
       letter-spacing:-0.6px;
       font-size: clamp(64px, 6vw, 110px);
       line-height: 1.05;
@@ -196,12 +184,11 @@
         0 1px 0 rgba(255,255,255,0.04) inset,
         0 10px 25px rgba(0,0,0,0.35),
         0 6px 18px rgba(0,0,0,0.45);
-      height:var(--cardHeight);
-      min-height:var(--cardHeight);
-      max-height:var(--cardHeight);
+      height:100%;
+      min-height:0;
       overflow:hidden;
+      min-width:0;
     }
-
     .chip.ufn{
       border-color: rgba(255,77,79,0.85) !important;
       box-shadow:
@@ -211,34 +198,57 @@
         0 0 0 4px rgba(255,77,79,0.10);
     }
 
-    @keyframes pulseRed {
-      0% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.4); border-color: rgba(255,77,79,0.55); }
-      50% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 10px rgba(255,77,79,0.12); border-color: rgba(255,77,79,0.95); }
-      100%{ box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.0); border-color: rgba(255,77,79,0.55); }
+    /* Card top region: routes+chips, location pinned above time divider */
+    .chipTop{
+      display:flex;
+      flex-direction:column;
+      flex:1 1 auto;
+      min-height:0;
+      gap:6px;
+      min-width:0;
     }
-    .chip.pulse-ufn { border-color: var(--errorRed); animation: pulseRed 1200ms ease-in-out infinite; }
 
     .chipHeader{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; width:100%;
+      display:flex;
+      align-items:stretch;
+      justify-content:space-between;
+      gap:14px;
+      width:100%;
+      flex:1 1 auto;
+      min-height:0;
+      min-width:0;
+      overflow:hidden;
     }
-    .headerLeft{ display:flex; flex-direction:column; gap:8px; flex:1 1 auto; min-width:0; }
 
+    /* LEFT: flexible (fixes spill issue) */
+    .headerLeft{
+      display:flex;
+      flex-direction:column;
+      flex:1 1 0;
+      min-width:0;
+      min-height:0;
+    }
+
+    /* Routes fill available vertical space */
     .routesArea{
-      width:100%; height:var(--route-rect-h);
-      display:flex; align-items:center; justify-content:flex-start;
-      max-width:100%; flex:1 1 auto;
+      flex:1 1 auto;
+      min-height:0;
+      display:flex;
+      align-items:stretch;
     }
-
     .routesGrid{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
-      gap:8px; width:100%; height:100%;
-      align-items:stretch; justify-items:stretch;
+      gap:8px;
+      width:100%;
+      height:100%;
+      min-height:0;
     }
-
     .route-mini{
-      display:flex; align-items:center; justify-content:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
       font-weight:700;
       background:var(--accent);
@@ -248,11 +258,12 @@
       line-height:1;
       padding:6px 10px;
       font-size: var(--route-mini-font);
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
       text-transform:uppercase;
       font-variant-numeric: tabular-nums;
     }
-
     .route-mini--glass{
       background: rgba(255,255,255,0.06);
       border: 2px dashed rgba(255,255,255,0.14);
@@ -261,95 +272,155 @@
       border-radius:12px;
       padding:6px 10px;
       font-size: var(--route-mini-font);
-      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
       font-weight: 800;
     }
 
-    .rightCol{ display:flex; flex-direction:column; gap:8px; align-items:stretch; width:max-content; }
-    .reasonEmojiChip,
-    .operatorTag{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:8px 14px; border-radius:999px;
-      background:rgba(255,255,255,0.12); border:2px solid rgba(255,255,255,0.18);
-      font-size:28px; font-weight:800; color:#e6e6ee; white-space:nowrap; width:100%; line-height:1;
+    /* RIGHT: exactly 15% and cannot overflow */
+    .rightCol{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:stretch;
+      flex: 0 0 15%;
+      max-width: 15%;
+      min-width: 0; /* critical */
     }
-    .operatorTag{ justify-content:flex-start; }
+    .operatorTag,
+    .reasonEmojiChip{
+      width:100%;
+      max-width:100%;
+      height:50px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      border:2px solid rgba(255,255,255,0.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-shrink:0;
+      line-height:1;
+      overflow:hidden;
+      min-width:0;
+    }
     .operatorDot{
-      width:18px; height:18px; border-radius:50%;
-      background:#cfcfd6; box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
-      display:inline-block; flex-shrink:0;
-      transition: background-color 400ms ease, background 400ms ease;
+      width:18px; height:18px;
+      border-radius:50%;
+      background:#cfcfd6;
+      box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset;
+      flex-shrink:0;
+    }
+    .operatorCode{
+      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
+      font-weight:700;
+      font-size:30px;
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+      font-variant-numeric: tabular-nums;
+      color:#fff;
+      width:2.2ch;
+      text-align:center;
+      flex:0 0 auto;
+    }
+    .reasonEmojiChip{
+      font-size:28px;
+      font-weight:800;
+      color:#e6e6ee;
     }
 
+    /* Location pinned just above time divider */
     .detailsLine{
-      font-size:clamp(26px, 2.6vw, 32px);
-      line-height: 1.05;
-      color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-      margin:12px 2px 12px 2px;
+      margin-top:auto;
+      font-size:clamp(26px, 2.4vw, 32px);
+      line-height:1.05;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      min-width:0;
     }
+    .locSep{ opacity:0.75; font-weight:800; padding:0 6px; }
+    .locTown{ font-weight:1000; color:#ffffff; letter-spacing:0.2px; }
 
+    /* Times */
     .times{
-      margin-top:auto; padding-top:14px; border-top:2px solid rgba(255,255,255,0.15);
+      border-top:2px solid rgba(255,255,255,0.15);
+      padding-top:10px;
+      flex:0 0 auto;
     }
     .timeLine{
       font-size:clamp(24px, 2.2vw, 30px);
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-      display:flex; align-items:center; gap:8px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      display:flex;
+      align-items:center;
+      gap:8px;
       line-height:1;
     }
-    .times .timeLine{ font-weight:600; color: rgba(233,233,239,0.65); }
-    .times .timeLine .timePrefix{ font-weight:600; color: rgba(233,233,239,0.55); }
-    .times .timeLine .timeValue{ font-weight:900; color:#ffffff; }
-    .times .timeLine.ufn{ color: var(--accent); }
-    .times .timeLine.ufn .timePrefix,
-    .times .timeLine.ufn .timeValue{ color: var(--accent); }
-    .timeLine .ufn-warning{ margin-left:-6px; display:inline-block; animation: ufnFlash 1.2s infinite; }
+    .timePrefix{ font-weight:600; color: rgba(233,233,239,0.55); }
+    .timeValue{ font-weight:900; color:#ffffff; }
+    .timeLine.ufn .timePrefix,
+    .timeLine.ufn .timeValue{ color: var(--accent); }
+    .ufn-warning{ margin-left:-6px; display:inline-block; animation: ufnFlash 1.2s infinite; }
     @keyframes ufnFlash { 0%,60%{opacity:1;transform:scale(1);} 70%{opacity:.35;transform:scale(0.98);} 100%{opacity:1;transform:scale(1);} }
 
-    /* FULLSCREEN OVERLAY */
+    /* Bottom progress */
+    #pageProgress{
+      position:fixed; left:0; right:0; bottom:0;
+      height:4px; background:var(--accent);
+      transform-origin:left center; transform:scaleX(0); opacity:0.9;
+      z-index:9998; pointer-events:none; display:none;
+      will-change:transform;
+    }
+    #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
+    @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+
+    /* OVERLAY (kept) */
     #divertOverlay{
-      position:fixed; inset:0; background:var(--accent); color:#000;
-      display:none; align-items:center; justify-content:center; z-index:9999; padding:6vh 5vw;
+      position:fixed; inset:0;
+      background:var(--accent); color:#000;
+      display:none; align-items:center; justify-content:center;
+      z-index:9999; padding:6vh 5vw;
     }
     #divertOverlay.show{ display:flex; animation: overlayFadeIn 220ms ease-out; }
     @keyframes overlayFadeIn{ from{ opacity:0; } to{ opacity:1; } }
-
+    #divertOverlay.ov-add{ background: var(--accent); }
+    #divertOverlay.ov-remove{ background:#19c37d; }
     .ov-card{ width:min(1200px, 100%); text-align:center; }
-    .ov-kicker{ font-weight: 1000; letter-spacing: 1.4px; font-size: clamp(80px, 10vw, 140px); text-transform: uppercase; margin-bottom: 12px; }
+    .ov-kicker{ font-weight:1000; letter-spacing:1.4px; font-size: clamp(80px, 10vw, 140px); text-transform:uppercase; margin-bottom:12px; }
     .ov-reason{
       display:inline-flex; align-items:center; gap:10px;
       background:#000; color:var(--accent);
-      border: 2px solid rgba(0,0,0,0.9);
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: 1000;
+      border:2px solid rgba(0,0,0,0.9);
+      border-radius:999px;
+      padding:12px 18px;
+      font-weight:1000;
       font-size: clamp(24px, 3vw, 38px);
-      box-shadow: 0 10px 26px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,0.06) inset;
+      box-shadow:0 10px 26px rgba(0,0,0,.35);
       margin: 0 auto 14px;
-      user-select: none;
+      user-select:none;
     }
-    .ov-reason-emoji{ font-size: 1.2em; line-height: 1; }
-    .ov-location{ font-weight:1000; letter-spacing:-0.6px; font-size: clamp(42px, 5.2vw, 84px); line-height: 1; margin: 10px 0 18px; }
-
+    .ov-reason-emoji{ font-size:1.2em; line-height:1; }
+    .ov-location{ font-weight:1000; letter-spacing:-0.6px; font-size: clamp(42px, 5.2vw, 84px); line-height:1; margin:10px 0 18px; }
     .ov-routes{
-      display:flex; flex-wrap:nowrap; gap:18px; justify-content:center; align-items:center;
-      padding-top:22px; padding-bottom:26px; margin:8px auto 18px;
-      max-width:1200px; overflow:visible; white-space:nowrap;
+      display:flex; flex-wrap:nowrap; gap:18px;
+      justify-content:center; align-items:center;
+      padding:22px 0 26px; margin:8px auto 18px;
+      max-width:1200px; white-space:nowrap;
     }
     .ov-route-chip{
-      position: relative;
+      position:relative;
       display:inline-flex;
       align-items:center; justify-content:center;
       background:#000; color:var(--accent);
       border-radius:18px;
       border:4px solid rgba(0,0,0,0.95);
       padding:24px 32px;
-      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif !important;
-      font-weight:700 !important;
+      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
+      font-weight:700;
       letter-spacing:0.4px;
       font-size: clamp(52px, 7vw, 95px);
       line-height:1;
-      box-shadow: 0 12px 32px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,0.06) inset;
+      box-shadow:0 12px 32px rgba(0,0,0,.45);
       user-select:none;
       min-width:6ch;
       text-transform:uppercase;
@@ -357,66 +428,42 @@
     }
     .ov-route-badge{
       position:absolute;
-      top:-14px !important;
-      right:-22px !important;
-      background:none !important;
-      border:none !important;
-      width:auto !important;
-      height:auto !important;
-      box-shadow:none !important;
-      padding:0 !important;
-      margin:0 !important;
-      font-size:0.6em !important;
+      top:-14px;
+      right:-22px;
+      font-size:0.6em;
     }
-
     .ov-operator{
       display:inline-flex; align-items:center; gap:12px;
       background:#000; color:var(--accent);
-      border:2px solid rgba(0,0,0,0.9); border-radius:999px;
-      font-weight:1000; font-size: clamp(26px, 3vw, 40px);
-      padding:12px 20px; margin-top:10px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,0.06) inset;
+      border:2px solid rgba(0,0,0,0.9);
+      border-radius:999px;
+      font-weight:1000;
+      font-size: clamp(26px, 3vw, 40px);
+      padding:12px 20px;
+      margin-top:10px;
+      box-shadow:0 12px 30px rgba(0,0,0,.4);
     }
-    .ov-operator .operatorDot{ width:22px; height:22px; border-radius:50%; box-shadow:0 0 0 2px rgba(0,0,0,0.25) inset; flex-shrink:0; }
-    .ov-duration{ font-weight:1000; letter-spacing:-0.2px; font-size: clamp(28px, 3vw, 48px); line-height:1; margin:6px 0 0; }
-
-    #divertOverlay.ov-add    { background: var(--accent); color:#000; }
-    #divertOverlay.ov-remove { background: #19c37d;       color:#000; }
+    .ov-duration{ font-weight:1000; letter-spacing:-0.2px; font-size: clamp(28px, 3vw, 48px); margin:6px 0 0; }
 
     @keyframes overlayDropOut {
-      0%   { opacity: 1;   transform: translateY(0)    scale(1); }
-      40%  { opacity: 0.65;transform: translateY(20px) scale(0.99); }
-      100% { opacity: 0;   transform: translateY(60px) scale(0.98); }
+      0%   { opacity:1; transform: translateY(0) scale(1); }
+      100% { opacity:0; transform: translateY(60px) scale(0.98); }
     }
     #divertOverlay.closing .ov-card { animation: overlayDropOut 260ms ease-out forwards; }
-    #divertOverlay.closing { pointer-events: none; }
-
-    /* Bottom progress */
-    #pageProgress{
-      position:fixed; left:0; right:0; bottom:0; height:4px; background:var(--accent);
-      transform-origin:left center; transform:scaleX(0); opacity:0.9; z-index:9998;
-      pointer-events:none; display:none; will-change:transform;
-    }
-    #pageProgress.run{ animation: pageProgress var(--page-interval) linear forwards; }
-    @keyframes pageProgress{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+    #divertOverlay.closing { pointer-events:none; }
   </style>
 </head>
 
 <body>
   <header class="topbar">
     <div class="leftHeader">
-      <!-- Title is now section title (dynamic) -->
       <h1 id="pageTitle" class="title">Checking…</h1>
-
-      <!-- Page number only (small) -->
-      <div id="statusMeta" class="status-meta" aria-live="polite">
-        <span id="metricPage">Checking Pages</span>
-      </div>
+      <div id="metricPage" class="status-meta" aria-live="polite">Page 0/0</div>
     </div>
 
     <div class="statusWrapper">
       <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png" alt="Bee Network logo" width="64" height="64" decoding="async">
-      <div id="statusPill" class="status-pill">Pulling from DfT</div>
+      <div id="statusPill" class="status-pill">Starting…</div>
     </div>
   </header>
 
@@ -424,20 +471,20 @@
     <div id="grid"></div>
   </main>
 
-  <!-- Fullscreen Alert Overlay -->
+  <!-- Fullscreen overlay -->
   <div id="divertOverlay" class="ov-add" aria-hidden="true" aria-live="assertive">
     <div class="ov-card" role="dialog" aria-label="Travel alert">
       <div id="ovKicker" class="ov-kicker">NEW DIVERT</div>
 
-      <div id="ovReason" class="ov-reason" aria-label="Reason" hidden>
+      <div id="ovReason" class="ov-reason" hidden>
         <span class="ov-reason-emoji" aria-hidden="true">⚠️</span>
         <span class="ov-reason-text">Reason</span>
       </div>
 
       <div id="ovLocation" class="ov-location" hidden>–</div>
       <div id="ovRoutes" class="ov-routes"></div>
-      <div id="ovOperator" class="ov-operator" aria-label="Operator" hidden></div>
-      <div id="ovDuration" class="ov-duration" hidden>On diversion for —</div>
+      <div id="ovOperator" class="ov-operator" hidden></div>
+      <div id="ovDuration" class="ov-duration" hidden></div>
     </div>
   </div>
 
@@ -451,24 +498,17 @@ const API_BASE = "https://renderexpress-ebb0.onrender.com";
 const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
 
 const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
-
-// UFN section respects this; TODAY section ignores this (per your request)
 const UNPLANNED_ONLY = true;
 
-// Timing
 const PAGE_DURATION_UFN_MS   = 120000; // 2 minutes
-const PAGE_DURATION_OTHER_MS = 20000;  // 20 seconds (UPDATED)
+const PAGE_DURATION_OTHER_MS = 20000;  // 20 seconds
 
 const FEED_REFRESH_MS = 45000;
 const DAY_MS = 24 * 60 * 60 * 1000;
-
-// Long-term high-impact threshold
 const LONG_TERM_ROUTE_THRESHOLD = 5;
 
-// CSS progress duration updated dynamically
 document.documentElement.style.setProperty('--page-interval', PAGE_DURATION_OTHER_MS + 'ms');
 
-/* Helpers */
 const $ = s => document.querySelector(s);
 const parseISO = s => s ? new Date(s) : null;
 
@@ -495,18 +535,15 @@ function setStatusPill(ok, { animate = false } = {}){
   }
 }
 
-/* Operator short-code mapping */
+/* Operator mapping */
 const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
 function mapOperators(list){ return list.map(ref => OP_MAP[ref] || ref); }
-
 const OP_COLOR_MAP = {
   BNML:"var(--op-BNML)", BNGN:"var(--op-BNGN)", BNSM:"var(--op-BNSM)",
   BNDB:"var(--op-BNDB)", BNVB:"var(--op-BNVB)", BNFM:"var(--op-BNFM)"
 };
 
-/* ===========================
-   SECTION TITLE MAPPING (NEW)
-=========================== */
+/* Section title mapping */
 const SECTION_TITLE_MAP = {
   "UFN DIVERTS": "UFN Diversions",
   "STARTING / ENDING TODAY": "Diversions Starting/Ending Today",
@@ -518,7 +555,57 @@ function prettySectionTitle(section){
 }
 
 /* ===========================
-   DATE LABELS
+   LOCATION PARSER (FIXED: STRIP ANY DASH SUFFIX)
+=========================== */
+function normaliseSummary(s){
+  return String(s || "").replace(/\s+/g, " ").trim();
+}
+function extractStreetTown(summaryRaw){
+  let raw = normaliseSummary(summaryRaw);
+  if (!raw) return { street:"", town:"", ok:false };
+
+  // Strip ANY suffix after the last " - " / " – " / " — "
+  const idx = Math.max(raw.lastIndexOf(" - "), raw.lastIndexOf(" – "), raw.lastIndexOf(" — "));
+  if (idx !== -1){
+    raw = raw.slice(0, idx).trim();
+  } else {
+    // also handle odd spacing around dash types
+    raw = raw.replace(/\s*[-–—]\s*[^-–—]+$/u, "").trim();
+  }
+
+  // "Street, Town"
+  const commaMatch = raw.match(/^(.+?),\s*([A-Za-z][A-Za-z\s'.-]{2,40})$/);
+  if (commaMatch){
+    return { street: commaMatch[1].trim(), town: commaMatch[2].trim(), ok:true };
+  }
+
+  // Place-first for key GM authorities
+  const placeMatch = raw.match(/^(Manchester|Salford|Trafford|Wigan|Bolton|Stockport|Rochdale|Bury|Oldham|Tameside)\b(.*)?$/i);
+  if (placeMatch){
+    return { street: raw.trim(), town: placeMatch[1].trim(), ok:true };
+  }
+
+  return { street: raw, town: "", ok:false };
+}
+function escapeHtml(s){
+  return String(s ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#39;");
+}
+function buildLocationHTML(street, town){
+  const st = escapeHtml(street || "");
+  const tw = escapeHtml((town || "").toUpperCase());
+  if (st && tw){
+    return `${st}<span class="locSep">//</span><span class="locTown">${tw}</span>`;
+  }
+  return st || tw || "";
+}
+
+/* ===========================
+   DATE + DURATION
 =========================== */
 function isToday(d){
   const n=new Date();
@@ -574,7 +661,6 @@ function formatLabelForDate(d){
   }
   return `${ordinal(d.getDate())} ${fullMonth(d)} ${d.getFullYear()}`;
 }
-
 function startOfToday(){
   const n = new Date();
   return new Date(n.getFullYear(), n.getMonth(), n.getDate(), 0,0,0,0);
@@ -583,7 +669,6 @@ function endOfToday(){
   const n = new Date();
   return new Date(n.getFullYear(), n.getMonth(), n.getDate(), 23,59,59,999);
 }
-
 function isStartOfService(d){ return d && d.getHours()===0 && d.getMinutes()===0; }
 function isEndOfService(d){ return d && d.getHours()===23 && d.getMinutes()===59; }
 
@@ -591,7 +676,7 @@ function formatSingleUnitDuration(start, end){
   if(!start) return "—";
   const now = new Date();
   const endTime = end || now;
-  let ms = endTime - start;
+  const ms = endTime - start;
   if (ms < 0) return "—";
   const sec = ms / 1000;
   if (sec < 60) return `${Math.round(sec)}s`;
@@ -644,7 +729,6 @@ function getNetworkAffectedLines(sit){
   }
   return out;
 }
-
 function getOperatorRefs(sit){
   const refs = new Set();
   const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
@@ -660,7 +744,6 @@ function getOperatorRefs(sit){
   if(Array.isArray(sit.__operatorRefs)) sit.__operatorRefs.forEach(add);
   return [...refs];
 }
-
 function getLineRefs(sit){
   const lines = new Set();
   const pushVal = (val)=>{
@@ -677,19 +760,16 @@ function getLineRefs(sit){
   }
 
   for(const x of getNetworkAffectedLines(sit)) pushVal(x.lineRef || x.pubName);
-
   if(Array.isArray(sit.__lineRefs)){
     for(const v of sit.__lineRefs) pushVal(v);
   }
 
   return Array.from(lines);
 }
-
 function isDiversion(sit){
   const txt = (sit.Description || sit.Summary || "").toLowerCase();
   return txt.includes("divert") || txt.includes("diversion");
 }
-
 function isCurrentlyValid(sit){
   const now = new Date();
   const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
@@ -699,17 +779,14 @@ function isCurrentlyValid(sit){
   if(e && e < now) return false;
   return true;
 }
-
 function isBusOperator(sit){
   const refs = getOperatorRefs(sit);
   return refs && refs.some(r => BEE_OPERATORS.includes(r));
 }
-
 function isUnplanned(sit){
   const p = sit?.Planned;
   return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
 }
-
 function getSituationId(sit){
   const a  = sit?.SituationNumber || sit?.SituationRef;
   const b  = sit?.ParticipantRef || "";
@@ -719,7 +796,7 @@ function getSituationId(sit){
 }
 
 /* ===========================
-   ROUTE CHIPS (+X preserved)
+   ROUTE CHIP FORMAT
 =========================== */
 function formatRouteChipLabel(raw){
   const s = String(raw ?? "").trim();
@@ -730,7 +807,6 @@ function formatRouteChipLabel(raw){
   const out = (clean || s).slice(0,3).toUpperCase();
   return out || "?";
 }
-
 function renderRoutesAs2x2Grid(routesArea, routes){
   const MAX_SLOTS = 4;
   const gridRoutes = document.createElement("div");
@@ -742,7 +818,6 @@ function renderRoutesAs2x2Grid(routesArea, routes){
   const addCell = (routeObj, glass=false) => {
     const cell = document.createElement("div");
     cell.className = glass ? "route-mini route-mini--glass" : "route-mini";
-
     if (!glass){
       const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
       cell.textContent = formatRouteChipLabel(raw);
@@ -764,6 +839,66 @@ function renderRoutesAs2x2Grid(routesArea, routes){
 }
 
 /* ===========================
+   REASON EMOJI
+=========================== */
+function getReasonEmoji(text){
+  if(!text) return "⚠️";
+  const s = String(text).toLowerCase();
+  if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
+  if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
+  if (/\bcongestion\b/.test(s)) return "🚗🚗";
+  if (/\b(asb|behaviour|youths?|vandalism)\b/i.test(s)) return "💢";
+  if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
+  if (/\brtc\b|\bcollision\b|\baccident\b/.test(s)) return "💥";
+  if (/\bparked\b|\bparking\b|\bpoorly\b|\bbadly\b/i.test(s)) return "🅿️";
+  if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
+  if (/\b(water|river|flood|mains|burst)\b/i.test(s)) return "💧";
+  return "⚠️";
+}
+
+/* ===========================
+   OPERATOR CYCLING (dot + one 2-char code)
+=========================== */
+let opCycleTimers = [];
+function clearOpCycles(){
+  if (opCycleTimers.length){
+    opCycleTimers.forEach(clearInterval);
+    opCycleTimers = [];
+  }
+}
+function startOperatorCycle(opTag, refs){
+  const dot = opTag.querySelector(".operatorDot");
+  const codeEl = opTag.querySelector(".operatorCode");
+  if (!dot || !codeEl) return;
+
+  const cleanedRefs = (refs || []).map(r => String(r).trim().toUpperCase()).filter(Boolean);
+  const uniqRefs = Array.from(new Set(cleanedRefs));
+  const codes = mapOperators(uniqRefs);
+
+  if (!uniqRefs.length){
+    dot.style.background = "#cfcfd6";
+    codeEl.textContent = "—";
+    return;
+  }
+
+  let idx = 0;
+  const apply = () => {
+    const ref = uniqRefs[idx] || uniqRefs[0];
+    const code = codes[idx] || codes[0] || "—";
+    dot.style.background = OP_COLOR_MAP[ref] || "#cfcfd6";
+    codeEl.textContent = code;
+  };
+  apply();
+
+  if (uniqRefs.length === 1) return;
+  const timer = setInterval(() => {
+    idx = (idx + 1) % uniqRefs.length;
+    apply();
+  }, 2400);
+  opCycleTimers.push(timer);
+}
+
+/* ===========================
    UI HELPERS
 =========================== */
 function splitLine(line){
@@ -771,18 +906,6 @@ function splitLine(line){
   if (idx === -1) return [line, ""];
   return [line.slice(0, idx), line.slice(idx + 4)];
 }
-function escapeHtml(s){
-  return String(s ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#39;");
-}
-
-/* ===========================
-   EMPTY STATE RENDER
-=========================== */
 function renderEmptyState(message){
   const grid = $("#grid");
   grid.classList.add("empty");
@@ -794,41 +917,34 @@ function renderEmptyState(message){
 }
 
 /* ===========================
-   PAGER (SECTIONED + NO RESET ON REFRESH)
+   PAGER
 =========================== */
 let pagerTimer = null;
 let lastPageSignature = "";
 const pager = { pages: [], pageIndex: 0, pageSize: 6, totalPages: 0 };
-let busDivertedRouteTotal = 0;
 
 function chunk(arr,size){
   if (!Array.isArray(arr) || arr.length === 0) return [];
   const out=[]; for(let i=0;i<arr.length;i+=size) out.push(arr.slice(i,i+size)); return out;
 }
-
 function pageDurationForIndex(idx){
   const pg = pager.pages[idx];
   if (!pg) return PAGE_DURATION_OTHER_MS;
   return (pg.section === "UFN DIVERTS") ? PAGE_DURATION_UFN_MS : PAGE_DURATION_OTHER_MS;
 }
-
 function updatePageIndicator(){
-  const el = document.getElementById('metricPage');
+  const pageEl = document.getElementById('metricPage');
   const titleEl = document.getElementById('pageTitle');
-  if(!el || !titleEl) return;
+  if(!pageEl || !titleEl) return;
 
   const totalPages = Array.isArray(pager.pages) ? pager.pages.length : 0;
   const curr = totalPages > 0 ? (pager.pageIndex + 1) : 0;
   const pg = pager.pages[pager.pageIndex] || {};
   const sectionLabel = pg.section || "—";
 
-  // Small line: page number only
-  el.textContent = `Page ${curr}/${totalPages}`;
-
-  // Big title: section name (pretty)
+  pageEl.textContent = `Page ${curr}/${totalPages}`;
   titleEl.textContent = prettySectionTitle(sectionLabel);
 }
-
 function restartProgressBar(){
   const bar = document.getElementById('pageProgress');
   if (!bar) return;
@@ -849,14 +965,12 @@ function restartProgressBar(){
   void bar.offsetWidth;
   bar.classList.add('run');
 }
-
 function stopPager(){
   if (pagerTimer){
     clearTimeout(pagerTimer);
     pagerTimer = null;
   }
 }
-
 function scheduleNextAdvance(){
   stopPager();
   if (!pager.pages || pager.pages.length <= 1){
@@ -873,8 +987,179 @@ function scheduleNextAdvance(){
   }, pageDurationForIndex(pager.pageIndex));
 }
 
+/* Keyboard navigation */
+function gotoPage(newIndex){
+  if (!Array.isArray(pager.pages) || pager.pages.length === 0) return;
+  const n = pager.pages.length;
+  pager.pageIndex = ((newIndex % n) + n) % n;
+  renderPage();
+  setStatusPill(true, { animate:false });
+  updatePageIndicator();
+  scheduleNextAdvance();
+}
+window.addEventListener("keydown", (e) => {
+  const t = e.target;
+  const tag = (t && t.tagName) ? t.tagName.toLowerCase() : "";
+  const isTyping = t && (t.isContentEditable || tag === "input" || tag === "textarea" || tag === "select");
+  if (isTyping) return;
+
+  if (e.key === "ArrowRight"){
+    e.preventDefault(); gotoPage(pager.pageIndex + 1);
+  } else if (e.key === "ArrowLeft"){
+    e.preventDefault(); gotoPage(pager.pageIndex - 1);
+  }
+}, { passive:false });
+
 /* ===========================
-   OVERLAY QUEUE (BUS UFN ONLY)
+   MAP SITUATION -> ITEM
+=========================== */
+function mapSituationToItem(s){
+  const operatorRefs = getOperatorRefs(s);
+  const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
+  const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
+  const nowMs = Date.now();
+  const startMs = st ? st.getTime() : 0;
+  const endMs   = en ? en.getTime() : null;
+
+  const isUFN = (endMs == null);
+  const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
+
+  const timeLines = buildTimesLines(s);
+
+  const routes = getLineRefs(s);
+  const routesTitle = routes.length ? routes.map(String) : ["?"];
+  const routesRender = routes.length ? routes.map(String) : ["?"];
+
+  const summaryText = (s.Summary || s.Description || "").trim();
+
+  const loc = extractStreetTown(summaryText);
+
+  return {
+    id: getSituationId(s),
+    operatorRefs,
+    routesTitle,
+    routesRender,
+    summary: summaryText,
+    locationHTML: buildLocationHTML(loc.street || summaryText, loc.town || ""),
+    timeLines,
+    startMs,
+    endMs,
+    isUFN,
+    ufnOver24h,
+    routeCount: routesTitle.length
+  };
+}
+
+/* ===========================
+   RENDER PAGE
+=========================== */
+function renderPage(){
+  clearOpCycles();
+
+  const grid = $("#grid");
+  const pgObj = pager.pages[pager.pageIndex] || { section:"—", items:[] };
+  const pg = pgObj.items || [];
+
+  if (pg.length === 1 && pg[0] && pg[0].placeholder){
+    renderEmptyState(pg[0].message || "No alerts");
+    updatePageIndicator();
+    return;
+  }
+
+  grid.classList.remove("empty");
+  grid.replaceChildren();
+
+  for(const it of pg){
+    const chip = document.createElement("div");
+    chip.className = "chip" + (it.isUFN ? " ufn" : "");
+
+    const chipTop = document.createElement("div");
+    chipTop.className = "chipTop";
+
+    const header = document.createElement("div");
+    header.className = "chipHeader";
+
+    const headerLeft = document.createElement("div");
+    headerLeft.className = "headerLeft";
+
+    const routesArea = document.createElement("div");
+    routesArea.className = "routesArea";
+    routesArea.title = (it.routesTitle || []).join(", ");
+    renderRoutesAs2x2Grid(routesArea, it.routesRender);
+    headerLeft.appendChild(routesArea);
+
+    const rightCol = document.createElement("div");
+    rightCol.className = "rightCol";
+
+    // operator chip
+    const opTag = document.createElement("div");
+    opTag.className = "operatorTag";
+    const dot = document.createElement("span");
+    dot.className = "operatorDot";
+    const codeEl = document.createElement("span");
+    codeEl.className = "operatorCode";
+    codeEl.textContent = "—";
+    opTag.append(dot, codeEl);
+    rightCol.appendChild(opTag);
+
+    // reason emoji chip (emoji only, text hidden)
+    const reasonChip = document.createElement("div");
+    reasonChip.className = "reasonEmojiChip";
+    reasonChip.textContent = getReasonEmoji(it.summary || "");
+    reasonChip.title = it.summary || "Reason";
+    rightCol.appendChild(reasonChip);
+
+    header.append(headerLeft, rightCol);
+
+    const detailsEl = document.createElement("div");
+    detailsEl.className = "detailsLine";
+    detailsEl.innerHTML = it.locationHTML || escapeHtml(it.summary || "");
+    detailsEl.title = it.summary || "";
+
+    chipTop.append(header, detailsEl);
+
+    const times = document.createElement("div");
+    times.className = "times";
+
+    const [startLabel, startValue] = splitLine(it.timeLines.startLine);
+    const [endLabel, endValue]     = splitLine(it.timeLines.endLine);
+    const [durLabel, durValue]     = splitLine(it.timeLines.durationLine);
+
+    const startDiv = document.createElement("div");
+    startDiv.className = "timeLine";
+    startDiv.innerHTML = `<span class="timePrefix">${escapeHtml(startLabel)} //</span> <span class="timeValue">${escapeHtml(startValue)}</span>`;
+    times.appendChild(startDiv);
+
+    const endDiv = document.createElement("div");
+    endDiv.className = "timeLine";
+    const isUFN = String(endValue || "").trim().toUpperCase() === "UFN";
+    if (isUFN) endDiv.classList.add("ufn");
+    endDiv.innerHTML = `<span class="timePrefix">${escapeHtml(endLabel)} //</span> <span class="timeValue">${escapeHtml(endValue)}</span>`;
+    if (isUFN){
+      const warn = document.createElement("span");
+      warn.className = "ufn-warning";
+      warn.textContent = " ⚠️";
+      endDiv.appendChild(warn);
+    }
+    times.appendChild(endDiv);
+
+    const durDiv = document.createElement("div");
+    durDiv.className = "timeLine";
+    durDiv.innerHTML = `<span class="timePrefix">${escapeHtml(durLabel)} //</span> <span class="timeValue">${escapeHtml(durValue)}</span>`;
+    times.appendChild(durDiv);
+
+    chip.append(chipTop, times);
+    grid.appendChild(chip);
+
+    // Start operator cycle on this card
+    startOperatorCycle(opTag, it.operatorRefs || []);
+  }
+
+  updatePageIndicator();
+}
+
+/* ===========================
+   OVERLAY QUEUE (kept)
 =========================== */
 let overlayQueue = [];
 let overlayShowing = false;
@@ -899,66 +1184,38 @@ function processOverlayQueue(){
   const duration = computeOverlayDurationMs(next.item);
   showDivertOverlay(next.item, { mode: next.mode, durationMs: duration });
 }
-
-/* Overlay routes line (2 chips + +N) */
 function renderOverlayRoutesOneLine(container, routesRender, mode){
   if (!container) return;
   const list = Array.isArray(routesRender) && routesRender.length ? routesRender : ["?"];
   container.replaceChildren();
-
   const n = list.length;
-
+  const buildChip = (val) => {
+    const chip = document.createElement("div");
+    chip.className = "ov-route-chip";
+    chip.textContent = formatRouteChipLabel(val);
+    const badge = document.createElement("span");
+    badge.className = "ov-route-badge";
+    badge.textContent = mode === "remove" ? "👍" : "🔀";
+    chip.appendChild(badge);
+    return chip;
+  };
+  const buildPlus = (remaining) => {
+    const plus = document.createElement("div");
+    plus.className = "ov-route-chip";
+    plus.textContent = `+${remaining}`;
+    return plus;
+  };
   if (n <= 1){
-    container.appendChild(buildOverlayRouteChip(list[0] ?? "?", mode));
+    container.appendChild(buildChip(list[0] ?? "?"));
     return;
   }
   if (n <= 3){
-    for (let i = 0; i < n; i++){
-      container.appendChild(buildOverlayRouteChip(list[i], mode));
-    }
+    for (let i=0;i<n;i++) container.appendChild(buildChip(list[i]));
     return;
   }
-
-  container.appendChild(buildOverlayRouteChip(list[0], mode));
-  container.appendChild(buildOverlayRouteChip(list[1], mode));
-  container.appendChild(buildPlusChip(n - 2));
-}
-
-function buildOverlayRouteChip(routeObj, mode){
-  const chip = document.createElement("div");
-  chip.className = "ov-route-chip";
-  const raw = (routeObj && typeof routeObj === "object") ? routeObj.raw : routeObj;
-  chip.textContent = formatRouteChipLabel(raw);
-
-  const badge = document.createElement("span");
-  badge.className = "ov-route-badge";
-  badge.setAttribute("aria-hidden", "true");
-  badge.textContent = mode === "remove" ? "👍" : "🔀";
-  chip.appendChild(badge);
-  return chip;
-}
-
-function buildPlusChip(remaining){
-  const plus = document.createElement("div");
-  plus.className = "ov-route-chip";
-  plus.textContent = `+${remaining}`;
-  plus.setAttribute("aria-label", `${remaining} more routes`);
-  return plus;
-}
-
-function getReasonEmoji(text){
-  if(!text) return "⚠️";
-  const s = String(text).toLowerCase();
-  if (/\broad\s?works\b/.test(s) || /\bworks\b/.test(s)) return "👷";
-  if (/\bclosed\b|\bclosure\b/.test(s)) return "⛔";
-  if (/\bcongestion\b/.test(s)) return "🚗🚗";
-  if (/\b(asb|behaviour|youths?|vandalism)\b/i.test(s)) return "💢";
-  if (/\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(s)) return "🔀";
-  if (/\brtc\b|\bcollision\b|\baccident\b/.test(s)) return "💥";
-  if (/\bparked\b|\bparking\b/i.test(s)) return "🅿️";
-  if (/\bincident\b|\bpolice\b|\bfire\b/.test(s)) return "🚨";
-  if (/\b(water|river|flood|mains|burst)\b/i.test(s)) return "💧";
-  return "⚠️";
+  container.appendChild(buildChip(list[0]));
+  container.appendChild(buildChip(list[1]));
+  container.appendChild(buildPlus(n-2));
 }
 
 function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
@@ -973,7 +1230,6 @@ function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
   const elDur    = $("#ovDuration");
 
   overlay.classList.remove("ov-add","ov-remove","closing");
-
   elReason.hidden = true;
   elLoc.hidden    = true;
   elOp.hidden     = true;
@@ -981,51 +1237,35 @@ function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
 
   const reasonTextRaw = item.summary || "";
 
-  if (mode === "add") {
-    if (!item?.isUFN) return;
+  // Use parsed location for overlay where possible
+  const loc = extractStreetTown(reasonTextRaw);
+  const locText = (loc.street && loc.town) ? `${loc.street} // ${loc.town.toUpperCase()}` : (loc.street || reasonTextRaw || "Travel alert");
 
+  if (mode === "add") {
     overlay.classList.add("ov-add");
     elKicker.textContent = "NEW DIVERT";
+    elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
+    elReasonText.textContent  = reasonTextRaw;
+    elReason.hidden = false;
 
-    if (elReason && elReasonEmoji && elReasonText){
-      elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
-      elReasonText.textContent  = reasonTextRaw;
-      elReason.hidden = false;
-    }
-
-    elLoc.textContent = item.summary || "Travel alert";
-    elLoc.hidden = false;
-
+    elLoc.textContent = locText; elLoc.hidden = false;
     renderOverlayRoutesOneLine(elRoutes, item.routesRender, "add");
 
     elOp.replaceChildren();
-    const dot = document.createElement("span");
-    dot.className = "operatorDot";
-    elOp.appendChild(dot);
-
-    const refs  = (item.operatorRefs || []).map(r => String(r).toUpperCase());
-    const codes = mapOperators(refs);
-    elOp.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
-    dot.style.background = OP_COLOR_MAP[refs[0]] || "#cfcfd6";
+    elOp.textContent = (mapOperators((item.operatorRefs||[]).map(String)).join("  ") || "—");
     elOp.hidden = false;
-
-  } else if (mode === "remove") {
+  } else {
     overlay.classList.add("ov-remove");
     elKicker.textContent = "DIVERT ENDED";
+    elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
+    elReasonText.textContent  = reasonTextRaw;
+    elReason.hidden = false;
 
-    if (elReason && elReasonEmoji && elReasonText){
-      elReasonEmoji.textContent = getReasonEmoji(reasonTextRaw);
-      elReasonText.textContent  = reasonTextRaw;
-      elReason.hidden = false;
-    }
-
-    elLoc.textContent = item.summary || "Travel alert";
-    elLoc.hidden = false;
-
+    elLoc.textContent = locText; elLoc.hidden = false;
     renderOverlayRoutesOneLine(elRoutes, item.routesRender, "remove");
 
     const start = item.startMs ? new Date(item.startMs) : null;
-    const end   = item.endMs   ? new Date(item.endMs)   : new Date();
+    const end   = item.endMs ? new Date(item.endMs) : new Date();
     elDur.textContent = `On diversion for ${formatSingleUnitDuration(start, end)}`;
     elDur.hidden = false;
   }
@@ -1046,152 +1286,7 @@ function showDivertOverlay(item, { mode = "add", durationMs = 10000 } = {}){
 }
 
 /* ===========================
-   MAP SITUATION -> ITEM (BUS ONLY)
-=========================== */
-function mapSituationToItem(s){
-  const operatorRefs = getOperatorRefs(s);
-  const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
-  const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
-  const nowMs = Date.now();
-  const startMs = st ? st.getTime() : 0;
-  const endMs   = en ? en.getTime() : null;
-
-  const isUFN = (endMs == null);
-  const ufnOver24h = isUFN && startMs > 0 && (nowMs - startMs) >= DAY_MS;
-
-  const timeLines = buildTimesLines(s);
-
-  const busRoutes = getLineRefs(s);
-  const routesTitle = busRoutes.length ? busRoutes.map(String) : ["?"];
-  const routesRender = busRoutes.length ? busRoutes.map(String) : ["?"];
-
-  return {
-    id: getSituationId(s),
-    operatorRefs,
-    routesTitle,
-    routesRender,
-    summary: (s.Summary || s.Description || "").trim(),
-    timeLines,
-    startMs,
-    endMs,
-    isUFN,
-    ufnOver24h,
-    routeCount: routesTitle.length
-  };
-}
-
-/* ===========================
-   RENDER PAGE
-=========================== */
-function renderPage(){
-  const grid = $("#grid");
-  const pgObj = pager.pages[pager.pageIndex] || { section:"—", items:[] };
-  const pg = pgObj.items || [];
-
-  // Empty placeholder page = centered text
-  if (pg.length === 1 && pg[0] && pg[0].placeholder){
-    renderEmptyState(pg[0].message || "No alerts");
-    updatePageIndicator();
-    return;
-  }
-
-  grid.classList.remove("empty");
-  grid.innerHTML = "";
-
-  for(const it of pg){
-    const chip = document.createElement("div");
-    chip.className = "chip";
-    if (it.isUFN) chip.classList.add("ufn");
-    if (it.ufnOver24h) chip.classList.add("pulse-ufn");
-
-    const header = document.createElement("div");
-    header.className = "chipHeader";
-
-    const headerLeft = document.createElement("div");
-    headerLeft.className = "headerLeft";
-
-    const routesArea = document.createElement("div");
-    routesArea.className = "routesArea";
-    routesArea.title = (it.routesTitle || []).join(", ");
-    renderRoutesAs2x2Grid(routesArea, it.routesRender);
-    headerLeft.appendChild(routesArea);
-
-    const rightCol = document.createElement("div");
-    rightCol.className = "rightCol";
-
-    const opTag = document.createElement("div");
-    opTag.className = "operatorTag";
-    const dot = document.createElement("span");
-    dot.className = "operatorDot";
-
-    const refs  = (it.operatorRefs || []).map(r => String(r).toUpperCase());
-    const codes = mapOperators(refs);
-    dot.style.background = OP_COLOR_MAP[refs[0]] || "#cfcfd6";
-    opTag.appendChild(dot);
-    opTag.append(document.createTextNode(" " + (codes.length ? codes.join(", ") : "—")));
-    rightCol.appendChild(opTag);
-
-    const reasonText = it.summary || "";
-    const reasonEmoji = getReasonEmoji(reasonText);
-
-    const reasonEmojiChip = document.createElement("div");
-    reasonEmojiChip.className = "reasonEmojiChip";
-    reasonEmojiChip.textContent = reasonEmoji;
-    reasonEmojiChip.title = reasonText || "Reason";
-    rightCol.appendChild(reasonEmojiChip);
-
-    header.append(headerLeft, rightCol);
-
-    const detailsEl = document.createElement("div");
-    detailsEl.className = "detailsLine";
-    detailsEl.textContent = it.summary || "";
-
-    const times = document.createElement("div");
-    times.className = "times";
-
-    const [startLabel, startValue] = splitLine(it.timeLines.startLine);
-    const [endLabel, endValue]     = splitLine(it.timeLines.endLine);
-    const [durLabel, durValue]     = splitLine(it.timeLines.durationLine);
-
-    const startDiv = document.createElement("div");
-    startDiv.className = "timeLine";
-    startDiv.innerHTML =
-      `<span class="timePrefix">${escapeHtml(startLabel)} //</span> <span class="timeValue">${escapeHtml(startValue)}</span>`;
-    times.appendChild(startDiv);
-
-    const endDiv = document.createElement("div");
-    endDiv.className = "timeLine";
-    const isUFN = String(endValue || "").trim().toUpperCase() === "UFN";
-    if (isUFN) endDiv.classList.add("ufn");
-    endDiv.innerHTML =
-      `<span class="timePrefix">${escapeHtml(endLabel)} //</span> <span class="timeValue">${escapeHtml(endValue)}</span>`;
-    if (isUFN){
-      const warn = document.createElement("span");
-      warn.className = "ufn-warning";
-      warn.textContent = " ⚠️";
-      endDiv.appendChild(warn);
-    }
-    times.appendChild(endDiv);
-
-    const durDiv = document.createElement("div");
-    durDiv.className = "timeLine";
-    durDiv.innerHTML =
-      `<span class="timePrefix">${escapeHtml(durLabel)} //</span> <span class="timeValue">${escapeHtml(durValue)}</span>`;
-    times.appendChild(durDiv);
-
-    chip.append(header, detailsEl, times);
-    grid.appendChild(chip);
-  }
-
-  updatePageIndicator();
-}
-
-/* ===========================
-   FETCHALL (JSON-first, XML fallback)
-   + SECTION PAGING
-   + TODAY ignores UNPLANNED_ONLY
-   + Long-term threshold 5
-   + CRITICAL FIX: refresh doesn't reset pager unless pages changed
+   FETCHALL (JSON-first, XML fallback)  ✅ fixes “not valid JSON”
 =========================== */
 async function fetchAll(){
   try{
@@ -1291,44 +1386,34 @@ async function fetchAll(){
       });
     };
 
-    // All situations
     let allSituations = (parsed.type==="json")
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    // Only bus diversions
-    allSituations = allSituations.filter(sit => (isBusOperator(sit) && isDiversion(sit)));
+    // Only bus diversions, live
+    allSituations = allSituations
+      .filter(sit => (isBusOperator(sit) && isDiversion(sit)))
+      .filter(isCurrentlyValid);
 
-    // Live only
-    const liveBusAll = allSituations.filter(isCurrentlyValid);
+    // UFN base respects UNPLANNED_ONLY
+    const baseUnplanned = UNPLANNED_ONLY ? allSituations.filter(isUnplanned) : allSituations;
+    const baseAll = allSituations;
 
-    // Bases
-    const baseUnplanned = UNPLANNED_ONLY ? liveBusAll.filter(isUnplanned) : liveBusAll; // for UFN section + overlays
-    const baseAll = liveBusAll; // for TODAY + LONG-TERM
-
-    // Section bounds
     const todayStart = startOfToday();
     const todayEnd   = endOfToday();
 
-    // SECTION 1: UFN (respects unplanned-only)
-    const ufnSits = baseUnplanned.filter(sit => {
-      const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
-      return !e;
-    });
-
-    // SECTION 2: Starting/Ending Today (IGNORES unplanned-only)
+    // Sections
+    const ufnSits = baseUnplanned.filter(sit => !parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime));
     const todaySits = baseAll.filter(sit => {
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
       const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-      if (!s || !e) return false; // excludes UFN
+      if (!s || !e) return false;
       return isToday(s) || isToday(e);
     });
 
-    // Dedup IDs so long-term doesn't repeat
     const ufnIds = new Set(ufnSits.map(getSituationId));
     const todayIds = new Set(todaySits.map(getSituationId));
 
-    // SECTION 3: Long term high impact (>=5 routes), spans across today
     const longTermSits = baseAll.filter(sit => {
       const id = getSituationId(sit);
       if (ufnIds.has(id) || todayIds.has(id)) return false;
@@ -1340,48 +1425,15 @@ async function fetchAll(){
       return (s < todayStart) && (e > todayEnd);
     });
 
-    // Items
-    const ufnItems      = ufnSits.map(mapSituationToItem);
-    const todayItems    = todaySits.map(mapSituationToItem);
-    const longTermItems = longTermSits.map(mapSituationToItem);
+    const ufnItems = ufnSits.map(mapSituationToItem);
+    const todayItems = todaySits.map(mapSituationToItem);
+    const longItems = longTermSits.map(mapSituationToItem);
 
-    // Total unique diverted routes across ALL LIVE (still calculated, not displayed)
-    const busSet = new Set();
-    for (const sit of liveBusAll){
-      const routes = getLineRefs(sit) || [];
-      for (const r of routes){
-        const v = String(r || "").trim();
-        if (v) busSet.add(v.toUpperCase());
-      }
-    }
-    busDivertedRouteTotal = busSet.size;
+    // Sort
+    ufnItems.sort((a,b)=> (b.startMs - a.startMs));
+    todayItems.sort((a,b)=> ((a.endMs ?? Infinity) - (b.endMs ?? Infinity)));
+    longItems.sort((a,b)=> (b.routeCount - a.routeCount));
 
-    // Sorts
-    function sortUFN(a,b){
-      if (a.ufnOver24h && !b.ufnOver24h) return -1;
-      if (!a.ufnOver24h && b.ufnOver24h) return 1;
-      if (a.ufnOver24h && b.ufnOver24h) return a.startMs - b.startMs;
-      return b.startMs - a.startMs;
-    }
-    function sortToday(a,b){
-      const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
-      const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
-      if (aEnd !== bEnd) return aEnd - bEnd;
-      return b.startMs - a.startMs;
-    }
-    function sortLongTerm(a,b){
-      if ((b.routeCount||0) !== (a.routeCount||0)) return (b.routeCount||0) - (a.routeCount||0);
-      const aEnd = a.endMs ?? Number.POSITIVE_INFINITY;
-      const bEnd = b.endMs ?? Number.POSITIVE_INFINITY;
-      if (aEnd !== bEnd) return aEnd - bEnd;
-      return b.startMs - a.startMs;
-    }
-
-    ufnItems.sort(sortUFN);
-    todayItems.sort(sortToday);
-    longTermItems.sort(sortLongTerm);
-
-    // Build sectioned pages (with placeholders)
     function buildSectionPages(sectionLabel, items, emptyMessage){
       if (!items.length){
         return [{ section: sectionLabel, items: [{ placeholder:true, message: emptyMessage }] }];
@@ -1389,41 +1441,32 @@ async function fetchAll(){
       return chunk(items, pager.pageSize).map(ch => ({ section: sectionLabel, items: ch }));
     }
 
-    const pagesUFN   = buildSectionPages("UFN DIVERTS", ufnItems, "No UFN Diverts ✅");
-    const pagesToday = buildSectionPages("STARTING / ENDING TODAY", todayItems, "No Diverts Starting or Ending today");
-    const pagesLong  = buildSectionPages("LONG TERM HIGH IMPACT", longTermItems, "No Long Term Diverts");
+    const pagesUFN   = buildSectionPages("UFN DIVERTS", ufnItems, "No UFN Diversions ✅");
+    const pagesToday = buildSectionPages("STARTING / ENDING TODAY", todayItems, "No Diversions Starting or Ending today");
+    const pagesLong  = buildSectionPages("LONG TERM HIGH IMPACT", longItems, "No Long Term Diversions");
 
-    // Preserve index where possible
     const prevIndex = pager.pageIndex || 0;
     const oldIndex = pager.pageIndex || 0;
 
-    pager.pageSize = 6;
     pager.pages = [...pagesUFN, ...pagesToday, ...pagesLong];
     pager.totalPages = pager.pages.length;
     pager.pageIndex = pager.pages.length ? Math.min(prevIndex, pager.pages.length - 1) : 0;
 
-    // Signature: section + item count per page
     const pageSignature = pager.pages.map(p => `${p.section}:${(p.items||[]).length}`).join("|");
     const pageIndexChanged = (pager.pageIndex !== oldIndex);
 
-    // Render always
     renderPage();
     setStatusPill(true, { animate:true });
     updatePageIndicator();
 
-    // Only restart pager/progress when needed
     const shouldRestartPager = (!pagerTimer) || (pageSignature !== lastPageSignature) || pageIndexChanged;
-
     if (shouldRestartPager){
       lastPageSignature = pageSignature;
       scheduleNextAdvance();
     }
 
-    // Overlay detection (UFN only)
-    const liveUFNForOverlay = baseUnplanned
-      .map(mapSituationToItem)
-      .filter(it => it.isUFN);
-
+    // Overlays: UFN only, new/removed
+    const liveUFNForOverlay = baseUnplanned.map(mapSituationToItem).filter(it => it.isUFN);
     const currLiveIndex = new Map(liveUFNForOverlay.map(it => [it.id, it]));
 
     let newOnes = [];
@@ -1438,7 +1481,6 @@ async function fetchAll(){
     if (newOnes.length){
       enqueueOverlays(newOnes.map(item => ({ mode:"add", item })));
     }
-
     const now = Date.now();
     if (removedOnes.length){
       const endedNow = removedOnes.map(it => {
