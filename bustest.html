@@ -68,29 +68,40 @@
 
     /* ===== Mirrored top-right STATUS WRAPPER (match Highways tool) ===== */
 
+
 .statusWrapper{
   position:fixed;
-  top:var(--pillTop);
-  right:0;                 /* FLUSH to screen edge */
-  z-index:40;
+  top:16px;                 /* EXACT match */
+  right:0;
+  z-index:1000;
+
   display:flex;
   align-items:center;
-  gap:var(--pillGap);      /* match Highways spacing */
+  gap:16px;
+
   pointer-events:none;
+
+  /* 🔒 prevent inherited scaling */
+  transform:none !important;
+  zoom:1;
 }
+
+
+
 
 
 #beeLogo{
   width:64px;
   height:64px;
+  min-width:64px;
+  min-height:64px;
   object-fit:contain;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
-  transition: transform 0.2s ease-out;
   pointer-events:auto;
-
-  /* Keep logo slightly off the bezel like Highways “feels” */
-  margin-right:1px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
+- margin-right:16px;
 }
+
+
 
     @keyframes wibble {
       0%   { transform: rotate(0deg) scale(1); }
@@ -103,22 +114,51 @@
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
 
+
+/* Status pill — force Highways dimensions */
 .status-pill{
-  padding:10px 16px;                 /* match Highways */
-  border-radius:999px 0 0 999px;     /* flat RIGHT edge, rounded LEFT */
-  font-size:18px;                    /* match Highways */
-  font-weight:800;                   /* match Highways */
+  padding:10px 16px;
+
+  height:40px;              /* 🔑 THIS is why yours looked smaller */
+  display:flex;
+  align-items:center;
+
+  font-family:
+    "IBM Plex Sans Condensed",
+    "Barlow Semi Condensed",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  font-size:18px;
+  font-weight:800;
+  line-height:1;            /* 🔑 matches Highways exactly */
+
+  border-radius:999px 0 0 999px;
+
   background:var(--liveGreen);
   color:#000;
+
   box-shadow:
     0 0 0 2px rgba(255,255,255,0.08),
-    0 4px 14px rgba(0,0,0,0.25);     /* match Highways */
-  transition:background .2s ease,color .2s ease;
-  pointer-events:auto;
+    0 4px 14px rgba(0,0,0,0.25);
+
   white-space:nowrap;
+  pointer-events:auto;
+
+  /* 🔒 prevent scale bleed */
+  transform:none !important;
+  zoom:1;
 }
 
-    .status-error{ background:var(--errorRed); color:#fff; }
+.status-error{
+  background:var(--errorRed);
+  color:#fff;
+}
+
 
     /* ===== Top-left title block ===== */
     .topbar{
