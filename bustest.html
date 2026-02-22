@@ -1638,10 +1638,13 @@ async function fetchAll(){
     const todayStart = startOfToday();
     const todayEnd   = endOfToday();
 
-    const ufnSits = baseUnplanned.filter(sit => {
-      const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
-      return !e;
-    });
+
+// UFN should include BOTH unplanned + planned (UFN = no EndTime)
+const ufnSits = baseAll.filter(sit => {
+  const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+  return !e;
+});
+
 
     const todaySits = baseAll.filter(sit => {
       const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
