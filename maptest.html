@@ -70,19 +70,56 @@
       gap:16px;
       pointer-events:none;
     }
+
+    /* ===== Status pill (expanded stays identical; now supports compact semicircle) ===== */
     .status-pill{
       padding:10px 16px;
-      border-radius: 0 999px 999px 0;
+      border-radius: 0 999px 999px 0; /* flat LEFT edge */
       font-size:18px;
       font-weight:800;
       font-family:var(--ui-font);
       background:var(--liveGreen);
       color:#000;
       box-shadow:0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
-      transition:background .2s ease,color .2s ease;
       pointer-events:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      white-space:nowrap;
+
+      transition:
+        width 260ms ease,
+        padding 260ms ease,
+        border-radius 260ms ease,
+        background-color 200ms ease,
+        color 200ms ease;
     }
     .status-error{ background:var(--errorRed); color:#fff; }
+
+    /* ===== Compact LEFT-docked SEMICIRCLE (flat edge against left of screen) ===== */
+    .status-pill.is-compact{
+      width:28px;
+      height:40px;
+      padding:0;
+      color:transparent;
+      border-radius: 0 999px 999px 0; /* flat LEFT */
+    }
+    .status-pill.is-compact::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.65);
+    }
+    .status-pill.status-error.is-compact::before{
+      background:rgba(255,255,255,0.9);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .status-pill{ transition:none !important; }
+    }
 
     #beeLogo{
       width:64px; height:64px; object-fit:contain;
@@ -260,7 +297,7 @@
 
   <!-- TOP-LEFT unified status pill -->
   <div class="statusWrapper" aria-live="polite">
-    <div id="statusPill" class="status-pill">Initialising…</div>
+    <div id="statusPill" class="status-pill is-compact">Initialising…</div>
     <img id="beeLogo"
          src="https://tfgm.com/static/android-chrome-192x192.png"
          alt="Bee Network logo"
@@ -353,7 +390,6 @@
     async function unlockAudioOnce() {
       try {
         ensureAudioEl();
-        // Some browsers require a successful play() after user gesture. Prime muted.
         audioEl.muted = true;
         await audioEl.play();
         audioEl.pause();
@@ -391,32 +427,22 @@
     function mapUpstreamToBackend(url){
       try{
         if(!url) return url;
-        // Direct backend URL already?
         if (String(url).startsWith(API_BASE)) return String(url);
 
         const u = String(url);
 
-        // Waze partner feed
         if (u.includes('/row-partnerhub-api/partners/') && u.includes('/waze-feeds/')) {
           return `${API_BASE}/api/waze/partner-feed`;
         }
-
-        // Waze TVT
         if (u.includes('/row-partnerhub-api/feeds-tvt')) {
           return `${API_BASE}/api/waze/tvt`;
         }
-
-        // Highways RSS
         if (u.includes('highwaysengland.co.uk/feeds/rss/UnplannedEvents')) {
           return `${API_BASE}/api/highways-nw`;
         }
-
-        // BODS SIRI-SX
         if (u.includes('data.bus-data.dft.gov.uk/api/v1/siri-sx')) {
           return `${API_BASE}/api/bods-siri-sx`;
         }
-
-        // Default: try direct (may be CORS-blocked if used elsewhere)
         return u;
       }catch(e){
         return url;
@@ -457,11 +483,9 @@
     function normaliseRoadKey(text){
       const s = String(text || '').toUpperCase();
 
-      // Motorway token: M + 1-3 digits (M1, M60, M602 etc)
       const m = s.match(/\b(M\d{1,3})\b/);
       if (m) return { roadKey: m[1], isMotorway: true };
 
-      // Optional non-motorway keys (useful for incident identity)
       const a = s.match(/\b(A\d{1,4})\b/);
       if (a) return { roadKey: a[1], isMotorway: false };
 
@@ -540,7 +564,6 @@
         const rel10 = readReliability(a);
         const coord = getLngLatFromAlert(a); if(!coord) continue;
 
-        // stable raw-alert id
         const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
 
         const { roadKey, isMotorway } = roadKeyFromAlert(a);
@@ -580,23 +603,18 @@
       return out;
     }
 
-    // Stable centroid-based cluster ID (kept for non-accident clustering + fallback only)
     function stableClusterId(coord){
       const lon = Number(coord[0]).toFixed(4);
       const lat = Number(coord[1]).toFixed(4);
       return `cluster-${lon},${lat}`;
     }
 
-    /* =======================================================
-       ✅ FIX (Cause #1): Stable identity for accident clusters
-       ======================================================= */
     function safeIdPart(s){
       return String(s || '')
         .trim()
         .slice(0, 120)
         .replace(/[^a-zA-Z0-9_-]/g, '_');
     }
-    // Anchor selection: highest confidence, tie-break earliest time
     function pickAnchor(members){
       return members.slice().sort((a,b)=>{
         const c = (Number(b.conf10)||0) - (Number(a.conf10)||0);
@@ -605,7 +623,6 @@
       })[0];
     }
 
-    // Generic proximity clustering (used for ice/signal faults - unchanged)
     function clusterGeneric(points, mergeMeters = MERGE_METERS){
       if(!points.length) return [];
       const parent = Array(points.length).fill(0).map((_,i)=>i);
@@ -641,8 +658,6 @@
       return features;
     }
 
-    // ✅ Accident clustering with motorway vs non-motorway distance rules
-    // ✅ FIXED: accidents now get a stable ID based on a Waze anchor id (uuid/id), not centroid rounding
     function clusterAccidents(points){
       if(points.length === 0) return [];
 
@@ -691,20 +706,19 @@
           return (Number(b.time)||0) - (Number(a.time)||0);
         })[0];
 
-        // ✅ Stable identity anchor
         const anchor = pickAnchor(members);
         const anchorKey = safeIdPart(anchor?.id || '');
-        const id = anchorKey ? `acc-${anchorKey}` : stableClusterId(avg); // fallback only
+        const id = anchorKey ? `acc-${anchorKey}` : stableClusterId(avg);
 
         clusters.push({
           id,
-          coord: avg, // centroid still used for display
+          coord: avg,
           street: best.street, city: best.city,
           roadKey: best.roadKey || '',
           isMotorway: !!best.isMotorway,
           eff5, eff10, baseConf10, bestRel10,
           latestTime: maxTime, firstTime, count,
-          anchorId: anchor?.id || '' // NEW
+          anchorId: anchor?.id || ''
         });
       }
 
@@ -720,7 +734,7 @@
         geometry:{ type:'Point', coordinates: c.coord },
         properties:{
           id: c.id,
-          anchorId: c.anchorId,          // NEW
+          anchorId: c.anchorId,
           effectiveConfidence: c.eff5,
           street: c.street,
           city: c.city,
@@ -748,7 +762,7 @@
     }
 
     /* =========================
-       Animated custom images — smaller & with readback hints
+       Animated custom images
        ========================= */
     function createPulsingDot(map, color='red'){
       const size = 128, targetFps = 8, frameMs = 1000/targetFps; let last=0;
@@ -826,7 +840,7 @@
           ctx.beginPath(); ctx.arc(cx, cy, (w/2)*0.44, 0, Math.PI*2); ctx.fillStyle='rgba(0,0,0,0.55)';
           ctx.shadowColor = color; ctx.shadowBlur = 24 * glow; ctx.fill(); ctx.shadowBlur = 0;
 
-          const R = (w/2)*0.34; const rotation = Math.PI/2 + Math.PI; // point-down
+          const R = (w/2)*0.34; const rotation = Math.PI/2 + Math.PI;
           function hexPath(radius) {
             ctx.beginPath();
             for (let i = 0; i < 6; i++) {
@@ -904,7 +918,7 @@
       barEl.setAttribute('aria-hidden', show ? 'false' : 'true');
       document.body.classList.toggle('bar-open', show);
       map.resize();
-      startGlobalRepaint(); // no-op
+      startGlobalRepaint();
 
       if (show && highlightedCenter) {
         map.easeTo({
@@ -955,19 +969,18 @@
     }
 
     /* =======================================================
-       Banner-once memory (incident keys) + motorway linking memory
+       Banner-once memory + motorway linking memory
        ======================================================= */
 
     const BANNER_SHOWN_STORE_KEY = 'occ_banner_shown_v2';
     const BANNER_MWAY_STORE_KEY  = 'occ_banner_mway_groups_v1';
 
-    let bannerShown = new Map(); // incidentKey -> timestamp
-    let mwayShown = [];          // [{roadKey, lon, lat, t}]
+    let bannerShown = new Map();
+    let mwayShown = [];
 
     function loadBannerStores(){
       const now = Date.now();
 
-      // Incident keys
       try{
         const raw = localStorage.getItem(BANNER_SHOWN_STORE_KEY);
         const obj = raw ? JSON.parse(raw) : {};
@@ -979,7 +992,6 @@
         bannerShown = new Map();
       }
 
-      // Motorway corridor records
       try{
         const raw2 = localStorage.getItem(BANNER_MWAY_STORE_KEY);
         const arr = raw2 ? JSON.parse(raw2) : [];
@@ -995,7 +1007,7 @@
         mwayShown = [];
       }
 
-      saveBannerStores(); // persist pruned
+      saveBannerStores();
     }
 
     function saveBannerStores(){
@@ -1008,7 +1020,6 @@
     }
 
     function hasBannerShown(key){ return bannerShown.has(key); }
-
     function markBannerShown(key){
       bannerShown.set(key, Date.now());
       saveBannerStores();
@@ -1040,10 +1051,8 @@
       return false;
     }
 
-    // Call on startup
     loadBannerStores();
 
-    // ✅ FIXED: incident key no longer depends on centroid rounding
     function incidentKeyFromFeature(f){
       const p = f?.properties || {};
       const roadKey = String(p.roadKey || '').toUpperCase();
@@ -1159,20 +1168,121 @@
 
     function startGlobalRepaint(){ /* no-op */ }
 
-    function fmtHHMMSS(){ return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date()); }
+    /* =======================================================
+       ✅ NEW pill behaviour (left-docked semicircle)
+       ======================================================= */
+    function fmtHHMMSS(){
+      return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());
+    }
+
+    const PILL_STALE_AFTER_MS = Math.max(REFRESH_MS * 2, 65000);
+    const PILL_HOURLY_POP_MS  = 20000;
+
+    let pillLastOkAt = 0;
+    let pillLastOkLabel = '';
+    let pillStaleActive = false;
+    let pillHourlyTimer = null;
+    let pillStaleTimer  = null;
+
+    function pillCollapse(){
+      const pill = document.getElementById('statusPill');
+      if(!pill) return;
+      pill.classList.add('is-compact');
+      pill.textContent = '';
+    }
+    function pillExpand(text){
+      const pill = document.getElementById('statusPill');
+      if(!pill) return;
+      pill.classList.remove('is-compact');
+      pill.textContent = text;
+    }
+    function pillEnterStale(){
+      if (pillStaleActive) return;
+      pillStaleActive = true;
+      const pill = document.getElementById('statusPill');
+      if(!pill) return;
+
+      pill.classList.add('status-error');
+      pillCollapse();
+
+      setTimeout(()=>{
+        const t = pillLastOkLabel || fmtHHMMSS();
+        pillExpand(`STALE : ${t}`);
+      }, 180);
+    }
+    function pillExitStale(){
+      pillStaleActive = false;
+      const pill = document.getElementById('statusPill');
+      if(!pill) return;
+      pill.classList.remove('status-error');
+      pillCollapse();
+    }
+    function pillStartStaleWatch(){
+      if (pillStaleTimer) clearInterval(pillStaleTimer);
+      pillStaleTimer = setInterval(()=>{
+        if (!pillLastOkAt) return;
+        if (Date.now() - pillLastOkAt > PILL_STALE_AFTER_MS){
+          pillEnterStale();
+        }
+      }, 2000);
+    }
+    function pillStartHourlyPop(){
+      if (pillHourlyTimer) clearTimeout(pillHourlyTimer);
+
+      function msUntilNextHour(){
+        const now = new Date();
+        const next = new Date(now);
+        next.setMinutes(0,0,0);
+        next.setHours(now.getHours()+1);
+        return next - now;
+      }
+
+      function pop(){
+        if (!pillLastOkAt || pillStaleActive) { schedule(); return; }
+
+        pillExpand(`LIVE • ${pillLastOkLabel}`);
+
+        setTimeout(()=>{
+          if (!pillStaleActive) pillCollapse();
+          schedule();
+        }, PILL_HOURLY_POP_MS);
+      }
+
+      function schedule(){
+        pillHourlyTimer = setTimeout(pop, msUntilNextHour());
+      }
+
+      schedule();
+    }
+
     function setStatusPill(ok, {animate=false}={}){
-      const pill=document.getElementById('statusPill');
       const bee=document.getElementById('beeLogo');
       const t=fmtHHMMSS();
-      if(ok){
-        pill.classList.remove('status-error');
-        pill.textContent=`LIVE • ${t}`;
-        if(animate && bee){ bee.classList.remove('bee-wibble'); void bee.offsetWidth; bee.classList.add('bee-wibble'); }
+
+      if (ok){
+        pillLastOkAt = Date.now();
+        pillLastOkLabel = t;
+
+        if (pillStaleActive) pillExitStale();
+
+        // LIVE/OK default is compact semicircle (no text)
+        pillCollapse();
+
+        if(animate && bee){
+          bee.classList.remove('bee-wibble');
+          void bee.offsetWidth;
+          bee.classList.add('bee-wibble');
+        }
       } else {
-        pill.classList.add('status-error');
-        pill.textContent=`Stand By • ${t}`;
+        pillEnterStale();
       }
     }
+
+    // start in compact
+    pillCollapse();
+    pillStartStaleWatch();
+    pillStartHourlyPop();
+
     let lastOkWaze = 0, lastOkHe = 0;
     const STATUS_STALE_MS = Math.max(REFRESH_MS * 2, 65000);
     function updateGlobalStatus({animate=false}={}){
@@ -1185,6 +1295,7 @@
     function markHealthStale_Waze(){ updateGlobalStatus(); clearAccidentsIfTooStale(); }
     function markHealthOK_He(){ lastOkHe = Date.now(); updateGlobalStatus({animate:true}); }
     function markHealthStale_He(){ updateGlobalStatus(); }
+
     function clearAccidentsIfTooStale(){
       const staleMs = Date.now() - (lastOkWaze || 0);
       if (lastOkWaze && staleMs > STALE_CLEAR_MS) {
@@ -1206,29 +1317,23 @@
       try{
         const data = await fetchJsonViaOccProxy(WAZE_URL, controller.signal);
 
-        // --- Parse points ---
         const accidentPoints = alertsToAccidentPoints(data);
         const icePoints      = alertsToIcePoints(data);
         const signalPoints   = alertsToSignalFaultPoints(data);
 
-        // --- Cluster accidents using fixed identity ---
         const clusterFeatures = clusterAccidents(accidentPoints);
 
-        // --- Generic clusters (unchanged) ---
         const iceFeatures    = clusterGeneric(icePoints, MERGE_METERS);
         const signalFeatures = clusterGeneric(signalPoints, MERGE_METERS);
 
-        // --- Set sources ---
         map.getSource('accidents')?.setData({ type:'FeatureCollection', features: clusterFeatures });
         map.getSource('waze-ice')?.setData({ type:'FeatureCollection', features: iceFeatures });
         map.getSource('waze-signal-faults')?.setData({ type:'FeatureCollection', features: signalFeatures });
 
-        // --- Memory pruning ---
         const currentIds = new Set(clusterFeatures.map(f => f.id));
         for (const k of prevEffByClusterId.keys()) if (!currentIds.has(k)) prevEffByClusterId.delete(k);
         for (const k of Array.from(seenClusterIds)) if (!currentIds.has(k)) seenClusterIds.delete(k);
 
-        // --- Banner logic ---
         const candidates = [];
 
         for(const f of clusterFeatures){
@@ -1353,7 +1458,6 @@
     window.addEventListener('pageshow',  () => { if (!document.hidden) resumeAlerts(); });
     window.addEventListener('pagehide',  () => { pauseAlerts(); });
 
-    // Helper to add external SVG as MapLibre image (with fallback path)
     async function addExternalSvgImage(map, id, url) {
       function loadViaImg(src) {
         return new Promise((resolve, reject) => {
@@ -1396,14 +1500,11 @@
     map.on('load', async () => {
       map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
 
-      // Pulsing images
       map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
       map.addImage('pulsing-white', createPulsingDot(map,'white'), { pixelRatio: 2 });
 
-      // Small green triangle for fallback (if SVG fails)
       map.addImage('triangle-green', createTriangleIcon(map, '#28c76f'), { pixelRatio: 2 });
 
-      // ACCIDENTS
       map.addSource('accidents', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
 
       map.addLayer({
@@ -1455,7 +1556,6 @@
         }
       });
 
-      // OCC manual highlights
       map.addSource('occ-highlights', { type:'geojson', data: buildHighlightsFC(HIGHLIGHT_POINTS) });
       map.addLayer({
         id: 'occ-highlights-dots', type: 'circle', source: 'occ-highlights',
@@ -1465,7 +1565,6 @@
         }
       });
 
-      // Highways (blue) reference dots
       map.addSource('he-unplanned', { type: 'geojson', data: { type:'FeatureCollection', features:[] } });
       map.addLayer({
         id: 'he-unplanned-dots', type: 'circle', source: 'he-unplanned',
@@ -1475,9 +1574,6 @@
         }
       });
 
-      /* =======================================================
-         Waze ICE + TRAFFIC LIGHT FAULTS
-         ======================================================= */
       map.addSource('waze-ice', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
       map.addLayer({
         id: 'waze-ice-dots', type: 'circle', source: 'waze-ice',
@@ -1490,7 +1586,6 @@
         }
       });
 
-      // Load your traffic light SVG icon
       await addExternalSvgImage(map, 'tl-icon', 'https://ryanocc.github.io/tl.svg');
 
       map.addSource('waze-signal-faults', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
@@ -1701,7 +1796,6 @@
         }
       });
 
-      // UFN pulse animation (size) → throttled interval
       let pulse = 1.0, pulseDir = 1;
       function applyPulse(){
         const factor = ['case', ['get','isUFN'], pulse, 1];
@@ -1728,7 +1822,7 @@
         applyPulse();
       }
       applyPulse();
-      setInterval(ufnTick, 140); // ~7 FPS
+      setInterval(ufnTick, 140);
 
       async function updateDivertCentroidsOnce(){
         try{
@@ -1755,7 +1849,7 @@
             .filter(inDisplayPool)
             .filter(sit => {
               const e = sit?.ValidityPeriod?.EndTime || sit?.EndTime;
-              return !e; // UFN only
+              return !e;
             });
 
           const feats = display
@@ -1768,17 +1862,15 @@
         }
       }
 
-      // Kick everything
       await runCycle(); scheduleNext(REFRESH_MS);
       await runHeCycle(); scheduleHeNext(REFRESH_MS);
       await updateDivertCentroidsOnce();
       setInterval(updateDivertCentroidsOnce, BODS_REFRESH_MS);
 
-      startGlobalRepaint(); // no-op
-      setStatusPill(false, { animate:false });
+      startGlobalRepaint();
+      updateGlobalStatus({animate:false});
     });
 
-    // Keep hooks; now no-op repaint
     map.on('idle', startGlobalRepaint);
     map.on('moveend', startGlobalRepaint);
     map.on('zoomend', startGlobalRepaint);
@@ -1797,7 +1889,7 @@
        ======================================================= */
 
     const TVT_URL = `${API_BASE}/api/waze/tvt`;
-    const NET_HEALTH_REFRESH_MS = 60 * 1000; // 1 min
+    const NET_HEALTH_REFRESH_MS = 60 * 1000;
 
     function networkGradientFromUsersOnJams(usersOnJams){
       if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
