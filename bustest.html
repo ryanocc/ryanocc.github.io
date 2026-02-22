@@ -551,6 +551,24 @@
       box-shadow:0 12px 30px rgba(0,0,0,.4);
     }
     .ov-duration{ font-weight:1000; letter-spacing:-0.2px; font-size: clamp(28px, 3vw, 48px); margin:6px 0 0; }
+    
+    /* Page transition */
+#grid{
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+#grid.page-out{
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+#grid.page-in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 
@@ -602,7 +620,7 @@ const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
 const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 const UNPLANNED_ONLY = true;
 
-const PAGE_DURATION_UFN_MS   = 120000; // 2 minutes
+const PAGE_DURATION_UFN_MS   = 60000; // 2 minutes
 const PAGE_DURATION_OTHER_MS = 20000;  // 20 seconds
 const FEED_REFRESH_MS = 45000;
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -635,6 +653,37 @@ function setStatusPill(ok, { animate = false } = {}){
     pill.classList.add("status-error");
     pill.textContent = `Error • ${t}`;
   }
+}
+
+function renderPageWithTransition(){
+  const grid = $("#grid");
+  if (!grid){
+    renderPage();
+    return;
+  }
+
+  // If user has "reduced motion", skip animation
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (reduceMotion){
+    renderPage();
+    return;
+  }
+
+  // Start fade-out
+  grid.classList.add("page-out");
+  grid.classList.remove("page-in");
+
+  // Wait for the fade-out to be visible, then swap content
+  setTimeout(() => {
+    renderPage(); // your existing function
+
+    // Force a reflow so the browser acknowledges the new DOM before fade-in
+    void grid.offsetWidth;
+
+    // Fade-in
+    grid.classList.remove("page-out");
+    grid.classList.add("page-in");
+  }, 180); // slightly shorter than CSS to feel snappy
 }
 
 /* ===== Operator mapping ===== */
@@ -1081,7 +1130,7 @@ function scheduleNextAdvance(){
   restartProgressBar();
   pagerTimer = setTimeout(() => {
     pager.pageIndex = (pager.pageIndex + 1) % pager.pages.length;
-    renderPage();
+    renderPageWithTransition();
     setStatusPill(true, { animate:false });
     updatePageIndicator();
     scheduleNextAdvance();
@@ -1093,7 +1142,7 @@ function gotoPage(newIndex){
   if (!Array.isArray(pager.pages) || pager.pages.length === 0) return;
   const n = pager.pages.length;
   pager.pageIndex = ((newIndex % n) + n) % n;
-  renderPage();
+  renderPageWithTransition();
   setStatusPill(true, { animate:false });
   updatePageIndicator();
   scheduleNextAdvance();
