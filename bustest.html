@@ -71,16 +71,20 @@
       gap:6px;
       min-width:0;
     }
-    .title{
-      margin:0;
-      font-size:56px;
-      font-weight:900;
-      letter-spacing:-0.3px;
-      line-height:1;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
+.title{
+  margin:0;
+  font-size:56px;
+  font-weight:900;
+  letter-spacing:-0.3px;
+
+  /* FIX: allow descenders to breathe */
+  line-height:1.1;
+  padding-bottom:0.08em;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
     .status-meta{
       font-size:20px;
       font-weight:700;
