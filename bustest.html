@@ -608,12 +608,7 @@ function renderPageWithTransition(){
     return;
   }
 
-  // If user has "reduced motion", skip animation
-  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-  if (reduceMotion){
-    renderPage();
-    return;
-  }
+
 
   // Start fade-out
   grid.classList.add("page-out");
