@@ -38,6 +38,11 @@
       --cardRadius:24px;
 
       --route-mini-font: clamp(26px, 3.4vw, 38px);
+      
+      
+  --pillTop:16px;   /* match Highways */
+  --pillGap:16px;   /* match Highways */
+
 
       /* progress duration set dynamically */
       --page-interval: 20000ms;
@@ -62,22 +67,31 @@
     }
 
     /* ===== Mirrored top-right STATUS WRAPPER (match Highways tool) ===== */
-    .statusWrapper{
-      position:fixed;
-      top:var(--pillTop);
-      right:0;
-      z-index:40;
-      display:flex;
-      align-items:center;
-      gap:16px;
-      pointer-events:none;
-    }
-    #beeLogo{
-      width:64px; height:64px; object-fit:contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
-      transition: transform 0.2s ease-out;
-      pointer-events:auto;
-    }
+
+.statusWrapper{
+  position:fixed;
+  top:var(--pillTop);
+  right:0;                 /* FLUSH to screen edge */
+  z-index:40;
+  display:flex;
+  align-items:center;
+  gap:var(--pillGap);      /* match Highways spacing */
+  pointer-events:none;
+}
+
+
+#beeLogo{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
+  transition: transform 0.2s ease-out;
+  pointer-events:auto;
+
+  /* Keep logo slightly off the bezel like Highways “feels” */
+  margin-right:1px;
+}
+
     @keyframes wibble {
       0%   { transform: rotate(0deg) scale(1); }
       20%  { transform: rotate(4deg) scale(1.05); }
@@ -88,19 +102,22 @@
     }
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
-    .status-pill{
-      padding:10px 16px;
-      border-radius:999px 0 0 999px; /* opens inward from right edge */
-      font-size:18px;
-      font-weight:800;
-      background:var(--liveGreen);
-      color:#000;
-      box-shadow:0 0 0 2px rgba(255,255,255,0.08),
-                 0 4px 14px rgba(0,0,0,0.25);
-      transition:background .2s ease,color .2s ease;
-      pointer-events:auto;
-      white-space:nowrap;
-    }
+
+.status-pill{
+  padding:10px 16px;                 /* match Highways */
+  border-radius:999px 0 0 999px;     /* flat RIGHT edge, rounded LEFT */
+  font-size:18px;                    /* match Highways */
+  font-weight:800;                   /* match Highways */
+  background:var(--liveGreen);
+  color:#000;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.08),
+    0 4px 14px rgba(0,0,0,0.25);     /* match Highways */
+  transition:background .2s ease,color .2s ease;
+  pointer-events:auto;
+  white-space:nowrap;
+}
+
     .status-error{ background:var(--errorRed); color:#fff; }
 
     /* ===== Top-left title block ===== */
