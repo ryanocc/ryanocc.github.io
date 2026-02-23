@@ -815,16 +815,16 @@
       const tfKey = getTfKey();
 
       if (tfKey){
-L.tileLayer(
-  `https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}{r}.png?apikey=${encodeURIComponent(tfKey)}`,
-  {
-    maxZoom: 22,
-    detectRetina: true,
-    tileSize: 512,
-    zoomOffset: -1,
-    attribution: '&copy; Thunderforest, &copy; OpenStreetMap contributors'
-  }
-).addTo(m);
+        L.tileLayer(
+          `https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}{r}.png?apikey=${encodeURIComponent(tfKey)}`,
+          {
+            maxZoom: 22,
+            detectRetina: true,
+            tileSize: 512,
+            zoomOffset: -1,
+            attribution: '&copy; Thunderforest, &copy; OpenStreetMap contributors'
+          }
+        ).addTo(m);
       } else {
         L.tileLayer(
           'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
@@ -904,8 +904,8 @@ L.tileLayer(
     }
 
     /* =======================================================
-       SEARCH — Streets first + Exact street pinned + Emoji tags
-       + Junction finder with Option 2 Confidence Scoring
+       SEARCH — Option A: single Photon call, keep Photon order.
+       Emoji shown but NOT used for sorting.
        ======================================================= */
     const GM_CENTER = { lat: 53.4808, lon: -2.2426 };
     const GM_BBOX = [-2.75, 53.30, -1.95, 53.72];
@@ -914,38 +914,16 @@ L.tileLayer(
     const SEARCH_MIN_CHARS   = 2;
     const MAX_SUGGESTIONS    = 10;
 
+    // Tuning knobs (feel free to tweak)
+    const PHOTON_ZOOM = 15;                 // tighter than your old 11
+    const PHOTON_BIAS_SCALE = 0.12;         // less prominence influence vs default 0.2
+
     let gmAbort = null;
     let searchSeq = 0;
 
     function debounce(fn, ms=250){
       let t = null;
       return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
-    }
-
-    function buildPhotonUrl(query, opts={}){
-      const { layer=null, osmTags=[], limit=8, addGmSuffix=true } = opts;
-      const u = new URL('https://photon.komoot.io/api');
-      const q = addGmSuffix ? `${query} Greater Manchester` : query;
-
-      u.searchParams.set('q', q);
-      u.searchParams.set('lang', 'en');
-      u.searchParams.set('limit', String(limit));
-      u.searchParams.set('lat', String(GM_CENTER.lat));
-      u.searchParams.set('lon', String(GM_CENTER.lon));
-      u.searchParams.set('zoom', '11');
-      u.searchParams.set('bbox', GM_BBOX.join(','));
-
-      if (layer) u.searchParams.set('layer', layer);
-      for (const t of osmTags) u.searchParams.append('osm_tag', t);
-
-      return u.toString();
-    }
-
-    async function photonFetchFeatures(query, opts, signal){
-      const res = await fetch(buildPhotonUrl(query, opts), { cache:'no-store', signal });
-      if (!res.ok) throw new Error(`Photon HTTP ${res.status}`);
-      const data = await res.json();
-      return Array.isArray(data?.features) ? data.features : [];
     }
 
     function inGmBbox(lon, lat){
@@ -968,23 +946,11 @@ L.tileLayer(
         .trim();
     }
 
-    function expandAbbr(s){
-      // Keep this small + safe; improves "exact" matches humans expect.
-      return String(s||'')
-        .replace(/\brd\b/ig, 'road')
-        .replace(/\bst\b/ig, 'street')
-        .replace(/\bave\b/ig, 'avenue')
-        .replace(/\bdr\b/ig, 'drive')
-        .replace(/\bln\b/ig, 'lane')
-        .replace(/\bcl\b/ig, 'close')
-        .replace(/\bct\b/ig, 'court');
-    }
-
     function normalizeText(s){
       return String(s||'')
         .toLowerCase()
         .replace(/\s+/g,' ')
-        .replace(/[^\w\s\-\(\)\/&]/g,'') // keep & for junction labels etc.
+        .replace(/[^\w\s\-\(\)\/&]/g,'')
         .trim();
     }
 
@@ -1031,25 +997,7 @@ L.tileLayer(
       return { cat:'other', emoji:'📍' };
     }
 
-    function scoreFeature(f){
-      const p = f?.properties || {};
-      const k = String(p.osm_key||'').toLowerCase();
-      const v = String(p.osm_value||'').toLowerCase();
-      const type = String(p.type||'').toLowerCase();
-
-      let s = 0;
-      if (type==='street') s += 30;
-      if (k==='highway' && v==='bus_stop') s += 25;
-      if (k==='public_transport' && (v==='platform'||v==='stop_position'||v==='stop_area')) s += 20;
-      if (k==='amenity' && (v==='pub'||v==='bar')) s += 15;
-      if (k==='amenity' && v==='cafe') s += 10;
-      if (type==='house') s -= 5;
-      if (p.name) s += 5;
-      return s;
-    }
-
     function canonicalKey(item){
-      if (item.kind === 'junction') return `junction:${normalizeText(item.main)}`;
       const p = item.raw?.properties || {};
       const type = String(p.type||'').toLowerCase();
       const osmKey = String(p.osm_key||'').toLowerCase();
@@ -1073,7 +1021,6 @@ L.tileLayer(
       return `poi:${nm}|${city}`;
     }
 
-    // NEW: dedupe after sorting, keep the first/best-ranked for each canonicalKey.
     function dedupKeepFirst(items){
       const seen = new Set();
       const out = [];
@@ -1086,7 +1033,7 @@ L.tileLayer(
       return out;
     }
 
-    /* Junction parsing (FIXED: real & not &amp;) */
+    // Junction parsing (kept for future use; now uses real '&')
     function parseJunctionQuery(q){
       const s = String(q||'').trim();
       if (!s) return null;
@@ -1094,7 +1041,7 @@ L.tileLayer(
       let parts = null;
 
       if (s.includes('/')) parts = s.split('/');
-      else if (s.includes('&')) parts = s.split('&');               // ✅ real '&'
+      else if (s.includes('&')) parts = s.split('&');
       else if (l.includes(' and ')) parts = s.split(/ and /i);
       else if (l.includes(' at ')) parts = s.split(/ at /i);
       else if (l.includes(' @ ')) parts = s.split(/ @ /i);
@@ -1107,74 +1054,79 @@ L.tileLayer(
       return { a, b };
     }
 
-    function toRad(deg){ return deg * Math.PI / 180; }
-    function haversineMeters([lon1, lat1], [lon2, lat2]){
-      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
-      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
-      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    // Build Photon URL (single call)
+    function buildPhotonUrl(query, opts={}){
+      const {
+        limit = 10,
+        layer = null,
+        addGmSuffix = true,
+        zoom = PHOTON_ZOOM,
+        location_bias_scale = PHOTON_BIAS_SCALE
+      } = opts;
+
+      const u = new URL('https://photon.komoot.io/api');
+      const q = addGmSuffix ? `${query} Greater Manchester` : query;
+
+      u.searchParams.set('q', q);
+      u.searchParams.set('lang', 'en');
+      u.searchParams.set('limit', String(limit));
+
+      // Location bias
+      u.searchParams.set('lat', String(GM_CENTER.lat));
+      u.searchParams.set('lon', String(GM_CENTER.lon));
+      u.searchParams.set('zoom', String(zoom));
+      u.searchParams.set('location_bias_scale', String(location_bias_scale));
+
+      // Bounding box restrict
+      u.searchParams.set('bbox', GM_BBOX.join(','));
+
+      if (layer) u.searchParams.set('layer', layer);
+
+      return u.toString();
     }
 
-    /* Option 2: Confidence scoring */
-    function classifyJunctionConfidence(distanceMeters, sharedNode=false){
-      let confidence = 0;
-      let label = 'Low';
-      let emoji = '❓';
-      const reasons = [];
-
-      if (sharedNode){
-        confidence = 100;
-        label = 'High';
-        emoji = '✅';
-        reasons.push('Street geometries intersect');
-      } else if (distanceMeters <= 10){
-        confidence = 85; label='High'; emoji='✅';
-        reasons.push('Very close centrelines (<10m)');
-      } else if (distanceMeters <= 25){
-        confidence = 70; label='Medium'; emoji='⚠️';
-        reasons.push('Close centrelines (<25m)');
-      } else if (distanceMeters <= 50){
-        confidence = 50; label='Medium'; emoji='⚠️';
-        reasons.push('Nearby streets (<50m)');
-      } else {
-        confidence = 30; label='Low'; emoji='❓';
-        reasons.push('Approximate midpoint only');
-      }
-
-      return { confidence, label, emoji, reasons };
+    function looksLikeStreetQuery(q){
+      const s = String(q||'').trim();
+      if (!s) return false;
+      return (
+        /\b(rd|road|st|street|ave|avenue|dr|drive|ln|lane|cl|close|ct|court|crescent|way|boulevard|blvd|place|pl|terrace|ter)\b/i.test(s) ||
+        /\b(m|a|b)\d{1,4}\b/i.test(s)
+      );
     }
 
-    function makeJunctionCandidates(j, fa, fb){
-      const A = (fa||[]).slice(0,5);
-      const B = (fb||[]).slice(0,5);
-      if (!A.length || !B.length) return [];
+    async function photonSearchOnce(qRaw, signal){
+      const q = qRaw.trim();
+const wantsBusStuff = /\bbus\b|\bstop\b|🚏/i.test(q);
+const layer = (looksLikeStreetQuery(q) && !wantsBusStuff) ? 'street' : null;
 
-      let best = null;
-      for (const a of A){
-        const la = getLonLatFromFeature(a); if (!la) continue;
-        for (const b of B){
-          const lb = getLonLatFromFeature(b); if (!lb) continue;
-          const d = haversineMeters([la.lon, la.lat], [lb.lon, lb.lat]);
-          if (!best || d < best.d) best = { d, la, lb };
-        }
-      }
-      if (!best || best.d > 4500) return [];
+      const url = buildPhotonUrl(q, {
+        limit: 12,
+        layer
+      });
 
-      const mid = { lat:(best.la.lat + best.lb.lat)/2, lon:(best.la.lon + best.lb.lon)/2 };
-      const conf = classifyJunctionConfidence(best.d, false);
+      const res = await fetch(url, { cache:'no-store', signal });
+      if (!res.ok) throw new Error(`Photon HTTP ${res.status}`);
+      const data = await res.json();
+      return Array.isArray(data?.features) ? data.features : [];
+    }
 
-      return [{
-        kind:'junction',
-        lat: mid.lat,
-        lon: mid.lon,
-        main: `${j.a} × ${j.b}`,
-        sub: `${conf.label} confidence • ${conf.reasons[0] || ''} • ~${Math.round(best.d)}m`,
-        score: 999,
-        cat: 'junction',
-        emoji: conf.emoji,
-        confidence: conf.confidence,
-        confidenceLabel: conf.label,
-        confidenceReason: conf.reasons
-      }];
+    function featuresToItems(features){
+      return (features||[]).map(f=>{
+        const ll = getLonLatFromFeature(f);
+        if (!ll) return null;
+        const { main, sub } = featureLabel(f);
+        const tag = getFeatureCategoryAndEmoji(f);
+        return {
+          kind:'feature',
+          lat: ll.lat,
+          lon: ll.lon,
+          main,
+          sub,
+          raw: f,
+          cat: tag.cat,
+          emoji: tag.emoji
+        };
+      }).filter(Boolean);
     }
 
     function openSuggestions(open){
@@ -1220,39 +1172,6 @@ L.tileLayer(
       if (input) input.setAttribute('aria-expanded','false');
     }
 
-    function isStreetLike(it){
-      const p = it.raw?.properties || {};
-      const type = String(p.type||'').toLowerCase();
-      const osmKey = String(p.osm_key||'').toLowerCase();
-      // Streets can appear as "other" depending on OSM tagging; treat street-ish features as boostable.
-      return it.cat === 'street' || type === 'street' || !!p.street || osmKey === 'highway';
-    }
-
-    function applyMatchBoost(items, qRaw){
-      const isJunctionQuery = !!parseJunctionQuery(qRaw);
-      if (isJunctionQuery) {
-        for (const it of items) it.matchBoost = 0;
-        return;
-      }
-
-      const qNorm = normalizeText(expandAbbr(stripPostcode(qRaw)));
-      for (const it of items){
-        it.matchBoost = 0;
-
-        // Primary: street-like exact/prefix match
-        if (isStreetLike(it)){
-          const nameNorm = normalizeText(expandAbbr(stripPostcode(it.main)));
-          if (nameNorm === qNorm) it.matchBoost = 10000;
-          else if (nameNorm.startsWith(qNorm)) it.matchBoost = 5000;
-        } else {
-          // Secondary: allow POI exact/prefix, but smaller weight
-          const nameNorm = normalizeText(expandAbbr(stripPostcode(it.main)));
-          if (nameNorm === qNorm) it.matchBoost = 1200;
-          else if (nameNorm.startsWith(qNorm)) it.matchBoost = 600;
-        }
-      }
-    }
-
     function bindGmSearch(){
       const input = document.getElementById('gmSearch');
       const box   = document.getElementById('gmSuggest');
@@ -1273,26 +1192,6 @@ L.tileLayer(
         setMapTarget(Number(lat), Number(lon), 16);
       };
 
-      const catRank = {
-        junction: -1,
-        street: 0,
-        bus_stop: 1,
-        pub: 2,
-        cafe: 3,
-        food: 4,
-        station: 5,
-        shop: 6,
-        park: 7,
-        venue: 8,
-        civic: 9,
-        health: 10,
-        education: 11,
-        fuel: 12,
-        parking: 13,
-        address: 90,
-        other: 99
-      };
-
       const doSearch = debounce(async () => {
         const qRaw = input.value.trim();
         if (qRaw.length < SEARCH_MIN_CHARS){
@@ -1309,84 +1208,19 @@ L.tileLayer(
         const { signal } = gmAbort;
 
         try{
-          const j = parseJunctionQuery(qRaw);
+          const features = await photonSearchOnce(qRaw, signal);
 
-          // NOTE: Slightly higher street limit improves reliability on deep matches.
-          const broadP  = photonFetchFeatures(qRaw, { limit: 10, layer: null }, signal);
-          const otherP  = photonFetchFeatures(qRaw, { limit: 8, layer: 'other' }, signal);
-          const busP    = photonFetchFeatures(qRaw, { limit: 8, layer: 'other', osmTags:['highway:bus_stop','public_transport:platform'] }, signal);
-          const pubP    = photonFetchFeatures(qRaw, { limit: 6, layer: 'other', osmTags:['amenity:pub','amenity:bar','amenity:cafe','amenity:restaurant','amenity:fast_food'] }, signal);
-          const streetP = photonFetchFeatures(qRaw, { limit: 20, layer: 'street' }, signal);
+          // Preserve Photon order; only map + dedupe-in-order
+          let items = featuresToItems(features);
+          items = dedupKeepFirst(items);
 
-          let combP = Promise.resolve([]);
-          let faFbP = Promise.resolve(null);
-
-          if (j){
-            // ✅ real '&' (not '&amp;')
-            combP = photonFetchFeatures(`${j.a} & ${j.b}, Manchester`, { limit: 8, layer: null, addGmSuffix:false }, signal);
-            faFbP = Promise.all([
-              photonFetchFeatures(j.a, { limit: 8, layer: 'street' }, signal),
-              photonFetchFeatures(j.b, { limit: 8, layer: 'street' }, signal)
-            ]);
-          }
-
-          const [broad, other, bus, pub, street, comb, faFb] =
-            await Promise.all([broadP, otherP, busP, pubP, streetP, combP, faFbP]);
-
-          const toItems = (features) => (features||[]).map(f=>{
-            const ll = getLonLatFromFeature(f);
-            if (!ll) return null;
-            const { main, sub } = featureLabel(f);
-            const tag = getFeatureCategoryAndEmoji(f);
-            return { kind:'feature', lat: ll.lat, lon: ll.lon, main, sub, raw:f, score: scoreFeature(f), cat: tag.cat, emoji: tag.emoji };
-          }).filter(Boolean);
-
-          let all = []
-            .concat(toItems(street))
-            .concat(toItems(bus))
-            .concat(toItems(pub))
-            .concat(toItems(other))
-            .concat(toItems(broad))
-            .concat(toItems(comb));
-
-          if (j && faFb){
-            const [fa, fb] = faFb;
-            all = makeJunctionCandidates(j, fa, fb).concat(all);
-          }
-
-          // ✅ Apply matchBoost BEFORE sorting/dedupe so exact matches don't get thrown away.
-          applyMatchBoost(all, qRaw);
-
-          // Ranking: matchBoost, then category, then junction confidence, then score, then name
-          all.sort((a,b)=>{
-            const mb = (b.matchBoost||0) - (a.matchBoost||0);
-            if (mb) return mb;
-
-            const ar = catRank[a.cat || 'other'] ?? 99;
-            const br = catRank[b.cat || 'other'] ?? 99;
-            if (ar !== br) return ar - br;
-
-            if (a.kind === 'junction' && b.kind === 'junction'){
-              return (b.confidence||0) - (a.confidence||0);
-            }
-
-            const ds = (Number(b.score||0) - Number(a.score||0));
-            if (ds) return ds;
-
-            return String(a.main).localeCompare(String(b.main));
-          });
-
-          // ✅ Dedupe AFTER sorting, keep the best-ranked per canonical key.
-          all = dedupKeepFirst(all);
-
-          const nextItems = all.slice(0, MAX_SUGGESTIONS);
+          const nextItems = items.slice(0, MAX_SUGGESTIONS);
 
           if (mySeq === searchSeq){
             currentItems = nextItems;
             renderSuggestions(currentItems);
             setActive(currentItems.length ? 0 : -1);
           }
-
         } catch (e){
           if (e?.name !== 'AbortError') console.warn('[Search] failed:', e);
         } finally {
@@ -1432,6 +1266,16 @@ L.tileLayer(
         clearSuggestions();
         spinnerOff();
       }, { passive:true });
+    }
+
+    /* =======================================================
+       Shared haversine (used later for Waze clustering)
+       ======================================================= */
+    function toRad(deg){ return deg * Math.PI / 180; }
+    function haversineMeters([lon1, lat1], [lon2, lat2]){
+      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     }
 
     /* =======================================================
@@ -1650,7 +1494,7 @@ L.tileLayer(
     }
 
     /* =======================================================
-       WAZE ALERTS (as in your tool, from your endpoints)
+       WAZE ALERTS (from your endpoints)
        ======================================================= */
     const WAZE_REFRESH_MS = 30000;
 
