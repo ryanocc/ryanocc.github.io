@@ -5,18 +5,15 @@
   <title>LST — Control Centre Wall Screen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Fonts (match your tool) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Leaflet (for the map) -->
+  <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
-    /* ================================
-       THEME
-       ================================ */
     :root{
       --bg:#000;
       --panel:#0b0b0b;
@@ -37,7 +34,6 @@
       --titlebar-h: 10vh;
       --highConfMin: 4;
 
-      /* Abnormal traffic card height */
       --corridor-card-h: clamp(140px, 16vh, 190px);
     }
 
@@ -84,9 +80,6 @@
       background: rgba(255,255,255,0.15);
     }
 
-    /* ================================
-       LAYOUT: Top content + bottom title bar
-       ================================ */
     .app{
       height: 100dvh;
       display: grid;
@@ -106,9 +99,7 @@
       box-sizing: border-box;
     }
 
-    .col1{ display:flex; flex-direction:column; min-height:0; overflow:hidden; }
-    .col2{ display:flex; flex-direction:column; min-height:0; overflow:hidden; }
-    .col3{ display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+    .col1,.col2,.col3{ display:flex; flex-direction:column; min-height:0; overflow:hidden; }
 
     .frame{
       background: var(--panel);
@@ -134,14 +125,8 @@
       gap: 8px;
     }
 
-    .frame-body{
-      min-height: 0;
-      overflow: hidden;
-    }
+    .frame-body{ min-height: 0; overflow: hidden; }
 
-    /* =========================
-       Column sizing
-       ========================= */
     .col1 > .frame,
     .col3 > .frame{
       flex: 1 1 0;
@@ -149,13 +134,9 @@
       overflow: hidden;
     }
 
-    /* Column 2 is now two equal frames */
     #frame-c{ flex: 1 1 0; min-height: 0; overflow: hidden; }
     #frame-b{ flex: 1 1 0; min-height: 0; overflow: hidden; }
 
-    /* =========================
-       WAZE COLUMN SCROLL
-       ========================= */
     #frame-d{
       min-height: 0;
       overflow: hidden;
@@ -179,9 +160,6 @@
       box-sizing: border-box;
     }
 
-    /* ================================
-       Bottom Title Bar
-       ================================ */
     .titlebar{
       border-top: 1px solid var(--line);
       background: linear-gradient(0deg, rgba(255,224,74,0.06), transparent);
@@ -191,18 +169,8 @@
       padding: 0 16px;
       gap: 12px;
     }
-    .title-left{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-    .title-right{
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+    .title-left{ display:flex; align-items:center; gap:12px; min-width:0; }
+    .title-right{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
 
     .status-pill{
       padding: 10px 16px;
@@ -212,9 +180,9 @@
       background: var(--liveGreen);
       color:#000;
       box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
-      transition: background .2s ease, color .2s ease;
       white-space: nowrap;
       user-select: none;
+      transition: background .2s ease, color .2s ease;
     }
     .status-error{ background: var(--errorRed); color:#fff; }
 
@@ -223,7 +191,6 @@
       height: clamp(40px, 6vh, 64px);
       object-fit: contain;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
-      transition: transform 0.2s ease-out;
       user-select: none;
     }
     @keyframes wibble {
@@ -249,9 +216,7 @@
       white-space: nowrap;
     }
 
-    /* =======================================================
-       ABNORMAL TRAFFIC — 2-WIDE GRID
-       ======================================================= */
+    /* TVT */
     .tvt-panel{
       display: grid;
       grid-template-rows: auto 1fr auto;
@@ -278,7 +243,6 @@
       grid-auto-rows: var(--corridor-card-h);
       align-content: start;
     }
-
     .corridor{
       display: grid;
       grid-template-rows: auto auto auto;
@@ -302,9 +266,7 @@
       bottom: 8px;
       font-size: 10px;
       padding: 3px 8px;
-      cursor: pointer;
     }
-
     .corridor-top{
       display: grid;
       grid-template-columns: 1fr auto;
@@ -315,7 +277,6 @@
     .corridor-title{
       font-size: clamp(15px, 2.4vh, 20px);
       font-weight: 900;
-      letter-spacing: .2px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -330,15 +291,11 @@
       text-overflow:ellipsis;
       white-space:nowrap;
     }
-
     .corridor-delay{
       font-size: clamp(22px, 4.2vh, 34px);
       font-weight: 900;
-      letter-spacing: .3px;
       line-height: 0.95;
       color: var(--delay-col);
-      margin-bottom: 2px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.35);
     }
     .corridor-times{
       font-size: clamp(12px, 1.8vh, 15px);
@@ -348,7 +305,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
     .tvt-filters{
       display: flex;
       gap: 8px;
@@ -363,85 +319,54 @@
       padding: 8px 0;
       border-radius: 10px;
       cursor: pointer;
-      letter-spacing: .2px;
-      transition: background .2s ease, border-color .2s ease, transform .05s ease;
     }
-    .tvt-filters button:hover{
-      border-color: rgba(255,224,74,0.7);
-      background: rgba(255,255,255,0.10);
-    }
-    .tvt-filters button:active{ transform: translateY(1px); }
     .tvt-filters button.active{
       background: var(--accent);
       color: #000;
       border-color: var(--accent);
     }
 
-    /* =======================================================
-       WAZE PANEL (right)
-       ======================================================= */
-    .section{
-      display: grid;
-      grid-auto-rows: auto;
-      gap: 8px;
-      min-height: 0;
-    }
+    /* Waze */
+    .section{ display:grid; gap:8px; }
     .section-title{
       font-size: clamp(11px, 1.6vh, 13px);
       text-transform: uppercase;
       font-weight: 800;
       letter-spacing: 0.6px;
       color: var(--muted);
-      opacity: 0.95;
       border-left: 3px solid rgba(255,255,255,0.15);
       padding-left: 8px;
     }
-    .cards{
-      display: grid;
-      grid-auto-rows: minmax(0, auto);
-      gap: 8px;
-      min-height: 0;
-    }
+    .cards{ display:grid; gap:8px; }
     .card{
-      display: grid;
-      grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto;
-      gap: 6px 12px;
-      padding: 10px 12px;
-      border-radius: 12px;
+      display:grid;
+      gap:6px;
+      padding:10px 12px 36px;
+      border-radius:12px;
       background: rgba(255,255,255,0.045);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.045) inset, 0 2px 6px rgba(0,0,0,0.25) inset;
-      cursor: pointer;
-      user-select: none;
       border: 1px solid rgba(255,255,255,0.06);
-      min-width: 0;
-      position: relative;
-      padding-bottom: 36px;
+      position:relative;
+      cursor:pointer;
     }
-
     .card .hide-btn{
-      position: absolute;
-      right: 10px;
-      bottom: 8px;
-      font-size: 10px;
-      padding: 3px 8px;
+      position:absolute;
+      right:10px;
+      bottom:8px;
+      font-size:10px;
+      padding:3px 8px;
     }
-
-    .card:hover{ background: rgba(255,255,255,0.065); }
     .card .title{
-      grid-column: 1 / -1;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 900;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
       font-size: clamp(14px, 2.2vh, 18px);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .card .meta{
-      grid-column: 1 / -1;
-      font-weight: 800;
+      font-weight:800;
       font-size: clamp(12px, 1.8vh, 14px);
       color: rgba(255,255,255,0.85);
       white-space: nowrap;
@@ -449,127 +374,143 @@
       text-overflow: ellipsis;
     }
     .card .desc{
-      grid-column: 1 / -1;
-      font-weight: 700;
+      font-weight:700;
       font-size: clamp(12px, 1.8vh, 14px);
       color: rgba(255,255,255,0.75);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .spacer{ flex: 1 1 auto; }
+    .spacer{ flex:1; }
 
-    /* =======================================================
-       UK road shield
-       ======================================================= */
-    .road-shield{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2px 8px 3px;
-      border-radius: 7px;
-      border: 2px solid rgba(255,255,255,0.92);
-      font-weight: 900;
-      letter-spacing: .2px;
-      line-height: 1;
-      transform: translateY(-1px);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.35);
-      flex: 0 0 auto;
-    }
-    .road-shield.m{ background: #0b4dbb; color: #fff; }
-    .road-shield.a{ background: #0b6b3a; color: #ffe04a; }
-    .road-shield.b{ background: #f2f2f2; color: #111; border-color: rgba(255,255,255,0.75); }
-
-    .waze-title{
-      display: inline-flex;
-      align-items: baseline;
-      gap: 8px;
-      min-width: 0;
-      overflow: hidden;
-    }
-    .waze-sep{
-      opacity: .55;
-      font-weight: 900;
-    }
-    .waze-street,
-    .waze-town{
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .waze-town{
-      font-weight: 900;
-    }
-
-    /* =======================================================
-       Column 2 map + minimal buttons (NEW)
-       ======================================================= */
-    #map{
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+    /* Map + tools */
+    #map{ width:100%; height:100%; border-radius:10px; overflow:hidden; }
 
     .tool-grid{
-      display: grid;
+      display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      align-content: start;
-      height: 100%;
-      overflow: auto;
-      padding-right: 2px;
-      box-sizing: border-box;
+      gap: 6px;
+      align-content:start;
+      height:100%;
+      overflow:auto;
+      padding-right:2px;
+      box-sizing:border-box;
     }
     .tool-grid button{
-      appearance: none;
-      border: 1px solid rgba(255,255,255,0.18);
+      appearance:none;
+      border:1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.06);
-      color: #fff;
-      font-weight: 900;
-      font-size: clamp(12px, 2.0vh, 15px);
-      padding: 12px 10px;
-      border-radius: 12px;
-      cursor: pointer;
-      letter-spacing: .2px;
-      transition: background .2s ease, border-color .2s ease, transform .05s ease;
-      user-select: none;
+      color:#fff;
+      font-weight:800;
+      font-size: clamp(11px, 1.6vh, 13px);
+      padding: 8px 8px;
+      border-radius: 10px;
+      cursor:pointer;
+      min-height:34px;
     }
     .tool-grid button:hover{
       border-color: rgba(255,224,74,0.75);
       background: rgba(255,255,255,0.12);
     }
-    .tool-grid button:active{ transform: translateY(1px); }
-    .tool-grid button:disabled{
-      opacity: 0.35;
-      cursor: not-allowed;
+    .tool-grid button:disabled{ opacity:0.35; cursor:not-allowed; }
+
+    /* Search UI */
+    .place-search{ position:relative; margin-bottom:10px; }
+    #gmSearch{
+      width:100%;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color:#fff;
+      font-weight:800;
+      font-size: clamp(12px, 2.0vh, 15px);
+      padding:12px 40px 12px 12px;
+      border-radius:12px;
+      outline:none;
+      box-sizing:border-box;
+    }
+    #gmSearch:focus{
+      border-color: rgba(255,224,74,0.75);
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 0 0 2px rgba(255,224,74,0.12);
+    }
+    .search-spinner{
+      position:absolute;
+      right:12px;
+      top:50%;
+      width:18px;
+      height:18px;
+      margin-top:-9px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,0.25);
+      border-top-color: var(--accent);
+      animation: spin 0.8s linear infinite;
+      display:none;
+      pointer-events:none;
+    }
+    .search-spinner.active{ display:block; }
+    @keyframes spin{ to{ transform: rotate(360deg);} }
+
+    .suggestions{
+      position:absolute;
+      top: calc(100% + 6px);
+      left:0; right:0;
+      z-index:60;
+      display:none;
+      background: rgba(10,10,10,0.98);
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:12px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+      overflow:hidden;
+    }
+    .suggestions.open{ display:block; }
+    .suggest-list{
+      margin:0;
+      padding:6px;
+      list-style:none;
+      max-height: min(34vh, 320px);
+      overflow:auto;
+    }
+    .suggest-item{
+      padding:10px;
+      border-radius:10px;
+      cursor:pointer;
+      border:1px solid transparent;
+      color: rgba(255,255,255,0.92);
+      font-weight:800;
+      line-height:1.2;
+    }
+    .suggest-item small{
+      display:block;
+      margin-top:4px;
+      font-weight:700;
+      color: rgba(255,255,255,0.70);
+    }
+    .suggest-item:hover{
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,224,74,0.45);
+    }
+    .suggest-item.active{
+      background: rgba(255,224,74,0.18);
+      border-color: rgba(255,224,74,0.75);
     }
 
-    /* Minimal scrollbar */
     * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.35) transparent; }
-    ::-webkit-scrollbar{ width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track{ background: transparent; }
+    ::-webkit-scrollbar{ width:8px; height:8px; }
+    ::-webkit-scrollbar-track{ background:transparent; }
     ::-webkit-scrollbar-thumb{
       background: linear-gradient(180deg, rgba(255,224,74,0.55), rgba(255,255,255,0.35));
       border-radius: 999px;
-      border: 2px solid transparent;
+      border:2px solid transparent;
       background-clip: padding-box;
-    }
-    ::-webkit-scrollbar-thumb:hover{
-      background: linear-gradient(180deg, rgba(255,224,74,0.85), rgba(255,255,255,0.55));
     }
   </style>
 </head>
 
 <body>
   <div class="app">
-    <!-- =========================
-         CONTENT (Top 90%)
-         ========================= -->
     <section class="content" aria-label="Main dashboard area">
 
-      <!-- Column 1: Abnormal Traffic -->
+      <!-- Column 1 -->
       <div class="col1">
         <div class="frame" id="frame-a" aria-labelledby="frame-a-title">
           <div class="frame-header" id="frame-a-title">Highways Health &amp; Abnormal Traffic</div>
@@ -594,9 +535,8 @@
         </div>
       </div>
 
-      <!-- Column 2: Map (top) + Tool Buttons (bottom) -->
+      <!-- Column 2 -->
       <div class="col2">
-        <!-- Top 50%: Map -->
         <div class="frame" id="frame-c" aria-labelledby="frame-c-title">
           <div class="frame-header" id="frame-c-title">Map</div>
           <div class="frame-body">
@@ -604,10 +544,20 @@
           </div>
         </div>
 
-        <!-- Bottom 50%: Buttons -->
         <div class="frame" id="frame-b" aria-labelledby="frame-b-title">
           <div class="frame-header" id="frame-b-title">Open in other tools</div>
           <div class="frame-body">
+            <div class="place-search" id="placeSearch" aria-label="Place search">
+              <input id="gmSearch" type="text" inputmode="search" autocomplete="off"
+                     placeholder="Search (bus stops 🚏, pubs 🍺, streets 🛣️)… or Oxford/Whitworth"
+                     aria-label="Search places in Greater Manchester"
+                     aria-autocomplete="list"
+                     aria-expanded="false"
+                     aria-controls="gmSuggest" />
+              <div class="search-spinner" id="searchSpinner" aria-hidden="true"></div>
+              <div id="gmSuggest" class="suggestions" role="listbox" aria-label="Search suggestions"></div>
+            </div>
+
             <div class="tool-grid" id="toolGrid" aria-label="Tool links">
               <button type="button" data-tool="google">Google Maps</button>
               <button type="button" data-tool="bustimes">Bus Times</button>
@@ -621,7 +571,7 @@
         </div>
       </div>
 
-      <!-- Column 3: Waze Alerts -->
+      <!-- Column 3 -->
       <div class="col3">
         <div class="frame" id="frame-d" aria-labelledby="frame-d-title">
           <div class="frame-header" id="frame-d-title">Waze Alerts</div>
@@ -647,9 +597,6 @@
 
     </section>
 
-    <!-- =========================
-         TITLE BAR (Bottom 10%)
-         ========================= -->
     <footer class="titlebar" role="contentinfo" aria-label="Title bar">
       <div class="title-left">
         <img src="https://ryanocc.github.io/car.gif" class="car-icon" alt="car icon">
@@ -657,26 +604,19 @@
       </div>
 
       <div class="title-right" aria-label="Status and controls">
-        <button id="unhideAllBtn"
-                class="toolbar-btn"
-                title="Unhide all hidden alerts"
-                aria-label="Unhide all hidden alerts"
-                type="button">
+        <button id="unhideAllBtn" class="toolbar-btn" type="button"
+                title="Unhide all hidden alerts" aria-label="Unhide all hidden alerts">
           Unhide all
         </button>
 
         <div id="statusPill" class="status-pill">Initialising…</div>
 
-        <img id="beeLogo"
-             src="https://tfgm.com/static/android-chrome-192x192.png"
-             alt="Bee Network logo"
-             width="64" height="64"
-             decoding="async" />
+        <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png"
+             alt="Bee Network logo" width="64" height="64" decoding="async" />
       </div>
     </footer>
   </div>
 
-  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
@@ -696,9 +636,7 @@
     function updateConnectedCitizensDisplay(total){
       const el = document.getElementById('connectedCitizens');
       if (!el) return;
-      const label = Number.isFinite(total) && total > 0
-        ? total.toLocaleString('en-GB')
-        : '—';
+      const label = Number.isFinite(total) && total > 0 ? total.toLocaleString('en-GB') : '—';
       el.textContent = `${label} Connected Citizens`;
     }
 
@@ -710,9 +648,7 @@
     }
 
     async function fetchJsonFromAPI(pathOrUrl, signal){
-      const url = pathOrUrl.startsWith("http")
-        ? pathOrUrl
-        : `${API_BASE}${pathOrUrl}`;
+      const url = pathOrUrl.startsWith("http") ? pathOrUrl : `${API_BASE}${pathOrUrl}`;
       const res = await fetch(withCacheBust(url), { cache: 'no-store', signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return await res.json();
@@ -746,6 +682,16 @@
         pill.textContent = `Stand By • ${t}`;
       }
     }
+
+    function escapeHTML(str){
+      return String(str).replace(/[&<>"']/g, ch =>
+        ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])
+      );
+    }
+
+    /* Spinner helpers */
+    function spinnerOn(){ document.getElementById('searchSpinner')?.classList.add('active'); }
+    function spinnerOff(){ document.getElementById('searchSpinner')?.classList.remove('active'); }
 
     /* ========= HIDE / SUPPRESSION (60 minutes) ========= */
     const HIDE_MS = 60 * 60 * 1000;
@@ -788,7 +734,6 @@
       const base = entry.baseline || {};
       let autoUnhide = false;
 
-      // Abnormal traffic: auto-unhide if delay worsens materially
       if (prefix === 'corr'){
         const curr = Number(currentMetrics.delayMin);
         const b = Number(base.delayMin);
@@ -834,6 +779,7 @@
       if (container) container.remove();
     }, { passive: false });
 
+    /* Timers — declared ONCE only */
     let tvtTimer = null;
     let wazeTimer = null;
 
@@ -853,20 +799,11 @@
     }
 
     /* =======================================================
-       MAP (NEW) — no placeholder UI; key can be provided via:
-         - ?tfkey=YOUR_KEY
-         - localStorage.setItem('tfkey','YOUR_KEY')
-       If no key is present, it falls back to Carto Dark Matter.
+       MAP — Leaflet
        ======================================================= */
-    const MAP_STATE = {
-      map: null,
-      marker: null,
-      last: null // {lat, lon}
-    };
+    const MAP_STATE = { map: null, marker: null, last: null };
 
-function getTfKey(){
-  return 'ec4c98ec4e394899a63ccecdf9712e54';
-}
+    function getTfKey(){ return 'ec4c98ec4e394899a63ccecdf9712e54'; }
 
     function initMap(){
       const el = document.getElementById('map');
@@ -877,45 +814,39 @@ function getTfKey(){
 
       const tfKey = getTfKey();
 
-      // Primary: Thunderforest Transport Dark (when key exists)
       if (tfKey){
-        L.tileLayer(
-          `https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=${encodeURIComponent(tfKey)}`,
-          {
-            maxZoom: 22,
-            detectRetina: true,
-            attribution: '&copy; Thunderforest, &copy; OpenStreetMap contributors'
-          }
-        ).addTo(m);
+L.tileLayer(
+  `https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}{r}.png?apikey=${encodeURIComponent(tfKey)}`,
+  {
+    maxZoom: 22,
+    detectRetina: true,
+    tileSize: 512,
+    zoomOffset: -1,
+    attribution: '&copy; Thunderforest, &copy; OpenStreetMap contributors'
+  }
+).addTo(m);
       } else {
-        // Fallback: Carto Dark Matter (keeps tool functional without hardcoding a placeholder)
         L.tileLayer(
           'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-          {
-            maxZoom: 22,
-            detectRetina: true,
-            attribution: '&copy; OpenStreetMap contributors, &copy; CARTO'
-          }
+          { maxZoom: 22, detectRetina: true, attribution: '&copy; OpenStreetMap contributors, &copy; CARTO' }
         ).addTo(m);
       }
 
       const mk = L.circleMarker([53.4808, -2.2426], {
-        radius: 10,
-        color: '#FFE04A',
-        weight: 3,
-        fillColor: '#FFE04A',
-        fillOpacity: 0.25
+        radius: 10, color: '#FFE04A', weight: 3, fillColor: '#FFE04A', fillOpacity: 0.25
       }).addTo(m);
 
-      // hidden until a selection is made
       mk.setStyle({ opacity: 0, fillOpacity: 0 });
 
       MAP_STATE.map = m;
       MAP_STATE.marker = mk;
 
-      // ensure tiles render correctly in grid layouts
       setTimeout(() => m.invalidateSize(), 250);
       window.addEventListener('resize', () => setTimeout(() => m.invalidateSize(), 120));
+    }
+
+    function setToolButtonsEnabled(enabled){
+      document.querySelectorAll('#toolGrid button[data-tool]').forEach(b => { b.disabled = !enabled; });
     }
 
     function setMapTarget(lat, lon, zoom){
@@ -933,10 +864,12 @@ function getTfKey(){
 
       const z = Number.isFinite(Number(zoom)) ? Number(zoom) : 12;
       m.setView([la, lo], z, { animate: true });
+
+      setToolButtonsEnabled(true);
     }
 
     /* =======================================================
-       TOOL BUTTONS (NEW) — minimal buttons, name only
+       TOOL BUTTONS
        ======================================================= */
     function openToolByName(tool){
       const last = MAP_STATE.last;
@@ -965,35 +898,555 @@ function getTfKey(){
 
       host.addEventListener('click', (e) => {
         const btn = e.target.closest('button[data-tool]');
-        if (!btn) return;
+        if (!btn || btn.disabled) return;
         openToolByName(btn.dataset.tool);
       }, { passive: true });
     }
 
     /* =======================================================
-       TVT PANEL (left) — unchanged feed
+       SEARCH — Streets first + Exact street pinned + Emoji tags
+       + Junction finder with Option 2 Confidence Scoring
        ======================================================= */
-    const TVT_URL = `${API_BASE}/api/waze/tvt`;
-    const TVT_REFRESH_MS = 5 * 60 * 1000;
+    const GM_CENTER = { lat: 53.4808, lon: -2.2426 };
+    const GM_BBOX = [-2.75, 53.30, -1.95, 53.72];
 
+    const SEARCH_DEBOUNCE_MS = 260;
+    const SEARCH_MIN_CHARS   = 2;
+    const MAX_SUGGESTIONS    = 10;
+
+    let gmAbort = null;
+    let searchSeq = 0;
+
+    function debounce(fn, ms=250){
+      let t = null;
+      return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+    }
+
+    function buildPhotonUrl(query, opts={}){
+      const { layer=null, osmTags=[], limit=8, addGmSuffix=true } = opts;
+      const u = new URL('https://photon.komoot.io/api');
+      const q = addGmSuffix ? `${query} Greater Manchester` : query;
+
+      u.searchParams.set('q', q);
+      u.searchParams.set('lang', 'en');
+      u.searchParams.set('limit', String(limit));
+      u.searchParams.set('lat', String(GM_CENTER.lat));
+      u.searchParams.set('lon', String(GM_CENTER.lon));
+      u.searchParams.set('zoom', '11');
+      u.searchParams.set('bbox', GM_BBOX.join(','));
+
+      if (layer) u.searchParams.set('layer', layer);
+      for (const t of osmTags) u.searchParams.append('osm_tag', t);
+
+      return u.toString();
+    }
+
+    async function photonFetchFeatures(query, opts, signal){
+      const res = await fetch(buildPhotonUrl(query, opts), { cache:'no-store', signal });
+      if (!res.ok) throw new Error(`Photon HTTP ${res.status}`);
+      const data = await res.json();
+      return Array.isArray(data?.features) ? data.features : [];
+    }
+
+    function inGmBbox(lon, lat){
+      return lon >= GM_BBOX[0] && lon <= GM_BBOX[2] && lat >= GM_BBOX[1] && lat <= GM_BBOX[3];
+    }
+
+    function getLonLatFromFeature(f){
+      const c = f?.geometry?.coordinates;
+      if (!Array.isArray(c) || c.length < 2) return null;
+      const lon = Number(c[0]), lat = Number(c[1]);
+      if (!Number.isFinite(lon) || !Number.isFinite(lat)) return null;
+      if (!inGmBbox(lon, lat)) return null;
+      return { lon, lat };
+    }
+
+    function stripPostcode(s){
+      return String(s||'')
+        .replace(/\b([A-Z]{1,2}\d[A-Z\d]?)\s?(\d[A-Z]{2})\b/ig,'')
+        .replace(/\s+/g,' ')
+        .trim();
+    }
+
+    function expandAbbr(s){
+      // Keep this small + safe; improves "exact" matches humans expect.
+      return String(s||'')
+        .replace(/\brd\b/ig, 'road')
+        .replace(/\bst\b/ig, 'street')
+        .replace(/\bave\b/ig, 'avenue')
+        .replace(/\bdr\b/ig, 'drive')
+        .replace(/\bln\b/ig, 'lane')
+        .replace(/\bcl\b/ig, 'close')
+        .replace(/\bct\b/ig, 'court');
+    }
+
+    function normalizeText(s){
+      return String(s||'')
+        .toLowerCase()
+        .replace(/\s+/g,' ')
+        .replace(/[^\w\s\-\(\)\/&]/g,'') // keep & for junction labels etc.
+        .trim();
+    }
+
+    function featureLabel(f){
+      const p = f?.properties || {};
+      const name = p.name || p.street || 'Unknown';
+      const locality = [p.city, p.county, p.state].filter(Boolean).join(', ');
+      const main = `${name}${p.postcode ? ` ${p.postcode}` : ''}`.trim();
+      const sub  = locality || p.country || '';
+      return { main, sub, p };
+    }
+
+    function getFeatureCategoryAndEmoji(f){
+      const p = f?.properties || {};
+      const osmKey = String(p.osm_key || '').toLowerCase();
+      const osmVal = String(p.osm_value || '').toLowerCase();
+      const type   = String(p.type || '').toLowerCase();
+
+      if (type === 'street') return { cat:'street', emoji:'🛣️' };
+      if (type === 'house')  return { cat:'address', emoji:'🏠' };
+
+      if (osmKey === 'highway' && osmVal === 'bus_stop') return { cat:'bus_stop', emoji:'🚏' };
+      if (osmKey === 'public_transport' && (osmVal === 'platform' || osmVal === 'stop_position' || osmVal === 'stop_area')) return { cat:'bus_stop', emoji:'🚏' };
+
+      if (osmKey === 'amenity'){
+        if (osmVal === 'pub' || osmVal === 'bar') return { cat:'pub', emoji:'🍺' };
+        if (osmVal === 'cafe') return { cat:'cafe', emoji:'☕' };
+        if (osmVal === 'restaurant' || osmVal === 'fast_food') return { cat:'food', emoji:'🍽️' };
+        if (osmVal === 'fuel') return { cat:'fuel', emoji:'⛽' };
+        if (osmVal === 'parking') return { cat:'parking', emoji:'🅿️' };
+        if (osmVal === 'hospital' || osmVal === 'clinic') return { cat:'health', emoji:'🏥' };
+        if (osmVal === 'school' || osmVal === 'college' || osmVal === 'university') return { cat:'education', emoji:'🏫' };
+        if (osmVal === 'police' || osmVal === 'fire_station' || osmVal === 'townhall') return { cat:'civic', emoji:'🏛️' };
+      }
+
+      if (osmKey === 'shop') return { cat:'shop', emoji:'🛍️' };
+      if (osmKey === 'leisure'){
+        if (osmVal === 'park') return { cat:'park', emoji:'🌳' };
+        if (osmVal === 'stadium' || osmVal === 'sports_centre') return { cat:'venue', emoji:'🏟️' };
+      }
+
+      if (osmKey === 'railway' || osmKey === 'station') return { cat:'station', emoji:'🚉' };
+
+      return { cat:'other', emoji:'📍' };
+    }
+
+    function scoreFeature(f){
+      const p = f?.properties || {};
+      const k = String(p.osm_key||'').toLowerCase();
+      const v = String(p.osm_value||'').toLowerCase();
+      const type = String(p.type||'').toLowerCase();
+
+      let s = 0;
+      if (type==='street') s += 30;
+      if (k==='highway' && v==='bus_stop') s += 25;
+      if (k==='public_transport' && (v==='platform'||v==='stop_position'||v==='stop_area')) s += 20;
+      if (k==='amenity' && (v==='pub'||v==='bar')) s += 15;
+      if (k==='amenity' && v==='cafe') s += 10;
+      if (type==='house') s -= 5;
+      if (p.name) s += 5;
+      return s;
+    }
+
+    function canonicalKey(item){
+      if (item.kind === 'junction') return `junction:${normalizeText(item.main)}`;
+      const p = item.raw?.properties || {};
+      const type = String(p.type||'').toLowerCase();
+      const osmKey = String(p.osm_key||'').toLowerCase();
+      const osmVal = String(p.osm_value||'').toLowerCase();
+
+      if ((osmKey==='highway' && osmVal==='bus_stop') || (osmKey==='public_transport' && osmVal==='platform')){
+        const nm = normalizeText(stripPostcode(p.name || item.main || ''));
+        const city = normalizeText(p.city || p.county || '');
+        return `busstop:${nm}|${city}`;
+      }
+
+      if (type==='street' || type==='house' || p.street){
+        const streetName = stripPostcode(p.street || p.name || item.main || '');
+        const nm = normalizeText(streetName);
+        const city = normalizeText(p.city || p.county || '');
+        return `street:${nm}|${city}`;
+      }
+
+      const nm = normalizeText(stripPostcode(p.name || item.main || ''));
+      const city = normalizeText(p.city || p.county || '');
+      return `poi:${nm}|${city}`;
+    }
+
+    // NEW: dedupe after sorting, keep the first/best-ranked for each canonicalKey.
+    function dedupKeepFirst(items){
+      const seen = new Set();
+      const out = [];
+      for (const it of items){
+        const key = canonicalKey(it);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(it);
+      }
+      return out;
+    }
+
+    /* Junction parsing (FIXED: real & not &amp;) */
+    function parseJunctionQuery(q){
+      const s = String(q||'').trim();
+      if (!s) return null;
+      const l = s.toLowerCase();
+      let parts = null;
+
+      if (s.includes('/')) parts = s.split('/');
+      else if (s.includes('&')) parts = s.split('&');               // ✅ real '&'
+      else if (l.includes(' and ')) parts = s.split(/ and /i);
+      else if (l.includes(' at ')) parts = s.split(/ at /i);
+      else if (l.includes(' @ ')) parts = s.split(/ @ /i);
+
+      if (!parts || parts.length < 2) return null;
+
+      const a = String(parts[0]||'').trim();
+      const b = String(parts.slice(1).join(' ')||'').trim();
+      if (a.length < 2 || b.length < 2) return null;
+      return { a, b };
+    }
+
+    function toRad(deg){ return deg * Math.PI / 180; }
+    function haversineMeters([lon1, lat1], [lon2, lat2]){
+      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+
+    /* Option 2: Confidence scoring */
+    function classifyJunctionConfidence(distanceMeters, sharedNode=false){
+      let confidence = 0;
+      let label = 'Low';
+      let emoji = '❓';
+      const reasons = [];
+
+      if (sharedNode){
+        confidence = 100;
+        label = 'High';
+        emoji = '✅';
+        reasons.push('Street geometries intersect');
+      } else if (distanceMeters <= 10){
+        confidence = 85; label='High'; emoji='✅';
+        reasons.push('Very close centrelines (<10m)');
+      } else if (distanceMeters <= 25){
+        confidence = 70; label='Medium'; emoji='⚠️';
+        reasons.push('Close centrelines (<25m)');
+      } else if (distanceMeters <= 50){
+        confidence = 50; label='Medium'; emoji='⚠️';
+        reasons.push('Nearby streets (<50m)');
+      } else {
+        confidence = 30; label='Low'; emoji='❓';
+        reasons.push('Approximate midpoint only');
+      }
+
+      return { confidence, label, emoji, reasons };
+    }
+
+    function makeJunctionCandidates(j, fa, fb){
+      const A = (fa||[]).slice(0,5);
+      const B = (fb||[]).slice(0,5);
+      if (!A.length || !B.length) return [];
+
+      let best = null;
+      for (const a of A){
+        const la = getLonLatFromFeature(a); if (!la) continue;
+        for (const b of B){
+          const lb = getLonLatFromFeature(b); if (!lb) continue;
+          const d = haversineMeters([la.lon, la.lat], [lb.lon, lb.lat]);
+          if (!best || d < best.d) best = { d, la, lb };
+        }
+      }
+      if (!best || best.d > 4500) return [];
+
+      const mid = { lat:(best.la.lat + best.lb.lat)/2, lon:(best.la.lon + best.lb.lon)/2 };
+      const conf = classifyJunctionConfidence(best.d, false);
+
+      return [{
+        kind:'junction',
+        lat: mid.lat,
+        lon: mid.lon,
+        main: `${j.a} × ${j.b}`,
+        sub: `${conf.label} confidence • ${conf.reasons[0] || ''} • ~${Math.round(best.d)}m`,
+        score: 999,
+        cat: 'junction',
+        emoji: conf.emoji,
+        confidence: conf.confidence,
+        confidenceLabel: conf.label,
+        confidenceReason: conf.reasons
+      }];
+    }
+
+    function openSuggestions(open){
+      const box = document.getElementById('gmSuggest');
+      if (!box) return;
+      box.classList.toggle('open', !!open);
+    }
+
+    function renderSuggestions(items){
+      const box = document.getElementById('gmSuggest');
+      const input = document.getElementById('gmSearch');
+      if (!box || !input) return;
+
+      if (!items || items.length === 0){
+        box.innerHTML = '';
+        openSuggestions(false);
+        input.setAttribute('aria-expanded', 'false');
+        return;
+      }
+
+      const lis = items.map((it, idx) => {
+        const emoji = it.emoji || '📍';
+        const main = `${emoji} ${escapeHTML(it.main || 'Unknown')}`;
+        const badge = `<small>${escapeHTML(it.sub || '')}</small>`;
+        return `
+          <li class="suggest-item" role="option"
+              data-idx="${idx}" data-lat="${it.lat}" data-lon="${it.lon}"
+              data-main="${escapeHTML(it.main||'')}">
+            ${main}
+            ${badge}
+          </li>`;
+      }).join('');
+
+      box.innerHTML = `<ul class="suggest-list">${lis}</ul>`;
+      openSuggestions(true);
+      input.setAttribute('aria-expanded', 'true');
+    }
+
+    function clearSuggestions(){
+      const box = document.getElementById('gmSuggest');
+      const input = document.getElementById('gmSearch');
+      if (box){ box.innerHTML=''; box.classList.remove('open'); }
+      if (input) input.setAttribute('aria-expanded','false');
+    }
+
+    function isStreetLike(it){
+      const p = it.raw?.properties || {};
+      const type = String(p.type||'').toLowerCase();
+      const osmKey = String(p.osm_key||'').toLowerCase();
+      // Streets can appear as "other" depending on OSM tagging; treat street-ish features as boostable.
+      return it.cat === 'street' || type === 'street' || !!p.street || osmKey === 'highway';
+    }
+
+    function applyMatchBoost(items, qRaw){
+      const isJunctionQuery = !!parseJunctionQuery(qRaw);
+      if (isJunctionQuery) {
+        for (const it of items) it.matchBoost = 0;
+        return;
+      }
+
+      const qNorm = normalizeText(expandAbbr(stripPostcode(qRaw)));
+      for (const it of items){
+        it.matchBoost = 0;
+
+        // Primary: street-like exact/prefix match
+        if (isStreetLike(it)){
+          const nameNorm = normalizeText(expandAbbr(stripPostcode(it.main)));
+          if (nameNorm === qNorm) it.matchBoost = 10000;
+          else if (nameNorm.startsWith(qNorm)) it.matchBoost = 5000;
+        } else {
+          // Secondary: allow POI exact/prefix, but smaller weight
+          const nameNorm = normalizeText(expandAbbr(stripPostcode(it.main)));
+          if (nameNorm === qNorm) it.matchBoost = 1200;
+          else if (nameNorm.startsWith(qNorm)) it.matchBoost = 600;
+        }
+      }
+    }
+
+    function bindGmSearch(){
+      const input = document.getElementById('gmSearch');
+      const box   = document.getElementById('gmSuggest');
+      if (!input || !box) return;
+
+      let activeIndex = -1;
+      let currentItems = [];
+
+      const setActive = (idx) => {
+        activeIndex = idx;
+        box.querySelectorAll('.suggest-item').forEach((el,i)=>el.classList.toggle('active', i===idx));
+      };
+
+      const choose = (lat, lon, label) => {
+        if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon))) return;
+        if (label) input.value = label;
+        clearSuggestions();
+        setMapTarget(Number(lat), Number(lon), 16);
+      };
+
+      const catRank = {
+        junction: -1,
+        street: 0,
+        bus_stop: 1,
+        pub: 2,
+        cafe: 3,
+        food: 4,
+        station: 5,
+        shop: 6,
+        park: 7,
+        venue: 8,
+        civic: 9,
+        health: 10,
+        education: 11,
+        fuel: 12,
+        parking: 13,
+        address: 90,
+        other: 99
+      };
+
+      const doSearch = debounce(async () => {
+        const qRaw = input.value.trim();
+        if (qRaw.length < SEARCH_MIN_CHARS){
+          currentItems = [];
+          clearSuggestions();
+          spinnerOff();
+          return;
+        }
+
+        const mySeq = ++searchSeq;
+
+        try { if (gmAbort) gmAbort.abort(); } catch {}
+        gmAbort = new AbortController();
+        const { signal } = gmAbort;
+
+        try{
+          const j = parseJunctionQuery(qRaw);
+
+          // NOTE: Slightly higher street limit improves reliability on deep matches.
+          const broadP  = photonFetchFeatures(qRaw, { limit: 10, layer: null }, signal);
+          const otherP  = photonFetchFeatures(qRaw, { limit: 8, layer: 'other' }, signal);
+          const busP    = photonFetchFeatures(qRaw, { limit: 8, layer: 'other', osmTags:['highway:bus_stop','public_transport:platform'] }, signal);
+          const pubP    = photonFetchFeatures(qRaw, { limit: 6, layer: 'other', osmTags:['amenity:pub','amenity:bar','amenity:cafe','amenity:restaurant','amenity:fast_food'] }, signal);
+          const streetP = photonFetchFeatures(qRaw, { limit: 20, layer: 'street' }, signal);
+
+          let combP = Promise.resolve([]);
+          let faFbP = Promise.resolve(null);
+
+          if (j){
+            // ✅ real '&' (not '&amp;')
+            combP = photonFetchFeatures(`${j.a} & ${j.b}, Manchester`, { limit: 8, layer: null, addGmSuffix:false }, signal);
+            faFbP = Promise.all([
+              photonFetchFeatures(j.a, { limit: 8, layer: 'street' }, signal),
+              photonFetchFeatures(j.b, { limit: 8, layer: 'street' }, signal)
+            ]);
+          }
+
+          const [broad, other, bus, pub, street, comb, faFb] =
+            await Promise.all([broadP, otherP, busP, pubP, streetP, combP, faFbP]);
+
+          const toItems = (features) => (features||[]).map(f=>{
+            const ll = getLonLatFromFeature(f);
+            if (!ll) return null;
+            const { main, sub } = featureLabel(f);
+            const tag = getFeatureCategoryAndEmoji(f);
+            return { kind:'feature', lat: ll.lat, lon: ll.lon, main, sub, raw:f, score: scoreFeature(f), cat: tag.cat, emoji: tag.emoji };
+          }).filter(Boolean);
+
+          let all = []
+            .concat(toItems(street))
+            .concat(toItems(bus))
+            .concat(toItems(pub))
+            .concat(toItems(other))
+            .concat(toItems(broad))
+            .concat(toItems(comb));
+
+          if (j && faFb){
+            const [fa, fb] = faFb;
+            all = makeJunctionCandidates(j, fa, fb).concat(all);
+          }
+
+          // ✅ Apply matchBoost BEFORE sorting/dedupe so exact matches don't get thrown away.
+          applyMatchBoost(all, qRaw);
+
+          // Ranking: matchBoost, then category, then junction confidence, then score, then name
+          all.sort((a,b)=>{
+            const mb = (b.matchBoost||0) - (a.matchBoost||0);
+            if (mb) return mb;
+
+            const ar = catRank[a.cat || 'other'] ?? 99;
+            const br = catRank[b.cat || 'other'] ?? 99;
+            if (ar !== br) return ar - br;
+
+            if (a.kind === 'junction' && b.kind === 'junction'){
+              return (b.confidence||0) - (a.confidence||0);
+            }
+
+            const ds = (Number(b.score||0) - Number(a.score||0));
+            if (ds) return ds;
+
+            return String(a.main).localeCompare(String(b.main));
+          });
+
+          // ✅ Dedupe AFTER sorting, keep the best-ranked per canonical key.
+          all = dedupKeepFirst(all);
+
+          const nextItems = all.slice(0, MAX_SUGGESTIONS);
+
+          if (mySeq === searchSeq){
+            currentItems = nextItems;
+            renderSuggestions(currentItems);
+            setActive(currentItems.length ? 0 : -1);
+          }
+
+        } catch (e){
+          if (e?.name !== 'AbortError') console.warn('[Search] failed:', e);
+        } finally {
+          if (mySeq === searchSeq) spinnerOff();
+        }
+      }, SEARCH_DEBOUNCE_MS);
+
+      input.addEventListener('input', () => {
+        const q = input.value.trim();
+        if (q.length >= SEARCH_MIN_CHARS) spinnerOn(); else spinnerOff();
+        doSearch();
+      }, { passive:true });
+
+      input.addEventListener('keydown', (e) => {
+        if (!box.classList.contains('open') || currentItems.length === 0) return;
+
+        if (e.key === 'ArrowDown'){
+          e.preventDefault();
+          setActive(Math.min(currentItems.length - 1, activeIndex + 1));
+        } else if (e.key === 'ArrowUp'){
+          e.preventDefault();
+          setActive(Math.max(0, activeIndex - 1));
+        } else if (e.key === 'Enter'){
+          e.preventDefault();
+          const it = currentItems[activeIndex >= 0 ? activeIndex : 0];
+          if (!it) return;
+          choose(it.lat, it.lon, it.main);
+        } else if (e.key === 'Escape'){
+          e.preventDefault();
+          clearSuggestions();
+          spinnerOff();
+        }
+      });
+
+      box.addEventListener('click', (e) => {
+        const item = e.target.closest('.suggest-item');
+        if (!item) return;
+        choose(Number(item.dataset.lat), Number(item.dataset.lon), item.dataset.main || item.textContent.trim());
+      }, { passive:true });
+
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('#placeSearch')) return;
+        clearSuggestions();
+        spinnerOff();
+      }, { passive:true });
+    }
+
+    /* =======================================================
+       TVT PANEL
+       ======================================================= */
+    const TVT_REFRESH_MS = 5 * 60 * 1000;
     let TVT_MIN_DELAY = 15;
     let lastTvtData = null;
 
-    function escapeHTML(str){
-      return String(str).replace(/[&<>"']/g, ch =>
-        ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])
-      );
-    }
-
     function corridorDisplayName(r){
       if (r?.name && r.name.trim()) return r.name.trim();
-
       const from = String(r?.fromName || '').trim();
       const to   = String(r?.toName   || '').trim();
       if (from || to) return [from, to].filter(Boolean).join(' → ');
-
       if (r?.leadAlert?.street) return String(r.leadAlert.street).trim();
-
       return 'Unnamed corridor';
     }
 
@@ -1030,19 +1483,10 @@ function getTfKey(){
     function computeTopNDelays(routesRaw, n = 16, minDelay = 15){
       const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
       const candidates = routes
-        .map(r => {
-          const time = Number(r?.time) || 0;
-          const hist = Number(r?.historicTime) || 0;
-          const delayMin = computeDelayMin(r);
-          return { r, time, hist, delayMin };
-        })
+        .map(r => ({ r, time:Number(r?.time)||0, hist:Number(r?.historicTime)||0, delayMin: computeDelayMin(r) }))
         .filter(x => Number.isFinite(x.delayMin) && x.delayMin >= minDelay);
 
-      candidates.sort((a,b) =>
-        (b.delayMin - a.delayMin) ||
-        (b.time - a.time)
-      );
-
+      candidates.sort((a,b) => (b.delayMin - a.delayMin) || (b.time - a.time));
       return candidates.slice(0, n);
     }
 
@@ -1053,9 +1497,7 @@ function getTfKey(){
       const bbTok = (bb && [bb.minX, bb.minY, bb.maxX, bb.maxY].every(Number.isFinite))
         ? `${Number(bb.minX).toFixed(4)},${Number(bb.minY).toFixed(4)},${Number(bb.maxX).toFixed(4)},${Number(bb.maxY).toFixed(4)}`
         : '';
-      return t === 'DYNAMIC'
-        ? `${base}|DYN|${bbTok}`
-        : base;
+      return t === 'DYNAMIC' ? `${base}|DYN|${bbTok}` : base;
     };
 
     function getCorridorCenterLngLat(route){
@@ -1077,77 +1519,18 @@ function getTfKey(){
           if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
           sumX += x; sumY += y; n++;
         }
-        if (n > 0){
-          return [sumX / n, sumY / n];
-        }
+        if (n > 0) return [sumX / n, sumY / n];
       }catch(e){}
       return null;
-    }
-
-    function extractUkRoadNumber(text){
-      const s = String(text || '').toUpperCase();
-      const m = s.match(/\b([MAB])\s?(\d{1,4})(?:\s?\((M)\))?\b/);
-      if (!m) return null;
-
-      const letter = m[1];
-      const digits = m[2];
-      const hasMotorwaySuffix = !!m[3];
-
-      const label = hasMotorwaySuffix ? `${letter}${digits}(M)` : `${letter}${digits}`;
-      const type  = (letter === 'M' || hasMotorwaySuffix) ? 'm' : (letter === 'A' ? 'a' : 'b');
-
-      const tokenMatched = m[0];
-      return { label, type, tokenMatched };
-    }
-
-    function stripRoadToken(street, token){
-      let s = String(street || '');
-
-      if (token){
-        const raw = String(token).trim().toUpperCase();
-        const re = raw
-          .replace(/\s+/g, '\\s*')
-          .replace(/\(/g, '\\(')
-          .replace(/\)/g, '\\)');
-
-        const rx = new RegExp(`\\b${re}\\b`, 'i');
-        s = s.replace(rx, '');
-      }
-
-      s = s.replace(/\s{2,}/g, ' ');
-      s = s.replace(/^\s*[-–—]+\s*/g, '');
-      s = s.replace(/^\s*[,/]+\s*/g, '');
-
-      s = s
-        .replace(/\s+([,;:/])/g, '$1')
-        .replace(/([,;:/])\s+/g, '$1 ')
-        .replace(/\s+([-–—])\s+/g, ' $1 ')
-        .replace(/\s{2,}/g, ' ');
-
-      return s.trim();
-    }
-
-    function buildCorridorTitleHTML(labelText){
-      const raw = String(labelText || '').trim();
-      const road = extractUkRoadNumber(raw);
-      const clean = road ? stripRoadToken(raw, road.tokenMatched) : raw;
-
-      const safeName = escapeHTML(clean || 'Unnamed corridor');
-      const shieldHTML = road
-        ? `<span class="road-shield ${road.type}">${escapeHTML(road.label)}</span>`
-        : '';
-      const sepHTML = shieldHTML ? `<span class="waze-sep">//</span>` : '';
-      return `${shieldHTML}${sepHTML}<span class="corridor-name">${safeName}</span>`;
     }
 
     function renderTvtPanel(data){
       lastTvtData = data;
 
       const host = document.getElementById('abnormal-traffic');
-      if (!host) return;
-
       const list = document.getElementById('tvt-corridors');
-      const net  = host.querySelector('.network-bar');
+      const net  = host?.querySelector('.network-bar');
+      if (!host || !list) return;
 
       if (net){
         net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []);
@@ -1167,7 +1550,6 @@ function getTfKey(){
 
       const itemHTML = (it) => {
         const label = corridorDisplayName(it.r);
-        const titleHTML = buildCorridorTitleHTML(label);
         const id = escapeHTML(it.id);
 
         const delayMin = Math.max(0, Number(it.delayMin)||0);
@@ -1182,41 +1564,25 @@ function getTfKey(){
         const hasCenter = Number.isFinite(cLon) && Number.isFinite(cLat);
 
         return `
-          <div class="corridor"
-               title="${escapeHTML(it.r?.name||'')}"
-               data-delay="${delayMin}"
-               ${hasCenter ? `data-lon="${cLon}" data-lat="${cLat}"` : ''}>
+          <div class="corridor" data-delay="${delayMin}" ${hasCenter ? `data-lon="${cLon}" data-lat="${cLat}"` : ''}>
             <div class="corridor-top">
-              <div class="corridor-title">${titleHTML}</div>
-              <button class="hide-btn"
-                      data-prefix="corr"
-                      data-id="${id}"
-                      data-baseline-delay="${delayMin}"
-                      type="button">Hide</button>
+              <div class="corridor-title"><span class="corridor-name">${escapeHTML(label)}</span></div>
+              <button class="hide-btn" data-prefix="corr" data-id="${id}" data-baseline-delay="${delayMin}" type="button">Hide</button>
             </div>
-
-            <div class="corridor-delay" style="--delay-col:${col}">
-              +${delayMin}m
-            </div>
-
-            <div class="corridor-times">
-              ${normMin}m → ${nowMin}m
-            </div>
+            <div class="corridor-delay" style="--delay-col:${col}">+${delayMin}m</div>
+            <div class="corridor-times">${normMin}m → ${nowMin}m</div>
           </div>
         `;
       };
 
-      list.innerHTML = filtered.length
-        ? filtered.map(itemHTML).join('')
-        : `
-          <div class="corridor" style="grid-column: 1 / -1;">
-            <div class="corridor-top">
-              <div class="corridor-title"><span class="corridor-name">No corridors above +${TVT_MIN_DELAY}m</span></div>
-            </div>
-            <div class="corridor-delay" style="--delay-col:rgba(255,255,255,0.7)">Normal</div>
-            <div class="corridor-times">Use the filter buttons below to view smaller delays</div>
+      list.innerHTML = filtered.length ? filtered.map(itemHTML).join('') : `
+        <div class="corridor" style="grid-column: 1 / -1;">
+          <div class="corridor-top">
+            <div class="corridor-title"><span class="corridor-name">No corridors above +${TVT_MIN_DELAY}m</span></div>
           </div>
-        `;
+          <div class="corridor-delay" style="--delay-col:rgba(255,255,255,0.7)">Normal</div>
+          <div class="corridor-times">Use the filter buttons below to view smaller delays</div>
+        </div>`;
     }
 
     function bindTvtFilters(){
@@ -1226,15 +1592,10 @@ function getTfKey(){
       wrap.addEventListener('click', (e) => {
         const btn = e.target.closest('button[data-min]');
         if (!btn) return;
-
         TVT_MIN_DELAY = Number(btn.dataset.min) || 15;
-
-        wrap.querySelectorAll('button[data-min]').forEach(b => {
-          b.classList.toggle('active', b === btn);
-        });
-
+        wrap.querySelectorAll('button[data-min]').forEach(b => b.classList.toggle('active', b === btn));
         if (lastTvtData) renderTvtPanel(lastTvtData);
-      }, { passive: true });
+      }, { passive:true });
     }
 
     async function fetchTVT(signal){
@@ -1249,7 +1610,7 @@ function getTfKey(){
         setStatusPill(true, { animate:true });
       }catch(e){
         console.error('[TVT] fetch failed:', e);
-        setStatusPill(false, { animate:false });
+        setStatusPill(false);
       }finally{
         clearTimeout(tvtTimer);
         tvtTimer = setTimeout(tvtCycle, TVT_REFRESH_MS);
@@ -1263,9 +1624,6 @@ function getTfKey(){
       window.open(u.toString(), '_blank', 'noopener');
     }
 
-    /* =======================================================
-       Corridor clicks (CHANGED): click pans map, dblclick opens Waze
-       ======================================================= */
     function bindCorridorClicks(){
       const list = document.getElementById('tvt-corridors');
       if (!list) return;
@@ -1274,43 +1632,32 @@ function getTfKey(){
         if (ev.target && ev.target.closest('.hide-btn')) return;
         const card = ev.target.closest('.corridor');
         if (!card) return;
-
         const lon = Number(card.getAttribute('data-lon'));
         const lat = Number(card.getAttribute('data-lat'));
         if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
-
         setMapTarget(lat, lon, 11);
-      }, { passive: true });
+      }, { passive:true });
 
       list.addEventListener('dblclick', (ev) => {
         if (ev.target && ev.target.closest('.hide-btn')) return;
         const card = ev.target.closest('.corridor');
         if (!card) return;
-
         const lon = Number(card.getAttribute('data-lon'));
         const lat = Number(card.getAttribute('data-lat'));
         if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
-
         openWazePartnerhub(lon, lat);
-      }, { passive: true });
+      }, { passive:true });
     }
 
     /* =======================================================
-       WAZE ALERTS (right) — unchanged feed, click pans map (NEW)
+       WAZE ALERTS (as in your tool, from your endpoints)
        ======================================================= */
-    const WAZE_URL = `${API_BASE}/api/waze/partner-feed`;
     const WAZE_REFRESH_MS = 30000;
 
     async function fetchViaProxies(_ignoredUrl, signal){
-      return await fetchJsonFromAPI(WAZE_URL, signal);
+      return await fetchJsonFromAPI(`${API_BASE}/api/waze/partner-feed`, signal);
     }
 
-    function toRad(deg){ return deg * Math.PI / 180; }
-    function haversineMeters([lon1, lat1], [lon2, lat2]){
-      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
-      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
-      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    }
     function stableClusterId(coord){
       const lon = Number(coord[0]).toFixed(4);
       const lat = Number(coord[1]).toFixed(4);
@@ -1354,20 +1701,15 @@ function getTfKey(){
 
       const t  = String(a?.type || a?.alertType || '').toUpperCase();
       const d  = String(a?.description || a?.reportDescription || a?.title || '').toUpperCase();
-      return (
-        t.includes('ICE') ||
-        /\bICE\b|\BICY\b|BLACK\s*ICE|RECENT(LY)?\s+FORMED\s+ICE/.test(d)
-      );
+      return t.includes('ICE') || /\bICE\b|BLACK\s*ICE|RECENT(LY)?\s+FORMED\s+ICE/.test(d);
     }
 
     function isTrafficLightFault(a){
       const t = readType(a), st = readSubType(a), d = readDesc(a);
-      return (
-        st === 'HAZARD_ON_ROAD_TRAFFIC_LIGHT_FAULT' ||
-        (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
-        st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
-        /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
-      );
+      return st === 'HAZARD_ON_ROAD_TRAFFIC_LIGHT_FAULT' ||
+             (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
+             st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
+             /TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d);
     }
 
     function dedupAccidentClusters(clusters, opts={}){
@@ -1408,9 +1750,6 @@ function getTfKey(){
       const host = document.getElementById('waze-panel');
       if (!host) return;
 
-      host.style.overflowY = 'auto';
-      host.style.overflowX = 'hidden';
-
       const toggleSection = (secId, wrapIds) => {
         const sec = document.getElementById(secId);
         const hasAny = wrapIds.some(id => {
@@ -1429,39 +1768,12 @@ function getTfKey(){
       return n > Date.now() ? Date.now() : n;
     }
 
-    function buildWazeTitleHTML({ street='', town='', roadText='' }){
-      const road = extractUkRoadNumber(roadText || street || '');
-      const streetClean = road ? stripRoadToken(street, road.tokenMatched) : String(street || '').trim();
-
-      const safeStreet = escapeHTML(streetClean || 'Unknown road');
-      const safeTown   = escapeHTML(String(town || '').trim());
-
-      const shieldHTML = road
-        ? `<span class="road-shield ${road.type}">${escapeHTML(road.label)}</span>`
-        : '';
-
-      const townHTML = safeTown
-        ? `<span class="waze-sep">//</span><span class="waze-town">${safeTown}</span>`
-        : '';
-
-      return `
-        <span class="waze-title">
-          ${shieldHTML}
-          ${shieldHTML ? `<span class="waze-sep">//</span>` : ``}
-          <span class="waze-street">${safeStreet}</span>
-          ${townHTML}
-        </span>
-      `.trim();
-    }
-
     async function wazeCycle(){
       const ctrl = new AbortController();
       try{
-        const data = await fetchViaProxies(WAZE_URL, ctrl.signal);
+        const data = await fetchViaProxies('', ctrl.signal);
 
-        /* =========================
-           ACCIDENTS
-           ========================= */
+        // ACCIDENTS
         const accidentPoints = (()=>{
           const out = [], a = (data && Array.isArray(data.alerts)) ? data.alerts : [];
           for(const x of a){
@@ -1486,18 +1798,21 @@ function getTfKey(){
           const parent=Array(points.length).fill(0).map((_,i)=>i);
           const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
           const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+
           for(let i=0;i<points.length;i++){
             for(let j=i+1;j<points.length;j++){
               const d=haversineMeters(points[i].coord, points[j].coord);
               if(d<=merge) union(i,j);
             }
           }
+
           const groups=new Map();
           for(let i=0;i<points.length;i++){
             const r=find(i);
             if(!groups.has(r)) groups.set(r, []);
             groups.get(r).push(points[i]);
           }
+
           const clusters=[];
           for(const members of groups.values()){
             const count=members.length;
@@ -1506,11 +1821,14 @@ function getTfKey(){
             let eff10=baseConf10 + (bestRel10>8?2:0);
             eff10=Math.max(0, Math.min(12, eff10));
             const eff5=Math.max(1, Math.min(5, Math.round(eff10/2)));
+
             const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
             const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+
             const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0];
             clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count });
           }
+
           clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0)))));
           return clusters;
         })(accidentPoints) : [];
@@ -1531,40 +1849,28 @@ function getTfKey(){
         const cardAccidentHTML = (item)=>{
           const conf = Number(item.effectiveConfidence)||0;
           const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-
-          const titleHTML = buildWazeTitleHTML({
-            street: item.street || '',
-            town: item.city || '',
-            roadText: item.street || ''
-          });
-
-          return `<div class="card" data-type="accident"
-                      data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+          return `<div class="card" data-type="accident" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
                   <div class="title">
-                    ${titleHTML}
+                    ${escapeHTML(item.street || 'Unknown road')}
                     <span class="spacer"></span>
                     <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
                   </div>
                   <div class="meta">Confidence: ${conf}/5 • ${when}</div>
-                  <div class="desc">Accident Report</div>
+                  <div class="desc">Accident</div>
                 </div>`;
         };
 
         if (highWrap) highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
         if (lowWrap)  lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
 
-        /* =========================
-           SIGNALS
-           ========================= */
+        // SIGNALS
         const sigWrap = document.getElementById('cards-signals');
         if (sigWrap) {
           sigWrap.innerHTML = '';
-
           const signalsRaw = Array.isArray(data?.alerts) ? data.alerts : [];
           const signals = [];
           for (const x of signalsRaw) {
             if (!isTrafficLightFault(x)) continue;
-
             const coord = getLngLatFromAlert(x);
             if (!coord) continue;
 
@@ -1577,46 +1883,26 @@ function getTfKey(){
             const desc = x.reportDescription || x.description || x.title || '';
 
             if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
-
             signals.push({ id, coord, street, city, time, rel10, desc });
           }
 
           signals.sort((a, b) => (b.rel10 - a.rel10) || (b.time - a.time));
 
-          const cardSignalHTML = (item) => {
-            const titleHTML = buildWazeTitleHTML({
-              street: item.street || '',
-              town: item.city || '',
-              roadText: item.street || ''
-            });
-            const when = new Date(Number(item.time) || 0).toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
-            const rel = Number(item.rel10) || 0;
-            const desc = escapeHTML(item.desc || 'Traffic signal fault');
-
-            return `
-              <div class="card" data-type="signal"
-                   data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-                <div class="title">
-                  ${titleHTML}
-                  <span class="spacer"></span>
-                  <button class="hide-btn"
-                          data-prefix="sig"
-                          data-id="${escapeHTML(item.id)}"
-                          data-baseline-conf="${rel}"
-                          type="button">Hide</button>
-                </div>
-                <div class="meta">Reliability: ${rel}/10 • ${when}</div>
-                <div class="desc">${desc}</div>
+          sigWrap.innerHTML = signals.map(item=>{
+            const when = new Date(Number(item.time) || 0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
+            return `<div class="card" data-type="signal" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+              <div class="title">
+                ${escapeHTML(item.street || 'Unknown road')}
+                <span class="spacer"></span>
+                <button class="hide-btn" data-prefix="sig" data-id="${escapeHTML(item.id)}" data-baseline-conf="${item.rel10}" type="button">Hide</button>
               </div>
-            `;
-          };
-
-          sigWrap.innerHTML = signals.map(cardSignalHTML).join('');
+              <div class="meta">Reliability: ${item.rel10}/10 • ${when}</div>
+              <div class="desc">${escapeHTML(item.desc || 'Traffic light fault')}</div>
+            </div>`;
+          }).join('');
         }
 
-        /* =========================
-           WEATHER (ICE)
-           ========================= */
+        // WEATHER
         const weatherWrap = document.getElementById('cards-weather');
         if (weatherWrap) {
           weatherWrap.innerHTML = '';
@@ -1625,7 +1911,6 @@ function getTfKey(){
           const wx = [];
           for (const x of wxRaw) {
             if (!isIceAlert(x)) continue;
-
             const coord = getLngLatFromAlert(x);
             if (!coord) continue;
 
@@ -1638,39 +1923,23 @@ function getTfKey(){
             const desc   = x.reportDescription || x.description || x.title || 'Ice alert';
 
             if (isHiddenWithAutoCheck('wx', id, {})) continue;
-
             wx.push({ id, coord, street, city, time, desc });
           }
 
-          wx.sort((a, b) => (b.time - a.time));
+          wx.sort((a,b)=>b.time-a.time);
 
-          const cardWeatherHTML = (item) => {
-            const titleHTML = buildWazeTitleHTML({
-              street: item.street || '',
-              town: item.city || '',
-              roadText: item.street || ''
-            });
-            const when = new Date(Number(item.time) || 0)
-              .toLocaleString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
-
-            return `
-              <div class="card" data-type="weather"
-                   data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-                <div class="title">
-                  ${titleHTML}
-                  <span class="spacer"></span>
-                  <button class="hide-btn"
-                          data-prefix="wx"
-                          data-id="${escapeHTML(item.id)}"
-                          type="button">Hide</button>
-                </div>
-                <div class="meta">${when}</div>
-                <div class="desc">❄️ ${escapeHTML(item.desc || 'Ice alert')}</div>
+          weatherWrap.innerHTML = wx.map(item=>{
+            const when = new Date(Number(item.time) || 0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
+            return `<div class="card" data-type="weather" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
+              <div class="title">
+                ${escapeHTML(item.street || 'Unknown road')}
+                <span class="spacer"></span>
+                <button class="hide-btn" data-prefix="wx" data-id="${escapeHTML(item.id)}" type="button">Hide</button>
               </div>
-            `;
-          };
-
-          weatherWrap.innerHTML = wx.map(cardWeatherHTML).join('');
+              <div class="meta">${when}</div>
+              <div class="desc">❄️ ${escapeHTML(item.desc || 'Ice alert')}</div>
+            </div>`;
+          }).join('');
         }
 
         requestAnimationFrame(ensureWazeFits);
@@ -1678,16 +1947,13 @@ function getTfKey(){
 
       }catch(e){
         console.error('[Waze] fetch failed:', e);
-        setStatusPill(false, { animate:false });
+        setStatusPill(false);
       }finally{
         clearTimeout(wazeTimer);
         wazeTimer = setTimeout(wazeCycle, WAZE_REFRESH_MS);
       }
     }
 
-    /* =======================================================
-       Waze clicks (CHANGED): click pans map, dblclick opens Waze
-       ======================================================= */
     function bindWazeCardPanning(){
       const panel = document.getElementById('waze-panel');
       if (!panel) return;
@@ -1703,18 +1969,6 @@ function getTfKey(){
 
         setMapTarget(lat, lon, 14);
       }, { passive: true });
-
-      panel.addEventListener('dblclick', (ev) => {
-        if (ev.target && ev.target.closest('.hide-btn')) return;
-        const card = ev.target.closest('.card');
-        if (!card) return;
-
-        const lon = Number(card.getAttribute('data-lon'));
-        const lat = Number(card.getAttribute('data-lat'));
-        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
-
-        openWazePartnerhub(lon, lat);
-      }, { passive: true });
     }
 
     /* =======================================================
@@ -1724,6 +1978,7 @@ function getTfKey(){
       if (document.hidden){
         clearTimeout(tvtTimer); tvtTimer = null;
         clearTimeout(wazeTimer); wazeTimer = null;
+        spinnerOff();
       } else {
         tvtCycle();
         wazeCycle();
@@ -1731,10 +1986,13 @@ function getTfKey(){
     });
 
     window.addEventListener('load', () => {
-      setStatusPill(false, { animate:false });
+      setStatusPill(false);
 
       initMap();
       bindToolButtons();
+
+      setToolButtonsEnabled(false);
+      bindGmSearch();
 
       const unhideBtn = document.getElementById('unhideAllBtn');
       if (unhideBtn){ unhideBtn.addEventListener('click', unhideAll, { passive: true }); }
