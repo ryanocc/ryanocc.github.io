@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Leaflet (for the map) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <style>
     /* ================================
        THEME
@@ -99,24 +102,13 @@
       gap: var(--gap);
       min-height: 0;
       overflow: hidden;
+      height: 100%;
+      box-sizing: border-box;
     }
 
-    .col1{
-      display: grid;
-      grid-template-rows: 1fr;
-      gap: var(--gap);
-      min-height: 0;
-    }
-    .col2{
-      display: grid;
-      grid-template-rows: 3fr 1fr;
-      gap: var(--gap);
-      min-height: 0;
-    }
-    .col1,.col2,.col3{
-      min-height: 0;
-      overflow: hidden;
-    }
+    .col1{ display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+    .col2{ display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+    .col3{ display:flex; flex-direction:column; min-height:0; overflow:hidden; }
 
     .frame{
       background: var(--panel);
@@ -147,50 +139,44 @@
       overflow: hidden;
     }
 
-/* Universal fix for nested-grid scrolling issues */
-.frame,
-.frame-body,
-.col1,
-.col2,
-.col3{
-  min-height: 0;
-}
-
     /* =========================
-       WAZE COLUMN SCROLL (clean)
+       Column sizing
        ========================= */
-/* Ensure the frame itself can shrink inside the column */
-#frame-d{
-  min-height: 0;
-  overflow: hidden;
-  display: grid;                 /* not flex */
-  grid-template-rows: auto 1fr;   /* header + body */
-}
-
-/* Body must be able to shrink too */
-#frame-d .frame-body{
-  min-height: 0;
-  overflow: hidden;              /* critical */
-  display: grid;
-}
-
-/* Make THIS the only scroll container */
-#waze-panel{
-  min-height: 0;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-bottom: 16px;
-  padding-right: 6px;
-  box-sizing: border-box;
-}
-
-    /* ✅ Key Travel Alerts: allow inner grid to scroll */
-    #frame-c .frame-body{
-      display: flex;
-      flex-direction: column;
+    .col1 > .frame,
+    .col3 > .frame{
+      flex: 1 1 0;
       min-height: 0;
       overflow: hidden;
+    }
+
+    /* Column 2 is now two equal frames */
+    #frame-c{ flex: 1 1 0; min-height: 0; overflow: hidden; }
+    #frame-b{ flex: 1 1 0; min-height: 0; overflow: hidden; }
+
+    /* =========================
+       WAZE COLUMN SCROLL
+       ========================= */
+    #frame-d{
+      min-height: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+    #frame-d .frame-body{
+      min-height: 0;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+    }
+    #waze-panel{
+      flex: 1 1 0;
+      min-height: 0;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-bottom: 16px;
+      padding-right: 6px;
+      box-sizing: border-box;
     }
 
     /* ================================
@@ -264,7 +250,7 @@
     }
 
     /* =======================================================
-       ABNORMAL TRAFFIC — 2-WIDE GRID, 3-LINE CARDS
+       ABNORMAL TRAFFIC — 2-WIDE GRID
        ======================================================= */
     .tvt-panel{
       display: grid;
@@ -292,16 +278,6 @@
       grid-auto-rows: var(--corridor-card-h);
       align-content: start;
     }
-
-    .corridor-list{ scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.35) transparent; }
-    .corridor-list::-webkit-scrollbar{ width: 10px; }
-    .corridor-list::-webkit-scrollbar-track{ background: transparent; }
-    .corridor-list::-webkit-scrollbar-thumb{
-      background-color: rgba(255,255,255,0.28);
-      border-radius: 8px;
-      border: 2px solid transparent;
-    }
-    .corridor-list::-webkit-scrollbar-thumb:hover{ background-color: rgba(255,255,255,0.40); }
 
     .corridor{
       display: grid;
@@ -336,8 +312,6 @@
       gap: 10px;
       min-width: 0;
     }
-
-    /* corridor title base */
     .corridor-title{
       font-size: clamp(15px, 2.4vh, 20px);
       font-weight: 900;
@@ -345,10 +319,6 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-
-    /* corridor title with shield */
-    .corridor-title{
       display:flex;
       align-items:center;
       gap:8px;
@@ -359,11 +329,6 @@
       overflow:hidden;
       text-overflow:ellipsis;
       white-space:nowrap;
-    }
-    .corridor-title .road-shield{
-      font-size:0.9em;
-      padding:2px 7px 3px;
-      border-radius:7px;
     }
 
     .corridor-delay{
@@ -407,46 +372,6 @@
     }
     .tvt-filters button:active{ transform: translateY(1px); }
     .tvt-filters button.active{
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-    }
-
-    /* Travel alert filter toggles in the frame header */
-    .frame-header-row{
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .div-filters{
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .div-filters button{
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #fff;
-      font-weight: 900;
-      padding: 6px 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      letter-spacing: .2px;
-      transition: background .2s ease, border-color .2s ease, transform .05s ease;
-      font-size: 11px;
-      text-transform: uppercase;
-    }
-
-    .div-filters button:hover{
-      border-color: rgba(255,224,74,0.7);
-      background: rgba(255,255,255,0.10);
-    }
-
-    .div-filters button:active{ transform: translateY(1px); }
-
-    .div-filters button.active{
       background: var(--accent);
       color: #000;
       border-color: var(--accent);
@@ -535,305 +460,25 @@
     .spacer{ flex: 1 1 auto; }
 
     /* =======================================================
-       CENTRAL PANE (Key Travel Alerts)
+       UK road shield
        ======================================================= */
-    #diverts-grid{
-      flex: 1 1 auto;
-      min-height: 0;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-auto-rows: min-content;
-      gap: 10px;
-    }
-
-    .divert-card{
-      position: relative;
-      display: grid;
-      grid-template-rows: auto auto auto auto;
-      align-content: start;
-      gap: 4px;
-      padding: 8px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 2px 6px rgba(0,0,0,0.22) inset;
-      min-height: 0;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .divert-card.ufn-highlight{
-      border-color: rgba(255,60,60,0.9);
-      box-shadow:
-        0 0 0 1px rgba(255,224,74,0.25),
-        0 6px 18px rgba(0,0,0,0.35),
-        0 1px 0 rgba(255,255,255,0.05) inset;
-    }
-    .divert-card:hover{ background: rgba(255,255,255,0.06); }
-
-    .divert-header{
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 6px;
-      min-width: 0;
-    }
-    .routes{
+    .road-shield{
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      flex-wrap: nowrap;
-      min-width: 0;
-      overflow: hidden;
-    }
-    .route-chip{
-      background: var(--accent);
-      color: #000;
-      font-weight: 900;
-      font-size: clamp(11px, 1.6vh, 13px);
-      padding: 1px 6px;
-      border-radius: 6px;
-      white-space: nowrap;
-      user-select: none;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.25);
-    }
-    .route-chip.more{
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: var(--muted);
-    }
-
-    .op-tag{
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 8px;
-      min-width: 54px;
-      max-width: 54px;
       justify-content: center;
-      overflow: hidden;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.16);
-      font-weight: 800;
-      font-size: clamp(10px, 1.5vh, 12px);
-      color: #e8e9ec;
-      white-space: nowrap;
-    }
-    .op-dot{
-      width: 10px; height: 10px; border-radius: 50%;
-      background-color:#cfcfd6;
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.35) inset;
-      flex-shrink: 0;
-      transition: background-color 600ms ease;
-    }
-    .op-code-rotator{
-      position: relative;
-      height: 1.1em;
-      line-height: 1.1em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-    }
-    .op-code{
-      position: absolute;
-      opacity: 0;
-      transition: opacity 0.35s ease-in-out;
-    }
-    .op-code.active{ opacity: 1; }
-
-    .street-line{
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: clamp(13px, 2.0vh, 16px);
-      white-space: normal; overflow: hidden; text-overflow: ellipsis;
-      color: #fff;
-    }
-    .street-line .street {
+      padding: 2px 8px 3px;
+      border-radius: 7px;
+      border: 2px solid rgba(255,255,255,0.92);
       font-weight: 900;
-      font-size: 1.2em;
-    }
-    .location{
-      font-size: clamp(14px, 2.1vh, 18px);
-      color: #d7d9de;
-      white-space: normal; overflow: hidden; text-overflow: ellipsis;
-    }
-    .times{
-      margin-top: auto;
-      padding-top: 6px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      display: grid;
-      grid-auto-rows: auto;
-      gap: 2px;
-      min-height: 0;
-    }
-    .time-row{
-      font-size: clamp(11px, 1.5vh, 13px);
-      color: #d6d7db;
-      white-space: normal; overflow: hidden; text-overflow: ellipsis;
-    }
-    .time-row .lab{ color: rgba(255,255,255,0.65); font-weight: 700; }
-    .time-row .val{ color: #fff; font-weight: 900; }
-    .ufn { color: var(--accent) !important; }
-
-    @keyframes flashBorder {
-      0%   { box-shadow: 0 0 0 0 rgba(255,224,74,0.6); border-color: rgba(255,224,74,0.9); transform: scale(1.00); }
-      50%  { box-shadow: 0 0 0 10px rgba(255,224,74,0.10); border-color: rgba(255,224,74,1.0); transform: scale(1.02); }
-      100% { box-shadow: 0 0 0 0 rgba(255,224,74,0.0); border-color: rgba(255,255,255,0.12); transform: scale(1.00); }
-    }
-    .new-ufn-flash{ animation: flashBorder 1400ms ease-out 1; }
-
-    /* =======================================================
-       ROUTE OPERATOR CHECKER
-       ======================================================= */
-    .visually-hidden {
-      position: absolute !important;
-      height: 1px; width: 1px;
-      overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
-      white-space: nowrap;
-    }
-    .roc-panel{
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 8px;
-      height: 100%;
-      min-height: 0;
-    }
-    .roc-input-row{ width: 100%; display:block; overflow:hidden; }
-    .roc-input-full{
-      display:block;
-      width:100%;
-      box-sizing:border-box;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      font-weight: 800;
-      font-size: clamp(12px, 1.8vh, 14px);
       letter-spacing: .2px;
-      outline:none;
-      transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
-    }
-    .roc-input-full:focus {
-      border-color: rgba(255,224,74,0.7);
-      background: rgba(255,255,255,0.10);
-      box-shadow: 0 0 0 3px rgba(255,224,74,0.15);
-    }
-    .roc-result{
-      min-height: 0;
-      overflow: auto;
-      display: grid;
-      gap: 8px;
-      padding-right: 0px;
-      scrollbar-gutter: auto;
-    }
-
-    /* ===== Modern minimal scrollbar ===== */
-    * {
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,0.35) transparent;
-    }
-    ::-webkit-scrollbar{
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track{
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb{
-      background: linear-gradient(
-        180deg,
-        rgba(255,224,74,0.55),
-        rgba(255,255,255,0.35)
-      );
-      border-radius: 999px;
-      border: 2px solid transparent;
-      background-clip: padding-box;
-    }
-    ::-webkit-scrollbar-thumb:hover{
-      background: linear-gradient(
-        180deg,
-        rgba(255,224,74,0.85),
-        rgba(255,255,255,0.55)
-      );
-    }
-
-    .roc-card{
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 2px 6px rgba(0,0,0,0.22) inset;
-    }
-    .roc-route-chip{
-      background: var(--accent);
-      color:#000;
-      font-weight: 900;
-      font-size: clamp(14px, 2.0vh, 18px);
-      padding: 6px 10px;
-      border-radius: 10px;
       line-height: 1;
-      white-space: nowrap;
+      transform: translateY(-1px);
       box-shadow: 0 1px 0 rgba(0,0,0,0.35);
+      flex: 0 0 auto;
     }
-    .roc-right{
-      min-width: 0;
-      display: grid;
-      grid-auto-rows: auto;
-      gap: 6px;
-    }
-    .roc-desc{
-      max-width: 100%;
-      font-size: clamp(12px, 1.7vh, 14px);
-      font-weight: 800;
-      color: #eaeaea;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .roc-operator-chip{
-      justify-self: start;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.18);
-      font-size: clamp(10px, 1.5vh, 12px);
-      font-weight: 900;
-      color: #fff;
-      white-space: nowrap;
-    }
-    .roc-op-swatch{
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(0,0,0,0.4) inset;
-    }
-    .roc-empty{
-      padding: 10px 8px;
-      font-size: clamp(11px, 1.6vh, 13px);
-      color: rgba(255,255,255,0.75);
-      font-weight: 700;
-    }
-    .roc-status{
-      font-size: clamp(11px, 1.5vh, 13px);
-      color: var(--muted);
-      opacity: .95;
-    }
-
-    /* =========================
-       Waze title: shield // street // town(bold)
-       ========================= */
+    .road-shield.m{ background: #0b4dbb; color: #fff; }
+    .road-shield.a{ background: #0b6b3a; color: #ffe04a; }
+    .road-shield.b{ background: #f2f2f2; color: #111; border-color: rgba(255,255,255,0.75); }
 
     .waze-title{
       display: inline-flex;
@@ -857,141 +502,63 @@
       font-weight: 900;
     }
 
-    /* UK road shield */
-    .road-shield{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2px 8px 3px;
-      border-radius: 7px;
-      border: 2px solid rgba(255,255,255,0.92);
-      font-weight: 900;
-      letter-spacing: .2px;
-      line-height: 1;
-      transform: translateY(-1px);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.35);
-      flex: 0 0 auto;
+    /* =======================================================
+       Column 2 map + minimal buttons (NEW)
+       ======================================================= */
+    #map{
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
     }
-    .road-shield.m{
-      background: #0b4dbb;
+
+    .tool-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      align-content: start;
+      height: 100%;
+      overflow: auto;
+      padding-right: 2px;
+      box-sizing: border-box;
+    }
+    .tool-grid button{
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
       color: #fff;
+      font-weight: 900;
+      font-size: clamp(12px, 2.0vh, 15px);
+      padding: 12px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      letter-spacing: .2px;
+      transition: background .2s ease, border-color .2s ease, transform .05s ease;
+      user-select: none;
     }
-    .road-shield.a{
-      background: #0b6b3a;
-      color: #ffe04a;
+    .tool-grid button:hover{
+      border-color: rgba(255,224,74,0.75);
+      background: rgba(255,255,255,0.12);
     }
-    .road-shield.b{
-      background: #f2f2f2;
-      color: #111;
-      border-color: rgba(255,255,255,0.75);
+    .tool-grid button:active{ transform: translateY(1px); }
+    .tool-grid button:disabled{
+      opacity: 0.35;
+      cursor: not-allowed;
     }
-    .road-shield small{
-      font-size: .85em;
-      opacity: .95;
+
+    /* Minimal scrollbar */
+    * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.35) transparent; }
+    ::-webkit-scrollbar{ width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track{ background: transparent; }
+    ::-webkit-scrollbar-thumb{
+      background: linear-gradient(180deg, rgba(255,224,74,0.55), rgba(255,255,255,0.35));
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
     }
-    
-/* -------------------------------------------------------
-   HARD FIX: Make Column 3 and the Waze frame fill height
-   ------------------------------------------------------- */
-
-/* Column 3 must define a layout so its child can stretch */
-.col3{
-  display: grid;
-  grid-template-rows: 1fr;
-  min-height: 0;
-  overflow: hidden;
-}
-
-/* Force the frame to occupy the full column height */
-.col3 > .frame{
-  height: 100%;
-  min-height: 0;
-  overflow: hidden; /* keeps rounded corners clean */
-}
-
-/* -------------------------------------------------------
-   HARD FIX: Ensure the Waze scroll chain is not "auto sized"
-   ------------------------------------------------------- */
-
-/* Keep your existing flex for #frame-d, but ensure shrink is allowed */
-#frame-d{
-  min-height: 0;
-}
-
-/* The frame body must be allowed to shrink, and must hide overflow */
-#frame-d .frame-body{
-  min-height: 0;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-}
-
-/* THIS is the scroll container */
-#waze-panel{
-  flex: 1 1 auto;
-  min-height: 0;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.frame{
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-/* --- Make the top area a real, bounded box --- */
-.content{
-  min-height: 0;
-  height: 100%;        /* critical: gives children a definite height context */
-  overflow: hidden;
-}
-
-/* --- Columns: flex stacks that fill the row height --- */
-.col1, .col2, .col3{
-  min-height: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Column 1 + 3: single frame fills all available height */
-.col1 > .frame,
-.col3 > .frame{
-  flex: 1 1 0;
-  min-height: 0;
-  overflow: hidden;    /* keeps rounded corners */
-}
-
-/* Column 2: keep your 3/1 split using flex */
-#frame-c{ flex: 3 1 0; min-height: 0; overflow: hidden; }
-#frame-b{ flex: 1 1 0; min-height: 0; overflow: hidden; }
-
-/* --- Frames: allow inner scrolling layouts to work --- */
-.frame{ min-height: 0; overflow: hidden; }
-.frame-body{ min-height: 0; overflow: hidden; }
-
-/* --- Waze: make the panel the ONLY scroll container --- */
-#frame-d{ min-height: 0; }
-#frame-d .frame-body{
-  flex: 1 1 0;
-  min-height: 0;
-  overflow: hidden;
-  display: flex;
-}
-#waze-panel{
-  flex: 1 1 0;
-  min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-/* Prevent .content padding from making it taller than its grid row */
-.content{
-  box-sizing: border-box;
-  height: 100%;
-}
-
+    ::-webkit-scrollbar-thumb:hover{
+      background: linear-gradient(180deg, rgba(255,224,74,0.85), rgba(255,255,255,0.55));
+    }
   </style>
 </head>
 
@@ -1027,43 +594,28 @@
         </div>
       </div>
 
-      <!-- Column 2 -->
+      <!-- Column 2: Map (top) + Tool Buttons (bottom) -->
       <div class="col2">
-        <!-- Top 75%: Key Travel Alerts -->
+        <!-- Top 50%: Map -->
         <div class="frame" id="frame-c" aria-labelledby="frame-c-title">
-          <div class="frame-header frame-header-row" id="frame-c-title">
-            <span>Key Travel Alerts</span>
-
-            <div class="div-filters" id="div-filters" role="group" aria-label="Travel alert filters">
-              <button type="button" data-filter="CURRENT" class="active" title="UFN OR starting today OR ending today">DEF</button>
-              <button type="button" data-filter="UFN">UFN</button>
-              <button type="button" data-filter="START_TODAY">START</button>
-              <button type="button" data-filter="END_TODAY">END</button>
-              <button type="button" data-filter="HIGH_IMPACT">HIGH</button>
-            </div>
-          </div>
-
+          <div class="frame-header" id="frame-c-title">Map</div>
           <div class="frame-body">
-            <div id="diverts-grid" aria-live="polite"></div>
+            <div id="map" aria-label="Map"></div>
           </div>
         </div>
 
-        <!-- Bottom 25%: Route Operator Checker -->
+        <!-- Bottom 50%: Buttons -->
         <div class="frame" id="frame-b" aria-labelledby="frame-b-title">
-          <div class="frame-header" id="frame-b-title">Route Operator Checker</div>
+          <div class="frame-header" id="frame-b-title">Open in other tools</div>
           <div class="frame-body">
-            <div class="roc-panel" id="roc-panel" aria-live="polite">
-              <div class="roc-input-row">
-                <label for="roc-input" class="visually-hidden">Bus route number</label>
-                <input id="roc-input" class="roc-input-full" type="text"
-                       placeholder="Enter bus route (e.g. 1, 17, 43A)…" autocomplete="off" />
-              </div>
-
-              <div class="roc-result" id="roc-result">
-                <div class="roc-empty">Type a route number to see its description and operator.</div>
-              </div>
-
-              <div class="roc-status" id="roc-status" aria-live="polite" aria-atomic="true"></div>
+            <div class="tool-grid" id="toolGrid" aria-label="Tool links">
+              <button type="button" data-tool="google">Google Maps</button>
+              <button type="button" data-tool="bustimes">Bus Times</button>
+              <button type="button" data-tool="waze_alerts">Waze Alerts</button>
+              <button type="button" data-tool="waze_closures">Waze Closures</button>
+              <button type="button" data-tool="tomtom">TomTom</button>
+              <button type="button" data-tool="vms">VMS</button>
+              <button type="button" data-tool="utc">UTC Sites</button>
             </div>
           </div>
         </div>
@@ -1124,6 +676,9 @@
     </footer>
   </div>
 
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <script>
     /* =======================================================
        Utilities & helpers
@@ -1161,15 +716,6 @@
       const res = await fetch(withCacheBust(url), { cache: 'no-store', signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return await res.json();
-    }
-
-    async function fetchTextFromAPI(pathOrUrl, signal){
-      const url = pathOrUrl.startsWith("http")
-        ? pathOrUrl
-        : `${API_BASE}${pathOrUrl}`;
-      const res = await fetch(withCacheBust(url), { cache: 'no-store', signal });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.text();
     }
 
     function fmtHHMMSS(){
@@ -1285,14 +831,11 @@
       hideForHour(prefix, id, baseline);
 
       const container = btn.closest('.card, .corridor');
-      if (container) {
-        container.remove();
-        const wazeHost = document.getElementById('waze-panel');
-        if (wazeHost && wazeHost.contains(container)) {
-          requestAnimationFrame(ensureWazeFits);
-        }
-      }
+      if (container) container.remove();
     }, { passive: false });
+
+    let tvtTimer = null;
+    let wazeTimer = null;
 
     function unhideAll(){
       const keys = [];
@@ -1304,18 +847,134 @@
 
       try{ clearTimeout(tvtTimer); }catch{}
       try{ clearTimeout(wazeTimer); }catch{}
-      try{ clearTimeout(divTimer); }catch{}
-      tvtTimer = null; wazeTimer = null; divTimer = null;
+      tvtTimer = null; wazeTimer = null;
 
-      tvtCycle(); wazeCycle(); divertsCycle();
+      tvtCycle(); wazeCycle();
     }
 
     /* =======================================================
-       TVT PANEL (left)
+       MAP (NEW) — no placeholder UI; key can be provided via:
+         - ?tfkey=YOUR_KEY
+         - localStorage.setItem('tfkey','YOUR_KEY')
+       If no key is present, it falls back to Carto Dark Matter.
+       ======================================================= */
+    const MAP_STATE = {
+      map: null,
+      marker: null,
+      last: null // {lat, lon}
+    };
+
+function getTfKey(){
+  return 'ec4c98ec4e394899a63ccecdf9712e54';
+}
+
+    function initMap(){
+      const el = document.getElementById('map');
+      if (!el || !window.L) return;
+
+      const m = L.map(el, { zoomControl: true, attributionControl: true })
+        .setView([53.4808, -2.2426], 10);
+
+      const tfKey = getTfKey();
+
+      // Primary: Thunderforest Transport Dark (when key exists)
+      if (tfKey){
+        L.tileLayer(
+          `https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=${encodeURIComponent(tfKey)}`,
+          {
+            maxZoom: 22,
+            detectRetina: true,
+            attribution: '&copy; Thunderforest, &copy; OpenStreetMap contributors'
+          }
+        ).addTo(m);
+      } else {
+        // Fallback: Carto Dark Matter (keeps tool functional without hardcoding a placeholder)
+        L.tileLayer(
+          'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+          {
+            maxZoom: 22,
+            detectRetina: true,
+            attribution: '&copy; OpenStreetMap contributors, &copy; CARTO'
+          }
+        ).addTo(m);
+      }
+
+      const mk = L.circleMarker([53.4808, -2.2426], {
+        radius: 10,
+        color: '#FFE04A',
+        weight: 3,
+        fillColor: '#FFE04A',
+        fillOpacity: 0.25
+      }).addTo(m);
+
+      // hidden until a selection is made
+      mk.setStyle({ opacity: 0, fillOpacity: 0 });
+
+      MAP_STATE.map = m;
+      MAP_STATE.marker = mk;
+
+      // ensure tiles render correctly in grid layouts
+      setTimeout(() => m.invalidateSize(), 250);
+      window.addEventListener('resize', () => setTimeout(() => m.invalidateSize(), 120));
+    }
+
+    function setMapTarget(lat, lon, zoom){
+      const m = MAP_STATE.map;
+      const mk = MAP_STATE.marker;
+      if (!m || !mk) return;
+
+      const la = Number(lat), lo = Number(lon);
+      if (!Number.isFinite(la) || !Number.isFinite(lo)) return;
+
+      MAP_STATE.last = { lat: la, lon: lo };
+
+      mk.setLatLng([la, lo]);
+      mk.setStyle({ opacity: 1, fillOpacity: 0.25 });
+
+      const z = Number.isFinite(Number(zoom)) ? Number(zoom) : 12;
+      m.setView([la, lo], z, { animate: true });
+    }
+
+    /* =======================================================
+       TOOL BUTTONS (NEW) — minimal buttons, name only
+       ======================================================= */
+    function openToolByName(tool){
+      const last = MAP_STATE.last;
+      if (!last) return;
+
+      const lat = last.lat;
+      const lon = last.lon;
+
+      const urls = {
+        google:        `https://www.google.com/maps/@${lat},${lon},696m`,
+        bustimes:      `https://bustimes.org/map#16.53/${lat}/${lon}`,
+        waze_alerts:   `https://www.waze.com/partnerhub/map-tool?lon=${lon}&lat=${lat}&initialZoom=20`,
+        waze_closures: `https://www.waze.com/en-GB/editor/?env=row&lat=${lat}&lon=${lon}&zoomLevel=17`,
+        tomtom:        `https://plan.tomtom.com/en/?p=${lat},${lon},14.48z`,
+        vms:           `https://www.stratostraffic.com/Modules/DriverInformationUi/informationSigns?lat=${lat}&lng=${lon}&zoom=14`,
+        utc:           `https://www.stratostraffic.com/Modules/TrafficSignalsUi/information?lat=${lat}&lng=${lon}&zoom=11`
+      };
+
+      const u = urls[String(tool)];
+      if (u) window.open(u, '_blank', 'noopener');
+    }
+
+    function bindToolButtons(){
+      const host = document.getElementById('toolGrid');
+      if (!host) return;
+
+      host.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-tool]');
+        if (!btn) return;
+        openToolByName(btn.dataset.tool);
+      }, { passive: true });
+    }
+
+    /* =======================================================
+       TVT PANEL (left) — unchanged feed
        ======================================================= */
     const TVT_URL = `${API_BASE}/api/waze/tvt`;
     const TVT_REFRESH_MS = 5 * 60 * 1000;
-    let tvtTimer = null;
 
     let TVT_MIN_DELAY = 15;
     let lastTvtData = null;
@@ -1361,7 +1020,6 @@
       return '#9DDC43';
     }
 
-    // RAW DELAY (Waze Partner Hub style): time - historicTime
     function computeDelayMin(r){
       const time = Number(r?.time);
       const hist = Number(r?.historicTime);
@@ -1426,30 +1084,49 @@
       return null;
     }
 
-    function bindCorridorClicks(){
-      const list = document.getElementById('tvt-corridors');
-      if (!list) return;
+    function extractUkRoadNumber(text){
+      const s = String(text || '').toUpperCase();
+      const m = s.match(/\b([MAB])\s?(\d{1,4})(?:\s?\((M)\))?\b/);
+      if (!m) return null;
 
-      list.addEventListener('click', (ev) => {
-        if (ev.target && ev.target.closest('.hide-btn')) return;
-        const card = ev.target.closest('.corridor');
-        if (!card) return;
+      const letter = m[1];
+      const digits = m[2];
+      const hasMotorwaySuffix = !!m[3];
 
-        const lon = Number(card.getAttribute('data-lon'));
-        const lat = Number(card.getAttribute('data-lat'));
-        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
+      const label = hasMotorwaySuffix ? `${letter}${digits}(M)` : `${letter}${digits}`;
+      const type  = (letter === 'M' || hasMotorwaySuffix) ? 'm' : (letter === 'A' ? 'a' : 'b');
 
-        const u = new URL('https://www.waze.com/partnerhub/map-tool');
-        u.searchParams.set('lon', String(lon));
-        u.searchParams.set('lat', String(lat));
-        window.open(u.toString(), '_blank', 'noopener');
-      }, { passive: true });
+      const tokenMatched = m[0];
+      return { label, type, tokenMatched };
     }
 
-    /* =========================
-       Abnormal Traffic: corridor title with UK road shield
-       (uses extractUkRoadNumber + stripRoadToken defined later)
-       ========================= */
+    function stripRoadToken(street, token){
+      let s = String(street || '');
+
+      if (token){
+        const raw = String(token).trim().toUpperCase();
+        const re = raw
+          .replace(/\s+/g, '\\s*')
+          .replace(/\(/g, '\\(')
+          .replace(/\)/g, '\\)');
+
+        const rx = new RegExp(`\\b${re}\\b`, 'i');
+        s = s.replace(rx, '');
+      }
+
+      s = s.replace(/\s{2,}/g, ' ');
+      s = s.replace(/^\s*[-–—]+\s*/g, '');
+      s = s.replace(/^\s*[,/]+\s*/g, '');
+
+      s = s
+        .replace(/\s+([,;:/])/g, '$1')
+        .replace(/([,;:/])\s+/g, '$1 ')
+        .replace(/\s+([-–—])\s+/g, ' $1 ')
+        .replace(/\s{2,}/g, ' ');
+
+      return s.trim();
+    }
+
     function buildCorridorTitleHTML(labelText){
       const raw = String(labelText || '').trim();
       const road = extractUkRoadNumber(raw);
@@ -1561,11 +1238,11 @@
     }
 
     async function fetchTVT(signal){
-      return await fetchJsonFromAPI(TVT_URL, signal);
+      return await fetchJsonFromAPI(`${API_BASE}/api/waze/tvt`, signal);
     }
 
     async function tvtCycle(){
-      let ctrl = new AbortController();
+      const ctrl = new AbortController();
       try{
         const data = await fetchTVT(ctrl.signal);
         renderTvtPanel(data);
@@ -1579,8 +1256,47 @@
       }
     }
 
+    function openWazePartnerhub(lon, lat){
+      const u = new URL('https://www.waze.com/partnerhub/map-tool');
+      u.searchParams.set('lon', String(lon));
+      u.searchParams.set('lat', String(lat));
+      window.open(u.toString(), '_blank', 'noopener');
+    }
+
     /* =======================================================
-       WAZE ALERTS (right)
+       Corridor clicks (CHANGED): click pans map, dblclick opens Waze
+       ======================================================= */
+    function bindCorridorClicks(){
+      const list = document.getElementById('tvt-corridors');
+      if (!list) return;
+
+      list.addEventListener('click', (ev) => {
+        if (ev.target && ev.target.closest('.hide-btn')) return;
+        const card = ev.target.closest('.corridor');
+        if (!card) return;
+
+        const lon = Number(card.getAttribute('data-lon'));
+        const lat = Number(card.getAttribute('data-lat'));
+        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
+
+        setMapTarget(lat, lon, 11);
+      }, { passive: true });
+
+      list.addEventListener('dblclick', (ev) => {
+        if (ev.target && ev.target.closest('.hide-btn')) return;
+        const card = ev.target.closest('.corridor');
+        if (!card) return;
+
+        const lon = Number(card.getAttribute('data-lon'));
+        const lat = Number(card.getAttribute('data-lat'));
+        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
+
+        openWazePartnerhub(lon, lat);
+      }, { passive: true });
+    }
+
+    /* =======================================================
+       WAZE ALERTS (right) — unchanged feed, click pans map (NEW)
        ======================================================= */
     const WAZE_URL = `${API_BASE}/api/waze/partner-feed`;
     const WAZE_REFRESH_MS = 30000;
@@ -1617,7 +1333,8 @@
             if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
           }
           if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
-            const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
+            const c = a.geometry.coordinates;
+            if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
           }
           if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
         }
@@ -1670,15 +1387,10 @@
           (Number(b.time||0) - Number(a.time||0))
         );
         const chosen = [];
-        const H = ([lon1,lat1],[lon2,lat2])=>{
-          const R=6371000, dLat=(lat2-lat1)*Math.PI/180, dLon=(lon2-lon1)*Math.PI/180;
-          const A=Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
-          return 2*R*Math.atan2(Math.sqrt(A), Math.sqrt(1-A));
-        };
         for (const c of arr){
           let dup = false;
           for (const k of chosen){
-            const dist = H(c.coord, k.coord);
+            const dist = haversineMeters(c.coord, k.coord);
             if (dist <= corridorMeters){ dup = true; break; }
           }
           if (!dup) chosen.push(c);
@@ -1712,28 +1424,36 @@
       toggleSection('sec-signals',   ['cards-signals']);
     }
 
-    function bindCardClicks(){
-      document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', (ev) => {
-          if (ev.target && ev.target.closest('.hide-btn')) return;
-          const lon = Number(card.getAttribute('data-lon'));
-          const lat = Number(card.getAttribute('data-lat'));
-          if (Number.isFinite(lon) && Number.isFinite(lat)){
-            const u = new URL('https://www.waze.com/partnerhub/map-tool');
-            u.searchParams.set('lon', String(lon));
-            u.searchParams.set('lat', String(lat));
-            window.open(u.toString(), '_blank', 'noopener');
-          }
-        }, { passive: true });
-      });
-    }
-
     function normalizeMillis(raw){
       const n = Number(raw) || 0;
       return n > Date.now() ? Date.now() : n;
     }
 
-    let wazeTimer = null;
+    function buildWazeTitleHTML({ street='', town='', roadText='' }){
+      const road = extractUkRoadNumber(roadText || street || '');
+      const streetClean = road ? stripRoadToken(street, road.tokenMatched) : String(street || '').trim();
+
+      const safeStreet = escapeHTML(streetClean || 'Unknown road');
+      const safeTown   = escapeHTML(String(town || '').trim());
+
+      const shieldHTML = road
+        ? `<span class="road-shield ${road.type}">${escapeHTML(road.label)}</span>`
+        : '';
+
+      const townHTML = safeTown
+        ? `<span class="waze-sep">//</span><span class="waze-town">${safeTown}</span>`
+        : '';
+
+      return `
+        <span class="waze-title">
+          ${shieldHTML}
+          ${shieldHTML ? `<span class="waze-sep">//</span>` : ``}
+          <span class="waze-street">${safeStreet}</span>
+          ${townHTML}
+        </span>
+      `.trim();
+    }
+
     async function wazeCycle(){
       const ctrl = new AbortController();
       try{
@@ -1953,7 +1673,6 @@
           weatherWrap.innerHTML = wx.map(cardWeatherHTML).join('');
         }
 
-        bindCardClicks();
         requestAnimationFrame(ensureWazeFits);
         setStatusPill(true, { animate:true });
 
@@ -1967,701 +1686,35 @@
     }
 
     /* =======================================================
-       CENTRAL PANE — Bee Network Unplanned Diversions (2×4)
+       Waze clicks (CHANGED): click pans map, dblclick opens Waze
        ======================================================= */
-    const DIV_BODS_URL = `${API_BASE}/api/bods-siri-sx`;
-    const DIV_REFRESH_MS = 45000;
-    const DIV_BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+    function bindWazeCardPanning(){
+      const panel = document.getElementById('waze-panel');
+      if (!panel) return;
 
-    /* ========= Travel Alerts (Diverts) filter state ========= */
-    const DIV_FILTER_KEY = "div_filter_mode";
-    let DIV_FILTER_MODE = localStorage.getItem(DIV_FILTER_KEY) || "CURRENT";
-
-    function setDivFilterMode(mode){
-      DIV_FILTER_MODE = mode || "CURRENT";
-      localStorage.setItem(DIV_FILTER_KEY, DIV_FILTER_MODE);
-
-      const wrap = document.getElementById("div-filters");
-      if (wrap){
-        wrap.querySelectorAll("button[data-filter]").forEach(b => {
-          b.classList.toggle("active", b.dataset.filter === DIV_FILTER_MODE);
-        });
-      }
-
-      try { clearTimeout(divTimer); } catch {}
-      divTimer = null;
-      divertsCycle();
-    }
-
-    function bindDivFilters(){
-      const wrap = document.getElementById("div-filters");
-      if (!wrap) return;
-
-      wrap.querySelectorAll("button[data-filter]").forEach(b => {
-        b.classList.toggle("active", b.dataset.filter === DIV_FILTER_MODE);
-      });
-
-      wrap.addEventListener("click", (e) => {
-        const btn = e.target.closest("button[data-filter]");
-        if (!btn) return;
-        setDivFilterMode(btn.dataset.filter);
-      }, { passive: true });
-    }
-
-    function bindDivertCardClicks(){
-      const grid = document.getElementById('diverts-grid');
-      if (!grid) return;
-
-      grid.addEventListener('click', (ev) => {
-        const card = ev.target.closest('.divert-card');
+      panel.addEventListener('click', (ev) => {
+        if (ev.target && ev.target.closest('.hide-btn')) return;
+        const card = ev.target.closest('.card');
         if (!card) return;
 
-        const sit = (card.getAttribute('data-sit') || '').trim();
-        if (!sit) return;
+        const lon = Number(card.getAttribute('data-lon'));
+        const lat = Number(card.getAttribute('data-lat'));
+        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
 
-        const url = `https://disruption-data.dft.gov.uk/disruption-detail/${encodeURIComponent(sit)}`;
-        window.open(url, '_blank', 'noopener');
+        setMapTarget(lat, lon, 14);
       }, { passive: true });
-    }
 
-    const DIV_OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
-    const DIV_OP_COLORS = {
-      BNML:"#ff4d4f",
-      BNGN:"#003C6E",
-      BNSM:"#ff9a1f",
-      BNDB:"#9AC331",
-      BNVB:"#7a3ffe",
-      BNFM:"#ff66b3"
-    };
+      panel.addEventListener('dblclick', (ev) => {
+        if (ev.target && ev.target.closest('.hide-btn')) return;
+        const card = ev.target.closest('.card');
+        if (!card) return;
 
-    let divTimer = null;
-    let lastBoardIds = new Set();
+        const lon = Number(card.getAttribute('data-lon'));
+        const lat = Number(card.getAttribute('data-lat'));
+        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
 
-    function dTodayBounds(){
-      const now = new Date();
-      const s = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0,0,0,0);
-      const e = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23,59,59,999);
-      return { start:s, end:e };
-    }
-    function dIsToday(d){
-      if (!d) return false;
-      const {start, end} = dTodayBounds();
-      return d >= start && d <= end;
-    }
-    function dFmtHM(d){ return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit'}).format(d); }
-    function dWeekday(d){ return new Intl.DateTimeFormat('en-GB',{weekday:'long'}).format(d); }
-    function dFullMonth(d){ return new Intl.DateTimeFormat('en-GB',{month:'long'}).format(d); }
-    function dOrdinal(n){ const s=["th","st","nd","rd"], v=n%100; return n + (s[(v-20)%10] || s[v] || s[0]); }
-    function dFormatLabel(d){
-      if(!d) return "—";
-      if (dIsToday(d)) return `${dFmtHM(d)} Today`;
-      const now = new Date();
-      const weekStart = new Date(now);
-      weekStart.setDate(now.getDate() - ((now.getDay()+6)%7));
-      weekStart.setHours(0,0,0,0);
-      const weekEnd = new Date(weekStart);
-      weekEnd.setDate(weekStart.getDate()+6);
-      weekEnd.setHours(23,59,59,999);
-      if (d>=weekStart && d<=weekEnd) return dWeekday(d);
-      return `${dOrdinal(d.getDate())} ${dFullMonth(d)}`;
-    }
-    function dDuration(start, end){
-      if(!start) return "—";
-      const now = new Date();
-      const endTime = end || now;
-      let ms = endTime - start;
-      if (ms < 0) return "—";
-      const s = ms/1000;
-      if (s < 60)  return `${Math.round(s)}s`;
-      const m = s/60;
-      if (m < 60)  return `${Math.round(m)}m`;
-      const h = m/60;
-      if (h < 24)  return `${Math.round(h)}h`;
-      const d = h/24;
-      return `${Math.round(d)}d`;
-    }
-
-    function divIsDiversion(sit){
-      const txt = (sit.Description || sit.Summary || "").toLowerCase();
-      return txt.includes("divert") || txt.includes("diversion");
-    }
-    function divIsCurrentlyValid(sit){
-      const now = new Date();
-      const s = sit?.ValidityPeriod?.StartTime || sit?.StartTime ? new Date(sit?.ValidityPeriod?.StartTime || sit?.StartTime) : null;
-      const e = sit?.ValidityPeriod?.EndTime   || sit?.EndTime   ? new Date(sit?.ValidityPeriod?.EndTime   || sit?.EndTime)   : null;
-      if(!s) return false;
-      if(s > now) return false;
-      if(e && e < now) return false;
-      return true;
-    }
-
-    function divGetSituationId(sit){
-      const a  = sit?.SituationNumber || sit?.SituationRef;
-      const b  = sit?.ParticipantRef || "";
-      const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
-      const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
-      return String(a || `${b}|${st}|${sum}`).trim();
-    }
-
-    function divGetOperatorRefs(sit){
-      const refs = new Set();
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
-      if(Array.isArray(avj)){ for(const j of avj) add(j?.OperatorRef); }
-      else if(avj){ add(avj?.OperatorRef); }
-      if(Array.isArray(sit.__operatorRefs)){ sit.__operatorRefs.forEach(add); }
-      return [...refs];
-    }
-
-    function divGetSingleOperatorRef(sit){
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      if(Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef);
-      if(avj && avj.OperatorRef) return String(avj.OperatorRef);
-      if(sit?.OperatorRef) return String(sit.OperatorRef);
-      if(sit?.__operatorRefs && sit.__operatorRefs.length) return sit.__operatorRefs[0];
-      return null;
-    }
-
-    function divGetLineRefs(sit){
-      const lines = new Set();
-      const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-      const pushVal = (val)=>{ if(val == null) return; const s = String(val).trim(); if(s) lines.add(s); };
-      if(Array.isArray(avj)){
-        for(const j of avj){ pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName); }
-      }else if(avj){ pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName); }
-      if(Array.isArray(sit.__lineRefs)){ for(const v of sit.__lineRefs) pushVal(v); }
-      return Array.from(lines.size ? lines : ["?"]);
-    }
-
-    function divIsBeeOperator(sit){
-      const refs = divGetOperatorRefs(sit);
-      const single = divGetSingleOperatorRef(sit);
-      return (refs && refs.some(r => DIV_BEE_OPERATORS.includes(String(r).toUpperCase()))) ||
-             (single && DIV_BEE_OPERATORS.includes(String(single).toUpperCase()));
-    }
-
-    function divMatchesMode(sit){
-      const stRaw = sit?.ValidityPeriod?.StartTime || sit?.StartTime;
-      const enRaw = sit?.ValidityPeriod?.EndTime   || sit?.EndTime;
-
-      const st = stRaw ? new Date(stRaw) : null;
-      const en = enRaw ? new Date(enRaw) : null;
-
-      const isUFN = !en;
-      const routeCount = (divGetLineRefs(sit) || []).length;
-
-      switch (String(DIV_FILTER_MODE || "CURRENT").toUpperCase()){
-        case "UFN":
-          return isUFN;
-        case "END_TODAY":
-          return !!en && dIsToday(en);
-        case "START_TODAY":
-          return !!st && dIsToday(st);
-        case "HIGH_IMPACT":
-          return routeCount > 5;
-        case "CURRENT":
-        default:
-          return isUFN || (st && dIsToday(st)) || (en && dIsToday(en));
-      }
-    }
-
-    function divParseSummaryParts(summaryText){
-      if(!summaryText) return null;
-      const str = String(summaryText);
-      const hyIdx = str.indexOf(" - ");
-      if(hyIdx === -1) return null;
-      const left = str.slice(0, hyIdx).trim();
-      const lastComma = left.lastIndexOf(",");
-      if(lastComma === -1) return null;
-      const place = left.slice(0, lastComma).trim();
-      const town  = left.slice(lastComma + 1).trim();
-      if(!place || !town) return null;
-      return { place, town };
-    }
-
-    function divMapSituation(s){
-      const operatorRefs = divGetOperatorRefs(s);
-      const lines = divGetLineRefs(s);
-      const st = s?.ValidityPeriod?.StartTime || s?.StartTime ? new Date(s?.ValidityPeriod?.StartTime || s?.StartTime) : null;
-      const en = s?.ValidityPeriod?.EndTime   || s?.EndTime   ? new Date(s?.ValidityPeriod?.EndTime   || s?.EndTime)   : null;
-
-      const parsed = divParseSummaryParts(s.Summary || s.Description || "");
-      const street = parsed?.place || "";
-      const town   = parsed?.town  || "";
-
-      const isUFN = !en;
-
-      return {
-        id: divGetSituationId(s),
-        operatorRefs,
-        routes: lines,
-        summary: (s.Summary || s.Description || "").trim(),
-        street,
-        town,
-        start: st,
-        end: en,
-        isUFN,
-        startedLabel: dFormatLabel(st),
-        endsLabel: isUFN ? "UFN" : dFormatLabel(en),
-        durationLabel: dDuration(st, en)
-      };
-    }
-
-    function divSortItems(a, b){
-      if (a.isUFN && !b.isUFN) return -1;
-      if (!a.isUFN && b.isUFN) return 1;
-
-      if (a.isUFN && b.isUFN){
-        return (a.start?.getTime() || 0) - (b.start?.getTime() || 0);
-      }
-
-      const aEnd = a.end?.getTime() ?? Number.POSITIVE_INFINITY;
-      const bEnd = b.end?.getTime() ?? Number.POSITIVE_INFINITY;
-      if (aEnd !== bEnd) return aEnd - bEnd;
-
-      return (a.start?.getTime() || 0) - (b.start?.getTime() || 0);
-    }
-
-    async function divFetch(){
-      const resText = await fetchTextFromAPI(DIV_BODS_URL);
-
-      const trimmed = String(resText || '').trim();
-      let sits = [];
-
-      if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
-        const json = JSON.parse(trimmed);
-        const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
-        if (sd) {
-          const sed = Array.isArray(sd.SituationExchangeDelivery)
-            ? sd.SituationExchangeDelivery
-            : [sd.SituationExchangeDelivery].filter(Boolean);
-
-          for (const d of sed) {
-            const pe = d?.Situations?.PtSituationElement;
-            if (Array.isArray(pe)) sits.push(...pe);
-            else if (pe) sits.push(pe);
-          }
-        }
-      } else {
-        const doc = new DOMParser().parseFromString(trimmed, "application/xml");
-        const pe = doc.querySelector("parsererror");
-        if (pe) throw new Error("BODS XML parse error");
-
-        const els = [...doc.querySelectorAll("PtSituationElement")];
-
-        sits = els.map(el => {
-          const T = (sel) => el.querySelector(sel)?.textContent?.trim() || null;
-
-          const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")]
-            .map(n => n.textContent.trim()).filter(Boolean);
-
-          const lines = [...el.querySelectorAll("AffectedVehicleJourney > LineRef, PublishedLineName, LineName")]
-            .map(n => n.textContent.trim()).filter(Boolean);
-
-          return {
-            Summary: T("Summary") || T("Description"),
-            Description: T("Description"),
-            Planned: T("Planned"),
-            SituationNumber: T("SituationNumber") || T("SituationRef"),
-            ParticipantRef: T("ParticipantRef"),
-            ValidityPeriod: {
-              StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
-              EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
-            },
-            Affects: {
-              VehicleJourneys: {
-                AffectedVehicleJourney: lines.length
-                  ? lines.map((ln)=>({ OperatorRef: opsRef[0] || null, LineRef: ln }))
-                  : []
-              }
-            },
-            __operatorRefs: opsRef,
-            __lineRefs: lines
-          };
-        });
-      }
-
-      sits = sits.filter(divIsBeeOperator)
-                 .filter(divIsDiversion)
-                 .filter(divIsCurrentlyValid)
-                 .filter(sit => {
-                   const p = sit?.Planned;
-                   return (p === false) || (typeof p === "string" && p.trim().toLowerCase() === "false");
-                 })
-                 .filter(divMatchesMode);
-
-      return sits.map(divMapSituation).sort(divSortItems);
-    }
-
-    function divBuildRouteChips(routes){
-      const host = document.createElement('div');
-      host.className = 'routes';
-      const list = Array.isArray(routes) ? routes : ["?"];
-      if (list.length <= 3){
-        list.forEach(r=>{
-          const chip = document.createElement('span');
-          chip.className = 'route-chip';
-          chip.textContent = r;
-          host.appendChild(chip);
-        });
-      } else {
-        for (let i=0;i<3;i++){
-          const chip = document.createElement('span');
-          chip.className = 'route-chip';
-          chip.textContent = list[i];
-          host.appendChild(chip);
-        }
-        const more = document.createElement('span');
-        more.className = 'route-chip more';
-        more.textContent = `+${list.length-3}`;
-        host.appendChild(more);
-      }
-      return host;
-    }
-
-    function divBuildOpTag(operatorRefs){
-      const tag = document.createElement('div');
-      tag.className = 'op-tag';
-
-      const dot = document.createElement('span');
-      dot.className = 'op-dot';
-
-      const upperRefs = (operatorRefs || []).map(r => String(r).toUpperCase());
-      const codes = upperRefs.map(r => DIV_OP_MAP[r] || r);
-      const colors = upperRefs.map(r => DIV_OP_COLORS[r]).filter(Boolean);
-
-      dot.style.backgroundColor = colors[0] || '#cfcfd6';
-      tag.appendChild(dot);
-
-      const rot = document.createElement('div');
-      rot.className = 'op-code-rotator';
-
-      if (codes.length <= 1){
-        const c = document.createElement('span');
-        c.textContent = codes[0] || '—';
-        c.className = 'op-code active';
-        rot.appendChild(c);
-      } else {
-        codes.forEach((c, i) => {
-          const el = document.createElement('span');
-          el.textContent = c;
-          el.className = 'op-code' + (i === 0 ? ' active' : '');
-          rot.appendChild(el);
-        });
-
-        let idx = 0;
-        const rotateCodes = () => {
-          const children = rot.querySelectorAll('.op-code');
-          if (children.length <= 1) return;
-          children[idx].classList.remove('active');
-          idx = (idx + 1) % children.length;
-          children[idx].classList.add('active');
-        };
-        const codeInterval = setInterval(rotateCodes, 3200);
-
-        let cIdx = 0;
-        const cycleDot = () => {
-          if (colors.length <= 1) return;
-          cIdx = (cIdx + 1) % colors.length;
-          dot.style.backgroundColor = colors[cIdx] || '#cfcfd6';
-        };
-        const dotInterval = setInterval(cycleDot, 3200);
-
-        const observer = new MutationObserver(() => {
-          if (!document.body.contains(tag)){
-            clearInterval(codeInterval);
-            clearInterval(dotInterval);
-            observer.disconnect();
-          }
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
-      }
-
-      tag.appendChild(rot);
-      return tag;
-    }
-
-    function divRenderBoard(items){
-      const grid = document.querySelector('#diverts-grid');
-      if (!grid) return;
-
-      const list = Array.isArray(items) ? items : [];
-      const currentIds = new Set(list.map(it => it.id));
-
-      grid.innerHTML = '';
-
-      for (const it of list){
-        const card = document.createElement('div');
-        card.className = 'divert-card';
-        card.setAttribute('data-sit', String(it.id || '').trim());
-
-        if (it.isUFN){ card.classList.add('ufn-highlight'); }
-
-        const header = document.createElement('div');
-        header.className = 'divert-header';
-
-        const routes = divBuildRouteChips(it.routes || ["?"]);
-        routes.title = (it.routes || []).join(', ');
-
-        const opTag = divBuildOpTag((it.operatorRefs || []).map(r => String(r).toUpperCase()));
-        opTag.title = (it.operatorRefs || []).join(', ') || '—';
-
-        header.append(routes, opTag);
-
-        const streetLine = document.createElement('div');
-        streetLine.className = 'street-line';
-
-        const st = document.createElement('span');
-        st.className = 'street';
-        st.textContent = it.street || '—';
-        streetLine.append(st);
-
-        const loc = document.createElement('div');
-        loc.className = 'location';
-        loc.textContent = it.town || it.summary || 'Travel alert';
-
-        const times = document.createElement('div');
-        times.className = 'times';
-
-        const row1 = document.createElement('div');
-        row1.className = 'time-row';
-        row1.innerHTML = `<span class="lab">Started:</span> <span class="val">${it.startedLabel || '—'}</span>`;
-
-        const row2 = document.createElement('div');
-        row2.className = 'time-row' + (String(it.endsLabel || '').toUpperCase() === 'UFN' ? ' ufn' : '');
-        row2.innerHTML = `<span class="lab">Ends:</span> <span class="val">${it.endsLabel || '—'}</span>`;
-
-        const row3 = document.createElement('div');
-        row3.className = 'time-row';
-        row3.innerHTML = `<span class="lab">Duration:</span> <span class="val">${it.durationLabel || '—'}</span>`;
-
-        times.append(row1, row2, row3);
-
-        card.append(header, streetLine, loc, times);
-
-        if (it.isUFN && !lastBoardIds.has(it.id)){
-          card.classList.add('new-ufn-flash');
-          setTimeout(() => card.classList.remove('new-ufn-flash'), 1600);
-        }
-
-        grid.appendChild(card);
-      }
-
-      lastBoardIds = currentIds;
-    }
-
-    async function divertsCycle(){
-      const ctrl = new AbortController();
-      try{
-        const items = await divFetch();
-        divRenderBoard(items);
-        setStatusPill(true, { animate:false });
-      }catch(e){
-        console.error('[DIVERTS] fetch failed:', e);
-        setStatusPill(false, { animate:false });
-      }finally{
-        clearTimeout(divTimer);
-        divTimer = setTimeout(divertsCycle, DIV_REFRESH_MS);
-      }
-    }
-
-    /* =======================================================
-       ROUTE OPERATOR CHECKER — live CSV lookup (Routes.csv)
-       ======================================================= */
-    const ROC_CSV_URL = 'https://ryanocc.github.io/Routes.csv';
-
-    const ROC_OPERATOR_PRIORITY = [
-      { name: 'STAGECOACH MANCHESTER', code: 'SC', color: '#ff9a1f' },
-      { name: 'METROLINE MANCHESTER',  code: 'ML', color: '#ff4d4f' },
-      { name: 'GO NORTH WEST',         code: 'GN', color: '#003C6E' },
-      { name: 'DIAMOND',               code: 'DB', color: '#9AC331' },
-      { name: 'FIRST MANCHESTER',      code: 'FB', color: '#ff66b3' },
-      { name: 'VISION BUS',            code: 'VB', color: '#7a3ffe' }
-    ];
-    const ROC_OPERATOR_INDEX = ROC_OPERATOR_PRIORITY.reduce((m,o)=>{ m[o.name]=o; return m; }, {});
-
-    const ROC_STATE = {
-      rows: [],
-      fetched: false,
-      fetching: false,
-      lastQuery: ''
-    };
-
-    function rocNormalizeRoute(raw){
-      const s = String(raw||'').toUpperCase().replace(/\s+/g,'');
-      const m = s.match(/^([A-Z]*)(\d+)?([A-Z]*)$/);
-      if (!m) return s;
-      const prefix = m[1] || '';
-      const digits = (m[2] || '').replace(/^0+/, '') || (m[2] ? '0' : '');
-      const suffix = m[3] || '';
-      return `${prefix}${digits}${suffix}`;
-    }
-
-    function textColorForBg(hex){
-      try{
-        const h = hex.replace('#','');
-        const r = parseInt(h.substring(0,2),16);
-        const g = parseInt(h.substring(2,4),16);
-        const b = parseInt(h.substring(4,6),16);
-        const yiq = (r*299 + g*587 + b*114) / 1000;
-        return yiq >= 150 ? '#000' : '#fff';
-      }catch{ return '#000'; }
-    }
-
-    async function rocFetchCSV(){
-      if (ROC_STATE.fetching || ROC_STATE.fetched) return;
-      ROC_STATE.fetching = true;
-
-      const status = document.getElementById('roc-status');
-      if (status) status.textContent = 'Loading route list…';
-
-      try{
-        const res = await fetch(ROC_CSV_URL, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const text = await res.text();
-
-        const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
-        const header = lines.shift() || '';
-        const delim = header.includes(';') ? ';' : ',';
-
-        const h = header.split(delim).map(s => s.trim().toLowerCase());
-        const idxRoute = h.indexOf('route');
-        const idxDesc  = h.indexOf('description');
-        const idxOper  = h.indexOf('operator');
-
-        if (idxRoute === -1 || idxDesc === -1 || idxOper === -1){
-          throw new Error('Unexpected CSV header. Expected: route, description, operator');
-        }
-
-        const rows = [];
-        for (const line of lines){
-          const parts = line.split(delim);
-          if (parts.length < 3) continue;
-          const route = (parts[idxRoute] || '').trim();
-          const description = (parts[idxDesc] || '').trim();
-          const operator = (parts[idxOper] || '').trim();
-          if (!route) continue;
-          rows.push({ route, description, operator });
-        }
-
-        ROC_STATE.rows = rows;
-        ROC_STATE.fetched = true;
-
-        if (status) status.textContent = `Loaded ${rows.length} routes`;
-      }catch(e){
-        console.error('[ROC] CSV fetch failed:', e);
-        const status = document.getElementById('roc-status');
-        if (status) status.textContent = 'Unable to load routes (stand by)';
-      }finally{
-        ROC_STATE.fetching = false;
-      }
-    }
-
-    function rocRenderPrompt(){
-      const host = document.getElementById('roc-result');
-      if (!host) return;
-      host.innerHTML = `<div class="roc-empty">Type a route number to see its description and operator.</div>`;
-    }
-
-    function rocRenderNoMatch(){
-      const host = document.getElementById('roc-result');
-      if (!host) return;
-      host.innerHTML = `<div class="roc-empty">No matching route found.</div>`;
-    }
-
-    function rocRenderResult(row, mappedOp){
-      const host = document.getElementById('roc-result');
-      if (!host) return;
-
-      const opName = String(row.operator || '').trim().toUpperCase();
-      const map = ROC_OPERATOR_INDEX[opName] || mappedOp || null;
-
-      const code  = map?.code  || '';
-      const color = map?.color || '';
-      const pillStyle = color
-        ? `background:${color}; border-color: rgba(255,255,255,0.22); color:${textColorForBg(color)}`
-        : '';
-
-      host.innerHTML = `
-        <div class="roc-card">
-          <div class="roc-route-chip">${escapeHTML(row.route)}</div>
-          <div class="roc-right">
-            <div class="roc-desc">${escapeHTML(row.description || '—')}</div>
-            <div class="roc-operator-chip" style="${pillStyle}">
-              <span class="roc-op-swatch" style="${color ? `background:${color}` : ''}"></span>
-              <span>${escapeHTML(code || '—')}</span>
-              <span>• ${escapeHTML(row.operator || 'Unknown')}</span>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function chooseBestRowForExactRoute(candidates){
-      if (!Array.isArray(candidates) || candidates.length === 0) return null;
-      const byName = new Map();
-      candidates.forEach((r,i) => byName.set(String(r.operator||'').trim().toUpperCase(), i));
-      for (const pref of ROC_OPERATOR_PRIORITY){
-        const idx = byName.get(pref.name);
-        if (idx != null) return { row: candidates[idx], mapped: pref };
-      }
-      return { row: candidates[0], mapped: null };
-    }
-
-    function rocSearch(q){
-      const status = document.getElementById('roc-status');
-      const host = document.getElementById('roc-result');
-      if (!host) return;
-
-      const normInput = rocNormalizeRoute(q);
-      if (!normInput){
-        rocRenderPrompt();
-        if (status) status.textContent = '';
-        return;
-      }
-
-      const exactCandidates = ROC_STATE.rows.filter(r => rocNormalizeRoute(r.route) === normInput);
-
-      if (exactCandidates.length === 0){
-        rocRenderNoMatch();
-        if (status) status.textContent = '';
-        return;
-      }
-
-      const picked = chooseBestRowForExactRoute(exactCandidates);
-      if (!picked){
-        rocRenderNoMatch();
-        if (status) status.textContent = '';
-        return;
-      }
-
-      rocRenderResult(picked.row, picked.mapped);
-      if (status) status.textContent = exactCandidates.length > 1
-        ? `Found ${exactCandidates.length} entries • showing best operator match`
-        : `Found 1 match`;
-    }
-
-    function rocBind(){
-      const input = document.getElementById('roc-input');
-      if (!input) return;
-
-      let t = null;
-      const onChange = () => {
-        const q = input.value || '';
-        ROC_STATE.lastQuery = q;
-        clearTimeout(t);
-        t = setTimeout(() => rocSearch(q), 120);
-      };
-
-      input.addEventListener('input', onChange, { passive: true });
-      input.addEventListener('keydown', (ev) => {
-        if (ev.key === 'Enter') {
-          clearTimeout(t);
-          rocSearch(input.value || '');
-        }
-      });
-
-      rocRenderPrompt();
+        openWazePartnerhub(lon, lat);
+      }, { passive: true });
     }
 
     /* =======================================================
@@ -2671,113 +1724,30 @@
       if (document.hidden){
         clearTimeout(tvtTimer); tvtTimer = null;
         clearTimeout(wazeTimer); wazeTimer = null;
-        clearTimeout(divTimer);  divTimer  = null;
       } else {
         tvtCycle();
         wazeCycle();
-        divertsCycle();
       }
     });
 
     window.addEventListener('load', () => {
       setStatusPill(false, { animate:false });
 
+      initMap();
+      bindToolButtons();
+
       const unhideBtn = document.getElementById('unhideAllBtn');
       if (unhideBtn){ unhideBtn.addEventListener('click', unhideAll, { passive: true }); }
 
       bindTvtFilters();
-      bindDivFilters();
       bindCorridorClicks();
-      bindDivertCardClicks();
+      bindWazeCardPanning();
 
       tvtCycle();
       wazeCycle();
-      divertsCycle();
-
-      rocBind();
-      rocFetchCSV().then(() => {
-        if ((ROC_STATE.lastQuery || '').trim()){
-          rocSearch(ROC_STATE.lastQuery);
-        }
-      });
 
       window.addEventListener('resize', () => requestAnimationFrame(ensureWazeFits));
     });
-
-    /* =========================
-       Road shield parsing + title formatting
-       ========================= */
-
-    // Try to find a UK road token: M60, A6, A57(M), B5218 etc.
-    function extractUkRoadNumber(text){
-      const s = String(text || '').toUpperCase();
-
-      const m = s.match(/\b([MAB])\s?(\d{1,4})(?:\s?\((M)\))?\b/);
-      if (!m) return null;
-
-      const letter = m[1];
-      const digits = m[2];
-      const hasMotorwaySuffix = !!m[3];
-
-      const label = hasMotorwaySuffix ? `${letter}${digits}(M)` : `${letter}${digits}`;
-      const type  = (letter === 'M' || hasMotorwaySuffix) ? 'm' : (letter === 'A' ? 'a' : 'b');
-
-      const tokenMatched = m[0];
-      return { label, type, tokenMatched };
-    }
-
-    function buildWazeTitleHTML({ street='', town='', roadText='' }){
-      const road = extractUkRoadNumber(roadText || street || '');
-
-      const streetClean = road ? stripRoadToken(street, road.tokenMatched) : String(street || '').trim();
-
-      const safeStreet = escapeHTML(streetClean || 'Unknown road');
-      const safeTown   = escapeHTML(String(town || '').trim());
-
-      const shieldHTML = road
-        ? `<span class="road-shield ${road.type}">${escapeHTML(road.label)}</span>`
-        : '';
-
-      const townHTML = safeTown
-        ? `<span class="waze-sep">//</span><span class="waze-town">${safeTown}</span>`
-        : '';
-
-      return `
-        <span class="waze-title">
-          ${shieldHTML}
-          ${shieldHTML ? `<span class="waze-sep">//</span>` : ``}
-          <span class="waze-street">${safeStreet}</span>
-          ${townHTML}
-        </span>
-      `.trim();
-    }
-
-    function stripRoadToken(street, token){
-      let s = String(street || '');
-
-      if (token){
-        const raw = String(token).trim().toUpperCase();
-        const re = raw
-          .replace(/\s+/g, '\\s*')
-          .replace(/\(/g, '\\(')
-          .replace(/\)/g, '\\)');
-
-        const rx = new RegExp(`\\b${re}\\b`, 'i');
-        s = s.replace(rx, '');
-      }
-
-      s = s.replace(/\s{2,}/g, ' ');
-      s = s.replace(/^\s*[-–—]+\s*/g, '');
-      s = s.replace(/^\s*[,/]+\s*/g, '');
-
-      s = s
-        .replace(/\s+([,;:/])/g, '$1')
-        .replace(/([,;:/])\s+/g, '$1 ')
-        .replace(/\s+([-–—])\s+/g, ' $1 ')
-        .replace(/\s{2,}/g, ' ');
-
-      return s.trim();
-    }
   </script>
 </body>
 </html>
