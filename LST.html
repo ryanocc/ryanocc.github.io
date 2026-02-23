@@ -330,7 +330,9 @@
   min-height: 0;        /* ✅ critical */
   overflow: hidden;     /* ✅ contain scroll */
 }
-  
+
+
+
 .corridor-list{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1307,11 +1309,27 @@ const TVT_URL = `${API_BASE}/api/waze/tvt`;    const TVT_REFRESH_MS = 5 * 60 * 1
       );
     }
 
-    function corridorDisplayName(r){
-      const base = String(r?.name || r?.toName || 'Unnamed corridor');
-      const parts = base.split(' - ');
-      return (parts[0] || base).trim();
-    }
+function corridorDisplayName(r){
+  // 1) Best: explicit corridor name
+  if (r?.name && r.name.trim()) {
+    return r.name.trim();
+  }
+
+  // 2) Build from from → to
+  const from = String(r?.fromName || '').trim();
+  const to   = String(r?.toName   || '').trim();
+  if (from || to){
+    return [from, to].filter(Boolean).join(' → ');
+  }
+
+  // 3) Use lead alert street if present (very common for irregulars)
+  if (r?.leadAlert?.street){
+    return String(r.leadAlert.street).trim();
+  }
+
+  // 4) Absolute fallback
+  return 'Unnamed corridor';
+}
 
     function networkGradientFromUsersOnJams(usersOnJams){
       if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
@@ -1337,28 +1355,60 @@ const TVT_URL = `${API_BASE}/api/waze/tvt`;    const TVT_REFRESH_MS = 5 * 60 * 1
       return '#9DDC43';
     }
 
-    function computeTopNDelays(routesRaw, n = 16, minDelay = 15){
-      const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
-      const candidates = routes
-        .map(r => {
-          const time = Number(r.time)||0;
-          const hist = Number(r.historicTime)||0;
-          const delaySec = Math.max(0, time - hist);
-          const delayMin = Math.round(delaySec / 60);
-          return { r, time, hist, delayMin };
-        })
-        .filter(x => Number.isFinite(x.delayMin) && x.delayMin >= minDelay);
 
-      candidates.sort((a,b) =>
-        (b.delayMin - a.delayMin) ||
-        (b.time - a.time)
-      );
 
-      return candidates.slice(0, n);
-    }
+// =======================================================
+// RAW DELAY (Waze Partner Hub style): time - historicTime
+// =======================================================
+function computeDelayMin(r){
+  const time = Number(r?.time);
+  const hist = Number(r?.historicTime);
 
-    const routeKey = (r) => String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
+  if (!Number.isFinite(time) || !Number.isFinite(hist)) return 0;
 
+  // raw delta in minutes
+  return Math.max(0, Math.round((time - hist) / 60));
+}
+
+function computeTopNDelays(routesRaw, n = 16, minDelay = 15){
+  const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
+
+  const candidates = routes
+    .map(r => {
+      const time = Number(r?.time) || 0;
+      const hist = Number(r?.historicTime) || 0;
+      const delayMin = computeDelayMin(r);
+
+      return { r, time, hist, delayMin };
+    })
+    .filter(x => Number.isFinite(x.delayMin) && x.delayMin >= minDelay);
+
+  candidates.sort((a,b) =>
+    (b.delayMin - a.delayMin) ||
+    (b.time - a.time)
+  );
+
+  return candidates.slice(0, n);
+}
+
+
+
+
+
+const routeKey = (r) => {
+  const base = String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
+
+  // Make DYNAMIC ids harder to collide
+  const t = String(r?.type || '').toUpperCase();
+  const bb = r?.bbox;
+  const bbTok = (bb && [bb.minX, bb.minY, bb.maxX, bb.maxY].every(Number.isFinite))
+    ? `${Number(bb.minX).toFixed(4)},${Number(bb.minY).toFixed(4)},${Number(bb.maxX).toFixed(4)},${Number(bb.maxY).toFixed(4)}`
+    : '';
+
+  return t === 'DYNAMIC'
+    ? `${base}|DYN|${bbTok}`
+    : base;
+};
 /* =======================================================
    ABNORMAL TRAFFIC → click corridor to open Waze Map Tool
    Uses bbox centre if present, else averages the polyline.
@@ -1433,7 +1483,12 @@ function bindCorridorClicks(){
       // Update footer "Connected Citizens"
       updateConnectedCitizensDisplay(sumWazers(data?.usersOnJams || []));
 
-      const rows = computeTopNDelays(data?.routes || [], 16, TVT_MIN_DELAY);
+// Merge both sources: normal routes + dynamic irregularities
+const allRoutes = []
+  .concat(Array.isArray(data?.routes) ? data.routes : [])
+  .concat(Array.isArray(data?.irregularities) ? data.irregularities : []);
+
+const rows = computeTopNDelays(allRoutes, 16, TVT_MIN_DELAY);
 
       const filtered = rows
         .map(x => ({ ...x, id: routeKey(x.r) }))
