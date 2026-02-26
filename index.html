@@ -184,10 +184,37 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
       color: rgba(233,238,246,0.75);
     }
+    
+.banner{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  padding: 14px 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,210,74,0.22),
+    rgba(255,210,74,0.12)
+  );
+  border-bottom: 1px solid rgba(255,210,74,0.45);
+  color: #fff6cc;
+  box-shadow: var(--shadow);
+
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: center;
+}
   </style>
 </head>
 
 <body>
+  <div class="banner">
+  <strong>⚠️ Service Notice:</strong>
+  I’m having some IS issues with the Waze and BODS feeds, so at present,
+  <strong>only the TA Tool is operational.</strong>
+</div>
   <main class="wrap">
     <header class="card">
       <div class="title-row">
