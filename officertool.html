@@ -796,7 +796,7 @@
     const MAP_STATE = { map: null, marker: null, last: null };
 
     const MAPTILER_TILE_URL =
-      "https://api.maptiler.com/maps/uk-openzoomstack-night/{z}/{x}/{y}@2x.png?key=ileJHPYoUxyL17ZpmERr";
+      "https://api.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=ec4c98ec4e394899a63ccecdf9712e54";
 
     function initMap(){
       const el = document.getElementById('map');
@@ -807,14 +807,13 @@
         attributionControl: true
       }).setView([53.4808, -2.2426], 12);
 
-      // MapTiler raster tiles (512px @2x tiles)
-      L.tileLayer(MAPTILER_TILE_URL, {
-        maxZoom: 19,
-        tileSize: 512,
-        zoomOffset: -1,
-        crossOrigin: true,
-        attribution: '© MapTiler © OpenStreetMap contributors • © Ordnance Survey OpenData'
-      }).addTo(m);
+L.tileLayer(MAPTILER_TILE_URL, {
+  maxZoom: 19,
+  tileSize: 256,
+  zoomOffset: 0,
+  crossOrigin: true,
+  attribution: '© Thunderforest © OpenStreetMap contributors • © Ordnance Survey OpenData'
+}).addTo(m);
 
       L.control.zoom({ position: 'bottomright' }).addTo(m);
 
