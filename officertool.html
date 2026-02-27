@@ -13,9 +13,6 @@
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-  <!-- Leaflet Fullscreen plugin -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen/dist/Control.FullScreen.css" />
-
   <style>
     :root{
       --bg:#000;
@@ -392,7 +389,17 @@
       height:100%;
       border-radius:10px;
       overflow:hidden;
-      position: relative; /* overlay anchor */
+      position: relative;
+    }
+
+    /* Fullscreen (native or pseudo) */
+    #map.pseudo-fs{
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 99999 !important;
+      border-radius: 0 !important;
     }
 
     .tool-grid{
@@ -513,7 +520,7 @@
       background-clip: padding-box;
     }
 
-    /* Map overlay used in fullscreen mode */
+    /* Overlay used while map is fullscreen */
     .map-overlay{
       position:absolute;
       top: 12px;
@@ -546,15 +553,6 @@
         0 0 0 2px rgba(0,0,0,0.55),
         0 0 14px rgba(255,224,74,0.20);
     }
-
-    /* Make the layers control (if any) fit dark UI (we are NOT adding any base-layer switcher here) */
-    .leaflet-control-layers{
-      background: rgba(10,10,10,0.88);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 10px;
-      color: rgba(255,255,255,0.92);
-    }
-    .leaflet-control-layers label{ font-weight: 800; }
   </style>
 </head>
 
@@ -608,7 +606,6 @@
           <div class="frame-header" id="frame-b-title">Open in other tools</div>
           <div class="frame-body">
 
-            <!-- Mount point: search bar lives here normally (moved into map overlay in fullscreen) -->
             <div id="placeSearchMount">
               <div class="place-search" id="placeSearch" aria-label="Place search">
                 <input id="gmSearch" type="text" inputmode="search" autocomplete="off"
@@ -622,7 +619,6 @@
               </div>
             </div>
 
-            <!-- Mount point: tool buttons live here normally (moved into map overlay in fullscreen) -->
             <div id="toolGridMount">
               <div class="tool-grid" id="toolGrid" aria-label="Tool links">
                 <button type="button" data-tool="google">Google Maps</button>
@@ -686,7 +682,6 @@
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.fullscreen/dist/Control.FullScreen.umd.js"></script>
 
   <script>
     /* =======================================================
@@ -695,7 +690,7 @@
     function sumWazers(usersOnJams){
       try {
         const total = (Array.isArray(usersOnJams) ? usersOnJams : [])
-          .reduce((acc,u) => acc + (Number(u.wazersCount)||0), 0);
+          .reduce(function(acc,u){ return acc + (Number(u.wazersCount)||0); }, 0);
         return Math.ceil(total);
       } catch {
         return 0;
@@ -706,20 +701,20 @@
       const el = document.getElementById('connectedCitizens');
       if (!el) return;
       const label = Number.isFinite(total) && total > 0 ? total.toLocaleString('en-GB') : '—';
-      el.textContent = `${label} Connected Citizens`;
+      el.textContent = label + ' Connected Citizens';
     }
 
     const API_BASE = "https://renderexpress-ebb0.onrender.com";
 
     function withCacheBust(url){
       const sep = url.includes('?') ? '&' : '?';
-      return `${url}${sep}ts=${Date.now()}`;
+      return url + sep + 'ts=' + Date.now();
     }
 
     async function fetchJsonFromAPI(pathOrUrl, signal){
-      const url = pathOrUrl.startsWith("http") ? pathOrUrl : `${API_BASE}${pathOrUrl}`;
-      const res = await fetch(withCacheBust(url), { cache: 'no-store', signal });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const url = pathOrUrl.startsWith("http") ? pathOrUrl : (API_BASE + pathOrUrl);
+      const res = await fetch(withCacheBust(url), { cache: 'no-store', signal: signal });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
       return await res.json();
     }
 
@@ -730,17 +725,21 @@
       }catch(e){
         const d = new Date();
         const pad = n => String(n).padStart(2,'0');
-        return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+        return pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
       }
     }
 
-    function setStatusPill(ok, {animate=false}={}){
+    function setStatusPill(ok, opts){
+      opts = opts || {};
+      const animate = !!opts.animate;
+
       const pill = document.getElementById('statusPill');
       const bee  = document.getElementById('beeLogo');
       const t = fmtHHMMSS();
+
       if (ok){
         pill.classList.remove('status-error');
-        pill.textContent = `LIVE • ${t}`;
+        pill.textContent = 'LIVE • ' + t;
         if (animate && bee){
           bee.classList.remove('bee-wibble');
           void bee.offsetWidth;
@@ -748,24 +747,30 @@
         }
       } else {
         pill.classList.add('status-error');
-        pill.textContent = `Stand By • ${t}`;
+        pill.textContent = 'Stand By • ' + t;
       }
     }
 
     function escapeHTML(str){
-      return String(str).replace(/[&<>"']/g, ch =>
-        ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])
-      );
+      return String(str).replace(/[&<>"']/g, function(ch){
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+      });
     }
 
     /* Spinner helpers */
-    function spinnerOn(){ document.getElementById('searchSpinner')?.classList.add('active'); }
-    function spinnerOff(){ document.getElementById('searchSpinner')?.classList.remove('active'); }
+    function spinnerOn(){
+      const s = document.getElementById('searchSpinner');
+      if (s) s.classList.add('active');
+    }
+    function spinnerOff(){
+      const s = document.getElementById('searchSpinner');
+      if (s) s.classList.remove('active');
+    }
 
     /* ========= HIDE / SUPPRESSION (60 minutes) ========= */
     const HIDE_MS = 60 * 60 * 1000;
 
-    function hideStorageKey(prefix, id){ return `hide_${prefix}_${id}`; }
+    function hideStorageKey(prefix, id){ return 'hide_' + prefix + '_' + id; }
 
     function getHideEntry(prefix, id){
       const raw = localStorage.getItem(hideStorageKey(prefix, id));
@@ -787,11 +792,13 @@
       localStorage.removeItem(hideStorageKey(prefix, id));
     }
 
-    function hideForHour(prefix, id, baseline={}){
-      setHideEntry(prefix, id, { until: Date.now() + HIDE_MS, baseline, createdAt: Date.now() });
+    function hideForHour(prefix, id, baseline){
+      baseline = baseline || {};
+      setHideEntry(prefix, id, { until: Date.now() + HIDE_MS, baseline: baseline, createdAt: Date.now() });
     }
 
-    function isHiddenWithAutoCheck(prefix, id, currentMetrics={}){
+    function isHiddenWithAutoCheck(prefix, id, currentMetrics){
+      currentMetrics = currentMetrics || {};
       const entry = getHideEntry(prefix, id);
       if (!entry) return false;
 
@@ -826,7 +833,7 @@
       return true;
     }
 
-    document.addEventListener('click', (ev) => {
+    document.addEventListener('click', function(ev){
       const btn = ev.target.closest('.hide-btn');
       if (!btn) return;
       ev.preventDefault(); ev.stopPropagation();
@@ -858,37 +865,81 @@
         const k = localStorage.key(i);
         if (k && k.startsWith('hide_')) keys.push(k);
       }
-      keys.forEach(k => localStorage.removeItem(k));
+      keys.forEach(function(k){ localStorage.removeItem(k); });
 
-      try{ clearTimeout(tvtTimer); }catch{}
-      try{ clearTimeout(wazeTimer); }catch{}
+      try{ clearTimeout(tvtTimer); }catch(e){}
+      try{ clearTimeout(wazeTimer); }catch(e){}
       tvtTimer = null; wazeTimer = null;
 
       tvtCycle(); wazeCycle();
     }
 
     /* =======================================================
-       MAP — Leaflet (Mapnik only + Fullscreen + Draggable Marker)
+       MAP — Leaflet (Mapnik ONLY) + Fullscreen + Draggable Marker
        ======================================================= */
     const MAP_STATE = { map: null, marker: null, last: null };
 
     function setToolButtonsEnabled(enabled){
-      document.querySelectorAll('#toolGrid button[data-tool]').forEach(b => { b.disabled = !enabled; });
+      document.querySelectorAll('#toolGrid button[data-tool]').forEach(function(b){
+        b.disabled = !enabled;
+      });
+    }
+
+    function isMapFullscreen(){
+      const el = document.getElementById('map');
+      if (!el) return false;
+      const nativeFs = (document.fullscreenElement === el);
+      const pseudoFs = el.classList.contains('pseudo-fs');
+      return nativeFs || pseudoFs;
+    }
+
+    async function toggleMapFullscreen(){
+      const el = document.getElementById('map');
+      const m  = MAP_STATE.map;
+      if (!el || !m) return;
+
+      const fsBtn = document.getElementById('mapFsBtn');
+
+      // Native fullscreen if available
+      try{
+        if (!document.fullscreenElement){
+          if (el.requestFullscreen){
+            await el.requestFullscreen();
+          } else {
+            // fallback to pseudo fullscreen
+            el.classList.add('pseudo-fs');
+          }
+        } else {
+          if (document.exitFullscreen){
+            await document.exitFullscreen();
+          } else {
+            el.classList.remove('pseudo-fs');
+          }
+        }
+      }catch(e){
+        // If native fullscreen fails (permissions etc), fallback to pseudo
+        el.classList.toggle('pseudo-fs');
+      }
+
+      // UI + map resize
+      const nowFs = isMapFullscreen();
+      if (fsBtn){
+        fsBtn.textContent = nowFs ? 'Exit full screen' : 'Full screen';
+        fsBtn.setAttribute('aria-pressed', nowFs ? 'true' : 'false');
+      }
+
+      applyFsUi();
+      setTimeout(function(){ m.invalidateSize(); }, 250);
     }
 
     function initMap(){
       const el = document.getElementById('map');
       if (!el || !window.L) return;
 
-      // Map with fullscreen plugin enabled
-      const m = L.map(el, {
-        zoomControl: true,
-        attributionControl: true,
-        fullscreenControl: true,
-        fullscreenControlOptions: { position: 'topleft' }
-      }).setView([53.4808, -2.2426], 10);
+      const m = L.map(el, { zoomControl: true, attributionControl: true })
+        .setView([53.4808, -2.2426], 10);
 
-      // MAPNIK ONLY (classic OSM standard tiles)
+      // ✅ MAPNIK ONLY (classic OpenStreetMap standard)
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         detectRetina: true,
@@ -904,9 +955,9 @@
       });
 
       const mk = L.marker([53.4808, -2.2426], { icon: pinIcon, draggable: true }).addTo(m);
-      mk.setOpacity(0); // hidden until first target set
+      mk.setOpacity(0);
 
-      mk.on('dragend', () => {
+      mk.on('dragend', function(){
         const ll = mk.getLatLng();
         MAP_STATE.last = { lat: ll.lat, lon: ll.lng };
         setToolButtonsEnabled(true);
@@ -916,38 +967,22 @@
       MAP_STATE.map = m;
       MAP_STATE.marker = mk;
 
-      // Header fullscreen button (no fallback; avoids plugin conflicts)
+      // Header fullscreen button
       const fsBtn = document.getElementById('mapFsBtn');
-      fsBtn?.addEventListener('click', () => {
-        if (typeof m.toggleFullscreen === 'function') m.toggleFullscreen();
-      }, { passive:true });
+      if (fsBtn){
+        fsBtn.addEventListener('click', function(){ toggleMapFullscreen(); }, { passive: true });
+      }
 
-      // Move search + tools into map overlay during fullscreen, restore after
-      const overlay     = document.getElementById('mapOverlay');
-      const placeSearch = document.getElementById('placeSearch');
-      const toolGrid    = document.getElementById('toolGrid');
-      const placeMount  = document.getElementById('placeSearchMount');
-      const toolsMount  = document.getElementById('toolGridMount');
+      // Keep Leaflet sized correctly on fullscreen transitions
+      document.addEventListener('fullscreenchange', function(){
+        applyFsUi();
+        setTimeout(function(){ m.invalidateSize(); }, 250);
+      });
 
-      const applyFsUi = () => {
-        const isFs = (typeof m.isFullscreen === 'function') ? m.isFullscreen() : false;
-
-        if (isFs){
-          overlay?.appendChild(placeSearch);
-          overlay?.appendChild(toolGrid);
-          if (fsBtn) { fsBtn.textContent = 'Exit full screen'; fsBtn.setAttribute('aria-pressed','true'); }
-        } else {
-          placeMount?.appendChild(placeSearch);
-          toolsMount?.appendChild(toolGrid);
-          if (fsBtn) { fsBtn.textContent = 'Full screen'; fsBtn.setAttribute('aria-pressed','false'); }
-        }
-        setTimeout(() => m.invalidateSize(), 250);
-      };
-
-      m.on('fullscreenchange', applyFsUi);
-
-      setTimeout(() => m.invalidateSize(), 250);
-      window.addEventListener('resize', () => setTimeout(() => m.invalidateSize(), 120));
+      setTimeout(function(){ m.invalidateSize(); }, 250);
+      window.addEventListener('resize', function(){
+        setTimeout(function(){ m.invalidateSize(); }, 120);
+      });
     }
 
     function setMapTarget(lat, lon, zoom){
@@ -969,6 +1004,25 @@
       setToolButtonsEnabled(true);
     }
 
+    /* Move search/tools into map overlay while fullscreen */
+    function applyFsUi(){
+      const overlay     = document.getElementById('mapOverlay');
+      const placeSearch = document.getElementById('placeSearch');
+      const toolGrid    = document.getElementById('toolGrid');
+      const placeMount  = document.getElementById('placeSearchMount');
+      const toolsMount  = document.getElementById('toolGridMount');
+
+      if (!overlay || !placeSearch || !toolGrid || !placeMount || !toolsMount) return;
+
+      if (isMapFullscreen()){
+        overlay.appendChild(placeSearch);
+        overlay.appendChild(toolGrid);
+      } else {
+        placeMount.appendChild(placeSearch);
+        toolsMount.appendChild(toolGrid);
+      }
+    }
+
     /* =======================================================
        TOOL BUTTONS
        ======================================================= */
@@ -980,13 +1034,13 @@
       const lon = last.lon;
 
       const urls = {
-        google:        `https://www.google.com/maps/@${lat},${lon},696m`,
-        bustimes:      `https://bustimes.org/map#16.53/${lat}/${lon}`,
-        waze_alerts:   `https://www.waze.com/partnerhub/map-tool?lon=${lon}&lat=${lat}&initialZoom=20`,
-        waze_closures: `https://www.waze.com/en-GB/editor/?env=row&lat=${lat}&lon=${lon}&zoomLevel=17`,
-        tomtom:        `https://plan.tomtom.com/en/?p=${lat},${lon},14.48z`,
-        vms:           `https://www.stratostraffic.com/Modules/DriverInformationUi/informationSigns?lat=${lat}&lng=${lon}&zoom=14`,
-        utc:           `https://www.stratostraffic.com/Modules/TrafficSignalsUi/information?lat=${lat}&lng=${lon}&zoom=11`
+        google:        'https://www.google.com/maps/@' + lat + ',' + lon + ',696m',
+        bustimes:      'https://bustimes.org/map#16.53/' + lat + '/' + lon,
+        waze_alerts:   'https://www.waze.com/partnerhub/map-tool?lon=' + lon + '&lat=' + lat + '&initialZoom=20',
+        waze_closures: 'https://www.waze.com/en-GB/editor/?env=row&lat=' + lat + '&lon=' + lon + '&zoomLevel=17',
+        tomtom:        'https://plan.tomtom.com/en/?p=' + lat + ',' + lon + ',14.48z',
+        vms:           'https://www.stratostraffic.com/Modules/DriverInformationUi/informationSigns?lat=' + lat + '&lng=' + lon + '&zoom=14',
+        utc:           'https://www.stratostraffic.com/Modules/TrafficSignalsUi/information?lat=' + lat + '&lng=' + lon + '&zoom=11'
       };
 
       const u = urls[String(tool)];
@@ -997,7 +1051,7 @@
       const host = document.getElementById('toolGrid');
       if (!host) return;
 
-      host.addEventListener('click', (e) => {
+      host.addEventListener('click', function(e){
         const btn = e.target.closest('button[data-tool]');
         if (!btn || btn.disabled) return;
         openToolByName(btn.dataset.tool);
@@ -1005,7 +1059,7 @@
     }
 
     /* =======================================================
-       SEARCH — single Photon call, keep Photon order.
+       SEARCH — Photon (single call)
        ======================================================= */
     const GM_CENTER = { lat: 53.4808, lon: -2.2426 };
     const GM_BBOX = [-2.75, 53.30, -1.95, 53.72];
@@ -1020,9 +1074,14 @@
     let gmAbort = null;
     let searchSeq = 0;
 
-    function debounce(fn, ms=250){
+    function debounce(fn, ms){
+      ms = ms || 250;
       let t = null;
-      return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+      return function(){
+        const args = arguments;
+        clearTimeout(t);
+        t = setTimeout(function(){ fn.apply(null, args); }, ms);
+      };
     }
 
     function inGmBbox(lon, lat){
@@ -1030,12 +1089,12 @@
     }
 
     function getLonLatFromFeature(f){
-      const c = f?.geometry?.coordinates;
+      const c = f && f.geometry && f.geometry.coordinates;
       if (!Array.isArray(c) || c.length < 2) return null;
       const lon = Number(c[0]), lat = Number(c[1]);
       if (!Number.isFinite(lon) || !Number.isFinite(lat)) return null;
       if (!inGmBbox(lon, lat)) return null;
-      return { lon, lat };
+      return { lon: lon, lat: lat };
     }
 
     function stripPostcode(s){
@@ -1054,16 +1113,16 @@
     }
 
     function featureLabel(f){
-      const p = f?.properties || {};
+      const p = (f && f.properties) ? f.properties : {};
       const name = p.name || p.street || 'Unknown';
       const locality = [p.city, p.county, p.state].filter(Boolean).join(', ');
-      const main = `${name}${p.postcode ? ` ${p.postcode}` : ''}`.trim();
+      const main = (name + (p.postcode ? (' ' + p.postcode) : '')).trim();
       const sub  = locality || p.country || '';
-      return { main, sub, p };
+      return { main: main, sub: sub, p: p };
     }
 
     function getFeatureCategoryAndEmoji(f){
-      const p = f?.properties || {};
+      const p = (f && f.properties) ? f.properties : {};
       const osmKey = String(p.osm_key || '').toLowerCase();
       const osmVal = String(p.osm_value || '').toLowerCase();
       const type   = String(p.type || '').toLowerCase();
@@ -1097,7 +1156,7 @@
     }
 
     function canonicalKey(item){
-      const p = item.raw?.properties || {};
+      const p = (item.raw && item.raw.properties) ? item.raw.properties : {};
       const type = String(p.type||'').toLowerCase();
       const osmKey = String(p.osm_key||'').toLowerCase();
       const osmVal = String(p.osm_value||'').toLowerCase();
@@ -1105,19 +1164,19 @@
       if ((osmKey==='highway' && osmVal==='bus_stop') || (osmKey==='public_transport' && osmVal==='platform')){
         const nm = normalizeText(stripPostcode(p.name || item.main || ''));
         const city = normalizeText(p.city || p.county || '');
-        return `busstop:${nm}|${city}`;
+        return 'busstop:' + nm + '|' + city;
       }
 
       if (type==='street' || type==='house' || p.street){
         const streetName = stripPostcode(p.street || p.name || item.main || '');
         const nm = normalizeText(streetName);
         const city = normalizeText(p.city || p.county || '');
-        return `street:${nm}|${city}`;
+        return 'street:' + nm + '|' + city;
       }
 
       const nm = normalizeText(stripPostcode(p.name || item.main || ''));
       const city = normalizeText(p.city || p.county || '');
-      return `poi:${nm}|${city}`;
+      return 'poi:' + nm + '|' + city;
     }
 
     function dedupKeepFirst(items){
@@ -1132,17 +1191,16 @@
       return out;
     }
 
-    function buildPhotonUrl(query, opts={}){
-      const {
-        limit = 10,
-        layer = null,
-        addGmSuffix = true,
-        zoom = PHOTON_ZOOM,
-        location_bias_scale = PHOTON_BIAS_SCALE
-      } = opts;
+    function buildPhotonUrl(query, opts){
+      opts = opts || {};
+      const limit = opts.limit || 10;
+      const layer = opts.layer || null;
+      const addGmSuffix = (opts.addGmSuffix !== false);
+      const zoom = opts.zoom || PHOTON_ZOOM;
+      const location_bias_scale = opts.location_bias_scale || PHOTON_BIAS_SCALE;
 
       const u = new URL('https://photon.komoot.io/api');
-      const q = addGmSuffix ? `${query} Greater Manchester` : query;
+      const q = addGmSuffix ? (query + ' Greater Manchester') : query;
 
       u.searchParams.set('q', q);
       u.searchParams.set('lang', 'en');
@@ -1154,7 +1212,6 @@
       u.searchParams.set('location_bias_scale', String(location_bias_scale));
 
       u.searchParams.set('bbox', GM_BBOX.join(','));
-
       if (layer) u.searchParams.set('layer', layer);
 
       return u.toString();
@@ -1174,26 +1231,26 @@
       const wantsBusStuff = /\bbus\b|\bstop\b|🚏/i.test(q);
       const layer = (looksLikeStreetQuery(q) && !wantsBusStuff) ? 'street' : null;
 
-      const url = buildPhotonUrl(q, { limit: 12, layer });
+      const url = buildPhotonUrl(q, { limit: 12, layer: layer });
 
-      const res = await fetch(url, { cache:'no-store', signal });
-      if (!res.ok) throw new Error(`Photon HTTP ${res.status}`);
+      const res = await fetch(url, { cache:'no-store', signal: signal });
+      if (!res.ok) throw new Error('Photon HTTP ' + res.status);
       const data = await res.json();
-      return Array.isArray(data?.features) ? data.features : [];
+      return Array.isArray(data && data.features) ? data.features : [];
     }
 
     function featuresToItems(features){
-      return (features||[]).map(f=>{
+      return (features||[]).map(function(f){
         const ll = getLonLatFromFeature(f);
         if (!ll) return null;
-        const { main, sub } = featureLabel(f);
+        const lab = featureLabel(f);
         const tag = getFeatureCategoryAndEmoji(f);
         return {
           kind:'feature',
           lat: ll.lat,
           lon: ll.lon,
-          main,
-          sub,
+          main: lab.main,
+          sub: lab.sub,
           raw: f,
           cat: tag.cat,
           emoji: tag.emoji
@@ -1219,10 +1276,10 @@
         return;
       }
 
-      const lis = items.map((it, idx) => {
+      const lis = items.map(function(it, idx){
         const emoji = it.emoji || '📍';
-        const main = `${emoji} ${escapeHTML(it.main || 'Unknown')}`;
-        const badge = `<small>${escapeHTML(it.sub || '')}</small>`;
+        const main = emoji + ' ' + escapeHTML(it.main || 'Unknown');
+        const badge = '<small>' + escapeHTML(it.sub || '') + '</small>';
         return `
           <li class="suggest-item" role="option"
               data-idx="${idx}" data-lat="${it.lat}" data-lon="${it.lon}"
@@ -1232,7 +1289,7 @@
           </li>`;
       }).join('');
 
-      box.innerHTML = `<ul class="suggest-list">${lis}</ul>`;
+      box.innerHTML = '<ul class="suggest-list">' + lis + '</ul>';
       openSuggestions(true);
       input.setAttribute('aria-expanded', 'true');
     }
@@ -1252,19 +1309,21 @@
       let activeIndex = -1;
       let currentItems = [];
 
-      const setActive = (idx) => {
+      function setActive(idx){
         activeIndex = idx;
-        box.querySelectorAll('.suggest-item').forEach((el,i)=>el.classList.toggle('active', i===idx));
-      };
+        box.querySelectorAll('.suggest-item').forEach(function(el,i){
+          el.classList.toggle('active', i===idx);
+        });
+      }
 
-      const choose = (lat, lon, label) => {
+      function choose(lat, lon, label){
         if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon))) return;
         if (label) input.value = label;
         clearSuggestions();
         setMapTarget(Number(lat), Number(lon), 16);
-      };
+      }
 
-      const doSearch = debounce(async () => {
+      const doSearch = debounce(async function(){
         const qRaw = input.value.trim();
         if (qRaw.length < SEARCH_MIN_CHARS){
           currentItems = [];
@@ -1275,9 +1334,9 @@
 
         const mySeq = ++searchSeq;
 
-        try { if (gmAbort) gmAbort.abort(); } catch {}
+        try { if (gmAbort) gmAbort.abort(); } catch(e) {}
         gmAbort = new AbortController();
-        const { signal } = gmAbort;
+        const signal = gmAbort.signal;
 
         try{
           const features = await photonSearchOnce(qRaw, signal);
@@ -1293,19 +1352,19 @@
             setActive(currentItems.length ? 0 : -1);
           }
         } catch (e){
-          if (e?.name !== 'AbortError') console.warn('[Search] failed:', e);
+          if (!(e && e.name === 'AbortError')) console.warn('[Search] failed:', e);
         } finally {
           if (mySeq === searchSeq) spinnerOff();
         }
       }, SEARCH_DEBOUNCE_MS);
 
-      input.addEventListener('input', () => {
+      input.addEventListener('input', function(){
         const q = input.value.trim();
         if (q.length >= SEARCH_MIN_CHARS) spinnerOn(); else spinnerOff();
         doSearch();
       }, { passive:true });
 
-      input.addEventListener('keydown', (e) => {
+      input.addEventListener('keydown', function(e){
         if (!box.classList.contains('open') || currentItems.length === 0) return;
 
         if (e.key === 'ArrowDown'){
@@ -1326,13 +1385,13 @@
         }
       });
 
-      box.addEventListener('click', (e) => {
+      box.addEventListener('click', function(e){
         const item = e.target.closest('.suggest-item');
         if (!item) return;
         choose(Number(item.dataset.lat), Number(item.dataset.lon), item.dataset.main || item.textContent.trim());
       }, { passive:true });
 
-      document.addEventListener('click', (e) => {
+      document.addEventListener('click', function(e){
         if (e.target.closest('#placeSearch')) return;
         clearSuggestions();
         spinnerOff();
@@ -1343,10 +1402,11 @@
        Shared haversine (used later for Waze clustering)
        ======================================================= */
     function toRad(deg){ return deg * Math.PI / 180; }
-    function haversineMeters([lon1, lat1], [lon2, lat2]){
+    function haversineMeters(a, b){
+      const lon1 = a[0], lat1 = a[1], lon2 = b[0], lat2 = b[1];
       const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
-      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
-      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      const aa = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(aa), Math.sqrt(1-aa));
     }
 
     /* =======================================================
@@ -1357,11 +1417,11 @@
     let lastTvtData = null;
 
     function corridorDisplayName(r){
-      if (r?.name && r.name.trim()) return r.name.trim();
-      const from = String(r?.fromName || '').trim();
-      const to   = String(r?.toName   || '').trim();
+      if (r && r.name && r.name.trim()) return r.name.trim();
+      const from = String(r && r.fromName || '').trim();
+      const to   = String(r && r.toName   || '').trim();
       if (from || to) return [from, to].filter(Boolean).join(' → ');
-      if (r?.leadAlert?.street) return String(r.leadAlert.street).trim();
+      if (r && r.leadAlert && r.leadAlert.street) return String(r.leadAlert.street).trim();
       return 'Unnamed corridor';
     }
 
@@ -1370,15 +1430,15 @@
         return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
       }
       const levelColors = { 0:'#42BE4B', 1:'#9ddc43', 2:'#ffe04a', 3:'#ff9a1f', 4:'#ff4d4f' };
-      const total = usersOnJams.reduce((a,u)=>a + (Number(u.wazersCount)||0), 0) || 1;
+      const total = usersOnJams.reduce(function(a,u){ return a + (Number(u.wazersCount)||0); }, 0) || 1;
       let acc = 0, stops=[];
-      usersOnJams.slice().sort((a,b)=>a.jamLevel-b.jamLevel).forEach(u=>{
+      usersOnJams.slice().sort(function(a,b){ return a.jamLevel-b.jamLevel; }).forEach(function(u){
         const pct = (Number(u.wazersCount)||0)/total*100;
         const start = acc, end = acc + pct;
-        stops.push(`${levelColors[u.jamLevel] || '#666'} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+        stops.push((levelColors[u.jamLevel] || '#666') + ' ' + start.toFixed(2) + '% ' + end.toFixed(2) + '%');
         acc = end;
       });
-      return `linear-gradient(90deg, ${stops.join(', ')})`;
+      return 'linear-gradient(90deg, ' + stops.join(', ') + ')';
     }
 
     function delayColor(delayMin){
@@ -1389,35 +1449,38 @@
     }
 
     function computeDelayMin(r){
-      const time = Number(r?.time);
-      const hist = Number(r?.historicTime);
+      const time = Number(r && r.time);
+      const hist = Number(r && r.historicTime);
       if (!Number.isFinite(time) || !Number.isFinite(hist)) return 0;
       return Math.max(0, Math.round((time - hist) / 60));
     }
 
-    function computeTopNDelays(routesRaw, n = 16, minDelay = 15){
+    function computeTopNDelays(routesRaw, n, minDelay){
+      n = n || 16; minDelay = minDelay || 15;
       const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
       const candidates = routes
-        .map(r => ({ r, time:Number(r?.time)||0, hist:Number(r?.historicTime)||0, delayMin: computeDelayMin(r) }))
-        .filter(x => Number.isFinite(x.delayMin) && x.delayMin >= minDelay);
+        .map(function(r){
+          return { r:r, time:Number(r && r.time)||0, hist:Number(r && r.historicTime)||0, delayMin: computeDelayMin(r) };
+        })
+        .filter(function(x){ return Number.isFinite(x.delayMin) && x.delayMin >= minDelay; });
 
-      candidates.sort((a,b) => (b.delayMin - a.delayMin) || (b.time - a.time));
+      candidates.sort(function(a,b){ return (b.delayMin - a.delayMin) || (b.time - a.time); });
       return candidates.slice(0, n);
     }
 
     const routeKey = (r) => {
-      const base = String(r?.id ?? r?.name ?? corridorDisplayName(r) ?? '').trim();
-      const t = String(r?.type || '').toUpperCase();
-      const bb = r?.bbox;
+      const base = String((r && (r.id ?? r.name)) ?? corridorDisplayName(r) ?? '').trim();
+      const t = String(r && r.type || '').toUpperCase();
+      const bb = r && r.bbox;
       const bbTok = (bb && [bb.minX, bb.minY, bb.maxX, bb.maxY].every(Number.isFinite))
-        ? `${Number(bb.minX).toFixed(4)},${Number(bb.minY).toFixed(4)},${Number(bb.maxX).toFixed(4)},${Number(bb.maxY).toFixed(4)}`
+        ? (Number(bb.minX).toFixed(4)+','+Number(bb.minY).toFixed(4)+','+Number(bb.maxX).toFixed(4)+','+Number(bb.maxY).toFixed(4))
         : '';
-      return t === 'DYNAMIC' ? `${base}|DYN|${bbTok}` : base;
+      return t === 'DYNAMIC' ? (base + '|DYN|' + bbTok) : base;
     };
 
     function getCorridorCenterLngLat(route){
       try{
-        const bb = route?.bbox;
+        const bb = route && route.bbox;
         if (bb){
           const minX = Number(bb.minX), maxX = Number(bb.maxX);
           const minY = Number(bb.minY), maxY = Number(bb.maxY);
@@ -1426,11 +1489,11 @@
           }
         }
 
-        const pts = Array.isArray(route?.line) ? route.line : [];
+        const pts = Array.isArray(route && route.line) ? route.line : [];
         let sumX = 0, sumY = 0, n = 0;
         for (const p of pts){
-          const x = Number(p?.x);
-          const y = Number(p?.y);
+          const x = Number(p && p.x);
+          const y = Number(p && p.y);
           if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
           sumX += x; sumY += y; n++;
         }
@@ -1444,26 +1507,26 @@
 
       const host = document.getElementById('abnormal-traffic');
       const list = document.getElementById('tvt-corridors');
-      const net  = host?.querySelector('.network-bar');
+      const net  = host ? host.querySelector('.network-bar') : null;
       if (!host || !list) return;
 
       if (net){
-        net.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []);
+        net.style.background = networkGradientFromUsersOnJams((data && data.usersOnJams) || []);
       }
 
-      updateConnectedCitizensDisplay(sumWazers(data?.usersOnJams || []));
+      updateConnectedCitizensDisplay(sumWazers((data && data.usersOnJams) || []));
 
       const allRoutes = []
-        .concat(Array.isArray(data?.routes) ? data.routes : [])
-        .concat(Array.isArray(data?.irregularities) ? data.irregularities : []);
+        .concat(Array.isArray(data && data.routes) ? data.routes : [])
+        .concat(Array.isArray(data && data.irregularities) ? data.irregularities : []);
 
       const rows = computeTopNDelays(allRoutes, 16, TVT_MIN_DELAY);
 
       const filtered = rows
-        .map(x => ({ ...x, id: routeKey(x.r) }))
-        .filter(it => !isHiddenWithAutoCheck('corr', it.id, { delayMin: it.delayMin }));
+        .map(function(x){ return Object.assign({}, x, { id: routeKey(x.r) }); })
+        .filter(function(it){ return !isHiddenWithAutoCheck('corr', it.id, { delayMin: it.delayMin }); });
 
-      const itemHTML = (it) => {
+      function itemHTML(it){
         const label = corridorDisplayName(it.r);
         const id = escapeHTML(it.id);
 
@@ -1488,7 +1551,7 @@
             <div class="corridor-times">${normMin}m → ${nowMin}m</div>
           </div>
         `;
-      };
+      }
 
       list.innerHTML = filtered.length ? filtered.map(itemHTML).join('') : `
         <div class="corridor" style="grid-column: 1 / -1;">
@@ -1504,17 +1567,19 @@
       const wrap = document.getElementById('tvt-filters');
       if (!wrap) return;
 
-      wrap.addEventListener('click', (e) => {
+      wrap.addEventListener('click', function(e){
         const btn = e.target.closest('button[data-min]');
         if (!btn) return;
         TVT_MIN_DELAY = Number(btn.dataset.min) || 15;
-        wrap.querySelectorAll('button[data-min]').forEach(b => b.classList.toggle('active', b === btn));
+        wrap.querySelectorAll('button[data-min]').forEach(function(b){
+          b.classList.toggle('active', b === btn);
+        });
         if (lastTvtData) renderTvtPanel(lastTvtData);
       }, { passive:true });
     }
 
     async function fetchTVT(signal){
-      return await fetchJsonFromAPI(`${API_BASE}/api/waze/tvt`, signal);
+      return await fetchJsonFromAPI(API_BASE + '/api/waze/tvt', signal);
     }
 
     async function tvtCycle(){
@@ -1532,18 +1597,11 @@
       }
     }
 
-    function openWazePartnerhub(lon, lat){
-      const u = new URL('https://www.waze.com/partnerhub/map-tool');
-      u.searchParams.set('lon', String(lon));
-      u.searchParams.set('lat', String(lat));
-      window.open(u.toString(), '_blank', 'noopener');
-    }
-
     function bindCorridorClicks(){
       const list = document.getElementById('tvt-corridors');
       if (!list) return;
 
-      list.addEventListener('click', (ev) => {
+      list.addEventListener('click', function(ev){
         if (ev.target && ev.target.closest('.hide-btn')) return;
         const card = ev.target.closest('.corridor');
         if (!card) return;
@@ -1551,16 +1609,6 @@
         const lat = Number(card.getAttribute('data-lat'));
         if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
         setMapTarget(lat, lon, 11);
-      }, { passive:true });
-
-      list.addEventListener('dblclick', (ev) => {
-        if (ev.target && ev.target.closest('.hide-btn')) return;
-        const card = ev.target.closest('.corridor');
-        if (!card) return;
-        const lon = Number(card.getAttribute('data-lon'));
-        const lat = Number(card.getAttribute('data-lat'));
-        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
-        openWazePartnerhub(lon, lat);
       }, { passive:true });
     }
 
@@ -1570,19 +1618,19 @@
     const WAZE_REFRESH_MS = 30000;
 
     async function fetchViaProxies(_ignoredUrl, signal){
-      return await fetchJsonFromAPI(`${API_BASE}/api/waze/partner-feed`, signal);
+      return await fetchJsonFromAPI(API_BASE + '/api/waze/partner-feed', signal);
     }
 
     function stableClusterId(coord){
       const lon = Number(coord[0]).toFixed(4);
       const lat = Number(coord[1]).toFixed(4);
-      return `cluster-${lon},${lat}`;
+      return 'cluster-' + lon + ',' + lat;
     }
-    function readConfidence(a){ return Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0; }
-    function readReliability(a){ return Number(a.reliability ?? a.reliabilityScore ?? 0) || 0; }
-    function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
-    function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
-    function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
+    function readConfidence(a){ return Number(a && (a.confidence ?? a.confidenceLevel ?? a.level ?? 0)) || 0; }
+    function readReliability(a){ return Number(a && (a.reliability ?? a.reliabilityScore ?? 0)) || 0; }
+    function readType(a){ return String((a && (a.type || a.alertType)) || '').toUpperCase(); }
+    function readSubType(a){ return String((a && (a.subtype || a.subType || a.sub_type)) || '').toUpperCase(); }
+    function readDesc(a){ return String((a && (a.description || a.reportDescription || a.title)) || '').toUpperCase(); }
 
     function getLngLatFromAlert(a){
       try{
@@ -1594,7 +1642,7 @@
             if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
             if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
           }
-          if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
+          if(a.geometry && a.geometry.coordinates && a.geometry.coordinates.length>=2){
             const c = a.geometry.coordinates;
             if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
           }
@@ -1611,11 +1659,11 @@
     }
 
     function isIceAlert(a){
-      const st = String(a?.subtype ?? a?.subType ?? a?.sub_type ?? '').toUpperCase();
+      const st = String((a && (a.subtype || a.subType || a.sub_type)) || '').toUpperCase();
       if (st === 'HAZARD_ON_ROAD_ICE') return true;
 
-      const t  = String(a?.type || a?.alertType || '').toUpperCase();
-      const d  = String(a?.description || a?.reportDescription || a?.title || '').toUpperCase();
+      const t  = String((a && (a.type || a.alertType)) || '').toUpperCase();
+      const d  = String((a && (a.description || a.reportDescription || a.title)) || '').toUpperCase();
       return t.includes('ICE') || /\bICE\b|BLACK\s*ICE|RECENT(LY)?\s+FORMED\s+ICE/.test(d);
     }
 
@@ -1627,8 +1675,9 @@
              /TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d);
     }
 
-    function dedupAccidentClusters(clusters, opts={}){
-      const { corridorMeters = 8000 } = opts;
+    function dedupAccidentClusters(clusters, opts){
+      opts = opts || {};
+      const corridorMeters = opts.corridorMeters || 8000;
       if (!Array.isArray(clusters) || clusters.length === 0) return [];
       const groups = new Map();
       for (const c of clusters){
@@ -1639,10 +1688,9 @@
       }
       const kept = [];
       for (const arr of groups.values()){
-        arr.sort((a,b)=>
-          (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) ||
-          (Number(b.time||0) - Number(a.time||0))
-        );
+        arr.sort(function(a,b){
+          return (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) || (Number(b.time||0) - Number(a.time||0));
+        });
         const chosen = [];
         for (const c of arr){
           let dup = false;
@@ -1652,12 +1700,11 @@
           }
           if (!dup) chosen.push(c);
         }
-        kept.push(...chosen);
+        kept.push.apply(kept, chosen);
       }
-      kept.sort((a,b)=>
-        (Number(b.effectiveConfidence||0) - (Number(a.effectiveConfidence||0))) ||
-        (Number(b.time||0) - (Number(a.time||0)))
-      );
+      kept.sort(function(a,b){
+        return (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) || (Number(b.time||0) - Number(a.time||0));
+      });
       return kept;
     }
 
@@ -1665,14 +1712,15 @@
       const host = document.getElementById('waze-panel');
       if (!host) return;
 
-      const toggleSection = (secId, wrapIds) => {
+      function toggleSection(secId, wrapIds){
         const sec = document.getElementById(secId);
-        const hasAny = wrapIds.some(id => {
+        const hasAny = wrapIds.some(function(id){
           const el = document.getElementById(id);
           return el && el.children.length > 0;
         });
         if (sec) sec.style.display = hasAny ? 'grid' : 'none';
-      };
+      }
+
       toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
       toggleSection('sec-weather',   ['cards-weather']);
       toggleSection('sec-signals',   ['cards-signals']);
@@ -1689,39 +1737,43 @@
         const data = await fetchViaProxies('', ctrl.signal);
 
         // ACCIDENTS
-        const accidentPoints = (()=>{
-          const out = [], a = (data && Array.isArray(data.alerts)) ? data.alerts : [];
-          for(const x of a){
+        const accidentPoints = (function(){
+          const out = [];
+          const a = (data && Array.isArray(data.alerts)) ? data.alerts : [];
+          for (const x of a){
             if(!isAccident(x)) continue;
             const c = readConfidence(x);
             if(!(c > 0)) continue;
             const coord = getLngLatFromAlert(x); if(!coord) continue;
             const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
             out.push({
-              coord, conf10:c, rel10:readReliability(x),
-              street:x.street||x.roadName||x.address||'Unknown road',
-              city:x.city||x.town||'',
+              coord: coord,
+              conf10: c,
+              rel10: readReliability(x),
+              street: x.street||x.roadName||x.address||'Unknown road',
+              city: x.city||x.town||'',
               time: normalizeMillis(rawTime),
-              id:x.uuid||x.id||`${coord[0]},${coord[1]},${rawTime||''}`
+              id: x.uuid||x.id||(coord[0]+','+coord[1]+','+(rawTime||''))
             });
           }
           return out;
         })();
 
-        const accidentClustersRaw = accidentPoints.length ? (function cluster(points, merge=200){
+        const accidentClustersRaw = accidentPoints.length ? (function cluster(points, merge){
+          merge = merge || 200;
           if(points.length===0) return [];
-          const parent=Array(points.length).fill(0).map((_,i)=>i);
-          const find=x=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
-          const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+          const parent = Array(points.length).fill(0).map((_,i)=>i);
+          const find = x => { while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+          const union = (a,b) => { a=find(a); b=find(b); if(a!==b) parent[a]=b; };
 
           for(let i=0;i<points.length;i++){
             for(let j=i+1;j<points.length;j++){
-              const d=haversineMeters(points[i].coord, points[j].coord);
+              const d = haversineMeters(points[i].coord, points[j].coord);
               if(d<=merge) union(i,j);
             }
           }
 
-          const groups=new Map();
+          const groups = new Map();
           for(let i=0;i<points.length;i++){
             const r=find(i);
             if(!groups.has(r)) groups.set(r, []);
@@ -1757,11 +1809,13 @@
 
         const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
 
-        const accidentVisible = accidentClusters.filter(a => !isHiddenWithAutoCheck('acc', a.id, { conf: Number(a.effectiveConfidence||0) }));
+        const accidentVisible = accidentClusters.filter(function(a){
+          return !isHiddenWithAutoCheck('acc', a.id, { conf: Number(a.effectiveConfidence||0) });
+        });
         const highs = accidentVisible.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
         const lows  = accidentVisible.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
 
-        const cardAccidentHTML = (item)=>{
+        function cardAccidentHTML(item){
           const conf = Number(item.effectiveConfidence)||0;
           const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
           return `<div class="card" data-type="accident" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
@@ -1773,7 +1827,7 @@
                   <div class="meta">Confidence: ${conf}/5 • ${when}</div>
                   <div class="desc">Accident</div>
                 </div>`;
-        };
+        }
 
         if (highWrap) highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
         if (lowWrap)  lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
@@ -1782,7 +1836,7 @@
         const sigWrap = document.getElementById('cards-signals');
         if (sigWrap) {
           sigWrap.innerHTML = '';
-          const signalsRaw = Array.isArray(data?.alerts) ? data.alerts : [];
+          const signalsRaw = Array.isArray(data && data.alerts) ? data.alerts : [];
           const signals = [];
           for (const x of signalsRaw) {
             if (!isTrafficLightFault(x)) continue;
@@ -1792,18 +1846,18 @@
             const rel10 = readReliability(x);
             const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
             const time  = normalizeMillis(rawTime);
-            const id    = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
+            const id    = x.uuid || x.id || (coord[0]+','+coord[1]+','+(rawTime || ''));
             const street = x.street || x.roadName || x.address || 'Unknown road';
             const city = x.city || x.town || '';
             const desc = x.reportDescription || x.description || x.title || '';
 
             if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
-            signals.push({ id, coord, street, city, time, rel10, desc });
+            signals.push({ id: id, coord: coord, street: street, city: city, time: time, rel10: rel10, desc: desc });
           }
 
           signals.sort((a, b) => (b.rel10 - a.rel10) || (b.time - a.time));
 
-          sigWrap.innerHTML = signals.map(item=>{
+          sigWrap.innerHTML = signals.map(function(item){
             const when = new Date(Number(item.time) || 0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
             return `<div class="card" data-type="signal" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
               <div class="title">
@@ -1822,7 +1876,7 @@
         if (weatherWrap) {
           weatherWrap.innerHTML = '';
 
-          const wxRaw = Array.isArray(data?.alerts) ? data.alerts : [];
+          const wxRaw = Array.isArray(data && data.alerts) ? data.alerts : [];
           const wx = [];
           for (const x of wxRaw) {
             if (!isIceAlert(x)) continue;
@@ -1831,19 +1885,19 @@
 
             const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
             const time    = normalizeMillis(rawTime);
-            const id      = x.uuid || x.id || `${coord[0]},${coord[1]},${rawTime || ''}`;
+            const id      = x.uuid || x.id || (coord[0]+','+coord[1]+','+(rawTime || ''));
 
             const street = x.street || x.roadName || x.address || 'Unknown road';
             const city   = x.city   || x.town   || '';
             const desc   = x.reportDescription || x.description || x.title || 'Ice alert';
 
             if (isHiddenWithAutoCheck('wx', id, {})) continue;
-            wx.push({ id, coord, street, city, time, desc });
+            wx.push({ id: id, coord: coord, street: street, city: city, time: time, desc: desc });
           }
 
           wx.sort((a,b)=>b.time-a.time);
 
-          weatherWrap.innerHTML = wx.map(item=>{
+          weatherWrap.innerHTML = wx.map(function(item){
             const when = new Date(Number(item.time) || 0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
             return `<div class="card" data-type="weather" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
               <div class="title">
@@ -1873,7 +1927,7 @@
       const panel = document.getElementById('waze-panel');
       if (!panel) return;
 
-      panel.addEventListener('click', (ev) => {
+      panel.addEventListener('click', function(ev){
         if (ev.target && ev.target.closest('.hide-btn')) return;
         const card = ev.target.closest('.card');
         if (!card) return;
@@ -1889,7 +1943,7 @@
     /* =======================================================
        BOOT / VISIBILITY
        ======================================================= */
-    document.addEventListener('visibilitychange', () => {
+    document.addEventListener('visibilitychange', function(){
       if (document.hidden){
         clearTimeout(tvtTimer); tvtTimer = null;
         clearTimeout(wazeTimer); wazeTimer = null;
@@ -1900,7 +1954,7 @@
       }
     });
 
-    window.addEventListener('load', () => {
+    window.addEventListener('load', function(){
       setStatusPill(false);
 
       initMap();
@@ -1910,7 +1964,9 @@
       bindGmSearch();
 
       const unhideBtn = document.getElementById('unhideAllBtn');
-      if (unhideBtn){ unhideBtn.addEventListener('click', unhideAll, { passive: true }); }
+      if (unhideBtn){
+        unhideBtn.addEventListener('click', unhideAll, { passive: true });
+      }
 
       bindTvtFilters();
       bindCorridorClicks();
@@ -1919,7 +1975,9 @@
       tvtCycle();
       wazeCycle();
 
-      window.addEventListener('resize', () => requestAnimationFrame(ensureWazeFits));
+      window.addEventListener('resize', function(){
+        requestAnimationFrame(ensureWazeFits);
+      });
     });
   </script>
 </body>
