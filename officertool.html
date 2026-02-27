@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>LST — Control Centre Wall Screen</title>
+  <title>LST — Control Centre Tool</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -22,173 +22,78 @@
 
       --liveGreen:#42BE4B;
       --errorRed:#EA5540;
-
       --accent:#FFE04A;
-      --line: rgba(255,255,255,0.08);
 
-      --shadow: 0 8px 24px rgba(0,0,0,.35);
-      --radius: 12px;
-      --gap: 12px;
-      --frame-padding: 12px;
+      --line: rgba(255,255,255,0.10);
 
-      --titlebar-h: 10vh;
+      --shadow: 0 10px 28px rgba(0,0,0,.55);
+      --radius: 14px;
+
+      --mapH: 70vh;
+      --trayH: 30vh;
+
+      --glass: rgba(10,10,10,0.62);
+      --glassBorder: rgba(255,255,255,0.14);
+
       --highConfMin: 4;
 
-      --corridor-card-h: clamp(140px, 16vh, 190px);
+      --chipW: clamp(340px, 26vw, 520px);
     }
 
     html, body { height: 100%; margin: 0; }
     body{
       background: var(--bg);
       color: var(--text);
-      font-family: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+      font-family: "IBM Plex Sans Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow: hidden;
     }
 
-    .hide-btn,
-    .toolbar-btn{
+    /* Buttons */
+    .toolbar-btn,
+    .hide-btn{
       appearance: none;
-      background: rgba(255,255,255,0.04);
-      color: #d8d8dd;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      padding: 4px 10px;
-      font-weight: 700;
-      font-size: 11px;
-      letter-spacing: .5px;
+      background: rgba(255,255,255,0.05);
+      color: #e7e7ea;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-weight: 900;
+      font-size: 10px;
+      letter-spacing: .45px;
       text-transform: uppercase;
       cursor: pointer;
-      transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.05s ease;
+      transition: background .2s ease, border-color .2s ease, transform .05s ease;
+      user-select: none;
+      white-space: nowrap;
     }
-    .hide-btn:hover,
-    .toolbar-btn:hover{
+    .toolbar-btn:hover,
+    .hide-btn:hover{
       background: rgba(255,255,255,0.10);
       border-color: rgba(255,224,74,0.7);
       color: #fff;
-      box-shadow: 0 0 10px rgba(255,224,74,0.15);
+      box-shadow: 0 0 12px rgba(255,224,74,0.16);
     }
-    .hide-btn:active,
-    .toolbar-btn:active{
-      transform: translateY(1px);
-      background: rgba(255,255,255,0.15);
-    }
-
-    .app{
-      height: 100dvh;
-      display: grid;
-      grid-template-rows: 1fr var(--titlebar-h);
-      overflow: hidden;
-      min-height: 0;
-    }
-
-    .content{
-      padding: var(--gap);
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: var(--gap);
-      min-height: 0;
-      overflow: hidden;
-      height: 100%;
-      box-sizing: border-box;
-    }
-
-    .col1,.col2,.col3{ display:flex; flex-direction:column; min-height:0; overflow:hidden; }
-
-    .frame{
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: var(--frame-padding);
-      min-height: 0;
-      overflow: hidden;
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 8px;
-    }
-
-    .frame-header{
-      font-size: clamp(12px, 1.8vh, 14px);
-      font-weight: 800;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .frame-body{ min-height: 0; overflow: hidden; }
-
-    .col1 > .frame,
-    .col3 > .frame{
-      flex: 1 1 0;
-      min-height: 0;
-      overflow: hidden;
-    }
-
-    #frame-c{ flex: 1 1 0; min-height: 0; overflow: hidden; }
-    #frame-b{ flex: 1 1 0; min-height: 0; overflow: hidden; }
-
-    #frame-d{
-      min-height: 0;
-      overflow: hidden;
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
-    #frame-d .frame-body{
-      min-height: 0;
-      height: 100%;
-      overflow: hidden;
-      display: flex;
-    }
-    #waze-panel{
-      flex: 1 1 0;
-      min-height: 0;
-      height: 100%;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding-bottom: 16px;
-      padding-right: 6px;
-      box-sizing: border-box;
-    }
-
-    .titlebar{
-      border-top: 1px solid var(--line);
-      background: linear-gradient(0deg, rgba(255,224,74,0.06), transparent);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      padding: 0 16px;
-      gap: 12px;
-    }
-    .title-left{ display:flex; align-items:center; gap:12px; min-width:0; }
-    .title-right{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .toolbar-btn:active,
+    .hide-btn:active{ transform: translateY(1px); }
 
     .status-pill{
-      padding: 10px 16px;
+      padding: 8px 12px;
       border-radius: 999px;
-      font-size: clamp(14px, 2.2vh, 18px);
-      font-weight: 800;
+      font-size: 13px;
+      font-weight: 1000;
       background: var(--liveGreen);
       color:#000;
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.10), 0 6px 18px rgba(0,0,0,0.35);
       white-space: nowrap;
-      user-select: none;
       transition: background .2s ease, color .2s ease;
     }
     .status-error{ background: var(--errorRed); color:#fff; }
 
     #beeLogo{
-      width: clamp(40px, 6vh, 64px);
-      height: clamp(40px, 6vh, 64px);
+      width: 40px;
+      height: 40px;
       object-fit: contain;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
       user-select: none;
@@ -203,244 +108,106 @@
     }
     .bee-wibble{ animation: wibble 650ms ease-out; }
 
-    .car-icon{
-      width: clamp(22px, 3.2vh, 28px);
-      height: clamp(22px, 3.2vh, 28px);
-      object-fit: contain;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));
-    }
     .connected-count{
-      font-weight: 900;
-      font-size: clamp(14px, 2.2vh, 18px);
+      font-weight: 1000;
+      font-size: 14px;
       letter-spacing: 0.2px;
       white-space: nowrap;
+      color: rgba(255,255,255,0.92);
     }
 
-    /* TVT */
-    .tvt-panel{
+    /* App layout */
+    .app{
+      height: 100dvh;
       display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 10px;
-      min-height: 0;
-      height: 100%;
+      grid-template-rows: var(--mapH) var(--trayH);
       overflow: hidden;
     }
-    .network-health { margin: 0 2px; }
-    .network-row { display:flex; align-items:center; gap:10px; }
-    .network-bar{
-      flex:1 1 auto;
-      height: clamp(10px, 1.8vh, 16px);
-      border-radius: 999px;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.18) inset, 0 4px 10px rgba(0,0,0,0.30);
-    }
 
-    .corridor-list{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      min-height: 0;
-      overflow-y: auto;
-      grid-auto-rows: var(--corridor-card-h);
-      align-content: start;
-    }
-    .corridor{
-      display: grid;
-      grid-template-rows: auto auto auto;
-      align-content: start;
-      gap: 6px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.04);
-      height: 100%;
-      box-sizing: border-box;
+    /* Map area */
+    .map-area{
       position: relative;
-      padding-bottom: 36px;
       overflow: hidden;
-      cursor: pointer;
     }
-    .corridor .hide-btn{
+    #map{
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+
+    /* Desktop-friendly Leaflet sizing */
+    .leaflet-container{
+      font-size: 14px;
+    }
+    .leaflet-control-attribution,
+    .leaflet-control-scale,
+    .leaflet-control{
+      font-size: 12px !important;
+    }
+
+    /* Darker Leaflet buttons */
+    .leaflet-bar a{
+      background: rgba(10,10,10,0.78) !important;
+      color: rgba(255,255,255,0.92) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.14) !important;
+    }
+    .leaflet-bar a:hover{
+      background: rgba(255,255,255,0.12) !important;
+    }
+
+    /* Floating top bar */
+    .topbar{
       position: absolute;
+      top: 10px;
+      left: 10px;
       right: 10px;
-      bottom: 8px;
-      font-size: 10px;
-      padding: 3px 8px;
-    }
-    .corridor-top{
+      z-index: 900;
       display: grid;
       grid-template-columns: 1fr auto;
-      align-items: center;
       gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border-radius: 16px;
+      background: var(--glass);
+      border: 1px solid var(--glassBorder);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(7px);
+    }
+    .topbar-left{
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
       min-width: 0;
     }
-    .corridor-title{
-      font-size: clamp(15px, 2.4vh, 20px);
-      font-weight: 900;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      min-width:0;
-    }
-    .corridor-title .corridor-name{
-      min-width:0;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-    }
-    .corridor-delay{
-      font-size: clamp(22px, 4.2vh, 34px);
-      font-weight: 900;
-      line-height: 0.95;
-      color: var(--delay-col);
-    }
-    .corridor-times{
-      font-size: clamp(12px, 1.8vh, 15px);
-      font-weight: 800;
-      color: rgba(255,255,255,0.86);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .tvt-filters{
+    .topbar-right{
       display: flex;
-      gap: 8px;
-      padding-top: 2px;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
     }
-    .tvt-filters button{
+
+    /* Search + health sliver */
+    .place-search-wrap{
       flex: 1;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #fff;
-      font-weight: 900;
-      padding: 8px 0;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .tvt-filters button.active{
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-    }
-
-    /* Waze */
-    .section{ display:grid; gap:8px; }
-    .section-title{
-      font-size: clamp(11px, 1.6vh, 13px);
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 0.6px;
-      color: var(--muted);
-      border-left: 3px solid rgba(255,255,255,0.15);
-      padding-left: 8px;
-    }
-    .cards{ display:grid; gap:8px; }
-    .card{
-      display:grid;
-      gap:6px;
-      padding:10px 12px 36px;
-      border-radius:12px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.06);
-      position:relative;
-      cursor:pointer;
-    }
-    .card .hide-btn{
-      position:absolute;
-      right:10px;
-      bottom:8px;
-      font-size:10px;
-      padding:3px 8px;
-    }
-    .card .title{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:900;
-      font-size: clamp(14px, 2.2vh, 18px);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .card .meta{
-      font-weight:800;
-      font-size: clamp(12px, 1.8vh, 14px);
-      color: rgba(255,255,255,0.85);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .card .desc{
-      font-weight:700;
-      font-size: clamp(12px, 1.8vh, 14px);
-      color: rgba(255,255,255,0.75);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .spacer{ flex:1; }
-
-    /* Map + tools */
-    #map{
-      width:100%;
-      height:100%;
-      border-radius:10px;
-      overflow:hidden;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       position: relative;
     }
-
-    /* Fullscreen (native or pseudo) */
-    #map.pseudo-fs{
-      position: fixed !important;
-      inset: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      z-index: 99999 !important;
-      border-radius: 0 !important;
+    .place-search{
+      position: relative;
     }
-
-    .tool-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      align-content:start;
-      height:100%;
-      overflow:auto;
-      padding-right:2px;
-      box-sizing:border-box;
-    }
-    .tool-grid button{
-      appearance:none;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color:#fff;
-      font-weight:800;
-      font-size: clamp(11px, 1.6vh, 13px);
-      padding: 8px 8px;
-      border-radius: 10px;
-      cursor:pointer;
-      min-height:34px;
-    }
-    .tool-grid button:hover{
-      border-color: rgba(255,224,74,0.75);
-      background: rgba(255,255,255,0.12);
-    }
-    .tool-grid button:disabled{ opacity:0.35; cursor:not-allowed; }
-
-    /* Search UI */
-    .place-search{ position:relative; margin-bottom:10px; }
     #gmSearch{
-      width:100%;
-      border:1px solid rgba(255,255,255,0.18);
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.06);
       color:#fff;
-      font-weight:800;
-      font-size: clamp(12px, 2.0vh, 15px);
-      padding:12px 40px 12px 12px;
-      border-radius:12px;
+      font-weight: 900;
+      font-size: 15px;
+      padding: 12px 40px 12px 12px;
+      border-radius: 14px;
       outline:none;
       box-sizing:border-box;
     }
@@ -449,6 +216,15 @@
       background: rgba(255,255,255,0.10);
       box-shadow: 0 0 0 2px rgba(255,224,74,0.12);
     }
+    .health-sliver{
+      height: 3px;
+      width: 100%;
+      border-radius: 0 0 10px 10px;
+      background: linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f);
+      opacity: 0.95;
+    }
+
+    /* Search spinner */
     .search-spinner{
       position:absolute;
       right:12px;
@@ -466,11 +242,12 @@
     .search-spinner.active{ display:block; }
     @keyframes spin{ to{ transform: rotate(360deg);} }
 
+    /* Suggestions */
     .suggestions{
       position:absolute;
       top: calc(100% + 6px);
       left:0; right:0;
-      z-index:60;
+      z-index:9999;
       display:none;
       background: rgba(10,10,10,0.98);
       border:1px solid rgba(255,255,255,0.14);
@@ -483,7 +260,7 @@
       margin:0;
       padding:6px;
       list-style:none;
-      max-height: min(34vh, 320px);
+      max-height: min(34vh, 360px);
       overflow:auto;
     }
     .suggest-item{
@@ -492,13 +269,13 @@
       cursor:pointer;
       border:1px solid transparent;
       color: rgba(255,255,255,0.92);
-      font-weight:800;
+      font-weight:900;
       line-height:1.2;
     }
     .suggest-item small{
       display:block;
       margin-top:4px;
-      font-weight:700;
+      font-weight:800;
       color: rgba(255,255,255,0.70);
     }
     .suggest-item:hover{
@@ -510,39 +287,175 @@
       border-color: rgba(255,224,74,0.75);
     }
 
-    * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.35) transparent; }
-    ::-webkit-scrollbar{ width:8px; height:8px; }
-    ::-webkit-scrollbar-track{ background:transparent; }
-    ::-webkit-scrollbar-thumb{
-      background: linear-gradient(180deg, rgba(255,224,74,0.55), rgba(255,255,255,0.35));
-      border-radius: 999px;
-      border:2px solid transparent;
-      background-clip: padding-box;
-    }
-
-    /* Overlay used while map is fullscreen */
-    .map-overlay{
-      position:absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 900;
+    /* Tray */
+    .tray{
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,224,74,0.06), rgba(0,0,0,0.35));
+      overflow: hidden;
       display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .tray-head{
+      display:flex;
       gap: 10px;
-      width: min(460px, 42vw);
-      pointer-events: none;
+      align-items:center;
+      padding: 6px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .map-overlay > *{ pointer-events: auto; }
+    .tray-title{
+      font-weight: 1000;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      font-size: 11px;
+    }
+    .tray-controls{
+      margin-left: auto;
+      display:flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tray-controls button{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-weight: 1000;
+      padding: 4px 8px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+    }
+    .tray-controls button.active{
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
 
-    .map-overlay #placeSearch,
-    .map-overlay #toolGrid{
-      background: rgba(10,10,10,0.72);
-      border: 1px solid rgba(255,255,255,0.14);
+    .tray-body{
+      padding: 10px 12px 12px;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .lane{
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 6px;
+      overflow: hidden;
+    }
+    .lane-title{
+      font-size: 11px;
+      font-weight: 1000;
+      color: rgba(255,255,255,0.82);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Horizontal chip rows */
+    .chip-row{
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 8px;
+      scroll-behavior: smooth;
+      min-height: 0;
+      align-items: stretch;
+    }
+    .chip-row::-webkit-scrollbar{ height: 8px; }
+    .chip-row::-webkit-scrollbar-thumb{
+      background: linear-gradient(90deg, rgba(255,224,74,0.6), rgba(255,255,255,0.35));
+      border-radius: 999px;
+    }
+
+    .chip{
+      flex: 0 0 auto;
+      width: var(--chipW);
+      min-height: 64px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
       border-radius: 14px;
-      padding: 10px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .chip::before{
+      content:'';
+      position:absolute;
+      left:0; top:0; bottom:0;
+      width: 6px;
+      border-radius: 14px 0 0 14px;
+      background: var(--chip-col, rgba(255,255,255,0.25));
+    }
+    .chip:hover{
+      border-color: rgba(255,224,74,0.55);
+      background: rgba(255,255,255,0.09);
     }
 
+    .chip-icon{
+      width: 34px;
+      height: 34px;
+      display:grid;
+      place-items:center;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      font-size: 18px;
+    }
+    .chip-main{ min-width: 0; }
+    .chip-top{
+      display:flex;
+      gap: 8px;
+      align-items: baseline;
+      min-width: 0;
+    }
+    .chip-title{
+      font-weight: 1000;
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chip-badge{
+      margin-left: auto;
+      font-weight: 1000;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      white-space: nowrap;
+    }
+    .chip-sub{
+      margin-top: 2px;
+      font-weight: 800;
+      font-size: 14px;
+      color: rgba(255,255,255,0.80);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chip .hide-btn{
+      font-size: 10px;
+      padding: 5px 10px;
+    }
+
+    /* Pin */
     .lst-pin{
       width: 22px;
       height: 22px;
@@ -553,133 +466,150 @@
         0 0 0 2px rgba(0,0,0,0.55),
         0 0 14px rgba(255,224,74,0.20);
     }
+
+    /* Tool popup */
+    dialog.tool-dialog{
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(10,10,10,0.92);
+      color: #fff;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.65);
+      width: min(520px, 92vw);
+    }
+    dialog.tool-dialog::backdrop{ background: rgba(0,0,0,0.55); }
+
+    .tool-dialog__head{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .tool-dialog__title{
+      font-weight: 1000;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .tool-dialog__meta{
+      margin: 10px 0 12px;
+      color: rgba(255,255,255,0.78);
+      font-weight: 800;
+    }
+    .tool-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .tool-grid button{
+      appearance:none;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color:#fff;
+      font-weight:1000;
+      font-size: 13px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      min-height:40px;
+    }
+    .tool-grid button:hover{
+      border-color: rgba(255,224,74,0.75);
+      background: rgba(255,255,255,0.12);
+    }
+    .tool-grid button:disabled{ opacity:0.35; cursor:not-allowed; }
+
+    /* Scrollbars overall */
+    * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.35) transparent; }
+    ::-webkit-scrollbar{ width:8px; height:8px; }
+    ::-webkit-scrollbar-track{ background:transparent; }
+    ::-webkit-scrollbar-thumb{
+      background: linear-gradient(180deg, rgba(255,224,74,0.55), rgba(255,255,255,0.35));
+      border-radius: 999px;
+      border:2px solid transparent;
+      background-clip: padding-box;
+    }
   </style>
 </head>
 
 <body>
   <div class="app">
-    <section class="content" aria-label="Main dashboard area">
 
-      <!-- Column 1 -->
-      <div class="col1">
-        <div class="frame" id="frame-a" aria-labelledby="frame-a-title">
-          <div class="frame-header" id="frame-a-title">Highways Health &amp; Abnormal Traffic</div>
-          <div class="frame-body">
-            <div class="tvt-panel" id="abnormal-traffic" aria-live="polite">
-              <div class="network-health">
-                <div class="network-row">
-                  <div class="network-bar" style="background:linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)"></div>
-                </div>
-              </div>
+    <!-- MAP -->
+    <section class="map-area" aria-label="Map area">
+      <div id="map" aria-label="Map"></div>
 
-              <div class="corridor-list" id="tvt-corridors"></div>
-
-              <div class="tvt-filters" id="tvt-filters" aria-label="Abnormal traffic filters">
-                <button type="button" data-min="1">+1m</button>
-                <button type="button" data-min="5">+5m</button>
-                <button type="button" data-min="10">+10m</button>
-                <button type="button" data-min="15" class="active">+15m</button>
-              </div>
+      <header class="topbar" aria-label="Search and status">
+        <div class="topbar-left">
+          <div class="place-search-wrap">
+            <div class="place-search" id="placeSearch" aria-label="Place search">
+              <input id="gmSearch" type="text" inputmode="search" autocomplete="off"
+                     placeholder="Search (bus stops 🚏, pubs 🍺, streets 🛣️)… or Oxford/Whitworth"
+                     aria-label="Search places in Greater Manchester"
+                     aria-autocomplete="list"
+                     aria-expanded="false"
+                     aria-controls="gmSuggest" />
+              <div class="search-spinner" id="searchSpinner" aria-hidden="true"></div>
+              <div id="gmSuggest" class="suggestions" role="listbox" aria-label="Search suggestions"></div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Column 2 -->
-      <div class="col2">
-        <div class="frame" id="frame-c" aria-labelledby="frame-c-title">
-          <div class="frame-header" id="frame-c-title">
-            Map
-            <span class="spacer"></span>
-            <button id="mapFsBtn" class="toolbar-btn" type="button" title="Toggle full screen map" aria-pressed="false">
-              Full screen
-            </button>
-          </div>
-          <div class="frame-body">
-            <div id="map" aria-label="Map">
-              <div id="mapOverlay" class="map-overlay" aria-label="Map overlay"></div>
-            </div>
+            <div class="health-sliver" id="networkBar" aria-hidden="true"></div>
           </div>
         </div>
 
-        <div class="frame" id="frame-b" aria-labelledby="frame-b-title">
-          <div class="frame-header" id="frame-b-title">Open in other tools</div>
-          <div class="frame-body">
-
-            <div id="placeSearchMount">
-              <div class="place-search" id="placeSearch" aria-label="Place search">
-                <input id="gmSearch" type="text" inputmode="search" autocomplete="off"
-                       placeholder="Search (bus stops 🚏, pubs 🍺, streets 🛣️)… or Oxford/Whitworth"
-                       aria-label="Search places in Greater Manchester"
-                       aria-autocomplete="list"
-                       aria-expanded="false"
-                       aria-controls="gmSuggest" />
-                <div class="search-spinner" id="searchSpinner" aria-hidden="true"></div>
-                <div id="gmSuggest" class="suggestions" role="listbox" aria-label="Search suggestions"></div>
-              </div>
-            </div>
-
-            <div id="toolGridMount">
-              <div class="tool-grid" id="toolGrid" aria-label="Tool links">
-                <button type="button" data-tool="google">Google Maps</button>
-                <button type="button" data-tool="bustimes">Bus Times</button>
-                <button type="button" data-tool="waze_alerts">Waze Alerts</button>
-                <button type="button" data-tool="waze_closures">Waze Closures</button>
-                <button type="button" data-tool="tomtom">TomTom</button>
-                <button type="button" data-tool="vms">VMS</button>
-                <button type="button" data-tool="utc">UTC Sites</button>
-              </div>
-            </div>
-
-          </div>
+        <div class="topbar-right">
+          <div id="connectedCitizens" class="connected-count">— Connected Citizens</div>
+          <button id="unhideAllBtn" class="toolbar-btn" type="button">Unhide all</button>
+          <div id="statusPill" class="status-pill">Initialising…</div>
+          <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png"
+               alt="Bee Network logo" width="40" height="40" decoding="async" />
         </div>
-      </div>
-
-      <!-- Column 3 -->
-      <div class="col3">
-        <div class="frame" id="frame-d" aria-labelledby="frame-d-title">
-          <div class="frame-header" id="frame-d-title">Waze Alerts</div>
-          <div class="frame-body">
-            <div class="waze-panel" id="waze-panel" aria-live="polite">
-              <div class="section" id="sec-accidents">
-                <div class="section-title">💥 Accidents</div>
-                <div class="cards" id="cards-acc-high"></div>
-                <div class="cards" id="cards-acc-low"></div>
-              </div>
-              <div class="section" id="sec-signals">
-                <div class="section-title">🚦 Traffic Light Faults</div>
-                <div class="cards" id="cards-signals"></div>
-              </div>
-              <div class="section" id="sec-weather">
-                <div class="section-title">🌨️ Weather Reports</div>
-                <div class="cards" id="cards-weather"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      </header>
     </section>
 
-    <footer class="titlebar" role="contentinfo" aria-label="Title bar">
-      <div class="title-left">
-        <img src="https://ryanocc.github.io/car.gif" class="car-icon" alt="car icon">
-        <div id="connectedCitizens" class="connected-count">— Connected Citizens</div>
+    <!-- TRAY -->
+    <section class="tray" aria-label="Alerts tray">
+      <div class="tray-head">
+        <div class="tray-title">Live alerts</div>
+
+        <div class="tray-controls" id="tvt-filters" aria-label="Abnormal traffic filters">
+          <button type="button" data-min="1">+1m</button>
+          <button type="button" data-min="5">+5m</button>
+          <button type="button" data-min="10">+10m</button>
+          <button type="button" data-min="15" class="active">+15m</button>
+        </div>
       </div>
 
-      <div class="title-right" aria-label="Status and controls">
-        <button id="unhideAllBtn" class="toolbar-btn" type="button"
-                title="Unhide all hidden alerts" aria-label="Unhide all hidden alerts">
-          Unhide all
-        </button>
+      <div class="tray-body">
+        <div class="lane">
+          <div class="lane-title">⏱️ Abnormal traffic</div>
+          <div class="chip-row" id="chips-tvt" aria-label="Abnormal traffic chips"></div>
+        </div>
 
-        <div id="statusPill" class="status-pill">Initialising…</div>
-
-        <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png"
-             alt="Bee Network logo" width="64" height="64" decoding="async" />
+        <div class="lane">
+          <div class="lane-title">💥 🚦 ❄️ Waze alerts</div>
+          <div class="chip-row" id="chips-waze" aria-label="Waze alert chips"></div>
+        </div>
       </div>
-    </footer>
+    </section>
+
   </div>
+
+  <!-- Marker-click popup -->
+  <dialog id="toolDialog" class="tool-dialog" aria-label="Open in other tools">
+    <div class="tool-dialog__head">
+      <div class="tool-dialog__title">Open in other tools</div>
+      <button class="toolbar-btn" id="toolDialogClose" type="button">Close</button>
+    </div>
+    <div class="tool-dialog__meta" id="toolDialogMeta">—</div>
+
+    <div class="tool-grid" id="toolGrid" aria-label="Tool links">
+      <button type="button" data-tool="google">Google Maps</button>
+      <button type="button" data-tool="bustimes">Bus Times</button>
+      <button type="button" data-tool="waze_alerts">Waze Alerts</button>
+      <button type="button" data-tool="waze_closures">Waze Closures</button>
+      <button type="button" data-tool="tomtom">TomTom</button>
+      <button type="button" data-tool="vms">VMS</button>
+      <button type="button" data-tool="utc">UTC Sites</button>
+    </div>
+  </dialog>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -687,35 +617,31 @@
     /* =======================================================
        Utilities & helpers
        ======================================================= */
-    function sumWazers(usersOnJams){
-      try {
-        const total = (Array.isArray(usersOnJams) ? usersOnJams : [])
-          .reduce(function(acc,u){ return acc + (Number(u.wazersCount)||0); }, 0);
-        return Math.ceil(total);
-      } catch {
-        return 0;
-      }
-    }
-
-    function updateConnectedCitizensDisplay(total){
-      const el = document.getElementById('connectedCitizens');
-      if (!el) return;
-      const label = Number.isFinite(total) && total > 0 ? total.toLocaleString('en-GB') : '—';
-      el.textContent = label + ' Connected Citizens';
-    }
-
     const API_BASE = "https://renderexpress-ebb0.onrender.com";
 
     function withCacheBust(url){
       const sep = url.includes('?') ? '&' : '?';
       return url + sep + 'ts=' + Date.now();
     }
-
     async function fetchJsonFromAPI(pathOrUrl, signal){
       const url = pathOrUrl.startsWith("http") ? pathOrUrl : (API_BASE + pathOrUrl);
-      const res = await fetch(withCacheBust(url), { cache: 'no-store', signal: signal });
+      const res = await fetch(withCacheBust(url), { cache: 'no-store', signal });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return await res.json();
+    }
+
+    function sumWazers(usersOnJams){
+      try {
+        const total = (Array.isArray(usersOnJams) ? usersOnJams : [])
+          .reduce((acc,u) => acc + (Number(u.wazersCount)||0), 0);
+        return Math.ceil(total);
+      } catch { return 0; }
+    }
+    function updateConnectedCitizensDisplay(total){
+      const el = document.getElementById('connectedCitizens');
+      if (!el) return;
+      const label = Number.isFinite(total) && total > 0 ? total.toLocaleString('en-GB') : '—';
+      el.textContent = label + ' Connected Citizens';
     }
 
     function fmtHHMMSS(){
@@ -758,20 +684,13 @@
     }
 
     /* Spinner helpers */
-    function spinnerOn(){
-      const s = document.getElementById('searchSpinner');
-      if (s) s.classList.add('active');
-    }
-    function spinnerOff(){
-      const s = document.getElementById('searchSpinner');
-      if (s) s.classList.remove('active');
-    }
+    function spinnerOn(){ document.getElementById('searchSpinner')?.classList.add('active'); }
+    function spinnerOff(){ document.getElementById('searchSpinner')?.classList.remove('active'); }
 
     /* ========= HIDE / SUPPRESSION (60 minutes) ========= */
     const HIDE_MS = 60 * 60 * 1000;
 
     function hideStorageKey(prefix, id){ return 'hide_' + prefix + '_' + id; }
-
     function getHideEntry(prefix, id){
       const raw = localStorage.getItem(hideStorageKey(prefix, id));
       if (!raw) return null;
@@ -783,15 +702,12 @@
       const n = Number(raw);
       return Number.isFinite(n) ? { until:n } : null;
     }
-
     function setHideEntry(prefix, id, entry){
       localStorage.setItem(hideStorageKey(prefix, id), JSON.stringify(entry));
     }
-
     function clearHide(prefix, id){
       localStorage.removeItem(hideStorageKey(prefix, id));
     }
-
     function hideForHour(prefix, id, baseline){
       baseline = baseline || {};
       setHideEntry(prefix, id, { until: Date.now() + HIDE_MS, baseline: baseline, createdAt: Date.now() });
@@ -851,11 +767,11 @@
 
       hideForHour(prefix, id, baseline);
 
-      const container = btn.closest('.card, .corridor');
+      const container = btn.closest('.chip');
       if (container) container.remove();
     }, { passive: false });
 
-    /* Timers — declared ONCE only */
+    /* Timers */
     let tvtTimer = null;
     let wazeTimer = null;
 
@@ -865,7 +781,7 @@
         const k = localStorage.key(i);
         if (k && k.startsWith('hide_')) keys.push(k);
       }
-      keys.forEach(function(k){ localStorage.removeItem(k); });
+      keys.forEach(k => localStorage.removeItem(k));
 
       try{ clearTimeout(tvtTimer); }catch(e){}
       try{ clearTimeout(wazeTimer); }catch(e){}
@@ -875,78 +791,34 @@
     }
 
     /* =======================================================
-       MAP — Leaflet (Mapnik ONLY) + Fullscreen + Draggable Marker
+       MAP — Leaflet + MapTiler OS Open Zoomstack Night tiles
        ======================================================= */
     const MAP_STATE = { map: null, marker: null, last: null };
 
-    function setToolButtonsEnabled(enabled){
-      document.querySelectorAll('#toolGrid button[data-tool]').forEach(function(b){
-        b.disabled = !enabled;
-      });
-    }
-
-    function isMapFullscreen(){
-      const el = document.getElementById('map');
-      if (!el) return false;
-      const nativeFs = (document.fullscreenElement === el);
-      const pseudoFs = el.classList.contains('pseudo-fs');
-      return nativeFs || pseudoFs;
-    }
-
-    async function toggleMapFullscreen(){
-      const el = document.getElementById('map');
-      const m  = MAP_STATE.map;
-      if (!el || !m) return;
-
-      const fsBtn = document.getElementById('mapFsBtn');
-
-      // Native fullscreen if available
-      try{
-        if (!document.fullscreenElement){
-          if (el.requestFullscreen){
-            await el.requestFullscreen();
-          } else {
-            // fallback to pseudo fullscreen
-            el.classList.add('pseudo-fs');
-          }
-        } else {
-          if (document.exitFullscreen){
-            await document.exitFullscreen();
-          } else {
-            el.classList.remove('pseudo-fs');
-          }
-        }
-      }catch(e){
-        // If native fullscreen fails (permissions etc), fallback to pseudo
-        el.classList.toggle('pseudo-fs');
-      }
-
-      // UI + map resize
-      const nowFs = isMapFullscreen();
-      if (fsBtn){
-        fsBtn.textContent = nowFs ? 'Exit full screen' : 'Full screen';
-        fsBtn.setAttribute('aria-pressed', nowFs ? 'true' : 'false');
-      }
-
-      applyFsUi();
-      setTimeout(function(){ m.invalidateSize(); }, 250);
-    }
+    const MAPTILER_TILE_URL =
+      "https://api.maptiler.com/maps/uk-openzoomstack-night/{z}/{x}/{y}@2x.png?key=ileJHPYoUxyL17ZpmERr";
 
     function initMap(){
       const el = document.getElementById('map');
       if (!el || !window.L) return;
 
-      const m = L.map(el, { zoomControl: true, attributionControl: true })
-        .setView([53.4808, -2.2426], 10);
+      const m = L.map(el, {
+        zoomControl: false,
+        attributionControl: true
+      }).setView([53.4808, -2.2426], 12);
 
-      // ✅ MAPNIK ONLY (classic OpenStreetMap standard)
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      // MapTiler raster tiles (512px @2x tiles)
+      L.tileLayer(MAPTILER_TILE_URL, {
         maxZoom: 19,
-        detectRetina: true,
-        attribution: '&copy; OpenStreetMap contributors'
+        tileSize: 512,
+        zoomOffset: -1,
+        crossOrigin: true,
+        attribution: '© MapTiler © OpenStreetMap contributors • © Ordnance Survey OpenData'
       }).addTo(m);
 
-      // Draggable marker (styled pin)
+      L.control.zoom({ position: 'bottomright' }).addTo(m);
+
+      // Styled marker
       const pinIcon = L.divIcon({
         className: '',
         html: '<div class="lst-pin"></div>',
@@ -960,24 +832,17 @@
       mk.on('dragend', function(){
         const ll = mk.getLatLng();
         MAP_STATE.last = { lat: ll.lat, lon: ll.lng };
-        setToolButtonsEnabled(true);
         m.panTo(ll);
+      });
+
+      mk.on('click', function(){
+        const ll = mk.getLatLng();
+        MAP_STATE.last = { lat: ll.lat, lon: ll.lng };
+        openToolDialog();
       });
 
       MAP_STATE.map = m;
       MAP_STATE.marker = mk;
-
-      // Header fullscreen button
-      const fsBtn = document.getElementById('mapFsBtn');
-      if (fsBtn){
-        fsBtn.addEventListener('click', function(){ toggleMapFullscreen(); }, { passive: true });
-      }
-
-      // Keep Leaflet sized correctly on fullscreen transitions
-      document.addEventListener('fullscreenchange', function(){
-        applyFsUi();
-        setTimeout(function(){ m.invalidateSize(); }, 250);
-      });
 
       setTimeout(function(){ m.invalidateSize(); }, 250);
       window.addEventListener('resize', function(){
@@ -1000,40 +865,13 @@
 
       const z = Number.isFinite(Number(zoom)) ? Number(zoom) : 12;
       m.setView([la, lo], z, { animate: true });
-
-      setToolButtonsEnabled(true);
-    }
-
-    /* Move search/tools into map overlay while fullscreen */
-    function applyFsUi(){
-      const overlay     = document.getElementById('mapOverlay');
-      const placeSearch = document.getElementById('placeSearch');
-      const toolGrid    = document.getElementById('toolGrid');
-      const placeMount  = document.getElementById('placeSearchMount');
-      const toolsMount  = document.getElementById('toolGridMount');
-
-      if (!overlay || !placeSearch || !toolGrid || !placeMount || !toolsMount) return;
-
-      if (isMapFullscreen()){
-        overlay.appendChild(placeSearch);
-        overlay.appendChild(toolGrid);
-      } else {
-        placeMount.appendChild(placeSearch);
-        toolsMount.appendChild(toolGrid);
-      }
     }
 
     /* =======================================================
-       TOOL BUTTONS
+       Tool popup (marker click)
        ======================================================= */
-    function openToolByName(tool){
-      const last = MAP_STATE.last;
-      if (!last) return;
-
-      const lat = last.lat;
-      const lon = last.lon;
-
-      const urls = {
+    function buildToolUrls(lat, lon){
+      return {
         google:        'https://www.google.com/maps/@' + lat + ',' + lon + ',696m',
         bustimes:      'https://bustimes.org/map#16.53/' + lat + '/' + lon,
         waze_alerts:   'https://www.waze.com/partnerhub/map-tool?lon=' + lon + '&lat=' + lat + '&initialZoom=20',
@@ -1042,20 +880,59 @@
         vms:           'https://www.stratostraffic.com/Modules/DriverInformationUi/informationSigns?lat=' + lat + '&lng=' + lon + '&zoom=14',
         utc:           'https://www.stratostraffic.com/Modules/TrafficSignalsUi/information?lat=' + lat + '&lng=' + lon + '&zoom=11'
       };
+    }
 
+    function openToolByName(tool){
+      const last = MAP_STATE.last;
+      if (!last) return;
+      const urls = buildToolUrls(last.lat, last.lon);
       const u = urls[String(tool)];
       if (u) window.open(u, '_blank', 'noopener');
     }
 
-    function bindToolButtons(){
-      const host = document.getElementById('toolGrid');
-      if (!host) return;
+    function openToolDialog(){
+      const last = MAP_STATE.last;
+      if (!last) return;
 
-      host.addEventListener('click', function(e){
-        const btn = e.target.closest('button[data-tool]');
-        if (!btn || btn.disabled) return;
-        openToolByName(btn.dataset.tool);
-      }, { passive: true });
+      const meta = document.getElementById('toolDialogMeta');
+      if (meta){
+        meta.textContent = `Lat ${last.lat.toFixed(5)} • Lon ${last.lon.toFixed(5)}`;
+      }
+
+      const dlg = document.getElementById('toolDialog');
+      if (!dlg) return;
+
+      if (typeof dlg.showModal === 'function') dlg.showModal();
+      else dlg.setAttribute('open','');
+    }
+
+    function closeToolDialog(){
+      const dlg = document.getElementById('toolDialog');
+      if (!dlg) return;
+      if (typeof dlg.close === 'function') dlg.close();
+      else dlg.removeAttribute('open');
+    }
+
+    function bindToolDialog(){
+      document.getElementById('toolDialogClose')?.addEventListener('click', closeToolDialog, { passive:true });
+
+      const dlg = document.getElementById('toolDialog');
+      if (dlg){
+        dlg.addEventListener('click', function(e){
+          const r = dlg.getBoundingClientRect();
+          const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+          if (!inside) closeToolDialog();
+        });
+      }
+
+      const host = document.getElementById('toolGrid');
+      if (host){
+        host.addEventListener('click', function(e){
+          const btn = e.target.closest('button[data-tool]');
+          if (!btn) return;
+          openToolByName(btn.dataset.tool);
+        }, { passive:true });
+      }
     }
 
     /* =======================================================
@@ -1139,18 +1016,7 @@
         if (osmVal === 'restaurant' || osmVal === 'fast_food') return { cat:'food', emoji:'🍽️' };
         if (osmVal === 'fuel') return { cat:'fuel', emoji:'⛽' };
         if (osmVal === 'parking') return { cat:'parking', emoji:'🅿️' };
-        if (osmVal === 'hospital' || osmVal === 'clinic') return { cat:'health', emoji:'🏥' };
-        if (osmVal === 'school' || osmVal === 'college' || osmVal === 'university') return { cat:'education', emoji:'🏫' };
-        if (osmVal === 'police' || osmVal === 'fire_station' || osmVal === 'townhall') return { cat:'civic', emoji:'🏛️' };
       }
-
-      if (osmKey === 'shop') return { cat:'shop', emoji:'🛍️' };
-      if (osmKey === 'leisure'){
-        if (osmVal === 'park') return { cat:'park', emoji:'🌳' };
-        if (osmVal === 'stadium' || osmVal === 'sports_centre') return { cat:'venue', emoji:'🏟️' };
-      }
-
-      if (osmKey === 'railway' || osmKey === 'station') return { cat:'station', emoji:'🚉' };
 
       return { cat:'other', emoji:'📍' };
     }
@@ -1340,10 +1206,8 @@
 
         try{
           const features = await photonSearchOnce(qRaw, signal);
-
           let items = featuresToItems(features);
           items = dedupKeepFirst(items);
-
           const nextItems = items.slice(0, MAX_SUGGESTIONS);
 
           if (mySeq === searchSeq){
@@ -1399,7 +1263,7 @@
     }
 
     /* =======================================================
-       Shared haversine (used later for Waze clustering)
+       Shared haversine (Waze clustering)
        ======================================================= */
     function toRad(deg){ return deg * Math.PI / 180; }
     function haversineMeters(a, b){
@@ -1410,7 +1274,7 @@
     }
 
     /* =======================================================
-       TVT PANEL
+       TVT -> Chips
        ======================================================= */
     const TVT_REFRESH_MS = 5 * 60 * 1000;
     let TVT_MIN_DELAY = 15;
@@ -1445,7 +1309,7 @@
       if (delayMin >= 15) return '#FF4D4F';
       if (delayMin >= 10) return '#FF9A1F';
       if (delayMin >= 5)  return '#FFE04A';
-      return '#9DDC43';
+      return '#42BE4B';
     }
 
     function computeDelayMin(r){
@@ -1456,7 +1320,7 @@
     }
 
     function computeTopNDelays(routesRaw, n, minDelay){
-      n = n || 16; minDelay = minDelay || 15;
+      n = n || 24; minDelay = minDelay || 15;
       const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
       const candidates = routes
         .map(function(r){
@@ -1505,28 +1369,27 @@
     function renderTvtPanel(data){
       lastTvtData = data;
 
-      const host = document.getElementById('abnormal-traffic');
-      const list = document.getElementById('tvt-corridors');
-      const net  = host ? host.querySelector('.network-bar') : null;
-      if (!host || !list) return;
-
+      const net = document.getElementById('networkBar');
       if (net){
         net.style.background = networkGradientFromUsersOnJams((data && data.usersOnJams) || []);
       }
 
       updateConnectedCitizensDisplay(sumWazers((data && data.usersOnJams) || []));
 
+      const host = document.getElementById('chips-tvt');
+      if (!host) return;
+
       const allRoutes = []
         .concat(Array.isArray(data && data.routes) ? data.routes : [])
         .concat(Array.isArray(data && data.irregularities) ? data.irregularities : []);
 
-      const rows = computeTopNDelays(allRoutes, 16, TVT_MIN_DELAY);
+      const rows = computeTopNDelays(allRoutes, 30, TVT_MIN_DELAY);
 
       const filtered = rows
         .map(function(x){ return Object.assign({}, x, { id: routeKey(x.r) }); })
         .filter(function(it){ return !isHiddenWithAutoCheck('corr', it.id, { delayMin: it.delayMin }); });
 
-      function itemHTML(it){
+      function chipHTML(it){
         const label = corridorDisplayName(it.r);
         const id = escapeHTML(it.id);
 
@@ -1542,24 +1405,31 @@
         const hasCenter = Number.isFinite(cLon) && Number.isFinite(cLat);
 
         return `
-          <div class="corridor" data-delay="${delayMin}" ${hasCenter ? `data-lon="${cLon}" data-lat="${cLat}"` : ''}>
-            <div class="corridor-top">
-              <div class="corridor-title"><span class="corridor-name">${escapeHTML(label)}</span></div>
-              <button class="hide-btn" data-prefix="corr" data-id="${id}" data-baseline-delay="${delayMin}" type="button">Hide</button>
+          <div class="chip" style="--chip-col:${col}" ${hasCenter ? `data-lon="${cLon}" data-lat="${cLat}"` : ''}>
+            <div class="chip-icon">⏱️</div>
+            <div class="chip-main">
+              <div class="chip-top">
+                <div class="chip-title">${escapeHTML(label)}</div>
+                <div class="chip-badge">+${delayMin}m</div>
+              </div>
+              <div class="chip-sub">${normMin}m → ${nowMin}m</div>
             </div>
-            <div class="corridor-delay" style="--delay-col:${col}">+${delayMin}m</div>
-            <div class="corridor-times">${normMin}m → ${nowMin}m</div>
+            <button class="hide-btn" data-prefix="corr" data-id="${id}" data-baseline-delay="${delayMin}" type="button">Hide</button>
           </div>
         `;
       }
 
-      list.innerHTML = filtered.length ? filtered.map(itemHTML).join('') : `
-        <div class="corridor" style="grid-column: 1 / -1;">
-          <div class="corridor-top">
-            <div class="corridor-title"><span class="corridor-name">No corridors above +${TVT_MIN_DELAY}m</span></div>
+      host.innerHTML = filtered.length ? filtered.map(chipHTML).join('') : `
+        <div class="chip" style="--chip-col:rgba(255,255,255,0.35)">
+          <div class="chip-icon">✅</div>
+          <div class="chip-main">
+            <div class="chip-top">
+              <div class="chip-title">No corridors above +${TVT_MIN_DELAY}m</div>
+              <div class="chip-badge">Normal</div>
+            </div>
+            <div class="chip-sub">Use the filter buttons to view smaller delays</div>
           </div>
-          <div class="corridor-delay" style="--delay-col:rgba(255,255,255,0.7)">Normal</div>
-          <div class="corridor-times">Use the filter buttons below to view smaller delays</div>
+          <span></span>
         </div>`;
     }
 
@@ -1597,23 +1467,25 @@
       }
     }
 
-    function bindCorridorClicks(){
-      const list = document.getElementById('tvt-corridors');
-      if (!list) return;
+    function bindTvtChipPanning(){
+      const host = document.getElementById('chips-tvt');
+      if (!host) return;
 
-      list.addEventListener('click', function(ev){
+      host.addEventListener('click', function(ev){
         if (ev.target && ev.target.closest('.hide-btn')) return;
-        const card = ev.target.closest('.corridor');
-        if (!card) return;
-        const lon = Number(card.getAttribute('data-lon'));
-        const lat = Number(card.getAttribute('data-lat'));
+        const chip = ev.target.closest('.chip');
+        if (!chip) return;
+
+        const lon = Number(chip.getAttribute('data-lon'));
+        const lat = Number(chip.getAttribute('data-lat'));
         if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
+
         setMapTarget(lat, lon, 11);
       }, { passive:true });
     }
 
     /* =======================================================
-       WAZE ALERTS (from your endpoints)
+       WAZE -> Chips (unchanged)
        ======================================================= */
     const WAZE_REFRESH_MS = 30000;
 
@@ -1708,57 +1580,58 @@
       return kept;
     }
 
-    function ensureWazeFits(){
-      const host = document.getElementById('waze-panel');
-      if (!host) return;
-
-      function toggleSection(secId, wrapIds){
-        const sec = document.getElementById(secId);
-        const hasAny = wrapIds.some(function(id){
-          const el = document.getElementById(id);
-          return el && el.children.length > 0;
-        });
-        if (sec) sec.style.display = hasAny ? 'grid' : 'none';
-      }
-
-      toggleSection('sec-accidents', ['cards-acc-high','cards-acc-low']);
-      toggleSection('sec-weather',   ['cards-weather']);
-      toggleSection('sec-signals',   ['cards-signals']);
-    }
-
     function normalizeMillis(raw){
       const n = Number(raw) || 0;
       return n > Date.now() ? Date.now() : n;
+    }
+
+    function hhmm(ms){
+      try{
+        return new Date(Number(ms)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
+      }catch(e){ return ''; }
+    }
+
+    function wazeChipColor(kind, score){
+      if (kind === 'acc'){
+        if (score >= 4) return '#FF4D4F';
+        if (score >= 3) return '#FF9A1F';
+        return '#FFE04A';
+      }
+      if (kind === 'sig'){
+        if (score >= 9) return '#FF4D4F';
+        if (score >= 7) return '#FF9A1F';
+        return '#FFE04A';
+      }
+      if (kind === 'wx') return '#7AA7FF';
+      return 'rgba(255,255,255,0.35)';
     }
 
     async function wazeCycle(){
       const ctrl = new AbortController();
       try{
         const data = await fetchViaProxies('', ctrl.signal);
+        const alertsRaw = (data && Array.isArray(data.alerts)) ? data.alerts : [];
 
-        // ACCIDENTS
-        const accidentPoints = (function(){
-          const out = [];
-          const a = (data && Array.isArray(data.alerts)) ? data.alerts : [];
-          for (const x of a){
-            if(!isAccident(x)) continue;
-            const c = readConfidence(x);
-            if(!(c > 0)) continue;
-            const coord = getLngLatFromAlert(x); if(!coord) continue;
-            const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-            out.push({
-              coord: coord,
-              conf10: c,
-              rel10: readReliability(x),
-              street: x.street||x.roadName||x.address||'Unknown road',
-              city: x.city||x.town||'',
-              time: normalizeMillis(rawTime),
-              id: x.uuid||x.id||(coord[0]+','+coord[1]+','+(rawTime||''))
-            });
-          }
-          return out;
-        })();
+        // ACCIDENT points
+        const accidentPoints = [];
+        for (const x of alertsRaw){
+          if(!isAccident(x)) continue;
+          const c = readConfidence(x);
+          if(!(c > 0)) continue;
+          const coord = getLngLatFromAlert(x); if(!coord) continue;
+          const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+          accidentPoints.push({
+            coord: coord,
+            conf10: c,
+            rel10: readReliability(x),
+            street: x.street||x.roadName||x.address||'Unknown road',
+            city: x.city||x.town||'',
+            time: normalizeMillis(rawTime),
+            id: x.uuid||x.id||(coord[0]+','+coord[1]+','+(rawTime||''))
+          });
+        }
 
+        // Cluster accidents
         const accidentClustersRaw = accidentPoints.length ? (function cluster(points, merge){
           merge = merge || 200;
           if(points.length===0) return [];
@@ -1796,122 +1669,137 @@
             clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count });
           }
 
-          clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-(Number(a.effectiveConfidence||0)))||((Number(b.time||0)-(Number(a.time||0)))));
+          clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-Number(a.effectiveConfidence||0))||((Number(b.time||0)-Number(a.time||0))));
           return clusters;
         })(accidentPoints) : [];
 
         const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000 });
 
-        const highWrap = document.getElementById('cards-acc-high');
-        const lowWrap  = document.getElementById('cards-acc-low');
-        if (highWrap) highWrap.innerHTML = '';
-        if (lowWrap)  lowWrap.innerHTML  = '';
+        // Signals
+        const signals = [];
+        for (const x of alertsRaw){
+          if (!isTrafficLightFault(x)) continue;
+          const coord = getLngLatFromAlert(x);
+          if (!coord) continue;
 
+          const rel10 = readReliability(x);
+          const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+          const time  = normalizeMillis(rawTime);
+          const id    = x.uuid || x.id || (coord[0]+','+coord[1]+','+(rawTime || ''));
+          const street = x.street || x.roadName || x.address || 'Unknown road';
+          const city = x.city || x.town || '';
+          const desc = x.reportDescription || x.description || x.title || 'Traffic light fault';
+
+          if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
+          signals.push({ id, coord, street, city, time, rel10, desc });
+        }
+        signals.sort((a,b)=>(b.rel10 - a.rel10) || (b.time - a.time));
+
+        // Weather (ice)
+        const wx = [];
+        for (const x of alertsRaw){
+          if (!isIceAlert(x)) continue;
+          const coord = getLngLatFromAlert(x);
+          if (!coord) continue;
+
+          const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
+          const time  = normalizeMillis(rawTime);
+          const id    = x.uuid || x.id || (coord[0]+','+coord[1]+','+(rawTime || ''));
+          const street = x.street || x.roadName || x.address || 'Unknown road';
+          const city = x.city || x.town || '';
+          const desc = x.reportDescription || x.description || x.title || 'Ice alert';
+
+          if (isHiddenWithAutoCheck('wx', id, {})) continue;
+          wx.push({ id, coord, street, city, time, desc });
+        }
+        wx.sort((a,b)=>b.time-a.time);
+
+        // Build chips
+        const chips = [];
         const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
 
-        const accidentVisible = accidentClusters.filter(function(a){
-          return !isHiddenWithAutoCheck('acc', a.id, { conf: Number(a.effectiveConfidence||0) });
-        });
-        const highs = accidentVisible.filter(a => Number(a.effectiveConfidence||0) >= HIGH_MIN);
-        const lows  = accidentVisible.filter(a => Number(a.effectiveConfidence||0) <  HIGH_MIN);
+        for (const a of accidentClusters){
+          const conf = Number(a.effectiveConfidence)||0;
+          if (isHiddenWithAutoCheck('acc', a.id, { conf })) continue;
 
-        function cardAccidentHTML(item){
-          const conf = Number(item.effectiveConfidence)||0;
-          const when = new Date(Number(item.time)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-          return `<div class="card" data-type="accident" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-                  <div class="title">
-                    ${escapeHTML(item.street || 'Unknown road')}
-                    <span class="spacer"></span>
-                    <button class="hide-btn" data-prefix="acc" data-id="${escapeHTML(item.id)}" data-baseline-conf="${conf}" type="button">Hide</button>
+          chips.push({
+            kind: 'acc',
+            id: a.id,
+            lat: a.coord[1], lon: a.coord[0],
+            title: a.street || 'Unknown road',
+            badge: `Conf ${conf}/5`,
+            sub: `${hhmm(a.time)} • ${a.reportCount || 1} rpt${(a.reportCount||1)>1?'s':''}${a.city ? (' • ' + a.city) : ''}`,
+            color: wazeChipColor('acc', conf),
+            baselineConf: conf,
+            priority: (conf >= HIGH_MIN ? 0 : 1)
+          });
+        }
+
+        for (const s of signals){
+          const rel = Number(s.rel10)||0;
+          chips.push({
+            kind: 'sig',
+            id: s.id,
+            lat: s.coord[1], lon: s.coord[0],
+            title: s.street || 'Unknown road',
+            badge: `Rel ${rel}/10`,
+            sub: `${hhmm(s.time)}${s.city ? (' • ' + s.city) : ''}`,
+            color: wazeChipColor('sig', rel),
+            baselineConf: rel,
+            priority: 2
+          });
+        }
+
+        for (const w of wx){
+          chips.push({
+            kind: 'wx',
+            id: w.id,
+            lat: w.coord[1], lon: w.coord[0],
+            title: w.street || 'Unknown road',
+            badge: `Ice`,
+            sub: `${hhmm(w.time)}${w.city ? (' • ' + w.city) : ''}`,
+            color: wazeChipColor('wx', 0),
+            baselineConf: 0,
+            priority: 3
+          });
+        }
+
+        chips.sort((a,b)=>(a.priority - b.priority));
+
+        const host = document.getElementById('chips-waze');
+        if (host){
+          host.innerHTML = chips.length ? chips.slice(0, 60).map(function(c){
+            const icon = c.kind === 'acc' ? '💥' : (c.kind === 'sig' ? '🚦' : '❄️');
+            const prefix = (c.kind === 'acc') ? 'acc' : (c.kind === 'sig' ? 'sig' : 'wx');
+
+            return `
+              <div class="chip" style="--chip-col:${c.color}" data-lon="${c.lon}" data-lat="${c.lat}">
+                <div class="chip-icon">${icon}</div>
+                <div class="chip-main">
+                  <div class="chip-top">
+                    <div class="chip-title">${escapeHTML(c.title)}</div>
+                    <div class="chip-badge">${escapeHTML(c.badge)}</div>
                   </div>
-                  <div class="meta">Confidence: ${conf}/5 • ${when}</div>
-                  <div class="desc">Accident</div>
-                </div>`;
-        }
-
-        if (highWrap) highWrap.innerHTML = highs.map(cardAccidentHTML).join('');
-        if (lowWrap)  lowWrap.innerHTML  = lows.map(cardAccidentHTML).join('');
-
-        // SIGNALS
-        const sigWrap = document.getElementById('cards-signals');
-        if (sigWrap) {
-          sigWrap.innerHTML = '';
-          const signalsRaw = Array.isArray(data && data.alerts) ? data.alerts : [];
-          const signals = [];
-          for (const x of signalsRaw) {
-            if (!isTrafficLightFault(x)) continue;
-            const coord = getLngLatFromAlert(x);
-            if (!coord) continue;
-
-            const rel10 = readReliability(x);
-            const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-            const time  = normalizeMillis(rawTime);
-            const id    = x.uuid || x.id || (coord[0]+','+coord[1]+','+(rawTime || ''));
-            const street = x.street || x.roadName || x.address || 'Unknown road';
-            const city = x.city || x.town || '';
-            const desc = x.reportDescription || x.description || x.title || '';
-
-            if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
-            signals.push({ id: id, coord: coord, street: street, city: city, time: time, rel10: rel10, desc: desc });
-          }
-
-          signals.sort((a, b) => (b.rel10 - a.rel10) || (b.time - a.time));
-
-          sigWrap.innerHTML = signals.map(function(item){
-            const when = new Date(Number(item.time) || 0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-            return `<div class="card" data-type="signal" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-              <div class="title">
-                ${escapeHTML(item.street || 'Unknown road')}
-                <span class="spacer"></span>
-                <button class="hide-btn" data-prefix="sig" data-id="${escapeHTML(item.id)}" data-baseline-conf="${item.rel10}" type="button">Hide</button>
+                  <div class="chip-sub">${escapeHTML(c.sub || '')}</div>
+                </div>
+                <button class="hide-btn" data-prefix="${prefix}" data-id="${escapeHTML(c.id)}" data-baseline-conf="${Number(c.baselineConf||0)}" type="button">Hide</button>
               </div>
-              <div class="meta">Reliability: ${item.rel10}/10 • ${when}</div>
-              <div class="desc">${escapeHTML(item.desc || 'Traffic light fault')}</div>
-            </div>`;
-          }).join('');
-        }
-
-        // WEATHER
-        const weatherWrap = document.getElementById('cards-weather');
-        if (weatherWrap) {
-          weatherWrap.innerHTML = '';
-
-          const wxRaw = Array.isArray(data && data.alerts) ? data.alerts : [];
-          const wx = [];
-          for (const x of wxRaw) {
-            if (!isIceAlert(x)) continue;
-            const coord = getLngLatFromAlert(x);
-            if (!coord) continue;
-
-            const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-            const time    = normalizeMillis(rawTime);
-            const id      = x.uuid || x.id || (coord[0]+','+coord[1]+','+(rawTime || ''));
-
-            const street = x.street || x.roadName || x.address || 'Unknown road';
-            const city   = x.city   || x.town   || '';
-            const desc   = x.reportDescription || x.description || x.title || 'Ice alert';
-
-            if (isHiddenWithAutoCheck('wx', id, {})) continue;
-            wx.push({ id: id, coord: coord, street: street, city: city, time: time, desc: desc });
-          }
-
-          wx.sort((a,b)=>b.time-a.time);
-
-          weatherWrap.innerHTML = wx.map(function(item){
-            const when = new Date(Number(item.time) || 0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-            return `<div class="card" data-type="weather" data-lon="${item.coord[0]}" data-lat="${item.coord[1]}">
-              <div class="title">
-                ${escapeHTML(item.street || 'Unknown road')}
-                <span class="spacer"></span>
-                <button class="hide-btn" data-prefix="wx" data-id="${escapeHTML(item.id)}" type="button">Hide</button>
+            `;
+          }).join('') : `
+            <div class="chip" style="--chip-col:rgba(255,255,255,0.35)">
+              <div class="chip-icon">✅</div>
+              <div class="chip-main">
+                <div class="chip-top">
+                  <div class="chip-title">No Waze alerts</div>
+                  <div class="chip-badge">Clear</div>
+                </div>
+                <div class="chip-sub">Nothing currently matching your feeds</div>
               </div>
-              <div class="meta">${when}</div>
-              <div class="desc">❄️ ${escapeHTML(item.desc || 'Ice alert')}</div>
-            </div>`;
-          }).join('');
+              <span></span>
+            </div>
+          `;
         }
 
-        requestAnimationFrame(ensureWazeFits);
         setStatusPill(true, { animate:true });
 
       }catch(e){
@@ -1923,21 +1811,21 @@
       }
     }
 
-    function bindWazeCardPanning(){
-      const panel = document.getElementById('waze-panel');
-      if (!panel) return;
+    function bindWazeChipPanning(){
+      const host = document.getElementById('chips-waze');
+      if (!host) return;
 
-      panel.addEventListener('click', function(ev){
+      host.addEventListener('click', function(ev){
         if (ev.target && ev.target.closest('.hide-btn')) return;
-        const card = ev.target.closest('.card');
-        if (!card) return;
+        const chip = ev.target.closest('.chip');
+        if (!chip) return;
 
-        const lon = Number(card.getAttribute('data-lon'));
-        const lat = Number(card.getAttribute('data-lat'));
+        const lon = Number(chip.getAttribute('data-lon'));
+        const lat = Number(chip.getAttribute('data-lat'));
         if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
 
         setMapTarget(lat, lon, 14);
-      }, { passive: true });
+      }, { passive:true });
     }
 
     /* =======================================================
@@ -1954,31 +1842,42 @@
       }
     });
 
+/* =======================================================
+   Horizontal scroll chips with mouse wheel
+   ======================================================= */
+function enableHorizontalWheelScroll(selector){
+  document.querySelectorAll(selector).forEach(row => {
+    row.addEventListener('wheel', function (e) {
+      // Only hijack vertical scroll
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        row.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+  });
+}
+
     window.addEventListener('load', function(){
       setStatusPill(false);
 
       initMap();
-      bindToolButtons();
+      bindToolDialog();
 
-      setToolButtonsEnabled(false);
       bindGmSearch();
-
-      const unhideBtn = document.getElementById('unhideAllBtn');
-      if (unhideBtn){
-        unhideBtn.addEventListener('click', unhideAll, { passive: true });
-      }
+      document.getElementById('unhideAllBtn')?.addEventListener('click', unhideAll, { passive:true });
 
       bindTvtFilters();
-      bindCorridorClicks();
-      bindWazeCardPanning();
+      bindTvtChipPanning();
+      bindWazeChipPanning();
 
       tvtCycle();
       wazeCycle();
-
-      window.addEventListener('resize', function(){
-        requestAnimationFrame(ensureWazeFits);
-      });
     });
+    
+    window.addEventListener('load', function(){
+  enableHorizontalWheelScroll('.chip-row');
+});
+
   </script>
 </body>
 </html>
