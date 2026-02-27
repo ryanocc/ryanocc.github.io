@@ -36,8 +36,6 @@
       --glassBorder: rgba(255,255,255,0.14);
 
       --highConfMin: 4;
-
-      --chipW: clamp(340px, 26vw, 520px);
     }
 
     html, body { height: 100%; margin: 0; }
@@ -133,17 +131,14 @@
       width: 100%;
       height: 100%;
       background: #000;
+      transform: translateZ(0);
     }
 
-    /* Desktop-friendly Leaflet sizing */
-    .leaflet-container{
-      font-size: 14px;
-    }
+    /* Leaflet sizing */
+    .leaflet-container{ font-size: 14px; }
     .leaflet-control-attribution,
     .leaflet-control-scale,
-    .leaflet-control{
-      font-size: 12px !important;
-    }
+    .leaflet-control{ font-size: 12px !important; }
 
     /* Darker Leaflet buttons */
     .leaflet-bar a{
@@ -151,9 +146,7 @@
       color: rgba(255,255,255,0.92) !important;
       border-bottom: 1px solid rgba(255,255,255,0.14) !important;
     }
-    .leaflet-bar a:hover{
-      background: rgba(255,255,255,0.12) !important;
-    }
+    .leaflet-bar a:hover{ background: rgba(255,255,255,0.12) !important; }
 
     /* Floating top bar */
     .topbar{
@@ -196,9 +189,7 @@
       gap: 4px;
       position: relative;
     }
-    .place-search{
-      position: relative;
-    }
+    .place-search{ position: relative; }
     #gmSearch{
       width: 100%;
       border: 1px solid rgba(255,255,255,0.18);
@@ -287,175 +278,7 @@
       border-color: rgba(255,224,74,0.75);
     }
 
-    /* Tray */
-    .tray{
-      border-top: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,224,74,0.06), rgba(0,0,0,0.35));
-      overflow: hidden;
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
-
-    .tray-head{
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      padding: 6px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .tray-title{
-      font-weight: 1000;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-      font-size: 11px;
-    }
-    .tray-controls{
-      margin-left: auto;
-      display:flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .tray-controls button{
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #fff;
-      font-weight: 1000;
-      padding: 4px 8px;
-      border-radius: 999px;
-      cursor:pointer;
-      font-size: 9.5px;
-      text-transform: uppercase;
-      letter-spacing: .35px;
-    }
-    .tray-controls button.active{
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
-    }
-
-    .tray-body{
-      padding: 10px 12px 12px;
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 10px;
-      min-height: 0;
-      overflow: hidden;
-    }
-
-    .lane{
-      min-height: 0;
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 6px;
-      overflow: hidden;
-    }
-    .lane-title{
-      font-size: 11px;
-      font-weight: 1000;
-      color: rgba(255,255,255,0.82);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    /* Horizontal chip rows */
-    .chip-row{
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 12px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding-bottom: 8px;
-      scroll-behavior: smooth;
-      min-height: 0;
-      align-items: stretch;
-    }
-    .chip-row::-webkit-scrollbar{ height: 8px; }
-    .chip-row::-webkit-scrollbar-thumb{
-      background: linear-gradient(90deg, rgba(255,224,74,0.6), rgba(255,255,255,0.35));
-      border-radius: 999px;
-    }
-
-    .chip{
-      flex: 0 0 auto;
-      width: var(--chipW);
-      min-height: 64px;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 10px;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    .chip::before{
-      content:'';
-      position:absolute;
-      left:0; top:0; bottom:0;
-      width: 6px;
-      border-radius: 14px 0 0 14px;
-      background: var(--chip-col, rgba(255,255,255,0.25));
-    }
-    .chip:hover{
-      border-color: rgba(255,224,74,0.55);
-      background: rgba(255,255,255,0.09);
-    }
-
-    .chip-icon{
-      width: 34px;
-      height: 34px;
-      display:grid;
-      place-items:center;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      font-size: 18px;
-    }
-    .chip-main{ min-width: 0; }
-    .chip-top{
-      display:flex;
-      gap: 8px;
-      align-items: baseline;
-      min-width: 0;
-    }
-    .chip-title{
-      font-weight: 1000;
-      font-size: 18px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .chip-badge{
-      margin-left: auto;
-      font-weight: 1000;
-      font-size: 12px;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.12);
-      white-space: nowrap;
-    }
-    .chip-sub{
-      margin-top: 2px;
-      font-weight: 800;
-      font-size: 14px;
-      color: rgba(255,255,255,0.80);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .chip .hide-btn{
-      font-size: 10px;
-      padding: 5px 10px;
-    }
-
-    /* Pin */
+    /* Styled pin */
     .lst-pin{
       width: 22px;
       height: 22px;
@@ -515,7 +338,6 @@
       border-color: rgba(255,224,74,0.75);
       background: rgba(255,255,255,0.12);
     }
-    .tool-grid button:disabled{ opacity:0.35; cursor:not-allowed; }
 
     /* Scrollbars overall */
     * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.35) transparent; }
@@ -526,6 +348,319 @@
       border-radius: 999px;
       border:2px solid transparent;
       background-clip: padding-box;
+    }
+
+    /* =======================================================
+       LIVE ALERTS (Refactor) — dense queue + details panel
+       ======================================================= */
+    .alerts{
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,224,74,0.06), rgba(0,0,0,0.45));
+      height: var(--trayH);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+    }
+
+    .alerts-head{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .alerts-title .kicker{
+      font-weight: 1000;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: rgba(255,255,255,0.85);
+    }
+    .alerts-title .subkicker{
+      margin-top: 2px;
+      font-weight: 800;
+      font-size: 12px;
+      color: rgba(255,255,255,0.70);
+    }
+
+    .alerts-kpis{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .kpi{
+      display:flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      font-weight: 1000;
+    }
+    .kpi b{ font-size: 14px; }
+    .kpi small{ font-size: 10px; opacity: .8; text-transform: uppercase; letter-spacing: .35px; }
+    .kpi span{ font-size: 14px; }
+    .kpi-muted{ opacity: .8; }
+
+    .alerts-controls{
+      grid-column: 1 / -1;
+      display:flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tray-controls{
+      display:flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .tray-controls button{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-weight: 1000;
+      padding: 4px 8px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+    }
+    .tray-controls button.active{
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+
+    .alerts-filterbar{
+      display:flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    #queueSearch{
+      width: min(380px, 48vw);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color:#fff;
+      font-weight: 900;
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      outline:none;
+    }
+    #queueSearch:focus{
+      border-color: rgba(255,224,74,0.75);
+      box-shadow: 0 0 0 2px rgba(255,224,74,0.12);
+    }
+    #sortMode{
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(10,10,10,0.65);
+      color:#fff;
+      font-weight: 900;
+      padding: 7px 8px;
+    }
+
+    .alerts-body{
+      min-height: 0;
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 10px;
+      padding: 10px 12px 12px;
+      overflow: hidden;
+    }
+
+    .queue{
+      min-height:0;
+      display:grid;
+      grid-template-rows: auto 1fr;
+      gap: 8px;
+      overflow:hidden;
+    }
+    .queue-head{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+    }
+    .queue-hint{
+      font-weight: 800;
+      font-size: 11px;
+      color: rgba(255,255,255,0.65);
+    }
+    .queue-list{
+      min-height:0;
+      overflow:auto;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      background: rgba(0,0,0,0.25);
+    }
+
+    .qrow{
+      display:grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      cursor:pointer;
+      position:relative;
+    }
+    .qrow:last-child{ border-bottom:none; }
+    .qrow::before{
+      content:'';
+      position:absolute;
+      left:0; top:0; bottom:0;
+      width: 5px;
+      background: var(--qcol, rgba(255,255,255,0.25));
+    }
+    .qrow:hover{ background: rgba(255,255,255,0.06); }
+    .qrow[aria-selected="true"]{
+      background: rgba(255,224,74,0.12);
+      outline: 1px solid rgba(255,224,74,0.55);
+    }
+
+    .qicon{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      font-size: 18px;
+    }
+    .qmain{ min-width:0; }
+    .qtitle{
+      font-weight: 1000;
+      font-size: 16px;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .qsub{
+      margin-top: 2px;
+      font-weight: 800;
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .qmeta{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap: 6px;
+    }
+    .qpill{
+      font-weight: 1000;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      white-space: nowrap;
+    }
+    .qage{
+      font-weight: 900;
+      font-size: 11px;
+      color: rgba(255,255,255,0.70);
+    }
+
+    .details-card{
+      height:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.22);
+      overflow:auto;
+      padding: 12px;
+    }
+    .details-empty{
+      height:100%;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color: rgba(255,255,255,0.72);
+    }
+    .details-empty__title{
+      font-weight: 1000;
+      font-size: 16px;
+    }
+    .details-empty__sub{
+      margin-top: 6px;
+      font-weight: 800;
+      font-size: 12px;
+      opacity:.85;
+    }
+
+    .dh{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .dh h3{
+      margin:0;
+      font-size: 16px;
+      font-weight: 1000;
+    }
+    .dtags{
+      display:flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .dtag{
+      font-weight: 1000;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+    }
+    .dgrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .ditem{
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+    }
+    .ditem b{ display:block; font-size: 11px; opacity:.75; text-transform: uppercase; letter-spacing:.35px; }
+    .ditem span{ display:block; margin-top: 4px; font-weight: 1000; }
+
+    .dactions{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .dactions button{
+      appearance:none;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color:#fff;
+      font-weight:1000;
+      font-size: 13px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      min-height:40px;
+    }
+    .dactions button:hover{
+      border-color: rgba(255,224,74,0.75);
+      background: rgba(255,255,255,0.12);
     }
   </style>
 </head>
@@ -564,29 +699,66 @@
       </header>
     </section>
 
-    <!-- TRAY -->
-    <section class="tray" aria-label="Alerts tray">
-      <div class="tray-head">
-        <div class="tray-title">Live alerts</div>
-
-        <div class="tray-controls" id="tvt-filters" aria-label="Abnormal traffic filters">
-          <button type="button" data-min="1">+1m</button>
-          <button type="button" data-min="5">+5m</button>
-          <button type="button" data-min="10">+10m</button>
-          <button type="button" data-min="15" class="active">+15m</button>
-        </div>
-      </div>
-
-      <div class="tray-body">
-        <div class="lane">
-          <div class="lane-title">⏱️ Abnormal traffic</div>
-          <div class="chip-row" id="chips-tvt" aria-label="Abnormal traffic chips"></div>
+    <!-- LIVE ALERTS (Refactor) -->
+    <section class="alerts" aria-label="Live alerts">
+      <header class="alerts-head">
+        <div class="alerts-title">
+          <div class="kicker">Live alerts</div>
+          <div class="subkicker" id="alertsMeta">Initialising…</div>
         </div>
 
-        <div class="lane">
-          <div class="lane-title">💥 🚦 ❄️ Waze alerts</div>
-          <div class="chip-row" id="chips-waze" aria-label="Waze alert chips"></div>
+        <div class="alerts-kpis" aria-label="Alert counts">
+          <div class="kpi"><span>⏱️</span><b id="kpiTvt">0</b><small>Traffic</small></div>
+          <div class="kpi"><span>💥</span><b id="kpiAcc">0</b><small>Accidents</small></div>
+          <div class="kpi"><span>🚦</span><b id="kpiSig">0</b><small>Signals</small></div>
+          <div class="kpi"><span>❄️</span><b id="kpiIce">0</b><small>Ice</small></div>
+          <div class="kpi kpi-muted"><span>🫥</span><b id="kpiSnoozed">0</b><small>Snoozed</small></div>
         </div>
+
+        <div class="alerts-controls">
+          <div class="tray-controls" id="tvt-filters" aria-label="Abnormal traffic filters">
+            <button type="button" data-min="1">+1m</button>
+            <button type="button" data-min="5">+5m</button>
+            <button type="button" data-min="10">+10m</button>
+            <button type="button" data-min="15" class="active">+15m</button>
+          </div>
+
+          <div class="alerts-filterbar" aria-label="Queue controls">
+            <button class="toolbar-btn" type="button" data-filter="all" id="filterAll">All</button>
+            <button class="toolbar-btn" type="button" data-filter="priority" id="filterPriority">Priority</button>
+            <button class="toolbar-btn" type="button" data-filter="tvt" id="filterTraffic">Traffic</button>
+            <button class="toolbar-btn" type="button" data-filter="waze" id="filterWaze">Waze</button>
+
+            <select id="sortMode" aria-label="Sort mode">
+              <option value="priority">Sort: Priority</option>
+              <option value="age">Sort: Newest</option>
+              <option value="severity">Sort: Severity</option>
+            </select>
+
+            <input id="queueSearch" type="search" placeholder="Filter by road / corridor / area…" aria-label="Filter alerts" />
+          </div>
+        </div>
+      </header>
+
+      <div class="alerts-body">
+        <div class="queue" aria-label="Alert queue">
+          <div class="queue-head">
+            <span class="queue-hint">↑↓ select • Enter pan • Space tools • A acknowledge • H hide 60m</span>
+            <button class="toolbar-btn" type="button" id="unhideAllBtn2">Unhide all</button>
+          </div>
+          <div class="queue-list" id="alertQueue" role="listbox" aria-label="Alerts list"></div>
+        </div>
+
+        <aside class="details" aria-label="Alert details">
+          <div class="details-card" id="detailsCard">
+            <div class="details-empty">
+              <div>
+                <div class="details-empty__title">Select an alert</div>
+                <div class="details-empty__sub">Details and quick actions appear here.</div>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -713,6 +885,7 @@
       setHideEntry(prefix, id, { until: Date.now() + HIDE_MS, baseline: baseline, createdAt: Date.now() });
     }
 
+    // Auto-unhide rules (kept from your original)
     function isHiddenWithAutoCheck(prefix, id, currentMetrics){
       currentMetrics = currentMetrics || {};
       const entry = getHideEntry(prefix, id);
@@ -739,37 +912,20 @@
         if (Number.isFinite(curr) && Number.isFinite(b) && curr >= b + 2){
           autoUnhide = true;
         }
+      } else if (prefix === 'sig'){
+        const curr = Number(currentMetrics.conf);
+        const b = Number(base.conf);
+        if (Number.isFinite(curr) && Number.isFinite(b) && curr >= b + 2){
+          autoUnhide = true;
+        }
       }
 
       if (autoUnhide){
         clearHide(prefix, id);
         return false;
       }
-
       return true;
     }
-
-    document.addEventListener('click', function(ev){
-      const btn = ev.target.closest('.hide-btn');
-      if (!btn) return;
-      ev.preventDefault(); ev.stopPropagation();
-
-      const prefix = btn.getAttribute('data-prefix') || '';
-      const id     = btn.getAttribute('data-id') || '';
-      if (!prefix || !id) return;
-
-      const baseline = {};
-      const delay = btn.getAttribute('data-baseline-delay');
-      const conf  = btn.getAttribute('data-baseline-conf');
-
-      if (delay != null && delay !== '' && isFinite(Number(delay))) baseline.delayMin = Number(delay);
-      if (conf  != null && conf  !== '' && isFinite(Number(conf ))) baseline.conf    = Number(conf);
-
-      hideForHour(prefix, id, baseline);
-
-      const container = btn.closest('.chip');
-      if (container) container.remove();
-    }, { passive: false });
 
     /* Timers */
     let tvtTimer = null;
@@ -783,19 +939,22 @@
       }
       keys.forEach(k => localStorage.removeItem(k));
 
+      // No need to clear ACK; unhide just unsuppresses.
       try{ clearTimeout(tvtTimer); }catch(e){}
       try{ clearTimeout(wazeTimer); }catch(e){}
       tvtTimer = null; wazeTimer = null;
 
       tvtCycle(); wazeCycle();
+      renderQueue();
     }
 
     /* =======================================================
-       MAP — Leaflet + MapTiler OS Open Zoomstack Night tiles
+       MAP — Leaflet tiles (fixed crispness)
        ======================================================= */
     const MAP_STATE = { map: null, marker: null, last: null };
 
-    const MAPTILER_TILE_URL =
+    // Thunderforest Transport (standard tiles are 256px) — avoid 512+zoomOffset blur
+    const TILE_URL =
       "https://api.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=ec4c98ec4e394899a63ccecdf9712e54";
 
     function initMap(){
@@ -807,17 +966,17 @@
         attributionControl: true
       }).setView([53.4808, -2.2426], 12);
 
-L.tileLayer(MAPTILER_TILE_URL, {
-  maxZoom: 19,
-  tileSize: 256,
-  zoomOffset: 0,
-  crossOrigin: true,
-  attribution: '© Thunderforest © OpenStreetMap contributors • © Ordnance Survey OpenData'
-}).addTo(m);
+      L.tileLayer(TILE_URL, {
+        maxZoom: 19,
+        tileSize: 256,
+        zoomOffset: 0,
+        detectRetina: true,
+        crossOrigin: true,
+        attribution: '© Thunderforest © OpenStreetMap contributors • © Ordnance Survey OpenData'
+      }).addTo(m);
 
       L.control.zoom({ position: 'bottomright' }).addTo(m);
 
-      // Styled marker
       const pinIcon = L.divIcon({
         className: '',
         html: '<div class="lst-pin"></div>',
@@ -843,9 +1002,9 @@ L.tileLayer(MAPTILER_TILE_URL, {
       MAP_STATE.map = m;
       MAP_STATE.marker = mk;
 
-      setTimeout(function(){ m.invalidateSize(); }, 250);
+      setTimeout(function(){ m.invalidateSize(true); }, 300);
       window.addEventListener('resize', function(){
-        setTimeout(function(){ m.invalidateSize(); }, 120);
+        setTimeout(function(){ m.invalidateSize(true); }, 150);
       });
     }
 
@@ -1273,7 +1432,306 @@ L.tileLayer(MAPTILER_TILE_URL, {
     }
 
     /* =======================================================
-       TVT -> Chips
+       ALERTS (Unified queue) — state + rendering
+       ======================================================= */
+    const ALERTS = {
+      byId: new Map(),
+      order: [],
+      selectedId: null,
+      filter: 'priority', // all | priority | tvt | waze
+      sort: 'priority',   // priority | age | severity
+      query: ''
+    };
+
+    function ackKey(id){ return 'ack_' + id; }
+    function getAck(id){
+      const raw = localStorage.getItem(ackKey(id));
+      const n = Number(raw);
+      return Number.isFinite(n) ? n : 0;
+    }
+    function setAck(id){ localStorage.setItem(ackKey(id), String(Date.now())); }
+
+    function minsAgo(ms){
+      const d = Math.max(0, Date.now() - (Number(ms)||0));
+      return Math.max(0, Math.round(d/60000));
+    }
+    function hhmm(ms){
+      try{
+        return new Date(Number(ms)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
+      }catch(e){ return ''; }
+    }
+
+    function severityRank(a){
+      // lower is more severe
+      if (a.kind === 'tvt'){
+        const d = Number(a.delayMin||0);
+        return (d >= 15 ? 0 : d >= 10 ? 1 : d >= 5 ? 2 : 3);
+      }
+      if (a.kind === 'acc'){
+        const c = Number(a.conf||0);
+        return (c >= 4 ? 0 : c >= 3 ? 1 : 2);
+      }
+      if (a.kind === 'sig'){
+        const r = Number(a.rel10||0);
+        return (r >= 9 ? 1 : r >= 7 ? 2 : 3);
+      }
+      if (a.kind === 'ice') return 3;
+      return 4;
+    }
+
+    function priorityRank(a){
+      // new severe floats; acknowledged sinks
+      const ack = getAck(a.id) ? 1 : 0;
+      const sev = severityRank(a);
+      return sev * 10 + ack;
+    }
+
+    function passesFilter(a){
+      if (ALERTS.filter === 'all') return true;
+      if (ALERTS.filter === 'priority') return priorityRank(a) <= 12;
+      if (ALERTS.filter === 'tvt') return a.kind === 'tvt';
+      if (ALERTS.filter === 'waze') return a.kind !== 'tvt';
+      return true;
+    }
+
+    function passesQuery(a){
+      const q = (ALERTS.query||'').trim().toLowerCase();
+      if (!q) return true;
+      const hay = (a.title + ' ' + (a.area||'') + ' ' + (a.sub||'')).toLowerCase();
+      return hay.includes(q);
+    }
+
+    function upsertAlert(a){
+      const existing = ALERTS.byId.get(a.id);
+
+      // Apply hide logic using your existing system
+      const hidden = isHiddenWithAutoCheck(a.hidePrefix, a.id, a.currentMetrics || a.baseline || {});
+      a.hidden = !!hidden;
+
+      // Preserve firstSeen if already exists
+      if (existing){
+        a.firstSeen = existing.firstSeen || a.time || Date.now();
+        // Preserve selection-friendly timestamps if input time is missing
+        a.time = Number(a.time) || Number(existing.time) || Date.now();
+      } else {
+        a.firstSeen = Number(a.time) || Date.now();
+        a.time = Number(a.time) || Date.now();
+      }
+
+      ALERTS.byId.set(a.id, a);
+    }
+
+    function setKpis(){
+      let tvt=0, acc=0, sig=0, ice=0, snoozed=0;
+      for (const a of ALERTS.byId.values()){
+        if (a.hidden) { snoozed++; continue; }
+        if (a.kind==='tvt') tvt++;
+        else if (a.kind==='acc') acc++;
+        else if (a.kind==='sig') sig++;
+        else if (a.kind==='ice') ice++;
+      }
+      document.getElementById('kpiTvt').textContent = String(tvt);
+      document.getElementById('kpiAcc').textContent = String(acc);
+      document.getElementById('kpiSig').textContent = String(sig);
+      document.getElementById('kpiIce').textContent = String(ice);
+      document.getElementById('kpiSnoozed').textContent = String(snoozed);
+    }
+
+    function renderQueue(){
+      const host = document.getElementById('alertQueue');
+      if (!host) return;
+
+      const items = Array.from(ALERTS.byId.values())
+        .filter(a => !a.hidden)
+        .filter(passesFilter)
+        .filter(passesQuery);
+
+      items.sort((a,b) => {
+        if (ALERTS.sort === 'age') return (b.time - a.time);
+        if (ALERTS.sort === 'severity') return (severityRank(a) - severityRank(b)) || (b.time - a.time);
+        return (priorityRank(a) - priorityRank(b)) || (b.time - a.time);
+      });
+
+      ALERTS.order = items.map(a => a.id);
+
+      const frag = document.createDocumentFragment();
+      for (const a of items){
+        const row = document.createElement('div');
+        row.className = 'qrow';
+        row.setAttribute('role','option');
+        row.dataset.id = a.id;
+        row.style.setProperty('--qcol', a.color || 'rgba(255,255,255,0.25)');
+        row.setAttribute('aria-selected', String(ALERTS.selectedId === a.id));
+
+        const ack = getAck(a.id);
+        const state = ack ? 'Ack' : 'New';
+
+        row.innerHTML = `
+          <div class="qicon">${escapeHTML(a.icon || '📍')}</div>
+          <div class="qmain">
+            <div class="qtitle">${escapeHTML(a.title || 'Unknown')}</div>
+            <div class="qsub">${escapeHTML(a.sub || '')}${a.sub ? ' • ' : ''}${state}${a.area ? ' • ' + escapeHTML(a.area) : ''}</div>
+          </div>
+          <div class="qmeta">
+            <div class="qpill">${escapeHTML(a.badge || '')}</div>
+            <div class="qage">${minsAgo(a.time)}m ago</div>
+          </div>
+        `;
+        frag.appendChild(row);
+      }
+
+      host.innerHTML = '';
+      host.appendChild(frag);
+
+      setKpis();
+
+      // Keep selection stable
+      if (!ALERTS.selectedId || !ALERTS.byId.has(ALERTS.selectedId) || (ALERTS.byId.get(ALERTS.selectedId)?.hidden)){
+        ALERTS.selectedId = items[0]?.id || null;
+      }
+      updateSelectionUI();
+      renderDetails();
+    }
+
+    function updateSelectionUI(){
+      const host = document.getElementById('alertQueue');
+      if (!host) return;
+      host.querySelectorAll('.qrow').forEach(el => {
+        el.setAttribute('aria-selected', String(el.dataset.id === ALERTS.selectedId));
+      });
+    }
+
+    function renderDetails(){
+      const card = document.getElementById('detailsCard');
+      if (!card) return;
+
+      const a = ALERTS.selectedId ? ALERTS.byId.get(ALERTS.selectedId) : null;
+      if (!a){
+        card.innerHTML = `
+          <div class="details-empty">
+            <div>
+              <div class="details-empty__title">Select an alert</div>
+              <div class="details-empty__sub">Details and quick actions appear here.</div>
+            </div>
+          </div>`;
+        return;
+      }
+
+      const ack = getAck(a.id);
+
+      card.innerHTML = `
+        <div class="dh">
+          <div>
+            <h3>${escapeHTML(a.title || 'Unknown')}</h3>
+            <div class="qsub" style="margin-top:6px">${escapeHTML(a.sub || '')}</div>
+          </div>
+          <div class="dtags">
+            <span class="dtag">${escapeHTML(a.kindLabel || a.kind)}</span>
+            <span class="dtag">${escapeHTML(a.badge || '')}</span>
+            <span class="dtag">${ack ? 'Acknowledged' : 'New'}</span>
+          </div>
+        </div>
+
+        <div class="dgrid">
+          <div class="ditem"><b>Age</b><span>${minsAgo(a.time)} minutes</span></div>
+          <div class="ditem"><b>Last seen</b><span>${hhmm(a.time)}</span></div>
+          <div class="ditem"><b>Location</b><span>${escapeHTML((a.area||'') || '—')}</span></div>
+          <div class="ditem"><b>Coordinates</b><span>${Number(a.lat).toFixed(5)}, ${Number(a.lon).toFixed(5)}</span></div>
+        </div>
+
+        <div class="dactions">
+          <button type="button" id="actPan">Pan map</button>
+          <button type="button" id="actTools">Open tools</button>
+          <button type="button" id="actAck">${ack ? 'Re-acknowledge' : 'Acknowledge'}</button>
+          <button type="button" id="actHide">Hide 60m</button>
+        </div>
+      `;
+
+      // Actions
+      card.querySelector('#actPan')?.addEventListener('click', () => setMapTarget(a.lat, a.lon, a.zoom || 14), { passive:true });
+      card.querySelector('#actTools')?.addEventListener('click', () => { MAP_STATE.last = { lat:a.lat, lon:a.lon }; openToolDialog(); }, { passive:true });
+      card.querySelector('#actAck')?.addEventListener('click', () => { setAck(a.id); renderQueue(); }, { passive:true });
+      card.querySelector('#actHide')?.addEventListener('click', () => {
+        hideForHour(a.hidePrefix || 'gen', a.id, a.baseline || {});
+        a.hidden = true;
+        ALERTS.byId.set(a.id, a);
+        renderQueue();
+      }, { passive:true });
+
+      // Keep marker context ready
+      MAP_STATE.last = { lat:a.lat, lon:a.lon };
+    }
+
+    function bindQueueInteractions(){
+      const host = document.getElementById('alertQueue');
+      if (!host) return;
+
+      host.addEventListener('click', (e) => {
+        const row = e.target.closest('.qrow');
+        if (!row) return;
+        ALERTS.selectedId = row.dataset.id;
+        updateSelectionUI();
+        renderDetails();
+      }, { passive:true });
+
+      document.addEventListener('keydown', (e) => {
+        if (!ALERTS.order.length) return;
+
+        const idx = Math.max(0, ALERTS.order.indexOf(ALERTS.selectedId));
+        if (e.key === 'ArrowDown'){
+          e.preventDefault();
+          ALERTS.selectedId = ALERTS.order[Math.min(ALERTS.order.length-1, idx+1)];
+          updateSelectionUI(); renderDetails();
+        } else if (e.key === 'ArrowUp'){
+          e.preventDefault();
+          ALERTS.selectedId = ALERTS.order[Math.max(0, idx-1)];
+          updateSelectionUI(); renderDetails();
+        } else if (e.key === 'Enter'){
+          const a = ALERTS.byId.get(ALERTS.selectedId);
+          if (a){ e.preventDefault(); setMapTarget(a.lat, a.lon, a.zoom || 14); }
+        } else if (e.key === ' '){
+          const a = ALERTS.byId.get(ALERTS.selectedId);
+          if (a){ e.preventDefault(); MAP_STATE.last = { lat:a.lat, lon:a.lon }; openToolDialog(); }
+        } else if (e.key.toLowerCase() === 'h'){
+          const a = ALERTS.byId.get(ALERTS.selectedId);
+          if (a){ e.preventDefault(); hideForHour(a.hidePrefix || 'gen', a.id, a.baseline || {}); a.hidden = true; ALERTS.byId.set(a.id, a); renderQueue(); }
+        } else if (e.key.toLowerCase() === 'a'){
+          const a = ALERTS.byId.get(ALERTS.selectedId);
+          if (a){ e.preventDefault(); setAck(a.id); renderQueue(); }
+        }
+      });
+    }
+
+    function bindAlertControls(){
+      document.getElementById('queueSearch')?.addEventListener('input', (e) => {
+        ALERTS.query = e.target.value || '';
+        renderQueue();
+      }, { passive:true });
+
+      document.getElementById('sortMode')?.addEventListener('change', (e) => {
+        ALERTS.sort = e.target.value || 'priority';
+        renderQueue();
+      }, { passive:true });
+
+      function setFilter(f){
+        ALERTS.filter = f;
+        renderQueue();
+      }
+      document.getElementById('filterAll')?.addEventListener('click', ()=>setFilter('all'), { passive:true });
+      document.getElementById('filterPriority')?.addEventListener('click', ()=>setFilter('priority'), { passive:true });
+      document.getElementById('filterTraffic')?.addEventListener('click', ()=>setFilter('tvt'), { passive:true });
+      document.getElementById('filterWaze')?.addEventListener('click', ()=>setFilter('waze'), { passive:true });
+
+      document.getElementById('unhideAllBtn2')?.addEventListener('click', unhideAll, { passive:true });
+    }
+
+    function setAlertsMeta(text){
+      const el = document.getElementById('alertsMeta');
+      if (el) el.textContent = text;
+    }
+
+    /* =======================================================
+       TVT — ingestion + alerts
        ======================================================= */
     const TVT_REFRESH_MS = 5 * 60 * 1000;
     let TVT_MIN_DELAY = 15;
@@ -1351,7 +1809,6 @@ L.tileLayer(MAPTILER_TILE_URL, {
             return [(minX + maxX) / 2, (minY + maxY) / 2];
           }
         }
-
         const pts = Array.isArray(route && route.line) ? route.line : [];
         let sumX = 0, sumY = 0, n = 0;
         for (const p of pts){
@@ -1365,18 +1822,14 @@ L.tileLayer(MAPTILER_TILE_URL, {
       return null;
     }
 
-    function renderTvtPanel(data){
+    function tvtToAlerts(data){
       lastTvtData = data;
 
       const net = document.getElementById('networkBar');
       if (net){
         net.style.background = networkGradientFromUsersOnJams((data && data.usersOnJams) || []);
       }
-
       updateConnectedCitizensDisplay(sumWazers((data && data.usersOnJams) || []));
-
-      const host = document.getElementById('chips-tvt');
-      if (!host) return;
 
       const allRoutes = []
         .concat(Array.isArray(data && data.routes) ? data.routes : [])
@@ -1384,52 +1837,37 @@ L.tileLayer(MAPTILER_TILE_URL, {
 
       const rows = computeTopNDelays(allRoutes, 30, TVT_MIN_DELAY);
 
-      const filtered = rows
-        .map(function(x){ return Object.assign({}, x, { id: routeKey(x.r) }); })
-        .filter(function(it){ return !isHiddenWithAutoCheck('corr', it.id, { delayMin: it.delayMin }); });
-
-      function chipHTML(it){
-        const label = corridorDisplayName(it.r);
-        const id = escapeHTML(it.id);
-
+      for (const it of rows){
+        const r = it.r;
+        const label = corridorDisplayName(r);
         const delayMin = Math.max(0, Number(it.delayMin)||0);
-        const col = delayColor(delayMin);
-
         const normMin = Math.max(0, Math.round((Number(it.hist)||0) / 60));
         const nowMin  = Math.max(0, Math.round((Number(it.time)||0) / 60));
 
-        const center = getCorridorCenterLngLat(it.r);
-        const cLon = center ? Number(center[0]) : NaN;
-        const cLat = center ? Number(center[1]) : NaN;
-        const hasCenter = Number.isFinite(cLon) && Number.isFinite(cLat);
+        const center = getCorridorCenterLngLat(r);
+        if (!center) continue;
+        const lon = Number(center[0]), lat = Number(center[1]);
+        if (!Number.isFinite(lon) || !Number.isFinite(lat)) continue;
 
-        return `
-          <div class="chip" style="--chip-col:${col}" ${hasCenter ? `data-lon="${cLon}" data-lat="${cLat}"` : ''}>
-            <div class="chip-icon">⏱️</div>
-            <div class="chip-main">
-              <div class="chip-top">
-                <div class="chip-title">${escapeHTML(label)}</div>
-                <div class="chip-badge">+${delayMin}m</div>
-              </div>
-              <div class="chip-sub">${normMin}m → ${nowMin}m</div>
-            </div>
-            <button class="hide-btn" data-prefix="corr" data-id="${id}" data-baseline-delay="${delayMin}" type="button">Hide</button>
-          </div>
-        `;
+        const id = routeKey(r);
+        upsertAlert({
+          id,
+          kind: 'tvt',
+          kindLabel: 'Abnormal traffic',
+          icon: '⏱️',
+          title: label,
+          sub: `${normMin}m → ${nowMin}m`,
+          badge: `+${delayMin}m`,
+          delayMin,
+          time: Date.now(), // “seen now” each cycle; ack is persistent
+          lat, lon,
+          zoom: 11,
+          color: delayColor(delayMin),
+          hidePrefix: 'corr',
+          baseline: { delayMin },
+          currentMetrics: { delayMin }
+        });
       }
-
-      host.innerHTML = filtered.length ? filtered.map(chipHTML).join('') : `
-        <div class="chip" style="--chip-col:rgba(255,255,255,0.35)">
-          <div class="chip-icon">✅</div>
-          <div class="chip-main">
-            <div class="chip-top">
-              <div class="chip-title">No corridors above +${TVT_MIN_DELAY}m</div>
-              <div class="chip-badge">Normal</div>
-            </div>
-            <div class="chip-sub">Use the filter buttons to view smaller delays</div>
-          </div>
-          <span></span>
-        </div>`;
     }
 
     function bindTvtFilters(){
@@ -1443,7 +1881,7 @@ L.tileLayer(MAPTILER_TILE_URL, {
         wrap.querySelectorAll('button[data-min]').forEach(function(b){
           b.classList.toggle('active', b === btn);
         });
-        if (lastTvtData) renderTvtPanel(lastTvtData);
+        if (lastTvtData) { tvtToAlerts(lastTvtData); renderQueue(); }
       }, { passive:true });
     }
 
@@ -1455,10 +1893,13 @@ L.tileLayer(MAPTILER_TILE_URL, {
       const ctrl = new AbortController();
       try{
         const data = await fetchTVT(ctrl.signal);
-        renderTvtPanel(data);
+        tvtToAlerts(data);
+        setAlertsMeta(`TVT refreshed • threshold +${TVT_MIN_DELAY}m • ${fmtHHMMSS()}`);
+        renderQueue();
         setStatusPill(true, { animate:true });
       }catch(e){
         console.error('[TVT] fetch failed:', e);
+        setAlertsMeta(`TVT failed • ${fmtHHMMSS()}`);
         setStatusPill(false);
       }finally{
         clearTimeout(tvtTimer);
@@ -1466,25 +1907,8 @@ L.tileLayer(MAPTILER_TILE_URL, {
       }
     }
 
-    function bindTvtChipPanning(){
-      const host = document.getElementById('chips-tvt');
-      if (!host) return;
-
-      host.addEventListener('click', function(ev){
-        if (ev.target && ev.target.closest('.hide-btn')) return;
-        const chip = ev.target.closest('.chip');
-        if (!chip) return;
-
-        const lon = Number(chip.getAttribute('data-lon'));
-        const lat = Number(chip.getAttribute('data-lat'));
-        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
-
-        setMapTarget(lat, lon, 11);
-      }, { passive:true });
-    }
-
     /* =======================================================
-       WAZE -> Chips (unchanged)
+       WAZE — ingestion + alerts (accidents / signals / ice)
        ======================================================= */
     const WAZE_REFRESH_MS = 30000;
 
@@ -1584,12 +2008,6 @@ L.tileLayer(MAPTILER_TILE_URL, {
       return n > Date.now() ? Date.now() : n;
     }
 
-    function hhmm(ms){
-      try{
-        return new Date(Number(ms)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-      }catch(e){ return ''; }
-    }
-
     function wazeChipColor(kind, score){
       if (kind === 'acc'){
         if (score >= 4) return '#FF4D4F';
@@ -1601,7 +2019,7 @@ L.tileLayer(MAPTILER_TILE_URL, {
         if (score >= 7) return '#FF9A1F';
         return '#FFE04A';
       }
-      if (kind === 'wx') return '#7AA7FF';
+      if (kind === 'ice') return '#7AA7FF';
       return 'rgba(255,255,255,0.35)';
     }
 
@@ -1695,7 +2113,7 @@ L.tileLayer(MAPTILER_TILE_URL, {
         signals.sort((a,b)=>(b.rel10 - a.rel10) || (b.time - a.time));
 
         // Weather (ice)
-        const wx = [];
+        const ice = [];
         for (const x of alertsRaw){
           if (!isIceAlert(x)) continue;
           const coord = getLngLatFromAlert(x);
@@ -1709,122 +2127,90 @@ L.tileLayer(MAPTILER_TILE_URL, {
           const desc = x.reportDescription || x.description || x.title || 'Ice alert';
 
           if (isHiddenWithAutoCheck('wx', id, {})) continue;
-          wx.push({ id, coord, street, city, time, desc });
+          ice.push({ id, coord, street, city, time, desc });
         }
-        wx.sort((a,b)=>b.time-a.time);
+        ice.sort((a,b)=>b.time-a.time);
 
-        // Build chips
-        const chips = [];
+        // Build unified alerts
         const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
 
         for (const a of accidentClusters){
           const conf = Number(a.effectiveConfidence)||0;
           if (isHiddenWithAutoCheck('acc', a.id, { conf })) continue;
 
-          chips.push({
-            kind: 'acc',
+          upsertAlert({
             id: a.id,
-            lat: a.coord[1], lon: a.coord[0],
+            kind: 'acc',
+            kindLabel: (conf >= HIGH_MIN ? 'Accident (priority)' : 'Accident'),
+            icon: '💥',
             title: a.street || 'Unknown road',
             badge: `Conf ${conf}/5`,
             sub: `${hhmm(a.time)} • ${a.reportCount || 1} rpt${(a.reportCount||1)>1?'s':''}${a.city ? (' • ' + a.city) : ''}`,
+            conf,
+            time: Number(a.time) || Date.now(),
+            lat: a.coord[1], lon: a.coord[0],
+            zoom: 14,
             color: wazeChipColor('acc', conf),
-            baselineConf: conf,
-            priority: (conf >= HIGH_MIN ? 0 : 1)
+            hidePrefix: 'acc',
+            baseline: { conf },
+            currentMetrics: { conf }
           });
         }
 
         for (const s of signals){
           const rel = Number(s.rel10)||0;
-          chips.push({
-            kind: 'sig',
+          upsertAlert({
             id: s.id,
-            lat: s.coord[1], lon: s.coord[0],
+            kind: 'sig',
+            kindLabel: 'Traffic signals',
+            icon: '🚦',
             title: s.street || 'Unknown road',
             badge: `Rel ${rel}/10`,
             sub: `${hhmm(s.time)}${s.city ? (' • ' + s.city) : ''}`,
+            rel10: rel,
+            area: s.city || '',
+            time: Number(s.time) || Date.now(),
+            lat: s.coord[1], lon: s.coord[0],
+            zoom: 15,
             color: wazeChipColor('sig', rel),
-            baselineConf: rel,
-            priority: 2
+            hidePrefix: 'sig',
+            baseline: { conf: rel },
+            currentMetrics: { conf: rel }
           });
         }
 
-        for (const w of wx){
-          chips.push({
-            kind: 'wx',
+        for (const w of ice){
+          upsertAlert({
             id: w.id,
-            lat: w.coord[1], lon: w.coord[0],
+            kind: 'ice',
+            kindLabel: 'Ice hazard',
+            icon: '❄️',
             title: w.street || 'Unknown road',
             badge: `Ice`,
             sub: `${hhmm(w.time)}${w.city ? (' • ' + w.city) : ''}`,
-            color: wazeChipColor('wx', 0),
-            baselineConf: 0,
-            priority: 3
+            area: w.city || '',
+            time: Number(w.time) || Date.now(),
+            lat: w.coord[1], lon: w.coord[0],
+            zoom: 15,
+            color: wazeChipColor('ice', 0),
+            hidePrefix: 'wx',
+            baseline: {},
+            currentMetrics: {}
           });
         }
 
-        chips.sort((a,b)=>(a.priority - b.priority));
-
-        const host = document.getElementById('chips-waze');
-        if (host){
-          host.innerHTML = chips.length ? chips.slice(0, 60).map(function(c){
-            const icon = c.kind === 'acc' ? '💥' : (c.kind === 'sig' ? '🚦' : '❄️');
-            const prefix = (c.kind === 'acc') ? 'acc' : (c.kind === 'sig' ? 'sig' : 'wx');
-
-            return `
-              <div class="chip" style="--chip-col:${c.color}" data-lon="${c.lon}" data-lat="${c.lat}">
-                <div class="chip-icon">${icon}</div>
-                <div class="chip-main">
-                  <div class="chip-top">
-                    <div class="chip-title">${escapeHTML(c.title)}</div>
-                    <div class="chip-badge">${escapeHTML(c.badge)}</div>
-                  </div>
-                  <div class="chip-sub">${escapeHTML(c.sub || '')}</div>
-                </div>
-                <button class="hide-btn" data-prefix="${prefix}" data-id="${escapeHTML(c.id)}" data-baseline-conf="${Number(c.baselineConf||0)}" type="button">Hide</button>
-              </div>
-            `;
-          }).join('') : `
-            <div class="chip" style="--chip-col:rgba(255,255,255,0.35)">
-              <div class="chip-icon">✅</div>
-              <div class="chip-main">
-                <div class="chip-top">
-                  <div class="chip-title">No Waze alerts</div>
-                  <div class="chip-badge">Clear</div>
-                </div>
-                <div class="chip-sub">Nothing currently matching your feeds</div>
-              </div>
-              <span></span>
-            </div>
-          `;
-        }
-
+        setAlertsMeta(`Waze refreshed • ${fmtHHMMSS()}`);
+        renderQueue();
         setStatusPill(true, { animate:true });
 
       }catch(e){
         console.error('[Waze] fetch failed:', e);
+        setAlertsMeta(`Waze failed • ${fmtHHMMSS()}`);
         setStatusPill(false);
       }finally{
         clearTimeout(wazeTimer);
         wazeTimer = setTimeout(wazeCycle, WAZE_REFRESH_MS);
       }
-    }
-
-    function bindWazeChipPanning(){
-      const host = document.getElementById('chips-waze');
-      if (!host) return;
-
-      host.addEventListener('click', function(ev){
-        if (ev.target && ev.target.closest('.hide-btn')) return;
-        const chip = ev.target.closest('.chip');
-        if (!chip) return;
-
-        const lon = Number(chip.getAttribute('data-lon'));
-        const lat = Number(chip.getAttribute('data-lat'));
-        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return;
-
-        setMapTarget(lat, lon, 14);
-      }, { passive:true });
     }
 
     /* =======================================================
@@ -1841,21 +2227,6 @@ L.tileLayer(MAPTILER_TILE_URL, {
       }
     });
 
-/* =======================================================
-   Horizontal scroll chips with mouse wheel
-   ======================================================= */
-function enableHorizontalWheelScroll(selector){
-  document.querySelectorAll(selector).forEach(row => {
-    row.addEventListener('wheel', function (e) {
-      // Only hijack vertical scroll
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        row.scrollLeft += e.deltaY;
-      }
-    }, { passive: false });
-  });
-}
-
     window.addEventListener('load', function(){
       setStatusPill(false);
 
@@ -1863,20 +2234,16 @@ function enableHorizontalWheelScroll(selector){
       bindToolDialog();
 
       bindGmSearch();
+
       document.getElementById('unhideAllBtn')?.addEventListener('click', unhideAll, { passive:true });
 
       bindTvtFilters();
-      bindTvtChipPanning();
-      bindWazeChipPanning();
+      bindQueueInteractions();
+      bindAlertControls();
 
       tvtCycle();
       wazeCycle();
     });
-    
-    window.addEventListener('load', function(){
-  enableHorizontalWheelScroll('.chip-row');
-});
-
   </script>
 </body>
 </html>
