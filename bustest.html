@@ -45,6 +45,10 @@
       --pillGap:16px;
 
       --page-interval: 20000ms;
+
+      /* TfGM overlay colours (can be swapped to official values later if needed) */
+      --tfgmRed: var(--errorRed);
+      --tfgmGreen: var(--liveGreen);
     }
 
     *{ box-sizing:border-box; font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif; }
@@ -390,118 +394,153 @@
     }
 
     /* =========================================================
-       ✅ FULLSCREEN OVERLAY ALERT
+       ✅ FULLSCREEN OVERLAY ALERT (FULL SCREEN RED/GREEN)
     ========================================================= */
+
     #ufnOverlay{
       position:fixed;
       inset:0;
       z-index:5000;
+
       display:flex;
       align-items:center;
       justify-content:center;
-      background:
-        radial-gradient(circle at 20% 15%, rgba(255,224,74,0.18), rgba(0,0,0,0) 45%),
-        radial-gradient(circle at 80% 70%, rgba(255,77,79,0.18), rgba(0,0,0,0) 55%),
-        rgba(0,0,0,0.78);
-      backdrop-filter: blur(10px);
+
       opacity:0;
       pointer-events:none;
-      transition: opacity 220ms ease;
+      transition: opacity 180ms ease;
+
+      background: #000; /* fallback */
     }
     #ufnOverlay.show{
       opacity:1;
       pointer-events:auto;
     }
+
+    /* State colours */
+    #ufnOverlay.is-added{ background: var(--tfgmRed); }
+    #ufnOverlay.is-exit { background: var(--tfgmGreen); }
+
+    /* Fullscreen content wrapper */
     .ufnOverlayCard{
-      width:min(1200px, 92vw);
-      border-radius: 34px;
-      border: 3px solid rgba(255,224,74,0.55);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.65);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
-        rgba(10,10,14,0.92);
-      padding: 26px 30px 24px;
+      width:100%;
+      height:100%;
+      padding: clamp(28px, 4vw, 64px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      border-radius:0;
+      border:none;
+      box-shadow:none;
+      background: transparent;
     }
+
     .ufnOverlayTop{
       display:flex;
-      align-items:center;
+      align-items:flex-end;
       justify-content:space-between;
       gap:18px;
-      margin-bottom:14px;
+      margin-bottom: 22px;
     }
+
     .ufnOverlayTitle{
-      font-weight: 1000;
-      letter-spacing: -0.8px;
-      line-height: 1;
-      font-size: clamp(44px, 4.4vw, 76px);
       margin:0;
+      font-weight:1000;
+      letter-spacing:-1.2px;
+      line-height:0.95;
+      font-size: clamp(64px, 7vw, 140px);
       text-transform: uppercase;
     }
+
     .ufnOverlayBadge{
       flex:0 0 auto;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 1000;
-      font-size: 22px;
-      letter-spacing: 0.6px;
-      background: rgba(255,224,74,0.18);
-      border: 2px solid rgba(255,224,74,0.55);
-      color: var(--accent);
+      padding: 12px 18px;
+      border-radius:999px;
+      font-weight:1000;
+      font-size: clamp(20px, 2vw, 34px);
+      letter-spacing: 0.8px;
       text-transform: uppercase;
       white-space: nowrap;
-    }
-    .ufnOverlayBadge.end{
-      background: rgba(255,77,79,0.16);
-      border-color: rgba(255,77,79,0.62);
-      color: #ffb3b4;
+
+      border: 3px solid rgba(255,255,255,0.55);
+      background: rgba(0,0,0,0.20);
+      color: rgba(255,255,255,0.95);
     }
 
     .ufnOverlayRoutes{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      margin: 14px 0 18px;
+      gap:14px;
+      margin: 22px 0 18px;
     }
+
     .ufnRoutePill{
       font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
-      background: var(--accent);
-      color:#000;
-      font-weight: 800;
+      font-weight:800;
       border-radius: 999px;
-      padding: 10px 16px;
-      font-size: clamp(26px, 2.6vw, 40px);
+      padding: 14px 22px;
+      font-size: clamp(34px, 3.5vw, 72px);
       line-height:1;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.45);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.25);
     }
+
     .ufnOverlayLoc{
-      font-weight: 900;
-      letter-spacing:-0.4px;
-      font-size: clamp(28px, 2.6vw, 44px);
-      line-height: 1.12;
-      color: rgba(233,233,239,0.94);
-      margin: 0 0 10px;
-      text-shadow: 0 8px 22px rgba(0,0,0,0.55);
+      margin: 0 0 18px;
+      font-weight:1000;
+      letter-spacing:-0.6px;
+      line-height:1.05;
+      font-size: clamp(34px, 3.4vw, 78px);
+      text-shadow: 0 10px 30px rgba(0,0,0,0.25);
       word-break: break-word;
     }
+
     .ufnOverlayMeta{
       display:flex;
       flex-wrap:wrap;
-      gap: 14px 20px;
-      color: rgba(233,233,239,0.70);
-      font-weight: 800;
-      font-size: clamp(18px, 1.4vw, 24px);
+      gap: 12px 22px;
+      font-weight:900;
+      font-size: clamp(20px, 2vw, 34px);
+      opacity:0.95;
     }
-    .ufnOverlayMeta b{ color:#fff; font-weight: 1000; }
+    .ufnOverlayMeta b{ font-weight:1000; }
 
-    @keyframes overlayPulse {
-      0%{ transform: scale(0.995); }
-      50%{ transform: scale(1.01); }
-      100%{ transform: scale(0.995); }
+    /* Added = red -> white text, white route pills with dark text */
+    #ufnOverlay.is-added .ufnOverlayTitle,
+    #ufnOverlay.is-added .ufnOverlayLoc,
+    #ufnOverlay.is-added .ufnOverlayMeta{
+      color: #fff;
     }
+    #ufnOverlay.is-added .ufnRoutePill{
+      background: rgba(255,255,255,0.92);
+      color:#000;
+    }
+
+    /* Ended = green -> dark text, dark route pills with white text */
+    #ufnOverlay.is-exit .ufnOverlayTitle,
+    #ufnOverlay.is-exit .ufnOverlayLoc,
+    #ufnOverlay.is-exit .ufnOverlayMeta{
+      color: #0a0a0d;
+    }
+    #ufnOverlay.is-exit .ufnRoutePill{
+      background: rgba(0,0,0,0.88);
+      color:#fff;
+    }
+    #ufnOverlay.is-exit .ufnOverlayBadge{
+      background: rgba(255,255,255,0.35);
+      color: rgba(0,0,0,0.92);
+      border-color: rgba(0,0,0,0.20);
+    }
+
+    /* Motion */
     #ufnOverlay.show .ufnOverlayCard{
-      animation: overlayPulse 900ms ease-in-out infinite;
+      animation: overlayPop 900ms ease-in-out infinite;
+    }
+    @keyframes overlayPop{
+      0%{ transform: scale(1); }
+      50%{ transform: scale(1.01); }
+      100%{ transform: scale(1); }
     }
   </style>
 </head>
@@ -525,24 +564,20 @@
 
   <div id="pageProgress" aria-hidden="true"></div>
 
-  <!-- =========================================================
-       ✅ FULLSCREEN OVERLAY DOM
-  ========================================================= -->
+  <!-- ✅ FULLSCREEN OVERLAY DOM -->
   <div id="ufnOverlay" aria-live="assertive" aria-atomic="true" role="alert">
     <div class="ufnOverlayCard">
       <div class="ufnOverlayTop">
         <h2 id="ufnOverlayTitle" class="ufnOverlayTitle">UFN</h2>
-        <div id="ufnOverlayBadge" class="ufnOverlayBadge">New</div>
+        <div id="ufnOverlayBadge" class="ufnOverlayBadge">Added</div>
       </div>
 
       <div id="ufnOverlayRoutes" class="ufnOverlayRoutes"></div>
       <p id="ufnOverlayLoc" class="ufnOverlayLoc">—</p>
 
-      <div class="ufnOverlayMeta">
-        <div>Started: <b id="ufnOverlayStart">—</b></div>
-        <div>Duration: <b id="ufnOverlayDur">—</b></div>
-        <div>Operators: <b id="ufnOverlayOps">—</b></div>
-      </div>
+<div class="ufnOverlayMeta">
+  <div>Operators: <b id="ufnOverlayOps">—</b></div>
+</div>
     </div>
   </div>
 
@@ -554,7 +589,7 @@ const API_BASE = "https://renderexpress-ebb0.onrender.com";
 const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
 
 const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
-const UNPLANNED_ONLY = true;
+const UNPLANNED_ONLY = true; // defined; not used
 
 const PAGE_DURATION_UFN_MS   = 60000;
 const PAGE_DURATION_OTHER_MS = 20000;
@@ -564,11 +599,11 @@ const FEED_REFRESH_MS = 45000;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LONG_TERM_ROUTE_THRESHOLD = 5;
 
-/* ✅ Overlay timing */
-const OVERLAY_SHOW_MS = 8500;   // how long the fullscreen overlay stays up
-const OVERLAY_GAP_MS  = 450;    // small gap between queued overlays
+/* Overlay timing */
+const OVERLAY_SHOW_MS = 8500;
+const OVERLAY_GAP_MS  = 450;
 
-// MapTiler
+// MapTiler (raster tiles)
 const MAPTILER_KEY = "ileJHPYoUxyL17ZpmERr";
 const STOP_MAP_STYLE_OBJ = {
   version: 8,
@@ -738,11 +773,10 @@ function setStatusPill(ok, { animate = false, heartbeat = false } = {}){
   const bee  = $("#beeLogo");
   if(!pill) return;
 
-  const t = nowHHMMSS();
   if(ok){
     if (!heartbeat){
       lastOkAt = Date.now();
-      lastOkLabel = t;
+      lastOkLabel = nowHHMMSS();
     }
     if (staleActive) exitStaleMode();
 
@@ -896,7 +930,7 @@ function getSituationId(sit){
 }
 
 /* ===========================
-   STOP POINT EXTRACTOR (RESTORED)
+   STOP POINT EXTRACTOR
 =========================== */
 function getAffectedStopPoints(sit){
   const out = [];
@@ -1086,15 +1120,16 @@ function renderEmptyState(message){
 }
 
 /* ===========================
-   ✅ FULLSCREEN OVERLAY QUEUE
+   ✅ FULLSCREEN OVERLAY QUEUE + TRACKING + TEST KEYS
 =========================== */
 let overlayQueue = [];
 let overlayShowing = false;
 
 let prevUfnIds = new Set();
-let prevLiveDiversionIds = new Set();
 let prevUfnItemById = new Map();
 let bootstrappedOnce = false;
+
+let latestUfnItemsForTest = []; // updated each fetchAll
 
 function renderOverlayRoutes(routes){
   const wrap = $("#ufnOverlayRoutes");
@@ -1122,27 +1157,32 @@ function showOverlayNow(kind, item){
   const titleEl = $("#ufnOverlayTitle");
   const badgeEl = $("#ufnOverlayBadge");
   const locEl   = $("#ufnOverlayLoc");
-  const stEl    = $("#ufnOverlayStart");
-  const duEl    = $("#ufnOverlayDur");
   const opEl    = $("#ufnOverlayOps");
 
-  const isEnd = (kind === "ended");
-  titleEl.textContent = isEnd ? "UFN DIVERSION ENDED" : "NEW UFN DIVERSION";
-  badgeEl.textContent = isEnd ? "Ended" : "Added";
-  badgeEl.classList.toggle("end", isEnd);
+  const isExit = (kind === "exit");
 
-  // Location line – prefer the already-built HTML, but overlay uses plain text
+  // Apply full-screen state colour classes
+  ov.classList.remove("is-added", "is-exit");
+  ov.classList.add(isExit ? "is-exit" : "is-added");
+
+  // Titles as requested
+  titleEl.textContent = isExit ? "UFN Ended" : "NEW UFN DIVERSION";
+  badgeEl.textContent = isExit ? "Ended" : "Added";
+
+  // Location plain text
   const summary = item.summary || "";
-  const locRaw = (item.locationHTML || "").replace(/<[^>]*>/g, " ").replace(/\s+/g," ").trim();
+  const locRaw = (item.locationHTML || "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g," ")
+    .trim();
   locEl.textContent = locRaw || summary || "—";
 
+  // Routes
   renderOverlayRoutes(item.routesRender || item.routesTitle || []);
 
   // Meta
   const startLabel = item.timeLines?.startLine ? item.timeLines.startLine.split(" // ")[1] : "—";
   const durLabel   = item.timeLines?.durationLine ? item.timeLines.durationLine.split(" // ")[1] : "—";
-  stEl.textContent = startLabel || "—";
-  duEl.textContent = durLabel || "—";
   opEl.textContent = (mapOperators(item.operatorRefs || [])).join(", ") || "—";
 
   ov.classList.add("show");
@@ -1176,6 +1216,27 @@ function pumpOverlayQueue(){
     }, OVERLAY_GAP_MS);
   }, OVERLAY_SHOW_MS);
 }
+
+/* Test keys:
+   N => first UFN item => simulate added overlay (red)
+   E => last  UFN item => simulate exit overlay (green)
+*/
+window.addEventListener("keydown", (e) => {
+  const t = e.target;
+  const tag = (t && t.tagName) ? t.tagName.toLowerCase() : "";
+  const isTyping = t && (t.isContentEditable || tag === "input" || tag === "textarea" || tag === "select");
+  if (isTyping) return;
+
+  if (e.key === "n" || e.key === "N"){
+    if (Array.isArray(latestUfnItemsForTest) && latestUfnItemsForTest.length){
+      enqueueOverlay("added", latestUfnItemsForTest[0]);
+    }
+  } else if (e.key === "e" || e.key === "E"){
+    if (Array.isArray(latestUfnItemsForTest) && latestUfnItemsForTest.length){
+      enqueueOverlay("exit", latestUfnItemsForTest[latestUfnItemsForTest.length - 1]);
+    }
+  }
+});
 
 /* ===========================
    PAGER
@@ -1277,7 +1338,7 @@ window.addEventListener("keydown", (e) => {
 }, { passive:false });
 
 /* ===========================
-   MAP PAGE (WEBGL SYMBOL LAYER, NOT DOM MARKERS)
+   MAP PAGE (WEBGL SYMBOL LAYER)
 =========================== */
 let stopMap = null;
 let stopMapReady = false;
@@ -1314,7 +1375,6 @@ function makeRedXStyleImage(size = 32, stroke = 6, color = "#ff2d2d") {
   ctx.restore();
 
   const img = ctx.getImageData(0, 0, size, size);
-
   return {
     width: size,
     height: size,
@@ -1760,52 +1820,48 @@ async function fetchAll(){
     const todayStart = startOfToday();
     const todayEnd   = endOfToday();
 
-    // ✅ UFN includes planned + unplanned (no EndTime)
+    // ✅ UFN (no EndTime)
     const ufnSits = baseAll.filter(sit => {
       const e = parseISO(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
       return !e;
     });
 
     /* =========================================================
-       ✅ DIFF LOGIC FOR OVERLAYS
-       - Added to UFN: in current UFN set but not in previous UFN set
-       - Ended (UFN only): was UFN, and now NOT in current live diversions
-         (so it truly ended / vanished), NOT just given a future EndTime
+       ✅ UFN OVERLAY DIFF (RULES)
+       - Added overlay: new in UFN set
+       - Exit overlay: was UFN, now NOT LIVE at all (vanished without end time)
+         (If given a future EndTime, it remains live => NO exit overlay)
     ========================================================= */
-    const currentLiveIds = new Set(baseAll.map(getSituationId));
-    const currentUfnIds  = new Set(ufnSits.map(getSituationId));
+    const currentLiveDiversionIds = new Set(baseAll.map(getSituationId));
+    const currentUfnIds = new Set(ufnSits.map(getSituationId));
 
-    // Build fresh map of UFN items for this cycle (used for “added” overlays)
     const currentUfnItemMap = new Map();
     for (const sit of ufnSits){
       const item = mapSituationToItem(sit);
       currentUfnItemMap.set(item.id, item);
     }
 
+    // Update test list (newest first)
+    latestUfnItemsForTest = Array.from(currentUfnItemMap.values()).sort((a,b)=> (b.startMs - a.startMs));
+
     if (bootstrappedOnce){
-      // Added to UFN page
       for (const id of currentUfnIds){
         if (!prevUfnIds.has(id)){
           const item = currentUfnItemMap.get(id);
           if (item) enqueueOverlay("added", item);
         }
       }
-
-      // UFN ended for real: it was UFN before, but it is no longer live at all
       for (const id of prevUfnIds){
-        if (!currentLiveIds.has(id)){
+        if (!currentLiveDiversionIds.has(id)){
           const item = prevUfnItemById.get(id);
-          if (item) enqueueOverlay("ended", item);
+          if (item) enqueueOverlay("exit", item);
         }
       }
     }
 
-    // Update prev tracking (IMPORTANT: do this before any early returns)
     prevUfnIds = currentUfnIds;
-    prevLiveDiversionIds = currentLiveIds;
     prevUfnItemById = currentUfnItemMap;
     bootstrappedOnce = true;
-
     /* ========================================================= */
 
     const todaySits = baseAll.filter(sit => {
@@ -1844,7 +1900,7 @@ async function fetchAll(){
     const pagesToday = buildSectionPages("STARTING / ENDING TODAY", todayItems, "No Diversions Starting/Ending today");
     const pagesLong  = buildSectionPages("LONG TERM HIGH IMPACT", longTermItems, "No Long Term Diversions");
 
-    // Stop closure points (unchanged)
+    // Stop closure points (map page)
     const stopPointsAll = [];
     for (const sit of liveStopClosures) stopPointsAll.push(...getAffectedStopPoints(sit));
 
@@ -1869,7 +1925,9 @@ async function fetchAll(){
     pager.totalPages = pager.pages.length;
     pager.pageIndex = pager.pages.length ? Math.min(prevIndex, pager.pages.length - 1) : 0;
 
-    const pageSignature = pager.pages.map(p => p.mapPage ? `${p.section}:map:${(p.points||[]).length}` : `${p.section}:${(p.items||[]).length}`).join("|");
+    const pageSignature = pager.pages
+      .map(p => p.mapPage ? `${p.section}:map:${(p.points||[]).length}` : `${p.section}:${(p.items||[]).length}`)
+      .join("|");
     const pageIndexChanged = (pager.pageIndex !== oldIndex);
 
     renderPage();
