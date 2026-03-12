@@ -1489,7 +1489,7 @@ function buildReportText(){
   lines.push("CONTINUING / ACTIVE (for awareness):");
   if(continuing.length){
     continuing.forEach(it => {
-      lines.push(`• [${status(it)}] ${routesStr(it)} — ${shortSummary(it)}`);
+      lines.push(`• [In Progress] ${routesStr(it)} — ${shortSummary(it)}`);
     });
   } else {
     lines.push("• None");
