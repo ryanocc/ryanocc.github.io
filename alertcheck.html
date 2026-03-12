@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bee Network — Alert Checker</title>
+  <title>Bee Network — Bus Alert Checker</title>
   <meta http-equiv="Cache-Control" content="no-store" />
 
   <!-- Fonts -->
@@ -12,9 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
-
-  <!-- html2pdf (html2canvas + jsPDF bundle) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" referrerpolicy="no-referrer"></script>
 
   <style>
     :root{
@@ -94,10 +91,14 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.25);
       color: rgba(255,255,255,0.92);
       font-weight: 1000;
+      white-space:nowrap;
     }
-    .dot{ width:12px;height:12px;border-radius:50%;background:var(--good); box-shadow:0 0 0 2px rgba(0,0,0,0.35) inset; }
+    .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:var(--good);
+      box-shadow:0 0 0 2px rgba(0,0,0,0.35) inset;
+    }
     .pill.stale .dot{ background: var(--bad); }
-    .pill b{ font-weight: 1100; color:#fff; }
 
     .hRight{
       display:flex;
@@ -142,7 +143,7 @@
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(255,255,255,0.06);
       color: var(--text);
-      font-weight: 1000;
+      font-weight: 1100;
       letter-spacing: .35px;
       cursor:pointer;
       box-shadow: 0 8px 18px rgba(0,0,0,0.25);
@@ -157,7 +158,6 @@
       color:#000;
       border-color: rgba(255,224,74,0.35);
     }
-    button.good{ background: rgba(66,190,75,0.12); border-color: rgba(66,190,75,0.30); }
     button.danger{ background: rgba(234,85,64,0.14); border-color: rgba(234,85,64,0.35); }
 
     main{
@@ -192,7 +192,6 @@
       background: rgba(66,190,75,0.10);
       border-bottom-color: rgba(66,190,75,0.20);
     }
-
     .sTitle{
       display:flex;
       align-items:baseline;
@@ -215,7 +214,7 @@
       flex-wrap:wrap;
       justify-content:flex-end;
       align-items:center;
-      font-weight: 1000;
+      font-weight: 1100;
       color: rgba(233,233,239,0.88);
     }
     .badge{
@@ -272,7 +271,7 @@
       border-radius: 18px;
       box-shadow: 0 10px 22px rgba(0,0,0,0.35);
       padding: 12px;
-      min-height: 268px;
+      min-height: 280px;
       display:flex;
       flex-direction:column;
       gap:10px;
@@ -282,6 +281,7 @@
       border-color: rgba(234,85,64,0.48);
       box-shadow: 0 10px 22px rgba(0,0,0,0.35), 0 0 0 4px rgba(234,85,64,0.10);
     }
+
     .cardTop{
       display:flex;
       align-items:flex-start;
@@ -352,14 +352,14 @@
       flex-wrap:wrap;
       gap: 8px 12px;
       font-size: 16px;
-      font-weight: 1000;
+      font-weight: 1100;
       color: rgba(233,233,239,0.82);
     }
-    .meta b{ font-weight: 1100; color: rgba(255,255,255,0.95); }
+    .meta b{ font-weight: 1200; color: rgba(255,255,255,0.95); }
     .small{
       font-size: 14px;
       color: rgba(233,233,239,0.68);
-      font-weight: 900;
+      font-weight: 1000;
     }
 
     .linksRow{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
@@ -391,7 +391,7 @@
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(255,255,255,0.05);
       color: rgba(255,255,255,0.95);
-      font-weight: 1100;
+      font-weight: 1200;
       letter-spacing: .35px;
       cursor:pointer;
       display:flex;
@@ -420,7 +420,7 @@
       color: rgba(255,255,255,0.95);
       padding: 10px 14px;
       border-radius: 14px;
-      font-weight: 1000;
+      font-weight: 1100;
       letter-spacing: .25px;
       box-shadow: 0 16px 34px rgba(0,0,0,0.45);
       opacity: 0;
@@ -429,72 +429,6 @@
       z-index: 9999;
     }
     #toast.show{ opacity: 1; transform: translateX(-50%) translateY(-4px); }
-
-    /* Report container for PDF
-       IMPORTANT: html2canvas can return blank if element is offscreen/hidden.
-       So we keep it ON-SCREEN, but BEHIND everything. [1](https://stackoverflow.com/questions/13591339/html2canvas-offscreen)[2](https://github.com/niklasvh/html2canvas/issues/117) */
-    #reportRoot{
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 900px;
-      background: #ffffff;
-      color: #111;
-      z-index: -1;     /* behind UI */
-      opacity: 1;      /* must be paintable */
-      pointer-events: none;
-    }
-    #reportRoot.reportOff{
-      width: 900px;
-      z-index: -1;
-      opacity: 1;
-    }
-    #reportRoot .pagebreak{
-      page-break-before: always;
-    }
-    #reportRoot h1{
-      font-family: Arial, system-ui, sans-serif;
-      font-size: 22px;
-      margin: 0 0 8px;
-    }
-    #reportRoot .rMeta{
-      font-family: Arial, system-ui, sans-serif;
-      font-size: 12px;
-      color:#333;
-      margin-bottom: 12px;
-    }
-    #reportRoot h2{
-      font-family: Arial, system-ui, sans-serif;
-      font-size: 16px;
-      margin: 16px 0 8px;
-    }
-    #reportRoot table{
-      width: 100%;
-      border-collapse: collapse;
-      font-family: Arial, system-ui, sans-serif;
-      font-size: 12px;
-    }
-    #reportRoot th, #reportRoot td{
-      border:1px solid #ddd;
-      padding: 6px 7px;
-      vertical-align: top;
-    }
-    #reportRoot th{
-      background:#f4f4f4;
-      text-align:left;
-    }
-    #reportRoot .pill{
-      display:inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border:1px solid #ddd;
-      font-weight: 700;
-      font-size: 11px;
-    }
-    #reportRoot .pEnded{ border-color:#2ea043; background:#e9f7ec; }
-    #reportRoot .pEdit{ border-color:#d97706; background:#fff7ed; }
-    #reportRoot .pProg{ border-color:#2563eb; background:#eff6ff; }
-    #reportRoot .pNone{ border-color:#777; background:#f3f4f6; }
   </style>
 </head>
 
@@ -503,10 +437,10 @@
   <div class="hLeft">
     <h1>Bus Alert Checker</h1>
     <div class="sub">
-      <div id="livePill" class="pill"><span class="dot"></span><span><b>LIVE</b> • <span id="lastOk">—</span></span></div>
-      <div class="pill"><span>Alerts:</span> <b id="countAll">0</b></div>
-      <div class="pill"><span>Remaining:</span> <b id="countRemaining">0</b></div>
-      <div class="pill"><span>Hidden:</span> <b id="countHidden">0</b></div>
+      <div id="livePill" class="pill"><span class="dot"></span><span><b id="liveText">LIVE</b> • <span id="lastOk">—</span></span></div>
+      <div class="pill">Alerts: <b id="countAll">0</b></div>
+      <div class="pill">Remaining: <b id="countRemaining">0</b></div>
+      <div class="pill">Hidden: <b id="countHidden">0</b></div>
     </div>
   </div>
 
@@ -516,8 +450,7 @@
       <input id="officerName" type="text" placeholder="e.g. Ryan" />
     </div>
     <div class="controls">
-      <button id="btnTeams" class="primary">Copy Teams to DEO</button>
-      <button id="btnPdf" class="good">Export PDF</button>
+      <button id="btnCopy" class="primary">Copy Report</button>
       <button id="btnRefresh">Refresh</button>
       <button id="btnReset" class="danger">Reset</button>
     </div>
@@ -529,7 +462,6 @@
 </main>
 
 <div id="toast"></div>
-<div id="reportRoot" class="reportOff" aria-hidden="true"></div>
 
 <script>
 /* =========================
@@ -538,12 +470,15 @@
 const BODS_URL_BASE = "https://renderexpress-ebb0.onrender.com/api/bods-siri-sx";
 const FEED_REFRESH_MS = 45000;
 const STALE_AFTER_MS  = Math.max(FEED_REFRESH_MS * 2, 120000);
+
 const HIDE_3HOURS_MS  = 3 * 60 * 60 * 1000;
+const INPROG_UFN_MS   = 1 * 60 * 60 * 1000;
+const INPROG_OTHER_MS = 3 * 60 * 60 * 1000;
 
 const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
 
-const STATUS = { NONE:"none", INPROG:"inprog", ENDED:"ended", EDIT:"edit" };
+const STATUS = { NONE:"none", ENDED:"ended", EDIT:"edit" };
 
 const SECTIONS = [
   { key:"ufn",   title:"UFN",            icon:"⚠️" },
@@ -551,8 +486,8 @@ const SECTIONS = [
   { key:"end",   title:"Ending Today",   icon:"🟩" }
 ];
 
-const DECISIONS_KEY = "ctdd_checker_decisions_v4";
-const UI_KEY        = "ctdd_checker_ui_v4";
+const DECISIONS_KEY = "bus_alert_checker_decisions_v1";
+const UI_KEY        = "bus_alert_checker_ui_v1";
 
 /* =========================
    Helpers
@@ -627,10 +562,14 @@ function buildDfTDetailUrl(situationNumber){
 }
 
 /* =========================
-   Local persistence
+   Persistence
 ========================= */
 let decisions = loadJson(DECISIONS_KEY, {});
 let uiState   = loadJson(UI_KEY, {});
+let allItems  = [];
+
+let lastOkAt = 0;
+let staleActive = false;
 
 function loadJson(key, fallback){
   try{
@@ -642,8 +581,32 @@ function saveJson(key, obj){
   localStorage.setItem(key, JSON.stringify(obj));
 }
 
-function getDecision(id){
-  return decisions[id]?.status || STATUS.NONE;
+/* =========================
+   Decision model
+   decisions[id] may contain:
+   - status: "ended" | "edit" (permanent)
+   - workedUntil: timestamp (temporary "in progress" worked)
+   - hiddenUntil: timestamp (hide 3hrs)
+========================= */
+function cleanupExpired(){
+  const now = Date.now();
+  let changed = false;
+  for(const [id, d] of Object.entries(decisions)){
+    if(d?.hiddenUntil && now >= d.hiddenUntil){
+      delete d.hiddenUntil;
+      changed = true;
+    }
+    if(d?.workedUntil && now >= d.workedUntil){
+      delete d.workedUntil;  // returns to not worked unless ended/edit set
+      changed = true;
+    }
+    // prune empty objects
+    if(d && !d.status && !d.hiddenUntil && !d.workedUntil){
+      delete decisions[id];
+      changed = true;
+    }
+  }
+  if(changed) saveJson(DECISIONS_KEY, decisions);
 }
 
 function isHidden(id){
@@ -651,42 +614,62 @@ function isHidden(id){
   return !!(d && d.hiddenUntil && Date.now() < d.hiddenUntil);
 }
 
-function cleanupExpiredHides(){
-  let changed = false;
-  const now = Date.now();
-  for(const [id, d] of Object.entries(decisions)){
-    if(d?.hiddenUntil && now >= d.hiddenUntil){
-      delete d.hiddenUntil;
-      delete d.status;   // returns to "Not worked"
-      changed = true;
-    }
-  }
-  if(changed) saveJson(DECISIONS_KEY, decisions);
+function isWorked(id){
+  const d = decisions[id];
+  if(!d) return false;
+  if(d.status === STATUS.ENDED || d.status === STATUS.EDIT) return true;
+  if(d.workedUntil && Date.now() < d.workedUntil) return true;
+  return false;
 }
 
-function setDecision(id, status){
-  const d = decisions[id] || {};
-  decisions[id] = { ...d, status, updatedAt: Date.now() };
-  if(decisions[id].hiddenUntil) delete decisions[id].hiddenUntil;
+function statusForUI(id){
+  const d = decisions[id];
+  if(!d) return "none";
+  if(d.status === STATUS.ENDED) return "ended";
+  if(d.status === STATUS.EDIT) return "edit";
+  if(d.workedUntil && Date.now() < d.workedUntil) return "inprog";
+  return "none";
+}
+
+function setEnded(id){
+  decisions[id] = { ...(decisions[id]||{}), status: STATUS.ENDED };
+  delete decisions[id].workedUntil;
+  delete decisions[id].hiddenUntil;
   saveJson(DECISIONS_KEY, decisions);
   render();
 }
 
+function setEdit(id){
+  decisions[id] = { ...(decisions[id]||{}), status: STATUS.EDIT };
+  delete decisions[id].workedUntil;
+  delete decisions[id].hiddenUntil;
+  saveJson(DECISIONS_KEY, decisions);
+  render();
+}
+
+function setInProgress(id, isUfn){
+  const dur = isUfn ? INPROG_UFN_MS : INPROG_OTHER_MS;
+  decisions[id] = { ...(decisions[id]||{}), workedUntil: Date.now() + dur };
+  // in progress is temporary and should not set ended/edit
+  delete decisions[id].status;
+  delete decisions[id].hiddenUntil;
+  saveJson(DECISIONS_KEY, decisions);
+  toast(isUfn ? "In progress (1 hour)" : "In progress (3 hours)");
+  render();
+}
+
 function hide3hrs(id){
-  const d = decisions[id] || {};
-  decisions[id] = { ...d, hiddenUntil: Date.now() + HIDE_3HOURS_MS, updatedAt: Date.now() };
-  delete decisions[id].status; // hide is NOT a decision
+  decisions[id] = { ...(decisions[id]||{}), hiddenUntil: Date.now() + HIDE_3HOURS_MS };
+  // hide does NOT mark as worked
+  delete decisions[id].status;
+  delete decisions[id].workedUntil;
   saveJson(DECISIONS_KEY, decisions);
   toast("Hidden for 3 hours");
   render();
 }
 
 /* =========================
-   Feed extraction (JSON-first, XML fallback)
-   + Wall-screen filters:
-     - Bee bus operators only
-     - diversion keyword
-     - currently valid
+   Filters (match wall tool)
 ========================= */
 function getNetworkAffectedLines(sit){
   const out = [];
@@ -775,15 +758,12 @@ function classifyItem(sit){
   const startingToday = !!start && isToday(start);
   const endingToday   = !!end && isToday(end);
 
-  // Priority: UFN > Ending Today > Starting Today (no duplicates)
-  let bucket = "start";
+  let bucket = "other";
   if(isUFN) bucket = "ufn";
   else if(endingToday) bucket = "end";
   else if(startingToday) bucket = "start";
-  else bucket = "other";
 
   const situationNumber = String(sit?.SituationNumber || sit?.SituationRef || "").trim();
-
   const routes = getLineRefs(sit);
   const operatorRefs = getOperatorRefs(sit);
 
@@ -803,43 +783,6 @@ function classifyItem(sit){
 }
 
 /* =========================
-   UI State
-========================= */
-let lastOkAt = 0;
-let staleActive = false;
-let allItems = []; // in-scope items (includes hidden)
-
-function visibleItems(){
-  return allItems.filter(it => !isHidden(it.id));
-}
-
-function statusLabel(s){
-  switch(s){
-    case STATUS.INPROG: return "In progress";
-    case STATUS.ENDED:  return "Ended";
-    case STATUS.EDIT:   return "Edit needed";
-    default: return "Not worked";
-  }
-}
-function statusClass(s){
-  switch(s){
-    case STATUS.INPROG: return "inprog";
-    case STATUS.ENDED:  return "ended";
-    case STATUS.EDIT:   return "edit";
-    default: return "none";
-  }
-}
-
-function sectionDone(itemsInSectionAll){
-  // Done only when every item has a decision (hide does not count)
-  return itemsInSectionAll.length > 0 && itemsInSectionAll.every(it => getDecision(it.id) !== STATUS.NONE);
-}
-function sectionRemaining(itemsInSectionAll){
-  // Remaining includes hidden, because hide isn't "worked"
-  return itemsInSectionAll.filter(it => getDecision(it.id) === STATUS.NONE).length;
-}
-
-/* =========================
    Rendering
 ========================= */
 function makeEl(tag, cls, html){
@@ -847,13 +790,6 @@ function makeEl(tag, cls, html){
   if(cls) n.className = cls;
   if(html != null) n.innerHTML = html;
   return n;
-}
-
-function toggleSection(secKey, secDiv, chevSpan){
-  const isOpen = secDiv.classList.toggle("open");
-  uiState[secKey] = { ...(uiState[secKey]||{}), open: isOpen };
-  saveJson(UI_KEY, uiState);
-  chevSpan.textContent = isOpen ? "▾" : "▸";
 }
 
 function openRoutesOnBusTimes(routes){
@@ -873,14 +809,19 @@ function openRoutesOnBusTimes(routes){
 }
 
 function render(){
-  cleanupExpiredHides();
+  cleanupExpired();
 
   const sectionsRoot = $("#sections");
   sectionsRoot.replaceChildren();
 
-  const vis = visibleItems();
+  const visible = allItems.filter(it => !isHidden(it.id));
 
-  // Group ALL (including hidden) for counts + completion
+  // top counters
+  $("#countAll").textContent = String(allItems.length);
+  $("#countHidden").textContent = String(allItems.length - visible.length);
+  $("#countRemaining").textContent = String(allItems.filter(it => !isWorked(it.id)).length);
+
+  // group all + visible per section
   const allBy = { ufn:[], start:[], end:[] };
   const visBy = { ufn:[], start:[], end:[] };
 
@@ -889,57 +830,55 @@ function render(){
     else if(it.bucket === "start") allBy.start.push(it);
     else if(it.bucket === "end") allBy.end.push(it);
   }
-  for(const it of vis){
+  for(const it of visible){
     if(it.bucket === "ufn") visBy.ufn.push(it);
     else if(it.bucket === "start") visBy.start.push(it);
     else if(it.bucket === "end") visBy.end.push(it);
   }
 
-  // Sorts
+  // sorts
   allBy.ufn.sort((a,b)=> (b.start - a.start));
   allBy.start.sort((a,b)=> (a.start - b.start));
   allBy.end.sort((a,b)=> (a.end - b.end));
-
   visBy.ufn.sort((a,b)=> (b.start - a.start));
   visBy.start.sort((a,b)=> (a.start - b.start));
   visBy.end.sort((a,b)=> (a.end - b.end));
-
-  // Header counts
-  const hiddenTotal = allItems.length - vis.length;
-  $("#countAll").textContent = String(allItems.length);
-  $("#countHidden").textContent = String(hiddenTotal);
-  $("#countRemaining").textContent = String(allItems.filter(it => getDecision(it.id) === STATUS.NONE).length);
 
   for(const def of SECTIONS){
     const itemsAll = allBy[def.key];
     const itemsVis = visBy[def.key];
 
-    const done = sectionDone(itemsAll);
-    const remaining = sectionRemaining(itemsAll);
-    const hiddenCount = itemsAll.length - itemsVis.length;
+    const remaining = itemsAll.filter(it => !isWorked(it.id)).length;
+    const done = itemsAll.length > 0 && remaining === 0;
 
-    const openDefault = true;
-    const open = (uiState[def.key]?.open ?? openDefault);
-
+    const open = (uiState[def.key]?.open ?? true);
     const sec = makeEl("div", "section" + (open ? " open" : ""), null);
 
     const header = makeEl("div", "sectionHeader" + (done ? " done" : ""), null);
 
-    // ✅ subtitle chip removed — ONLY title
+    // ✅ subtitle chip removed — only the title
     const left = makeEl("div", "sTitle", `<h2>${def.icon} ${escapeHtml(def.title)}</h2>`);
+
+    const hiddenCount = itemsAll.length - itemsVis.length;
     const counts = makeEl("div", "sCounts", "");
     counts.appendChild(makeEl("span", "badge", `Total: ${itemsAll.length}`));
     if(hiddenCount) counts.appendChild(makeEl("span", "badge info", `Hidden: ${hiddenCount}`));
-    counts.appendChild(makeEl("span", `badge ${remaining===0 && itemsAll.length ? "good" : "warn"}`, `Remaining: ${remaining}`));
+    counts.appendChild(makeEl("span", `badge ${done ? "good" : "warn"}`, `Remaining: ${remaining}`));
     if(done) counts.appendChild(makeEl("span", "badge good", "DONE"));
 
     const chev = makeEl("div", "chev", `<span>${open ? "▾" : "▸"}</span>`);
     const chevSpan = chev.querySelector("span");
 
     header.append(left, counts, chev);
-    header.addEventListener("click", ()=> toggleSection(def.key, sec, chevSpan));
+    header.addEventListener("click", ()=>{
+      const isOpen = sec.classList.toggle("open");
+      uiState[def.key] = { ...(uiState[def.key]||{}), open: isOpen };
+      saveJson(UI_KEY, uiState);
+      chevSpan.textContent = isOpen ? "▾" : "▸";
+    });
 
     const body = makeEl("div", "sectionBody", "");
+
     if(!itemsAll.length){
       body.appendChild(makeEl("div", "small", "No alerts ✅"));
     }else if(!itemsVis.length){
@@ -954,34 +893,32 @@ function render(){
 
     sec.append(header, body);
     sectionsRoot.appendChild(sec);
-
-    // Auto-collapse first time it becomes done
-    if(done && uiState[def.key]?.autoCollapsedDone !== true){
-      sec.classList.remove("open");
-      chevSpan.textContent = "▸";
-      uiState[def.key] = { ...(uiState[def.key]||{}), open:false, autoCollapsedDone:true };
-      saveJson(UI_KEY, uiState);
-    }
   }
 }
 
 function renderCard(it){
-  const s = getDecision(it.id);
-  const { show, extra } = pickRoutesDisplay(it.routes);
-
   const card = makeEl("div", "card" + (it.isUFN ? " ufn" : ""), "");
 
   const top = makeEl("div", "cardTop", "");
-  const routes = makeEl("div", "routes", "");
+  const routesWrap = makeEl("div", "routes", "");
+  const { show, extra } = pickRoutesDisplay(it.routes);
+
   for(const r of show){
-    routes.appendChild(makeEl("div", "routePill", escapeHtml(formatRouteChipLabel(r))));
+    routesWrap.appendChild(makeEl("div", "routePill", escapeHtml(formatRouteChipLabel(r))));
   }
   if(extra){
-    routes.appendChild(makeEl("div", "routePill more", `+${extra}`));
+    routesWrap.appendChild(makeEl("div", "routePill more", `+${extra}`));
   }
 
-  const tag = makeEl("div", `statusTag ${statusClass(s)} ${s===STATUS.NONE ? "none" : ""}`, escapeHtml(statusLabel(s)));
-  top.append(routes, tag);
+  const st = statusForUI(it.id);
+  const tagText =
+    st === "ended" ? "Ended" :
+    st === "edit" ? "Edit needed" :
+    st === "inprog" ? "In progress" :
+    "Not worked";
+
+  const tag = makeEl("div", `statusTag ${st} ${st==="none" ? "none" : ""}`, escapeHtml(tagText));
+  top.append(routesWrap, tag);
 
   const summary = makeEl("p", "summary", escapeHtml(it.summary));
   summary.title = it.summary;
@@ -996,10 +933,9 @@ function renderCard(it){
 
   const small = makeEl("div", "small", `SituationNumber: <b>${escapeHtml(it.situationNumber || "—")}</b>`);
 
-  // Buttons: BusTimes + DfT tool
   const links = makeEl("div", "linksRow", "");
-  const btnBusTimes = makeEl("button", "linkBtn", "Open routes on BusTimes");
-  btnBusTimes.addEventListener("click", (e)=>{ e.stopPropagation(); openRoutesOnBusTimes(it.routes); });
+  const btnBus = makeEl("button", "linkBtn", "Open routes on BusTimes");
+  btnBus.addEventListener("click", (e)=>{ e.stopPropagation(); openRoutesOnBusTimes(it.routes); });
 
   const btnDfT = makeEl("button", "linkBtn", "Open in DfT Tool");
   btnDfT.addEventListener("click", (e)=>{
@@ -1008,18 +944,17 @@ function renderCard(it){
     else toast("No SituationNumber for DfT link");
   });
 
-  links.append(btnBusTimes, btnDfT);
+  links.append(btnBus, btnDfT);
 
-  // Action buttons
   const actions = makeEl("div", "actions", "");
   const b1 = makeEl("div", "aBtn inprog", "Confirm In Progress");
   const b2 = makeEl("div", "aBtn ended",  "Confirm Ended");
   const b3 = makeEl("div", "aBtn edit",   "Edit Needed");
   const b4 = makeEl("div", "aBtn hide",   "Hide 3hrs");
 
-  b1.addEventListener("click", (e)=>{ e.stopPropagation(); setDecision(it.id, STATUS.INPROG); });
-  b2.addEventListener("click", (e)=>{ e.stopPropagation(); setDecision(it.id, STATUS.ENDED); });
-  b3.addEventListener("click", (e)=>{ e.stopPropagation(); setDecision(it.id, STATUS.EDIT); });
+  b1.addEventListener("click", (e)=>{ e.stopPropagation(); setInProgress(it.id, it.isUFN); });
+  b2.addEventListener("click", (e)=>{ e.stopPropagation(); setEnded(it.id); });
+  b3.addEventListener("click", (e)=>{ e.stopPropagation(); setEdit(it.id); });
   b4.addEventListener("click", (e)=>{ e.stopPropagation(); hide3hrs(it.id); });
 
   actions.append(b1,b2,b3,b4);
@@ -1029,51 +964,9 @@ function renderCard(it){
 }
 
 /* =========================
-   Teams message (clear, minimal)
+   Copy Report (minimal, clear)
+   Uses ONLY Ended + Edit needed (what DEO needs)
 ========================= */
-function buildTeamsMessage(){
-  const officer = ($("#officerName").value || "").trim();
-  const ended = allItems.filter(it => getDecision(it.id) === STATUS.ENDED);
-  const edit  = allItems.filter(it => getDecision(it.id) === STATUS.EDIT);
-
-  const lines = [];
-  lines.push("Bus diversion checks ✅");
-  lines.push("");
-
-  const lineFor = (it) => {
-    const routes = (it.routes || []).slice(0, 12).map(formatRouteChipLabel).join(", ") || "—";
-    // keep summary short-ish
-    const sum = String(it.summary || "—").replace(/\s+/g," ").trim();
-    const short = sum.length > 90 ? (sum.slice(0, 87) + "…") : sum;
-    return `• ${routes} — ${short}\n  ${it.recordUrl || ""}`.trim();
-  };
-
-  if(ended.length){
-    lines.push("ENDED (remove):");
-    for(const it of ended) lines.push(lineFor(it));
-    lines.push("");
-  }
-  if(edit.length){
-    lines.push("EDIT NEEDED:");
-    for(const it of edit) lines.push(lineFor(it));
-    lines.push("");
-  }
-
-  if(!ended.length && !edit.length){
-    lines.push("Nothing flagged for remove/edit right now.");
-    lines.push("");
-  }
-
-  const stamp = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit"}).format(new Date());
-  if(officer){
-    lines.push(`Checked by ${officer} — ${stamp}`);
-  }else{
-    lines.push(`Checked — ${stamp}`);
-  }
-
-  return lines.join("\n");
-}
-
 async function copyToClipboard(text){
   try{
     await navigator.clipboard.writeText(text);
@@ -1089,121 +982,45 @@ async function copyToClipboard(text){
   }
 }
 
-/* =========================
-   PDF export (fix blank PDF)
-   html2canvas can return blank if element is offscreen/hidden. [1](https://stackoverflow.com/questions/13591339/html2canvas-offscreen)[2](https://github.com/niklasvh/html2canvas/issues/117)
-   We keep reportRoot paintable (onscreen, behind UI) and wait for layout.
-========================= */
-function pillHtml(st){
-  if(st === STATUS.ENDED) return `<span class="pill pEnded">ENDED</span>`;
-  if(st === STATUS.EDIT) return `<span class="pill pEdit">EDIT</span>`;
-  if(st === STATUS.INPROG) return `<span class="pill pProg">IN PROGRESS</span>`;
-  return `<span class="pill pNone">NOT WORKED</span>`;
-}
+function buildReportText(){
+  const officer = ($("#officerName").value || "").trim();
+  const ended = allItems.filter(it => decisions[it.id]?.status === STATUS.ENDED);
+  const edit  = allItems.filter(it => decisions[it.id]?.status === STATUS.EDIT);
 
-function buildReportHtml(){
-  const officer = ($("#officerName").value || "").trim() || "—";
-  const now = new Date();
-  const title = "Bus Alert Check — Report";
+  const lines = [];
+  lines.push("Bus diversion check ✅");
+  lines.push("");
 
-  const by = { ufn:[], start:[], end:[] };
-  for(const it of allItems){
-    if(it.bucket === "ufn") by.ufn.push(it);
-    else if(it.bucket === "start") by.start.push(it);
-    else if(it.bucket === "end") by.end.push(it);
-  }
-
-  const sectionOrder = [
-    { key:"ufn", title:"UFN" },
-    { key:"start", title:"Starting Today" },
-    { key:"end", title:"Ending Today" }
-  ];
-
-  let html = "";
-  html += `<div style="padding:18px 18px 22px;">`;
-  html += `<h1>${escapeHtml(title)}</h1>`;
-  html += `<div class="rMeta"><b>Officer:</b> ${escapeHtml(officer)} &nbsp; | &nbsp; <b>Generated:</b> ${escapeHtml(now.toLocaleString())}</div>`;
-  html += `<div class="rMeta"><b>Feed:</b> ${escapeHtml(BODS_URL_BASE)} (t=timestamp)</div>`;
-
-  sectionOrder.forEach((sec, idx)=>{
-    const items = by[sec.key] || [];
-    if(idx > 0) html += `<div class="pagebreak"></div>`;
-    html += `<h2>${escapeHtml(sec.title)} (${items.length})</h2>`;
-    if(!items.length){
-      html += `<div class="rMeta">No items.</div>`;
-      return;
-    }
-
-    html += `<table><thead><tr>
-      <th style="width:120px;">Status</th>
-      <th>Summary</th>
-      <th style="width:160px;">Routes</th>
-      <th style="width:130px;">Operators</th>
-      <th style="width:150px;">Start / End</th>
-      <th style="width:170px;">Link</th>
-    </tr></thead><tbody>`;
-
-    for(const it of items){
-      const st = getDecision(it.id);
-      const routes = (it.routes||[]).slice(0,12).map(formatRouteChipLabel).join(", ") || "—";
-      const start = it.start ? fmtDateTime(it.start) : "—";
-      const end = it.end ? fmtDateTime(it.end) : "UFN";
-      const link = it.recordUrl || "";
-      const hidden = isHidden(it.id);
-
-      html += `<tr>
-        <td>${pillHtml(st)}${hidden ? `<div style="margin-top:4px;font-size:10px;color:#555;">HIDDEN</div>` : ""}</td>
-        <td>${escapeHtml(it.summary)}</td>
-        <td>${escapeHtml(routes)}</td>
-        <td>${escapeHtml(it.operatorsLabel || "—")}</td>
-        <td>${escapeHtml(start)}<br>${escapeHtml(end)}</td>
-        <td>${escapeHtml(link)}</td>
-      </tr>`;
-    }
-
-    html += `</tbody></table>`;
-  });
-
-  html += `</div>`;
-  return html;
-}
-
-async function exportPdf(){
-  if(typeof html2pdf !== "function"){
-    toast("PDF library not loaded");
-    return;
-  }
-
-  const root = $("#reportRoot");
-  root.innerHTML = buildReportHtml();
-
-  // Let the browser paint/layout before capture (prevents blank/partial captures).
-  await new Promise(r => requestAnimationFrame(()=>requestAnimationFrame(r)));
-
-  const officer = ($("#officerName").value || "").trim() || "Officer";
-  const stamp = new Date().toISOString().slice(0,10);
-  const filename = `BusAlert_Check_${officer}_${stamp}.pdf`;
-
-  const opt = {
-    margin:       [8, 8, 10, 8],
-    filename,
-    image:        { type: "jpeg", quality: 0.96 },
-    html2canvas:  { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-    jsPDF:        { unit: "mm", format: "a4", orientation: "portrait" },
-    pagebreak:    { mode: ["css","legacy"] }
+  const lineFor = (it) => {
+    const routes = (it.routes || []).slice(0, 12).map(formatRouteChipLabel).join(", ") || "—";
+    const sum = String(it.summary || "—").replace(/\s+/g," ").trim();
+    const short = sum.length > 90 ? (sum.slice(0, 87) + "…") : sum;
+    return `• ${routes} — ${short}\n  ${it.recordUrl || ""}`.trim();
   };
 
-  try{
-    await html2pdf().set(opt).from(root).save();
-    toast("PDF exported ✅");
-  }catch(e){
-    console.error(e);
-    toast("PDF export failed");
+  if(ended.length){
+    lines.push("ENDED (remove):");
+    ended.forEach(it => lines.push(lineFor(it)));
+    lines.push("");
   }
+  if(edit.length){
+    lines.push("EDIT NEEDED:");
+    edit.forEach(it => lines.push(lineFor(it)));
+    lines.push("");
+  }
+  if(!ended.length && !edit.length){
+    lines.push("Nothing flagged for remove/edit right now.");
+    lines.push("");
+  }
+
+  const stamp = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit"}).format(new Date());
+  lines.push(officer ? `Checked by ${officer} — ${stamp}` : `Checked — ${stamp}`);
+
+  return lines.join("\n");
 }
 
 /* =========================
-   Fetch
+   Fetch (JSON-first, XML fallback)
 ========================= */
 function extractSituationsFromJSON(json){
   const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
@@ -1304,7 +1121,7 @@ async function fetchAll(){
       ? extractSituationsFromJSON(parsed.data)
       : extractSituationsFromXML(parsed.data);
 
-    // Wall-screen filters
+    // Wall tool filters
     const busSituations = allSituations.filter(isBusOperator);
     const diversionSituations = busSituations.filter(isDiversion);
     const liveDiversions = diversionSituations.filter(isCurrentlyValid);
@@ -1323,16 +1140,15 @@ async function fetchAll(){
     staleActive = false;
     $("#lastOk").textContent = nowHHMMSS();
     $("#livePill").classList.remove("stale");
-    $("#livePill").querySelector("b").textContent = "LIVE";
+    $("#liveText").textContent = "LIVE";
 
     render();
   }catch(e){
     console.error(e);
-    // stale handling
     if(lastOkAt && (Date.now() - lastOkAt) > STALE_AFTER_MS){
       staleActive = true;
       $("#livePill").classList.add("stale");
-      $("#livePill").querySelector("b").textContent = "STALE";
+      $("#liveText").textContent = "STALE";
     }
     toast("Feed error (see console)");
   }
@@ -1341,14 +1157,14 @@ async function fetchAll(){
 /* =========================
    Buttons
 ========================= */
-$("#btnTeams").addEventListener("click", async ()=>{
-  const msg = buildTeamsMessage();
+$("#btnCopy").addEventListener("click", async ()=>{
+  const msg = buildReportText();
   await copyToClipboard(msg);
-  toast("Teams message copied ✅");
+  toast("Report copied ✅");
 });
 
-$("#btnPdf").addEventListener("click", exportPdf);
 $("#btnRefresh").addEventListener("click", ()=>{ fetchAll(); toast("Refreshing…"); });
+
 $("#btnReset").addEventListener("click", ()=>{
   decisions = {};
   uiState = {};
@@ -1364,23 +1180,24 @@ $("#btnReset").addEventListener("click", ()=>{
 fetchAll();
 setInterval(fetchAll, FEED_REFRESH_MS);
 
-// Stale watchdog
+// stale watchdog
 setInterval(()=>{
   if(!lastOkAt) return;
   if((Date.now() - lastOkAt) > STALE_AFTER_MS){
     staleActive = true;
     $("#livePill").classList.add("stale");
-    $("#livePill").querySelector("b").textContent = "STALE";
+    $("#liveText").textContent = "STALE";
   }
 }, 2000);
 
-// Hide expiry watchdog (re-add items when hide expires)
+// expiry watchdog (so timers expire without refresh)
 setInterval(()=>{
   const before = JSON.stringify(decisions);
-  cleanupExpiredHides();
+  cleanupExpired();
   const after = JSON.stringify(decisions);
   if(before !== after) render();
 }, 30000);
+
 </script>
 </body>
 </html>
