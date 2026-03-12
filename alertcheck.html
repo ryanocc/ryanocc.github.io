@@ -1,0 +1,1353 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CTDD Bus Alert Checker (OCC)</title>
+  <meta http-equiv="Cache-Control" content="no-store" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Client-side PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+          integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+
+  <style>
+    :root{
+      --bg:#0b0b0e;
+      --text:#ececf4;
+      --muted:#a8a8b5;
+
+      --accent:#FFE04A;
+      --good:#42BE4B;
+      --bad:#EA5540;
+      --warn:#ff9a1f;
+      --info:#4aa3ff;
+
+      --radius:18px;
+      --shadow: 0 10px 28px rgba(0,0,0,.40);
+      --titleFont: clamp(32px, 2.7vw, 54px);
+      --btnH: 46px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
+      background: radial-gradient(1200px 900px at 18% -10%, rgba(255,224,74,0.09), transparent 55%),
+                  radial-gradient(1200px 900px at 105% 10%, rgba(74,163,255,0.07), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      overflow:hidden;
+    }
+
+    header{
+      padding: 14px 22px 10px;
+      border-bottom: 1px solid #1f1f27;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .hLeft{ min-width:0; }
+    h1{
+      margin:0;
+      font-size: var(--titleFont);
+      font-weight: 1000;
+      letter-spacing: -0.6px;
+      line-height: 1.05;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sub{
+      margin-top:6px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--muted);
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.92);
+      font-weight: 900;
+      letter-spacing: .3px;
+    }
+    .dot{ width:12px; height:12px; border-radius:50%; background: var(--good); box-shadow:0 0 0 2px rgba(0,0,0,0.35) inset; }
+    .pill.stale .dot{ background: var(--bad); }
+    .pill b{ font-weight: 1000; }
+
+    .hRight{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:10px;
+      flex:0 0 auto;
+    }
+    .controls{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    button{
+      height: var(--btnH);
+      padding: 0 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 1000;
+      letter-spacing: .35px;
+      cursor:pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      user-select:none;
+    }
+    button:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.085); border-color: rgba(255,255,255,0.22); }
+    button:active{ transform: translateY(0); }
+    button.primary{
+      background: linear-gradient(180deg, rgba(255,224,74,0.95), rgba(255,224,74,0.78));
+      color:#000;
+      border-color: rgba(255,224,74,0.35);
+    }
+    button.danger{
+      background: rgba(234,85,64,0.14);
+      border-color: rgba(234,85,64,0.35);
+    }
+    button.good{
+      background: rgba(66,190,75,0.12);
+      border-color: rgba(66,190,75,0.30);
+    }
+
+    .fieldRow{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      width:100%;
+    }
+    .fieldRow label{
+      font-size: 16px;
+      font-weight: 900;
+      color: rgba(233,233,239,0.88);
+    }
+    .fieldRow input{
+      height: 40px;
+      width: 230px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.25);
+      color: var(--text);
+      padding: 0 12px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      outline: none;
+    }
+    .fieldRow input:focus{
+      border-color: rgba(255,224,74,0.55);
+      box-shadow: 0 0 0 3px rgba(255,224,74,0.14);
+    }
+
+    main{
+      height: calc(100% - 98px);
+      padding: 14px 22px 18px;
+      overflow:auto;
+    }
+
+    .section{
+      border: 2px solid rgba(255,255,255,0.07);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00) 65%),
+                  rgba(20,20,28,0.90);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+      overflow:hidden;
+    }
+
+    .sectionHeader{
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      cursor:pointer;
+      user-select:none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .sectionHeader:hover{ background: rgba(255,255,255,0.03); }
+    .sectionHeader.done{
+      background: rgba(66,190,75,0.10);
+      border-bottom-color: rgba(66,190,75,0.20);
+    }
+
+    .sTitle{
+      display:flex;
+      align-items:baseline;
+      gap:12px;
+      min-width:0;
+    }
+    .sTitle h2{
+      margin:0;
+      font-size: 28px;
+      font-weight: 1000;
+      letter-spacing:-0.4px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sCounts{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+      font-weight: 1000;
+      color: rgba(233,233,239,0.88);
+    }
+    .badge{
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 14px;
+      letter-spacing: .4px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.25);
+      white-space:nowrap;
+    }
+    .badge.good{ border-color: rgba(66,190,75,0.35); background: rgba(66,190,75,0.10); }
+    .badge.warn{ border-color: rgba(255,154,31,0.45); background: rgba(255,154,31,0.10); }
+    .badge.info{ border-color: rgba(74,163,255,0.40); background: rgba(74,163,255,0.10); }
+
+    .chev{
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(0,0,0,0.18);
+      flex:0 0 auto;
+    }
+    .chev span{ font-size: 18px; opacity:.9; }
+
+    .sectionBody{ padding: 14px 14px 16px; display:none; }
+    .section.open .sectionBody{ display:block; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    @media (max-width: 1200px){
+      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 820px){
+      .grid{ grid-template-columns: 1fr; }
+      main{ height: calc(100% - 132px); }
+      header{ flex-direction:column; align-items:stretch; }
+      .hRight{ align-items:stretch; }
+      .controls{ justify-content:flex-start; }
+      .fieldRow{ justify-content:flex-start; }
+      .fieldRow input{ width: 100%; }
+    }
+
+    .card{
+      border: 2px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00) 65%),
+                  rgba(18,18,24,0.92);
+      border-radius: 18px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+      padding: 12px;
+      min-height: 250px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow:hidden;
+    }
+    .card.ufn{
+      border-color: rgba(234,85,64,0.48);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35), 0 0 0 4px rgba(234,85,64,0.10);
+    }
+
+    .cardTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .routes{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      min-width:0;
+    }
+    .routePill{
+      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
+      background: var(--accent);
+      color:#000;
+      font-weight: 800;
+      letter-spacing: .5px;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 18px;
+      line-height: 1;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.25);
+      text-transform: uppercase;
+      max-width: 100%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .routePill.more{ background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.92); border:1px dashed rgba(255,255,255,0.24); }
+
+    .statusTag{
+      flex:0 0 auto;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 14px;
+      font-weight: 1000;
+      letter-spacing: .4px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.20);
+      white-space:nowrap;
+    }
+    .statusTag.none{ opacity:.75; }
+    .statusTag.inprog{ border-color: rgba(74,163,255,0.55); background: rgba(74,163,255,0.12); }
+    .statusTag.ended { border-color: rgba(66,190,75,0.55); background: rgba(66,190,75,0.12); }
+    .statusTag.edit  { border-color: rgba(255,154,31,0.65); background: rgba(255,154,31,0.12); }
+
+    .summary{
+      font-size: 22px;
+      font-weight: 1000;
+      letter-spacing: -0.2px;
+      line-height: 1.05;
+      margin: 0;
+      color: rgba(255,255,255,0.96);
+      display:-webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px 12px;
+      font-size: 16px;
+      font-weight: 900;
+      color: rgba(233,233,239,0.82);
+    }
+    .meta b{ font-weight: 1000; color: rgba(255,255,255,0.95); }
+    .small{
+      font-size: 14px;
+      color: rgba(233,233,239,0.68);
+      font-weight: 800;
+    }
+
+    .linksRow{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .linkBtn{
+      height: 36px;
+      padding: 0 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.20);
+      color: rgba(255,255,255,0.92);
+      font-weight: 1000;
+      letter-spacing: .25px;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .linkBtn:hover{ border-color: rgba(255,224,74,0.45); }
+    .linkBtn:active{ transform: translateY(1px); }
+
+    .actions{
+      margin-top:auto;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+    .aBtn{
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.95);
+      font-weight: 1000;
+      letter-spacing: .35px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      user-select:none;
+      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      text-align:center;
+      padding: 0 10px;
+    }
+    .aBtn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); }
+    .aBtn:active{ transform: translateY(0); }
+    .aBtn.inprog{ border-color: rgba(74,163,255,0.40); background: rgba(74,163,255,0.10); }
+    .aBtn.ended { border-color: rgba(66,190,75,0.40); background: rgba(66,190,75,0.10); }
+    .aBtn.edit  { border-color: rgba(255,154,31,0.55); background: rgba(255,154,31,0.12); }
+    .aBtn.hide  { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.05); }
+
+    #toast{
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.82);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.95);
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-weight: 900;
+      letter-spacing: .25px;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.45);
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity 180ms ease, transform 180ms ease;
+      z-index: 9999;
+    }
+    #toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    /* Hidden report container for PDF */
+    #reportRoot{
+      position: fixed;
+      left: -99999px;
+      top: 0;
+      width: 900px;
+      background: #fff;
+      color:#111;
+      font-family: Arial, system-ui, sans-serif;
+      padding: 18px 18px 22px;
+    }
+    #reportRoot h1{ font-size: 22px; margin: 0 0 8px; }
+    #reportRoot .rMeta{ font-size: 12px; color:#333; margin-bottom: 12px; }
+    #reportRoot h2{ font-size: 16px; margin: 16px 0 8px; }
+    #reportRoot table{ width: 100%; border-collapse: collapse; font-size: 12px; }
+    #reportRoot th, #reportRoot td{ border:1px solid #ddd; padding: 6px 7px; vertical-align: top; }
+    #reportRoot th{ background:#f4f4f4; text-align:left; }
+    #reportRoot .pill{
+      display:inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border:1px solid #ddd;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    #reportRoot .pillEnded{ border-color:#2ea043; background:#e9f7ec; }
+    #reportRoot .pillEdit{ border-color:#d97706; background:#fff7ed; }
+    #reportRoot .pillInprog{ border-color:#2563eb; background:#eff6ff; }
+    #reportRoot .pillNone{ border-color:#777; background:#f3f4f6; }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="hLeft">
+    <h1>Bus Alert Validity Checker</h1>
+    <div class="sub">
+      <div id="livePill" class="pill"><span class="dot"></span><span><b>LIVE</b> • <span id="lastOk">—</span></span></div>
+      <div class="pill"><span>Alerts:</span> <b id="countAll">0</b></div>
+      <div class="pill"><span>Remaining:</span> <b id="countRemaining">0</b></div>
+    </div>
+  </div>
+
+  <div class="hRight">
+    <div class="fieldRow">
+      <label for="officerName">Officer</label>
+      <input id="officerName" type="text" placeholder="e.g. Ryan" />
+    </div>
+    <div class="controls">
+      <button id="btnCopy" class="primary">Copy message to DEO</button>
+      <button id="btnPdf" class="good">Export PDF report</button>
+      <button id="btnRefresh">Refresh now</button>
+      <button id="btnReset" class="danger">Reset decisions</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="sections"></div>
+</main>
+
+<div id="toast"></div>
+
+<!-- Hidden report root -->
+<div id="reportRoot" aria-hidden="true"></div>
+
+<script>
+/* =========================================================
+   CONFIG
+========================================================= */
+const BODS_URL_BASE = "https://renderexpress-ebb0.onrender.com/api/bods-siri-sx";
+const FEED_REFRESH_MS = 45000;
+const STALE_AFTER_MS = Math.max(FEED_REFRESH_MS * 2, 120000);
+
+const HIDE_3HOURS_MS = 3 * 60 * 60 * 1000;
+
+// Wall-screen operator filter set (from your supplied HTML)
+const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
+
+// Sections (subtitle chips removed by design)
+const SECTIONS = [
+  { key:"ufn",   title:"UFN",            icon:"⚠️" },
+  { key:"start", title:"Starting Today", icon:"🟦" },
+  { key:"end",   title:"Ending Today",   icon:"🟩" }
+];
+
+// Decisions storage
+const DECISIONS_KEY = "ctdd_checker_decisions_v3";
+const UI_KEY = "ctdd_checker_ui_v3";
+
+// Statuses
+const STATUS = { NONE:"none", INPROG:"inprog", ENDED:"ended", EDIT:"edit" };
+
+/* =========================================================
+   DOM helpers
+========================================================= */
+const $ = s => document.querySelector(s);
+function el(tag, attrs={}, children=[]){
+  const n = document.createElement(tag);
+  for(const [k,v] of Object.entries(attrs)){
+    if(k === "class") n.className = v;
+    else if(k === "html") n.innerHTML = v;
+    else if(k.startsWith("on") && typeof v === "function") n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v);
+  }
+  for(const c of (Array.isArray(children) ? children : [children])){
+    if(c == null) continue;
+    n.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  }
+  return n;
+}
+function toast(msg){
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toast._tm);
+  toast._tm = setTimeout(()=>t.classList.remove("show"), 1800);
+}
+
+/* =========================================================
+   Date helpers
+========================================================= */
+const parseISO = s => s ? new Date(s) : null;
+function isToday(d){
+  if(!d) return false;
+  const n = new Date();
+  return d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate();
+}
+function fmtDateTime(d){
+  if(!d) return "—";
+  return new Intl.DateTimeFormat(undefined, {weekday:"short", day:"2-digit", month:"short", hour:"2-digit", minute:"2-digit"}).format(d);
+}
+function fmtHM(d){
+  if(!d) return "—";
+  return new Intl.DateTimeFormat(undefined, {hour:"2-digit", minute:"2-digit"}).format(d);
+}
+function durationShort(start, end){
+  if(!start) return "—";
+  const endT = end || new Date();
+  const ms = endT - start;
+  if(ms < 0) return "—";
+  const m = Math.round(ms/60000);
+  if(m < 60) return m + "m";
+  const h = Math.round(m/60);
+  if(h < 24) return h + "h";
+  return Math.round(h/24) + "d";
+}
+
+/* =========================================================
+   Persistence
+========================================================= */
+let decisions = loadDecisions();
+let uiState = loadUIState();
+
+function loadDecisions(){
+  try{ return JSON.parse(localStorage.getItem(DECISIONS_KEY) || "{}"); }catch{ return {}; }
+}
+function saveDecisions(){
+  localStorage.setItem(DECISIONS_KEY, JSON.stringify(decisions));
+}
+function loadUIState(){
+  try{ return JSON.parse(localStorage.getItem(UI_KEY) || "{}"); }catch{ return {}; }
+}
+function saveUIState(){
+  localStorage.setItem(UI_KEY, JSON.stringify(uiState));
+}
+
+/* =========================================================
+   Hide 3hrs logic
+   - hides cards visually
+   - DOES NOT mark as worked
+   - still counts toward Remaining / DONE (because it's unworked)
+========================================================= */
+function isHiddenById(id){
+  const d = decisions[id];
+  if(!d || !d.hiddenUntil) return false;
+  return Date.now() < d.hiddenUntil;
+}
+function cleanupExpiredHiddenFlags(){
+  let changed = false;
+  for(const [id, d] of Object.entries(decisions)){
+    if(d && d.hiddenUntil && Date.now() >= d.hiddenUntil){
+      delete d.hiddenUntil;
+      // ensure it is treated as "not worked"
+      if(d.status) delete d.status;
+      changed = true;
+    }
+  }
+  if(changed) saveDecisions();
+}
+
+/* =========================================================
+   Feed parsing + filters (match wall-screen)
+========================================================= */
+function buildDfTDetailUrl(situationNumber){
+  if(!situationNumber) return "";
+  return `https://disruption-data.dft.gov.uk/disruption-detail/${encodeURIComponent(situationNumber)}`;
+}
+
+function getSituationId(sit){
+  const a = sit?.SituationNumber || sit?.SituationRef || "";
+  const b = (sit?.ParticipantRef?.value ?? sit?.ParticipantRef ?? "");
+  const st = sit?.ValidityPeriod?.StartTime || sit?.StartTime || "";
+  const sum = (sit?.Summary || sit?.Description || "").slice(0,80);
+  return String(a || `${b}|${st}|${sum}`).trim();
+}
+
+function getNetworkAffectedLines(sit){
+  const out = [];
+  const nets = sit?.Affects?.Networks?.AffectedNetwork;
+  const list = Array.isArray(nets) ? nets : (nets ? [nets] : []);
+  for(const n of list){
+    const lines = n?.AffectedLine;
+    const llist = Array.isArray(lines) ? lines : (lines ? [lines] : []);
+    for(const ln of llist){
+      const opRef = ln?.AffectedOperator?.OperatorRef || ln?.AffectedOperatorRef || null;
+      const lineRef = ln?.LineRef || ln?.PublishedLineName || null;
+      const pubName = ln?.PublishedLineName || ln?.LineName || null;
+      out.push({ opRef, lineRef, pubName });
+    }
+  }
+  return out;
+}
+
+function getOperatorRefs(sit){
+  const refs = new Set();
+  const add = v => { if(v) refs.add(String(v).trim().toUpperCase()); };
+
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+  if(Array.isArray(avj)){
+    for(const j of avj) add(j?.OperatorRef);
+  } else if(avj){
+    add(avj?.OperatorRef);
+  }
+
+  for(const x of getNetworkAffectedLines(sit)) add(x.opRef);
+  if(Array.isArray(sit.__operatorRefs)) sit.__operatorRefs.forEach(add);
+  return [...refs];
+}
+
+function getLineRefs(sit){
+  const lines = new Set();
+  const pushVal = (val)=>{
+    if(val == null) return;
+    const s = String(val).trim();
+    if(s) lines.add(s);
+  };
+
+  const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+  if(Array.isArray(avj)){
+    for(const j of avj) pushVal(j?.LineRef || j?.PublishedLineName || j?.LineName);
+  } else if(avj){
+    pushVal(avj?.LineRef || avj?.PublishedLineName || avj?.LineName);
+  }
+
+  for(const x of getNetworkAffectedLines(sit)) pushVal(x.lineRef || x.pubName);
+  if(Array.isArray(sit.__lineRefs)){ for(const v of sit.__lineRefs) pushVal(v); }
+  return Array.from(lines);
+}
+
+function isBusOperator(sit){
+  const refs = getOperatorRefs(sit);
+  return refs && refs.some(r => BEE_OPERATORS.includes(r));
+}
+
+// Same diversion check as wall tool
+function isDiversion(sit){
+  const txt = (sit.Description || sit.Summary || "").toLowerCase();
+  return txt.includes("divert") || txt.includes("diversion");
+}
+
+// Same validity check as wall tool
+function isCurrentlyValid(sit){
+  const now = new Date();
+  const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+  if(!s) return false;
+  if(s > now) return false;
+  if(e && e < now) return false;
+  return true;
+}
+
+function mapOperators(refs){
+  const uniq = Array.from(new Set((refs||[]).map(x => String(x).trim().toUpperCase()).filter(Boolean)));
+  const codes = uniq.map(r => OP_MAP[r] || r);
+  return codes.join(", ") || "—";
+}
+
+function formatRouteChipLabel(raw){
+  const s = String(raw ?? "").trim();
+  if (!s) return "?";
+  if (/^\+\d+$/i.test(s)) return s;
+  if (/^\d+[a-z]?$/i.test(s)) return s.toUpperCase();
+  const clean = s.replace(/[^A-Za-z0-9]/g, "");
+  const out = (clean || s).slice(0,6).toUpperCase();
+  return out || "?";
+}
+function pickRoutesDisplay(routes){
+  const r = Array.isArray(routes) ? routes : [];
+  if(!r.length) return { show:["?"], extra:0 };
+  if(r.length <= 6) return { show:r, extra:0 };
+  return { show:r.slice(0,5), extra:(r.length - 5) };
+}
+
+function classifyItem(sit){
+  const start = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+  const end   = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+
+  const isUFN = !end;
+  const startingToday = !!start && isToday(start);
+  const endingToday   = !!end && isToday(end);
+
+  // Priority: UFN > Ending Today > Starting Today
+  let bucket = "start";
+  if(isUFN) bucket = "ufn";
+  else if(endingToday) bucket = "end";
+  else if(startingToday) bucket = "start";
+  else bucket = "start"; // will be filtered out if not today
+
+  const situationNumber = (sit?.SituationNumber || sit?.SituationRef || "").toString().trim();
+  const id = getSituationId(sit);
+  const routes = getLineRefs(sit);
+  const operatorRefs = getOperatorRefs(sit);
+
+  return {
+    id,
+    bucket,
+    situationNumber,
+    summary: (sit?.Summary || "").toString().trim() || (sit?.Description || "").toString().trim() || "—",
+    start,
+    end,
+    isUFN,
+    routes,
+    operatorRefs,
+    operatorsLabel: mapOperators(operatorRefs),
+    recordUrl: buildDfTDetailUrl(situationNumber)
+  };
+}
+
+/* =========================================================
+   State + rendering
+========================================================= */
+let lastOkAt = 0;
+let staleActive = false;
+
+// All items currently in scope (UFN / Start Today / End Today) - including hidden
+let currentItemsAll = [];
+
+// Visible items (filtered to hide 3hrs)
+function currentItemsVisible(){
+  return currentItemsAll.filter(it => !isHiddenById(it.id));
+}
+
+function getDecision(id){ return decisions[id]?.status || STATUS.NONE; }
+function setDecision(id, status){
+  // If someone sets a decision, remove any hide flag
+  const d = decisions[id] || {};
+  decisions[id] = { ...d, status, updatedAt: Date.now() };
+  if(decisions[id].hiddenUntil) delete decisions[id].hiddenUntil;
+  saveDecisions();
+  updateCountsAndUI();
+  render();
+}
+
+function hide3hrs(id){
+  const d = decisions[id] || {};
+  decisions[id] = { ...d, hiddenUntil: Date.now() + HIDE_3HOURS_MS, updatedAt: Date.now() };
+  // Hide is NOT a decision – ensure it stays "not worked"
+  if(decisions[id].status) delete decisions[id].status;
+  saveDecisions();
+  toast("Hidden for 3 hours");
+  render();
+}
+
+function sectionDone(itemsAllInSection){
+  // DONE only if every item has a real decision (inprog/ended/edit)
+  return itemsAllInSection.length > 0 && itemsAllInSection.every(it => getDecision(it.id) !== STATUS.NONE);
+}
+function countRemaining(itemsAllInSection){
+  // Remaining counts include hidden items (because hide is not "worked")
+  return itemsAllInSection.filter(it => getDecision(it.id) === STATUS.NONE).length;
+}
+function statusLabel(status){
+  switch(status){
+    case STATUS.INPROG: return "Confirm In Progress";
+    case STATUS.ENDED:  return "Confirm Ended";
+    case STATUS.EDIT:   return "Edit Needed";
+    default: return "Not worked";
+  }
+}
+function statusClass(status){
+  switch(status){
+    case STATUS.INPROG: return "inprog";
+    case STATUS.ENDED:  return "ended";
+    case STATUS.EDIT:   return "edit";
+    default: return "none";
+  }
+}
+
+function openRoutesOnBusTimes(routes){
+  if(!Array.isArray(routes) || !routes.length){
+    toast("No routes on this alert.");
+    return;
+  }
+  // De-dupe + ignore any "+N" pseudo routes
+  const cleanRoutes = Array.from(new Set(
+    routes.map(r => String(r).trim()).filter(r => r && !r.startsWith("+"))
+  ));
+  if(!cleanRoutes.length){
+    toast("No valid routes to open.");
+    return;
+  }
+  // Open each route in its own tab. (Browser may block if popups are restricted.)
+  for(const route of cleanRoutes){
+    const q = encodeURIComponent(route) + "+bee";
+    const url = `https://bustimes.org/search?q=${q}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+}
+
+function render(){
+  cleanupExpiredHiddenFlags();
+
+  const container = $("#sections");
+  container.replaceChildren();
+
+  // Group ALL items by bucket
+  const byBucketAll = { ufn:[], start:[], end:[] };
+  for(const it of currentItemsAll){
+    (byBucketAll[it.bucket] || byBucketAll.start).push(it);
+  }
+
+  // Group VISIBLE items by bucket
+  const vis = currentItemsVisible();
+  const byBucketVis = { ufn:[], start:[], end:[] };
+  for(const it of vis){
+    (byBucketVis[it.bucket] || byBucketVis.start).push(it);
+  }
+
+  // Sorts
+  byBucketAll.ufn.sort((a,b)=> (b.start - a.start));
+  byBucketAll.end.sort((a,b)=> (a.end - b.end));
+  byBucketAll.start.sort((a,b)=> (a.start - b.start));
+
+  byBucketVis.ufn.sort((a,b)=> (b.start - a.start));
+  byBucketVis.end.sort((a,b)=> (a.end - b.end));
+  byBucketVis.start.sort((a,b)=> (a.start - b.start));
+
+  for(const def of SECTIONS){
+    const itemsAll = byBucketAll[def.key] || [];
+    const itemsVis = byBucketVis[def.key] || [];
+
+    const open = (uiState[def.key]?.open ?? true);
+    const done = sectionDone(itemsAll);
+    const remaining = countRemaining(itemsAll);
+    const hiddenCount = itemsAll.length - itemsVis.length;
+
+    const sec = el("div", { class: `section ${open ? "open" : ""}` });
+
+    // ✅ Subtitle/filter chip removed: ONLY title remains
+    const left = el("div", { class:"sTitle" }, [
+      el("h2", {}, `${def.icon} ${def.title}`)
+    ]);
+
+    const counts = el("div", { class:"sCounts" }, [
+      el("span", { class:"badge" }, `Total: ${itemsAll.length}`),
+      hiddenCount ? el("span", { class:"badge info" }, `Hidden: ${hiddenCount}`) : null,
+      el("span", { class:`badge ${remaining===0 && itemsAll.length ? "good" : "warn"}` }, `Remaining: ${remaining}`),
+      done ? el("span", { class:"badge good" }, "DONE") : null
+    ].filter(Boolean));
+
+    const chev = el("div", { class:"chev" }, el("span", {}, open ? "▾" : "▸"));
+
+    const header = el("div", {
+      class: `sectionHeader ${done ? "done" : ""}`,
+      onclick: () => {
+        const isOpen = sec.classList.toggle("open");
+        uiState[def.key] = { ...(uiState[def.key]||{}), open: isOpen };
+        saveUIState();
+        chev.querySelector("span").textContent = isOpen ? "▾" : "▸";
+      }
+    }, [left, counts, chev]);
+
+    const body = el("div", { class:"sectionBody" });
+
+    if(!itemsAll.length){
+      body.appendChild(el("div", { class:"small" }, "No alerts in this section ✅"));
+    }else if(!itemsVis.length){
+      // All items are hidden
+      body.appendChild(el("div", { class:"small" }, "All alerts in this section are currently hidden (Hide 3hrs)."));
+    }else{
+      const grid = el("div", { class:"grid" });
+      for(const it of itemsVis) grid.appendChild(renderCard(it));
+      body.appendChild(grid);
+    }
+
+    sec.append(header, body);
+    container.appendChild(sec);
+
+    // Auto-collapse when done (first time)
+    if(done && uiState[def.key]?.autoCollapsedDone !== true){
+      sec.classList.remove("open");
+      chev.querySelector("span").textContent = "▸";
+      uiState[def.key] = { ...(uiState[def.key]||{}), open:false, autoCollapsedDone:true };
+      saveUIState();
+    }
+  }
+
+  updateCountsAndUI();
+}
+
+function renderCard(it){
+  const status = getDecision(it.id);
+  const { show, extra } = pickRoutesDisplay(it.routes);
+
+  const routesWrap = el("div", { class:"routes" }, [
+    ...show.map(r => el("div", { class:"routePill", title:String(r) }, formatRouteChipLabel(r))),
+    extra ? el("div", { class:"routePill more" }, `+${extra}`) : null
+  ].filter(Boolean));
+
+  const tag = el("div", { class:`statusTag ${statusClass(status)} ${status===STATUS.NONE ? "none" : ""}` }, statusLabel(status));
+
+  const summary = el("p", { class:"summary", title: it.summary }, it.summary);
+
+  const meta = el("div", { class:"meta" }, [
+    el("span", {}, ["Start: ", el("b", {}, it.start ? fmtDateTime(it.start) : "—")]),
+    el("span", {}, ["End: ", el("b", {}, it.end ? fmtDateTime(it.end) : "UFN")]),
+    el("span", {}, ["Dur: ", el("b", {}, durationShort(it.start, it.end))]),
+    el("span", {}, ["Ops: ", el("b", {}, it.operatorsLabel || "—")])
+  ]);
+
+  const idLine = el("div", { class:"small" }, `SituationNumber: ${it.situationNumber || "—"}`);
+
+  // ✅ Removed copy buttons; ✅ Added BusTimes button
+  const linksRow = el("div", { class:"linksRow" }, [
+    el("button", {
+      class:"linkBtn",
+      onclick: () => openRoutesOnBusTimes(it.routes)
+    }, "Open routes on BusTimes"),
+
+    el("button", {
+      class:"linkBtn",
+      onclick: () => {
+        if(it.recordUrl){
+          window.open(it.recordUrl, "_blank", "noopener,noreferrer");
+        } else {
+          toast("No SituationNumber to build the DfT link.");
+        }
+      }
+    }, "Open in DfT Tool")
+  ]);
+
+  const actions = el("div", { class:"actions" }, [
+    el("div", { class:"aBtn inprog", onclick: () => setDecision(it.id, STATUS.INPROG) }, "Confirm In Progress"),
+    el("div", { class:"aBtn ended",  onclick: () => setDecision(it.id, STATUS.ENDED)  }, "Confirm Ended"),
+    el("div", { class:"aBtn edit",   onclick: () => setDecision(it.id, STATUS.EDIT)   }, "Edit Needed"),
+    el("div", { class:"aBtn hide",   onclick: () => hide3hrs(it.id) }, "Hide 3hrs")
+  ]);
+
+  return el("div", { class:`card ${it.isUFN ? "ufn" : ""}` }, [
+    el("div", { class:"cardTop" }, [routesWrap, tag]),
+    summary,
+    meta,
+    idLine,
+    linksRow,
+    actions
+  ]);
+}
+
+function updateCountsAndUI(){
+  cleanupExpiredHiddenFlags();
+
+  const all = currentItemsAll.length;
+  const remaining = currentItemsAll.filter(it => getDecision(it.id) === STATUS.NONE).length;
+
+  $("#countAll").textContent = all;
+  $("#countRemaining").textContent = remaining;
+
+  const pill = $("#livePill");
+  if(staleActive){
+    pill.classList.add("stale");
+    pill.querySelector("b").textContent = "STALE";
+  }else{
+    pill.classList.remove("stale");
+    pill.querySelector("b").textContent = "LIVE";
+  }
+}
+
+/* =========================================================
+   DEO message + PDF report
+========================================================= */
+async function copyText(text){
+  try{
+    await navigator.clipboard.writeText(String(text || ""));
+    toast("Copied ✅");
+  }catch{
+    const ta = document.createElement("textarea");
+    ta.value = String(text || "");
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+    toast("Copied ✅");
+  }
+}
+
+function buildDeoMessage(){
+  const officer = ($("#officerName").value || "").trim() || "—";
+  const now = new Date();
+
+  const ended = currentItemsAll.filter(it => getDecision(it.id) === STATUS.ENDED);
+  const edit  = currentItemsAll.filter(it => getDecision(it.id) === STATUS.EDIT);
+
+  const lines = [];
+  lines.push(`DEO – CTDD bus alert actions`);
+  lines.push(`Time: ${now.toLocaleString()}`);
+  lines.push(`Officer: ${officer}`);
+  lines.push("");
+  lines.push(`Items needing action: ${ended.length + edit.length}`);
+  lines.push("");
+
+  function itemLine(it, label){
+    const routes = (it.routes||[]).slice(0,8).map(formatRouteChipLabel).join(", ") || "—";
+    const ops = it.operatorsLabel || "—";
+    const start = it.start ? `${fmtHM(it.start)} (${it.start.toLocaleDateString()})` : "—";
+    const end   = it.end ? `${fmtHM(it.end)} (${it.end.toLocaleDateString()})` : "UFN";
+    const url = it.recordUrl || "(DfT link unavailable)";
+    const sn = it.situationNumber || "(no SituationNumber)";
+
+    return `• ${label}: ${it.summary}\n  Routes: ${routes} | Ops: ${ops}\n  Start: ${start} | End: ${end}\n  SituationNumber: ${sn}\n  Link: ${url}`;
+  }
+
+  if(ended.length){
+    lines.push("CONFIRMED ENDED (remove/close):");
+    for(const it of ended) lines.push(itemLine(it, "ENDED"));
+    lines.push("");
+  }
+  if(edit.length){
+    lines.push("EDIT NEEDED (amend text/times/routes):");
+    for(const it of edit) lines.push(itemLine(it, "EDIT"));
+    lines.push("");
+  }
+  if(!ended.length && !edit.length){
+    lines.push("No items marked as Ended or Edit Needed.");
+  }
+
+  return lines.join("\n");
+}
+
+function escapeHtml(s){
+  return String(s ?? "")
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+function pillHtmlForStatus(st){
+  switch(st){
+    case STATUS.ENDED:  return `<span class="pill pillEnded">ENDED</span>`;
+    case STATUS.EDIT:   return `<span class="pill pillEdit">EDIT</span>`;
+    case STATUS.INPROG: return `<span class="pill pillInprog">IN PROGRESS</span>`;
+    default:            return `<span class="pill pillNone">NOT WORKED</span>`;
+  }
+}
+
+function buildReportHtml(){
+  const officer = ($("#officerName").value || "").trim() || "—";
+  const now = new Date();
+
+  const byBucket = { ufn:[], start:[], end:[] };
+  for(const it of currentItemsAll) (byBucket[it.bucket] || byBucket.start).push(it);
+
+  const bucketTitle = { ufn:"UFN", start:"Starting Today", end:"Ending Today" };
+
+  let html = "";
+  html += `<h1>CTDD Bus Alert Validity Check – Report</h1>`;
+  html += `<div class="rMeta"><b>Officer:</b> ${escapeHtml(officer)} &nbsp; | &nbsp; <b>Generated:</b> ${escapeHtml(now.toLocaleString())}</div>`;
+  html += `<div class="rMeta"><b>Feed:</b> ${escapeHtml(BODS_URL_BASE)} (param t=timestamp per fetch)</div>`;
+
+  for(const k of ["ufn","start","end"]){
+    const items = byBucket[k] || [];
+    html += `<h2>${escapeHtml(bucketTitle[k])} (${items.length})</h2>`;
+    if(!items.length){
+      html += `<div class="rMeta">No items.</div>`;
+      continue;
+    }
+    html += `<table><thead><tr>
+      <th style="width:110px;">Decision</th>
+      <th>Summary</th>
+      <th style="width:150px;">Routes</th>
+      <th style="width:120px;">Operators</th>
+      <th style="width:160px;">Start / End</th>
+      <th style="width:170px;">SituationNumber / Link</th>
+    </tr></thead><tbody>`;
+
+    for(const it of items){
+      const st = getDecision(it.id);
+      const routes = (it.routes||[]).slice(0,10).map(formatRouteChipLabel).join(", ") || "—";
+      const start = it.start ? fmtDateTime(it.start) : "—";
+      const end = it.end ? fmtDateTime(it.end) : "UFN";
+      const sn = it.situationNumber || "—";
+      const link = it.recordUrl || "";
+      const hidden = isHiddenById(it.id);
+
+      html += `<tr>
+        <td>${pillHtmlForStatus(st)}${hidden ? `<div style="margin-top:4px;font-size:10px;color:#555;">HIDDEN</div>` : ""}</td>
+        <td>${escapeHtml(it.summary)}</td>
+        <td>${escapeHtml(routes)}</td>
+        <td>${escapeHtml(it.operatorsLabel || "—")}</td>
+        <td>${escapeHtml(start)}<br>${escapeHtml(end)}</td>
+        <td>${escapeHtml(sn)}${link ? `<br><span style="color:#0b57d0;">${escapeHtml(link)}</span>` : ""}</td>
+      </tr>`;
+    }
+
+    html += `</tbody></table>`;
+  }
+  return html;
+}
+
+/* =========================================================
+   Fetch (JSON-first, XML fallback) + APPLY MATCHING FILTERS
+========================================================= */
+async function fetchAll(){
+  try{
+    const url = `${BODS_URL_BASE}?t=${Date.now()}`;
+    const res = await fetch(url, {
+      cache:"no-store",
+      headers: { "Accept": "application/json, application/xml;q=0.8, text/xml;q=0.7" }
+    });
+    if(!res.ok) throw new Error("HTTP " + res.status);
+
+    let parsed;
+    const clone = res.clone();
+    try{
+      parsed = { type:"json", data: await res.json() };
+    }catch{
+      const txt = await clone.text();
+      parsed = { type:"xml", data: (new DOMParser()).parseFromString(txt, "application/xml") };
+    }
+
+    const extractSituationsFromJSON = (json) => {
+      const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+      if(!sd) return [];
+      const sed = Array.isArray(sd.SituationExchangeDelivery)
+        ? sd.SituationExchangeDelivery
+        : [sd.SituationExchangeDelivery].filter(Boolean);
+      const out=[];
+      for(const d of sed){
+        const pe = d?.Situations?.PtSituationElement;
+        if(Array.isArray(pe)) out.push(...pe);
+        else if(pe) out.push(pe);
+      }
+      return out;
+    };
+
+    const extractSituationsFromXML = (doc) => {
+      const els = [...doc.querySelectorAll("PtSituationElement")];
+      const T = (el, sel) => el.querySelector(sel)?.textContent?.trim() || null;
+
+      const readAffectedNetworks = (el) => {
+        const nets = [...el.querySelectorAll("Affects > Networks > AffectedNetwork")];
+        if (!nets.length) return null;
+        const mapped = nets.map(n => {
+          const affectedLines = [...n.querySelectorAll("AffectedLine")].map(ln => {
+            const opRef = ln.querySelector("AffectedOperator > OperatorRef")?.textContent?.trim() || null;
+            const lineRef = ln.querySelector("LineRef")?.textContent?.trim() || null;
+            const pubName = ln.querySelector("PublishedLineName")?.textContent?.trim() || null;
+            const lineName = ln.querySelector("LineName")?.textContent?.trim() || null;
+            return {
+              AffectedOperator: opRef ? { OperatorRef: opRef } : undefined,
+              LineRef: lineRef || pubName || lineName || null,
+              PublishedLineName: pubName || null,
+              LineName: lineName || null
+            };
+          });
+          return { AffectedLine: affectedLines.length ? affectedLines : undefined };
+        });
+        return mapped.length ? mapped : null;
+      };
+
+      return els.map(el => {
+        const opsRef = [
+          ...el.querySelectorAll(
+            "AffectedVehicleJourney > OperatorRef, OperatorRef, " +
+            "Affects > Networks AffectedOperator > OperatorRef, " +
+            "Affects > Networks > AffectedNetwork > AffectedLine > AffectedOperator > OperatorRef"
+          )
+        ].map(n=>n.textContent.trim()).filter(Boolean);
+
+        const lines  = [
+          ...el.querySelectorAll(
+            "AffectedVehicleJourney > LineRef, PublishedLineName, LineName, " +
+            "Affects > Networks > AffectedNetwork > AffectedLine > LineRef, " +
+            "Affects > Networks > AffectedNetwork > AffectedLine > PublishedLineName"
+          )
+        ].map(n=>n.textContent.trim()).filter(Boolean);
+
+        const networks = readAffectedNetworks(el);
+        const affects = {};
+        if (networks) affects.Networks = { AffectedNetwork: networks };
+
+        return {
+          Summary: T(el,"Summary") || T(el,"Description"),
+          Description: T(el,"Description"),
+          Advice: T(el,"Advice"),
+          SituationNumber: T(el,"SituationNumber") || T(el,"SituationRef"),
+          ParticipantRef: T(el,"ParticipantRef"),
+          ValidityPeriod: {
+            StartTime: T(el,"ValidityPeriod > StartTime") || T(el,"StartTime"),
+            EndTime:   T(el,"ValidityPeriod > EndTime")   || T(el,"EndTime")
+          },
+          Affects: Object.keys(affects).length ? affects : undefined,
+          __operatorRefs: opsRef,
+          __lineRefs: lines
+        };
+      });
+    };
+
+    const allSituations = (parsed.type === "json")
+      ? extractSituationsFromJSON(parsed.data)
+      : extractSituationsFromXML(parsed.data);
+
+    // Wall-screen filters: bus operator + diversion + currently valid
+    const busSituations = allSituations.filter(isBusOperator);
+    const diversionSituations = busSituations.filter(isDiversion);
+    const liveDiversions = diversionSituations.filter(isCurrentlyValid);
+
+    const typed = liveDiversions.map(classifyItem);
+
+    // Only show: UFN, starting today, ending today (matching your checker spec)
+    currentItemsAll = typed.filter(it =>
+      it.bucket === "ufn" ||
+      (it.bucket === "start" && it.start && isToday(it.start)) ||
+      (it.bucket === "end" && it.end && isToday(it.end))
+    );
+
+    // Heartbeat
+    lastOkAt = Date.now();
+    staleActive = false;
+    $("#lastOk").textContent = new Intl.DateTimeFormat(undefined, {hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+
+    render();
+  }catch(err){
+    console.error(err);
+    if(lastOkAt && (Date.now() - lastOkAt) > STALE_AFTER_MS){
+      staleActive = true;
+      updateCountsAndUI();
+    }
+    toast("Feed error (see console).");
+  }
+}
+
+/* =========================================================
+   Buttons
+========================================================= */
+$("#btnCopy").addEventListener("click", async () => {
+  await copyText(buildDeoMessage());
+  toast("DEO message copied ✅");
+});
+
+$("#btnPdf").addEventListener("click", () => {
+  const root = $("#reportRoot");
+  root.innerHTML = buildReportHtml();
+
+  const officer = ($("#officerName").value || "").trim() || "Officer";
+  const stamp = new Date().toISOString().slice(0,10);
+
+  const opt = {
+    margin:       [8, 8, 10, 8],
+    filename:     `CTDD_BusAlert_Report_${officer}_${stamp}.pdf`,
+    image:        { type: 'jpeg', quality: 0.96 },
+    html2canvas:  { scale: 2, useCORS: true },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak:    { mode: ['css','legacy'] }
+  };
+
+  html2pdf().set(opt).from(root).save()
+    .then(()=> toast("PDF exported ✅"))
+    .catch((e)=>{ console.error(e); toast("PDF export failed."); });
+});
+
+$("#btnRefresh").addEventListener("click", () => { fetchAll(); toast("Refreshing…"); });
+
+$("#btnReset").addEventListener("click", () => {
+  decisions = {};
+  localStorage.setItem(DECISIONS_KEY, JSON.stringify(decisions));
+  uiState = {};
+  localStorage.setItem(UI_KEY, JSON.stringify(uiState));
+  toast("Decisions reset.");
+  render();
+});
+
+/* =========================================================
+   Start
+========================================================= */
+fetchAll();
+setInterval(fetchAll, FEED_REFRESH_MS);
+
+// Stale watchdog
+setInterval(() => {
+  if(!lastOkAt) return;
+  if((Date.now() - lastOkAt) > STALE_AFTER_MS){
+    staleActive = true;
+    updateCountsAndUI();
+  }
+}, 2000);
+
+// Hide-expiry watchdog (so hidden items can reappear even if user never refreshes)
+setInterval(() => {
+  const before = JSON.stringify(decisions);
+  cleanupExpiredHiddenFlags();
+  const after = JSON.stringify(decisions);
+  if(before !== after) render();
+}, 30000);
+</script>
+</body>
+</html>
