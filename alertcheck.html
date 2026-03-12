@@ -271,7 +271,7 @@
       border-radius: 18px;
       box-shadow: 0 10px 22px rgba(0,0,0,0.35);
       padding: 12px;
-      min-height: 280px;
+      min-height: 320px;
       display:flex;
       flex-direction:column;
       gap:10px;
@@ -333,6 +333,11 @@
     .statusTag.inprog{ border-color: rgba(74,163,255,0.55); background: rgba(74,163,255,0.12); }
     .statusTag.ended { border-color: rgba(66,190,75,0.55); background: rgba(66,190,75,0.12); }
     .statusTag.edit  { border-color: rgba(255,154,31,0.65); background: rgba(255,154,31,0.12); }
+    .statusTag.ignore{ border-color: rgba(255,255,255,0.30); background: rgba(255,255,255,0.08); }
+    .statusTag.started{ border-color: rgba(66,190,75,0.55); background: rgba(66,190,75,0.12); }
+    .statusTag.delayed{ border-color: rgba(255,154,31,0.65); background: rgba(255,154,31,0.12); }
+    .statusTag.remove{ border-color: rgba(234,85,64,0.55); background: rgba(234,85,64,0.12); }
+    .statusTag.finished{ border-color: rgba(66,190,75,0.55); background: rgba(66,190,75,0.12); }
 
     .summary{
       font-size: 22px;
@@ -356,6 +361,35 @@
       color: rgba(233,233,239,0.82);
     }
     .meta b{ font-weight: 1200; color: rgba(255,255,255,0.95); }
+
+    .descPreview{
+      font-size: 14px;
+      font-weight: 950;
+      color: rgba(233,233,239,0.86);
+      background: rgba(74,163,255,0.08);
+      border: 1px solid rgba(74,163,255,0.18);
+      border-radius: 12px;
+      padding: 10px 10px;
+      line-height: 1.15;
+      display:-webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+    .descPreview b{ font-weight: 1150; color: rgba(255,255,255,0.92); }
+
+    .notePreview{
+      font-size: 15px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,154,31,0.10);
+      border: 1px solid rgba(255,154,31,0.25);
+      border-radius: 12px;
+      padding: 10px 10px;
+      line-height: 1.15;
+    }
+    .notePreview b{ font-weight: 1100; }
+
     .small{
       font-size: 14px;
       color: rgba(233,233,239,0.68);
@@ -407,7 +441,8 @@
     .aBtn.inprog{ border-color: rgba(74,163,255,0.40); background: rgba(74,163,255,0.10); }
     .aBtn.ended { border-color: rgba(66,190,75,0.40); background: rgba(66,190,75,0.10); }
     .aBtn.edit  { border-color: rgba(255,154,31,0.55); background: rgba(255,154,31,0.12); }
-    .aBtn.hide  { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.05); }
+    .aBtn.ignore{ border-color: rgba(255,255,255,0.20); background: rgba(255,255,255,0.06); }
+    .aBtn.warn  { border-color: rgba(234,85,64,0.35); background: rgba(234,85,64,0.10); }
 
     /* Toast */
     #toast{
@@ -429,6 +464,136 @@
       z-index: 9999;
     }
     #toast.show{ opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+    /* ===== Edit Needed modal ===== */
+    #editModal{
+      position: fixed;
+      inset: 0;
+      display:none;
+      z-index: 8000;
+      background: rgba(0,0,0,0.65);
+      align-items:center;
+      justify-content:center;
+      padding: 22px;
+    }
+    #editModal.show{ display:flex; }
+
+    /* ===== Not Started modal ===== */
+    #nsModal{
+      position: fixed;
+      inset: 0;
+      display:none;
+      z-index: 8200;
+      background: rgba(0,0,0,0.65);
+      align-items:center;
+      justify-content:center;
+      padding: 22px;
+    }
+    #nsModal.show{ display:flex; }
+
+    .modalCard{
+      width: min(760px, 96vw);
+      background: rgba(20,20,28,0.98);
+      border: 2px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.55);
+      overflow:hidden;
+    }
+    .modalHead{
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+    }
+    .modalHead h3{
+      margin:0;
+      font-size: 26px;
+      font-weight: 1200;
+      letter-spacing: -0.3px;
+      line-height: 1.05;
+    }
+    .modalHead .metaLine{
+      margin-top:6px;
+      font-size: 16px;
+      font-weight: 900;
+      color: rgba(233,233,239,0.75);
+      line-height: 1.1;
+    }
+    .modalClose{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,255,255,0.92);
+      cursor:pointer;
+      font-weight: 1200;
+    }
+    .modalBody{ padding: 14px 16px 16px; }
+    .modalBody label{
+      display:block;
+      font-size: 16px;
+      font-weight: 1100;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 8px;
+    }
+    #editNoteInput{
+      width: 100%;
+      min-height: 140px;
+      resize: vertical;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.95);
+      padding: 12px;
+      font-size: 18px;
+      font-weight: 900;
+      outline:none;
+      line-height: 1.2;
+    }
+    #editNoteInput:focus{
+      border-color: rgba(255,154,31,0.55);
+      box-shadow: 0 0 0 4px rgba(255,154,31,0.12);
+    }
+
+    .modalHint{
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 900;
+      color: rgba(233,233,239,0.70);
+    }
+
+    .modalActions{
+      padding: 14px 16px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      flex-wrap:wrap;
+      background: rgba(0,0,0,0.18);
+    }
+    .modalActions button{
+      height: 44px;
+      border-radius: 14px;
+      padding: 0 14px;
+    }
+    .btnSave{
+      background: rgba(255,154,31,0.18);
+      border-color: rgba(255,154,31,0.45);
+    }
+    .btnCancel{
+      background: rgba(255,255,255,0.06);
+    }
+    .btnChoice{
+      background: rgba(74,163,255,0.14);
+      border-color: rgba(74,163,255,0.35);
+    }
+    .btnDanger{
+      background: rgba(234,85,64,0.16);
+      border-color: rgba(234,85,64,0.40);
+    }
   </style>
 </head>
 
@@ -440,7 +605,7 @@
       <div id="livePill" class="pill"><span class="dot"></span><span><b id="liveText">LIVE</b> • <span id="lastOk">—</span></span></div>
       <div class="pill">Alerts: <b id="countAll">0</b></div>
       <div class="pill">Remaining: <b id="countRemaining">0</b></div>
-      <div class="pill">Hidden: <b id="countHidden">0</b></div>
+      <div class="pill">Ignored: <b id="countIgnored">0</b></div>
     </div>
   </div>
 
@@ -463,6 +628,54 @@
 
 <div id="toast"></div>
 
+<!-- ===== Edit Needed modal ===== -->
+<div id="editModal" role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+  <div class="modalCard" role="document">
+    <div class="modalHead">
+      <div>
+        <h3 id="editModalTitle">Edit needed — what needs changing?</h3>
+        <div id="editModalMeta" class="metaLine">—</div>
+      </div>
+      <button id="editModalClose" class="modalClose" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modalBody">
+      <label for="editNoteInput">Quick note for the DEO (keep it short + clear):</label>
+      <textarea id="editNoteInput" placeholder="E.g. End time wrong — should be 14:30 not 23:59. Or: Wrong road name in summary. Or: Routes list missing 23A."></textarea>
+      <div class="modalHint">Tip: mention the specific field to change (end time / title / advice / routes) + the correct value.</div>
+    </div>
+
+    <div class="modalActions">
+      <button id="editModalCancel" class="btnCancel">Cancel</button>
+      <button id="editModalSave" class="btnSave">Save Edit Note</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Not Started modal (Starting Today only) ===== -->
+<div id="nsModal" role="dialog" aria-modal="true" aria-labelledby="nsModalTitle">
+  <div class="modalCard" role="document">
+    <div class="modalHead">
+      <div>
+        <h3 id="nsModalTitle">Not Started</h3>
+        <div id="nsModalMeta" class="metaLine">—</div>
+      </div>
+      <button id="nsModalClose" class="modalClose" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modalBody">
+      <div class="small">Choose what to do with this alert:</div>
+      <div class="modalHint">Start Delayed keeps it visible (status shown). Remove Alert flags it for removal in the report.</div>
+    </div>
+
+    <div class="modalActions">
+      <button id="nsModalCancel" class="btnCancel">Cancel</button>
+      <button id="nsModalDelayed" class="btnChoice">Start Delayed</button>
+      <button id="nsModalRemove" class="btnDanger">Remove Alert</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* =========================
    CONFIG
@@ -471,14 +684,24 @@ const BODS_URL_BASE = "https://renderexpress-ebb0.onrender.com/api/bods-siri-sx"
 const FEED_REFRESH_MS = 45000;
 const STALE_AFTER_MS  = Math.max(FEED_REFRESH_MS * 2, 120000);
 
-const HIDE_3HOURS_MS  = 3 * 60 * 60 * 1000;
+const IGNORE_UFN_MS   = 1 * 60 * 60 * 1000;
+const IGNORE_OTHER_MS = 3 * 60 * 60 * 1000;
+
 const INPROG_UFN_MS   = 1 * 60 * 60 * 1000;
 const INPROG_OTHER_MS = 3 * 60 * 60 * 1000;
 
 const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
 const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
 
-const STATUS = { NONE:"none", ENDED:"ended", EDIT:"edit" };
+const STATUS = {
+  NONE:"none",
+  ENDED:"ended",          // generic ended/remove (UFN mostly)
+  EDIT:"edit",
+  STARTED:"started",      // Starting Today confirmed started (suppresses in future sessions)
+  DELAYED:"delayed",      // Starting Today start delayed
+  REMOVE:"remove",        // Starting Today remove alert
+  FINISHED:"finished"     // Ending Today already finished
+};
 
 const SECTIONS = [
   { key:"ufn",   title:"UFN",            icon:"⚠️" },
@@ -486,8 +709,8 @@ const SECTIONS = [
   { key:"end",   title:"Ending Today",   icon:"🟩" }
 ];
 
-const DECISIONS_KEY = "bus_alert_checker_decisions_v1";
-const UI_KEY        = "bus_alert_checker_ui_v1";
+const DECISIONS_KEY = "bus_alert_checker_decisions_v2";
+const UI_KEY        = "bus_alert_checker_ui_v2";
 
 /* =========================
    Helpers
@@ -561,6 +784,19 @@ function buildDfTDetailUrl(situationNumber){
   return `https://disruption-data.dft.gov.uk/disruption-detail/${encodeURIComponent(situationNumber)}`;
 }
 
+function msLeft(ts){
+  if(!ts) return 0;
+  return ts - Date.now();
+}
+function fmtLeftShort(ms){
+  if(ms <= 0) return "0m";
+  const m = Math.ceil(ms/60000);
+  if(m < 60) return `${m}m`;
+  const h = Math.ceil(m/60);
+  if(h < 24) return `${h}h`;
+  return `${Math.ceil(h/24)}d`;
+}
+
 /* =========================
    Persistence
 ========================= */
@@ -584,24 +820,24 @@ function saveJson(key, obj){
 /* =========================
    Decision model
    decisions[id] may contain:
-   - status: "ended" | "edit" (permanent)
-   - workedUntil: timestamp (temporary "in progress" worked)
-   - hiddenUntil: timestamp (hide 3hrs)
+   - status: ended | edit | started | delayed | remove | finished
+   - editNote: string (only for edit)
+   - workedUntil: timestamp (temporary in-progress / still diverting)
+   - ignoreUntil: timestamp (ignore timer)
 ========================= */
 function cleanupExpired(){
   const now = Date.now();
   let changed = false;
   for(const [id, d] of Object.entries(decisions)){
-    if(d?.hiddenUntil && now >= d.hiddenUntil){
-      delete d.hiddenUntil;
+    if(d?.ignoreUntil && now >= d.ignoreUntil){
+      delete d.ignoreUntil;
       changed = true;
     }
     if(d?.workedUntil && now >= d.workedUntil){
-      delete d.workedUntil;  // returns to not worked unless ended/edit set
+      delete d.workedUntil;
       changed = true;
     }
-    // prune empty objects
-    if(d && !d.status && !d.hiddenUntil && !d.workedUntil){
+    if(d && !d.status && !d.ignoreUntil && !d.workedUntil && !d.editNote){
       delete decisions[id];
       changed = true;
     }
@@ -609,40 +845,44 @@ function cleanupExpired(){
   if(changed) saveJson(DECISIONS_KEY, decisions);
 }
 
-function isHidden(id){
-  const d = decisions[id];
-  return !!(d && d.hiddenUntil && Date.now() < d.hiddenUntil);
+function getEditNote(id){
+  return (decisions[id]?.editNote || "").trim();
 }
 
-function isWorked(id){
+function isIgnored(id){
+  const d = decisions[id];
+  return !!(d && d.ignoreUntil && Date.now() < d.ignoreUntil);
+}
+
+function isInProgress(id){
+  const d = decisions[id];
+  return !!(d && d.workedUntil && Date.now() < d.workedUntil);
+}
+
+function isHandled(id){
   const d = decisions[id];
   if(!d) return false;
-  if(d.status === STATUS.ENDED || d.status === STATUS.EDIT) return true;
-  if(d.workedUntil && Date.now() < d.workedUntil) return true;
+  if(d.status) return true;
+  if(isIgnored(id)) return true;
+  if(isInProgress(id)) return true;
   return false;
 }
 
-function statusForUI(id){
-  const d = decisions[id];
-  if(!d) return "none";
-  if(d.status === STATUS.ENDED) return "ended";
-  if(d.status === STATUS.EDIT) return "edit";
-  if(d.workedUntil && Date.now() < d.workedUntil) return "inprog";
-  return "none";
+/* Starting Today: "Confirm Started" should hide from future sessions (UI suppression) */
+function isSuppressedInUI(item){
+  const d = decisions[item.id];
+  return !!(item.bucket === "start" && d?.status === STATUS.STARTED);
 }
 
-function setEnded(id){
-  decisions[id] = { ...(decisions[id]||{}), status: STATUS.ENDED };
+function setStatus(id, status){
+  decisions[id] = { ...(decisions[id]||{}), status };
+  // status changes clear timers
   delete decisions[id].workedUntil;
-  delete decisions[id].hiddenUntil;
-  saveJson(DECISIONS_KEY, decisions);
-  render();
-}
+  delete decisions[id].ignoreUntil;
 
-function setEdit(id){
-  decisions[id] = { ...(decisions[id]||{}), status: STATUS.EDIT };
-  delete decisions[id].workedUntil;
-  delete decisions[id].hiddenUntil;
+  // remove edit note unless keeping edit
+  if(status !== STATUS.EDIT && decisions[id].editNote) delete decisions[id].editNote;
+
   saveJson(DECISIONS_KEY, decisions);
   render();
 }
@@ -650,23 +890,190 @@ function setEdit(id){
 function setInProgress(id, isUfn){
   const dur = isUfn ? INPROG_UFN_MS : INPROG_OTHER_MS;
   decisions[id] = { ...(decisions[id]||{}), workedUntil: Date.now() + dur };
-  // in progress is temporary and should not set ended/edit
   delete decisions[id].status;
-  delete decisions[id].hiddenUntil;
+  if(decisions[id].editNote) delete decisions[id].editNote;
+  delete decisions[id].ignoreUntil;
   saveJson(DECISIONS_KEY, decisions);
   toast(isUfn ? "In progress (1 hour)" : "In progress (3 hours)");
   render();
 }
 
-function hide3hrs(id){
-  decisions[id] = { ...(decisions[id]||{}), hiddenUntil: Date.now() + HIDE_3HOURS_MS };
-  // hide does NOT mark as worked
+function setIgnore(id, isUfn){
+  const dur = isUfn ? IGNORE_UFN_MS : IGNORE_OTHER_MS;
+  decisions[id] = { ...(decisions[id]||{}), ignoreUntil: Date.now() + dur };
   delete decisions[id].status;
+  if(decisions[id].editNote) delete decisions[id].editNote;
   delete decisions[id].workedUntil;
   saveJson(DECISIONS_KEY, decisions);
-  toast("Hidden for 3 hours");
+  toast(isUfn ? "Ignored for 1 hour" : "Ignored for 3 hours");
   render();
 }
+
+function setEditWithNote(id, note){
+  const clean = String(note || "").trim();
+  decisions[id] = { ...(decisions[id]||{}), status: STATUS.EDIT, editNote: clean };
+  delete decisions[id].workedUntil;
+  delete decisions[id].ignoreUntil;
+  saveJson(DECISIONS_KEY, decisions);
+  toast("Edit note saved");
+  render();
+}
+
+/* =========================
+   Status label + class for UI/report
+========================= */
+function statusInfo(item){
+  const d = decisions[item.id] || {};
+  const st = d.status || STATUS.NONE;
+
+  // timers (ignore has priority over in-progress)
+  if(isIgnored(item.id)){
+    const left = fmtLeftShort(msLeft(d.ignoreUntil));
+    return { cls:"ignore", text:`Ignore (${left})` };
+  }
+  if(isInProgress(item.id)){
+    const left = fmtLeftShort(msLeft(d.workedUntil));
+    if(item.bucket === "end") return { cls:"inprog", text:`Still diverting (${left})` };
+    return { cls:"inprog", text:`In progress (${left})` };
+  }
+
+  if(st === STATUS.EDIT) return { cls:"edit", text:"Edit needed" };
+  if(st === STATUS.ENDED) return { cls:"ended", text:"Ended" };
+  if(st === STATUS.FINISHED) return { cls:"finished", text:"Already finished" };
+  if(st === STATUS.REMOVE) return { cls:"remove", text:"Remove alert" };
+  if(st === STATUS.DELAYED) return { cls:"delayed", text:"Start delayed" };
+  if(st === STATUS.STARTED) return { cls:"started", text:"Started" };
+
+  return { cls:"none", text:"Not worked" };
+}
+
+function statusTextForReport(item){
+  const d = decisions[item.id] || {};
+  const st = d.status || STATUS.NONE;
+  if(isIgnored(item.id)){
+    return `IGNORE (${fmtLeftShort(msLeft(d.ignoreUntil))})`;
+  }
+  if(isInProgress(item.id)){
+    if(item.bucket === "end") return `STILL DIVERTING (${fmtLeftShort(msLeft(d.workedUntil))})`;
+    return `IN PROGRESS (${fmtLeftShort(msLeft(d.workedUntil))})`;
+  }
+  if(st === STATUS.EDIT) return "EDIT NEEDED";
+  if(st === STATUS.FINISHED) return "ALREADY FINISHED";
+  if(st === STATUS.STARTED) return "STARTED";
+  if(st === STATUS.DELAYED) return "START DELAYED";
+  if(st === STATUS.REMOVE) return "REMOVE ALERT";
+  if(st === STATUS.ENDED) return "ENDED";
+  return "NOT WORKED";
+}
+
+/* =========================
+   Edit modal logic
+========================= */
+let modalItemId = null;
+
+function openEditModal(item){
+  modalItemId = item.id;
+
+  const routes = (item.routes || []).slice(0,12).map(formatRouteChipLabel).join(", ") || "—";
+  const meta = `Routes: ${routes} • Situation: ${item.situationNumber || item.id}`;
+  $("#editModalMeta").textContent = meta;
+
+  const existing = getEditNote(item.id);
+  $("#editNoteInput").value = existing;
+
+  $("#editModal").classList.add("show");
+  setTimeout(() => $("#editNoteInput").focus(), 0);
+}
+
+function closeEditModal(){
+  $("#editModal").classList.remove("show");
+  modalItemId = null;
+  $("#editNoteInput").value = "";
+}
+
+function saveEditModal(){
+  if(!modalItemId) return;
+
+  const note = $("#editNoteInput").value.trim();
+
+  if(note.length < 3){
+    toast("Please add a short note for the DEO");
+    $("#editNoteInput").focus();
+    return;
+  }
+
+  setEditWithNote(modalItemId, note);
+  closeEditModal();
+}
+
+$("#editModalClose").addEventListener("click", closeEditModal);
+$("#editModalCancel").addEventListener("click", closeEditModal);
+$("#editModalSave").addEventListener("click", saveEditModal);
+
+$("#editModal").addEventListener("click", (e)=>{
+  if(e.target && e.target.id === "editModal") closeEditModal();
+});
+
+window.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape" && $("#editModal").classList.contains("show")){
+    e.preventDefault();
+    closeEditModal();
+  }
+});
+
+$("#editNoteInput").addEventListener("keydown", (e)=>{
+  if((e.ctrlKey || e.metaKey) && e.key === "Enter"){
+    e.preventDefault();
+    saveEditModal();
+  }
+});
+
+/* =========================
+   Not Started modal logic (Starting Today)
+========================= */
+let nsItemId = null;
+
+function openNotStartedModal(item){
+  nsItemId = item.id;
+  const routes = (item.routes || []).slice(0,12).map(formatRouteChipLabel).join(", ") || "—";
+  $("#nsModalMeta").textContent = `Routes: ${routes} • ${item.summary || "—"}`;
+  $("#nsModal").classList.add("show");
+}
+
+function closeNotStartedModal(){
+  $("#nsModal").classList.remove("show");
+  nsItemId = null;
+}
+
+function nsStartDelayed(){
+  if(!nsItemId) return;
+  setStatus(nsItemId, STATUS.DELAYED);
+  toast("Marked: Start delayed");
+  closeNotStartedModal();
+}
+
+function nsRemoveAlert(){
+  if(!nsItemId) return;
+  setStatus(nsItemId, STATUS.REMOVE);
+  toast("Flagged: Remove alert");
+  closeNotStartedModal();
+}
+
+$("#nsModalClose").addEventListener("click", closeNotStartedModal);
+$("#nsModalCancel").addEventListener("click", closeNotStartedModal);
+$("#nsModalDelayed").addEventListener("click", nsStartDelayed);
+$("#nsModalRemove").addEventListener("click", nsRemoveAlert);
+
+$("#nsModal").addEventListener("click", (e)=>{
+  if(e.target && e.target.id === "nsModal") closeNotStartedModal();
+});
+
+window.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape" && $("#nsModal").classList.contains("show")){
+    e.preventDefault();
+    closeNotStartedModal();
+  }
+});
 
 /* =========================
    Filters (match wall tool)
@@ -767,11 +1174,17 @@ function classifyItem(sit){
   const routes = getLineRefs(sit);
   const operatorRefs = getOperatorRefs(sit);
 
+  const rawSummary = (sit?.Summary || "").toString().trim();
+  const rawDesc = (sit?.Description || "").toString().trim();
+  const summary = (rawSummary || rawDesc || "—").trim();
+  const description = (rawDesc || rawSummary || "").trim();
+
   return {
     id: situationNumber || crypto.randomUUID(),
     bucket,
     situationNumber,
-    summary: (sit?.Summary || sit?.Description || "").toString().trim() || "—",
+    summary,
+    description,
     start,
     end,
     isUFN,
@@ -814,41 +1227,31 @@ function render(){
   const sectionsRoot = $("#sections");
   sectionsRoot.replaceChildren();
 
-  const visible = allItems.filter(it => !isHidden(it.id));
+  // UI suppression only (Starting Today -> Confirm Started)
+  const displayItems = allItems.filter(it => !isSuppressedInUI(it));
 
   // top counters
-  $("#countAll").textContent = String(allItems.length);
-  $("#countHidden").textContent = String(allItems.length - visible.length);
-  $("#countRemaining").textContent = String(allItems.filter(it => !isWorked(it.id)).length);
+  $("#countAll").textContent = String(displayItems.length);
+  $("#countIgnored").textContent = String(displayItems.filter(it => isIgnored(it.id)).length);
+  $("#countRemaining").textContent = String(displayItems.filter(it => !isHandled(it.id)).length);
 
-  // group all + visible per section
-  const allBy = { ufn:[], start:[], end:[] };
-  const visBy = { ufn:[], start:[], end:[] };
-
-  for(const it of allItems){
-    if(it.bucket === "ufn") allBy.ufn.push(it);
-    else if(it.bucket === "start") allBy.start.push(it);
-    else if(it.bucket === "end") allBy.end.push(it);
-  }
-  for(const it of visible){
-    if(it.bucket === "ufn") visBy.ufn.push(it);
-    else if(it.bucket === "start") visBy.start.push(it);
-    else if(it.bucket === "end") visBy.end.push(it);
+  // group per section
+  const by = { ufn:[], start:[], end:[] };
+  for(const it of displayItems){
+    if(it.bucket === "ufn") by.ufn.push(it);
+    else if(it.bucket === "start") by.start.push(it);
+    else if(it.bucket === "end") by.end.push(it);
   }
 
   // sorts
-  allBy.ufn.sort((a,b)=> (b.start - a.start));
-  allBy.start.sort((a,b)=> (a.start - b.start));
-  allBy.end.sort((a,b)=> (a.end - b.end));
-  visBy.ufn.sort((a,b)=> (b.start - a.start));
-  visBy.start.sort((a,b)=> (a.start - b.start));
-  visBy.end.sort((a,b)=> (a.end - b.end));
+  by.ufn.sort((a,b)=> (b.start - a.start));
+  by.start.sort((a,b)=> (a.start - b.start));
+  by.end.sort((a,b)=> (a.end - b.end));
 
   for(const def of SECTIONS){
-    const itemsAll = allBy[def.key];
-    const itemsVis = visBy[def.key];
+    const itemsAll = by[def.key];
 
-    const remaining = itemsAll.filter(it => !isWorked(it.id)).length;
+    const remaining = itemsAll.filter(it => !isHandled(it.id)).length;
     const done = itemsAll.length > 0 && remaining === 0;
 
     const open = (uiState[def.key]?.open ?? true);
@@ -856,13 +1259,10 @@ function render(){
 
     const header = makeEl("div", "sectionHeader" + (done ? " done" : ""), null);
 
-    // ✅ subtitle chip removed — only the title
     const left = makeEl("div", "sTitle", `<h2>${def.icon} ${escapeHtml(def.title)}</h2>`);
 
-    const hiddenCount = itemsAll.length - itemsVis.length;
     const counts = makeEl("div", "sCounts", "");
     counts.appendChild(makeEl("span", "badge", `Total: ${itemsAll.length}`));
-    if(hiddenCount) counts.appendChild(makeEl("span", "badge info", `Hidden: ${hiddenCount}`));
     counts.appendChild(makeEl("span", `badge ${done ? "good" : "warn"}`, `Remaining: ${remaining}`));
     if(done) counts.appendChild(makeEl("span", "badge good", "DONE"));
 
@@ -881,11 +1281,9 @@ function render(){
 
     if(!itemsAll.length){
       body.appendChild(makeEl("div", "small", "No alerts ✅"));
-    }else if(!itemsVis.length){
-      body.appendChild(makeEl("div", "small", "All alerts in this section are currently hidden (Hide 3hrs)."));
     }else{
       const grid = makeEl("div", "grid", "");
-      for(const it of itemsVis){
+      for(const it of itemsAll){
         grid.appendChild(renderCard(it));
       }
       body.appendChild(grid);
@@ -910,14 +1308,8 @@ function renderCard(it){
     routesWrap.appendChild(makeEl("div", "routePill more", `+${extra}`));
   }
 
-  const st = statusForUI(it.id);
-  const tagText =
-    st === "ended" ? "Ended" :
-    st === "edit" ? "Edit needed" :
-    st === "inprog" ? "In progress" :
-    "Not worked";
-
-  const tag = makeEl("div", `statusTag ${st} ${st==="none" ? "none" : ""}`, escapeHtml(tagText));
+  const info = statusInfo(it);
+  const tag = makeEl("div", `statusTag ${info.cls} ${info.cls==="none" ? "none" : ""}`, escapeHtml(info.text));
   top.append(routesWrap, tag);
 
   const summary = makeEl("p", "summary", escapeHtml(it.summary));
@@ -931,7 +1323,13 @@ function renderCard(it){
     <span>Ops: <b>${escapeHtml(it.operatorsLabel || "—")}</b></span>
   `;
 
-  const small = makeEl("div", "small", `SituationNumber: <b>${escapeHtml(it.situationNumber || "—")}</b>`);
+  const desc = (it.description || "").trim();
+  const descEl = desc
+    ? makeEl("div", "descPreview", `<b>Description:</b> ${escapeHtml(desc)}`)
+    : makeEl("div", "small", "Description: —");
+
+  const note = getEditNote(it.id);
+  const noteEl = note ? makeEl("div", "notePreview", `<b>Edit note:</b> ${escapeHtml(note)}`) : null;
 
   const links = makeEl("div", "linksRow", "");
   const btnBus = makeEl("button", "linkBtn", "Open routes on BusTimes");
@@ -947,25 +1345,56 @@ function renderCard(it){
   links.append(btnBus, btnDfT);
 
   const actions = makeEl("div", "actions", "");
-  const b1 = makeEl("div", "aBtn inprog", "Confirm In Progress");
-  const b2 = makeEl("div", "aBtn ended",  "Confirm Ended");
-  const b3 = makeEl("div", "aBtn edit",   "Edit Needed");
-  const b4 = makeEl("div", "aBtn hide",   "Hide 3hrs");
 
-  b1.addEventListener("click", (e)=>{ e.stopPropagation(); setInProgress(it.id, it.isUFN); });
-  b2.addEventListener("click", (e)=>{ e.stopPropagation(); setEnded(it.id); });
-  b3.addEventListener("click", (e)=>{ e.stopPropagation(); setEdit(it.id); });
-  b4.addEventListener("click", (e)=>{ e.stopPropagation(); hide3hrs(it.id); });
+  // action buttons vary by section
+  if(it.bucket === "start"){
+    const b1 = makeEl("div", "aBtn ended",  "Confirm Started");
+    const b2 = makeEl("div", "aBtn warn",   "Not Started");
+    const b3 = makeEl("div", "aBtn edit",   "Edit Needed");
+    const b4 = makeEl("div", "aBtn ignore", "Ignore 3 hours");
 
-  actions.append(b1,b2,b3,b4);
+    b1.addEventListener("click", (e)=>{ e.stopPropagation(); setStatus(it.id, STATUS.STARTED); toast("Confirmed started (won't show again)"); });
+    b2.addEventListener("click", (e)=>{ e.stopPropagation(); openNotStartedModal(it); });
+    b3.addEventListener("click", (e)=>{ e.stopPropagation(); openEditModal(it); });
+    b4.addEventListener("click", (e)=>{ e.stopPropagation(); setIgnore(it.id, false); });
 
-  card.append(top, summary, meta, small, links, actions);
+    actions.append(b1,b2,b3,b4);
+  }
+  else if(it.bucket === "end"){
+    const b1 = makeEl("div", "aBtn inprog", "Still Diverting");
+    const b2 = makeEl("div", "aBtn ended",  "Already Finished");
+    const b3 = makeEl("div", "aBtn edit",   "Edit Needed");
+    const b4 = makeEl("div", "aBtn ignore", "Ignore 3 hours");
+
+    b1.addEventListener("click", (e)=>{ e.stopPropagation(); setInProgress(it.id, false); });
+    b2.addEventListener("click", (e)=>{ e.stopPropagation(); setStatus(it.id, STATUS.FINISHED); toast("Marked: Already finished"); });
+    b3.addEventListener("click", (e)=>{ e.stopPropagation(); openEditModal(it); });
+    b4.addEventListener("click", (e)=>{ e.stopPropagation(); setIgnore(it.id, false); });
+
+    actions.append(b1,b2,b3,b4);
+  }
+  else { // UFN
+    const b1 = makeEl("div", "aBtn inprog", "Confirm In Progress");
+    const b2 = makeEl("div", "aBtn ended",  "Confirm Ended");
+    const b3 = makeEl("div", "aBtn edit",   "Edit Needed");
+    const b4 = makeEl("div", "aBtn ignore", "Ignore 1 hour");
+
+    b1.addEventListener("click", (e)=>{ e.stopPropagation(); setInProgress(it.id, true); });
+    b2.addEventListener("click", (e)=>{ e.stopPropagation(); setStatus(it.id, STATUS.ENDED); toast("Marked: Ended"); });
+    b3.addEventListener("click", (e)=>{ e.stopPropagation(); openEditModal(it); });
+    b4.addEventListener("click", (e)=>{ e.stopPropagation(); setIgnore(it.id, true); });
+
+    actions.append(b1,b2,b3,b4);
+  }
+
+  card.append(top, summary, meta, descEl);
+  if(noteEl) card.append(noteEl);
+  card.append(links, actions);
   return card;
 }
 
 /* =========================
-   Copy Report (minimal, clear)
-   Uses ONLY Ended + Edit needed (what DEO needs)
+   Copy Report (ALL alerts: Ending -> Edits -> Continuing)
 ========================= */
 async function copyToClipboard(text){
   try{
@@ -984,40 +1413,101 @@ async function copyToClipboard(text){
 
 function buildReportText(){
   const officer = ($("#officerName").value || "").trim();
-  const ended = allItems.filter(it => decisions[it.id]?.status === STATUS.ENDED);
-  const edit  = allItems.filter(it => decisions[it.id]?.status === STATUS.EDIT);
-
   const lines = [];
+
   lines.push("Bus diversion check ✅");
   lines.push("");
 
-  const lineFor = (it) => {
-    const routes = (it.routes || []).slice(0, 12).map(formatRouteChipLabel).join(", ") || "—";
-    const sum = String(it.summary || "—").replace(/\s+/g," ").trim();
-    const short = sum.length > 90 ? (sum.slice(0, 87) + "…") : sum;
-    return `• ${routes} — ${short}\n  ${it.recordUrl || ""}`.trim();
+  const routesStr = (it) =>
+    (it.routes || []).slice(0,12).map(formatRouteChipLabel).join(", ") || "—";
+
+  const shortSummary = (it) => {
+    const s = String(it.summary || "—").replace(/\s+/g," ").trim();
+    return s.length > 90 ? s.slice(0,87) + "…" : s;
   };
 
-  if(ended.length){
-    lines.push("ENDED (remove):");
-    ended.forEach(it => lines.push(lineFor(it)));
-    lines.push("");
-  }
-  if(edit.length){
-    lines.push("EDIT NEEDED:");
-    edit.forEach(it => lines.push(lineFor(it)));
-    lines.push("");
-  }
-  if(!ended.length && !edit.length){
-    lines.push("Nothing flagged for remove/edit right now.");
-    lines.push("");
-  }
+  const status = (it) => statusTextForReport(it);
 
-  const stamp = new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit"}).format(new Date());
-  lines.push(officer ? `Checked by ${officer} — ${stamp}` : `Checked — ${stamp}`);
+  /* =========================
+     GROUP 1 — FINISHED / REMOVE
+  ========================= */
+  const finished = allItems.filter(it => {
+    const st = decisions[it.id]?.status;
+    return (
+      st === STATUS.ENDED ||
+      st === STATUS.REMOVE ||
+      st === STATUS.FINISHED
+    );
+  });
+
+  lines.push("ENDED / REMOVE:");
+  if(finished.length){
+    finished.forEach(it => {
+      lines.push(`• [${status(it)}] ${routesStr(it)} — ${shortSummary(it)}`);
+      if(it.recordUrl) lines.push(`  ${it.recordUrl}`);
+    });
+  } else {
+    lines.push("• None");
+  }
+  lines.push("");
+
+  /* =========================
+     GROUP 2 — EDITS NEEDED
+  ========================= */
+  const edits = allItems.filter(it =>
+    decisions[it.id]?.status === STATUS.EDIT
+  );
+
+  lines.push("EDITS NEEDED:");
+  if(edits.length){
+    edits.forEach(it => {
+      lines.push(`• [EDIT] ${routesStr(it)} — ${shortSummary(it)}`);
+      const note = getEditNote(it.id);
+      if(note) lines.push(`  Note: ${note}`);
+      if(it.recordUrl) lines.push(`  ${it.recordUrl}`);
+    });
+  } else {
+    lines.push("• None");
+  }
+  lines.push("");
+
+  /* =========================
+     GROUP 3 — CONTINUING (MINIMAL)
+  ========================= */
+  const continuing = allItems.filter(it => {
+    const d = decisions[it.id];
+    if(!d) return true; // untouched = still active
+    if(d.status === STATUS.EDIT) return false;
+    if(
+      d.status === STATUS.ENDED ||
+      d.status === STATUS.REMOVE ||
+      d.status === STATUS.FINISHED
+    ) return false;
+    return true;
+  });
+
+  lines.push("CONTINUING / ACTIVE (for awareness):");
+  if(continuing.length){
+    continuing.forEach(it => {
+      lines.push(`• [${status(it)}] ${routesStr(it)} — ${shortSummary(it)}`);
+    });
+  } else {
+    lines.push("• None");
+  }
+  lines.push("");
+
+  const stamp = new Intl.DateTimeFormat(undefined,{
+    hour:"2-digit", minute:"2-digit"
+  }).format(new Date());
+
+  lines.push(officer
+    ? `Checked by ${officer} — ${stamp}`
+    : `Checked — ${stamp}`
+  );
 
   return lines.join("\n");
 }
+``
 
 /* =========================
    Fetch (JSON-first, XML fallback)
@@ -1190,14 +1680,16 @@ setInterval(()=>{
   }
 }, 2000);
 
-// expiry watchdog (so timers expire without refresh)
+// expiry watchdog (timers expire without refresh)
 setInterval(()=>{
   const before = JSON.stringify(decisions);
   cleanupExpired();
   const after = JSON.stringify(decisions);
   if(before !== after) render();
-}, 30000);
+}, 15000);
 
+// tick to keep countdown chips feeling "live"
+setInterval(()=>{ render(); }, 30000);
 </script>
 </body>
 </html>
