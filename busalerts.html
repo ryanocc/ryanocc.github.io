@@ -210,6 +210,29 @@
         0 6px 18px rgba(0,0,0,0.45),
         0 0 0 4px rgba(255,77,79,0.10);
     }
+    .chip.interchange-closed{
+  border-color: #ff6a00;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.04) inset,
+    0 10px 25px rgba(0,0,0,0.35),
+    0 0 0 4px rgba(255,106,0,0.18);
+}
+
+.interchangeBadge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#ff6a00;
+  color:#000;
+  font-weight:1000;
+  font-size:18px;
+  letter-spacing:0.6px;
+  text-transform:uppercase;
+  box-shadow:0 6px 18px rgba(0,0,0,0.35);
+  z-index:2;
+}
     @keyframes pulseRed {
       0% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,77,79,0.35); border-color: rgba(255,77,79,0.55); }
       50% { box-shadow:0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 25px rgba(0,0,0,0.35), 0 0 0 10px rgba(255,77,79,0.12); border-color: rgba(255,77,79,0.95); }
@@ -1239,6 +1262,26 @@ function buildLocationHTML(street, town){
   return st || tw || "";
 }
 
+function isInterchangeClosure(sit){
+  const txt = (sit.Summary || sit.Description || "").toLowerCase();
+
+  // Must explicitly reference an interchange / station
+  const isInterchange =
+    /\b(interchange|bus station|bus interchange|coach station)\b/.test(txt);
+
+  // Must explicitly say closed / closure
+  const isClosed =
+    /\b(closed|closure|shut)\b/.test(txt);
+
+  if (!isInterchange || !isClosed) return false;
+
+  // Must affect routes, not just stops
+  const hasAffectedNetwork =
+    !!sit?.Affects?.Networks?.AffectedNetwork;
+
+  return hasAffectedNetwork;
+}
+
 /* ===========================
    SECTION TITLES
 =========================== */
@@ -2112,6 +2155,7 @@ function renderStopClosureMapPage(pgObj) {
    RENDER PAGE (CARDS / MAP)
 =========================== */
 function mapSituationToItem(s){
+  const isInterchange = isInterchangeClosure(s);
   const operatorRefs = getOperatorRefs(s);
   const st = parseISO(s?.ValidityPeriod?.StartTime || s?.StartTime);
   const en = parseISO(s?.ValidityPeriod?.EndTime   || s?.EndTime);
@@ -2131,7 +2175,8 @@ function mapSituationToItem(s){
   const summaryText = (s.Summary || s.Description || "").trim();
   const loc = extractStreetTown(summaryText);
 
-  return {
+
+ return {
     id: getSituationId(s),
     operatorRefs,
     routesTitle,
@@ -2143,9 +2188,13 @@ function mapSituationToItem(s){
     endMs,
     isUFN,
     ufnOver24h,
-    routeCount: routesTitle.length
+    routeCount: routesTitle.length,
+
+    // ✅ NEW
+    isInterchangeClosure: isInterchange
   };
 }
+
 
 function renderPage(){
   clearOpCycles();
@@ -2174,6 +2223,18 @@ const pgObj = getCurrentPage();
     const chip = document.createElement("div");
     chip.className = "chip" + (it.isUFN ? " ufn" : "");
     if (it.ufnOver24h) chip.classList.add("pulse-ufn");
+    
+    
+  // ✅ INTERCHANGE CLOSED BADGE
+  if (it.isInterchangeClosure){
+    chip.classList.add("interchange-closed");
+
+    const badge = document.createElement("div");
+    badge.className = "interchangeBadge";
+    badge.textContent = "INTERCHANGE CLOSED";
+    chip.appendChild(badge);
+  }
+
 
     const chipTop = document.createElement("div");
     chipTop.className = "chipTop";
@@ -2251,6 +2312,8 @@ const pgObj = getCurrentPage();
 
   updatePageIndicator();
 }
+
+
 
 /* ===========================
    FETCHALL (JSON-first, XML fallback)
@@ -2377,8 +2440,9 @@ async function fetchAll(){
       : extractSituationsFromXML(parsed.data);
 
     const busSituations = allSituations.filter(sit => isBusOperator(sit));
-    const diversionSituations   = busSituations.filter(sit => isDiversion(sit));
-    const stopClosureSituations = busSituations.filter(sit => isStopClosure(sit));
+const diversionSituations = busSituations.filter(
+  sit => isDiversion(sit) || isInterchangeClosure(sit)
+);    const stopClosureSituations = busSituations.filter(sit => isStopClosure(sit));
 
     const liveDiversions = diversionSituations.filter(isCurrentlyValid);
     const baseAll = liveDiversions;
