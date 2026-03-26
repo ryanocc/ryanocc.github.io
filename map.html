@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>OCC Dashboard - Highways Alerts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- MapLibre CSS/JS -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css" />
+  <script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
+
+  <!-- Fonts (optional: self-host these to avoid third-party storage access warnings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#000;
+      --text:#f2f2f2;
+      --danger:#ff2e34;
+      --red:#ff0000;
+      --yellow:#FFFFFF;
+      --green:#28c76f;
+      --blueMedium:#5bb1ff;
+
+      --liveGreen:#42BE4B;
+      --errorRed:#EA5540;
+
+      --ui-font:"IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+      --accent:#FFE04A;
+
+      --pillTop:16px;
+      --pillLeft:24px;
+
+      /* Sidebar width (fixed) for wallscreen & padding use */
+      --sidebarWidth: 520px;
+    }
+
+    html, body { height:100%; margin:0; }
+    body {
+      background:var(--bg);
+      color:var(--text);
+      font-family: var(--ui-font);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow:hidden;
+      position:relative;
+    }
+
+    #map {
+      position:absolute;
+      top:0; left:0; right:0;
+      height:100%;
+      width:100%;
+    }
+
+    .maplibregl-ctrl-group button { filter: invert(1) hue-rotate(180deg); }
+    .maplibregl-ctrl-attrib { background: rgba(0,0,0,0.5); color:#ddd; }
+
+    /* ===== TOP-LEFT unified STATUS WRAPPER ===== */
+    .statusWrapper{
+      position:absolute;
+      top:var(--pillTop);
+      left:0;
+      z-index:30;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      pointer-events:none;
+    }
+
+    /* ===== Status pill (expanded stays identical; now supports compact semicircle) ===== */
+    .status-pill{
+      padding:10px 16px;
+      border-radius: 0 999px 999px 0; /* flat LEFT edge */
+      font-size:18px;
+      font-weight:800;
+      font-family:var(--ui-font);
+      background:var(--liveGreen);
+      color:#000;
+      box-shadow:0 0 0 2px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.25);
+      pointer-events:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      white-space:nowrap;
+
+      transition:
+        width 260ms ease,
+        padding 260ms ease,
+        border-radius 260ms ease,
+        background-color 200ms ease,
+        color 200ms ease;
+    }
+    .status-error{ background:var(--errorRed); color:#fff; }
+
+    /* ===== Compact LEFT-docked SEMICIRCLE (flat edge against left of screen) ===== */
+    .status-pill.is-compact{
+      width:28px;
+      height:40px;
+      padding:0;
+      color:transparent;
+      border-radius: 0 999px 999px 0; /* flat LEFT */
+    }
+    .status-pill.is-compact::before{
+      content:"";
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.65);
+    }
+    .status-pill.status-error.is-compact::before{
+      background:rgba(255,255,255,0.9);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .status-pill{ transition:none !important; }
+    }
+
+    #beeLogo{
+      width:64px; height:64px; object-fit:contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
+      transition: transform 0.2s ease-out;
+      pointer-events:auto;
+    }
+    @keyframes wibble {
+      0%   { transform: rotate(0deg) scale(1); }
+      20%  { transform: rotate(4deg) scale(1.05); }
+      40%  { transform: rotate(-4deg) scale(1.05); }
+      60%  { transform: rotate(3deg) scale(1.03); }
+      80%  { transform: rotate(-3deg) scale(1.03); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+    .bee-wibble{ animation: wibble 650ms ease-out; }
+
+    .feed-health { display:none !important; }
+
+    :root{
+      /* Match your UI style */
+      --bottomRowPad: 12px;
+      --chipH: 28px;                 /* target height for both bar + chip */
+      --chipRadius: 999px;
+      --chipBg: rgba(0,0,0,0.72);
+      --chipBorder: rgba(255,255,255,0.14);
+      --chipShadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    /* Bottom row overlay */
+    #bottomStatusRow{
+      position: absolute;
+      left: var(--bottomRowPad);
+      right: var(--bottomRowPad);
+      bottom: var(--bottomRowPad);
+      z-index: 70;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      pointer-events: none; /* enable clicks only on children */
+    }
+
+    /* Network health gradient bar (fills remaining width) */
+    #networkHealthBar{
+      flex: 1 1 auto;
+      height: var(--chipH);
+      border-radius: var(--chipRadius);
+      background: linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f); /* fallback */
+      box-shadow: 0 0 0 1px var(--chipBorder) inset, var(--chipShadow);
+      pointer-events: auto;
+    }
+
+    /* Attribution chip (right side) */
+    #attribChip{
+      flex: 0 0 auto;
+      height: var(--chipH);
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: var(--chipRadius);
+      background: var(--chipBg);
+      box-shadow: 0 0 0 1px var(--chipBorder) inset, var(--chipShadow);
+      color: #ddd;
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+      pointer-events: auto; /* clickable links */
+    }
+
+    /* Make MapLibre attribution links look “chip friendly” */
+    #attribChip a{
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.92;
+    }
+    #attribChip a:hover{ opacity: 1; text-decoration: underline; }
+
+    /* Hide the default MapLibre attribution control so we don't have duplicates */
+    .maplibregl-ctrl-attrib{
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <!-- TOP-LEFT unified status pill -->
+  <div class="statusWrapper" aria-live="polite">
+    <div id="statusPill" class="status-pill is-compact">Initialising…</div>
+    <img id="beeLogo"
+         src="https://tfgm.com/static/android-chrome-192x192.png"
+         alt="Bee Network logo"
+         width="64" height="64"
+         decoding="async" />
+  </div>
+
+  <!-- Hidden legacy feed badges -->
+  <div id="feed-health-waze" class="feed-health" aria-live="polite" aria-label="Waze feed status">Waze: initialising…</div>
+  <div id="feed-health-he"   class="feed-health" aria-live="polite" aria-label="Highways feed status">Highways: initialising…</div>
+
+  <script>
+    /* =======================================================
+       CONFIG / CONSTANTS
+       ======================================================= */
+
+    /* ✅ Your backend base URL */
+    const API_BASE = 'https://renderexpress-ebb0.onrender.com';
+
+    /* Originals kept for readability / mapping */
+    const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
+    const HE_URL   = 'https://m.highwaysengland.co.uk/feeds/rss/UnplannedEvents/North%20West.xml';
+    const REFRESH_MS = 30000;
+
+    // Keep legacy MERGE_METERS for non-banner generic clustering (ice/signal faults, etc.)
+    const MERGE_METERS = 200;
+
+    const STALE_CLEAR_MS = 5 * 60 * 1000;
+
+    // Accident styling threshold (marker-only; no alerts)
+    const HIGH_CONF_MIN = 4;
+
+    // ===== motorway/non-motorway rules =====
+    const NON_MWAY_MERGE_METERS = 500;     // non-motorway accident clustering distance
+    const MWAY_MERGE_METERS     = 500;     // motorway accident clustering distance
+
+    // GM bounds & camera
+    const GM_BOUNDS = [[-2.75, 53.33], [-1.95, 53.62]];
+    const HOME_CENTER = [-2.3297, 53.5];
+    const HOME_VIEW = { center: HOME_CENTER, zoom: 10.44, pitch: 0, bearing: 0, duration: 1400, essential: true };
+
+    // Map
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'https://api.maptiler.com/maps/019c7761-a6b7-72d1-a48e-14ef5b3caf94/style.json?key=ileJHPYoUxyL17ZpmERr',
+      center: HOME_CENTER,
+      zoom: HOME_VIEW.zoom, bearing: HOME_VIEW.bearing, pitch: HOME_VIEW.pitch,
+    });
+
+    function withCacheBust(url){ const sep = url.includes('?') ? '&' : '?'; return `${url}${sep}ts=${Date.now()}`; }
+
+    /* ========= ✅ Rewired "OCC Proxy helpers" to your backend ========= */
+
+    function mapUpstreamToBackend(url){
+      try{
+        if(!url) return url;
+        if (String(url).startsWith(API_BASE)) return String(url);
+
+        const u = String(url);
+
+        if (u.includes('/row-partnerhub-api/partners/') && u.includes('/waze-feeds/')) {
+          return `${API_BASE}/api/waze/partner-feed`;
+        }
+        if (u.includes('/row-partnerhub-api/feeds-tvt')) {
+          return `${API_BASE}/api/waze/tvt`;
+        }
+        if (u.includes('highwaysengland.co.uk/feeds/rss/UnplannedEvents')) {
+          return `${API_BASE}/api/highways-nw`;
+        }
+        if (u.includes('data.bus-data.dft.gov.uk/api/v1/siri-sx')) {
+          return `${API_BASE}/api/bods-siri-sx`;
+        }
+        return u;
+      }catch(e){
+        return url;
+      }
+    }
+
+    async function fetchJsonViaOccProxy(url, signal){
+      const finalUrl = mapUpstreamToBackend(url);
+      const res = await fetch(withCacheBust(finalUrl), { cache:'no-store', signal });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      const trimmed = text.replace(/^\uFEFF/, '').trim();
+      if(!trimmed) throw new Error('Empty response');
+      try { return JSON.parse(trimmed); }
+      catch { throw new Error('Non-JSON response'); }
+    }
+
+    async function fetchTextViaOccProxy(url, signal){
+      const finalUrl = mapUpstreamToBackend(url);
+      const res = await fetch(withCacheBust(finalUrl), { cache:'no-store', signal });
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      if(!text || !text.trim()) throw new Error('Empty response');
+      return text;
+    }
+
+    function toRad(deg){ return deg * Math.PI / 180; }
+    function haversineMeters([lon1, lat1], [lon2, lat2]){
+      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
+      const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+
+    /* =======================================================
+       Road parsing
+       ======================================================= */
+
+    function normaliseRoadKey(text){
+      const s = String(text || '').toUpperCase();
+
+      const m = s.match(/\b(M\d{1,3})\b/);
+      if (m) return { roadKey: m[1], isMotorway: true };
+
+      const a = s.match(/\b(A\d{1,4})\b/);
+      if (a) return { roadKey: a[1], isMotorway: false };
+
+      const b = s.match(/\b(B\d{1,4})\b/);
+      if (b) return { roadKey: b[1], isMotorway: false };
+
+      return { roadKey: '', isMotorway: false };
+    }
+
+    function roadKeyFromAlert(a){
+      const txt = [
+        a?.street, a?.roadName, a?.address, a?.city, a?.town,
+        a?.subtype, a?.subType, a?.sub_type,
+        a?.description, a?.reportDescription, a?.title
+      ].filter(Boolean).join(' ');
+      return normaliseRoadKey(txt);
+    }
+
+    /* =======================================================
+       WAZE ALERT PARSING + SCORING
+       ======================================================= */
+    function getLngLatFromAlert(a){
+      try{
+        if(a){
+          if(a.location){
+            const loc = a.location;
+            if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
+            if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
+            if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
+            if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
+          }
+          if(a.geometry?.coordinates && a.geometry.coordinates.length>=2){
+            const c = a.geometry.coordinates; if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
+          }
+          if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
+        }
+      }catch(e){}
+      return null;
+    }
+
+    const readConfidence = a => Number(a.confidence ?? a.confidenceLevel ?? a.level ?? 0) || 0;
+    const readReliability = a => Number(a.reliability ?? a.reliabilityScore ?? 0) || 0;
+
+    function readType(a){ return String(a.type || a.alertType || '').toUpperCase(); }
+    function readSubType(a){ return String(a.subtype || a.subType || a.sub_type || '').toUpperCase(); }
+    function readDesc(a){ return String(a.description || a.reportDescription || a.title || '').toUpperCase(); }
+
+    function isAccident(a){
+      const t = readType(a);
+      const st = readSubType(a);
+      return t.includes('ACCIDENT') || st.includes('ACCIDENT');
+    }
+    function isIceAlert(a){
+      const t = readType(a), st = readSubType(a), d = readDesc(a);
+      return (
+        t.includes('ICE') || st.includes('ICE') ||
+        /RECENT(LY)?\s+FORMED\s+ICE|BLACK\s*ICE|\bICE\b|\BICY\b/.test(d)
+      );
+    }
+    function isTrafficLightFault(a){
+      const t = readType(a), st = readSubType(a), d = readDesc(a);
+      return (
+        (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
+        st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
+        /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d)
+      );
+    }
+
+    function alertsToAccidentPoints(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        if(!isAccident(a)) continue;
+        const conf10 = readConfidence(a);
+        if(!(conf10 > 0)) continue;
+
+        const rel10 = readReliability(a);
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
+
+        const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
+        const { roadKey, isMotorway } = roadKeyFromAlert(a);
+
+        out.push({
+          id, coord,
+          street: a.street || a.roadName || a.address || 'Unknown road',
+          city: a.city || a.town || '',
+          conf10, rel10,
+          time: a.pubMillis || a.updateTime || a.reportMillis || 0,
+          roadKey,
+          isMotorway
+        });
+      }
+      return out;
+    }
+
+    function alertsToIcePoints(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        if(!isIceAlert(a)) continue;
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
+        const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
+        out.push({ id, coord, time: a.pubMillis || a.updateTime || a.reportMillis || 0 });
+      }
+      return out;
+    }
+
+    function alertsToSignalFaultPoints(feed){
+      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+      for(const a of alerts){
+        if(!isTrafficLightFault(a)) continue;
+        const coord = getLngLatFromAlert(a); if(!coord) continue;
+        const theId = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
+        out.push({ id: theId, coord, time: a.pubMillis || a.updateTime || a.reportMillis || 0 });
+      }
+      return out;
+    }
+
+    function stableClusterId(coord){
+      const lon = Number(coord[0]).toFixed(4);
+      const lat = Number(coord[1]).toFixed(4);
+      return `cluster-${lon},${lat}`;
+    }
+
+    function pickAnchor(members){
+      return members.slice().sort((a,b)=>{
+        const c = (Number(b.conf10)||0) - (Number(a.conf10)||0);
+        if (c !== 0) return c;
+        return (Number(a.time)||0) - (Number(b.time)||0);
+      })[0];
+    }
+
+    function clusterGeneric(points, mergeMeters = MERGE_METERS){
+      if(!points.length) return [];
+      const parent = Array(points.length).fill(0).map((_,i)=>i);
+      const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          if(haversineMeters(points[i].coord, points[j].coord) <= mergeMeters) union(i,j);
+        }
+      }
+
+      const groups = new Map();
+      for(let i=0;i<points.length;i++){
+        const r = find(i);
+        if(!groups.has(r)) groups.set(r, []);
+        groups.get(r).push(points[i]);
+      }
+
+      const features = [];
+      for(const members of groups.values()){
+        const count = members.length;
+        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const id = stableClusterId(avg);
+        features.push({
+          type: 'Feature',
+          id,
+          geometry: { type:'Point', coordinates: avg },
+          properties: { id, count, time: maxTime }
+        });
+      }
+      return features;
+    }
+
+    function clusterAccidents(points){
+      if(points.length === 0) return [];
+
+      const parent = Array(points.length).fill(0).map((_,i)=>i);
+      const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+      const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          const d = haversineMeters(points[i].coord, points[j].coord);
+          const mi = !!points[i].isMotorway;
+          const mj = !!points[j].isMotorway;
+          const threshold = (mi || mj) ? MWAY_MERGE_METERS : NON_MWAY_MERGE_METERS;
+          if (d <= threshold) union(i, j);
+        }
+      }
+
+      const groups = new Map();
+      for(let i=0;i<points.length;i++){
+        const r = find(i);
+        if(!groups.has(r)) groups.set(r, []);
+        groups.get(r).push(points[i]);
+      }
+
+      const clusters = [];
+      for(const members of groups.values()){
+        const count = members.length;
+
+        const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
+        const bestRel10  = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+
+        let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
+        eff10 = Math.max(0, Math.min(12, eff10));
+        const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
+
+        const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+        const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+        const minTime = members.reduce((t,m)=>Math.min(t, Number(m.time)||Infinity), Infinity);
+        const firstTime = (minTime === Infinity) ? 0 : minTime;
+
+        const best = members.slice().sort((a,b)=>{
+          const ce = (Number(b.conf10)||0) - (Number(a.conf10)||0);
+          if(ce!==0) return ce;
+          return (Number(b.time)||0) - (Number(a.time)||0);
+        })[0];
+
+        const anchor = pickAnchor(members);
+        const id = anchor?.id ? `acc-${String(anchor.id).slice(0,120).replace(/[^a-zA-Z0-9_-]/g, '_')}` : stableClusterId(avg);
+
+        clusters.push({
+          id,
+          coord: avg,
+          street: best.street, city: best.city,
+          roadKey: best.roadKey || '',
+          isMotorway: !!best.isMotorway,
+          eff5, eff10, baseConf10, bestRel10,
+          latestTime: maxTime, firstTime, count,
+          anchorId: anchor?.id || ''
+        });
+      }
+
+      clusters.sort((a,b)=>{
+        const ce = (Number(b.eff5)||0) - (Number(a.eff5)||0);
+        if(ce!==0) return ce;
+        return (Number(b.latestTime)||0) - (Number(a.latestTime)||0);
+      });
+
+      return clusters.map(c => ({
+        type:'Feature',
+        id: c.id,
+        geometry:{ type:'Point', coordinates: c.coord },
+        properties:{
+          id: c.id,
+          anchorId: c.anchorId,
+          effectiveConfidence: c.eff5,
+          street: c.street,
+          city: c.city,
+          time: c.latestTime,
+          firstReportedMillis: c.firstTime,
+          reportCount: c.count,
+          rawConfidence10: c.baseConf10,
+          reliability10:   c.bestRel10,
+          effective10:     c.eff10,
+          roadKey: c.roadKey,
+          isMotorway: c.isMotorway
+        }
+      }));
+    }
+
+    /* =========================
+       Animated custom images
+       ========================= */
+    function createPulsingDot(map, color='red'){
+      const size = 128, targetFps = 8, frameMs = 1000/targetFps; let last=0;
+      const fillColor = (on)=> color==='white' ? `rgba(255,255,255,${on?1:0.85})` : `rgba(255,0,0,${on?1:0.9})`;
+      const ringColor = (on)=> color==='white' ? `rgba(255,255,255,${on?0.95:0.3})` : `rgba(255, 80, 80, ${on?0.95:0.15})`;
+      return {
+        width:size, height:size, data:new Uint8Array(size*size*4),
+        onAdd(){
+          const c=document.createElement('canvas');
+          c.width=this.width; c.height=this.height;
+          this.context=c.getContext('2d', { willReadFrequently:true, desynchronized:true });
+        },
+        render(){
+          const now=performance.now(); if(now-last<frameMs) return false; last=now;
+          const duration=1200; const t=(now%duration)/duration; const on=t<0.5;
+          const ctx=this.context, w=this.width, h=this.height;
+          ctx.clearRect(0,0,w,h);
+          const ringR=(w/2)*(0.30+0.20*t);
+          ctx.beginPath(); ctx.arc(w/2,h/2, ringR, 0, Math.PI*2, false);
+          ctx.fillStyle=ringColor(on); ctx.fill();
+          ctx.beginPath(); ctx.arc(w/2,h/2, (w/2)*0.18, 0, Math.PI*2, false);
+          ctx.fillStyle=fillColor(true); ctx.strokeStyle='rgba(255,255,255,1)'; ctx.lineWidth=Math.max(2,w*0.025);
+          ctx.fill(); ctx.stroke();
+          const img=ctx.getImageData(0,0,w,h); this.data.set(img.data);
+          map.triggerRepaint(); return true;
+        }
+      };
+    }
+
+    function createTriangleIcon(map, color = '#28c76f') {
+      const size = 128, targetFps = 8, frameMs = 1000 / targetFps;
+      let last = 0;
+      return {
+        width: size,
+        height: size,
+        data: new Uint8Array(size * size * 4),
+        onAdd() {
+          const c = document.createElement('canvas');
+          c.width = this.width; c.height = this.height;
+          this.ctx = c.getContext('2d', { willReadFrequently:true, desynchronized:true });
+        },
+        render() {
+          const now = performance.now(); if (now - last < frameMs) return false; last = now;
+          const ctx = this.ctx, w = this.width, h = this.height;
+          ctx.clearRect(0,0,w,h);
+          const pad = w * 0.12;
+          const x1 = w/2, y1 = pad;
+          const x2 = w - pad, y2 = h - pad;
+          const x3 = pad,     y3 = h - pad;
+          ctx.beginPath();
+          ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.lineTo(x3,y3); ctx.closePath();
+          ctx.fillStyle = color; ctx.fill();
+          ctx.lineWidth = Math.max(2, w * 0.028);
+          ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
+          const img = this.ctx.getImageData(0,0,w,h); this.data.set(img.data);
+          map.triggerRepaint(); return true;
+        }
+      };
+    }
+
+    function createHexDivertIcon(map, color = '#FFFFFF') {
+      const size = 128; const targetFps = 8; const frameMs = 1000 / targetFps; let last = 0;
+      return {
+        width: size, height: size, data: new Uint8Array(size * size * 4),
+        onAdd() {
+          const c = document.createElement('canvas');
+          c.width = this.width; c.height = this.height;
+          this.ctx = c.getContext('2d', { willReadFrequently:true, desynchronized:true });
+        },
+        render() {
+          const now = performance.now(); if (now - last < frameMs) return false; last = now;
+          const ctx = this.ctx, w = this.width, h = this.height, cx = w/2, cy = h/2;
+          const dur = 1200; const t = (now % dur) / dur; const glow = 0.85 + Math.sin(t * Math.PI * 2) * 0.15;
+          ctx.clearRect(0,0,w,h);
+          ctx.beginPath(); ctx.arc(cx, cy, (w/2)*0.44, 0, Math.PI*2); ctx.fillStyle='rgba(0,0,0,0.55)';
+          ctx.shadowColor = color; ctx.shadowBlur = 24 * glow; ctx.fill(); ctx.shadowBlur = 0;
+
+          const R = (w/2)*0.34; const rotation = Math.PI/2 + Math.PI;
+          function hexPath(radius) {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+              const a = rotation + (i * Math.PI / 3);
+              const x = cx + radius * Math.cos(a);
+              const y = cy + radius * Math.sin(a);
+              if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+          }
+          hexPath(R); ctx.fillStyle = color; ctx.fill();
+          ctx.lineJoin = 'round';
+          ctx.lineWidth = Math.max(2, w * 0.028); ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
+          ctx.lineWidth = Math.max(2, w * 0.010); ctx.strokeStyle = 'rgba(0,0,0,0.70)'; hexPath(R * 1.02); ctx.stroke();
+          const img = ctx.getImageData(0,0,w,h); this.data.set(img.data);
+          map.triggerRepaint(); return true;
+        }
+      };
+    }
+
+    /* === OCC Highlights support === */
+    const HIGHLIGHT_POINTS = [];
+    function buildHighlightsFC(points){
+      const features = (points||[])
+        .filter(p => Array.isArray(p?.coordinates) && p.coordinates.length>=2 &&
+                     typeof p.coordinates[0]==='number' && typeof p.coordinates[1]==='number')
+        .map((p,i)=>({
+          type:'Feature',
+          id:p.name?`hl-${p.name}-${i}`:`hl-${i}`,
+          geometry:{type:'Point',coordinates:p.coordinates},
+          properties:{name:p.name||''}
+        }));
+      return { type:'FeatureCollection', features };
+    }
+
+    /* =======================================================
+       ✅ Status pill behaviour (no alerts; just health)
+       ======================================================= */
+    function fmtHHMMSS(){
+      return new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());
+    }
+
+    const PILL_STALE_AFTER_MS = Math.max(REFRESH_MS * 2, 65000);
+    const PILL_HOURLY_POP_MS  = 20000;
+
+    let pillLastOkAt = 0;
+    let pillLastOkLabel = '';
+    let pillStaleActive = false;
+    let pillHourlyTimer = null;
+    let pillStaleTimer  = null;
+
+    function pillCollapse(){
+      const pill = document.getElementById('statusPill');
+      if(!pill) return;
+      pill.classList.add('is-compact');
+      pill.textContent = '';
+    }
+    function pillExpand(text){
+      const pill = document.getElementById('statusPill');
+      if(!pill) return;
+      pill.classList.remove('is-compact');
+      pill.textContent = text;
+    }
+    function pillEnterStale(){
+      if (pillStaleActive) return;
+      pillStaleActive = true;
+      const pill = document.getElementById('statusPill');
+      if(!pill) return;
+
+      pill.classList.add('status-error');
+      pillCollapse();
+
+      setTimeout(()=>{
+        const t = pillLastOkLabel || fmtHHMMSS();
+        pillExpand(`STALE : ${t}`);
+      }, 180);
+    }
+    function pillExitStale(){
+      pillStaleActive = false;
+      const pill = document.getElementById('statusPill');
+      if(!pill) return;
+      pill.classList.remove('status-error');
+      pillCollapse();
+    }
+    function pillStartStaleWatch(){
+      if (pillStaleTimer) clearInterval(pillStaleTimer);
+      pillStaleTimer = setInterval(()=>{
+        if (!pillLastOkAt) return;
+        if (Date.now() - pillLastOkAt > PILL_STALE_AFTER_MS){
+          pillEnterStale();
+        }
+      }, 2000);
+    }
+    function pillStartHourlyPop(){
+      if (pillHourlyTimer) clearTimeout(pillHourlyTimer);
+
+      function msUntilNextHour(){
+        const now = new Date();
+        const next = new Date(now);
+        next.setMinutes(0,0,0);
+        next.setHours(now.getHours()+1);
+        return next - now;
+      }
+
+      function pop(){
+        if (!pillLastOkAt || pillStaleActive) { schedule(); return; }
+        pillExpand(`LIVE • ${pillLastOkLabel}`);
+        setTimeout(()=>{
+          if (!pillStaleActive) pillCollapse();
+          schedule();
+        }, PILL_HOURLY_POP_MS);
+      }
+
+      function schedule(){
+        pillHourlyTimer = setTimeout(pop, msUntilNextHour());
+      }
+
+      schedule();
+    }
+
+    function setStatusPill(ok, {animate=false}={}){
+      const bee=document.getElementById('beeLogo');
+      const t=fmtHHMMSS();
+
+      if (ok){
+        pillLastOkAt = Date.now();
+        pillLastOkLabel = t;
+
+        if (pillStaleActive) pillExitStale();
+
+        // LIVE/OK default is compact semicircle (no text)
+        pillCollapse();
+
+        if(animate && bee){
+          bee.classList.remove('bee-wibble');
+          void bee.offsetWidth;
+          bee.classList.add('bee-wibble');
+        }
+      } else {
+        pillEnterStale();
+      }
+    }
+
+    // start in compact
+    pillCollapse();
+    pillStartStaleWatch();
+    pillStartHourlyPop();
+
+    let lastOkWaze = 0, lastOkHe = 0;
+    const STATUS_STALE_MS = Math.max(REFRESH_MS * 2, 65000);
+    function updateGlobalStatus({animate=false}={}){
+      const now = Date.now();
+      const wazeFresh = lastOkWaze && (now - lastOkWaze) <= STATUS_STALE_MS;
+      const heFresh   = lastOkHe   && (now - lastOkHe)   <= STATUS_STALE_MS;
+      setStatusPill(Boolean(wazeFresh && heFresh), { animate });
+    }
+    function markHealthOK_Waze(){ lastOkWaze = Date.now(); updateGlobalStatus({animate:true}); }
+    function markHealthStale_Waze(){ updateGlobalStatus(); clearAccidentsIfTooStale(); }
+    function markHealthOK_He(){ lastOkHe = Date.now(); updateGlobalStatus({animate:true}); }
+    function markHealthStale_He(){ updateGlobalStatus(); }
+
+    function clearAccidentsIfTooStale(){
+      const staleMs = Date.now() - (lastOkWaze || 0);
+      if (lastOkWaze && staleMs > STALE_CLEAR_MS) {
+        map.getSource('accidents')?.setData({ type:'FeatureCollection', features:[] });
+      }
+    }
+
+    const HIDDEN_REFRESH_MULTIPLIER = 4, HIDDEN_REFRESH_MAX_MS = 180000;
+    function effectiveDelay(ms){ return document.hidden ? Math.min(ms * HIDDEN_REFRESH_MULTIPLIER, HIDDEN_REFRESH_MAX_MS) : ms; }
+
+    let fetchTimer = null, inFlight = null;
+
+    async function runCycle(){
+      if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
+
+      const controller = new AbortController();
+      inFlight = controller;
+
+      try{
+        const data = await fetchJsonViaOccProxy(WAZE_URL, controller.signal);
+
+        const accidentPoints = alertsToAccidentPoints(data);
+        const icePoints      = alertsToIcePoints(data);
+        const signalPoints   = alertsToSignalFaultPoints(data);
+
+        const clusterFeatures = clusterAccidents(accidentPoints);
+        const iceFeatures     = clusterGeneric(icePoints, MERGE_METERS);
+        const signalFeatures  = clusterGeneric(signalPoints, MERGE_METERS);
+
+        map.getSource('accidents')?.setData({ type:'FeatureCollection', features: clusterFeatures });
+        map.getSource('waze-ice')?.setData({ type:'FeatureCollection', features: iceFeatures });
+        map.getSource('waze-signal-faults')?.setData({ type:'FeatureCollection', features: signalFeatures });
+
+        markHealthOK_Waze();
+        scheduleNext(REFRESH_MS);
+      }catch(e){
+        console.error('Waze fetch failed:', e);
+        markHealthStale_Waze(e?.message || 'request error');
+        scheduleNext(Math.min(REFRESH_MS * 2, 180000));
+      }finally{
+        inFlight = null;
+      }
+    }
+    function scheduleNext(ms){ clearTimeout(fetchTimer); fetchTimer = setTimeout(runCycle, effectiveDelay(ms)); }
+
+    function tryNumber(v){ const n=Number(v); return Number.isFinite(n) ? n : null; }
+    function parseHeRss(xmlString){
+      let doc; try{ doc = new DOMParser().parseFromString(xmlString, 'text/xml'); }catch(e){ return { type:'FeatureCollection', features:[] }; }
+      const items = Array.from(doc.querySelectorAll('item')), feats = [];
+      for(const item of items){
+        let lat=null, lon=null;
+        const geoPoint = item.querySelector('ge\\:point, georss\\:point, point');
+        if(geoPoint && geoPoint.textContent){
+          const parts = geoPoint.textContent.trim().split(/[ ,]+/);
+          if(parts.length>=2){ lat = tryNumber(parts[0]); lon = tryNumber(parts[1]); }
+        }
+        if(lat===null || lon===null){
+          const latEl = item.querySelector('geo\\:lat, lat');
+          const lonEl = item.querySelector('geo\\:long, lon, long');
+          if(latEl && lonEl){ lat = tryNumber(latEl.textContent); lon = tryNumber(lonEl.textContent); }
+        }
+        if((lat===null || lon===null) && item.querySelector('link')){
+          try{
+            const href = item.querySelector('link')?.textContent?.trim() || '';
+            const u = new URL(href, location.href);
+            const qLat = tryNumber(u.searchParams.get('lat'));
+            const qLon = tryNumber(u.searchParams.get('lon') || u.searchParams.get('lng') || u.searchParams.get('long'));
+            if(qLat != null && qLon != null){ lat = qLat; lon = qLon; }
+          }catch(e){}
+        }
+        if(lat==null || lon==null) continue;
+        const title = item.querySelector('title')?.textContent?.trim() || 'Unplanned event';
+        const guid  = item.querySelector('guid')?.textContent?.trim() || `${lon},${lat},${title}`;
+        const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
+        feats.push({ type:'Feature', id:`he-${guid}`, geometry:{type:'Point', coordinates:[lon,lat]}, properties:{ id:`he-${guid}`, title, pubDate }});
+      }
+      return { type:'FeatureCollection', features:feats };
+    }
+
+    let heTimer=null, heInFlight=null;
+    async function runHeCycle(){
+      if(heInFlight){ try{ heInFlight.abort(); }catch(e){} heInFlight = null; }
+      const controller = new AbortController(); heInFlight = controller;
+      try{
+        const xml = await fetchTextViaOccProxy(HE_URL, controller.signal);
+        const fc  = parseHeRss(xml);
+        const src = map.getSource('he-unplanned'); if(src) src.setData(fc);
+        markHealthOK_He();
+        scheduleHeNext(REFRESH_MS);
+      }catch(e){
+        console.error('Highways fetch failed:', e);
+        markHealthStale_He(e?.message || 'request error');
+        scheduleHeNext(Math.min(REFRESH_MS * 2, 180000));
+      }finally{ heInFlight = null; }
+    }
+    function scheduleHeNext(ms){ clearTimeout(heTimer); heTimer = setTimeout(runHeCycle, effectiveDelay(ms)); }
+
+    async function addExternalSvgImage(map, id, url) {
+      function loadViaImg(src) {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+          img.onload = () => {
+            try { map.addImage(id, img, { pixelRatio: 2 }); resolve(); }
+            catch (e) { resolve(); }
+          };
+          img.onerror = reject;
+          img.src = src;
+        });
+      }
+      try {
+        const bust = url + (url.includes('?') ? '&' : '?') + 'ts=' + Date.now();
+        await loadViaImg(bust);
+      } catch {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          const text = await res.text();
+          const blob = new Blob([text], { type: 'image/svg+xml' });
+          const objUrl = URL.createObjectURL(blob);
+          await new Promise((resolve, reject) => {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => {
+              try { map.addImage(id, img, { pixelRatio: 2 }); resolve(); }
+              catch (e) { resolve(); }
+              URL.revokeObjectURL(objUrl);
+            };
+            img.onerror = reject;
+            img.src = objUrl;
+          });
+        } catch (e) {
+          console.error('[SVG icon] Failed to load', url, e);
+        }
+      }
+    }
+
+    map.on('load', async () => {
+      map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
+
+      map.addImage('pulsing-red',   createPulsingDot(map,'red'),   { pixelRatio: 2 });
+      map.addImage('triangle-green', createTriangleIcon(map, '#28c76f'), { pixelRatio: 2 });
+
+      map.addSource('accidents', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+
+      map.addLayer({
+        id:'accidents-one', type:'circle', source:'accidents',
+        filter: ['==', ['get','effectiveConfidence'], 1],
+        paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'], 8,3.0, 12,4.0, 16,5.5],
+          'circle-color': varColor('--yellow', '#ffd000'),
+          'circle-stroke-color': '#fff1a6',
+          'circle-stroke-width': 1.0
+        }
+      });
+      map.addLayer({
+        id:'accidents-two', type:'circle', source:'accidents',
+        filter: ['==', ['get','effectiveConfidence'], 2],
+        paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'], 8,4.4, 12,6.0, 16,7.4],
+          'circle-color': varColor('--yellow', '#ffd000'),
+          'circle-stroke-color': '#fff1a6',
+          'circle-stroke-width': 1.2
+        }
+      });
+      map.addLayer({
+        id:'accidents-three', type:'circle', source:'accidents',
+        filter: ['==', ['get','effectiveConfidence'], 3],
+        paint:{
+          'circle-radius':['interpolate',['linear'],['zoom'], 8,6.2, 12,8.2, 16,10.2],
+          'circle-color': varColor('--red', '#ff0000'),
+          'circle-stroke-color': '#ffd0d0',
+          'circle-stroke-width': 1.6
+        }
+      });
+      map.addLayer({
+        id:'accidents-high', type:'symbol', source:'accidents',
+        filter: ['>=', ['get','effectiveConfidence'], HIGH_CONF_MIN],
+        layout:{
+          'icon-image':'pulsing-red',
+          'icon-size':['interpolate',['linear'],['zoom'], 8,0.80, 12,1.36, 16,2.10],
+          'icon-allow-overlap':true
+        }
+      });
+
+      map.addSource('occ-highlights', { type:'geojson', data: buildHighlightsFC(HIGHLIGHT_POINTS) });
+      map.addLayer({
+        id: 'occ-highlights-dots', type: 'circle', source: 'occ-highlights',
+        paint: {
+          'circle-radius': ['interpolate', ['linear'], ['zoom'], 8, 3.2, 12, 4.2, 16, 5.8],
+          'circle-color': '#28c76f', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.2, 'circle-blur': 0.03
+        }
+      });
+
+      map.addSource('he-unplanned', { type: 'geojson', data: { type:'FeatureCollection', features:[] } });
+      map.addLayer({
+        id: 'he-unplanned-dots', type: 'circle', source: 'he-unplanned',
+        paint: {
+          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 3.4, 12, 5.2, 16, 7.0],
+          'circle-color': '#3a90ff', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.2, 'circle-blur': 0.03
+        }
+      });
+
+      map.addSource('waze-ice', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+      map.addLayer({
+        id: 'waze-ice-dots', type: 'circle', source: 'waze-ice',
+        paint: {
+          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 4.0, 12, 5.5, 16, 7.0],
+          'circle-color': varColor('--blueMedium', '#5bb1ff'),
+          'circle-stroke-color': '#ffffff',
+          'circle-stroke-width': 1.1,
+          'circle-blur': 0.03
+        }
+      });
+
+      await addExternalSvgImage(map, 'tl-icon', 'https://ryanocc.github.io/tl.svg');
+
+      map.addSource('waze-signal-faults', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+      map.addLayer({
+        id: 'waze-signal-faults-icon', type: 'symbol', source: 'waze-signal-faults',
+        layout: {
+          'icon-image': map.hasImage('tl-icon') ? 'tl-icon' : 'triangle-green',
+          'icon-size': ['interpolate',['linear'],['zoom'], 8,0.5, 12,0.5, 16,0.5],
+          'icon-allow-overlap': true
+        }
+      });
+
+      /* =======================================================
+         BODS (SIRI‑SX) → DIVERT CENTROIDS
+         ======================================================= */
+      const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+      const OP_COLOR_MAP = {
+        BNML:"#ff4d4f",  BNGN:"#003C6E",  BNSM:"#ff9a1f",
+        BNDB:"#9AC331",  BNVB:"#7a3ffe",  BNFM:"#ff66b3"
+      };
+
+      const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
+      const BODS_REFRESH_MS = 45000;
+      const UNPLANNED_ONLY = true;
+
+      const parseISO = s => s ? new Date(s) : null;
+      function isToday(d){ const n=new Date(); return d && d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate(); }
+      function isCurrentlyValid(sit){
+        const now=new Date();
+        const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+        const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+        if(!s) return false; if(s > now) return false; if(e && e < now) return false; return true;
+      }
+      function isUnplanned(sit){
+        const p = sit?.Planned;
+        if (typeof p === 'boolean') return p === false;
+        if (typeof p === 'string')  return p.trim().toLowerCase() === 'false';
+        return false;
+      }
+      function isDiversion(sit){
+        const txt = (sit?.Description || sit?.Summary || "").toLowerCase();
+        return /\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(txt);
+      }
+      function getOperatorRefs(sit){
+        const out = new Set();
+        const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+        const add = v => { if(v) out.add(String(v).toUpperCase()); };
+        if (Array.isArray(avj)){ avj.forEach(j => add(j?.OperatorRef)); }
+        else if (avj){ add(avj?.OperatorRef); }
+        if (Array.isArray(sit.__operatorRefs)){ sit.__operatorRefs.forEach(r => add(r)); }
+        return [...out];
+      }
+      function singleOperatorForTint(sit){
+        const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+        if (Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef).toUpperCase();
+        if (avj?.OperatorRef) return String(avj.OperatorRef).toUpperCase();
+        if (sit?.OperatorRef) return String(sit.OperatorRef).toUpperCase();
+        if (sit?.__operatorRefs?.length) return String(sit.__operatorRefs[0]).toUpperCase();
+        return "";
+      }
+      function inDisplayPool(sit){
+        const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
+        const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
+        const startIsToday = !!(s && isToday(s));
+        const endIsToday   = !!(e && isToday(e));
+        const isUFN        = !e;
+        return startIsToday || endIsToday || isUFN;
+      }
+      function withinGMBounds(lon,lat){
+        const sw = GM_BOUNDS[0], ne = GM_BOUNDS[1];
+        return lon>=sw[0] && lon<=ne[0] && lat>=sw[1] && lat<=ne[1];
+      }
+
+      function extractSituationsFromJSON(json){
+        const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+        if(!sd) return [];
+        const sed = Array.isArray(sd.SituationExchangeDelivery) ? sd.SituationExchangeDelivery : [sd.SituationExchangeDelivery].filter(Boolean);
+        const out=[];
+        for(const d of sed){
+          const pe = d?.Situations?.PtSituationElement;
+          if(Array.isArray(pe)) out.push(...pe);
+          else if(pe) out.push(pe);
+        }
+        return out;
+      }
+      function extractSituationsFromXML(doc){
+        const els = [...doc.querySelectorAll("PtSituationElement")];
+        return els.map(el=>{
+          const T = s => el.querySelector(s)?.textContent?.trim() || null;
+          const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")].map(n=>n.textContent.trim()).filter(Boolean);
+          const stops   = [...el.querySelectorAll("AffectedStopPoint")];
+          return {
+            Summary: T("Summary") || T("Description"),
+            Description: T("Description"),
+            Planned: (T("Planned") || "")?.toLowerCase(),
+            SituationNumber: T("SituationNumber") || T("SituationRef"),
+            ParticipantRef:  T("ParticipantRef"),
+            ValidityPeriod: {
+              StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
+              EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
+            },
+            Affects: {
+              VehicleJourneys: {},
+              StopPoints: { AffectedStopPoint: stops.map(sEl => {
+                const lon = Number(sEl.querySelector("Location > Longitude")?.textContent);
+                const lat = Number(sEl.querySelector("Location > Latitude")?.textContent);
+                const ref = sEl.querySelector("StopPointRef")?.textContent?.trim() || null;
+                const p = {};
+                if (Number.isFinite(lon) && Number.isFinite(lat)) p.Location = { Longitude:lon, Latitude:lat };
+                if (ref) p.StopPointRef = ref;
+                return p;
+              }) }
+            },
+            __operatorRefs: opsRef
+          };
+        });
+      }
+
+      function getAffectedStops(sit){
+        const points = sit?.Affects?.StopPoints?.AffectedStopPoint;
+        const stops = [];
+        if (Array.isArray(points)){
+          for(const p of points){
+            const lon = Number(p?.Location?.Longitude ?? p?.Longitude);
+            const lat = Number(p?.Location?.Latitude  ?? p?.Latitude);
+            if (Number.isFinite(lon) && Number.isFinite(lat)){
+              if (!GM_BOUNDS || withinGMBounds(lon,lat)){ stops.push({ lon, lat }); }
+            }
+          }
+        }
+        const seen = new Set(); const out=[];
+        for(const s of stops){
+          const k = `${s.lon.toFixed(6)},${s.lat.toFixed(6)}`;
+          if(!seen.has(k)){ seen.add(k); out.push(s); }
+        }
+        return out;
+      }
+
+      function centroidOf(stops){
+        if(!stops.length) return null;
+        const sum = stops.reduce((a,s)=>({ lon:a.lon + s.lon, lat: a.lat + s.lat }), {lon:0, lat:0});
+        return { lon: sum.lon / stops.length, lat: sum.lat / stops.length };
+      }
+
+      function mapSituationToCentroidFeature(sit){
+        const op = (singleOperatorForTint(sit) || getOperatorRefs(sit)[0] || '').toUpperCase();
+        if (!op || !BEE_OPERATORS.includes(op)) return null;
+
+        const stops = getAffectedStops(sit);
+        if (!stops.length) return null;
+        const c = centroidOf(stops);
+        if (!c) return null;
+
+        const id = String(sit?.SituationNumber || sit?.SituationRef || sit?.ParticipantRef || sit?.Summary || Math.random()).slice(0,80);
+        const color = OP_COLOR_MAP[op] || '#cfcfd6';
+        const isUFN = !(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
+
+        return {
+          type: 'Feature',
+          id: `centroid-${id}`,
+          geometry: { type:'Point', coordinates: [c.lon, c.lat] },
+          properties: { id, op, color, isUFN: !!isUFN }
+        };
+      }
+
+      map.addSource('divert-centroids', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
+
+      map.addLayer({
+        id:'divert-centroids-halo',
+        type:'circle',
+        source:'divert-centroids',
+        paint:{
+          'circle-color': ['get','color'],
+          'circle-opacity': 0.30,
+          'circle-blur': 0.5,
+          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 8, 12, 11, 16, 15]
+        }
+      });
+
+      function ensureDivertImages() {
+        function addIfMissing(name, color) {
+          if (!map.hasImage(name)) {
+            map.addImage(name, createHexDivertIcon(map, color), { pixelRatio: 2 });
+          }
+        }
+        addIfMissing('divert-default', '#cfcfd6');
+        Object.entries(OP_COLOR_MAP).forEach(([op, col]) => addIfMissing(`divert-${op}`, col));
+      }
+      ensureDivertImages();
+
+      map.addLayer({
+        id: 'divert-centroids-icon',
+        type: 'symbol',
+        source: 'divert-centroids',
+        layout: {
+          'icon-image': [
+            'match', ['get', 'op'],
+            'BNML', 'divert-BNML',
+            'BNGN', 'divert-BNGN',
+            'BNSM', 'divert-BNSM',
+            'BNDB', 'divert-BNDB',
+            'BNVB', 'divert-BNVB',
+            'BNFM', 'divert-BNFM',
+            'divert-default'
+          ],
+          'icon-size': ['interpolate', ['linear'], ['zoom'], 8,0.83, 12,1.19, 16,1.65],
+          'icon-allow-overlap': true
+        }
+      });
+
+      let pulse = 1.0, pulseDir = 1;
+      function applyPulse(){
+        const factor = ['case', ['get','isUFN'], pulse, 1];
+        map.setPaintProperty('divert-centroids-halo','circle-radius',
+          ['interpolate',['linear'],['zoom'],
+            8,  ['*', 8,  factor],
+            12, ['*', 11, factor],
+            16, ['*', 15, factor]
+          ]
+        );
+        map.setLayoutProperty('divert-centroids-icon','icon-size',
+          ['interpolate',['linear'],['zoom'],
+            8,  ['*', 0.83, factor],
+            12, ['*', 1.19,  factor],
+            16, ['*', 1.65,  factor]
+          ]
+        );
+      }
+      function ufnTick(){
+        if (document.hidden) return;
+        pulse += (pulseDir * 0.05);
+        if (pulse >= 1.25) { pulse = 1.25; pulseDir = -1; }
+        if (pulse <= 0.85) { pulse = 0.85; pulseDir =  1; }
+        applyPulse();
+      }
+      applyPulse();
+      setInterval(ufnTick, 140);
+
+      async function updateDivertCentroidsOnce(){
+        try{
+          const res = await fetch(withCacheBust(BODS_URL), { cache: 'no-store' });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const clone = res.clone();
+          let data, type;
+          try { data = await res.json(); type = 'json'; }
+          catch { const text = await clone.text(); data = new DOMParser().parseFromString(text, 'application/xml'); type = 'xml'; }
+
+          const all = (type === 'json') ? extractSituationsFromJSON(data) : extractSituationsFromXML(data);
+
+          const live = all
+            .filter(s =>
+              getOperatorRefs(s).some(r => BEE_OPERATORS.includes(String(r).toUpperCase())) ||
+              BEE_OPERATORS.includes((singleOperatorForTint(s) || '').toUpperCase())
+            )
+            .filter(isDiversion)
+            .filter(isCurrentlyValid);
+
+          const liveUnplanned = UNPLANNED_ONLY ? live.filter(isUnplanned) : live;
+
+          const display = liveUnplanned
+            .filter(inDisplayPool)
+            .filter(sit => {
+              const e = sit?.ValidityPeriod?.EndTime || sit?.EndTime;
+              return !e;
+            });
+
+          const feats = display
+            .map(mapSituationToCentroidFeature)
+            .filter(f => f?.properties?.isUFN === true);
+
+          map.getSource('divert-centroids')?.setData({ type:'FeatureCollection', features:feats });
+        }catch(e){
+          console.error('[BODS centroids] fetch/update failed:', e);
+        }
+      }
+
+      await runCycle(); scheduleNext(REFRESH_MS);
+      await runHeCycle(); scheduleHeNext(REFRESH_MS);
+      await updateDivertCentroidsOnce();
+      setInterval(updateDivertCentroidsOnce, BODS_REFRESH_MS);
+
+      updateGlobalStatus({animate:false});
+    });
+
+    window.addEventListener('resize', () => { map.resize(); });
+
+    function varColor(varName, fallback){
+      try{
+        const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+        return val || fallback;
+      }catch(e){ return fallback; }
+    }
+
+    /* =======================================================
+       Bottom row: Network health bar + custom attribution chip
+       ======================================================= */
+
+    const TVT_URL = `${API_BASE}/api/waze/tvt`;
+    const NET_HEALTH_REFRESH_MS = 60 * 1000;
+
+    function networkGradientFromUsersOnJams(usersOnJams){
+      if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
+        return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
+      }
+      const levelColors = { 0:'#42BE4B', 1:'#9ddc43', 2:'#ffe04a', 3:'#ff9a1f', 4:'#ff4d4f' };
+      const total = usersOnJams.reduce((a,u)=>a + (Number(u.wazersCount)||0), 0) || 1;
+      let acc = 0, stops = [];
+      usersOnJams.slice().sort((a,b)=>a.jamLevel-b.jamLevel).forEach(u=>{
+        const pct = (Number(u.wazersCount)||0)/total*100;
+        const start = acc, end = acc + pct;
+        stops.push(`${levelColors[u.jamLevel] || '#666'} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+        acc = end;
+      });
+      return `linear-gradient(90deg, ${stops.join(', ')})`;
+    }
+
+    async function fetchTVTUsersOnJams(signal){
+      try{
+        const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal });
+        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        const trimmed = text.replace(/^\uFEFF/, '').trim();
+        const data = JSON.parse(trimmed);
+        return Array.isArray(data?.usersOnJams) ? data.usersOnJams : [];
+      }catch(e){
+        console.warn('[NetworkHealth] TVT fetch failed:', e);
+        return null;
+      }
+    }
+
+    let netHealthCtrl = null;
+    async function updateNetworkHealthOnce(){
+      if (document.hidden) return;
+
+      if (netHealthCtrl) { try{ netHealthCtrl.abort(); }catch(e){} }
+      netHealthCtrl = new AbortController();
+
+      const usersOnJams = await fetchTVTUsersOnJams(netHealthCtrl.signal);
+      const bar = document.getElementById('networkHealthBar');
+      if (!bar) return;
+
+      if (usersOnJams){
+        bar.style.background = networkGradientFromUsersOnJams(usersOnJams);
+        bar.title = `Network health • Updated ${new Date().toLocaleTimeString('en-GB',{hour12:false})}`;
+      } else {
+        bar.title = `Network health • Update failed ${new Date().toLocaleTimeString('en-GB',{hour12:false})}`;
+      }
+    }
+
+    function syncAttributionIntoChip(){
+      const chip = document.getElementById('attribChip');
+      if (!chip) return;
+      const attrib = document.querySelector('.maplibregl-ctrl-attrib');
+      if (!attrib) return;
+      chip.innerHTML = attrib.innerHTML;
+    }
+
+    function observeAttribution(){
+      const attrib = document.querySelector('.maplibregl-ctrl-attrib');
+      if (!attrib) return;
+      const obs = new MutationObserver(()=>syncAttributionIntoChip());
+      obs.observe(attrib, { childList:true, subtree:true, characterData:true });
+    }
+
+    map.on('load', () => {
+      syncAttributionIntoChip();
+      observeAttribution();
+
+      updateNetworkHealthOnce();
+      setInterval(updateNetworkHealthOnce, NET_HEALTH_REFRESH_MS);
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        syncAttributionIntoChip();
+        updateNetworkHealthOnce();
+      }
+    });
+  </script>
+
+  <!-- Bottom status row: Network health bar + Attribution chip -->
+  <div id="bottomStatusRow" aria-label="Network health and attribution">
+    <div id="networkHealthBar" title="Network health"></div>
+    <div id="attribChip" aria-label="Map attribution"></div>
+  </div>
+</body>
+</html>
