@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>LST — Control Centre Tool</title>
+  <title>LST — Control Centre Triage Console</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts -->
@@ -15,950 +15,1413 @@
 
   <style>
     :root{
-      --bg:#000;
-      --panel:#0b0b0b;
-      --text:#f2f2f2;
-      --muted:#c9cacc;
+      --bg:#050505;
+      --panel:#0d0d0d;
+      --panel2:#121212;
+      --text:#f2f2f3;
+      --muted:#b9bcc1;
+      --line:rgba(255,255,255,0.10);
+      --line2:rgba(255,255,255,0.06);
 
-      --liveGreen:#42BE4B;
-      --errorRed:#EA5540;
       --accent:#FFE04A;
+      --green:#42BE4B;
+      --red:#EA5540;
+      --orange:#FF9A1F;
+      --blue:#7AA7FF;
 
-      --line: rgba(255,255,255,0.10);
+      --shadow:0 10px 26px rgba(0,0,0,.44);
+      --radius:16px;
 
-      --shadow: 0 10px 28px rgba(0,0,0,.55);
-      --radius: 14px;
-
-      --mapH: 70vh;
-      --trayH: 30vh;
-
-      --glass: rgba(10,10,10,0.62);
-      --glassBorder: rgba(255,255,255,0.14);
-
-      --highConfMin: 4;
+      /* Compact fit-for-screen layout */
+      --headerH: 58px;
+      --leftW: 305px;
+      --rightW: 338px;
+      --cardH: 58px;
     }
 
-    html, body { height: 100%; margin: 0; }
+    html, body { height:100%; margin:0; }
     body{
-      background: var(--bg);
+      background: radial-gradient(circle at top, rgba(255,224,74,0.04), transparent 28%), var(--bg);
       color: var(--text);
-      font-family: "IBM Plex Sans Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      font-family: "IBM Plex Sans Condensed", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow: hidden;
-    }
-
-    /* Buttons */
-    .toolbar-btn,
-    .hide-btn{
-      appearance: none;
-      background: rgba(255,255,255,0.05);
-      color: #e7e7ea;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-weight: 900;
-      font-size: 10px;
-      letter-spacing: .45px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .2s ease, border-color .2s ease, transform .05s ease;
-      user-select: none;
-      white-space: nowrap;
-    }
-    .toolbar-btn:hover,
-    .hide-btn:hover{
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,224,74,0.7);
-      color: #fff;
-      box-shadow: 0 0 12px rgba(255,224,74,0.16);
-    }
-    .toolbar-btn:active,
-    .hide-btn:active{ transform: translateY(1px); }
-
-    .status-pill{
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 1000;
-      background: var(--liveGreen);
-      color:#000;
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.10), 0 6px 18px rgba(0,0,0,0.35);
-      white-space: nowrap;
-      transition: background .2s ease, color .2s ease;
-    }
-    .status-error{ background: var(--errorRed); color:#fff; }
-
-    #beeLogo{
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45));
-      user-select: none;
-    }
-    @keyframes wibble {
-      0%   { transform: rotate(0deg) scale(1); }
-      20%  { transform: rotate(4deg) scale(1.05); }
-      40%  { transform: rotate(-4deg) scale(1.05); }
-      60%  { transform: rotate(3deg) scale(1.03); }
-      80%  { transform: rotate(-3deg) scale(1.03); }
-      100% { transform: rotate(0deg) scale(1); }
-    }
-    .bee-wibble{ animation: wibble 650ms ease-out; }
-
-    .connected-count{
-      font-weight: 1000;
-      font-size: 14px;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
-      color: rgba(255,255,255,0.92);
-    }
-
-    /* App layout */
-    .app{
-      height: 100dvh;
-      display: grid;
-      grid-template-rows: var(--mapH) var(--trayH);
-      overflow: hidden;
-    }
-
-    /* Map area */
-    .map-area{
-      position: relative;
-      overflow: hidden;
-    }
-    #map{
-      width: 100%;
-      height: 100%;
-      background: #000;
-      transform: translateZ(0);
-    }
-
-    /* Leaflet sizing */
-    .leaflet-container{ font-size: 14px; }
-    .leaflet-control-attribution,
-    .leaflet-control-scale,
-    .leaflet-control{ font-size: 12px !important; }
-
-    /* Darker Leaflet buttons */
-    .leaflet-bar a{
-      background: rgba(10,10,10,0.78) !important;
-      color: rgba(255,255,255,0.92) !important;
-      border-bottom: 1px solid rgba(255,255,255,0.14) !important;
-    }
-    .leaflet-bar a:hover{ background: rgba(255,255,255,0.12) !important; }
-
-    /* Floating top bar */
-    .topbar{
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      z-index: 900;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-      align-items: center;
-      padding: 10px;
-      border-radius: 16px;
-      background: var(--glass);
-      border: 1px solid var(--glassBorder);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(7px);
-    }
-    .topbar-left{
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      min-width: 0;
-    }
-    .topbar-right{
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-    }
-
-    /* Search + health sliver */
-    .place-search-wrap{
-      flex: 1;
-      min-width: 260px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      position: relative;
-    }
-    .place-search{ position: relative; }
-    #gmSearch{
-      width: 100%;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color:#fff;
-      font-weight: 900;
-      font-size: 15px;
-      padding: 12px 40px 12px 12px;
-      border-radius: 14px;
-      outline:none;
-      box-sizing:border-box;
-    }
-    #gmSearch:focus{
-      border-color: rgba(255,224,74,0.75);
-      background: rgba(255,255,255,0.10);
-      box-shadow: 0 0 0 2px rgba(255,224,74,0.12);
-    }
-    .health-sliver{
-      height: 3px;
-      width: 100%;
-      border-radius: 0 0 10px 10px;
-      background: linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f);
-      opacity: 0.95;
-    }
-
-    /* Search spinner */
-    .search-spinner{
-      position:absolute;
-      right:12px;
-      top:50%;
-      width:18px;
-      height:18px;
-      margin-top:-9px;
-      border-radius:50%;
-      border:2px solid rgba(255,255,255,0.25);
-      border-top-color: var(--accent);
-      animation: spin 0.8s linear infinite;
-      display:none;
-      pointer-events:none;
-    }
-    .search-spinner.active{ display:block; }
-    @keyframes spin{ to{ transform: rotate(360deg);} }
-
-    /* Suggestions */
-    .suggestions{
-      position:absolute;
-      top: calc(100% + 6px);
-      left:0; right:0;
-      z-index:9999;
-      display:none;
-      background: rgba(10,10,10,0.98);
-      border:1px solid rgba(255,255,255,0.14);
-      border-radius:12px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.55);
       overflow:hidden;
     }
-    .suggestions.open{ display:block; }
-    .suggest-list{
-      margin:0;
-      padding:6px;
-      list-style:none;
-      max-height: min(34vh, 360px);
-      overflow:auto;
-    }
-    .suggest-item{
-      padding:10px;
-      border-radius:10px;
-      cursor:pointer;
-      border:1px solid transparent;
-      color: rgba(255,255,255,0.92);
-      font-weight:900;
-      line-height:1.2;
-    }
-    .suggest-item small{
-      display:block;
-      margin-top:4px;
-      font-weight:800;
-      color: rgba(255,255,255,0.70);
-    }
-    .suggest-item:hover{
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(255,224,74,0.45);
-    }
-    .suggest-item.active{
-      background: rgba(255,224,74,0.18);
-      border-color: rgba(255,224,74,0.75);
-    }
 
-    /* Styled pin */
-    .lst-pin{
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(255,224,74,0.22);
-      border: 3px solid #FFE04A;
-      box-shadow:
-        0 0 0 2px rgba(0,0,0,0.55),
-        0 0 14px rgba(255,224,74,0.20);
+    *{
+      box-sizing:border-box;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.26) transparent;
     }
-
-    /* Tool popup */
-    dialog.tool-dialog{
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 16px;
-      padding: 14px;
-      background: rgba(10,10,10,0.92);
-      color: #fff;
-      box-shadow: 0 18px 60px rgba(0,0,0,0.65);
-      width: min(520px, 92vw);
-    }
-    dialog.tool-dialog::backdrop{ background: rgba(0,0,0,0.55); }
-
-    .tool-dialog__head{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
-    .tool-dialog__title{
-      font-weight: 1000;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-    }
-    .tool-dialog__meta{
-      margin: 10px 0 12px;
-      color: rgba(255,255,255,0.78);
-      font-weight: 800;
-    }
-    .tool-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-    .tool-grid button{
-      appearance:none;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color:#fff;
-      font-weight:1000;
-      font-size: 13px;
-      padding: 10px 10px;
-      border-radius: 12px;
-      cursor:pointer;
-      min-height:40px;
-    }
-    .tool-grid button:hover{
-      border-color: rgba(255,224,74,0.75);
-      background: rgba(255,255,255,0.12);
-    }
-
-    /* Scrollbars overall */
-    * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.35) transparent; }
     ::-webkit-scrollbar{ width:8px; height:8px; }
     ::-webkit-scrollbar-track{ background:transparent; }
     ::-webkit-scrollbar-thumb{
-      background: linear-gradient(180deg, rgba(255,224,74,0.55), rgba(255,255,255,0.35));
-      border-radius: 999px;
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(255,224,74,0.52), rgba(255,255,255,0.28));
       border:2px solid transparent;
       background-clip: padding-box;
     }
 
-    /* =======================================================
-       LIVE ALERTS (Refactor) — dense queue + details panel
-       ======================================================= */
-    .alerts{
-      border-top: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,224,74,0.06), rgba(0,0,0,0.45));
-      height: var(--trayH);
-      display: grid;
-      grid-template-rows: auto 1fr;
-      overflow: hidden;
+    .app{
+      height:100dvh;
+      display:grid;
+      grid-template-rows: var(--headerH) 1fr;
+      overflow:hidden;
     }
 
-    .alerts-head{
+    /* =========================
+       TOP BAR
+       ========================= */
+    .topbar{
       display:grid;
       grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto;
-      gap: 10px;
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+      gap:10px;
+      align-items:center;
+      padding:8px 10px;
+      border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+        rgba(6,6,6,0.92);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      z-index:1000;
+      min-height:0;
     }
 
-    .alerts-title .kicker{
-      font-weight: 1000;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      font-size: 11px;
-      color: rgba(255,255,255,0.85);
-    }
-    .alerts-title .subkicker{
-      margin-top: 2px;
-      font-weight: 800;
-      font-size: 12px;
-      color: rgba(255,255,255,0.70);
+    .topbar-left{
+      min-width:0;
+      display:grid;
+      grid-template-columns: minmax(240px, 520px) auto;
+      gap:8px;
+      align-items:center;
     }
 
-    .alerts-kpis{
+    .topbar-right{
       display:flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items: center;
-    }
-    .kpi{
-      display:flex;
-      align-items: baseline;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      font-weight: 1000;
-    }
-    .kpi b{ font-size: 14px; }
-    .kpi small{ font-size: 10px; opacity: .8; text-transform: uppercase; letter-spacing: .35px; }
-    .kpi span{ font-size: 14px; }
-    .kpi-muted{ opacity: .8; }
-
-    .alerts-controls{
-      grid-column: 1 / -1;
-      display:flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
+      gap:8px;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:wrap;
     }
 
-    .tray-controls{
-      display:flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .tray-controls button{
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #fff;
-      font-weight: 1000;
-      padding: 4px 8px;
-      border-radius: 999px;
-      cursor:pointer;
-      font-size: 9.5px;
-      text-transform: uppercase;
-      letter-spacing: .35px;
-    }
-    .tray-controls button.active{
-      background: var(--accent);
-      color: #000;
-      border-color: var(--accent);
+    .search-wrap{
+      position:relative;
+      min-width:0;
     }
 
-    .alerts-filterbar{
-      display:flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    #queueSearch{
-      width: min(380px, 48vw);
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color:#fff;
-      font-weight: 900;
-      font-size: 13px;
-      padding: 8px 10px;
+    #gmSearch{
+      width:100%;
+      height:40px;
+      border:1px solid rgba(255,255,255,0.16);
       border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      color:#fff;
+      font-size:14px;
+      font-weight:900;
+      padding:0 40px 0 12px;
+      outline:none;
+    }
+    #gmSearch:focus{
+      border-color: rgba(255,224,74,0.72);
+      box-shadow: 0 0 0 2px rgba(255,224,74,0.12);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .search-spinner{
+      position:absolute;
+      right:12px;
+      top:50%;
+      width:16px;
+      height:16px;
+      margin-top:-8px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,0.24);
+      border-top-color: var(--accent);
+      animation: spin .8s linear infinite;
+      display:none;
+      pointer-events:none;
+    }
+    .search-spinner.active{ display:block; }
+    @keyframes spin{ to{ transform:rotate(360deg);} }
+
+    .suggestions{
+      position:absolute;
+      left:0; right:0;
+      top: calc(100% + 6px);
+      display:none;
+      z-index:3000;
+      background: rgba(10,10,10,0.98);
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius: 13px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.55);
+      overflow:hidden;
+    }
+    .suggestions.open{ display:block; }
+    .suggest-list{
+      list-style:none;
+      margin:0;
+      padding:6px;
+      max-height: min(36vh, 320px);
+      overflow:auto;
+    }
+    .suggest-item{
+      padding:9px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+      cursor:pointer;
+      font-weight:900;
+      line-height:1.15;
+      font-size:13px;
+    }
+    .suggest-item small{
+      display:block;
+      margin-top:3px;
+      font-size:11px;
+      font-weight:800;
+      color: rgba(255,255,255,0.68);
+    }
+    .suggest-item:hover{
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,224,74,0.42);
+    }
+    .suggest-item.active{
+      background: rgba(255,224,74,0.18);
+      border-color: rgba(255,224,74,0.72);
+    }
+
+    .top-controls{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+      min-width:0;
+    }
+
+    select,
+    .btn,
+    .mini-btn{
+      appearance:none;
+      border:none;
+      outline:none;
+      font: inherit;
+      transition: background .18s ease, border-color .18s ease, transform .06s ease;
+    }
+    .btn:active, .mini-btn:active{ transform: translateY(1px); }
+
+    #recentPlaces{
+      height:34px;
+      min-width: 170px;
+      max-width: 220px;
+      border-radius: 10px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
+      color:#fff;
+      font-size:12px;
+      font-weight:900;
+      padding: 0 10px;
+    }
+
+    .btn{
+      height:34px;
+      padding:0 10px;
+      border-radius: 10px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
+      color:#fff;
+      font-size:11px;
+      font-weight:1000;
+      letter-spacing:.25px;
+      white-space:nowrap;
+      cursor:pointer;
+    }
+    .btn:hover{
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,224,74,0.70);
+    }
+
+    .mini-btn{
+      height:28px;
+      padding:0 8px;
+      border-radius: 9px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
+      color:#fff;
+      font-size:10px;
+      font-weight:1000;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .mini-btn:hover{
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,224,74,0.70);
+    }
+
+    .status-pill{
+      height:34px;
+      padding:0 11px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      font-size:11px;
+      font-weight:1000;
+      letter-spacing:.28px;
+      white-space:nowrap;
+      background: var(--green);
+      color:#000;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.08), 0 6px 16px rgba(0,0,0,0.28);
+    }
+    .status-pill.error{
+      background: var(--red);
+      color:#fff;
+    }
+
+    .connected{
+      font-size:12px;
+      font-weight:1000;
+      color: rgba(255,255,255,0.92);
+      white-space:nowrap;
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+    .main{
+      min-height:0;
+      display:grid;
+      grid-template-columns: var(--leftW) 1fr var(--rightW);
+      gap:10px;
+      padding:10px;
+      overflow:hidden;
+    }
+
+    .panel{
+      min-height:0;
+      overflow:hidden;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    /* =========================
+       LEFT QUEUE PANEL
+       ========================= */
+    .queue-panel{
+      display:grid;
+      grid-template-rows: auto auto auto 1fr;
+      min-height:0;
+    }
+
+    .panel-head{
+      padding:8px 10px 7px;
+      border-bottom:1px solid var(--line2);
+      background: linear-gradient(180deg, rgba(255,224,74,0.05), rgba(255,255,255,0.01));
+    }
+    .panel-head .title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
+    .panel-head b{
+      font-size:14px;
+      text-transform: uppercase;
+      letter-spacing:.32px;
+    }
+    .panel-head small{
+      display:block;
+      margin-top:2px;
+      color: var(--muted);
+      font-size:10px;
+      font-weight:800;
+    }
+
+    .tabs{
+      padding:6px 8px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:5px;
+      border-bottom:1px solid var(--line2);
+      background: rgba(255,255,255,0.015);
+    }
+    .tab-btn{
+      height:30px;
+      border-radius: 10px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color:#fff;
+      font-size:10px;
+      font-weight:1000;
+      cursor:pointer;
+      white-space:nowrap;
+      padding:0 4px;
+    }
+    .tab-btn.active{
+      background: var(--accent);
+      border-color: var(--accent);
+      color:#000;
+    }
+    .tab-btn span{
+      margin-left:4px;
+      font-size:11px;
+    }
+
+    .queue-toolbar{
+      padding:6px 8px;
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) 82px 72px;
+      gap:6px;
+      align-items:center;
+      border-bottom:1px solid var(--line2);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .queue-toolbar select{
+      height:32px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
+      color:#fff;
+      font-size:11px;
+      font-weight:1000;
+      padding:0 8px;
+    }
+    .queue-toolbar select:focus{
+      border-color: rgba(255,224,74,0.72);
+      box-shadow: 0 0 0 2px rgba(255,224,74,0.12);
+    }
+
+    #queueSearch{
+      width:100%;
+      height:32px;
+      border-radius: 10px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
+      color:#fff;
+      font-size:11px;
+      font-weight:900;
+      padding:0 9px;
       outline:none;
     }
     #queueSearch:focus{
-      border-color: rgba(255,224,74,0.75);
+      border-color: rgba(255,224,74,0.72);
       box-shadow: 0 0 0 2px rgba(255,224,74,0.12);
     }
-    #sortMode{
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(10,10,10,0.65);
-      color:#fff;
-      font-weight: 900;
-      padding: 7px 8px;
-    }
 
-    .alerts-body{
-      min-height: 0;
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 10px;
-      padding: 10px 12px 12px;
-      overflow: hidden;
-    }
-
-    .queue{
-      min-height:0;
-      display:grid;
-      grid-template-rows: auto 1fr;
-      gap: 8px;
-      overflow:hidden;
-    }
-    .queue-head{
-      display:flex;
-      align-items:center;
-      gap: 8px;
-    }
-    .queue-hint{
-      font-weight: 800;
-      font-size: 11px;
-      color: rgba(255,255,255,0.65);
-    }
     .queue-list{
       min-height:0;
       overflow:auto;
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 14px;
-      background: rgba(0,0,0,0.25);
+      padding:6px;
+      display:grid;
+      gap:6px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0));
     }
 
-    .qrow{
+    .empty-state{
+      padding: 16px 10px;
+      color: rgba(255,255,255,0.62);
+      font-size:12px;
+      font-weight:800;
+      text-align:center;
+      border:1px dashed rgba(255,255,255,0.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .alert-card{
+      position:relative;
+      min-height: var(--cardH);
       display:grid;
       grid-template-columns: auto 1fr auto;
-      gap: 10px;
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap:7px;
+      align-items:center;
+      padding:6px 8px 6px 12px;
+      border-radius: 13px;
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.20);
       cursor:pointer;
-      position:relative;
+      overflow:hidden;
     }
-    .qrow:last-child{ border-bottom:none; }
-    .qrow::before{
-      content:'';
+    .alert-card::before{
+      content:"";
       position:absolute;
       left:0; top:0; bottom:0;
-      width: 5px;
-      background: var(--qcol, rgba(255,255,255,0.25));
+      width:4px;
+      background: var(--cardCol, rgba(255,255,255,0.28));
     }
-    .qrow:hover{ background: rgba(255,255,255,0.06); }
-    .qrow[aria-selected="true"]{
-      background: rgba(255,224,74,0.12);
-      outline: 1px solid rgba(255,224,74,0.55);
+    .alert-card:hover{
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.14);
+    }
+    .alert-card.selected{
+      background: rgba(255,224,74,0.10);
+      border-color: rgba(255,224,74,0.46);
+      box-shadow: 0 0 0 1px rgba(255,224,74,0.18) inset;
     }
 
-    .qicon{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
+    .alert-icon{
+      width:30px;
+      height:30px;
+      border-radius: 10px;
       display:grid;
       place-items:center;
+      font-size:15px;
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      font-size: 18px;
+      border:1px solid rgba(255,255,255,0.10);
+      flex:0 0 auto;
     }
-    .qmain{ min-width:0; }
-    .qtitle{
-      font-weight: 1000;
-      font-size: 16px;
-      white-space: nowrap;
+    .alert-main{
+      min-width:0;
+      display:grid;
+      gap:2px;
+    }
+    .alert-title{
+      font-size:12px;
+      font-weight:1000;
+      white-space:nowrap;
       overflow:hidden;
-      text-overflow: ellipsis;
+      text-overflow:ellipsis;
+      line-height:1.1;
     }
-    .qsub{
-      margin-top: 2px;
-      font-weight: 800;
-      font-size: 12px;
-      color: rgba(255,255,255,0.75);
-      white-space: nowrap;
+    .alert-sub{
+      font-size:10px;
+      font-weight:800;
+      color: rgba(255,255,255,0.74);
+      line-height:1.15;
+      display:-webkit-box;
+      -webkit-line-clamp:1;
+      -webkit-box-orient:vertical;
       overflow:hidden;
-      text-overflow: ellipsis;
     }
-    .qmeta{
+    .alert-meta{
+      display:grid;
+      gap:4px;
+      justify-items:end;
+      min-width:64px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 20px;
+      padding: 0 7px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      font-size:9px;
+      font-weight:1000;
+      letter-spacing:.28px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .badge.source-tvt{ background: rgba(255,224,74,0.16); border-color: rgba(255,224,74,0.38); color:#fff7bf; }
+    .badge.source-waze{ background: rgba(122,167,255,0.12); border-color: rgba(122,167,255,0.35); color:#dbe7ff; }
+    .badge.new{ background: rgba(255,224,74,0.16); border-color: rgba(255,224,74,0.38); color:#fff7bf; }
+    .badge.monitoring{ background: rgba(66,190,75,0.12); border-color: rgba(66,190,75,0.38); color:#d9ffd9; }
+    .badge.snoozed{ background: rgba(122,167,255,0.12); border-color: rgba(122,167,255,0.35); color:#dbe7ff; }
+    .badge.closed{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.16); color:#f4f4f4; }
+
+    .alert-age{
+      font-size:9px;
+      font-weight:900;
+      color: rgba(255,255,255,0.68);
+      white-space:nowrap;
+    }
+
+    /* =========================
+       MAP PANEL
+       ========================= */
+    .map-panel{
+      position:relative;
+      min-height:0;
+      overflow:hidden;
+      background:#000;
+    }
+    #map{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      background:#000;
+      transform: translateZ(0);
+    }
+
+    .leaflet-container{ font-size: 13px; }
+    .leaflet-bar a{
+      background: rgba(10,10,10,0.80) !important;
+      color: rgba(255,255,255,0.92) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.14) !important;
+    }
+    .leaflet-bar a:hover{
+      background: rgba(255,255,255,0.12) !important;
+    }
+
+    .map-float{
+      position:absolute;
+      top:10px;
+      left:10px;
+      right:10px;
+      z-index:900;
       display:flex;
-      flex-direction:column;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+      pointer-events:none;
+    }
+
+    .float-card{
+      pointer-events:auto;
+      max-width:min(430px, 62vw);
+      min-height: 38px;
+      padding:9px 11px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(8,8,8,0.68);
+      backdrop-filter: blur(9px);
+      box-shadow: var(--shadow);
+    }
+    .float-card b{
+      display:block;
+      font-size:12px;
+      line-height:1.1;
+    }
+    .float-card small{
+      display:block;
+      margin-top:3px;
+      font-size:10px;
+      font-weight:800;
+      color: rgba(255,255,255,0.70);
+      line-height:1.15;
+    }
+
+    .kbd-row{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .kbd{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:22px;
+      height:22px;
+      padding:0 6px;
+      border-radius: 8px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08);
+      color:#fff;
+      font-size:10px;
+      font-weight:1000;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+
+    .map-bottom{
+      position:absolute;
+      left:10px;
+      right:10px;
+      bottom:10px;
+      z-index:900;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
       align-items:flex-end;
-      gap: 6px;
+      pointer-events:none;
     }
-    .qpill{
-      font-weight: 1000;
-      font-size: 11px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.12);
-      white-space: nowrap;
+
+    .legend{
+      pointer-events:auto;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      padding:8px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(8,8,8,0.66);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
     }
-    .qage{
-      font-weight: 900;
-      font-size: 11px;
+    .legend .item{
+      display:flex;
+      gap:6px;
+      align-items:center;
+      font-size:10px;
+      font-weight:900;
+      color: rgba(255,255,255,0.82);
+      white-space:nowrap;
+    }
+    .swatch{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      flex:0 0 auto;
+    }
+
+    .live-chip{
+      pointer-events:auto;
+      display:inline-flex;
+      align-items:center;
+      min-height: 34px;
+      padding:0 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(8,8,8,0.66);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      font-size:10px;
+      font-weight:1000;
+      white-space:nowrap;
+    }
+
+    .lst-pin{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255,224,74,0.20);
+      border: 3px solid #FFE04A;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.52), 0 0 12px rgba(255,224,74,0.18);
+    }
+
+    /* =========================
+       DETAILS PANEL
+       ========================= */
+    .detail-panel{
+      display:grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      min-height:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        var(--panel2);
+    }
+
+    .detail-head{
+      padding:10px;
+      border-bottom:1px solid var(--line2);
+      background: linear-gradient(180deg, rgba(255,224,74,0.05), rgba(255,255,255,0.01));
+    }
+    .detail-head b{
+      display:block;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+    }
+    .detail-head small{
+      display:block;
+      margin-top:2px;
+      font-size:10px;
+      font-weight:800;
+      color: var(--muted);
+    }
+
+    .detail-hero{
+      padding:10px;
+      border-bottom:1px solid var(--line2);
+      min-height:0;
+    }
+
+    .detail-empty{
+      padding:14px 10px;
+      border-radius: 14px;
+      border:1px dashed rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.02);
+      text-align:center;
       color: rgba(255,255,255,0.70);
     }
-
-    .details-card{
-      height:100%;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.22);
-      overflow:auto;
-      padding: 12px;
+    .detail-empty b{
+      display:block;
+      font-size:14px;
+      font-weight:1000;
     }
-    .details-empty{
-      height:100%;
+    .detail-empty small{
+      display:block;
+      margin-top:5px;
+      font-size:11px;
+      font-weight:800;
+      color: rgba(255,255,255,0.58);
+      line-height:1.2;
+    }
+
+    .sel-title{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      align-items:flex-start;
+    }
+    .sel-title-main{
+      min-width:0;
+    }
+    .sel-title-main h3{
+      margin:0;
+      font-size:16px;
+      line-height:1.1;
+      font-weight:1000;
+    }
+    .sel-title-main .sub{
+      margin-top:4px;
+      font-size:12px;
+      font-weight:800;
+      color: rgba(255,255,255,0.76);
+      line-height:1.15;
+    }
+    .sel-tags{
+      display:flex;
+      gap:5px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      max-width: 120px;
+    }
+
+    .detail-grid{
+      padding:10px;
+      border-bottom:1px solid var(--line2);
       display:grid;
-      place-items:center;
-      text-align:center;
+      grid-template-columns: 1fr 1fr;
+      gap:7px;
+    }
+    .detail-item{
+      padding:8px 9px;
+      min-height: 56px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+    .detail-item b{
+      display:block;
+      font-size:9px;
+      letter-spacing:.32px;
+      text-transform:uppercase;
+      color: rgba(255,255,255,0.66);
+    }
+    .detail-item span{
+      display:block;
+      margin-top:4px;
+      font-size:12px;
+      font-weight:1000;
+      line-height:1.15;
+      word-break:break-word;
+    }
+
+    .detail-actions{
+      padding:10px;
+      border-bottom:1px solid var(--line2);
+      display:grid;
+      gap:7px;
+    }
+    .action-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:7px;
+    }
+    .action-row.tools{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .action-primary{
+      background: rgba(66,190,75,0.12);
+      border-color: rgba(66,190,75,0.38);
+    }
+    .action-primary:hover{
+      background: rgba(66,190,75,0.18);
+      border-color: rgba(66,190,75,0.62);
+    }
+    .action-danger{
+      background: rgba(234,85,64,0.12);
+      border-color: rgba(234,85,64,0.38);
+    }
+    .action-danger:hover{
+      background: rgba(234,85,64,0.18);
+      border-color: rgba(234,85,64,0.62);
+    }
+
+    .snooze-strip{
+      display:none;
+      grid-template-columns: repeat(4, 1fr);
+      gap:6px;
+    }
+    .snooze-strip.open{ display:grid; }
+
+    .detail-body{
+      min-height:0;
+      overflow:auto;
+      padding:10px;
+      display:grid;
+      gap:10px;
+    }
+
+    .field{
+      display:grid;
+      gap:5px;
+    }
+    .field label{
+      font-size:10px;
+      letter-spacing:.32px;
+      text-transform:uppercase;
+      font-weight:1000;
       color: rgba(255,255,255,0.72);
     }
-    .details-empty__title{
-      font-weight: 1000;
-      font-size: 16px;
-    }
-    .details-empty__sub{
-      margin-top: 6px;
-      font-weight: 800;
-      font-size: 12px;
-      opacity:.85;
-    }
-
-    .dh{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .dh h3{
-      margin:0;
-      font-size: 16px;
-      font-weight: 1000;
-    }
-    .dtags{
-      display:flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content:flex-end;
-    }
-    .dtag{
-      font-weight: 1000;
-      font-size: 11px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-    }
-    .dgrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-    .ditem{
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.10);
+    textarea, .field select{
+      width:100%;
+      border-radius: 11px;
+      border:1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.05);
+      color:#fff;
+      font: inherit;
+      outline:none;
     }
-    .ditem b{ display:block; font-size: 11px; opacity:.75; text-transform: uppercase; letter-spacing:.35px; }
-    .ditem span{ display:block; margin-top: 4px; font-weight: 1000; }
+    .field select{
+      height:34px;
+      padding:0 10px;
+      font-size:12px;
+      font-weight:900;
+    }
+    textarea{
+      min-height: 76px;
+      padding:9px 10px;
+      resize: vertical;
+      font-size:12px;
+      font-weight:800;
+      line-height:1.25;
+    }
+    textarea:focus, .field select:focus{
+      border-color: rgba(255,224,74,0.72);
+      box-shadow: 0 0 0 2px rgba(255,224,74,0.12);
+    }
 
-    .dactions{
-      margin-top: 10px;
+    .history{
+      display:grid;
+      gap:7px;
+    }
+    .history-item{
+      padding:8px 9px;
+      border-radius: 11px;
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+    .history-item b{
+      display:block;
+      font-size:11px;
+      font-weight:1000;
+      line-height:1.15;
+    }
+    .history-item small{
+      display:block;
+      margin-top:4px;
+      font-size:10px;
+      font-weight:800;
+      color: rgba(255,255,255,0.66);
+      line-height:1.2;
+    }
+
+    .detail-foot{
+      padding:8px 10px;
+      border-top:1px solid var(--line2);
+      background: rgba(255,255,255,0.015);
+      display:flex;
+      gap:6px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    /* =========================
+       HELP DIALOG
+       ========================= */
+    dialog.help-dialog{
+      border:1px solid rgba(255,255,255,0.16);
+      border-radius: 18px;
+      background: rgba(10,10,10,0.94);
+      color:#fff;
+      width: min(620px, 94vw);
+      padding: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.60);
+    }
+    dialog.help-dialog::backdrop{
+      background: rgba(0,0,0,0.54);
+      backdrop-filter: blur(3px);
+    }
+    .help-head{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .help-head b{
+      font-size:14px;
+      text-transform: uppercase;
+      letter-spacing:.32px;
+    }
+    .help-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap:8px;
     }
-    .dactions button{
-      appearance:none;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color:#fff;
-      font-weight:1000;
-      font-size: 13px;
-      padding: 10px 10px;
-      border-radius: 12px;
-      cursor:pointer;
-      min-height:40px;
+    .help-card{
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius: 13px;
+      padding:10px;
+      background: rgba(255,255,255,0.04);
     }
-    .dactions button:hover{
-      border-color: rgba(255,224,74,0.75);
-      background: rgba(255,255,255,0.12);
+    .help-card b{
+      display:block;
+      margin-bottom:7px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.32px;
+    }
+    .help-line{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:5px 0;
+      font-size:12px;
+      font-weight:900;
+      color: rgba(255,255,255,0.84);
+    }
+
+    @media (max-width: 1450px){
+      :root{
+        --leftW: 290px;
+        --rightW: 320px;
+      }
+    }
+    @media (max-width: 1280px){
+      :root{
+        --leftW: 270px;
+        --rightW: 300px;
+      }
+      .topbar-left{
+        grid-template-columns: minmax(220px, 1fr);
+      }
+      #recentPlaces{ display:none; }
+    }
+    @media (max-width: 1120px){
+      .main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 34vh 33vh 33vh;
+      }
+      .queue-panel{ order:2; }
+      .map-panel{ order:1; }
+      .detail-panel{ order:3; }
+      .help-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
   <div class="app">
 
-    <!-- MAP -->
-    <section class="map-area" aria-label="Map area">
-      <div id="map" aria-label="Map"></div>
-
-      <header class="topbar" aria-label="Search and status">
-        <div class="topbar-left">
-          <div class="place-search-wrap">
-            <div class="place-search" id="placeSearch" aria-label="Place search">
-              <input id="gmSearch" type="text" inputmode="search" autocomplete="off"
-                     placeholder="Search (bus stops 🚏, pubs 🍺, streets 🛣️)… or Oxford/Whitworth"
-                     aria-label="Search places in Greater Manchester"
-                     aria-autocomplete="list"
-                     aria-expanded="false"
-                     aria-controls="gmSuggest" />
-              <div class="search-spinner" id="searchSpinner" aria-hidden="true"></div>
-              <div id="gmSuggest" class="suggestions" role="listbox" aria-label="Search suggestions"></div>
-            </div>
-            <div class="health-sliver" id="networkBar" aria-hidden="true"></div>
-          </div>
+    <!-- TOP BAR -->
+    <header class="topbar" aria-label="Top bar">
+      <div class="topbar-left">
+        <div class="search-wrap" id="placeSearch">
+          <input
+            id="gmSearch"
+            type="text"
+            inputmode="search"
+            autocomplete="off"
+            placeholder="Search roads, stops, pubs, landmarks…   /"
+            aria-label="Search places in Greater Manchester"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-controls="gmSuggest"
+          />
+          <div class="search-spinner" id="searchSpinner" aria-hidden="true"></div>
+          <div id="gmSuggest" class="suggestions" role="listbox" aria-label="Search suggestions"></div>
         </div>
 
-        <div class="topbar-right">
-          <div id="connectedCitizens" class="connected-count">— Connected Citizens</div>
-          <button id="unhideAllBtn" class="toolbar-btn" type="button">Unhide all</button>
-          <div id="statusPill" class="status-pill">Initialising…</div>
-          <img id="beeLogo" src="https://tfgm.com/static/android-chrome-192x192.png"
-               alt="Bee Network logo" width="40" height="40" decoding="async" />
+        <div class="top-controls">
+          <select id="recentPlaces" aria-label="Recent places">
+            <option value="">Recent places…</option>
+          </select>
         </div>
-      </header>
-    </section>
-
-    <!-- LIVE ALERTS (Refactor) -->
-    <section class="alerts" aria-label="Live alerts">
-      <header class="alerts-head">
-        <div class="alerts-title">
-          <div class="kicker">Live alerts</div>
-          <div class="subkicker" id="alertsMeta">Initialising…</div>
-        </div>
-
-        <div class="alerts-kpis" aria-label="Alert counts">
-          <div class="kpi"><span>⏱️</span><b id="kpiTvt">0</b><small>Traffic</small></div>
-          <div class="kpi"><span>💥</span><b id="kpiAcc">0</b><small>Accidents</small></div>
-          <div class="kpi"><span>🚦</span><b id="kpiSig">0</b><small>Signals</small></div>
-          <div class="kpi"><span>❄️</span><b id="kpiIce">0</b><small>Ice</small></div>
-          <div class="kpi kpi-muted"><span>🫥</span><b id="kpiSnoozed">0</b><small>Snoozed</small></div>
-        </div>
-
-        <div class="alerts-controls">
-          <div class="tray-controls" id="tvt-filters" aria-label="Abnormal traffic filters">
-            <button type="button" data-min="1">+1m</button>
-            <button type="button" data-min="5">+5m</button>
-            <button type="button" data-min="10">+10m</button>
-            <button type="button" data-min="15" class="active">+15m</button>
-          </div>
-
-          <div class="alerts-filterbar" aria-label="Queue controls">
-            <button class="toolbar-btn" type="button" data-filter="all" id="filterAll">All</button>
-            <button class="toolbar-btn" type="button" data-filter="priority" id="filterPriority">Priority</button>
-            <button class="toolbar-btn" type="button" data-filter="tvt" id="filterTraffic">Traffic</button>
-            <button class="toolbar-btn" type="button" data-filter="waze" id="filterWaze">Waze</button>
-
-            <select id="sortMode" aria-label="Sort mode">
-              <option value="priority">Sort: Priority</option>
-              <option value="age">Sort: Newest</option>
-              <option value="severity">Sort: Severity</option>
-            </select>
-
-            <input id="queueSearch" type="search" placeholder="Filter by road / corridor / area…" aria-label="Filter alerts" />
-          </div>
-        </div>
-      </header>
-
-      <div class="alerts-body">
-        <div class="queue" aria-label="Alert queue">
-          <div class="queue-head">
-            <span class="queue-hint">↑↓ select • Enter pan • Space tools • A acknowledge • H hide 60m</span>
-            <button class="toolbar-btn" type="button" id="unhideAllBtn2">Unhide all</button>
-          </div>
-          <div class="queue-list" id="alertQueue" role="listbox" aria-label="Alerts list"></div>
-        </div>
-
-        <aside class="details" aria-label="Alert details">
-          <div class="details-card" id="detailsCard">
-            <div class="details-empty">
-              <div>
-                <div class="details-empty__title">Select an alert</div>
-                <div class="details-empty__sub">Details and quick actions appear here.</div>
-              </div>
-            </div>
-          </div>
-        </aside>
       </div>
-    </section>
 
+      <div class="topbar-right">
+        <div id="connectedCitizens" class="connected">— Connected Citizens</div>
+        <button id="unhideAllBtn" class="btn" type="button">Unsnooze all</button>
+        <button id="helpBtn" class="btn" type="button">Shortcuts ?</button>
+        <div id="statusPill" class="status-pill">Initialising…</div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- LEFT -->
+      <section class="panel queue-panel" aria-label="Alert queue">
+        <div class="panel-head">
+          <div class="title">
+            <div>
+              <b>Live alerts</b>
+              <small id="alertsMeta">Initialising…</small>
+            </div>
+            <button id="nextNewBtn" class="mini-btn" type="button">Next new</button>
+          </div>
+        </div>
+
+        <div class="tabs" aria-label="Queue tabs">
+          <button class="tab-btn active" data-tab="new" type="button">New <span id="kpiNeed">0</span></button>
+          <button class="tab-btn" data-tab="monitoring" type="button">Mon <span id="kpiMon">0</span></button>
+          <button class="tab-btn" data-tab="snoozed" type="button">Snz <span id="kpiSnz">0</span></button>
+          <button class="tab-btn" data-tab="closed" type="button">Cls <span id="kpiCls">0</span></button>
+        </div>
+
+        <div class="queue-toolbar">
+          <input id="queueSearch" type="search" placeholder="Filter…" aria-label="Filter alerts" />
+
+          <select id="sourceFilter" aria-label="Source filter">
+            <option value="all">All</option>
+            <option value="priority">Priority</option>
+            <option value="tvt">Traffic</option>
+            <option value="waze">Waze</option>
+          </select>
+
+          <select id="tvtDelaySelect" aria-label="Traffic delay threshold">
+            <option value="1">+1m</option>
+            <option value="5">+5m</option>
+            <option value="10">+10m</option>
+            <option value="15" selected>+15m</option>
+          </select>
+        </div>
+
+        <div id="queueList" class="queue-list"></div>
+      </section>
+
+      <!-- CENTRE -->
+      <section class="panel map-panel" aria-label="Map">
+        <div id="map"></div>
+
+        <div class="map-float">
+          <div class="float-card">
+            <b id="mapCardTitle">No alert selected</b>
+            <small id="mapCardSub">Select an alert or search a location. Enter = pan • G/W/B/U/V/T = tools</small>
+          </div>
+
+          <div class="float-card">
+            <div class="kbd-row">
+              <span class="kbd">J/K</span>
+              <span class="kbd">N</span>
+              <span class="kbd">M</span>
+              <span class="kbd">1 2 3 4</span>
+              <span class="kbd">X</span>
+              <span class="kbd">?</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-bottom">
+          <div class="legend">
+            <div class="item"><span class="swatch" style="background:#FF4D4F"></span> High</div>
+            <div class="item"><span class="swatch" style="background:#FF9A1F"></span> Medium</div>
+            <div class="item"><span class="swatch" style="background:#FFE04A"></span> Low</div>
+            <div class="item"><span class="swatch" style="background:#7AA7FF"></span> Ice</div>
+            <div class="item"><span class="swatch" style="background:#42BE4B"></span> Monitoring</div>
+          </div>
+
+          <div id="mapLiveChip" class="live-chip">Map ready</div>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <aside class="panel detail-panel" aria-label="Selected alert details">
+        <div class="detail-head">
+          <b>Selected alert</b>
+          <small>Monitor, snooze, close, open tools, and keep short notes.</small>
+        </div>
+
+        <div id="detailHero" class="detail-hero">
+          <div class="detail-empty">
+            <b>Select an alert</b>
+            <small>Or search a location above for desk / phone-call lookups.</small>
+          </div>
+        </div>
+
+        <div id="detailGrid" class="detail-grid"></div>
+
+        <div id="detailActions" class="detail-actions"></div>
+
+        <div id="detailBody" class="detail-body"></div>
+
+        <div class="detail-foot">
+          <span class="kbd">/</span><span style="font-size:11px;font-weight:900;color:rgba(255,255,255,.78)">Search</span>
+          <span class="kbd">J/K</span><span style="font-size:11px;font-weight:900;color:rgba(255,255,255,.78)">Move</span>
+          <span class="kbd">Enter</span><span style="font-size:11px;font-weight:900;color:rgba(255,255,255,.78)">Pan</span>
+        </div>
+      </aside>
+    </main>
   </div>
 
-  <!-- Marker-click popup -->
-  <dialog id="toolDialog" class="tool-dialog" aria-label="Open in other tools">
-    <div class="tool-dialog__head">
-      <div class="tool-dialog__title">Open in other tools</div>
-      <button class="toolbar-btn" id="toolDialogClose" type="button">Close</button>
+  <!-- HELP DIALOG -->
+  <dialog id="helpDialog" class="help-dialog" aria-label="Keyboard shortcuts">
+    <div class="help-head">
+      <b>Keyboard shortcuts</b>
+      <button class="btn" id="closeHelpBtn" type="button">Close</button>
     </div>
-    <div class="tool-dialog__meta" id="toolDialogMeta">—</div>
 
-    <div class="tool-grid" id="toolGrid" aria-label="Tool links">
-      <button type="button" data-tool="google">Google Maps</button>
-      <button type="button" data-tool="bustimes">Bus Times</button>
-      <button type="button" data-tool="waze_alerts">Waze Alerts</button>
-      <button type="button" data-tool="waze_closures">Waze Closures</button>
-      <button type="button" data-tool="tomtom">TomTom</button>
-      <button type="button" data-tool="vms">VMS</button>
-      <button type="button" data-tool="utc">UTC Sites</button>
+    <div class="help-grid">
+      <div class="help-card">
+        <b>Navigation</b>
+        <div class="help-line"><span class="kbd">/</span> Focus search</div>
+        <div class="help-line"><span class="kbd">J</span> Next alert</div>
+        <div class="help-line"><span class="kbd">K</span> Previous alert</div>
+        <div class="help-line"><span class="kbd">N</span> Jump to next New</div>
+        <div class="help-line"><span class="kbd">Enter</span> Pan map</div>
+      </div>
+
+      <div class="help-card">
+        <b>Workflow</b>
+        <div class="help-line"><span class="kbd">M</span> Monitor selected alert</div>
+        <div class="help-line"><span class="kbd">1</span> Snooze 15 mins</div>
+        <div class="help-line"><span class="kbd">2</span> Snooze 30 mins</div>
+        <div class="help-line"><span class="kbd">3</span> Snooze 1 hour</div>
+        <div class="help-line"><span class="kbd">4</span> Snooze 3 hours</div>
+        <div class="help-line"><span class="kbd">X</span> Close / no action</div>
+      </div>
+
+      <div class="help-card">
+        <b>Tools</b>
+        <div class="help-line"><span class="kbd">G</span> Google Maps</div>
+        <div class="help-line"><span class="kbd">W</span> Waze Alerts</div>
+        <div class="help-line"><span class="kbd">B</span> BusTimes</div>
+        <div class="help-line"><span class="kbd">T</span> TomTom</div>
+        <div class="help-line"><span class="kbd">U</span> UTC</div>
+        <div class="help-line"><span class="kbd">V</span> VMS</div>
+      </div>
+
+      <div class="help-card">
+        <b>Quick tips</b>
+        <div class="help-line"><span class="kbd">Tab</span> Use the tabs for queue state</div>
+        <div class="help-line"><span class="kbd">Tip</span> Notes are saved locally</div>
+        <div class="help-line"><span class="kbd">Tip</span> Recent searched places are remembered</div>
+      </div>
     </div>
   </dialog>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-    /* =======================================================
-       Utilities & helpers
-       ======================================================= */
+    /* =========================================================
+       CONFIG / STATE
+       ========================================================= */
     const API_BASE = "https://renderexpress-ebb0.onrender.com";
+    const TVT_REFRESH_MS = 5 * 60 * 1000;
+    const WAZE_REFRESH_MS = 30 * 1000;
+    let TVT_MIN_DELAY = 15;
 
+    const WORK_STATES = {
+      NEW: "new",
+      MONITORING: "monitoring",
+      SNOOZED: "snoozed",
+      CLOSED: "closed"
+    };
+
+    const ALERTS = {
+      byId: new Map(),
+      selectedId: null,
+      activeTab: "new",
+      filter: "all",
+      query: "",
+      currentVisibleOrder: []
+    };
+
+    const MAP_STATE = {
+      map: null,
+      marker: null,
+      last: null
+    };
+
+    const GM_CENTER = { lat: 53.4808, lon: -2.2426 };
+    const GM_BBOX = [-2.75, 53.30, -1.95, 53.72];
+    const SEARCH_DEBOUNCE_MS = 260;
+    const SEARCH_MIN_CHARS = 2;
+    const MAX_SUGGESTIONS = 10;
+    const PHOTON_ZOOM = 15;
+    const PHOTON_BIAS_SCALE = 0.12;
+
+    let tvtTimer = null;
+    let wazeTimer = null;
+    let gmAbort = null;
+    let searchSeq = 0;
+    let lastTvtData = null;
+
+    /* =========================================================
+       BASIC UTIL
+       ========================================================= */
     function withCacheBust(url){
-      const sep = url.includes('?') ? '&' : '?';
-      return url + sep + 'ts=' + Date.now();
+      const sep = url.includes("?") ? "&" : "?";
+      return url + sep + "ts=" + Date.now();
     }
+
     async function fetchJsonFromAPI(pathOrUrl, signal){
       const url = pathOrUrl.startsWith("http") ? pathOrUrl : (API_BASE + pathOrUrl);
-      const res = await fetch(withCacheBust(url), { cache: 'no-store', signal });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const res = await fetch(withCacheBust(url), { cache:"no-store", signal });
+      if (!res.ok) throw new Error("HTTP " + res.status);
       return await res.json();
-    }
-
-    function sumWazers(usersOnJams){
-      try {
-        const total = (Array.isArray(usersOnJams) ? usersOnJams : [])
-          .reduce((acc,u) => acc + (Number(u.wazersCount)||0), 0);
-        return Math.ceil(total);
-      } catch { return 0; }
-    }
-    function updateConnectedCitizensDisplay(total){
-      const el = document.getElementById('connectedCitizens');
-      if (!el) return;
-      const label = Number.isFinite(total) && total > 0 ? total.toLocaleString('en-GB') : '—';
-      el.textContent = label + ' Connected Citizens';
-    }
-
-    function fmtHHMMSS(){
-      try{
-        return new Intl.DateTimeFormat('en-GB', { hour:'2-digit', minute:'2-digit', second:'2-digit' })
-          .format(new Date());
-      }catch(e){
-        const d = new Date();
-        const pad = n => String(n).padStart(2,'0');
-        return pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
-      }
-    }
-
-    function setStatusPill(ok, opts){
-      opts = opts || {};
-      const animate = !!opts.animate;
-
-      const pill = document.getElementById('statusPill');
-      const bee  = document.getElementById('beeLogo');
-      const t = fmtHHMMSS();
-
-      if (ok){
-        pill.classList.remove('status-error');
-        pill.textContent = 'LIVE • ' + t;
-        if (animate && bee){
-          bee.classList.remove('bee-wibble');
-          void bee.offsetWidth;
-          bee.classList.add('bee-wibble');
-        }
-      } else {
-        pill.classList.add('status-error');
-        pill.textContent = 'Stand By • ' + t;
-      }
     }
 
     function escapeHTML(str){
       return String(str).replace(/[&<>"']/g, function(ch){
-        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+        return ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[ch]);
       });
     }
 
-    /* Spinner helpers */
-    function spinnerOn(){ document.getElementById('searchSpinner')?.classList.add('active'); }
-    function spinnerOff(){ document.getElementById('searchSpinner')?.classList.remove('active'); }
-
-    /* ========= HIDE / SUPPRESSION (60 minutes) ========= */
-    const HIDE_MS = 60 * 60 * 1000;
-
-    function hideStorageKey(prefix, id){ return 'hide_' + prefix + '_' + id; }
-    function getHideEntry(prefix, id){
-      const raw = localStorage.getItem(hideStorageKey(prefix, id));
-      if (!raw) return null;
-      if (/^\d+$/.test(raw)) return { until: Number(raw) };
+    function fmtHHMMSS(){
       try{
-        const obj = JSON.parse(raw);
-        if (obj && typeof obj.until === 'number') return obj;
-      }catch(e){}
-      const n = Number(raw);
-      return Number.isFinite(n) ? { until:n } : null;
-    }
-    function setHideEntry(prefix, id, entry){
-      localStorage.setItem(hideStorageKey(prefix, id), JSON.stringify(entry));
-    }
-    function clearHide(prefix, id){
-      localStorage.removeItem(hideStorageKey(prefix, id));
-    }
-    function hideForHour(prefix, id, baseline){
-      baseline = baseline || {};
-      setHideEntry(prefix, id, { until: Date.now() + HIDE_MS, baseline: baseline, createdAt: Date.now() });
-    }
-
-    // Auto-unhide rules (kept from your original)
-    function isHiddenWithAutoCheck(prefix, id, currentMetrics){
-      currentMetrics = currentMetrics || {};
-      const entry = getHideEntry(prefix, id);
-      if (!entry) return false;
-
-      if (Date.now() > (Number(entry.until)||0)){
-        clearHide(prefix, id);
-        return false;
+        return new Intl.DateTimeFormat("en-GB", { hour:"2-digit", minute:"2-digit", second:"2-digit" }).format(new Date());
+      }catch(e){
+        const d = new Date();
+        const pad = n => String(n).padStart(2,"0");
+        return pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
       }
-
-      const base = entry.baseline || {};
-      let autoUnhide = false;
-
-      if (prefix === 'corr'){
-        const curr = Number(currentMetrics.delayMin);
-        const b = Number(base.delayMin);
-        if (Number.isFinite(curr) && Number.isFinite(b)){
-          const threshold = b > 0 ? Math.max(b + 5, Math.round(b * 1.5)) : 10;
-          if (curr >= threshold) autoUnhide = true;
-        }
-      } else if (prefix === 'acc'){
-        const curr = Number(currentMetrics.conf);
-        const b = Number(base.conf);
-        if (Number.isFinite(curr) && Number.isFinite(b) && curr >= b + 2){
-          autoUnhide = true;
-        }
-      } else if (prefix === 'sig'){
-        const curr = Number(currentMetrics.conf);
-        const b = Number(base.conf);
-        if (Number.isFinite(curr) && Number.isFinite(b) && curr >= b + 2){
-          autoUnhide = true;
-        }
-      }
-
-      if (autoUnhide){
-        clearHide(prefix, id);
-        return false;
-      }
-      return true;
     }
 
-    /* Timers */
-    let tvtTimer = null;
-    let wazeTimer = null;
+    function fmtHM(ms){
+      try{
+        return new Intl.DateTimeFormat("en-GB", { hour:"2-digit", minute:"2-digit" }).format(new Date(ms));
+      }catch(e){
+        const d = new Date(ms);
+        const pad = n => String(n).padStart(2,"0");
+        return pad(d.getHours()) + ":" + pad(d.getMinutes());
+      }
+    }
 
-    function unhideAll(){
+    function minsAgo(ms){
+      return Math.max(0, Math.round((Date.now() - Number(ms || 0)) / 60000));
+    }
+
+    function debounce(fn, ms){
+      let t = null;
+      return function(...args){
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(null, args), ms);
+      };
+    }
+
+    function setStatusPill(ok){
+      const pill = document.getElementById("statusPill");
+      if (!pill) return;
+      pill.classList.toggle("error", !ok);
+      pill.textContent = (ok ? "LIVE • " : "Stand By • ") + fmtHHMMSS();
+    }
+
+    function spinnerOn(){ document.getElementById("searchSpinner")?.classList.add("active"); }
+    function spinnerOff(){ document.getElementById("searchSpinner")?.classList.remove("active"); }
+
+    function isEditableTarget(target){
+      if (!target) return false;
+      const tag = target.tagName;
+      return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target.isContentEditable;
+    }
+
+    function sumWazers(usersOnJams){
+      try{
+        return Math.ceil((Array.isArray(usersOnJams) ? usersOnJams : []).reduce((acc, u) => acc + (Number(u.wazersCount) || 0), 0));
+      }catch{
+        return 0;
+      }
+    }
+
+    function updateConnectedCitizensDisplay(total){
+      const el = document.getElementById("connectedCitizens");
+      if (!el) return;
+      const label = Number.isFinite(total) && total > 0 ? total.toLocaleString("en-GB") : "—";
+      el.textContent = label + " Connected Citizens";
+    }
+
+    /* =========================================================
+       WORKFLOW STORAGE
+       ========================================================= */
+    function workflowKey(id){ return "workflow_" + id; }
+
+    function defaultWorkflow(){
+      return {
+        state: WORK_STATES.NEW,
+        workedAt: 0,
+        snoozeUntil: 0,
+        returnState: WORK_STATES.NEW,
+        reason: "",
+        note: "",
+        history: []
+      };
+    }
+
+    function getWorkflow(id){
+      try{
+        const raw = localStorage.getItem(workflowKey(id));
+        if (!raw) return defaultWorkflow();
+        const parsed = JSON.parse(raw);
+        return { ...defaultWorkflow(), ...parsed };
+      }catch(e){
+        return defaultWorkflow();
+      }
+    }
+
+    function setWorkflow(id, patch){
+      const curr = getWorkflow(id);
+      const next = { ...curr, ...patch };
+      localStorage.setItem(workflowKey(id), JSON.stringify(next));
+      return next;
+    }
+
+    function pushHistory(id, text, meta){
+      const wf = getWorkflow(id);
+      const history = Array.isArray(wf.history) ? wf.history.slice(0, 49) : [];
+      history.unshift({
+        at: Date.now(),
+        text: text || "",
+        meta: meta || ""
+      });
+      setWorkflow(id, { history });
+    }
+
+    function normalizeWorkflow(id){
+      const wf = getWorkflow(id);
+      if (wf.state === WORK_STATES.SNOOZED && Number(wf.snoozeUntil || 0) <= Date.now()){
+        const nextState = wf.returnState || WORK_STATES.NEW;
+        const next = {
+          ...wf,
+          state: nextState,
+          snoozeUntil: 0
+        };
+        localStorage.setItem(workflowKey(id), JSON.stringify(next));
+        return next;
+      }
+      return wf;
+    }
+
+    function clearAllSnoozes(){
       const keys = [];
       for (let i=0; i<localStorage.length; i++){
         const k = localStorage.key(i);
-        if (k && k.startsWith('hide_')) keys.push(k);
+        if (k && k.startsWith("workflow_")) keys.push(k);
       }
-      keys.forEach(k => localStorage.removeItem(k));
-
-      // No need to clear ACK; unhide just unsuppresses.
-      try{ clearTimeout(tvtTimer); }catch(e){}
-      try{ clearTimeout(wazeTimer); }catch(e){}
-      tvtTimer = null; wazeTimer = null;
-
-      tvtCycle(); wazeCycle();
-      renderQueue();
+      keys.forEach(k => {
+        try{
+          const raw = localStorage.getItem(k);
+          if (!raw) return;
+          const wf = JSON.parse(raw);
+          if (wf && wf.state === WORK_STATES.SNOOZED){
+            wf.state = wf.returnState || WORK_STATES.NEW;
+            wf.snoozeUntil = 0;
+            localStorage.setItem(k, JSON.stringify(wf));
+          }
+        }catch(e){}
+      });
     }
 
-    /* =======================================================
-       MAP — Leaflet tiles (fixed crispness)
-       ======================================================= */
-    const MAP_STATE = { map: null, marker: null, last: null };
-
-    // Thunderforest Transport (standard tiles are 256px) — avoid 512+zoomOffset blur
-    const TILE_URL =
-      "https://api.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=ec4c98ec4e394899a63ccecdf9712e54";
+    /* =========================================================
+       MAP
+       ========================================================= */
+    const TILE_URL = "https://api.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=ec4c98ec4e394899a63ccecdf9712e54";
 
     function initMap(){
-      const el = document.getElementById('map');
+      const el = document.getElementById("map");
       if (!el || !window.L) return;
 
       const m = L.map(el, {
@@ -972,153 +1435,158 @@
         zoomOffset: 0,
         detectRetina: true,
         crossOrigin: true,
-        attribution: '© Thunderforest © OpenStreetMap contributors • © Ordnance Survey OpenData'
+        attribution: "© Thunderforest © OpenStreetMap contributors • © Ordnance Survey OpenData"
       }).addTo(m);
 
-      L.control.zoom({ position: 'bottomright' }).addTo(m);
+      L.control.zoom({ position: "bottomright" }).addTo(m);
 
       const pinIcon = L.divIcon({
-        className: '',
+        className: "",
         html: '<div class="lst-pin"></div>',
-        iconSize: [22,22],
-        iconAnchor: [11,11]
+        iconSize: [20,20],
+        iconAnchor: [10,10]
       });
 
       const mk = L.marker([53.4808, -2.2426], { icon: pinIcon, draggable: true }).addTo(m);
       mk.setOpacity(0);
 
-      mk.on('dragend', function(){
+      mk.on("dragend", function(){
         const ll = mk.getLatLng();
         MAP_STATE.last = { lat: ll.lat, lon: ll.lng };
-        m.panTo(ll);
-      });
-
-      mk.on('click', function(){
-        const ll = mk.getLatLng();
-        MAP_STATE.last = { lat: ll.lat, lon: ll.lng };
-        openToolDialog();
+        updateMapContext();
       });
 
       MAP_STATE.map = m;
       MAP_STATE.marker = mk;
 
-      setTimeout(function(){ m.invalidateSize(true); }, 300);
-      window.addEventListener('resize', function(){
-        setTimeout(function(){ m.invalidateSize(true); }, 150);
-      });
+      setTimeout(() => m.invalidateSize(true), 250);
+      window.addEventListener("resize", () => setTimeout(() => m.invalidateSize(true), 120));
     }
 
-    function setMapTarget(lat, lon, zoom){
+    function setMapTarget(lat, lon, zoom=14){
       const m = MAP_STATE.map;
       const mk = MAP_STATE.marker;
-      if (!m || !mk) return;
-
       const la = Number(lat), lo = Number(lon);
-      if (!Number.isFinite(la) || !Number.isFinite(lo)) return;
-
-      MAP_STATE.last = { lat: la, lon: lo };
+      if (!m || !mk || !Number.isFinite(la) || !Number.isFinite(lo)) return;
 
       mk.setLatLng([la, lo]);
       mk.setOpacity(1);
-
-      const z = Number.isFinite(Number(zoom)) ? Number(zoom) : 12;
-      m.setView([la, lo], z, { animate: true });
+      MAP_STATE.last = { lat: la, lon: lo };
+      m.setView([la, lo], Number(zoom) || 14, { animate:true });
+      updateMapContext();
     }
 
-    /* =======================================================
-       Tool popup (marker click)
-       ======================================================= */
+    function updateMapContext(){
+      const title = document.getElementById("mapCardTitle");
+      const sub = document.getElementById("mapCardSub");
+      const chip = document.getElementById("mapLiveChip");
+      const a = getSelectedAlert();
+
+      if (a){
+        title.textContent = a.title || "Selected alert";
+        sub.textContent = `${a.kindLabel || a.kind} • ${a.badge || ""}${a.area ? " • " + a.area : ""}`;
+      } else if (MAP_STATE.last){
+        title.textContent = "Pinned location";
+        sub.textContent = `Lat ${MAP_STATE.last.lat.toFixed(5)} • Lon ${MAP_STATE.last.lon.toFixed(5)}`;
+      } else {
+        title.textContent = "No alert selected";
+        sub.textContent = "Select an alert or search a location. Enter = pan • G/W/B/U/V/T = tools";
+      }
+
+      if (chip){
+        chip.textContent = MAP_STATE.last
+          ? `Target • ${MAP_STATE.last.lat.toFixed(5)}, ${MAP_STATE.last.lon.toFixed(5)}`
+          : "Map ready";
+      }
+    }
+
+    /* =========================================================
+       TOOLS
+       ========================================================= */
     function buildToolUrls(lat, lon){
       return {
-        google:        'https://www.google.com/maps/@' + lat + ',' + lon + ',696m',
-        bustimes:      'https://bustimes.org/map#16.53/' + lat + '/' + lon,
-        waze_alerts:   'https://www.waze.com/partnerhub/map-tool?lon=' + lon + '&lat=' + lat + '&initialZoom=20',
-        waze_closures: 'https://www.waze.com/en-GB/editor/?env=row&lat=' + lat + '&lon=' + lon + '&zoomLevel=17',
-        tomtom:        'https://plan.tomtom.com/en/?p=' + lat + ',' + lon + ',14.48z',
-        vms:           'https://www.stratostraffic.com/Modules/DriverInformationUi/informationSigns?lat=' + lat + '&lng=' + lon + '&zoom=14',
-        utc:           'https://www.stratostraffic.com/Modules/TrafficSignalsUi/information?lat=' + lat + '&lng=' + lon + '&zoom=11'
+        google:        "https://www.google.com/maps/@" + lat + "," + lon + ",696m",
+        bustimes:      "https://bustimes.org/map#16.53/" + lat + "/" + lon,
+        waze_alerts:   "https://www.waze.com/partnerhub/map-tool?lon=" + lon + "&lat=" + lat + "&initialZoom=20",
+        waze_closures: "https://www.waze.com/en-GB/editor/?env=row&lat=" + lat + "&lon=" + lon + "&zoomLevel=17",
+        tomtom:        "https://plan.tomtom.com/en/?p=" + lat + "," + lon + ",14.48z",
+        vms:           "https://www.stratostraffic.com/Modules/DriverInformationUi/informationSigns?lat=" + lat + "&lng=" + lon + "&zoom=14",
+        utc:           "https://www.stratostraffic.com/Modules/TrafficSignalsUi/information?lat=" + lat + "&lng=" + lon + "&zoom=11"
       };
     }
 
     function openToolByName(tool){
-      const last = MAP_STATE.last;
-      if (!last) return;
-      const urls = buildToolUrls(last.lat, last.lon);
+      let ctx = MAP_STATE.last;
+      const a = getSelectedAlert();
+      if (!ctx && a) ctx = { lat:a.lat, lon:a.lon };
+      if (!ctx) return;
+
+      const urls = buildToolUrls(ctx.lat, ctx.lon);
       const u = urls[String(tool)];
-      if (u) window.open(u, '_blank', 'noopener');
+      if (u) window.open(u, "_blank", "noopener");
     }
 
-    function openToolDialog(){
-      const last = MAP_STATE.last;
-      if (!last) return;
-
-      const meta = document.getElementById('toolDialogMeta');
-      if (meta){
-        meta.textContent = `Lat ${last.lat.toFixed(5)} • Lon ${last.lon.toFixed(5)}`;
-      }
-
-      const dlg = document.getElementById('toolDialog');
-      if (!dlg) return;
-
-      if (typeof dlg.showModal === 'function') dlg.showModal();
-      else dlg.setAttribute('open','');
-    }
-
-    function closeToolDialog(){
-      const dlg = document.getElementById('toolDialog');
-      if (!dlg) return;
-      if (typeof dlg.close === 'function') dlg.close();
-      else dlg.removeAttribute('open');
-    }
-
-    function bindToolDialog(){
-      document.getElementById('toolDialogClose')?.addEventListener('click', closeToolDialog, { passive:true });
-
-      const dlg = document.getElementById('toolDialog');
-      if (dlg){
-        dlg.addEventListener('click', function(e){
-          const r = dlg.getBoundingClientRect();
-          const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
-          if (!inside) closeToolDialog();
-        });
-      }
-
-      const host = document.getElementById('toolGrid');
-      if (host){
-        host.addEventListener('click', function(e){
-          const btn = e.target.closest('button[data-tool]');
-          if (!btn) return;
-          openToolByName(btn.dataset.tool);
-        }, { passive:true });
+    /* =========================================================
+       RECENT PLACES
+       ========================================================= */
+    function getRecentPlaces(){
+      try{
+        const raw = localStorage.getItem("lst_recent_places");
+        const arr = raw ? JSON.parse(raw) : [];
+        return Array.isArray(arr) ? arr : [];
+      }catch(e){
+        return [];
       }
     }
 
-    /* =======================================================
-       SEARCH — Photon (single call)
-       ======================================================= */
-    const GM_CENTER = { lat: 53.4808, lon: -2.2426 };
-    const GM_BBOX = [-2.75, 53.30, -1.95, 53.72];
-
-    const SEARCH_DEBOUNCE_MS = 260;
-    const SEARCH_MIN_CHARS   = 2;
-    const MAX_SUGGESTIONS    = 10;
-
-    const PHOTON_ZOOM = 15;
-    const PHOTON_BIAS_SCALE = 0.12;
-
-    let gmAbort = null;
-    let searchSeq = 0;
-
-    function debounce(fn, ms){
-      ms = ms || 250;
-      let t = null;
-      return function(){
-        const args = arguments;
-        clearTimeout(t);
-        t = setTimeout(function(){ fn.apply(null, args); }, ms);
-      };
+    function setRecentPlaces(items){
+      localStorage.setItem("lst_recent_places", JSON.stringify(items.slice(0, 10)));
     }
 
+    function addRecentPlace(item){
+      const items = getRecentPlaces().filter(x =>
+        !(Math.abs(Number(x.lat) - Number(item.lat)) < 0.00001 &&
+          Math.abs(Number(x.lon) - Number(item.lon)) < 0.00001)
+      );
+      items.unshift({
+        label: item.label || item.main || "Saved place",
+        sub: item.sub || "",
+        lat: Number(item.lat),
+        lon: Number(item.lon),
+        at: Date.now()
+      });
+      setRecentPlaces(items);
+      renderRecentPlaces();
+    }
+
+    function renderRecentPlaces(){
+      const sel = document.getElementById("recentPlaces");
+      if (!sel) return;
+      const items = getRecentPlaces();
+
+      sel.innerHTML = '<option value="">Recent places…</option>' + items.map((x, i) => {
+        const txt = `${x.label}${x.sub ? " — " + x.sub : ""}`;
+        return `<option value="${i}">${escapeHTML(txt)}</option>`;
+      }).join("");
+    }
+
+    function bindRecentPlaces(){
+      const sel = document.getElementById("recentPlaces");
+      if (!sel) return;
+      sel.addEventListener("change", function(){
+        const idx = Number(sel.value);
+        const items = getRecentPlaces();
+        if (!Number.isFinite(idx) || !items[idx]) return;
+        const it = items[idx];
+        setMapTarget(it.lat, it.lon, 16);
+        const input = document.getElementById("gmSearch");
+        if (input) input.value = it.label || "";
+      }, { passive:true });
+    }
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
     function inGmBbox(lon, lat){
       return lon >= GM_BBOX[0] && lon <= GM_BBOX[2] && lat >= GM_BBOX[1] && lat <= GM_BBOX[3];
     }
@@ -1129,78 +1597,73 @@
       const lon = Number(c[0]), lat = Number(c[1]);
       if (!Number.isFinite(lon) || !Number.isFinite(lat)) return null;
       if (!inGmBbox(lon, lat)) return null;
-      return { lon: lon, lat: lat };
+      return { lon, lat };
     }
 
     function stripPostcode(s){
-      return String(s||'')
-        .replace(/\b([A-Z]{1,2}\d[A-Z\d]?)\s?(\d[A-Z]{2})\b/ig,'')
-        .replace(/\s+/g,' ')
+      return String(s || "")
+        .replace(/\b([A-Z]{1,2}\d[A-Z\d]?)\s?(\d[A-Z]{2})\b/ig, "")
+        .replace(/\s+/g, " ")
         .trim();
     }
 
     function normalizeText(s){
-      return String(s||'')
+      return String(s || "")
         .toLowerCase()
-        .replace(/\s+/g,' ')
-        .replace(/[^\w\s\-\(\)\/&]/g,'')
+        .replace(/\s+/g, " ")
+        .replace(/[^\w\s\-\(\)\/&]/g, "")
         .trim();
     }
 
     function featureLabel(f){
       const p = (f && f.properties) ? f.properties : {};
-      const name = p.name || p.street || 'Unknown';
-      const locality = [p.city, p.county, p.state].filter(Boolean).join(', ');
-      const main = (name + (p.postcode ? (' ' + p.postcode) : '')).trim();
-      const sub  = locality || p.country || '';
-      return { main: main, sub: sub, p: p };
+      const name = p.name || p.street || "Unknown";
+      const locality = [p.city, p.county, p.state].filter(Boolean).join(", ");
+      const main = (name + (p.postcode ? (" " + p.postcode) : "")).trim();
+      const sub = locality || p.country || "";
+      return { main, sub, p };
     }
 
     function getFeatureCategoryAndEmoji(f){
       const p = (f && f.properties) ? f.properties : {};
-      const osmKey = String(p.osm_key || '').toLowerCase();
-      const osmVal = String(p.osm_value || '').toLowerCase();
-      const type   = String(p.type || '').toLowerCase();
+      const osmKey = String(p.osm_key || "").toLowerCase();
+      const osmVal = String(p.osm_value || "").toLowerCase();
+      const type = String(p.type || "").toLowerCase();
 
-      if (type === 'street') return { cat:'street', emoji:'🛣️' };
-      if (type === 'house')  return { cat:'address', emoji:'🏠' };
-
-      if (osmKey === 'highway' && osmVal === 'bus_stop') return { cat:'bus_stop', emoji:'🚏' };
-      if (osmKey === 'public_transport' && (osmVal === 'platform' || osmVal === 'stop_position' || osmVal === 'stop_area')) return { cat:'bus_stop', emoji:'🚏' };
-
-      if (osmKey === 'amenity'){
-        if (osmVal === 'pub' || osmVal === 'bar') return { cat:'pub', emoji:'🍺' };
-        if (osmVal === 'cafe') return { cat:'cafe', emoji:'☕' };
-        if (osmVal === 'restaurant' || osmVal === 'fast_food') return { cat:'food', emoji:'🍽️' };
-        if (osmVal === 'fuel') return { cat:'fuel', emoji:'⛽' };
-        if (osmVal === 'parking') return { cat:'parking', emoji:'🅿️' };
+      if (type === "street") return { cat:"street", emoji:"🛣️" };
+      if (type === "house") return { cat:"address", emoji:"🏠" };
+      if (osmKey === "highway" && osmVal === "bus_stop") return { cat:"bus_stop", emoji:"🚏" };
+      if (osmKey === "public_transport" && (osmVal === "platform" || osmVal === "stop_position" || osmVal === "stop_area")) return { cat:"bus_stop", emoji:"🚏" };
+      if (osmKey === "amenity"){
+        if (osmVal === "pub" || osmVal === "bar") return { cat:"pub", emoji:"🍺" };
+        if (osmVal === "cafe") return { cat:"cafe", emoji:"☕" };
+        if (osmVal === "restaurant" || osmVal === "fast_food") return { cat:"food", emoji:"🍽️" };
       }
-
-      return { cat:'other', emoji:'📍' };
+      return { cat:"other", emoji:"📍" };
     }
 
     function canonicalKey(item){
       const p = (item.raw && item.raw.properties) ? item.raw.properties : {};
-      const type = String(p.type||'').toLowerCase();
-      const osmKey = String(p.osm_key||'').toLowerCase();
-      const osmVal = String(p.osm_value||'').toLowerCase();
+      const type = String(p.type || "").toLowerCase();
+      const osmKey = String(p.osm_key || "").toLowerCase();
+      const osmVal = String(p.osm_value || "").toLowerCase();
 
-      if ((osmKey==='highway' && osmVal==='bus_stop') || (osmKey==='public_transport' && osmVal==='platform')){
-        const nm = normalizeText(stripPostcode(p.name || item.main || ''));
-        const city = normalizeText(p.city || p.county || '');
-        return 'busstop:' + nm + '|' + city;
+      if ((osmKey === "highway" && osmVal === "bus_stop") || (osmKey === "public_transport" && osmVal === "platform")){
+        const nm = normalizeText(stripPostcode(p.name || item.main || ""));
+        const city = normalizeText(p.city || p.county || "");
+        return "busstop:" + nm + "|" + city;
       }
 
-      if (type==='street' || type==='house' || p.street){
-        const streetName = stripPostcode(p.street || p.name || item.main || '');
+      if (type === "street" || type === "house" || p.street){
+        const streetName = stripPostcode(p.street || p.name || item.main || "");
         const nm = normalizeText(streetName);
-        const city = normalizeText(p.city || p.county || '');
-        return 'street:' + nm + '|' + city;
+        const city = normalizeText(p.city || p.county || "");
+        return "street:" + nm + "|" + city;
       }
 
-      const nm = normalizeText(stripPostcode(p.name || item.main || ''));
-      const city = normalizeText(p.city || p.county || '');
-      return 'poi:' + nm + '|' + city;
+      const nm = normalizeText(stripPostcode(p.name || item.main || ""));
+      const city = normalizeText(p.city || p.county || "");
+      return "poi:" + nm + "|" + city;
     }
 
     function dedupKeepFirst(items){
@@ -1215,34 +1678,29 @@
       return out;
     }
 
-    function buildPhotonUrl(query, opts){
-      opts = opts || {};
+    function buildPhotonUrl(query, opts = {}){
       const limit = opts.limit || 10;
       const layer = opts.layer || null;
       const addGmSuffix = (opts.addGmSuffix !== false);
       const zoom = opts.zoom || PHOTON_ZOOM;
       const location_bias_scale = opts.location_bias_scale || PHOTON_BIAS_SCALE;
 
-      const u = new URL('https://photon.komoot.io/api');
-      const q = addGmSuffix ? (query + ' Greater Manchester') : query;
-
-      u.searchParams.set('q', q);
-      u.searchParams.set('lang', 'en');
-      u.searchParams.set('limit', String(limit));
-
-      u.searchParams.set('lat', String(GM_CENTER.lat));
-      u.searchParams.set('lon', String(GM_CENTER.lon));
-      u.searchParams.set('zoom', String(zoom));
-      u.searchParams.set('location_bias_scale', String(location_bias_scale));
-
-      u.searchParams.set('bbox', GM_BBOX.join(','));
-      if (layer) u.searchParams.set('layer', layer);
-
+      const u = new URL("https://photon.komoot.io/api");
+      const q = addGmSuffix ? (query + " Greater Manchester") : query;
+      u.searchParams.set("q", q);
+      u.searchParams.set("lang", "en");
+      u.searchParams.set("limit", String(limit));
+      u.searchParams.set("lat", String(GM_CENTER.lat));
+      u.searchParams.set("lon", String(GM_CENTER.lon));
+      u.searchParams.set("zoom", String(zoom));
+      u.searchParams.set("location_bias_scale", String(location_bias_scale));
+      u.searchParams.set("bbox", GM_BBOX.join(","));
+      if (layer) u.searchParams.set("layer", layer);
       return u.toString();
     }
 
     function looksLikeStreetQuery(q){
-      const s = String(q||'').trim();
+      const s = String(q || "").trim();
       if (!s) return false;
       return (
         /\b(rd|road|st|street|ave|avenue|dr|drive|ln|lane|cl|close|ct|court|crescent|way|boulevard|blvd|place|pl|terrace|ter)\b/i.test(s) ||
@@ -1253,24 +1711,23 @@
     async function photonSearchOnce(qRaw, signal){
       const q = qRaw.trim();
       const wantsBusStuff = /\bbus\b|\bstop\b|🚏/i.test(q);
-      const layer = (looksLikeStreetQuery(q) && !wantsBusStuff) ? 'street' : null;
+      const layer = (looksLikeStreetQuery(q) && !wantsBusStuff) ? "street" : null;
+      const url = buildPhotonUrl(q, { limit: 12, layer });
 
-      const url = buildPhotonUrl(q, { limit: 12, layer: layer });
-
-      const res = await fetch(url, { cache:'no-store', signal: signal });
-      if (!res.ok) throw new Error('Photon HTTP ' + res.status);
+      const res = await fetch(url, { cache:"no-store", signal });
+      if (!res.ok) throw new Error("Photon HTTP " + res.status);
       const data = await res.json();
       return Array.isArray(data && data.features) ? data.features : [];
     }
 
     function featuresToItems(features){
-      return (features||[]).map(function(f){
+      return (features || []).map(function(f){
         const ll = getLonLatFromFeature(f);
         if (!ll) return null;
         const lab = featureLabel(f);
         const tag = getFeatureCategoryAndEmoji(f);
         return {
-          kind:'feature',
+          kind:"feature",
           lat: ll.lat,
           lon: ll.lon,
           main: lab.main,
@@ -1283,51 +1740,50 @@
     }
 
     function openSuggestions(open){
-      const box = document.getElementById('gmSuggest');
+      const box = document.getElementById("gmSuggest");
       if (!box) return;
-      box.classList.toggle('open', !!open);
+      box.classList.toggle("open", !!open);
     }
 
     function renderSuggestions(items){
-      const box = document.getElementById('gmSuggest');
-      const input = document.getElementById('gmSearch');
+      const box = document.getElementById("gmSuggest");
+      const input = document.getElementById("gmSearch");
       if (!box || !input) return;
 
       if (!items || items.length === 0){
-        box.innerHTML = '';
+        box.innerHTML = "";
         openSuggestions(false);
-        input.setAttribute('aria-expanded', 'false');
+        input.setAttribute("aria-expanded", "false");
         return;
       }
 
-      const lis = items.map(function(it, idx){
-        const emoji = it.emoji || '📍';
-        const main = emoji + ' ' + escapeHTML(it.main || 'Unknown');
-        const badge = '<small>' + escapeHTML(it.sub || '') + '</small>';
-        return `
-          <li class="suggest-item" role="option"
-              data-idx="${idx}" data-lat="${it.lat}" data-lon="${it.lon}"
-              data-main="${escapeHTML(it.main||'')}">
-            ${main}
-            ${badge}
-          </li>`;
-      }).join('');
+      const lis = items.map((it, idx) => `
+        <li class="suggest-item" role="option"
+            data-idx="${idx}" data-lat="${it.lat}" data-lon="${it.lon}"
+            data-main="${escapeHTML(it.main || "")}" data-sub="${escapeHTML(it.sub || "")}">
+          ${escapeHTML((it.emoji || "📍") + " " + (it.main || "Unknown"))}
+          <small>${escapeHTML(it.sub || "")}</small>
+        </li>
+      `).join("");
 
       box.innerHTML = '<ul class="suggest-list">' + lis + '</ul>';
       openSuggestions(true);
-      input.setAttribute('aria-expanded', 'true');
+      input.setAttribute("aria-expanded", "true");
     }
 
     function clearSuggestions(){
-      const box = document.getElementById('gmSuggest');
-      const input = document.getElementById('gmSearch');
-      if (box){ box.innerHTML=''; box.classList.remove('open'); }
-      if (input) input.setAttribute('aria-expanded','false');
+      const box = document.getElementById("gmSuggest");
+      const input = document.getElementById("gmSearch");
+      if (box){
+        box.innerHTML = "";
+        box.classList.remove("open");
+      }
+      if (input) input.setAttribute("aria-expanded","false");
     }
 
-    function bindGmSearch(){
-      const input = document.getElementById('gmSearch');
-      const box   = document.getElementById('gmSuggest');
+    function bindSearch(){
+      const input = document.getElementById("gmSearch");
+      const box = document.getElementById("gmSuggest");
       if (!input || !box) return;
 
       let activeIndex = -1;
@@ -1335,16 +1791,17 @@
 
       function setActive(idx){
         activeIndex = idx;
-        box.querySelectorAll('.suggest-item').forEach(function(el,i){
-          el.classList.toggle('active', i===idx);
+        box.querySelectorAll(".suggest-item").forEach((el, i) => {
+          el.classList.toggle("active", i === idx);
         });
       }
 
-      function choose(lat, lon, label){
+      function choose(lat, lon, label, sub){
         if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon))) return;
-        if (label) input.value = label;
+        input.value = label || "";
         clearSuggestions();
         setMapTarget(Number(lat), Number(lon), 16);
+        addRecentPlace({ label, sub, lat, lon });
       }
 
       const doSearch = debounce(async function(){
@@ -1357,8 +1814,7 @@
         }
 
         const mySeq = ++searchSeq;
-
-        try { if (gmAbort) gmAbort.abort(); } catch(e) {}
+        try{ if (gmAbort) gmAbort.abort(); }catch(e){}
         gmAbort = new AbortController();
         const signal = gmAbort.signal;
 
@@ -1373,400 +1829,576 @@
             renderSuggestions(currentItems);
             setActive(currentItems.length ? 0 : -1);
           }
-        } catch (e){
-          if (!(e && e.name === 'AbortError')) console.warn('[Search] failed:', e);
-        } finally {
+        }catch(e){
+          if (!(e && e.name === "AbortError")) console.warn("[Search] failed:", e);
+        }finally{
           if (mySeq === searchSeq) spinnerOff();
         }
       }, SEARCH_DEBOUNCE_MS);
 
-      input.addEventListener('input', function(){
+      input.addEventListener("input", function(){
         const q = input.value.trim();
         if (q.length >= SEARCH_MIN_CHARS) spinnerOn(); else spinnerOff();
         doSearch();
       }, { passive:true });
 
-      input.addEventListener('keydown', function(e){
-        if (!box.classList.contains('open') || currentItems.length === 0) return;
+      input.addEventListener("keydown", function(e){
+        if (!box.classList.contains("open") || currentItems.length === 0) return;
 
-        if (e.key === 'ArrowDown'){
+        if (e.key === "ArrowDown"){
           e.preventDefault();
           setActive(Math.min(currentItems.length - 1, activeIndex + 1));
-        } else if (e.key === 'ArrowUp'){
+        } else if (e.key === "ArrowUp"){
           e.preventDefault();
           setActive(Math.max(0, activeIndex - 1));
-        } else if (e.key === 'Enter'){
+        } else if (e.key === "Enter"){
           e.preventDefault();
           const it = currentItems[activeIndex >= 0 ? activeIndex : 0];
           if (!it) return;
-          choose(it.lat, it.lon, it.main);
-        } else if (e.key === 'Escape'){
+          choose(it.lat, it.lon, it.main, it.sub);
+        } else if (e.key === "Escape"){
           e.preventDefault();
           clearSuggestions();
           spinnerOff();
         }
       });
 
-      box.addEventListener('click', function(e){
-        const item = e.target.closest('.suggest-item');
+      box.addEventListener("click", function(e){
+        const item = e.target.closest(".suggest-item");
         if (!item) return;
-        choose(Number(item.dataset.lat), Number(item.dataset.lon), item.dataset.main || item.textContent.trim());
+        choose(Number(item.dataset.lat), Number(item.dataset.lon), item.dataset.main || "", item.dataset.sub || "");
       }, { passive:true });
 
-      document.addEventListener('click', function(e){
-        if (e.target.closest('#placeSearch')) return;
+      document.addEventListener("click", function(e){
+        if (e.target.closest("#placeSearch")) return;
         clearSuggestions();
         spinnerOff();
       }, { passive:true });
     }
 
-    /* =======================================================
-       Shared haversine (Waze clustering)
-       ======================================================= */
-    function toRad(deg){ return deg * Math.PI / 180; }
-    function haversineMeters(a, b){
-      const lon1 = a[0], lat1 = a[1], lon2 = b[0], lat2 = b[1];
-      const R = 6371000, dLat = toRad(lat2-lat1), dLon = toRad(lon2-lon1);
-      const aa = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
-      return 2 * R * Math.atan2(Math.sqrt(aa), Math.sqrt(1-aa));
-    }
-
-    /* =======================================================
-       ALERTS (Unified queue) — state + rendering
-       ======================================================= */
-    const ALERTS = {
-      byId: new Map(),
-      order: [],
-      selectedId: null,
-      filter: 'priority', // all | priority | tvt | waze
-      sort: 'priority',   // priority | age | severity
-      query: ''
-    };
-
-    function ackKey(id){ return 'ack_' + id; }
-    function getAck(id){
-      const raw = localStorage.getItem(ackKey(id));
-      const n = Number(raw);
-      return Number.isFinite(n) ? n : 0;
-    }
-    function setAck(id){ localStorage.setItem(ackKey(id), String(Date.now())); }
-
-    function minsAgo(ms){
-      const d = Math.max(0, Date.now() - (Number(ms)||0));
-      return Math.max(0, Math.round(d/60000));
-    }
-    function hhmm(ms){
-      try{
-        return new Date(Number(ms)||0).toLocaleString('en-GB',{hour12:false,hour:'2-digit',minute:'2-digit'});
-      }catch(e){ return ''; }
+    /* =========================================================
+       ALERT LOGIC
+       ========================================================= */
+    function getSelectedAlert(){
+      if (!ALERTS.selectedId) return null;
+      return ALERTS.byId.get(ALERTS.selectedId) || null;
     }
 
     function severityRank(a){
-      // lower is more severe
-      if (a.kind === 'tvt'){
-        const d = Number(a.delayMin||0);
+      if (a.kind === "tvt"){
+        const d = Number(a.delayMin || 0);
         return (d >= 15 ? 0 : d >= 10 ? 1 : d >= 5 ? 2 : 3);
       }
-      if (a.kind === 'acc'){
-        const c = Number(a.conf||0);
+      if (a.kind === "acc"){
+        const c = Number(a.conf || 0);
         return (c >= 4 ? 0 : c >= 3 ? 1 : 2);
       }
-      if (a.kind === 'sig'){
-        const r = Number(a.rel10||0);
+      if (a.kind === "sig"){
+        const r = Number(a.rel10 || 0);
         return (r >= 9 ? 1 : r >= 7 ? 2 : 3);
       }
-      if (a.kind === 'ice') return 3;
+      if (a.kind === "ice") return 3;
       return 4;
     }
 
-    function priorityRank(a){
-      // new severe floats; acknowledged sinks
-      const ack = getAck(a.id) ? 1 : 0;
-      const sev = severityRank(a);
-      return sev * 10 + ack;
+    function alertBaseColor(a){
+      if (a.kind === "ice") return "#7AA7FF";
+      if (severityRank(a) === 0) return "#FF4D4F";
+      if (severityRank(a) === 1) return "#FF9A1F";
+      return "#FFE04A";
+    }
+
+    function colorForAlert(a){
+      const wf = normalizeWorkflow(a.id);
+      if (wf.state === WORK_STATES.MONITORING) return "#42BE4B";
+      if (wf.state === WORK_STATES.SNOOZED) return "#7AA7FF";
+      if (wf.state === WORK_STATES.CLOSED) return "rgba(255,255,255,0.45)";
+      return alertBaseColor(a);
+    }
+
+    function sourceBadge(a){
+      return a.kind === "tvt" ? "Traffic" : "Waze";
+    }
+
+    function sourceBadgeClass(a){
+      return a.kind === "tvt" ? "source-tvt" : "source-waze";
+    }
+
+    function stateClass(state){
+      return state === WORK_STATES.MONITORING ? "monitoring" :
+             state === WORK_STATES.SNOOZED ? "snoozed" :
+             state === WORK_STATES.CLOSED ? "closed" :
+             "new";
+    }
+
+    function stateLabel(state){
+      return state === WORK_STATES.MONITORING ? "Monitoring" :
+             state === WORK_STATES.SNOOZED ? "Snoozed" :
+             state === WORK_STATES.CLOSED ? "Closed" :
+             "New";
+    }
+
+    function getTabState(tab){
+      return tab === "monitoring" ? WORK_STATES.MONITORING :
+             tab === "snoozed" ? WORK_STATES.SNOOZED :
+             tab === "closed" ? WORK_STATES.CLOSED :
+             WORK_STATES.NEW;
     }
 
     function passesFilter(a){
-      if (ALERTS.filter === 'all') return true;
-      if (ALERTS.filter === 'priority') return priorityRank(a) <= 12;
-      if (ALERTS.filter === 'tvt') return a.kind === 'tvt';
-      if (ALERTS.filter === 'waze') return a.kind !== 'tvt';
+      if (ALERTS.filter === "all") return true;
+      if (ALERTS.filter === "priority") return severityRank(a) <= 1;
+      if (ALERTS.filter === "tvt") return a.kind === "tvt";
+      if (ALERTS.filter === "waze") return a.kind !== "tvt";
       return true;
     }
 
     function passesQuery(a){
-      const q = (ALERTS.query||'').trim().toLowerCase();
+      const q = String(ALERTS.query || "").trim().toLowerCase();
       if (!q) return true;
-      const hay = (a.title + ' ' + (a.area||'') + ' ' + (a.sub||'')).toLowerCase();
+      const hay = [a.title, a.sub, a.area, a.city, a.kindLabel, a.badge].filter(Boolean).join(" ").toLowerCase();
       return hay.includes(q);
     }
 
     function upsertAlert(a){
       const existing = ALERTS.byId.get(a.id);
-
-      // Apply hide logic using your existing system
-      const hidden = isHiddenWithAutoCheck(a.hidePrefix, a.id, a.currentMetrics || a.baseline || {});
-      a.hidden = !!hidden;
-
-      // Preserve firstSeen if already exists
       if (existing){
         a.firstSeen = existing.firstSeen || a.time || Date.now();
-        // Preserve selection-friendly timestamps if input time is missing
         a.time = Number(a.time) || Number(existing.time) || Date.now();
       } else {
         a.firstSeen = Number(a.time) || Date.now();
         a.time = Number(a.time) || Date.now();
       }
-
       ALERTS.byId.set(a.id, a);
     }
 
-    function setKpis(){
-      let tvt=0, acc=0, sig=0, ice=0, snoozed=0;
-      for (const a of ALERTS.byId.values()){
-        if (a.hidden) { snoozed++; continue; }
-        if (a.kind==='tvt') tvt++;
-        else if (a.kind==='acc') acc++;
-        else if (a.kind==='sig') sig++;
-        else if (a.kind==='ice') ice++;
+    function removeAlertsByPredicate(fn){
+      const ids = [];
+      for (const [id, a] of ALERTS.byId.entries()){
+        if (fn(a)) ids.push(id);
       }
-      document.getElementById('kpiTvt').textContent = String(tvt);
-      document.getElementById('kpiAcc').textContent = String(acc);
-      document.getElementById('kpiSig').textContent = String(sig);
-      document.getElementById('kpiIce').textContent = String(ice);
-      document.getElementById('kpiSnoozed').textContent = String(snoozed);
+      ids.forEach(id => ALERTS.byId.delete(id));
+
+      if (ALERTS.selectedId && !ALERTS.byId.has(ALERTS.selectedId)){
+        ALERTS.selectedId = null;
+      }
+    }
+
+    function getBucketCounts(){
+      const counts = { new:0, monitoring:0, snoozed:0, closed:0 };
+      for (const a of ALERTS.byId.values()){
+        const wf = normalizeWorkflow(a.id);
+        counts[wf.state]++;
+      }
+      return counts;
+    }
+
+    function sortAlertsForTab(items, tab){
+      items.sort((a,b) => {
+        if (tab === "new"){
+          return severityRank(a) - severityRank(b) || (b.time - a.time);
+        }
+        if (tab === "monitoring"){
+          return severityRank(a) - severityRank(b) || (b.time - a.time);
+        }
+        if (tab === "snoozed"){
+          const aw = normalizeWorkflow(a.id);
+          const bw = normalizeWorkflow(b.id);
+          return Number(aw.snoozeUntil || 0) - Number(bw.snoozeUntil || 0);
+        }
+        if (tab === "closed"){
+          const aw = normalizeWorkflow(a.id);
+          const bw = normalizeWorkflow(b.id);
+          return Number(bw.workedAt || 0) - Number(aw.workedAt || 0);
+        }
+        return b.time - a.time;
+      });
+      return items;
+    }
+
+    function getVisibleAlertsForCurrentTab(){
+      const neededState = getTabState(ALERTS.activeTab);
+      const items = [];
+
+      for (const a of ALERTS.byId.values()){
+        const wf = normalizeWorkflow(a.id);
+        if (wf.state !== neededState) continue;
+        if (!passesFilter(a) || !passesQuery(a)) continue;
+        items.push(a);
+      }
+
+      return sortAlertsForTab(items, ALERTS.activeTab);
     }
 
     function renderQueue(){
-      const host = document.getElementById('alertQueue');
-      if (!host) return;
+      const counts = getBucketCounts();
+      document.getElementById("kpiNeed").textContent = String(counts.new);
+      document.getElementById("kpiMon").textContent = String(counts.monitoring);
+      document.getElementById("kpiSnz").textContent = String(counts.snoozed);
+      document.getElementById("kpiCls").textContent = String(counts.closed);
 
-      const items = Array.from(ALERTS.byId.values())
-        .filter(a => !a.hidden)
-        .filter(passesFilter)
-        .filter(passesQuery);
+      const items = getVisibleAlertsForCurrentTab();
+      ALERTS.currentVisibleOrder = items.map(a => a.id);
 
-      items.sort((a,b) => {
-        if (ALERTS.sort === 'age') return (b.time - a.time);
-        if (ALERTS.sort === 'severity') return (severityRank(a) - severityRank(b)) || (b.time - a.time);
-        return (priorityRank(a) - priorityRank(b)) || (b.time - a.time);
-      });
-
-      ALERTS.order = items.map(a => a.id);
-
-      const frag = document.createDocumentFragment();
-      for (const a of items){
-        const row = document.createElement('div');
-        row.className = 'qrow';
-        row.setAttribute('role','option');
-        row.dataset.id = a.id;
-        row.style.setProperty('--qcol', a.color || 'rgba(255,255,255,0.25)');
-        row.setAttribute('aria-selected', String(ALERTS.selectedId === a.id));
-
-        const ack = getAck(a.id);
-        const state = ack ? 'Ack' : 'New';
-
-        row.innerHTML = `
-          <div class="qicon">${escapeHTML(a.icon || '📍')}</div>
-          <div class="qmain">
-            <div class="qtitle">${escapeHTML(a.title || 'Unknown')}</div>
-            <div class="qsub">${escapeHTML(a.sub || '')}${a.sub ? ' • ' : ''}${state}${a.area ? ' • ' + escapeHTML(a.area) : ''}</div>
-          </div>
-          <div class="qmeta">
-            <div class="qpill">${escapeHTML(a.badge || '')}</div>
-            <div class="qage">${minsAgo(a.time)}m ago</div>
-          </div>
-        `;
-        frag.appendChild(row);
-      }
-
-      host.innerHTML = '';
-      host.appendChild(frag);
-
-      setKpis();
-
-      // Keep selection stable
-      if (!ALERTS.selectedId || !ALERTS.byId.has(ALERTS.selectedId) || (ALERTS.byId.get(ALERTS.selectedId)?.hidden)){
+      if (!ALERTS.selectedId || !ALERTS.byId.has(ALERTS.selectedId)){
         ALERTS.selectedId = items[0]?.id || null;
+      } else if (items.length && !items.some(x => x.id === ALERTS.selectedId)){
+        ALERTS.selectedId = items[0].id;
+      } else if (!items.length){
+        ALERTS.selectedId = null;
       }
-      updateSelectionUI();
-      renderDetails();
-    }
 
-    function updateSelectionUI(){
-      const host = document.getElementById('alertQueue');
+      const host = document.getElementById("queueList");
       if (!host) return;
-      host.querySelectorAll('.qrow').forEach(el => {
-        el.setAttribute('aria-selected', String(el.dataset.id === ALERTS.selectedId));
-      });
-    }
 
-    function renderDetails(){
-      const card = document.getElementById('detailsCard');
-      if (!card) return;
-
-      const a = ALERTS.selectedId ? ALERTS.byId.get(ALERTS.selectedId) : null;
-      if (!a){
-        card.innerHTML = `
-          <div class="details-empty">
-            <div>
-              <div class="details-empty__title">Select an alert</div>
-              <div class="details-empty__sub">Details and quick actions appear here.</div>
-            </div>
-          </div>`;
+      if (!items.length){
+        host.innerHTML = `<div class="empty-state">Nothing in this view right now.</div>`;
+        renderDetails();
+        updateMapContext();
         return;
       }
 
-      const ack = getAck(a.id);
+      host.innerHTML = items.map(a => renderAlertCard(a)).join("");
+      host.querySelectorAll(".alert-card").forEach(el => {
+        el.addEventListener("click", function(){
+          ALERTS.selectedId = el.dataset.id;
+          renderQueue();
+        }, { passive:true });
+      });
 
-      card.innerHTML = `
-        <div class="dh">
-          <div>
-            <h3>${escapeHTML(a.title || 'Unknown')}</h3>
-            <div class="qsub" style="margin-top:6px">${escapeHTML(a.sub || '')}</div>
+      renderDetails();
+      updateMapContext();
+    }
+
+    function renderAlertCard(a){
+      const wf = normalizeWorkflow(a.id);
+      const selected = ALERTS.selectedId === a.id;
+      const ageText = wf.state === WORK_STATES.SNOOZED && wf.snoozeUntil
+        ? `Until ${fmtHM(wf.snoozeUntil)}`
+        : `${minsAgo(a.time)}m ago`;
+
+      return `
+        <article class="alert-card ${selected ? "selected" : ""}"
+                 data-id="${escapeHTML(a.id)}"
+                 style="--cardCol:${escapeHTML(colorForAlert(a))}"
+                 aria-selected="${selected ? "true" : "false"}">
+          <div class="alert-icon">${escapeHTML(a.icon || "📍")}</div>
+
+          <div class="alert-main">
+            <div class="alert-title">${escapeHTML(a.title || "Unknown")}</div>
+            <div class="alert-sub">${escapeHTML(a.kindLabel || a.kind)} • ${escapeHTML(a.sub || "")}${a.area ? " • " + escapeHTML(a.area) : ""}</div>
           </div>
-          <div class="dtags">
-            <span class="dtag">${escapeHTML(a.kindLabel || a.kind)}</span>
-            <span class="dtag">${escapeHTML(a.badge || '')}</span>
-            <span class="dtag">${ack ? 'Acknowledged' : 'New'}</span>
+
+          <div class="alert-meta">
+            <div style="display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end">
+              <span class="badge ${sourceBadgeClass(a)}">${escapeHTML(sourceBadge(a))}</span>
+              <span class="badge ${stateClass(wf.state)}">${escapeHTML(stateLabel(wf.state))}</span>
+            </div>
+            <div class="alert-age">${escapeHTML(a.badge || "")} • ${escapeHTML(ageText)}</div>
           </div>
-        </div>
+        </article>
+      `;
+    }
 
-        <div class="dgrid">
-          <div class="ditem"><b>Age</b><span>${minsAgo(a.time)} minutes</span></div>
-          <div class="ditem"><b>Last seen</b><span>${hhmm(a.time)}</span></div>
-          <div class="ditem"><b>Location</b><span>${escapeHTML((a.area||'') || '—')}</span></div>
-          <div class="ditem"><b>Coordinates</b><span>${Number(a.lat).toFixed(5)}, ${Number(a.lon).toFixed(5)}</span></div>
-        </div>
+    /* =========================================================
+       DETAILS
+       ========================================================= */
+    function renderDetails(){
+      const a = getSelectedAlert();
+      const hero = document.getElementById("detailHero");
+      const grid = document.getElementById("detailGrid");
+      const actions = document.getElementById("detailActions");
+      const body = document.getElementById("detailBody");
 
-        <div class="dactions">
-          <button type="button" id="actPan">Pan map</button>
-          <button type="button" id="actTools">Open tools</button>
-          <button type="button" id="actAck">${ack ? 'Re-acknowledge' : 'Acknowledge'}</button>
-          <button type="button" id="actHide">Hide 60m</button>
+      if (!hero || !grid || !actions || !body) return;
+
+      if (!a){
+        hero.innerHTML = `
+          <div class="detail-empty">
+            <b>Select an alert</b>
+            <small>Or search a location above for desk / phone-call lookups.</small>
+          </div>
+        `;
+        grid.innerHTML = "";
+        actions.innerHTML = "";
+        body.innerHTML = "";
+        return;
+      }
+
+      const wf = normalizeWorkflow(a.id);
+      const coords = `${Number(a.lat).toFixed(5)}, ${Number(a.lon).toFixed(5)}`;
+
+      hero.innerHTML = `
+        <div class="sel-title">
+          <div class="sel-title-main">
+            <h3>${escapeHTML(a.title || "Unknown")}</h3>
+            <div class="sub">${escapeHTML(a.sub || "")}</div>
+          </div>
+          <div class="sel-tags">
+            <span class="badge ${sourceBadgeClass(a)}">${escapeHTML(sourceBadge(a))}</span>
+            <span class="badge ${stateClass(wf.state)}">${escapeHTML(stateLabel(wf.state))}</span>
+          </div>
         </div>
       `;
 
-      // Actions
-      card.querySelector('#actPan')?.addEventListener('click', () => setMapTarget(a.lat, a.lon, a.zoom || 14), { passive:true });
-      card.querySelector('#actTools')?.addEventListener('click', () => { MAP_STATE.last = { lat:a.lat, lon:a.lon }; openToolDialog(); }, { passive:true });
-      card.querySelector('#actAck')?.addEventListener('click', () => { setAck(a.id); renderQueue(); }, { passive:true });
-      card.querySelector('#actHide')?.addEventListener('click', () => {
-        hideForHour(a.hidePrefix || 'gen', a.id, a.baseline || {});
-        a.hidden = true;
-        ALERTS.byId.set(a.id, a);
-        renderQueue();
+      grid.innerHTML = `
+        <div class="detail-item"><b>Type</b><span>${escapeHTML(a.kindLabel || a.kind)}</span></div>
+        <div class="detail-item"><b>Age</b><span>${minsAgo(a.time)} minutes</span></div>
+        <div class="detail-item"><b>Area</b><span>${escapeHTML(a.area || a.city || "—")}</span></div>
+        <div class="detail-item"><b>Coords</b><span>${escapeHTML(coords)}</span></div>
+      `;
+
+      actions.innerHTML = `
+        <div class="action-row">
+          <button class="btn action-primary" id="actMonitor" type="button">Monitor (M)</button>
+          <button class="btn" id="actPan" type="button">Pan map</button>
+        </div>
+
+        <div class="action-row">
+          <button class="btn" id="actToggleSnooze" type="button">Snooze ▾</button>
+          <button class="btn action-danger" id="actClose" type="button">No action (X)</button>
+        </div>
+
+        <div class="snooze-strip" id="snoozeStrip">
+          <button class="mini-btn" data-snooze="15" type="button">15m</button>
+          <button class="mini-btn" data-snooze="30" type="button">30m</button>
+          <button class="mini-btn" data-snooze="60" type="button">1h</button>
+          <button class="mini-btn" data-snooze="180" type="button">3h</button>
+        </div>
+
+        <div class="action-row tools">
+          <button class="btn" data-tool="google" type="button">Google</button>
+          <button class="btn" data-tool="waze_alerts" type="button">Waze</button>
+          <button class="btn" data-tool="bustimes" type="button">BusTimes</button>
+        </div>
+
+        <div class="action-row tools">
+          <button class="btn" data-tool="tomtom" type="button">TomTom</button>
+          <button class="btn" data-tool="utc" type="button">UTC</button>
+          <button class="btn" data-tool="vms" type="button">VMS</button>
+        </div>
+      `;
+
+      const history = Array.isArray(wf.history) ? wf.history : [];
+      body.innerHTML = `
+        <div class="field">
+          <label for="closeReason">No action reason</label>
+          <select id="closeReason">
+            <option value="duplicate" ${wf.reason === "duplicate" ? "selected" : ""}>Duplicate</option>
+            <option value="already-known" ${wf.reason === "already-known" ? "selected" : ""}>Already known</option>
+            <option value="low-confidence" ${wf.reason === "low-confidence" ? "selected" : ""}>Low confidence</option>
+            <option value="not-relevant" ${wf.reason === "not-relevant" ? "selected" : ""}>Not relevant</option>
+            <option value="false-positive" ${wf.reason === "false-positive" ? "selected" : ""}>False positive / cleared</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="alertNote">Notes</label>
+          <textarea id="alertNote" placeholder="Quick operational note…">${escapeHTML(wf.note || "")}</textarea>
+        </div>
+
+        <div style="display:flex; gap:6px; flex-wrap:wrap">
+          <button class="btn" id="actSaveNote" type="button">Save note</button>
+          <button class="btn" id="actCopyCoords" type="button">Copy coords</button>
+        </div>
+
+        <div class="field">
+          <label>History</label>
+          <div class="history">
+            ${history.length ? history.map(h => `
+              <div class="history-item">
+                <b>${escapeHTML(h.text || "")}</b>
+                <small>${escapeHTML(fmtHM(h.at))}${h.meta ? " • " + escapeHTML(h.meta) : ""}</small>
+              </div>
+            `).join("") : `<div class="history-item"><b>No activity yet</b><small>This alert has not been worked yet.</small></div>`}
+          </div>
+        </div>
+      `;
+
+      document.getElementById("actMonitor")?.addEventListener("click", () => workMonitor(a.id), { passive:true });
+      document.getElementById("actPan")?.addEventListener("click", panSelected, { passive:true });
+      document.getElementById("actClose")?.addEventListener("click", () => workClose(a.id), { passive:true });
+
+      document.getElementById("actToggleSnooze")?.addEventListener("click", function(){
+        document.getElementById("snoozeStrip")?.classList.toggle("open");
       }, { passive:true });
 
-      // Keep marker context ready
-      MAP_STATE.last = { lat:a.lat, lon:a.lon };
-    }
-
-    function bindQueueInteractions(){
-      const host = document.getElementById('alertQueue');
-      if (!host) return;
-
-      host.addEventListener('click', (e) => {
-        const row = e.target.closest('.qrow');
-        if (!row) return;
-        ALERTS.selectedId = row.dataset.id;
-        updateSelectionUI();
-        renderDetails();
-      }, { passive:true });
-
-      document.addEventListener('keydown', (e) => {
-        if (!ALERTS.order.length) return;
-
-        const idx = Math.max(0, ALERTS.order.indexOf(ALERTS.selectedId));
-        if (e.key === 'ArrowDown'){
-          e.preventDefault();
-          ALERTS.selectedId = ALERTS.order[Math.min(ALERTS.order.length-1, idx+1)];
-          updateSelectionUI(); renderDetails();
-        } else if (e.key === 'ArrowUp'){
-          e.preventDefault();
-          ALERTS.selectedId = ALERTS.order[Math.max(0, idx-1)];
-          updateSelectionUI(); renderDetails();
-        } else if (e.key === 'Enter'){
-          const a = ALERTS.byId.get(ALERTS.selectedId);
-          if (a){ e.preventDefault(); setMapTarget(a.lat, a.lon, a.zoom || 14); }
-        } else if (e.key === ' '){
-          const a = ALERTS.byId.get(ALERTS.selectedId);
-          if (a){ e.preventDefault(); MAP_STATE.last = { lat:a.lat, lon:a.lon }; openToolDialog(); }
-        } else if (e.key.toLowerCase() === 'h'){
-          const a = ALERTS.byId.get(ALERTS.selectedId);
-          if (a){ e.preventDefault(); hideForHour(a.hidePrefix || 'gen', a.id, a.baseline || {}); a.hidden = true; ALERTS.byId.set(a.id, a); renderQueue(); }
-        } else if (e.key.toLowerCase() === 'a'){
-          const a = ALERTS.byId.get(ALERTS.selectedId);
-          if (a){ e.preventDefault(); setAck(a.id); renderQueue(); }
-        }
+      actions.querySelectorAll("[data-snooze]").forEach(btn => {
+        btn.addEventListener("click", () => workSnooze(a.id, Number(btn.dataset.snooze || 15)), { passive:true });
       });
+
+      actions.querySelectorAll("[data-tool]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          MAP_STATE.last = { lat:a.lat, lon:a.lon };
+          updateMapContext();
+          openToolByName(btn.dataset.tool);
+        }, { passive:true });
+      });
+
+      document.getElementById("actSaveNote")?.addEventListener("click", saveSelectedNote, { passive:true });
+      document.getElementById("actCopyCoords")?.addEventListener("click", () => copyCoords(a), { passive:true });
+
+      MAP_STATE.last = { lat:a.lat, lon:a.lon };
+      updateMapContext();
     }
 
-    function bindAlertControls(){
-      document.getElementById('queueSearch')?.addEventListener('input', (e) => {
-        ALERTS.query = e.target.value || '';
-        renderQueue();
-      }, { passive:true });
+    async function copyCoords(a){
+      const txt = `${Number(a.lat).toFixed(5)}, ${Number(a.lon).toFixed(5)}`;
+      try{ await navigator.clipboard.writeText(txt); }catch(e){}
+    }
 
-      document.getElementById('sortMode')?.addEventListener('change', (e) => {
-        ALERTS.sort = e.target.value || 'priority';
-        renderQueue();
-      }, { passive:true });
-
-      function setFilter(f){
-        ALERTS.filter = f;
-        renderQueue();
+    function saveSelectedNote(){
+      const a = getSelectedAlert();
+      if (!a) return;
+      const noteEl = document.getElementById("alertNote");
+      const note = noteEl ? noteEl.value.trim() : "";
+      setWorkflow(a.id, { note });
+      if (note){
+        pushHistory(a.id, "Note saved", note.slice(0, 80) + (note.length > 80 ? "…" : ""));
+      } else {
+        pushHistory(a.id, "Note cleared", "");
       }
-      document.getElementById('filterAll')?.addEventListener('click', ()=>setFilter('all'), { passive:true });
-      document.getElementById('filterPriority')?.addEventListener('click', ()=>setFilter('priority'), { passive:true });
-      document.getElementById('filterTraffic')?.addEventListener('click', ()=>setFilter('tvt'), { passive:true });
-      document.getElementById('filterWaze')?.addEventListener('click', ()=>setFilter('waze'), { passive:true });
-
-      document.getElementById('unhideAllBtn2')?.addEventListener('click', unhideAll, { passive:true });
+      renderDetails();
     }
 
-    function setAlertsMeta(text){
-      const el = document.getElementById('alertsMeta');
-      if (el) el.textContent = text;
+    function workMonitor(id){
+      setWorkflow(id, {
+        state: WORK_STATES.MONITORING,
+        workedAt: Date.now(),
+        snoozeUntil: 0,
+        returnState: WORK_STATES.MONITORING
+      });
+      pushHistory(id, "Moved to monitoring", "");
+      autoAdvanceAfterAction(id);
     }
 
-    /* =======================================================
-       TVT — ingestion + alerts
-       ======================================================= */
-    const TVT_REFRESH_MS = 5 * 60 * 1000;
-    let TVT_MIN_DELAY = 15;
-    let lastTvtData = null;
+    function workSnooze(id, mins){
+      const wf = normalizeWorkflow(id);
+      const returnState = wf.state === WORK_STATES.MONITORING ? WORK_STATES.MONITORING : WORK_STATES.NEW;
+      setWorkflow(id, {
+        state: WORK_STATES.SNOOZED,
+        workedAt: Date.now(),
+        snoozeUntil: Date.now() + Number(mins || 15) * 60000,
+        returnState
+      });
+      pushHistory(id, "Snoozed", `${mins} minutes`);
+      autoAdvanceAfterAction(id);
+    }
 
+    function workClose(id){
+      const reason = document.getElementById("closeReason")?.value || "duplicate";
+      setWorkflow(id, {
+        state: WORK_STATES.CLOSED,
+        workedAt: Date.now(),
+        snoozeUntil: 0,
+        reason
+      });
+      pushHistory(id, "Closed / no action", reason.replace(/-/g, " "));
+      autoAdvanceAfterAction(id);
+    }
+
+    function autoAdvanceAfterAction(currentId){
+      const next = findNextInCurrentView(currentId) || findNextNew() || null;
+      ALERTS.selectedId = next;
+      renderQueue();
+    }
+
+    function findNextInCurrentView(currentId){
+      const order = ALERTS.currentVisibleOrder;
+      if (!order.length) return null;
+      const idx = order.indexOf(currentId);
+      if (idx >= 0 && idx < order.length - 1) return order[idx + 1];
+      return order[0] || null;
+    }
+
+    function findNextNew(){
+      const items = Array.from(ALERTS.byId.values())
+        .filter(a => normalizeWorkflow(a.id).state === WORK_STATES.NEW)
+        .filter(passesFilter)
+        .filter(passesQuery)
+        .sort((a,b) => severityRank(a) - severityRank(b) || (b.time - a.time));
+      return items[0]?.id || null;
+    }
+
+    function panSelected(){
+      const a = getSelectedAlert();
+      if (!a) return;
+      setMapTarget(a.lat, a.lon, a.zoom || 14);
+    }
+
+    /* =========================================================
+       NAVIGATION / TABS / FILTERS
+       ========================================================= */
+    function selectTab(tab){
+      ALERTS.activeTab = tab;
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.tab === tab));
+      renderQueue();
+    }
+
+    function selectNext(step){
+      const order = ALERTS.currentVisibleOrder;
+      if (!order.length) return;
+      if (!ALERTS.selectedId){
+        ALERTS.selectedId = order[0];
+        renderQueue();
+        return;
+      }
+      const idx = order.indexOf(ALERTS.selectedId);
+      const nextIdx = Math.max(0, Math.min(order.length - 1, idx + step));
+      ALERTS.selectedId = order[nextIdx];
+      renderQueue();
+    }
+
+    function jumpNextNew(){
+      const next = findNextNew();
+      if (!next) return;
+      ALERTS.activeTab = "new";
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.tab === "new"));
+      ALERTS.selectedId = next;
+      renderQueue();
+    }
+
+    function bindUI(){
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => selectTab(btn.dataset.tab), { passive:true });
+      });
+
+      document.getElementById("queueSearch")?.addEventListener("input", function(e){
+        ALERTS.query = e.target.value || "";
+        renderQueue();
+      }, { passive:true });
+
+      document.getElementById("sourceFilter")?.addEventListener("change", function(e){
+        ALERTS.filter = e.target.value || "all";
+        renderQueue();
+      }, { passive:true });
+
+      document.getElementById("tvtDelaySelect")?.addEventListener("change", function(e){
+        TVT_MIN_DELAY = Number(e.target.value) || 15;
+        if (lastTvtData){
+          tvtToAlerts(lastTvtData);
+          renderQueue();
+        }
+      }, { passive:true });
+
+      document.getElementById("unhideAllBtn")?.addEventListener("click", function(){
+        clearAllSnoozes();
+        renderQueue();
+      }, { passive:true });
+
+      document.getElementById("nextNewBtn")?.addEventListener("click", jumpNextNew, { passive:true });
+    }
+
+    /* =========================================================
+       TVT
+       ========================================================= */
     function corridorDisplayName(r){
       if (r && r.name && r.name.trim()) return r.name.trim();
-      const from = String(r && r.fromName || '').trim();
-      const to   = String(r && r.toName   || '').trim();
-      if (from || to) return [from, to].filter(Boolean).join(' → ');
+      const from = String(r && r.fromName || "").trim();
+      const to = String(r && r.toName || "").trim();
+      if (from || to) return [from, to].filter(Boolean).join(" → ");
       if (r && r.leadAlert && r.leadAlert.street) return String(r.leadAlert.street).trim();
-      return 'Unnamed corridor';
-    }
-
-    function networkGradientFromUsersOnJams(usersOnJams){
-      if (!Array.isArray(usersOnJams) || usersOnJams.length === 0) {
-        return 'linear-gradient(90deg,#42BE4B,#ffe04a,#ff4d4f)';
-      }
-      const levelColors = { 0:'#42BE4B', 1:'#9ddc43', 2:'#ffe04a', 3:'#ff9a1f', 4:'#ff4d4f' };
-      const total = usersOnJams.reduce(function(a,u){ return a + (Number(u.wazersCount)||0); }, 0) || 1;
-      let acc = 0, stops=[];
-      usersOnJams.slice().sort(function(a,b){ return a.jamLevel-b.jamLevel; }).forEach(function(u){
-        const pct = (Number(u.wazersCount)||0)/total*100;
-        const start = acc, end = acc + pct;
-        stops.push((levelColors[u.jamLevel] || '#666') + ' ' + start.toFixed(2) + '% ' + end.toFixed(2) + '%');
-        acc = end;
-      });
-      return 'linear-gradient(90deg, ' + stops.join(', ') + ')';
-    }
-
-    function delayColor(delayMin){
-      if (delayMin >= 15) return '#FF4D4F';
-      if (delayMin >= 10) return '#FF9A1F';
-      if (delayMin >= 5)  return '#FFE04A';
-      return '#42BE4B';
+      return "Unnamed corridor";
     }
 
     function computeDelayMin(r){
@@ -1777,26 +2409,26 @@
     }
 
     function computeTopNDelays(routesRaw, n, minDelay){
-      n = n || 24; minDelay = minDelay || 15;
       const routes = Array.isArray(routesRaw) ? routesRaw.slice() : [];
-      const candidates = routes
-        .map(function(r){
-          return { r:r, time:Number(r && r.time)||0, hist:Number(r && r.historicTime)||0, delayMin: computeDelayMin(r) };
-        })
-        .filter(function(x){ return Number.isFinite(x.delayMin) && x.delayMin >= minDelay; });
+      const candidates = routes.map(r => ({
+        r,
+        time: Number(r && r.time) || 0,
+        hist: Number(r && r.historicTime) || 0,
+        delayMin: computeDelayMin(r)
+      })).filter(x => Number.isFinite(x.delayMin) && x.delayMin >= minDelay);
 
-      candidates.sort(function(a,b){ return (b.delayMin - a.delayMin) || (b.time - a.time); });
-      return candidates.slice(0, n);
+      candidates.sort((a,b) => (b.delayMin - a.delayMin) || (b.time - a.time));
+      return candidates.slice(0, n || 30);
     }
 
     const routeKey = (r) => {
-      const base = String((r && (r.id ?? r.name)) ?? corridorDisplayName(r) ?? '').trim();
-      const t = String(r && r.type || '').toUpperCase();
+      const base = String((r && (r.id ?? r.name)) ?? corridorDisplayName(r) ?? "").trim();
+      const t = String(r && r.type || "").toUpperCase();
       const bb = r && r.bbox;
       const bbTok = (bb && [bb.minX, bb.minY, bb.maxX, bb.maxY].every(Number.isFinite))
-        ? (Number(bb.minX).toFixed(4)+','+Number(bb.minY).toFixed(4)+','+Number(bb.maxX).toFixed(4)+','+Number(bb.maxY).toFixed(4))
-        : '';
-      return t === 'DYNAMIC' ? (base + '|DYN|' + bbTok) : base;
+        ? (Number(bb.minX).toFixed(4)+","+Number(bb.minY).toFixed(4)+","+Number(bb.maxX).toFixed(4)+","+Number(bb.maxY).toFixed(4))
+        : "";
+      return t === "DYNAMIC" ? (base + "|DYN|" + bbTok) : base;
     };
 
     function getCorridorCenterLngLat(route){
@@ -1806,29 +2438,28 @@
           const minX = Number(bb.minX), maxX = Number(bb.maxX);
           const minY = Number(bb.minY), maxY = Number(bb.maxY);
           if ([minX, maxX, minY, maxY].every(Number.isFinite)){
-            return [(minX + maxX) / 2, (minY + maxY) / 2];
+            return [(minX + maxX)/2, (minY + maxY)/2];
           }
         }
         const pts = Array.isArray(route && route.line) ? route.line : [];
-        let sumX = 0, sumY = 0, n = 0;
+        let sumX=0, sumY=0, n=0;
         for (const p of pts){
           const x = Number(p && p.x);
           const y = Number(p && p.y);
           if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
           sumX += x; sumY += y; n++;
         }
-        if (n > 0) return [sumX / n, sumY / n];
+        if (n > 0) return [sumX/n, sumY/n];
       }catch(e){}
       return null;
     }
 
+    async function fetchTVT(signal){
+      return await fetchJsonFromAPI(API_BASE + "/api/waze/tvt", signal);
+    }
+
     function tvtToAlerts(data){
       lastTvtData = data;
-
-      const net = document.getElementById('networkBar');
-      if (net){
-        net.style.background = networkGradientFromUsersOnJams((data && data.usersOnJams) || []);
-      }
       updateConnectedCitizensDisplay(sumWazers((data && data.usersOnJams) || []));
 
       const allRoutes = []
@@ -1836,57 +2467,41 @@
         .concat(Array.isArray(data && data.irregularities) ? data.irregularities : []);
 
       const rows = computeTopNDelays(allRoutes, 30, TVT_MIN_DELAY);
+      const presentIds = new Set();
 
       for (const it of rows){
         const r = it.r;
         const label = corridorDisplayName(r);
-        const delayMin = Math.max(0, Number(it.delayMin)||0);
-        const normMin = Math.max(0, Math.round((Number(it.hist)||0) / 60));
-        const nowMin  = Math.max(0, Math.round((Number(it.time)||0) / 60));
-
+        const delayMin = Math.max(0, Number(it.delayMin) || 0);
+        const normMin = Math.max(0, Math.round((Number(it.hist) || 0) / 60));
+        const nowMin = Math.max(0, Math.round((Number(it.time) || 0) / 60));
         const center = getCorridorCenterLngLat(r);
         if (!center) continue;
+
         const lon = Number(center[0]), lat = Number(center[1]);
         if (!Number.isFinite(lon) || !Number.isFinite(lat)) continue;
 
         const id = routeKey(r);
+        presentIds.add(id);
+
         upsertAlert({
           id,
-          kind: 'tvt',
-          kindLabel: 'Abnormal traffic',
-          icon: '⏱️',
+          kind: "tvt",
+          kindLabel: "Abnormal traffic",
+          icon: "⏱️",
           title: label,
           sub: `${normMin}m → ${nowMin}m`,
           badge: `+${delayMin}m`,
           delayMin,
-          time: Date.now(), // “seen now” each cycle; ack is persistent
+          area: "",
+          city: "",
+          time: Date.now(),
           lat, lon,
-          zoom: 11,
-          color: delayColor(delayMin),
-          hidePrefix: 'corr',
-          baseline: { delayMin },
-          currentMetrics: { delayMin }
+          zoom: 11
         });
       }
-    }
 
-    function bindTvtFilters(){
-      const wrap = document.getElementById('tvt-filters');
-      if (!wrap) return;
-
-      wrap.addEventListener('click', function(e){
-        const btn = e.target.closest('button[data-min]');
-        if (!btn) return;
-        TVT_MIN_DELAY = Number(btn.dataset.min) || 15;
-        wrap.querySelectorAll('button[data-min]').forEach(function(b){
-          b.classList.toggle('active', b === btn);
-        });
-        if (lastTvtData) { tvtToAlerts(lastTvtData); renderQueue(); }
-      }, { passive:true });
-    }
-
-    async function fetchTVT(signal){
-      return await fetchJsonFromAPI(API_BASE + '/api/waze/tvt', signal);
+      removeAlertsByPredicate(a => a.kind === "tvt" && !presentIds.has(a.id));
     }
 
     async function tvtCycle(){
@@ -1894,112 +2509,120 @@
       try{
         const data = await fetchTVT(ctrl.signal);
         tvtToAlerts(data);
-        setAlertsMeta(`TVT refreshed • threshold +${TVT_MIN_DELAY}m • ${fmtHHMMSS()}`);
+        setStatusPill(true);
+        document.getElementById("alertsMeta").textContent = `TVT refreshed • threshold +${TVT_MIN_DELAY}m • ${fmtHHMMSS()}`;
         renderQueue();
-        setStatusPill(true, { animate:true });
       }catch(e){
-        console.error('[TVT] fetch failed:', e);
-        setAlertsMeta(`TVT failed • ${fmtHHMMSS()}`);
+        console.error("[TVT] fetch failed:", e);
         setStatusPill(false);
+        document.getElementById("alertsMeta").textContent = `TVT failed • ${fmtHHMMSS()}`;
       }finally{
         clearTimeout(tvtTimer);
         tvtTimer = setTimeout(tvtCycle, TVT_REFRESH_MS);
       }
     }
 
-    /* =======================================================
-       WAZE — ingestion + alerts (accidents / signals / ice)
-       ======================================================= */
-    const WAZE_REFRESH_MS = 30000;
+    /* =========================================================
+       WAZE
+       ========================================================= */
+    function toRad(deg){ return deg * Math.PI / 180; }
+    function haversineMeters(a, b){
+      const lon1 = a[0], lat1 = a[1], lon2 = b[0], lat2 = b[1];
+      const R = 6371000;
+      const dLat = toRad(lat2 - lat1), dLon = toRad(lon2 - lon1);
+      const aa = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+      return 2 * R * Math.atan2(Math.sqrt(aa), Math.sqrt(1-aa));
+    }
 
     async function fetchViaProxies(_ignoredUrl, signal){
-      return await fetchJsonFromAPI(API_BASE + '/api/waze/partner-feed', signal);
+      return await fetchJsonFromAPI(API_BASE + "/api/waze/partner-feed", signal);
     }
 
     function stableClusterId(coord){
       const lon = Number(coord[0]).toFixed(4);
       const lat = Number(coord[1]).toFixed(4);
-      return 'cluster-' + lon + ',' + lat;
+      return "cluster-" + lon + "," + lat;
     }
+
     function readConfidence(a){ return Number(a && (a.confidence ?? a.confidenceLevel ?? a.level ?? 0)) || 0; }
     function readReliability(a){ return Number(a && (a.reliability ?? a.reliabilityScore ?? 0)) || 0; }
-    function readType(a){ return String((a && (a.type || a.alertType)) || '').toUpperCase(); }
-    function readSubType(a){ return String((a && (a.subtype || a.subType || a.sub_type)) || '').toUpperCase(); }
-    function readDesc(a){ return String((a && (a.description || a.reportDescription || a.title)) || '').toUpperCase(); }
+    function readType(a){ return String((a && (a.type || a.alertType)) || "").toUpperCase(); }
+    function readSubType(a){ return String((a && (a.subtype || a.subType || a.sub_type)) || "").toUpperCase(); }
+    function readDesc(a){ return String((a && (a.description || a.reportDescription || a.title)) || "").toUpperCase(); }
 
     function getLngLatFromAlert(a){
       try{
-        if(a){
-          if(a.location){
+        if (a){
+          if (a.location){
             const loc = a.location;
-            if(typeof loc.x==='number' && typeof loc.y==='number') return [loc.x, loc.y];
-            if(typeof loc.lon==='number' && typeof loc.lat==='number') return [loc.lon, loc.lat];
-            if(Array.isArray(loc.coordinates) && loc.coordinates.length>=2) return [loc.coordinates[0], loc.coordinates[1]];
-            if(loc.point && typeof loc.point.x==='number' && typeof loc.point.y==='number') return [loc.point.x, loc.point.y];
+            if (typeof loc.x === "number" && typeof loc.y === "number") return [loc.x, loc.y];
+            if (typeof loc.lon === "number" && typeof loc.lat === "number") return [loc.lon, loc.lat];
+            if (Array.isArray(loc.coordinates) && loc.coordinates.length >= 2) return [loc.coordinates[0], loc.coordinates[1]];
+            if (loc.point && typeof loc.point.x === "number" && typeof loc.point.y === "number") return [loc.point.x, loc.point.y];
           }
-          if(a.geometry && a.geometry.coordinates && a.geometry.coordinates.length>=2){
+          if (a.geometry && a.geometry.coordinates && a.geometry.coordinates.length >= 2){
             const c = a.geometry.coordinates;
-            if(typeof c[0]==='number' && typeof c[1]==='number') return [c[0], c[1]];
+            if (typeof c[0] === "number" && typeof c[1] === "number") return [c[0], c[1]];
           }
-          if(typeof a.longitude==='number' && typeof a.latitude==='number') return [a.longitude, a.latitude];
+          if (typeof a.longitude === "number" && typeof a.latitude === "number") return [a.longitude, a.latitude];
         }
       }catch(e){}
       return null;
     }
 
     function isAccident(a){
-      const t = readType(a);
-      const st = readSubType(a);
-      return t.includes('ACCIDENT') || st.includes('ACCIDENT');
+      const t = readType(a), st = readSubType(a);
+      return t.includes("ACCIDENT") || st.includes("ACCIDENT");
     }
 
     function isIceAlert(a){
-      const st = String((a && (a.subtype || a.subType || a.sub_type)) || '').toUpperCase();
-      if (st === 'HAZARD_ON_ROAD_ICE') return true;
+      const st = String((a && (a.subtype || a.subType || a.sub_type)) || "").toUpperCase();
+      if (st === "HAZARD_ON_ROAD_ICE") return true;
 
-      const t  = String((a && (a.type || a.alertType)) || '').toUpperCase();
-      const d  = String((a && (a.description || a.reportDescription || a.title)) || '').toUpperCase();
-      return t.includes('ICE') || /\bICE\b|BLACK\s*ICE|RECENT(LY)?\s+FORMED\s+ICE/.test(d);
+      const t = String((a && (a.type || a.alertType)) || "").toUpperCase();
+      const d = String((a && (a.description || a.reportDescription || a.title)) || "").toUpperCase();
+      return t.includes("ICE") || /\bICE\b|BLACK\s*ICE|RECENT(LY)?\s+FORMED\s+ICE/.test(d);
     }
 
     function isTrafficLightFault(a){
       const t = readType(a), st = readSubType(a), d = readDesc(a);
-      return st === 'HAZARD_ON_ROAD_TRAFFIC_LIGHT_FAULT' ||
-             (t.includes('TRAFFIC') && t.includes('LIGHT')) ||
-             st.includes('TRAFFIC_LIGHT') || st.includes('LIGHT_FAULT') ||
+      return st === "HAZARD_ON_ROAD_TRAFFIC_LIGHT_FAULT" ||
+             (t.includes("TRAFFIC") && t.includes("LIGHT")) ||
+             st.includes("TRAFFIC_LIGHT") || st.includes("LIGHT_FAULT") ||
              /TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/i.test(d);
     }
 
-    function dedupAccidentClusters(clusters, opts){
-      opts = opts || {};
+    function dedupAccidentClusters(clusters, opts = {}){
       const corridorMeters = opts.corridorMeters || 8000;
       if (!Array.isArray(clusters) || clusters.length === 0) return [];
       const groups = new Map();
+
       for (const c of clusters){
-        const token = (c.street||'').toUpperCase().match(/\b([MBA]\d{1,4})\b/);
-        const key = token ? token[1] : (c.street||'').toUpperCase().replace(/[^A-Z0-9 ]+/g,' ').replace(/\s+/g,' ').trim() || '___unknown___';
+        const token = (c.street || "").toUpperCase().match(/\b([MBA]\d{1,4})\b/);
+        const key = token ? token[1] : ((c.street || "").toUpperCase().replace(/[^A-Z0-9 ]+/g," ").replace(/\s+/g," ").trim() || "___unknown___");
         if (!groups.has(key)) groups.set(key, []);
         groups.get(key).push(c);
       }
+
       const kept = [];
       for (const arr of groups.values()){
-        arr.sort(function(a,b){
-          return (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) || (Number(b.time||0) - Number(a.time||0));
-        });
+        arr.sort((a,b) => (Number(b.effectiveConfidence || 0) - Number(a.effectiveConfidence || 0)) || (Number(b.time || 0) - Number(a.time || 0)));
         const chosen = [];
         for (const c of arr){
           let dup = false;
           for (const k of chosen){
             const dist = haversineMeters(c.coord, k.coord);
-            if (dist <= corridorMeters){ dup = true; break; }
+            if (dist <= corridorMeters){
+              dup = true;
+              break;
+            }
           }
           if (!dup) chosen.push(c);
         }
-        kept.push.apply(kept, chosen);
+        kept.push(...chosen);
       }
-      kept.sort(function(a,b){
-        return (Number(b.effectiveConfidence||0) - Number(a.effectiveConfidence||0)) || (Number(b.time||0) - Number(a.time||0));
-      });
+
+      kept.sort((a,b) => (Number(b.effectiveConfidence || 0) - Number(a.effectiveConfidence || 0)) || (Number(b.time || 0) - Number(a.time || 0)));
       return kept;
     }
 
@@ -2008,82 +2631,75 @@
       return n > Date.now() ? Date.now() : n;
     }
 
-    function wazeChipColor(kind, score){
-      if (kind === 'acc'){
-        if (score >= 4) return '#FF4D4F';
-        if (score >= 3) return '#FF9A1F';
-        return '#FFE04A';
-      }
-      if (kind === 'sig'){
-        if (score >= 9) return '#FF4D4F';
-        if (score >= 7) return '#FF9A1F';
-        return '#FFE04A';
-      }
-      if (kind === 'ice') return '#7AA7FF';
-      return 'rgba(255,255,255,0.35)';
-    }
-
     async function wazeCycle(){
       const ctrl = new AbortController();
       try{
-        const data = await fetchViaProxies('', ctrl.signal);
+        const data = await fetchViaProxies("", ctrl.signal);
         const alertsRaw = (data && Array.isArray(data.alerts)) ? data.alerts : [];
+        const presentIds = new Set();
 
-        // ACCIDENT points
         const accidentPoints = [];
         for (const x of alertsRaw){
-          if(!isAccident(x)) continue;
+          if (!isAccident(x)) continue;
           const c = readConfidence(x);
-          if(!(c > 0)) continue;
-          const coord = getLngLatFromAlert(x); if(!coord) continue;
+          if (!(c > 0)) continue;
+          const coord = getLngLatFromAlert(x);
+          if (!coord) continue;
+
           const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
           accidentPoints.push({
-            coord: coord,
+            coord,
             conf10: c,
             rel10: readReliability(x),
-            street: x.street||x.roadName||x.address||'Unknown road',
-            city: x.city||x.town||'',
+            street: x.street || x.roadName || x.address || "Unknown road",
+            city: x.city || x.town || "",
             time: normalizeMillis(rawTime),
-            id: x.uuid||x.id||(coord[0]+','+coord[1]+','+(rawTime||''))
+            id: x.uuid || x.id || (coord[0]+","+coord[1]+","+(rawTime || ""))
           });
         }
 
-        // Cluster accidents
-        const accidentClustersRaw = accidentPoints.length ? (function cluster(points, merge){
-          merge = merge || 200;
-          if(points.length===0) return [];
+        const accidentClustersRaw = accidentPoints.length ? (function cluster(points, merge=200){
+          if (points.length === 0) return [];
           const parent = Array(points.length).fill(0).map((_,i)=>i);
-          const find = x => { while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+          const find = x => { while(parent[x] !== x){ parent[x] = parent[parent[x]]; x = parent[x]; } return x; };
           const union = (a,b) => { a=find(a); b=find(b); if(a!==b) parent[a]=b; };
 
           for(let i=0;i<points.length;i++){
             for(let j=i+1;j<points.length;j++){
               const d = haversineMeters(points[i].coord, points[j].coord);
-              if(d<=merge) union(i,j);
+              if(d <= merge) union(i,j);
             }
           }
 
           const groups = new Map();
           for(let i=0;i<points.length;i++){
-            const r=find(i);
+            const r = find(i);
             if(!groups.has(r)) groups.set(r, []);
             groups.get(r).push(points[i]);
           }
 
-          const clusters=[];
+          const clusters = [];
           for(const members of groups.values()){
-            const count=members.length;
-            const baseConf10=members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
-            const bestRel10=members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
-            let eff10=baseConf10 + (bestRel10>8?2:0);
-            eff10=Math.max(0, Math.min(12, eff10));
-            const eff5=Math.max(1, Math.min(5, Math.round(eff10/2)));
+            const count = members.length;
+            const baseConf10 = members.reduce((m,p)=>Math.max(m, Number(p.conf10)||0), 0);
+            const bestRel10 = members.reduce((m,p)=>Math.max(m, Number(p.rel10)||0), 0);
+            let eff10 = baseConf10 + (bestRel10 > 8 ? 2 : 0);
+            eff10 = Math.max(0, Math.min(12, eff10));
+            const eff5 = Math.max(1, Math.min(5, Math.round(eff10 / 2)));
 
-            const avg=members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
-            const maxTime=members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+            const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]], [0,0]).map(v=>v/count);
+            const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+            const best = members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0];
 
-            const best=members.slice().sort((a,b)=>((Number(b.conf10)||0)-(Number(a.conf10)||0))||((Number(b.time)||0)-(Number(a.time)||0)))[0];
-            clusters.push({ id: stableClusterId(avg), coord: avg, street: best.street, city: best.city, effectiveConfidence: eff5, time: maxTime, reportCount: count });
+            clusters.push({
+              id: stableClusterId(avg),
+              coord: avg,
+              street: best.street,
+              city: best.city,
+              effectiveConfidence: eff5,
+              time: maxTime,
+              reportCount: count
+            });
           }
 
           clusters.sort((a,b)=>(Number(b.effectiveConfidence||0)-Number(a.effectiveConfidence||0))||((Number(b.time||0)-Number(a.time||0))));
@@ -2092,8 +2708,28 @@
 
         const accidentClusters = dedupAccidentClusters(accidentClustersRaw, { corridorMeters: 8000 });
 
-        // Signals
-        const signals = [];
+        for (const a of accidentClusters){
+          const conf = Number(a.effectiveConfidence) || 0;
+          presentIds.add(a.id);
+
+          upsertAlert({
+            id: a.id,
+            kind: "acc",
+            kindLabel: conf >= 4 ? "Accident (priority)" : "Accident",
+            icon: "💥",
+            title: a.street || "Unknown road",
+            badge: `Conf ${conf}/5`,
+            sub: `${fmtHM(a.time)} • ${a.reportCount || 1} rpt${(a.reportCount || 1) > 1 ? "s" : ""}${a.city ? " • " + a.city : ""}`,
+            conf,
+            area: a.city || "",
+            city: a.city || "",
+            time: Number(a.time) || Date.now(),
+            lat: a.coord[1],
+            lon: a.coord[0],
+            zoom: 14
+          });
+        }
+
         for (const x of alertsRaw){
           if (!isTrafficLightFault(x)) continue;
           const coord = getLngLatFromAlert(x);
@@ -2101,122 +2737,206 @@
 
           const rel10 = readReliability(x);
           const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-          const time  = normalizeMillis(rawTime);
-          const id    = x.uuid || x.id || (coord[0]+','+coord[1]+','+(rawTime || ''));
-          const street = x.street || x.roadName || x.address || 'Unknown road';
-          const city = x.city || x.town || '';
-          const desc = x.reportDescription || x.description || x.title || 'Traffic light fault';
+          const time = normalizeMillis(rawTime);
+          const id = x.uuid || x.id || (coord[0]+","+coord[1]+","+(rawTime || ""));
+          const street = x.street || x.roadName || x.address || "Unknown road";
+          const city = x.city || x.town || "";
 
-          if (isHiddenWithAutoCheck('sig', id, { conf: rel10 })) continue;
-          signals.push({ id, coord, street, city, time, rel10, desc });
+          presentIds.add(id);
+          upsertAlert({
+            id,
+            kind: "sig",
+            kindLabel: "Traffic signals",
+            icon: "🚦",
+            title: street,
+            badge: `Rel ${rel10}/10`,
+            sub: `${fmtHM(time)}${city ? " • " + city : ""}`,
+            rel10,
+            area: city,
+            city,
+            time: Number(time) || Date.now(),
+            lat: coord[1],
+            lon: coord[0],
+            zoom: 15
+          });
         }
-        signals.sort((a,b)=>(b.rel10 - a.rel10) || (b.time - a.time));
 
-        // Weather (ice)
-        const ice = [];
         for (const x of alertsRaw){
           if (!isIceAlert(x)) continue;
           const coord = getLngLatFromAlert(x);
           if (!coord) continue;
 
           const rawTime = x.pubMillis || x.updateTime || x.reportMillis || 0;
-          const time  = normalizeMillis(rawTime);
-          const id    = x.uuid || x.id || (coord[0]+','+coord[1]+','+(rawTime || ''));
-          const street = x.street || x.roadName || x.address || 'Unknown road';
-          const city = x.city || x.town || '';
-          const desc = x.reportDescription || x.description || x.title || 'Ice alert';
+          const time = normalizeMillis(rawTime);
+          const id = x.uuid || x.id || (coord[0]+","+coord[1]+","+(rawTime || ""));
+          const street = x.street || x.roadName || x.address || "Unknown road";
+          const city = x.city || x.town || "";
 
-          if (isHiddenWithAutoCheck('wx', id, {})) continue;
-          ice.push({ id, coord, street, city, time, desc });
-        }
-        ice.sort((a,b)=>b.time-a.time);
-
-        // Build unified alerts
-        const HIGH_MIN = Number(getComputedStyle(document.documentElement).getPropertyValue('--highConfMin')) || 4;
-
-        for (const a of accidentClusters){
-          const conf = Number(a.effectiveConfidence)||0;
-          if (isHiddenWithAutoCheck('acc', a.id, { conf })) continue;
-
+          presentIds.add(id);
           upsertAlert({
-            id: a.id,
-            kind: 'acc',
-            kindLabel: (conf >= HIGH_MIN ? 'Accident (priority)' : 'Accident'),
-            icon: '💥',
-            title: a.street || 'Unknown road',
-            badge: `Conf ${conf}/5`,
-            sub: `${hhmm(a.time)} • ${a.reportCount || 1} rpt${(a.reportCount||1)>1?'s':''}${a.city ? (' • ' + a.city) : ''}`,
-            conf,
-            time: Number(a.time) || Date.now(),
-            lat: a.coord[1], lon: a.coord[0],
-            zoom: 14,
-            color: wazeChipColor('acc', conf),
-            hidePrefix: 'acc',
-            baseline: { conf },
-            currentMetrics: { conf }
+            id,
+            kind: "ice",
+            kindLabel: "Ice hazard",
+            icon: "❄️",
+            title: street,
+            badge: "Ice",
+            sub: `${fmtHM(time)}${city ? " • " + city : ""}`,
+            area: city,
+            city,
+            time: Number(time) || Date.now(),
+            lat: coord[1],
+            lon: coord[0],
+            zoom: 15
           });
         }
 
-        for (const s of signals){
-          const rel = Number(s.rel10)||0;
-          upsertAlert({
-            id: s.id,
-            kind: 'sig',
-            kindLabel: 'Traffic signals',
-            icon: '🚦',
-            title: s.street || 'Unknown road',
-            badge: `Rel ${rel}/10`,
-            sub: `${hhmm(s.time)}${s.city ? (' • ' + s.city) : ''}`,
-            rel10: rel,
-            area: s.city || '',
-            time: Number(s.time) || Date.now(),
-            lat: s.coord[1], lon: s.coord[0],
-            zoom: 15,
-            color: wazeChipColor('sig', rel),
-            hidePrefix: 'sig',
-            baseline: { conf: rel },
-            currentMetrics: { conf: rel }
-          });
-        }
+        removeAlertsByPredicate(a => (a.kind === "acc" || a.kind === "sig" || a.kind === "ice") && !presentIds.has(a.id));
 
-        for (const w of ice){
-          upsertAlert({
-            id: w.id,
-            kind: 'ice',
-            kindLabel: 'Ice hazard',
-            icon: '❄️',
-            title: w.street || 'Unknown road',
-            badge: `Ice`,
-            sub: `${hhmm(w.time)}${w.city ? (' • ' + w.city) : ''}`,
-            area: w.city || '',
-            time: Number(w.time) || Date.now(),
-            lat: w.coord[1], lon: w.coord[0],
-            zoom: 15,
-            color: wazeChipColor('ice', 0),
-            hidePrefix: 'wx',
-            baseline: {},
-            currentMetrics: {}
-          });
-        }
-
-        setAlertsMeta(`Waze refreshed • ${fmtHHMMSS()}`);
+        setStatusPill(true);
+        document.getElementById("alertsMeta").textContent = `Waze refreshed • ${fmtHHMMSS()}`;
         renderQueue();
-        setStatusPill(true, { animate:true });
 
       }catch(e){
-        console.error('[Waze] fetch failed:', e);
-        setAlertsMeta(`Waze failed • ${fmtHHMMSS()}`);
+        console.error("[Waze] fetch failed:", e);
         setStatusPill(false);
+        document.getElementById("alertsMeta").textContent = `Waze failed • ${fmtHHMMSS()}`;
       }finally{
         clearTimeout(wazeTimer);
         wazeTimer = setTimeout(wazeCycle, WAZE_REFRESH_MS);
       }
     }
 
-    /* =======================================================
-       BOOT / VISIBILITY
-       ======================================================= */
-    document.addEventListener('visibilitychange', function(){
+    /* =========================================================
+       HELP
+       ========================================================= */
+    function openHelp(){
+      const dlg = document.getElementById("helpDialog");
+      if (!dlg) return;
+      if (typeof dlg.showModal === "function") dlg.showModal();
+      else dlg.setAttribute("open","");
+    }
+
+    function closeHelp(){
+      const dlg = document.getElementById("helpDialog");
+      if (!dlg) return;
+      if (typeof dlg.close === "function") dlg.close();
+      else dlg.removeAttribute("open");
+    }
+
+    function bindHelp(){
+      document.getElementById("helpBtn")?.addEventListener("click", openHelp, { passive:true });
+      document.getElementById("closeHelpBtn")?.addEventListener("click", closeHelp, { passive:true });
+
+      const dlg = document.getElementById("helpDialog");
+      if (dlg){
+        dlg.addEventListener("click", function(e){
+          const r = dlg.getBoundingClientRect();
+          const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+          if (!inside) closeHelp();
+        });
+      }
+    }
+
+    /* =========================================================
+       SHORTCUTS
+       ========================================================= */
+    function bindKeyboardShortcuts(){
+      document.addEventListener("keydown", function(e){
+        const target = e.target;
+
+        if (e.key === "Escape"){
+          clearSuggestions();
+          closeHelp();
+          return;
+        }
+
+        if (e.key === "?"){
+          e.preventDefault();
+          const dlg = document.getElementById("helpDialog");
+          if (dlg?.open) closeHelp(); else openHelp();
+          return;
+        }
+
+        if (e.key === "/" && !isEditableTarget(target)){
+          e.preventDefault();
+          const input = document.getElementById("gmSearch");
+          input?.focus();
+          input?.select?.();
+          return;
+        }
+
+        if (isEditableTarget(target)) return;
+
+        if (e.key.toLowerCase() === "j" || e.key === "ArrowDown"){
+          e.preventDefault();
+          selectNext(1);
+          return;
+        }
+        if (e.key.toLowerCase() === "k" || e.key === "ArrowUp"){
+          e.preventDefault();
+          selectNext(-1);
+          return;
+        }
+        if (e.key.toLowerCase() === "n"){
+          e.preventDefault();
+          jumpNextNew();
+          return;
+        }
+        if (e.key === "Enter"){
+          e.preventDefault();
+          panSelected();
+          return;
+        }
+        if (e.key.toLowerCase() === "m"){
+          e.preventDefault();
+          const a = getSelectedAlert();
+          if (a) workMonitor(a.id);
+          return;
+        }
+        if (e.key === "1"){
+          e.preventDefault();
+          const a = getSelectedAlert();
+          if (a) workSnooze(a.id, 15);
+          return;
+        }
+        if (e.key === "2"){
+          e.preventDefault();
+          const a = getSelectedAlert();
+          if (a) workSnooze(a.id, 30);
+          return;
+        }
+        if (e.key === "3"){
+          e.preventDefault();
+          const a = getSelectedAlert();
+          if (a) workSnooze(a.id, 60);
+          return;
+        }
+        if (e.key === "4"){
+          e.preventDefault();
+          const a = getSelectedAlert();
+          if (a) workSnooze(a.id, 180);
+          return;
+        }
+        if (e.key.toLowerCase() === "x"){
+          e.preventDefault();
+          const a = getSelectedAlert();
+          if (a) workClose(a.id);
+          return;
+        }
+
+        if (e.key.toLowerCase() === "g"){ e.preventDefault(); openToolByName("google"); return; }
+        if (e.key.toLowerCase() === "w"){ e.preventDefault(); openToolByName("waze_alerts"); return; }
+        if (e.key.toLowerCase() === "b"){ e.preventDefault(); openToolByName("bustimes"); return; }
+        if (e.key.toLowerCase() === "t"){ e.preventDefault(); openToolByName("tomtom"); return; }
+        if (e.key.toLowerCase() === "u"){ e.preventDefault(); openToolByName("utc"); return; }
+        if (e.key.toLowerCase() === "v"){ e.preventDefault(); openToolByName("vms"); return; }
+      });
+    }
+
+    /* =========================================================
+       VISIBILITY / BOOT
+       ========================================================= */
+    document.addEventListener("visibilitychange", function(){
       if (document.hidden){
         clearTimeout(tvtTimer); tvtTimer = null;
         clearTimeout(wazeTimer); wazeTimer = null;
@@ -2227,19 +2947,16 @@
       }
     });
 
-    window.addEventListener('load', function(){
+    window.addEventListener("load", function(){
       setStatusPill(false);
-
+      renderRecentPlaces();
       initMap();
-      bindToolDialog();
-
-      bindGmSearch();
-
-      document.getElementById('unhideAllBtn')?.addEventListener('click', unhideAll, { passive:true });
-
-      bindTvtFilters();
-      bindQueueInteractions();
-      bindAlertControls();
+      bindRecentPlaces();
+      bindSearch();
+      bindUI();
+      bindHelp();
+      bindKeyboardShortcuts();
+      updateMapContext();
 
       tvtCycle();
       wazeCycle();
