@@ -393,155 +393,544 @@
       border-top-color: rgba(0,0,0,0.90) !important;
     }
 
-    /* =========================================================
-       ✅ FULLSCREEN OVERLAY ALERT (FULL SCREEN RED/GREEN)
-    ========================================================= */
+/* =========================================================
+   ✅ FULLSCREEN OVERLAY ALERT (BEE NETWORK / TFGM STYLE)
+========================================================= */
 
-    #ufnOverlay{
-      position:fixed;
-      inset:0;
-      z-index:5000;
+#ufnOverlay{
+  position:fixed;
+  inset:0;
+  z-index:5000;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      opacity:0;
-      pointer-events:none;
-      transition: opacity 180ms ease;
+  opacity:0;
+  pointer-events:none;
+  transition: opacity 180ms ease;
 
-      background: #000; /* fallback */
-    }
-    #ufnOverlay.show{
-      opacity:1;
-      pointer-events:auto;
-    }
+  background:
+    radial-gradient(circle at 18% 16%, rgba(255,224,74,0.08), transparent 28%),
+    radial-gradient(circle at 82% 24%, rgba(255,255,255,0.05), transparent 30%),
+    rgba(7,7,10,0.86);
+  backdrop-filter: blur(5px);
+}
 
-    /* State colours */
-    #ufnOverlay.is-added{ background: var(--tfgmRed); }
-    #ufnOverlay.is-exit { background: var(--tfgmGreen); }
+#ufnOverlay.show{
+  opacity:1;
+  pointer-events:auto;
+}
 
-    /* Fullscreen content wrapper */
-    .ufnOverlayCard{
-      width:100%;
-      height:100%;
-      padding: clamp(28px, 4vw, 64px);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      border-radius:0;
-      border:none;
-      box-shadow:none;
-      background: transparent;
-    }
+.ufnOverlayShell{
+  position:relative;
+  width:min(95vw, 1760px);
+  height:min(88vh, 940px);
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  filter: drop-shadow(0 24px 44px rgba(0,0,0,0.45));
+}
 
-    .ufnOverlayTop{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:18px;
-      margin-bottom: 22px;
-    }
+.ufnOverlayShell::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:32px;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top right, rgba(255,224,74,0.08), transparent 32%),
+    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.00) 42%);
+  z-index:0;
+}
 
-    .ufnOverlayTitle{
-      margin:0;
-      font-weight:1000;
-      letter-spacing:-1.2px;
-      line-height:0.95;
-      font-size: clamp(64px, 7vw, 140px);
-      text-transform: uppercase;
-    }
+.ufnOverlayRail{
+  position:relative;
+  z-index:1;
+  width:22px;
+  border-radius:32px 0 0 32px;
+  background: linear-gradient(180deg, #FFE04A 0%, #F7D11B 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.18),
+    0 0 28px rgba(255,224,74,0.26);
+}
 
-    .ufnOverlayBadge{
-      flex:0 0 auto;
-      padding: 12px 18px;
-      border-radius:999px;
-      font-weight:1000;
-      font-size: clamp(20px, 2vw, 34px);
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      white-space: nowrap;
+.ufnOverlayCard{
+  position:relative;
+  z-index:1;
+  flex:1 1 auto;
+  padding: clamp(28px, 4vw, 56px);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.00) 16%),
+    linear-gradient(135deg, rgba(255,224,74,0.04), rgba(255,255,255,0.00) 36%),
+    #14161b;
+  border: 2px solid rgba(255,255,255,0.08);
+  border-left:none;
+  border-radius:0 32px 32px 0;
+  overflow:hidden;
+}
 
-      border: 3px solid rgba(255,255,255,0.55);
-      background: rgba(0,0,0,0.20);
-      color: rgba(255,255,255,0.95);
-    }
+.ufnOverlayCard::after{
+  content:"";
+  position:absolute;
+  inset:-20% -30%;
+  pointer-events:none;
+  opacity:0;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(255,255,255,0.06) 48%,
+      rgba(255,255,255,0.16) 50%,
+      rgba(255,255,255,0.06) 52%,
+      transparent 58%,
+      transparent 100%
+    );
+  transform: translateX(-45%) skewX(-12deg);
+}
 
-    .ufnOverlayRoutes{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin: 22px 0 18px;
-    }
+#ufnOverlay.show .ufnOverlayCard::after{
+  animation: ovSheen 900ms 180ms ease-out both;
+}
 
-    .ufnRoutePill{
-      font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
-      font-weight:800;
-      border-radius: 999px;
-      padding: 14px 22px;
-      font-size: clamp(34px, 3.5vw, 72px);
-      line-height:1;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      box-shadow: 0 18px 36px rgba(0,0,0,0.25);
-    }
+@keyframes ovSheen{
+  0%{
+    opacity:0;
+    transform: translateX(-45%) skewX(-12deg);
+  }
+  20%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+    transform: translateX(38%) skewX(-12deg);
+  }
+}
 
-    .ufnOverlayLoc{
-      margin: 0 0 18px;
-      font-weight:1000;
-      letter-spacing:-0.6px;
-      line-height:1.05;
-      font-size: clamp(34px, 3.4vw, 78px);
-      text-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      word-break: break-word;
-    }
+#ufnOverlay.is-added.show .ufnOverlayShell{
+  animation: ovShellIn 560ms cubic-bezier(0.16, 1.2, 0.3, 1) both;
+}
 
-    .ufnOverlayMeta{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px 22px;
-      font-weight:900;
-      font-size: clamp(20px, 2vw, 34px);
-      opacity:0.95;
-    }
-    .ufnOverlayMeta b{ font-weight:1000; }
+#ufnOverlay.is-exit.show .ufnOverlayShell{
+  animation: ovShellIn 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 
-    /* Added = red -> white text, white route pills with dark text */
-    #ufnOverlay.is-added .ufnOverlayTitle,
-    #ufnOverlay.is-added .ufnOverlayLoc,
-    #ufnOverlay.is-added .ufnOverlayMeta{
-      color: #fff;
-    }
-    #ufnOverlay.is-added .ufnRoutePill{
-      background: rgba(255,255,255,0.92);
-      color:#000;
-    }
+.ufnBrandRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom: 16px;
+}
 
-    /* Ended = green -> dark text, dark route pills with white text */
-    #ufnOverlay.is-exit .ufnOverlayTitle,
-    #ufnOverlay.is-exit .ufnOverlayLoc,
-    #ufnOverlay.is-exit .ufnOverlayMeta{
-      color: #0a0a0d;
-    }
-    #ufnOverlay.is-exit .ufnRoutePill{
-      background: rgba(0,0,0,0.88);
-      color:#fff;
-    }
-    #ufnOverlay.is-exit .ufnOverlayBadge{
-      background: rgba(255,255,255,0.35);
-      color: rgba(0,0,0,0.92);
-      border-color: rgba(0,0,0,0.20);
-    }
+.ufnBrandLockup{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-width:0;
+}
 
-    /* Motion */
-    #ufnOverlay.show .ufnOverlayCard{
-      animation: overlayPop 900ms ease-in-out infinite;
-    }
-    @keyframes overlayPop{
-      0%{ transform: scale(1); }
-      50%{ transform: scale(1.01); }
-      100%{ transform: scale(1); }
-    }
+.ufnBrandBee{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+  flex:0 0 auto;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.26));
+}
+
+.ufnBrandText{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+
+.ufnBrandMain{
+  font-weight:1000;
+  letter-spacing:-0.4px;
+  line-height:1;
+  font-size: clamp(28px, 2vw, 42px);
+  color:#fff;
+}
+
+.ufnBrandSub{
+  margin-top:4px;
+  font-weight:700;
+  letter-spacing:0.2px;
+  line-height:1.1;
+  font-size: clamp(14px, 1vw, 20px);
+  color: rgba(255,255,255,0.68);
+}
+
+.ufnOverlayBadge{
+  flex:0 0 auto;
+  padding: 12px 20px;
+  border-radius:999px;
+  font-weight:1000;
+  font-size: clamp(20px, 1.6vw, 30px);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 2px solid rgba(255,255,255,0.16);
+  background: rgba(255,224,74,0.14);
+  color:#FFE04A;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+
+
+.ufnOverlayTop{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom: 18px;
+}
+
+.ufnOverlayTitle{
+  margin:0;
+  font-weight:1000;
+  letter-spacing:-1.2px;
+  line-height:0.94;
+  font-size: clamp(58px, 7.2vw, 136px);
+  text-transform: uppercase;
+  color:#fff;
+  text-wrap:balance;
+}
+
+.ufnOverlayRoutes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin: 8px 0 22px;
+}
+
+.ufnRoutePill{
+  font-family:"Oswald","IBM Plex Sans Condensed",system-ui,sans-serif;
+  font-weight:800;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-size: clamp(34px, 3.5vw, 72px);
+  line-height:1;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.24);
+  background: #FFE04A;
+  color:#000;
+  border: 2px solid rgba(0,0,0,0.08);
+}
+
+.ufnOverlayLoc{
+  margin: 0 0 22px;
+  font-weight:1000;
+  letter-spacing:-0.5px;
+  line-height:1.02;
+  font-size: clamp(34px, 3.2vw, 74px);
+  color:#fff;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.26);
+  word-break: break-word;
+  max-width: 92%;
+}
+
+.ufnOverlayMeta{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 14px 20px;
+  margin-top:auto;
+  padding-top: 22px;
+  border-top: 2px solid rgba(255,255,255,0.08);
+}
+
+.ufnMetaItem{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color:#fff;
+  font-weight:900;
+  font-size: clamp(20px, 1.5vw, 28px);
+}
+
+.ufnMetaLabel{
+  color: rgba(255,255,255,0.62);
+  font-weight:800;
+  text-transform: uppercase;
+  letter-spacing:0.4px;
+}
+
+/* NEW / ADDED */
+#ufnOverlay.is-added .ufnOverlayRail{
+  background: linear-gradient(180deg, #FFE04A 0%, #F7D11B 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.18),
+    0 0 28px rgba(255,224,74,0.28);
+}
+#ufnOverlay.is-added .ufnOverlayBadge{
+  background: rgba(255,224,74,0.16);
+  color:#FFE04A;
+}
+
+
+/* ENDED / CLEARED */
+#ufnOverlay.is-exit .ufnOverlayRail{
+  background: linear-gradient(180deg, #42BE4B 0%, #2f9438 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.18),
+    0 0 28px rgba(66,190,75,0.22);
+}
+#ufnOverlay.is-exit .ufnOverlayBadge{
+  background: rgba(66,190,75,0.14);
+  color:#7FE387;
+}
+
+#ufnOverlay.is-exit .ufnRoutePill{
+  background: rgba(255,255,255,0.06);
+  color:#fff;
+  border:2px solid rgba(66,190,75,0.40);
+}
+
+/* =========================================
+   ENTRANCE ANIMATION - BRANDED / STAGGERED
+========================================= */
+
+#ufnOverlay{
+  --ov-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ov-ease-pop: cubic-bezier(0.16, 1.2, 0.3, 1);
+}
+
+/* Initial hidden states */
+.ufnOverlayShell,
+.ufnOverlayRail,
+.ufnBrandRow,
+.ufnOverlayTop,
+.ufnOverlayRoutes,
+.ufnOverlayLoc,
+.ufnOverlayMeta,
+.ufnOverlayBadge,
+.ufnRoutePill{
+  will-change: transform, opacity, filter, clip-path;
+}
+
+.ufnOverlayShell{
+  transform: translateY(26px) scale(0.972);
+  opacity: 0;
+  filter: blur(8px);
+}
+
+.ufnOverlayRail{
+  transform-origin: top center;
+  transform: scaleY(0.08);
+  opacity: 0;
+}
+
+.ufnBrandRow{
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.ufnOverlayBadge{
+  opacity: 0;
+  transform: scale(0.82) rotate(-6deg);
+}
+
+.ufnOverlayTop{
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.ufnOverlayTitle{
+  clip-path: inset(0 100% 0 0);
+}
+
+.ufnOverlayRoutes{
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ufnRoutePill{
+  opacity: 0;
+  transform: translateY(18px) scale(0.9);
+}
+
+.ufnOverlayLoc{
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.ufnOverlayMeta{
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Screen glow pulse behind the card */
+#ufnOverlay::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,224,74,0.12), transparent 38%);
+}
+
+#ufnOverlay.is-exit::before{
+  background:
+    radial-gradient(circle at 50% 50%, rgba(66,190,75,0.12), transparent 38%);
+}
+
+/* Active animations */
+#ufnOverlay.show::before{
+  animation: ovBackdropBloom 760ms var(--ov-ease-out) both;
+}
+
+#ufnOverlay.show .ufnOverlayShell{
+  animation: ovShellIn 560ms var(--ov-ease-pop) both;
+}
+
+#ufnOverlay.show .ufnOverlayRail{
+  animation:
+    ovRailDraw 420ms 90ms var(--ov-ease-out) both,
+    railPulse 1800ms 650ms ease-in-out infinite;
+}
+
+#ufnOverlay.show .ufnBrandRow{
+  animation: ovFadeUp 320ms 160ms var(--ov-ease-out) both;
+}
+
+#ufnOverlay.show .ufnOverlayBadge{
+  animation: ovBadgePop 420ms 240ms var(--ov-ease-pop) both;
+}
+
+#ufnOverlay.show .ufnOverlayTop{
+  animation: ovFadeUp 360ms 240ms var(--ov-ease-out) both;
+}
+
+#ufnOverlay.show .ufnOverlayTitle{
+  animation: ovTitleReveal 520ms 300ms var(--ov-ease-out) both;
+}
+
+#ufnOverlay.show .ufnOverlayRoutes{
+  animation: ovFadeUp 320ms 360ms var(--ov-ease-out) both;
+}
+
+#ufnOverlay.show .ufnOverlayRoutes .ufnRoutePill:nth-child(1){ animation: ovRoutePop 340ms 400ms var(--ov-ease-pop) both; }
+#ufnOverlay.show .ufnOverlayRoutes .ufnRoutePill:nth-child(2){ animation: ovRoutePop 340ms 460ms var(--ov-ease-pop) both; }
+#ufnOverlay.show .ufnOverlayRoutes .ufnRoutePill:nth-child(3){ animation: ovRoutePop 340ms 520ms var(--ov-ease-pop) both; }
+#ufnOverlay.show .ufnOverlayRoutes .ufnRoutePill:nth-child(4){ animation: ovRoutePop 340ms 580ms var(--ov-ease-pop) both; }
+#ufnOverlay.show .ufnOverlayRoutes .ufnRoutePill:nth-child(5){ animation: ovRoutePop 340ms 640ms var(--ov-ease-pop) both; }
+#ufnOverlay.show .ufnOverlayRoutes .ufnRoutePill:nth-child(6){ animation: ovRoutePop 340ms 700ms var(--ov-ease-pop) both; }
+#ufnOverlay.show .ufnOverlayRoutes .ufnRoutePill:nth-child(n+7){ animation: ovRoutePop 340ms 760ms var(--ov-ease-pop) both; }
+
+#ufnOverlay.show .ufnOverlayLoc{
+  animation: ovFadeUp 420ms 520ms var(--ov-ease-out) both;
+}
+
+#ufnOverlay.show .ufnOverlayMeta{
+  animation: ovFadeUp 420ms 620ms var(--ov-ease-out) both;
+}
+
+/* Keyframes */
+@keyframes ovBackdropBloom{
+  0%   { opacity:0; transform:scale(1.04); }
+  100% { opacity:1; transform:scale(1); }
+}
+
+@keyframes ovShellIn{
+  0%{
+    transform: translateY(26px) scale(0.972);
+    opacity:0;
+    filter: blur(8px);
+  }
+  65%{
+    transform: translateY(-4px) scale(1.003);
+    opacity:1;
+    filter: blur(0);
+  }
+  100%{
+    transform: translateY(0) scale(1);
+    opacity:1;
+    filter: blur(0);
+  }
+}
+
+@keyframes ovRailDraw{
+  0%{
+    transform: scaleY(0.08);
+    opacity:0;
+  }
+  70%{
+    transform: scaleY(1.04);
+    opacity:1;
+  }
+  100%{
+    transform: scaleY(1);
+    opacity:1;
+  }
+}
+
+@keyframes ovFadeUp{
+  from{
+    opacity:0;
+    transform: translateY(16px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ovBadgePop{
+  0%{
+    opacity:0;
+    transform: scale(0.82) rotate(-6deg);
+  }
+  65%{
+    opacity:1;
+    transform: scale(1.06) rotate(1deg);
+  }
+  100%{
+    opacity:1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes ovTitleReveal{
+  0%{
+    clip-path: inset(0 100% 0 0);
+    filter: blur(8px);
+  }
+  100%{
+    clip-path: inset(0 0 0 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes ovRoutePop{
+  0%{
+    opacity:0;
+    transform: translateY(18px) scale(0.9);
+  }
+  70%{
+    opacity:1;
+    transform: translateY(-2px) scale(1.04);
+  }
+  100%{
+    opacity:1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes railPulse{
+  0%,100%{ filter: brightness(1); }
+  50%{ filter: brightness(1.08); }
+}
+``
   </style>
 </head>
 
@@ -564,22 +953,50 @@
 
   <div id="pageProgress" aria-hidden="true"></div>
 
-  <!-- ✅ FULLSCREEN OVERLAY DOM -->
-  <div id="ufnOverlay" aria-live="assertive" aria-atomic="true" role="alert">
+
+<!-- ✅ FULLSCREEN OVERLAY DOM -->
+<div id="ufnOverlay" aria-live="assertive" aria-atomic="true" role="alert">
+  <div class="ufnOverlayShell">
+    <div class="ufnOverlayRail" aria-hidden="true"></div>
+
     <div class="ufnOverlayCard">
+      <div class="ufnBrandRow">
+        <div class="ufnBrandLockup">
+          <img
+            class="ufnBrandBee"
+            src="https://tfgm.com/static/android-chrome-192x192.png"
+            alt="Bee Network"
+            width="72"
+            height="72"
+            decoding="async"
+          >
+          <div class="ufnBrandText">
+            <div class="ufnBrandMain">Bee Network</div>
+            <div class="ufnBrandSub">Transport for Greater Manchester</div>
+          </div>
+        </div>
+
+        <div id="ufnOverlayBadge" class="ufnOverlayBadge">NEW</div>
+      </div>
+
+
       <div class="ufnOverlayTop">
-        <h2 id="ufnOverlayTitle" class="ufnOverlayTitle">UFN</h2>
-        <div id="ufnOverlayBadge" class="ufnOverlayBadge">Added</div>
+        <h2 id="ufnOverlayTitle" class="ufnOverlayTitle">NEW UFN DIVERSION</h2>
       </div>
 
       <div id="ufnOverlayRoutes" class="ufnOverlayRoutes"></div>
+
       <p id="ufnOverlayLoc" class="ufnOverlayLoc">—</p>
 
-<div class="ufnOverlayMeta">
-  <div>Operators: <b id="ufnOverlayOps">—</b></div>
-</div>
+      <div class="ufnOverlayMeta">
+        <div class="ufnMetaItem">
+          <span class="ufnMetaLabel">Operators</span>
+          <b id="ufnOverlayOps">—</b>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
 <script>
 /* ===========================
@@ -1154,35 +1571,29 @@ function showOverlayNow(kind, item){
   const ov = $("#ufnOverlay");
   if (!ov || !item) return;
 
-  const titleEl = $("#ufnOverlayTitle");
-  const badgeEl = $("#ufnOverlayBadge");
-  const locEl   = $("#ufnOverlayLoc");
-  const opEl    = $("#ufnOverlayOps");
+  const titleEl  = $("#ufnOverlayTitle");
+  const badgeEl  = $("#ufnOverlayBadge");
+  const locEl    = $("#ufnOverlayLoc");
+  const opEl     = $("#ufnOverlayOps");
 
   const isExit = (kind === "exit");
 
-  // Apply full-screen state colour classes
   ov.classList.remove("is-added", "is-exit");
   ov.classList.add(isExit ? "is-exit" : "is-added");
 
-  // Titles as requested
-  titleEl.textContent = isExit ? "UFN Ended" : "NEW UFN DIVERSION";
-  badgeEl.textContent = isExit ? "Ended" : "Added";
+  titleEl.textContent  = isExit ? "Diversion Ended" : "New UFN Diversion";
+  badgeEl.textContent  = isExit ? "Ended" : "New";
 
-  // Location plain text
   const summary = item.summary || "";
   const locRaw = (item.locationHTML || "")
     .replace(/<[^>]*>/g, " ")
     .replace(/\s+/g," ")
     .trim();
+
   locEl.textContent = locRaw || summary || "—";
 
-  // Routes
   renderOverlayRoutes(item.routesRender || item.routesTitle || []);
 
-  // Meta
-  const startLabel = item.timeLines?.startLine ? item.timeLines.startLine.split(" // ")[1] : "—";
-  const durLabel   = item.timeLines?.durationLine ? item.timeLines.durationLine.split(" // ")[1] : "—";
   opEl.textContent = (mapOperators(item.operatorRefs || [])).join(", ") || "—";
 
   ov.classList.add("show");
