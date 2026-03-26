@@ -746,9 +746,10 @@
       if (pillStaleTimer) clearInterval(pillStaleTimer);
       pillStaleTimer = setInterval(()=>{
         if (!pillLastOkAt) return;
-        if (Date.now() - pillLastOkAt > PILL_STALE_AFTER_MS){
-          pillEnterStale();
-        }
+if (document.hidden) return; // optional: avoid stale while hidden
+if (Date.now() - pillLastOkAt > staleThresholdMs()){
+  pillEnterStale();
+}
       }, 2000);
     }
     function pillStartHourlyPop(){
@@ -810,8 +811,9 @@
     const STATUS_STALE_MS = Math.max(REFRESH_MS * 2, 65000);
     function updateGlobalStatus({animate=false}={}){
       const now = Date.now();
-      const wazeFresh = lastOkWaze && (now - lastOkWaze) <= STATUS_STALE_MS;
-      const heFresh   = lastOkHe   && (now - lastOkHe)   <= STATUS_STALE_MS;
+const thr = staleThresholdMs();
+const wazeFresh = lastOkWaze && (now - lastOkWaze) <= thr;
+const heFresh   = lastOkHe   && (now - lastOkHe)   <= thr;
       setStatusPill(Boolean(wazeFresh && heFresh), { animate });
     }
     function markHealthOK_Waze(){ lastOkWaze = Date.now(); updateGlobalStatus({animate:true}); }
@@ -862,6 +864,12 @@
         inFlight = null;
       }
     }
+    
+    function staleThresholdMs(){
+  // allow 2 cycles + a little cushion
+  return Math.max(effectiveDelay(REFRESH_MS) * 2 + 10000, 65000);
+}
+    
     function scheduleNext(ms){ clearTimeout(fetchTimer); fetchTimer = setTimeout(runCycle, effectiveDelay(ms)); }
 
     function tryNumber(v){ const n=Number(v); return Number.isFinite(n) ? n : null; }
