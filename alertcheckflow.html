@@ -1,1 +1,1036 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Travel Alert Checker — Status‑First</title>
+<meta http-equiv="Cache-Control" content="no-store" />
 
+<style>
+/* =========================
+   STATUS-FIRST OPS THEME
+========================= */
+:root{
+  --bg:#0b0e14;
+  --panel:#131825;
+  --card:#171d2d;
+  --text:#f2f4fa;
+  --muted:#9aa3b2;
+  --accent:#ffe04a;
+
+  --good:#42be4b;
+  --warn:#ff9a1f;
+  --bad:#ea5540;
+
+  --radius:20px;
+}
+
+*{box-sizing:border-box;font-family:system-ui,sans-serif}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+header{
+  padding:16px 22px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+}
+
+h1{
+  margin:0;
+  font-size:30px;
+  font-weight:900;
+}
+
+.topRow{
+  margin-top:8px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-weight:800;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  font-weight:900;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--good);
+}
+.pill.err .dot{background:var(--bad)}
+
+.btnRow{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+button{
+  height:44px;
+  border-radius:14px;
+  border:none;
+  background:#202738;
+  color:var(--text);
+  font-weight:900;
+  padding:0 16px;
+  cursor:pointer;
+}
+
+button.primary{
+  background:var(--accent);
+  color:#000;
+}
+
+button.ghost{
+  background:rgba(255,255,255,.08);
+}
+
+/* ================= MAIN ================= */
+main{
+  height:calc(100% - 92px);
+  display:flex;
+  justify-content:center;
+  padding:18px;
+  overflow:auto;
+}
+
+.screen{display:none;width:100%;max-width:980px}
+.screen.show{display:block}
+
+/* ================= PANEL / CARD ================= */
+.panel{
+  background:var(--panel);
+  border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,.10);
+}
+
+.head{
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.head h2{
+  margin:0;
+  font-size:26px;
+  font-weight:900;
+}
+
+.meta{
+  margin-top:6px;
+  color:var(--muted);
+  font-weight:800;
+}
+
+.body{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:18px;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+/* ================= CONTENT ================= */
+.routes{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.route{
+  background:var(--accent);
+  color:#000;
+  padding:6px 12px;
+  border-radius:999px;
+  font-weight:900;
+}
+
+.summary{
+  font-size:26px;
+  font-weight:1000;
+  line-height:1.2;
+}
+
+.submeta{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  font-weight:800;
+  color:rgba(255,255,255,.85);
+}
+
+.submeta span{opacity:.7}
+
+.desc{
+  background:rgba(255,255,255,.05);
+  padding:14px;
+  border-radius:14px;
+  line-height:1.35;
+  font-weight:750;
+}
+
+/* ================= STATUS-FIRST ACTIONS ================= */
+.actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:4px;
+}
+
+.aBtn{
+  height:60px;
+  border-radius:16px;
+  font-size:18px;
+  font-weight:1000;
+  letter-spacing:.4px;
+  border:none;
+  cursor:pointer;
+}
+
+.aBtn.good{
+  background:linear-gradient(180deg,#49d55a,#32a83e);
+  color:#000;
+}
+
+.aBtn.warn{
+  background:linear-gradient(180deg,#ffb44a,#ff9a1f);
+  color:#000;
+}
+
+.aBtn.ghost{
+  background:#242c40;
+  color:#fff;
+}
+
+/* ================= NAV ================= */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.badgeRow{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.badge{
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.14);
+  font-weight:900;
+}
+
+/* ================= INPUT ================= */
+input{
+  height:52px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.18);
+  background:#000;
+  color:#fff;
+  padding:0 14px;
+  font-size:20px;
+  font-weight:900;
+}
+
+/* ================= TOAST ================= */
+#toast{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  background:#000;
+  border:1px solid rgba(255,255,255,.18);
+  padding:10px 16px;
+  border-radius:14px;
+  font-weight:900;
+  opacity:0;
+  pointer-events:none;
+  transition:.2s;
+}
+#toast.show{opacity:1}
+
+/* ================= MODAL ================= */
+#modalBackdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+#modalBackdrop.show{display:flex}
+
+.modal{
+  width:min(760px,96vw);
+  background:#121725;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.12);
+}
+.modalHead,.modalActions{
+  padding:16px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.modalActions{border-top:none;text-align:right}
+.modalBody{padding:16px}
+.modalBody textarea{
+  width:100%;
+  min-height:140px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.18);
+  background:#000;
+  color:#fff;
+  padding:12px;
+  font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <h1>Travel Alert Checker</h1>
+    <div class="topRow">
+      <div id="pillFeed" class="pill">
+        <span class="dot"></span>
+        <span><b id="feedState">LIVE</b> • <span id="feedTime">—</span></span>
+      </div>
+      <div class="pill">Alerts: <b id="countAll">0</b></div>
+    </div>
+  </div>
+  <div class="btnRow">
+    <button id="btnRefresh">Refresh</button>
+    <button id="btnRestart" class="ghost">Restart run</button>
+  </div>
+</header>
+<main>
+  <!-- Intro -->
+  <section id="screenIntro" class="screen show">
+    <div class="panel">
+      <div class="head">
+        <h2>Start check</h2>
+
+      </div>
+      <div class="body">
+        <input id="officer" placeholder="Officer name">
+        <button class="primary" id="btnStart">Start</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Focus -->
+  <section id="screenFocus" class="screen">
+    <div class="panel">
+      <div class="head">
+        <h2 id="progress">Alert</h2>
+        <div class="meta" id="bucketLabel">—</div>
+        <div class="badgeRow" style="margin-top:10px">
+          <div class="badge" id="badgeDecision">Decision: —</div>
+          <div class="badge" id="badgeSituation">Situation: —</div>
+        </div>
+      </div>
+      <div class="body" id="focusHost"></div>
+    </div>
+  </section>
+
+  <!-- Done -->
+  <section id="screenDone" class="screen">
+    <div class="panel">
+      <div class="head">
+        <h2>All done ✅</h2>
+        <div class="meta">Copy the report, then close the tab.</div>
+      </div>
+      <div class="body">
+        <button class="primary" id="btnCopy">Copy report</button>
+        <button class="ghost" id="btnBack">Back to start</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Edit Modal -->
+<div id="modalBackdrop" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modalHead">
+      <div>
+        <h3>Edit needed — what needs changing?</h3>
+        <div class="meta" id="modalMeta" style="margin-top:6px">—</div>
+      </div>
+      <button class="ghost" id="btnModalClose">✕</button>
+    </div>
+    <div class="modalBody">
+      <label for="modalNote">Short note for DEO:</label>
+      <textarea id="modalNote" placeholder="E.g. Wrong end time; should be 14:30 not 23:59. Or: Wrong location in summary."></textarea>
+    </div>
+    <div class="modalActions">
+      <button class="ghost" id="btnModalCancel">Cancel</button>
+      <button class="primary" id="btnModalSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* =========================
+   FEED/FILTERING (RESTORED)
+   This is the original working pipeline:
+   JSON-first, XML fallback → isBusOperator → isDiversion → isCurrentlyValid → classify → only UFN/start/end today
+========================= */
+const BODS_URL_BASE = "https://renderexpress-ebb0.onrender.com/api/bods-siri-sx";
+const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
+const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB" };
+
+const $ = s => document.querySelector(s);
+const parseISO = s => s ? new Date(s) : null;
+
+function nowHHMMSS(){
+  return new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
+}
+function toast(msg){
+  const t=$("#toast");
+  t.textContent=msg;
+  t.classList.add("show");
+  clearTimeout(toast._tm);
+  toast._tm=setTimeout(()=>t.classList.remove("show"),1600);
+}
+function isToday(d){
+  if(!d) return false;
+  const n=new Date();
+  return d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate();
+}
+function fmtDateTime(d){
+  if(!d) return "—";
+  return new Intl.DateTimeFormat(undefined,{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}).format(d);
+}
+function durationShort(start,end){
+  if(!start) return "—";
+  const endT=end||new Date();
+  const ms=endT-start;
+  if(ms<0) return "—";
+  const m=Math.round(ms/60000);
+  if(m<60) return m+"m";
+  const h=Math.round(m/60);
+  if(h<24) return h+"h";
+  return Math.round(h/24)+"d";
+}
+function escapeHtml(s){
+  return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+}
+function formatRoute(r){
+  const s=String(r??"").trim();
+  return s ? s.toUpperCase() : "?";
+}
+function buildDfTDetailUrl(situationNumber){
+  if(!situationNumber) return "";
+  return `https://disruption-data.dft.gov.uk/disruption-detail/${encodeURIComponent(situationNumber)}`;
+}
+
+function getNetworkAffectedLines(sit){
+  const out=[];
+  const nets=sit?.Affects?.Networks?.AffectedNetwork;
+  const list=Array.isArray(nets)?nets:(nets?[nets]:[]);
+  for(const n of list){
+    const lines=n?.AffectedLine;
+    const llist=Array.isArray(lines)?lines:(lines?[lines]:[]);
+    for(const ln of llist){
+      const opRef=ln?.AffectedOperator?.OperatorRef||ln?.AffectedOperatorRef||null;
+      const lineRef=ln?.LineRef||ln?.PublishedLineName||null;
+      const pubName=ln?.PublishedLineName||ln?.LineName||null;
+      out.push({opRef,lineRef,pubName});
+    }
+  }
+  return out;
+}
+
+function getOperatorRefs(sit){
+  const refs=new Set();
+  const add=v=>{ if(v) refs.add(String(v).trim().toUpperCase()); };
+
+  const avj=sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+  if(Array.isArray(avj)){ for(const j of avj) add(j?.OperatorRef); }
+  else if(avj){ add(avj?.OperatorRef); }
+
+  for(const x of getNetworkAffectedLines(sit)) add(x.opRef);
+  if(Array.isArray(sit.__operatorRefs)) sit.__operatorRefs.forEach(add);
+  return [...refs];
+}
+
+function getLineRefs(sit){
+  const lines=new Set();
+  const pushVal=(val)=>{
+    if(val==null) return;
+    const s=String(val).trim();
+    if(s) lines.add(s);
+  };
+
+  const avj=sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
+  if(Array.isArray(avj)){
+    for(const j of avj) pushVal(j?.LineRef||j?.PublishedLineName||j?.LineName);
+  } else if(avj){
+    pushVal(avj?.LineRef||avj?.PublishedLineName||avj?.LineName);
+  }
+
+  for(const x of getNetworkAffectedLines(sit)) pushVal(x.lineRef||x.pubName);
+  if(Array.isArray(sit.__lineRefs)){ for(const v of sit.__lineRefs) pushVal(v); }
+  return Array.from(lines);
+}
+
+function isBusOperator(sit){
+  const refs=getOperatorRefs(sit);
+  return refs && refs.some(r=>BEE_OPERATORS.includes(r));
+}
+
+function isDiversion(sit){
+  const txt=(sit.Description||sit.Summary||"").toLowerCase();
+  return txt.includes("divert") || txt.includes("diversion");
+}
+
+function isCurrentlyValid(sit){
+  const now=new Date();
+  const s=parseISO(sit?.ValidityPeriod?.StartTime||sit?.StartTime);
+  const e=parseISO(sit?.ValidityPeriod?.EndTime||sit?.EndTime);
+  if(!s) return false;
+  if(s>now) return false;
+  if(e && e<now) return false;
+  return true;
+}
+
+function mapOperators(refs){
+  const uniq=[...new Set((refs||[]).map(x=>String(x).trim().toUpperCase()).filter(Boolean))];
+  const codes=uniq.map(r=>OP_MAP[r]||r);
+  return codes.join(", ") || "—";
+}
+
+function classifyItem(sit){
+  const start=parseISO(sit?.ValidityPeriod?.StartTime||sit?.StartTime);
+  const end=parseISO(sit?.ValidityPeriod?.EndTime||sit?.EndTime);
+
+  const isUFN=!end;
+  const startingToday=!!start && isToday(start);
+  const endingToday=!!end && isToday(end);
+
+  let bucket="other";
+  if(isUFN) bucket="ufn";
+  else if(endingToday) bucket="end";
+  else if(startingToday) bucket="start";
+
+  const situationNumber=String(sit?.SituationNumber||sit?.SituationRef||"").trim();
+  const routes=getLineRefs(sit);
+  const operatorRefs=getOperatorRefs(sit);
+
+  const rawSummary=(sit?.Summary||"").toString().trim();
+  const rawDesc=(sit?.Description||"").toString().trim();
+  const summary=(rawSummary||rawDesc||"—").trim();
+  const description=(rawDesc||rawSummary||"").trim();
+
+  return {
+    id: situationNumber || crypto.randomUUID(),
+    bucket,
+    situationNumber,
+    summary,
+    description,
+    start,
+    end,
+    routes,
+    operatorRefs,
+    operatorsLabel: mapOperators(operatorRefs),
+    recordUrl: buildDfTDetailUrl(situationNumber)
+  };
+}
+
+function extractSituationsFromJSON(json){
+  const sd=json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
+  if(!sd) return [];
+  const sed=Array.isArray(sd.SituationExchangeDelivery)?sd.SituationExchangeDelivery:[sd.SituationExchangeDelivery].filter(Boolean);
+  const out=[];
+  for(const d of sed){
+    const pe=d?.Situations?.PtSituationElement;
+    if(Array.isArray(pe)) out.push(...pe);
+    else if(pe) out.push(pe);
+  }
+  return out;
+}
+
+function extractSituationsFromXML(doc){
+  const els=[...doc.querySelectorAll("PtSituationElement")];
+  const T=(el,sel)=>el.querySelector(sel)?.textContent?.trim()||null;
+
+  const readAffectedNetworks=(el)=>{
+    const nets=[...el.querySelectorAll("Affects > Networks > AffectedNetwork")];
+    if(!nets.length) return null;
+    const mapped=nets.map(n=>{
+      const affectedLines=[...n.querySelectorAll("AffectedLine")].map(ln=>{
+        const opRef=ln.querySelector("AffectedOperator > OperatorRef")?.textContent?.trim()||null;
+        const lineRef=ln.querySelector("LineRef")?.textContent?.trim()||null;
+        const pubName=ln.querySelector("PublishedLineName")?.textContent?.trim()||null;
+        const lineName=ln.querySelector("LineName")?.textContent?.trim()||null;
+        return {
+          AffectedOperator: opRef ? {OperatorRef: opRef} : undefined,
+          LineRef: lineRef || pubName || lineName || null,
+          PublishedLineName: pubName || null,
+          LineName: lineName || null
+        };
+      });
+      return {AffectedLine: affectedLines.length ? affectedLines : undefined};
+    });
+    return mapped.length ? mapped : null;
+  };
+
+  return els.map(el=>{
+    const opsRef=[
+      ...el.querySelectorAll(
+        "AffectedVehicleJourney > OperatorRef, OperatorRef, " +
+        "Affects > Networks AffectedOperator > OperatorRef, " +
+        "Affects > Networks > AffectedNetwork > AffectedLine > AffectedOperator > OperatorRef"
+      )
+    ].map(n=>n.textContent.trim()).filter(Boolean);
+
+    const lines=[
+      ...el.querySelectorAll(
+        "AffectedVehicleJourney > LineRef, PublishedLineName, LineName, " +
+        "Affects > Networks > AffectedNetwork > AffectedLine > LineRef, " +
+        "Affects > Networks > AffectedNetwork > AffectedLine > PublishedLineName"
+      )
+    ].map(n=>n.textContent.trim()).filter(Boolean);
+
+    const networks=readAffectedNetworks(el);
+    const affects={};
+    if(networks) affects.Networks={AffectedNetwork: networks};
+
+    return {
+      Summary: T(el,"Summary") || T(el,"Description"),
+      Description: T(el,"Description"),
+      SituationNumber: T(el,"SituationNumber") || T(el,"SituationRef"),
+      ValidityPeriod: {
+        StartTime: T(el,"ValidityPeriod > StartTime") || T(el,"StartTime"),
+        EndTime:   T(el,"ValidityPeriod > EndTime")   || T(el,"EndTime")
+      },
+      Affects: Object.keys(affects).length ? affects : undefined,
+      __operatorRefs: opsRef,
+      __lineRefs: lines
+    };
+  });
+}
+
+/* =========================
+   RUN STATE (NO PERSISTENCE)
+========================= */
+let allItems=[];
+let queue=[];
+let idx=0;
+let decisions={}; // { [id]: { status: "ONGOING"|"ENDED"|"NOT_STARTED"|"EDIT"|"SKIP", note?: string } }
+
+function buildQueue(){
+  const ufn=allItems.filter(x=>x.bucket==="ufn").sort((a,b)=>(b.start-a.start));
+  const start=allItems.filter(x=>x.bucket==="start").sort((a,b)=>(a.start-b.start));
+  const end=allItems.filter(x=>x.bucket==="end").sort((a,b)=>(a.end-b.end));
+  return [...ufn,...start,...end];
+}
+
+function bucketText(b){
+  if(b==="ufn") return "Until further notice";
+  if(b==="start") return "Starting today";
+  if(b==="end") return "Ending today";
+  return "Other";
+}
+
+function showScreen(id){
+  $("#screenIntro").classList.remove("show");
+  $("#screenFocus").classList.remove("show");
+  $("#screenDone").classList.remove("show");
+  $(id).classList.add("show");
+}
+
+/* =========================
+   FETCH (UNCHANGED FILTERING)
+========================= */
+async function fetchAll(){
+  try{
+    const url = `${BODS_URL_BASE}?t=${Date.now()}`;
+    const res = await fetch(url, {
+      cache: "no-store",
+      headers: { "Accept": "application/json, application/xml;q=0.8, text/xml;q=0.7" }
+    });
+    if(!res.ok) throw new Error("HTTP " + res.status);
+
+    let parsed;
+    const clone=res.clone();
+    try{
+      parsed={type:"json", data: await res.json()};
+    }catch{
+      const txt=await clone.text();
+      parsed={type:"xml", data: new DOMParser().parseFromString(txt,"application/xml")};
+    }
+
+    const allSituations = parsed.type==="json"
+      ? extractSituationsFromJSON(parsed.data)
+      : extractSituationsFromXML(parsed.data);
+
+    const busSituations = allSituations.filter(isBusOperator);
+    const diversionSituations = busSituations.filter(isDiversion);
+    const liveDiversions = diversionSituations.filter(isCurrentlyValid);
+
+    const typed = liveDiversions.map(classifyItem);
+
+    // Only show: UFN, starting today, ending today
+    allItems = typed.filter(it =>
+      it.bucket === "ufn" ||
+      (it.bucket === "start" && it.start && isToday(it.start)) ||
+      (it.bucket === "end" && it.end && isToday(it.end))
+    );
+
+    queue = buildQueue();
+    idx = 0;
+    decisions = {}; // new run behaviour: fresh decisions on each refresh
+
+    $("#feedState").textContent="LIVE";
+    $("#pillFeed").classList.remove("err");
+    $("#feedTime").textContent=nowHHMMSS();
+    $("#countAll").textContent=String(queue.length);
+
+    if($("#screenFocus").classList.contains("show")) renderFocus();
+  }catch(e){
+    console.error(e);
+    $("#feedState").textContent="ERROR";
+    $("#pillFeed").classList.add("err");
+    toast("Feed error (see console)");
+  }
+}
+
+/* =========================
+   RENDER
+========================= */
+function renderFocus(){
+  if(queue.length===0){
+    $("#progress").textContent="Alert 0 of 0";
+    $("#bucketLabel").textContent="No alerts returned ✅";
+    $("#badgeDecision").textContent="Decision: —";
+    $("#badgeSituation").textContent="Situation: —";
+    $("#focusHost").innerHTML = `
+      <div class="card">
+        <div class="summary">No alerts</div>
+        <div class="desc">Nothing matched the existing filters (Bee bus diversions, live, and UFN / start today / end today).</div>
+        <div class="nav">
+          <button class="ghost" onclick="showDone()">Finish</button>
+        </div>
+      </div>`;
+    return;
+  }
+
+  if(idx<0) idx=0;
+  if(idx>queue.length-1) idx=queue.length-1;
+
+  const it=queue[idx];
+  const d=decisions[it.id];
+  const decisionLabel = d?.status==="ONGOING" ? "Ongoing"
+                      : d?.status==="ENDED" ? "Ended"
+                      : d?.status==="NOT_STARTED" ? "Not Started Yet"
+                      : d?.status==="EDIT" ? "Edits Needed"
+                      : d?.status==="SKIP" ? "Investigating, Stand By"
+                      : "—";
+
+  $("#progress").textContent = `Alert ${idx+1} of ${queue.length}`;
+  $("#bucketLabel").textContent = bucketText(it.bucket);
+  $("#badgeDecision").textContent = `Decision: ${decisionLabel}`;
+  $("#badgeSituation").textContent = `Situation: ${it.situationNumber || it.id}`;
+
+  const routes = (it.routes||[]).slice(0,14).map(formatRoute).filter(Boolean);
+  const routesHtml = routes.length ? routes.map(r=>`<span class="route">${escapeHtml(r)}</span>`).join("") : `<span class="route">?</span>`;
+
+  const desc = it.description ? escapeHtml(it.description) : "—";
+  const note = d?.status==="EDIT" && d.note ? `<div class="desc"><b>Note:</b> ${escapeHtml(d.note)}</div>` : "";
+
+  const actionsHtml = buildActionsHtml(it);
+
+  $("#focusHost").innerHTML = `
+    <div class="card">
+      <div class="routes">${routesHtml}</div>
+      <div class="summary">${escapeHtml(it.summary)}</div>
+
+      <div class="submeta">
+        <div><span>Start:</span> ${escapeHtml(it.start ? fmtDateTime(it.start) : "—")}</div>
+        <div><span>End:</span> ${escapeHtml(it.end ? fmtDateTime(it.end) : "UFN")}</div>
+        <div><span>Dur:</span> ${escapeHtml(durationShort(it.start, it.end))}</div>
+        <div><span>Ops:</span> ${escapeHtml(it.operatorsLabel || "—")}</div>
+      </div>
+
+      <div class="desc"><b>Description:</b> ${desc}</div>
+      ${note}
+
+      <div class="links">
+        <button class="ghost" onclick="openBusTimes()">Open routes on BusTimes</button>
+        <button class="ghost" onclick="openDfT()">Open in DfT Tool</button>
+      </div>
+
+      <div class="actions">${actionsHtml}</div>
+
+      <div class="nav">
+        <button class="ghost" onclick="prev()">◀ Previous</button>
+        <button class="ghost" onclick="skip()">Skip / Investigation ongoing</button>
+        <button onclick="next()">Next ▶</button>
+      </div>
+    </div>
+  `;
+}
+
+function buildActionsHtml(it){
+  // Allowed actions exactly as requested:
+  // UFN: Ongoing / Ended / Edit needed
+  // Starting today: Ongoing / Not started yet / Edit needed
+  // Ending today: Ongoing / Ended / Edit needed
+  if(it.bucket==="start"){
+    return `
+      <button class="aBtn good" onclick="setDecision('ONGOING')">Ongoing</button>
+      <button class="aBtn warn" onclick="setDecision('NOT_STARTED')">Not started yet</button>
+      <button class="aBtn warn" onclick="openEdit()">Edit needed</button>
+      <button class="aBtn ghost" onclick="clearDecision()">Clear decision</button>
+    `;
+  }
+  // ufn or end
+  return `
+    <button class="aBtn good" onclick="setDecision('ONGOING')">Ongoing</button>
+    <button class="aBtn good" onclick="setDecision('ENDED')">Ended</button>
+    <button class="aBtn warn" onclick="openEdit()">Edit needed</button>
+    <button class="aBtn ghost" onclick="clearDecision()">Clear decision</button>
+  `;
+}
+
+/* =========================
+   ACTIONS / NAV
+========================= */
+function setDecision(status){
+  decisions[queue[idx].id] = { status };
+  toast("Saved");
+  renderFocus();
+}
+function clearDecision(){
+  delete decisions[queue[idx].id];
+  toast("Cleared");
+  renderFocus();
+}
+function skip(){
+  decisions[queue[idx].id] = { status:"SKIP" };
+  toast("Marked: Investigating");
+  renderFocus();
+}
+function next(){
+  // require a decision to move on
+  const it=queue[idx];
+  if(!decisions[it.id]){
+    toast("Choose an action or Skip");
+    return;
+  }
+  idx++;
+  if(idx>=queue.length){ showDone(); return; }
+  renderFocus();
+}
+function prev(){
+  idx--;
+  if(idx<0) idx=0;
+  renderFocus();
+}
+function showDone(){
+  showScreen("#screenDone");
+}
+function openBusTimes(){
+  const it=queue[idx];
+  const routes=(it.routes||[]).map(r=>String(r).trim()).filter(Boolean);
+  const clean=[...new Set(routes.filter(r=>!r.startsWith("+")))];
+  if(!clean.length){ toast("No routes"); return; }
+  clean.forEach(route=>{
+    window.open(`https://bustimes.org/search?q=${encodeURIComponent(route)}+bee`,"_blank","noopener,noreferrer");
+  });
+}
+function openDfT(){
+  const it=queue[idx];
+  if(!it.recordUrl){ toast("No DfT link"); return; }
+  window.open(it.recordUrl,"_blank","noopener,noreferrer");
+}
+
+/* =========================
+   EDIT MODAL
+========================= */
+let editId=null;
+
+function openEdit(){
+  const it=queue[idx];
+  editId=it.id;
+  $("#modalMeta").textContent = `Situation: ${it.situationNumber || it.id}`;
+  $("#modalNote").value = decisions[it.id]?.note || "";
+  $("#modalBackdrop").classList.add("show");
+  setTimeout(()=>$("#modalNote").focus(),0);
+}
+function closeModal(){
+  $("#modalBackdrop").classList.remove("show");
+  editId=null;
+}
+$("#btnModalClose").addEventListener("click", closeModal);
+$("#btnModalCancel").addEventListener("click", closeModal);
+$("#modalBackdrop").addEventListener("click", (e)=>{ if(e.target.id==="modalBackdrop") closeModal(); });
+
+$("#btnModalSave").addEventListener("click", ()=>{
+  if(!editId) return;
+  const note=$("#modalNote").value.trim();
+  if(note.length<3){ toast("Add a short note"); return; }
+  decisions[editId] = { status:"EDIT", note };
+  toast("Edit saved");
+  closeModal();
+  renderFocus();
+});
+
+window.addEventListener("keydown",(e)=>{
+  if(e.key==="Escape" && $("#modalBackdrop").classList.contains("show")){
+    e.preventDefault(); closeModal();
+  }
+});
+
+/* =========================
+   REPORT (CLEAN, NO EMPTY SECTIONS, RENAMED HEADERS, LINKS FOR NOT STARTED)
+========================= */
+function buildReportText(){
+  const lines=[];
+  const stamp=new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit"}).format(new Date());
+  const officer=$("#officer").value.trim();
+
+  lines.push("Bus diversion check ✅");
+  lines.push("");
+
+  const routesStr = (it) => (it.routes||[]).slice(0,14).map(formatRoute).join(", ") || "—";
+  const shortSummary = (it) => {
+    const s=String(it.summary||"—").replace(/\s+/g," ").trim();
+    return s.length>120 ? s.slice(0,117)+"…" : s;
+  };
+
+  const section = (title, arr, renderLine) => {
+    if(!arr.length) return;     // ✅ no empty sections
+    lines.push(title);
+    arr.forEach(renderLine);
+    lines.push("");
+  };
+
+  const ended = queue.filter(it => decisions[it.id]?.status==="ENDED");
+  const notStarted = queue.filter(it => decisions[it.id]?.status==="NOT_STARTED");
+  const edits = queue.filter(it => decisions[it.id]?.status==="EDIT");
+  const ongoing = queue.filter(it => decisions[it.id]?.status==="ONGOING");
+  const investigating = queue.filter(it => decisions[it.id]?.status==="SKIP");
+  const notWorked = queue.filter(it => !decisions[it.id]);
+
+  section("Ended", ended, (it)=>{
+    lines.push(`• ${routesStr(it)} — ${shortSummary(it)}`);
+    if(it.recordUrl) lines.push(`  ${it.recordUrl}`);
+  });
+
+  section("Not Started Yet", notStarted, (it)=>{
+    lines.push(`• ${routesStr(it)} — ${shortSummary(it)}`);
+    if(it.recordUrl) lines.push(`  ${it.recordUrl}`); // ✅ include DfT link
+  });
+
+  section("Edits Needed", edits, (it)=>{
+    lines.push(`• ${routesStr(it)} — ${shortSummary(it)}`);
+    const note = decisions[it.id]?.note;
+    if(note) lines.push(`  Note: ${note}`);
+    if(it.recordUrl) lines.push(`  ${it.recordUrl}`);
+  });
+
+  section("Ongoing", ongoing, (it)=>{
+    lines.push(`• ${routesStr(it)} — ${shortSummary(it)}`);
+  });
+
+  section("Investigating, Stand By", investigating, (it)=>{
+    lines.push(`• ${routesStr(it)} — ${shortSummary(it)}`);
+  });
+
+  section("Not Worked", notWorked, (it)=>{
+    lines.push(`• ${routesStr(it)} — ${shortSummary(it)}`);
+  });
+
+  lines.push(officer ? `Checked by ${officer} — ${stamp}` : `Checked — ${stamp}`);
+  return lines.join("\n");
+}
+
+async function copyToClipboard(text){
+  try{
+    await navigator.clipboard.writeText(text);
+    toast("Copied ✅");
+  }catch{
+    const ta=document.createElement("textarea");
+    ta.value=text;
+    ta.style.position="fixed";
+    ta.style.left="-9999px";
+    ta.style.top="0";
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+    toast("Copied ✅");
+  }
+}
+
+/* =========================
+   BUTTONS
+========================= */
+$("#btnStart").addEventListener("click", ()=>{
+  showScreen("#screenFocus");
+  renderFocus();
+});
+
+$("#btnRefresh").addEventListener("click", ()=>{
+  fetchAll();
+  toast("Refreshing…");
+});
+
+$("#btnRestart").addEventListener("click", ()=>{
+  // Restart the run (keep same queue; clear decisions)
+  decisions={};
+  idx=0;
+  $("#officer").value="";
+  showScreen("#screenIntro");
+  toast("Restarted");
+});
+
+$("#btnCopy").addEventListener("click", async ()=>{
+  const msg=buildReportText();
+  await copyToClipboard(msg);
+});
+
+$("#btnBack").addEventListener("click", ()=>{
+  showScreen("#screenIntro");
+});
+
+/* Start by fetching once so count is right */
+fetchAll();
+</script>
+</body>
+</html>
