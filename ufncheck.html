@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OCC Diversion Checker</title>
 <meta http-equiv="Cache-Control" content="no-store" />
+
+<!-- Leaflet (official CDN include) -->
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
 <style>
 :root{
   --bg:#0b0e14;
@@ -141,6 +151,10 @@ main{
   box-shadow:0 6px 16px rgba(0,0,0,.25);
   color:#000;
   background:rgba(255,255,255,.10);
+  outline:none;
+}
+.route:focus{
+  box-shadow:0 0 0 3px rgba(255,224,74,.35), 0 6px 16px rgba(0,0,0,.25);
 }
 
 /* Default / unknown */
@@ -223,7 +237,7 @@ main{
   font-size:16px;
 }
 
-/* DfT button — separate class to avoid clashing with button.primary */
+/* DfT button */
 .linkBtn.dft{
   border-color: rgba(255,224,74,.45);
   background: rgba(255,224,74,.18);
@@ -232,6 +246,12 @@ main{
 .linkBtn.dft .icon{
   background: rgba(255,224,74,.22);
   border-color: rgba(255,224,74,.35);
+}
+
+/* Map button */
+.linkBtn.map{
+  border-color: rgba(58,160,255,.40);
+  background: rgba(58,160,255,.16);
 }
 
 /* Actions */
@@ -275,14 +295,36 @@ input{
 }
 #toast.show{opacity:1}
 
+/* Route tooltip */
+#chipTip{
+  position:fixed;
+  left:0;top:0;
+  max-width:min(440px, calc(100vw - 24px));
+  background:rgba(0,0,0,.92);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;
+  padding:10px 12px;
+  z-index:2000;
+  box-shadow:0 18px 50px rgba(0,0,0,.55);
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity .12s, transform .12s;
+  pointer-events:none;
+}
+#chipTip.show{opacity:1;transform:translateY(0)}
+#chipTip .tTitle{font-weight:950;margin-bottom:6px}
+#chipTip .tBody{font-weight:850;opacity:.95;line-height:1.25;white-space:pre-wrap}
+
 /* Modal */
-#modalBackdrop{
+#modalBackdrop,
+#mapBackdrop{
   position:fixed;inset:0;
   background:rgba(0,0,0,.65);
   display:none;align-items:center;justify-content:center;
   z-index:999;
 }
-#modalBackdrop.show{display:flex}
+#modalBackdrop.show,
+#mapBackdrop.show{display:flex}
 .modal{
   width:min(760px,96vw);
   background:#121725;border-radius:18px;
@@ -304,6 +346,35 @@ input{
   background:#000;color:#fff;
   padding:12px;font-size:16px;
 }
+
+/* Map modal */
+.mapWrap{display:grid;grid-template-columns:1fr;gap:12px}
+#map{
+  width:100%;
+  height:420px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+}
+.stopList{
+  max-height:160px;
+  overflow:auto;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.25);
+  padding:10px;
+}
+.stopItem{
+  font-weight:850;
+  padding:7px 8px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.stopItem:last-child{border-bottom:none}
+.stopItem small{display:block;color:rgba(255,255,255,.65);font-weight:800;margin-top:2px}
+
+/* Leaflet tweaks */
+.leaflet-control-attribution{background:rgba(0,0,0,.35)!important;color:rgba(255,255,255,.85)!important;border-radius:10px!important;padding:2px 8px!important}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{background:#0b0e14;color:#fff}
 </style>
 </head>
 
@@ -390,7 +461,33 @@ input{
   </div>
 </div>
 
+<!-- Map Modal -->
+<div id="mapBackdrop" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modalHead">
+      <div>
+        <div style="font-weight:950;font-size:18px;">Affected stops map</div>
+        <div class="meta" id="mapMeta" style="margin-top:4px;">—</div>
+      </div>
+      <button class="ghost" id="btnMapClose">✕</button>
+    </div>
+
+    <div class="modalBody">
+      <div class="mapWrap">
+        <div id="map"></div>
+        <div class="stopList" id="stopList"></div>
+      </div>
+    </div>
+
+    <div class="modalActions">
+      <button class="ghost" id="btnMapOpenExternal">Open in browser maps</button>
+      <button class="primary" id="btnMapDone">Done</button>
+    </div>
+  </div>
+</div>
+
 <div id="toast"></div>
+<div id="chipTip" role="tooltip" aria-hidden="true"></div>
 
 <script>
 /* =========================
@@ -402,6 +499,13 @@ const OP_MAP = { BNML:"ML", BNGN:"GN", BNSM:"SC", BNDB:"DB", BNVB:"VB", BNFM:"FB
 
 const $ = s => document.querySelector(s);
 const parseISO = s => s ? new Date(s) : null;
+const normArray = x => Array.isArray(x) ? x : (x ? [x] : []);
+
+/* UUID fallback */
+function uid(){
+  if(window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  return "id-" + Math.random().toString(16).slice(2) + "-" + Date.now().toString(16);
+}
 
 /* =========================
    UI HELPERS
@@ -435,8 +539,11 @@ function escapeHtml(s){
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
+    .replace(/\"/g,"&quot;")
     .replace(/'/g,"&#39;");
+}
+function escapeAttr(s){
+  return escapeHtml(String(s??"")).replace(/\n/g,"&#10;");
 }
 function formatRoute(r){
   const s=String(r??"").trim();
@@ -452,11 +559,31 @@ function opCodeFromRef(opRef){
 }
 
 /* =========================
-   DATA HELPERS (operator->route mapping)
+   XML helpers (namespace-safe)
 ========================= */
-function getNetworkAffectedLines(sit){
+function elChildren(el, localName){
+  return Array.from(el.children || []).filter(c => c.localName === localName);
+}
+function firstChild(el, localName){
+  return (elChildren(el, localName)[0]) || null;
+}
+function textOf(el){
+  return (el && el.textContent != null) ? String(el.textContent).trim() : null;
+}
+function textIn(el, ...path){
+  let cur = el;
+  for(const p of path){
+    cur = cur ? firstChild(cur, p) : null;
+  }
+  return textOf(cur);
+}
+
+/* =========================
+   DATA HELPERS
+========================= */
+function getAffectedLinesFromAffects(affects){
   const out=[];
-  const nets = sit?.Affects?.Networks?.AffectedNetwork;
+  const nets = affects?.Networks?.AffectedNetwork;
   const list = Array.isArray(nets) ? nets : (nets ? [nets] : []);
   for(const n of list){
     const lines = n?.AffectedLine;
@@ -470,9 +597,10 @@ function getNetworkAffectedLines(sit){
   }
   return out;
 }
-
+function getNetworkAffectedLines(sit){
+  return getAffectedLinesFromAffects(sit?.Affects);
+}
 function buildRouteOpMap(sit){
-  // returns: { "192": ["SC"], "43": ["GN","ML"], ... }
   const map = {};
   const add = (line, opRef) => {
     if(!line || !opRef) return;
@@ -483,13 +611,11 @@ function buildRouteOpMap(sit){
     map[key].add(code);
   };
 
-  // 1) From Affects.Networks.AffectedLine (best: line + operator together)
   for(const x of getNetworkAffectedLines(sit)){
     add(x.lineRef, x.opRef);
     add(x.pubName, x.opRef);
   }
 
-  // 2) From Affects.VehicleJourneys (line + operator together)
   const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
   const avjList = Array.isArray(avj) ? avj : (avj ? [avj] : []);
   for(const j of avjList){
@@ -499,14 +625,10 @@ function buildRouteOpMap(sit){
     add(j?.LineName, opRef);
   }
 
-  // Convert Sets -> Arrays
   const out = {};
-  for(const k of Object.keys(map)){
-    out[k] = Array.from(map[k]);
-  }
+  for(const k of Object.keys(map)) out[k] = Array.from(map[k]);
   return out;
 }
-
 function getOperatorRefs(sit){
   const refs=new Set();
   const add=v=>{ if(v) refs.add(String(v).trim().toUpperCase()); };
@@ -519,7 +641,6 @@ function getOperatorRefs(sit){
   if(Array.isArray(sit.__operatorRefs)) sit.__operatorRefs.forEach(add);
   return [...refs];
 }
-
 function getLineRefs(sit){
   const lines=new Set();
   const pushVal=(val)=>{
@@ -539,7 +660,6 @@ function getLineRefs(sit){
   if(Array.isArray(sit.__lineRefs)){ for(const v of sit.__lineRefs) pushVal(v); }
   return Array.from(lines);
 }
-
 function isBusOperator(sit){
   const refs=getOperatorRefs(sit);
   return refs && refs.some(r=>BEE_OPERATORS.includes(r));
@@ -558,6 +678,38 @@ function isCurrentlyValid(sit){
   return true;
 }
 
+/* Stops */
+function extractStopsFromAffects(affects){
+  const sp = affects?.StopPoints?.AffectedStopPoint;
+  const list = Array.isArray(sp) ? sp : (sp ? [sp] : []);
+  const out = [];
+  for(const p of list){
+    const lat = p?.Location?.Latitude ?? p?.Latitude;
+    const lon = p?.Location?.Longitude ?? p?.Longitude;
+    const nlat = lat!=null ? Number(lat) : NaN;
+    const nlon = lon!=null ? Number(lon) : NaN;
+    out.push({
+      ref: String(p?.StopPointRef || "").trim(),
+      name: String(p?.StopPointName || "").trim(),
+      lat: nlat,
+      lon: nlon
+    });
+  }
+  return out;
+}
+function dedupeStops(stops){
+  const seen = new Set();
+  const out = [];
+  for(const s of stops){
+    const key = (s.ref || "") || `${s.lat},${s.lon},${s.name}`;
+    if(!key) continue;
+    if(seen.has(key)) continue;
+    seen.add(key);
+    out.push(s);
+  }
+  return out;
+}
+
 function classifyItem(sit){
   const start=parseISO(sit?.ValidityPeriod?.StartTime||sit?.StartTime);
   const end=parseISO(sit?.ValidityPeriod?.EndTime||sit?.EndTime);
@@ -573,8 +725,56 @@ function classifyItem(sit){
 
   const routeOpMap = buildRouteOpMap(sit);
 
+  const routeAdviceMap = {};
+  const routeStopsMap  = {};
+  let allStops = [];
+
+  const topAdvice = (sit?.Advice?.Details ?? sit?.Advice ?? "").toString().trim();
+
+  const consequences = normArray(sit?.Consequences?.Consequence);
+  for(const c of consequences){
+    const advice = (c?.Advice?.Details ?? c?.Advice ?? "").toString().trim();
+    const affects = c?.Affects;
+
+    const lines = getAffectedLinesFromAffects(affects);
+    const routeKeys = [];
+    for(const ln of lines){
+      if(ln?.lineRef) routeKeys.push(String(ln.lineRef).trim().toUpperCase());
+      if(ln?.pubName) routeKeys.push(String(ln.pubName).trim().toUpperCase());
+    }
+    const uniqRoutes = [...new Set(routeKeys.filter(Boolean))];
+
+    const stops = affects ? extractStopsFromAffects(affects) : [];
+    if(stops.length) allStops.push(...stops);
+
+    for(const r of uniqRoutes){
+      if(advice){
+        if(!routeAdviceMap[r]) routeAdviceMap[r] = [];
+        routeAdviceMap[r].push(advice);
+      }
+      if(stops.length){
+        if(!routeStopsMap[r]) routeStopsMap[r] = [];
+        routeStopsMap[r].push(...stops);
+      }
+    }
+  }
+
+  if(sit?.Affects?.StopPoints){
+    allStops.push(...extractStopsFromAffects(sit.Affects));
+  }
+
+  allStops = dedupeStops(allStops);
+  for(const k of Object.keys(routeStopsMap)) routeStopsMap[k] = dedupeStops(routeStopsMap[k]);
+
+  if(!Object.keys(routeAdviceMap).length && topAdvice){
+    for(const r of (routes||[]).map(formatRoute)){
+      if(!r) continue;
+      routeAdviceMap[r] = [topAdvice];
+    }
+  }
+
   return {
-    id: situationNumber || crypto.randomUUID(),
+    id: situationNumber || uid(),
     isUFN,
     situationNumber,
     summary,
@@ -583,10 +783,16 @@ function classifyItem(sit){
     end,
     routes,
     routeOpMap,
+    routeAdviceMap,
+    routeStopsMap,
+    stops: allStops,
     recordUrl: buildDfTDetailUrl(situationNumber)
   };
 }
 
+/* =========================
+   EXTRACT (JSON)
+========================= */
 function extractSituationsFromJSON(json){
   const sd=json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
   if(!sd) return [];
@@ -603,66 +809,130 @@ function extractSituationsFromJSON(json){
   return out;
 }
 
+/* =========================
+   EXTRACT (XML) — namespace-safe
+========================= */
 function extractSituationsFromXML(doc){
-  const els=[...doc.querySelectorAll("PtSituationElement")];
-  const T=(el,sel)=>el.querySelector(sel)?.textContent?.trim()||null;
+  const els = Array.from(doc.getElementsByTagNameNS("*","PtSituationElement"));
 
-  const readAffectedNetworks=(el)=>{
-    const nets=[...el.querySelectorAll("Affects > Networks > AffectedNetwork")];
-    if(!nets.length) return null;
-    const mapped=nets.map(n=>{
-      const affectedLines=[...n.querySelectorAll("AffectedLine")].map(ln=>{
-        const opRef=ln.querySelector("AffectedOperator > OperatorRef")?.textContent?.trim()||null;
-        const lineRef=ln.querySelector("LineRef")?.textContent?.trim()
-          || ln.querySelector("PublishedLineName")?.textContent?.trim()
-          || ln.querySelector("LineName")?.textContent?.trim()
-          || null;
-        const pubName=ln.querySelector("PublishedLineName")?.textContent?.trim()||null;
-        const lineName=ln.querySelector("LineName")?.textContent?.trim()||null;
+  const readAffectedNetworkLines = (affectsEl) => {
+    const networksEl = firstChild(affectsEl,"Networks");
+    if(!networksEl) return null;
+
+    const affectedNetworkEls = elChildren(networksEl,"AffectedNetwork");
+    if(!affectedNetworkEls.length) return null;
+
+    const mappedNetworks = affectedNetworkEls.map(netEl=>{
+      const affectedLineEls = elChildren(netEl,"AffectedLine");
+      const affectedLines = affectedLineEls.map(lineEl=>{
+        const affOpEl = firstChild(lineEl,"AffectedOperator");
+        const opRef = affOpEl ? textIn(affOpEl,"OperatorRef") : null;
+
+        const lineRef = textIn(lineEl,"LineRef") || textIn(lineEl,"PublishedLineName") || textIn(lineEl,"LineName") || null;
+        const pubName = textIn(lineEl,"PublishedLineName") || null;
+        const lineName = textIn(lineEl,"LineName") || null;
+
         return {
           AffectedOperator: opRef ? {OperatorRef: opRef} : undefined,
-          LineRef: lineRef || pubName || lineName || null,
-          PublishedLineName: pubName || null,
-          LineName: lineName || null
+          LineRef: lineRef,
+          PublishedLineName: pubName,
+          LineName: lineName
         };
       });
-      return {AffectedLine: affectedLines.length ? affectedLines : undefined};
+
+      return { AffectedLine: affectedLines.length ? affectedLines : undefined };
     });
-    return mapped.length ? mapped : null;
+
+    return { AffectedNetwork: mappedNetworks };
+  };
+
+  const readStopPoints = (affectsEl) => {
+    const stopPointsEl = firstChild(affectsEl,"StopPoints");
+    if(!stopPointsEl) return null;
+
+    const spEls = elChildren(stopPointsEl,"AffectedStopPoint");
+    if(!spEls.length) return null;
+
+    const mappedStops = spEls.map(spEl=>{
+      const ref = textIn(spEl,"StopPointRef") || null;
+      const name = textIn(spEl,"StopPointName") || null;
+      const locEl = firstChild(spEl,"Location");
+      const lat = locEl ? textIn(locEl,"Latitude") : null;
+      const lon = locEl ? textIn(locEl,"Longitude") : null;
+
+      const obj = { StopPointRef: ref, StopPointName: name };
+      if(lat!=null && lon!=null) obj.Location = { Latitude: lat, Longitude: lon };
+      return obj;
+    });
+
+    return { AffectedStopPoint: mappedStops };
+  };
+
+  const readConsequences = (rootEl) => {
+    const consEl = firstChild(rootEl,"Consequences");
+    if(!consEl) return null;
+
+    const conEls = elChildren(consEl,"Consequence");
+    if(!conEls.length) return null;
+
+    const mapped = conEls.map(cEl=>{
+      const adviceEl = firstChild(cEl,"Advice");
+      const adviceDetails = adviceEl ? (textIn(adviceEl,"Details") || textOf(adviceEl)) : null;
+
+      const affectsEl = firstChild(cEl,"Affects");
+      const affectsObj = {};
+      if(affectsEl){
+        const nets = readAffectedNetworkLines(affectsEl);
+        const stops = readStopPoints(affectsEl);
+        if(nets) affectsObj.Networks = nets;
+        if(stops) affectsObj.StopPoints = stops;
+      }
+
+      const obj = {};
+      if(Object.keys(affectsObj).length) obj.Affects = affectsObj;
+      if(adviceDetails) obj.Advice = { Details: adviceDetails };
+      return obj;
+    });
+
+    return {Consequence: mapped};
   };
 
   return els.map(el=>{
-    const opsRef=[
-      ...el.querySelectorAll(
-        "AffectedVehicleJourney > OperatorRef, OperatorRef, " +
-        "Affects > Networks AffectedOperator > OperatorRef, " +
-        "Affects > Networks > AffectedNetwork > AffectedLine > AffectedOperator > OperatorRef"
-      )
+    const opRefs = Array.from(el.getElementsByTagNameNS("*","OperatorRef")).map(n=>n.textContent.trim()).filter(Boolean);
+    const lineRefs = [
+      ...Array.from(el.getElementsByTagNameNS("*","LineRef")),
+      ...Array.from(el.getElementsByTagNameNS("*","PublishedLineName")),
+      ...Array.from(el.getElementsByTagNameNS("*","LineName")),
     ].map(n=>n.textContent.trim()).filter(Boolean);
 
-    const lines=[
-      ...el.querySelectorAll(
-        "AffectedVehicleJourney > LineRef, PublishedLineName, LineName, " +
-        "Affects > Networks > AffectedNetwork > AffectedLine > LineRef, " +
-        "Affects > Networks > AffectedNetwork > AffectedLine > PublishedLineName"
-      )
-    ].map(n=>n.textContent.trim()).filter(Boolean);
+    const validityEl = firstChild(el,"ValidityPeriod");
+    const startTime = validityEl ? (textIn(validityEl,"StartTime") || textIn(el,"StartTime")) : (textIn(el,"StartTime"));
+    const endTime = validityEl ? (textIn(validityEl,"EndTime") || textIn(el,"EndTime")) : (textIn(el,"EndTime"));
 
-    const networks=readAffectedNetworks(el);
-    const affects={};
-    if(networks) affects.Networks={AffectedNetwork: networks};
+    const affectsEl = firstChild(el,"Affects");
+    const affectsObj = {};
+    if(affectsEl){
+      const nets = readAffectedNetworkLines(affectsEl);
+      const stops = readStopPoints(affectsEl);
+      if(nets) affectsObj.Networks = nets;
+      if(stops) affectsObj.StopPoints = stops;
+    }
+
+    const adviceEl = firstChild(el,"Advice");
+    const adviceDetails = adviceEl ? (textIn(adviceEl,"Details") || textOf(adviceEl)) : null;
+
+    const consequences = readConsequences(el);
 
     return {
-      Summary: T(el,"Summary") || T(el,"Description"),
-      Description: T(el,"Description"),
-      SituationNumber: T(el,"SituationNumber") || T(el,"SituationRef"),
-      ValidityPeriod: {
-        StartTime: T(el,"ValidityPeriod > StartTime") || T(el,"StartTime"),
-        EndTime:   T(el,"ValidityPeriod > EndTime")   || T(el,"EndTime")
-      },
-      Affects: Object.keys(affects).length ? affects : undefined,
-      __operatorRefs: opsRef,
-      __lineRefs: lines
+      Summary: textIn(el,"Summary") || textIn(el,"Description"),
+      Description: textIn(el,"Description"),
+      SituationNumber: textIn(el,"SituationNumber") || textIn(el,"SituationRef"),
+      ValidityPeriod: { StartTime: startTime, EndTime: endTime },
+      Advice: adviceDetails ? {Details: adviceDetails} : undefined,
+      Affects: Object.keys(affectsObj).length ? affectsObj : undefined,
+      Consequences: consequences || undefined,
+      __operatorRefs: opRefs,
+      __lineRefs: lineRefs
     };
   });
 }
@@ -700,13 +970,12 @@ async function fetchAll(){
 
     const raw = await res.text();
     const trimmed = raw.trim();
-
     let allSituations = [];
 
     if(trimmed.startsWith("{") || trimmed.startsWith("[")){
       const data = JSON.parse(trimmed);
       allSituations = extractSituationsFromJSON(data);
-    } else if(trimmed.startsWith("<")){
+    } else if(trimmed.startsWith("<") || trimmed.startsWith("<?xml")){
       if(/<html/i.test(trimmed) && !/PtSituationElement/i.test(trimmed)){
         throw new Error("Feed returned HTML (not SIRI). Likely blocked/proxy error.");
       }
@@ -724,13 +993,11 @@ async function fetchAll(){
     const liveDiversions = diversionSituations.filter(isCurrentlyValid);
 
     const typed = liveDiversions.map(classifyItem);
-
-    // UFN only
     allItems = typed.filter(it => it.isUFN);
 
     queue = buildQueue();
     idx = 0;
-    decisions = {}; // fresh each refresh
+    decisions = {};
 
     $("#feedState").textContent="LIVE";
     $("#pillFeed").classList.remove("err");
@@ -748,6 +1015,51 @@ async function fetchAll(){
 }
 
 /* =========================
+   TOOLTIP (route advice)
+========================= */
+const chipTip = $("#chipTip");
+let tipActiveEl = null;
+
+function tipShow(el, x, y){
+  const advice = (el?.dataset?.advice || "").trim();
+  const route = (el?.dataset?.route || "").trim();
+  if(!advice) return;
+
+  chipTip.innerHTML =
+    `<div class="tTitle">${escapeHtml(route || "Route")}</div>`+
+    `<div class="tBody">${escapeHtml(advice)}</div>`;
+
+  chipTip.classList.add("show");
+  chipTip.setAttribute("aria-hidden","false");
+  tipActiveEl = el;
+  tipMove(x, y);
+}
+function tipMove(x, y){
+  if(!chipTip.classList.contains("show")) return;
+  const pad = 14;
+  chipTip.style.left = (x + 12) + "px";
+  chipTip.style.top  = (y + 14) + "px";
+
+  const r = chipTip.getBoundingClientRect();
+  let left = x + 12;
+  let top  = y + 14;
+
+  if(left + r.width > window.innerWidth - pad) left = window.innerWidth - pad - r.width;
+  if(top + r.height > window.innerHeight - pad) top = y - r.height - 14;
+
+  left = Math.max(pad, left);
+  top = Math.max(pad, top);
+
+  chipTip.style.left = left + "px";
+  chipTip.style.top  = top + "px";
+}
+function tipHide(){
+  chipTip.classList.remove("show");
+  chipTip.setAttribute("aria-hidden","true");
+  tipActiveEl = null;
+}
+
+/* =========================
    RENDER
 ========================= */
 function routeOpClass(it, route){
@@ -755,14 +1067,20 @@ function routeOpClass(it, route){
   const arr = it.routeOpMap?.[key];
   if(!arr || !arr.length) return "op-UNK";
   const uniq = [...new Set(arr)];
-  if(uniq.length === 1){
-    // safe class token
-    return "op-" + uniq[0].replace(/[^A-Z0-9_-]/g,"");
-  }
+  if(uniq.length === 1) return "op-" + uniq[0].replace(/[^A-Z0-9_-]/g,"");
   return "op-MULTI";
+}
+function adviceForRoute(it, route){
+  const key = String(route||"").trim().toUpperCase();
+  const arr = it.routeAdviceMap?.[key];
+  if(!arr || !arr.length) return "";
+  const uniq = [...new Set(arr.map(s=>String(s||"").trim()).filter(Boolean))];
+  return uniq.join("\n\n");
 }
 
 function renderFocus(){
+  tipHide();
+
   if(queue.length===0){
     $("#progress").textContent="UFN Alert 0 of 0";
     $("#badgeDecision").textContent="Decision: —";
@@ -800,9 +1118,11 @@ function renderFocus(){
 
   const routesHtml = (shown.length ? shown : ["?"]).map(r=>{
     const cls = routeOpClass(it, r);
-    return `<span class="route ${cls}">${escapeHtml(r)}</span>`;
-  }).join("")
-  + (more>0 ? ` <span class="route more">+${more}</span>` : "");
+    const advice = adviceForRoute(it, r);
+    return `<span class="route ${cls}" tabindex="0"
+                 data-route="${escapeAttr(r)}"
+                 data-advice="${escapeAttr(advice)}">${escapeHtml(r)}</span>`;
+  }).join("") + (more>0 ? ` <span class="route more">+${more}</span>` : "");
 
   const desc = it.description ? escapeHtml(it.description) : "—";
 
@@ -828,6 +1148,10 @@ function renderFocus(){
           <span class="icon">📄</span>
           <span>Open DfT record</span>
         </button>
+        <button class="linkBtn map" onclick="openMap()">
+          <span class="icon">🗺️</span>
+          <span>Map affected stops</span>
+        </button>
       </div>
 
       <div class="actions">
@@ -845,6 +1169,34 @@ function renderFocus(){
   `;
 }
 
+/* Tooltip events */
+$("#focusHost").addEventListener("mouseover", (e)=>{
+  const el = e.target.closest(".route");
+  if(!el || el.classList.contains("more")) return;
+  if(!el.dataset.advice || !el.dataset.advice.trim()) return;
+  tipShow(el, e.clientX, e.clientY);
+});
+$("#focusHost").addEventListener("mousemove", (e)=>{
+  if(tipActiveEl) tipMove(e.clientX, e.clientY);
+});
+$("#focusHost").addEventListener("mouseout", (e)=>{
+  const from = e.target.closest(".route");
+  if(!from) return;
+  const to = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest(".route") : null;
+  if(from && from === tipActiveEl && to !== from) tipHide();
+});
+$("#focusHost").addEventListener("focusin", (e)=>{
+  const el = e.target.closest(".route");
+  if(!el || el.classList.contains("more")) return;
+  if(!el.dataset.advice || !el.dataset.advice.trim()) return;
+  const r = el.getBoundingClientRect();
+  tipShow(el, Math.round(r.left + r.width/2), Math.round(r.top));
+});
+$("#focusHost").addEventListener("focusout", (e)=>{
+  const el = e.target.closest(".route");
+  if(el && el === tipActiveEl) tipHide();
+});
+
 /* =========================
    ACTIONS / NAV
 ========================= */
@@ -859,7 +1211,6 @@ function setDecision(status){
   toast("Saved");
   renderFocus();
 }
-
 function next(){
   const it=queue[idx];
   if(!decisions[it.id]){
@@ -893,6 +1244,91 @@ function openDfT(){
   const it=queue[idx];
   if(!it.recordUrl){ toast("No DfT link"); return; }
   window.open(it.recordUrl,"_blank","noopener,noreferrer");
+}
+
+/* =========================
+   MAP MODAL
+========================= */
+let mapInstance = null;
+let mapMarkers = null;
+let lastMapStops = [];
+let lastMapTitle = "";
+
+function openMap(){
+  const it = queue[idx];
+  const stops = Array.isArray(it.stops) ? it.stops : [];
+  const usable = stops.filter(s => Number.isFinite(s.lat) && Number.isFinite(s.lon));
+
+  lastMapStops = usable;
+  lastMapTitle = (it.summary || "Affected stops").toString().trim();
+
+  if(!usable.length){
+    toast("No stop locations in feed");
+    return;
+  }
+
+  $("#mapMeta").textContent = lastMapTitle.slice(0,120);
+  $("#mapBackdrop").classList.add("show");
+
+  $("#stopList").innerHTML = usable.map(s=>{
+    const name = s.name || "Stop";
+    const ref = s.ref || "";
+    return `<div class="stopItem">${escapeHtml(name)}
+              <small>${escapeHtml(ref)} • ${escapeHtml(s.lat.toFixed(5))}, ${escapeHtml(s.lon.toFixed(5))}</small>
+            </div>`;
+  }).join("");
+
+  setTimeout(()=>renderMap(usable), 0);
+}
+function closeMap(){
+  $("#mapBackdrop").classList.remove("show");
+}
+$("#btnMapClose").addEventListener("click", closeMap);
+$("#btnMapDone").addEventListener("click", closeMap);
+$("#mapBackdrop").addEventListener("click", (e)=>{ if(e.target.id==="mapBackdrop") closeMap(); });
+
+$("#btnMapOpenExternal").addEventListener("click", ()=>{
+  if(!lastMapStops.length){ toast("No stops"); return; }
+  const s = lastMapStops[0];
+  window.open(`https://www.google.com/maps?q=${encodeURIComponent(s.lat + "," + s.lon)}`,"_blank","noopener,noreferrer");
+});
+
+function renderMap(stops){
+  if(!window.L || !L.map){
+    toast("Map library blocked — opening browser maps");
+    const s = stops[0];
+    window.open(`https://www.google.com/maps?q=${encodeURIComponent(s.lat + "," + s.lon)}`,"_blank","noopener,noreferrer");
+    return;
+  }
+
+  if(!mapInstance){
+    mapInstance = L.map("map", { zoomControl:true });
+
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+      { maxZoom: 19, attribution: "&copy; OpenStreetMap &copy; CARTO" }
+    ).addTo(mapInstance);
+
+    mapMarkers = L.featureGroup().addTo(mapInstance);
+  }
+
+  mapMarkers.clearLayers();
+  const pts = [];
+
+  for(const s of stops){
+    const ll = [s.lat, s.lon];
+    pts.push(ll);
+    const label = (s.name || "Stop") + (s.ref ? ` (${s.ref})` : "");
+    L.marker(ll).bindPopup(escapeHtml(label)).addTo(mapMarkers);
+  }
+
+  if(pts.length === 1){
+    mapInstance.setView(pts[0], 16);
+  } else {
+    mapInstance.fitBounds(mapMarkers.getBounds().pad(0.20), { padding:[24,24], maxZoom:16 });
+  }
+
+  setTimeout(()=>mapInstance.invalidateSize(true), 60);
 }
 
 /* =========================
@@ -1011,7 +1447,6 @@ async function copyToClipboard(text){
   }
 
   ta.remove();
-
   if(ok) toast("Copied ✅");
   else window.prompt("Copy report (Ctrl+C, Enter):", text);
 }
@@ -1044,4 +1479,3 @@ fetchAll();
 </script>
 </body>
 </html>
-``
