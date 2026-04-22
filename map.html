@@ -1053,6 +1053,37 @@ const heFresh   = lastOkHe   && (now - lastOkHe)   <= thr;
         }
       });
 
+// =======================================================
+// Animation pump – keeps animated markers alive
+// (does NOT change size, style, or layout)
+// =======================================================
+
+function startAnimationPump(){
+  let rafId = null;
+
+  function pump(){
+    if (!document.hidden) {
+      map.triggerRepaint();
+    }
+    rafId = requestAnimationFrame(pump);
+  }
+
+  pump();
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && rafId){
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    } else if (!document.hidden && !rafId){
+      pump();
+    }
+  });
+}
+
+startAnimationPump();
+
+
+
       /* =======================================================
          BODS (SIRI‑SX) → DIVERT CENTROIDS
          ======================================================= */
