@@ -200,11 +200,196 @@
     .maplibregl-ctrl-attrib{
       display: none !important;
     }
+    
+/* =======================================================:#fff; }
+.shield-broad{ background:#fff; color:#000; box-shadow: inset -1px 0 0 rgba(255,255,255,0.10), inset 0 0 0 3px #000; }
+.shield-unk{ background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.85); }
+
+.spotlight-info{
+  padding: 14px 18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.spotlight-title{
+  margin:0;
+  font-size:34px;
+  font-weight:900;
+  line-height:1.02;
+  color:#fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.confidence-track{
+  width:100%;
+  height:14px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.18);
+  overflow:hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10);
+}
+
+.confidence-fill{
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background: linear-gradient(90deg,#FFE04A,#ff9a1f,#ff4d4f);
+  transition: width 380ms ease;
+}
+``
+   WAZE ALERT SPOTLIGHT (25% badge / 75% info)
+   ======================================================= */
+
+/* =======================================================
+   Spotlight card – minimal, premium, distance‑readable
+   (Route shield • Road name • Confidence bar)
+   ======================================================= */
+
+#alertSpotlight{
+  position:absolute;
+  z-index:90;
+  pointer-events:none;
+  opacity:0;
+  transform: translate3d(0,10px,0) scale(.985);
+  transition: opacity 220ms ease, transform 280ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform, opacity, left, top;
+}
+#alertSpotlight.is-visible{
+  opacity:1;
+  transform: translate3d(0,0,0) scale(1);
+}
+
+.spotlight-card{
+  width: 560px;
+  height: 120px;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+
+  /* “Liquid glass” but calm */
+  background: linear-gradient(180deg, rgba(18,18,18,0.78), rgba(6,6,6,0.62));
+  backdrop-filter: blur(10px) saturate(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
+
+  box-shadow:
+    0 18px 55px rgba(0,0,0,0.65),
+    0 0 0 1px rgba(255,255,255,0.10) inset;
+
+  display: grid;
+  grid-template-columns: 140px 1fr; /* fixed badge block = consistent */
+}
+
+/* subtle top highlight line */
+.spotlight-card::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:1px;
+  background: linear-gradient(90deg,
+    rgba(255,224,74,0.35),
+    rgba(255,255,255,0.10),
+    rgba(91,177,255,0.25)
+  );
+  opacity: .9;
+}
+
+/* pointer triangle (positioned in JS) */
+.spotlight-arrow{
+  position:absolute;
+  width:14px;height:14px;
+  background: rgba(10,10,10,0.72);
+  transform: rotate(45deg);
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.10) inset;
+  left:-7px; top:22px;
+}
+
+/* LEFT: route shield block */
+.spotlight-badge{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 900;
+  font-size: 40px;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  box-shadow: inset -1px 0 0 rgba(255,255,255,0.10);
+}
+
+/* UK road styles (recognisable at a glance) */
+.shield-mway{ background:#003a8f; color:#fff; }
+.shield-aroad{ background:#00703c; color:#fff; }
+.shield-broad{
+  background:#ffffff;
+  color:#000;
+  box-shadow:
+    inset -1px 0 0 rgba(255,255,255,0.10),
+    inset 0 0 0 3px #000;
+}
+.shield-unk{
+  background: rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.85);
+}
+
+/* RIGHT: stacked info */
+.spotlight-info{
+  padding: 14px 18px 14px 18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.spotlight-title{
+  margin:0;
+  font-size: 38px;           /* BIG */
+  font-weight: 950;
+  line-height: 1.02;
+  letter-spacing: 0.2px;
+  color:#fff;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.55);
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+/* confidence bar = calm + segmented */
+.confidence-track{
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.12) 0px,
+      rgba(255,255,255,0.12) 22px,
+      rgba(255,255,255,0.06) 22px,
+      rgba(255,255,255,0.06) 28px
+    );
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10);
+  overflow:hidden;
+}
+
+.confidence-fill{
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background: linear-gradient(90deg, #FFE04A, #ff9a1f, #ff4d4f);
+  box-shadow: 0 0 18px rgba(255,224,74,0.18);
+  transition: width 360ms ease;
+}
+
+
+
   </style>
 </head>
 
 <body>
   <div id="map"></div>
+  <div id="alertSpotlight" aria-live="polite"></div>
 
   <!-- TOP-LEFT unified status pill -->
   <div class="statusWrapper" aria-live="polite">
@@ -847,6 +1032,10 @@ const heFresh   = lastOkHe   && (now - lastOkHe)   <= thr;
         const signalPoints   = alertsToSignalFaultPoints(data);
 
         const clusterFeatures = clusterAccidents(accidentPoints);
+        // cache latest accidents for half‑hour carousel
+latestAccidentFeatures = Array.isArray(clusterFeatures)
+  ? clusterFeatures.slice()
+  : [];
         const iceFeatures     = clusterGeneric(icePoints, MERGE_METERS);
         const signalFeatures  = clusterGeneric(signalPoints, MERGE_METERS);
 
@@ -1422,6 +1611,250 @@ startAnimationPump();
         updateNetworkHealthOnce();
       }
     });
+    
+    /* =======================================================
+   WAZE HALF‑HOUR CAROUSEL (xx:00 / xx:30)
+   ======================================================= */
+
+let latestAccidentFeatures = [];
+let carouselRunning = false;
+let spotlightAnchor = null;
+let carouselRunToken = 0;
+let spotlightAnchorLngLat = null
+
+const SPOTLIGHT_MS = 8000;
+const SPOTLIGHT_ZOOM = 15.7;
+
+function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+function clamp(v,min,max){ return Math.max(min,Math.min(max,v)); }
+
+function escapeHtml(s){
+  return String(s||'').replace(/[&<>"']/g,m=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  })[m]);
+}
+
+function shieldClass(roadKey){
+  if(/^M\d+/i.test(roadKey)) return 'shield-mway';
+  if(/^A\d+/i.test(roadKey)) return 'shield-aroad';
+  if(/^B\d+/i.test(roadKey)) return 'shield-broad';
+  return 'shield-unk';
+}
+
+function renderSpotlight(feature){
+  const p = feature?.properties || {};
+  const el = document.getElementById('alertSpotlight');
+  if(!el) return;
+
+  const roadKey = String(p.roadKey || '').toUpperCase();
+  const title   = String(p.street || 'Unknown road');
+
+  const conf = Math.max(1, Math.min(5, Number(p.effectiveConfidence || 1)));
+  const confPct = (conf / 5) * 100;
+
+  el.innerHTML = `
+    <div class="spotlight-card">
+      <div class="spotlight-arrow"></div>
+
+      <div class="spotlight-badge ${shieldClass(roadKey)}">
+        ${escapeHtml(roadKey || '—')}
+      </div>
+
+      <div class="spotlight-info">
+        <p class="spotlight-title">${escapeHtml(title)}</p>
+        <div class="confidence-track" aria-label="Confidence">
+          <div class="confidence-fill" style="width:${confPct}%"></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  spotlightAnchorLngLat = feature.geometry.coordinates.slice(0,2);
+  el.classList.add('is-visible');
+  positionSpotlight();
+}
+
+
+
+function hideSpotlight(){
+  const el = document.getElementById('alertSpotlight');
+  el.classList.remove('is-visible');
+  spotlightAnchorLngLat = null;
+}
+``
+
+function positionSpotlight(){
+  if(!spotlightAnchorLngLat) return;
+
+  const el = document.getElementById('alertSpotlight');
+  const card = el.querySelector('.spotlight-card');
+  const arrow = el.querySelector('.spotlight-arrow');
+  if(!card || !arrow) return;
+
+  const pt = map.project(spotlightAnchorLngLat);
+  const cardW = card.offsetWidth;
+  const cardH = card.offsetHeight;
+
+  const pad = 14;
+
+  // default: card to the RIGHT of marker
+  let left = pt.x + 22;
+  let top  = pt.y - cardH/2;
+
+  let side = 'left';
+
+  // if hanging off right edge, flip to LEFT
+  if(left + cardW > window.innerWidth - pad){
+    left = pt.x - cardW - 22;
+    side = 'right';
+  }
+
+  // clamp vertically
+  top = Math.max(pad, Math.min(top, window.innerHeight - cardH - pad));
+
+  el.style.left = `${left}px`;
+  el.style.top  = `${top}px`;
+
+  // position arrow so it points at marker
+  const arrowTop = clamp(pt.y - top - 7, 16, cardH - 30);
+
+  if(side === 'left'){
+    arrow.style.left = '-7px';
+    arrow.style.right = 'auto';
+    arrow.style.top = `${arrowTop}px`;
+  } else {
+    arrow.style.right = '-7px';
+    arrow.style.left = 'auto';
+    arrow.style.top = `${arrowTop}px`;
+  }
+}
+
+map.on('move', positionSpotlight);
+map.on('resize', positionSpotlight);
+
+function waitForMoveEnd(){
+  return new Promise(resolve => map.once('moveend', resolve));
+}
+function smooth(t){ return t*t*(3-2*t); } // smoothstep easing
+
+const GM_ZOOM = HOME_VIEW.zoom;       // your “GM-wide scale”
+const FOCUS_ZOOM = 15.7;             // zoomed-in detail
+const PAN_MS = 5200;                 // slow enough to follow
+const ZOOM_IN_MS = 3600;             // calm zoom-in
+const ZOOM_OUT_MS = 2800;            // calm zoom-out
+const DWELL_MS = 8000;               // your per-alert dwell
+
+async function startWazeCarousel(reason='timer'){
+  if (carouselRunning) return;
+
+  const features = Array.isArray(latestAccidentFeatures) ? latestAccidentFeatures.slice() : [];
+  const list = features.filter(f => f?.geometry?.coordinates?.length >= 2);
+  if (!list.length) return;
+
+  carouselRunning = true;
+  const myToken = ++carouselRunToken;
+
+  try{
+    // Ensure we begin at GM-wide view (fixed)
+    map.easeTo({
+      center: HOME_CENTER,
+      zoom: GM_ZOOM,
+      pitch: 0,
+      bearing: 0,
+      duration: 1600,
+      essential: true,
+      easing: smooth
+    });
+    await waitForMoveEnd();
+
+    // For each alert:
+    for (let i = 0; i < list.length; i++){
+      if (carouselRunToken !== myToken) break;
+      if (document.hidden) break;
+
+      const f = list[i];
+      const target = f.geometry.coordinates.slice(0,2);
+
+      // (1) GM-wide pan to the marker (no zoom change)
+      map.easeTo({
+        center: target,
+        zoom: GM_ZOOM,
+        duration: PAN_MS,
+        essential: true,
+        easing: smooth
+      });
+      await waitForMoveEnd();
+
+      if (carouselRunToken !== myToken) break;
+
+      // (2) Zoom into it (stays centred)
+      map.easeTo({
+        center: target,
+        zoom: FOCUS_ZOOM,
+        duration: ZOOM_IN_MS,
+        essential: true,
+        easing: smooth
+      });
+      await waitForMoveEnd();
+
+      if (carouselRunToken !== myToken) break;
+
+      // Show card during focus
+      renderSpotlight(f);
+      await sleep(DWELL_MS);
+      hideSpotlight();
+      await sleep(220);
+
+      // (3) Zoom back OUT to GM-wide scale (still centred on this marker)
+      map.easeTo({
+        center: target,
+        zoom: GM_ZOOM,
+        duration: ZOOM_OUT_MS,
+        essential: true,
+        easing: smooth
+      });
+      await waitForMoveEnd();
+    }
+  } finally {
+    hideSpotlight();
+
+    // Always return to the fixed GM view
+    map.easeTo({
+      center: HOME_CENTER,
+      zoom: GM_ZOOM,
+      pitch: 0,
+      bearing: 0,
+      duration: 1800,
+      essential: true,
+      easing: smooth
+    });
+
+    carouselRunning = false;
+  }
+}
+
+
+/* exact xx:00 / xx:30 scheduler */
+function msUntilHalfHour(){
+  const n = new Date();
+  const t = new Date(n);
+  t.setSeconds(0,0);
+  if(n.getMinutes() < 30) t.setMinutes(30);
+  else { t.setMinutes(0); t.setHours(n.getHours()+1); }
+  return t - n;
+}
+
+(function schedule(){
+  setTimeout(async ()=>{
+    if(!document.hidden) await startWazeCarousel();
+    schedule();
+  }, msUntilHalfHour());
+})();
+
+/* keyboard test */
+document.addEventListener('keydown', e=>{
+  if(e.key === 't' || e.key === 'T') startWazeCarousel();
+});
   </script>
 
   <!-- Bottom status row: Network health bar + Attribution chip -->
