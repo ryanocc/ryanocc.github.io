@@ -1251,34 +1251,6 @@ const heFresh   = lastOkHe   && (now - lastOkHe)   <= thr;
         }
       });
 
-      let pulse = 1.0, pulseDir = 1;
-      function applyPulse(){
-        const factor = ['case', ['get','isUFN'], pulse, 1];
-        map.setPaintProperty('divert-centroids-halo','circle-radius',
-          ['interpolate',['linear'],['zoom'],
-            8,  ['*', 8,  factor],
-            12, ['*', 11, factor],
-            16, ['*', 15, factor]
-          ]
-        );
-        map.setLayoutProperty('divert-centroids-icon','icon-size',
-          ['interpolate',['linear'],['zoom'],
-            8,  ['*', 0.83, factor],
-            12, ['*', 1.19,  factor],
-            16, ['*', 1.65,  factor]
-          ]
-        );
-      }
-      function ufnTick(){
-        if (document.hidden) return;
-        pulse += (pulseDir * 0.05);
-        if (pulse >= 1.25) { pulse = 1.25; pulseDir = -1; }
-        if (pulse <= 0.85) { pulse = 0.85; pulseDir =  1; }
-        applyPulse();
-      }
-      applyPulse();
-      setInterval(ufnTick, 140);
-
       async function updateDivertCentroidsOnce(){
         try{
           const res = await fetch(withCacheBust(BODS_URL), { cache: 'no-store' });
