@@ -617,16 +617,34 @@
       return out;
     }
 
-    function alertsToSignalFaultPoints(feed){
-      const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
-      for(const a of alerts){
-        if(!isTrafficLightFault(a)) continue;
-        const coord = getLngLatFromAlert(a); if(!coord) continue;
-        const theId = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
-        out.push({ id: theId, coord, time: a.pubMillis || a.updateTime || a.reportMillis || 0 });
-      }
-      return out;
-    }
+function alertsToSignalFaultPoints(feed){
+  const out=[], alerts = (feed && Array.isArray(feed.alerts)) ? feed.alerts : [];
+  for(const a of alerts){
+    if(!isTrafficLightFault(a)) continue;
+
+    const coord = getLngLatFromAlert(a);
+    if(!coord) continue;
+
+    const theId = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
+
+    const street = a.street || a.roadName || a.address || 'Unknown road';
+    const city   = a.city || a.town || '';
+
+    // Reuse your existing road parsing (M/A/B detection)
+    const { roadKey, isMotorway } = roadKeyFromAlert(a);
+
+    out.push({
+      id: theId,
+      coord,
+      time: a.pubMillis || a.updateTime || a.reportMillis || 0,
+      street,
+      city,
+      roadKey: roadKey || '',
+      isMotorway: !!isMotorway
+    });
+  }
+  return out;
+}
 
     function stableClusterId(coord){
       const lon = Number(coord[0]).toFixed(4);
@@ -676,6 +694,70 @@
       }
       return features;
     }
+
+function clusterSignalFaults(points, mergeMeters = MERGE_METERS){
+  if(!points.length) return [];
+
+  const parent = Array(points.length).fill(0).map((_,i)=>i);
+  const find=(x)=>{ while(parent[x]!==x){ parent[x]=parent[parent[x]]; x=parent[x]; } return x; };
+  const union=(a,b)=>{ a=find(a); b=find(b); if(a!==b) parent[a]=b; };
+
+  for(let i=0;i<points.length;i++){
+    for(let j=i+1;j<points.length;j++){
+      if(haversineMeters(points[i].coord, points[j].coord) <= mergeMeters) union(i,j);
+    }
+  }
+
+  const groups = new Map();
+  for(let i=0;i<points.length;i++){
+    const r = find(i);
+    if(!groups.has(r)) groups.set(r, []);
+    groups.get(r).push(points[i]);
+  }
+
+  const features = [];
+  for(const members of groups.values()){
+    const count = members.length;
+
+    // average location
+    const avg = members.reduce((acc,m)=>[acc[0]+m.coord[0], acc[1]+m.coord[1]],[0,0]).map(v=>v/count);
+
+    // latest timestamp
+    const maxTime = members.reduce((t,m)=>Math.max(t, Number(m.time)||0), 0);
+
+    // pick “best” member for label/shield: prefer one with a roadKey, then newest
+    const best = members.slice().sort((a,b)=>{
+      const ak = a.roadKey ? 1 : 0;
+      const bk = b.roadKey ? 1 : 0;
+      if (bk !== ak) return bk - ak;
+      return (Number(b.time)||0) - (Number(a.time)||0);
+    })[0];
+
+    const idBase = best?.id ? `sig-${String(best.id).slice(0,120).replace(/[^a-zA-Z0-9_-]/g, '_')}` : stableClusterId(avg);
+    const eff5 = Math.max(1, Math.min(5, count)); // confidence bar reflects number of reports
+
+    features.push({
+      type: 'Feature',
+      id: idBase,
+      geometry: { type:'Point', coordinates: avg },
+      properties: {
+        id: idBase,
+        kind: 'signal',
+        street: best?.street || 'Unknown road',
+        city: best?.city || '',
+        roadKey: best?.roadKey || '',      // ✅ A6 / M60 / etc.
+        isMotorway: !!best?.isMotorway,
+        effectiveConfidence: eff5,
+        reportCount: count,
+        time: maxTime
+      }
+    });
+  }
+
+  // newest first
+  features.sort((a,b)=> (Number(b?.properties?.time||0) - Number(a?.properties?.time||0)));
+  return features;
+}
 
     function clusterAccidents(points){
       if(points.length === 0) return [];
@@ -1012,28 +1094,11 @@ async function runCycle(){
     // ---------- ICE ----------
     const iceFeatures = clusterGeneric(icePoints, MERGE_METERS);
 
-    // ---------- TRAFFIC LIGHT FAULTS ----------
-    const signalClustersRaw = clusterGeneric(signalPoints, MERGE_METERS);
+// ---------- TRAFFIC LIGHT FAULTS ----------
+const signalClusters = clusterSignalFaults(signalPoints, MERGE_METERS);
 
-    // Normalise signal faults so the carousel can use them
-    const signalClusters = (Array.isArray(signalClustersRaw) ? signalClustersRaw : []).map(f => {
-      const count = Number(f?.properties?.count || 1);
-
-      return {
-        ...f,
-        properties: {
-          ...(f.properties || {}),
-          kind: 'signal',
-          street: 'Traffic Light Fault',
-          roadKey: 'TL',
-          effectiveConfidence: Math.max(1, Math.min(5, count)),
-          reportCount: count
-        }
-      };
-    });
-
-    // Cache for half‑hour carousel
-    latestSignalFaultFeatures = signalClusters.slice();
+// Cache for half‑hour carousel
+latestSignalFaultFeatures = signalClusters.slice();
 
     // ---------- Push to map ----------
     map.getSource('accidents')?.setData({
@@ -1424,7 +1489,11 @@ function renderSpotlight(feature){
   if(!el) return;
 
   const roadKey = String(p.roadKey || '').toUpperCase();
-  const title   = String(p.street || 'Unknown road');
+const street = String(p.street || '').trim();
+const city   = String(p.city || '').trim();
+
+let title = street || 'Unknown road';
+if (city) title = `${title} • ${city}`;
 
   const conf = Math.max(1, Math.min(5, Number(p.effectiveConfidence || 1)));
   const confPct = (conf / 5) * 100;
