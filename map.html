@@ -506,29 +506,68 @@
        Road parsing
        ======================================================= */
 
-    function normaliseRoadKey(text){
-      const s = String(text || '').toUpperCase();
+function extractRoadAndJunction(text){
+  const raw = String(text || '');
+  const s = raw.toUpperCase();
 
-      const m = s.match(/\b(M\d{1,3})\b/);
-      if (m) return { roadKey: m[1], isMotorway: true };
+  // ---- Road key detection (supports A1(M) etc.) ----
+  let roadKey = '';
+  let isMotorway = false;
 
-      const a = s.match(/\b(A\d{1,4})\b/);
-      if (a) return { roadKey: a[1], isMotorway: false };
-
-      const b = s.match(/\b(B\d{1,4})\b/);
-      if (b) return { roadKey: b[1], isMotorway: false };
-
-      return { roadKey: '', isMotorway: false };
+  // Motorway (M)
+  let m = s.match(/\b(M\d{1,3})\b/);
+  if (m){
+    roadKey = m[1];
+    isMotorway = true;
+  } else {
+    // A-road motorway variant (A1(M), A404(M)) – treat as motorway styling
+    let am = s.match(/\b(A\d{1,4}\s*\(M\))\b/);
+    if (am){
+      roadKey = am[1].replace(/\s+/g,''); // "A1 (M)" -> "A1(M)"
+      isMotorway = true;
+    } else {
+      // A-roads
+      let a = s.match(/\b(A\d{1,4})\b/);
+      if (a){
+        roadKey = a[1];
+        isMotorway = false;
+      } else {
+        // B-roads
+        let b = s.match(/\b(B\d{1,4})\b/);
+        if (b){
+          roadKey = b[1];
+          isMotorway = false;
+        }
+      }
     }
+  }
 
-    function roadKeyFromAlert(a){
-      const txt = [
-        a?.street, a?.roadName, a?.address, a?.city, a?.town,
-        a?.subtype, a?.subType, a?.sub_type,
-        a?.description, a?.reportDescription, a?.title
-      ].filter(Boolean).join(' ');
-      return normaliseRoadKey(txt);
-    }
+  // ---- Junction detection (J12 / Junction 12 / Exit 12 / J12A) ----
+  let junction = '';
+
+  // Junction 12 / J12 / J12A
+  let j = s.match(/\bJ(?:UNCTION)?\s*([0-9]{1,2}[A-Z]?)\b/);
+  if (j){
+    junction = `J${j[1]}`;
+  } else {
+    // Exit 12 / Exit 12A
+    let ex = s.match(/\bEXIT\s*([0-9]{1,2}[A-Z]?)\b/);
+    if (ex) junction = `J${ex[1]}`;
+  }
+
+  return { roadKey, isMotorway, junction };
+}
+
+
+function roadKeyFromAlert(a){
+  const txt = [
+    a?.street, a?.roadName, a?.address, a?.city, a?.town,
+    a?.subtype, a?.subType, a?.sub_type,
+    a?.description, a?.reportDescription, a?.title
+  ].filter(Boolean).join(' ');
+
+  return extractRoadAndJunction(txt);
+}
 
     /* =======================================================
        WAZE ALERT PARSING + SCORING
@@ -591,17 +630,18 @@
         const coord = getLngLatFromAlert(a); if(!coord) continue;
 
         const id = a.uuid || a.id || `${coord[0]},${coord[1]},${a.pubMillis || ''}`;
-        const { roadKey, isMotorway } = roadKeyFromAlert(a);
+const { roadKey, isMotorway, junction } = roadKeyFromAlert(a);
 
-        out.push({
-          id, coord,
-          street: a.street || a.roadName || a.address || 'Unknown road',
-          city: a.city || a.town || '',
-          conf10, rel10,
-          time: a.pubMillis || a.updateTime || a.reportMillis || 0,
-          roadKey,
-          isMotorway
-        });
+out.push({
+  id, coord,
+  street: a.street || a.roadName || a.address || 'Unknown road',
+  city: a.city || a.town || '',
+  conf10, rel10,
+  time: a.pubMillis || a.updateTime || a.reportMillis || 0,
+  roadKey,
+  isMotorway,
+  junction: junction || ''
+});
       }
       return out;
     }
@@ -631,17 +671,18 @@ function alertsToSignalFaultPoints(feed){
     const city   = a.city || a.town || '';
 
     // Reuse your existing road parsing (M/A/B detection)
-    const { roadKey, isMotorway } = roadKeyFromAlert(a);
+const { roadKey, isMotorway, junction } = roadKeyFromAlert(a);
 
-    out.push({
-      id: theId,
-      coord,
-      time: a.pubMillis || a.updateTime || a.reportMillis || 0,
-      street,
-      city,
-      roadKey: roadKey || '',
-      isMotorway: !!isMotorway
-    });
+out.push({
+  id: theId,
+  coord,
+  time: a.pubMillis || a.updateTime || a.reportMillis || 0,
+  street,
+  city,
+  roadKey: roadKey || '',
+  isMotorway: !!isMotorway,
+  junction: junction || ''
+});
   }
   return out;
 }
@@ -733,6 +774,8 @@ function clusterSignalFaults(points, mergeMeters = MERGE_METERS){
       return (Number(b.time)||0) - (Number(a.time)||0);
     })[0];
 
+const bestJunction = best?.junction || '';
+
     const idBase = best?.id ? `sig-${String(best.id).slice(0,120).replace(/[^a-zA-Z0-9_-]/g, '_')}` : stableClusterId(avg);
     const eff5 = Math.max(1, Math.min(5, count)); // confidence bar reflects number of reports
 
@@ -745,6 +788,7 @@ function clusterSignalFaults(points, mergeMeters = MERGE_METERS){
         kind: 'signal',
         street: best?.street || 'Unknown road',
         city: best?.city || '',
+  junction: bestJunction,              // ✅ ADD THIS
         roadKey: best?.roadKey || '',      // ✅ A6 / M60 / etc.
         isMotorway: !!best?.isMotorway,
         effectiveConfidence: eff5,
@@ -804,6 +848,7 @@ function clusterSignalFaults(points, mergeMeters = MERGE_METERS){
           if(ce!==0) return ce;
           return (Number(b.time)||0) - (Number(a.time)||0);
         })[0];
+        const bestJunction = best?.junction || '';
 
         const anchor = pickAnchor(members);
         const id = anchor?.id ? `acc-${String(anchor.id).slice(0,120).replace(/[^a-zA-Z0-9_-]/g, '_')}` : stableClusterId(avg);
@@ -814,6 +859,7 @@ function clusterSignalFaults(points, mergeMeters = MERGE_METERS){
           street: best.street, city: best.city,
           roadKey: best.roadKey || '',
           isMotorway: !!best.isMotorway,
+  junction: bestJunction,              // ✅ store it here
           eff5, eff10, baseConf10, bestRel10,
           latestTime: maxTime, firstTime, count,
           anchorId: anchor?.id || ''
@@ -842,8 +888,9 @@ function clusterSignalFaults(points, mergeMeters = MERGE_METERS){
           rawConfidence10: c.baseConf10,
           reliability10:   c.bestRel10,
           effective10:     c.eff10,
-          roadKey: c.roadKey,
-          isMotorway: c.isMotorway
+junction: c.junction || '',
+roadKey: c.roadKey,
+isMotorway: c.isMotorway
         }
       }));
     }
@@ -1474,10 +1521,39 @@ function escapeHtml(s){
   })[m]);
 }
 
+function stripRoadAndJunctionFromTitle(titleRaw, roadKey, junction){
+  let t = String(titleRaw || '').trim();
+  if(!t) return '';
+
+  // Remove roadKey tokens wherever they appear (standalone)
+  if (roadKey){
+    const rkEsc = roadKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    t = t.replace(new RegExp(`\\b${rkEsc}\\b`, 'ig'), '');
+  }
+
+  // Remove junction variants
+  if (junction){
+    const jEsc = junction.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    t = t.replace(new RegExp(`\\b${jEsc}\\b`, 'ig'), '');
+  }
+
+  // Remove "Junction 12", "Exit 12A" textual forms too
+  t = t.replace(/\bJUNCTION\s*[0-9]{1,2}[A-Z]?\b/ig, '');
+  t = t.replace(/\bEXIT\s*[0-9]{1,2}[A-Z]?\b/ig, '');
+
+  // Clean leftover punctuation/spaces
+  t = t.replace(/^[\s\-–—:•,]+/g, '');
+  t = t.replace(/[\s\-–—:•,]+$/g, '');
+  t = t.replace(/\s{2,}/g, ' ').trim();
+
+  return t;
+}
+
+
 function shieldClass(roadKey){
   const rk = String(roadKey || '').toUpperCase();
-  if (rk === 'TL') return 'shield-tl';
   if(/^M\d+/i.test(rk)) return 'shield-mway';
+  if(/^A\d+\(M\)$/i.test(rk)) return 'shield-mway';   // ✅ NEW
   if(/^A\d+/i.test(rk)) return 'shield-aroad';
   if(/^B\d+/i.test(rk)) return 'shield-broad';
   return 'shield-unk';
@@ -1488,22 +1564,41 @@ function renderSpotlight(feature){
   const el = document.getElementById('alertSpotlight');
   if(!el) return;
 
-  const roadKey = String(p.roadKey || '').toUpperCase();
-const street = String(p.street || '').trim();
-const city   = String(p.city || '').trim();
+  const roadKey  = String(p.roadKey || '').toUpperCase();
+  const junction = String(p.junction || '').toUpperCase(); // e.g. J12A
+  const city     = String(p.city || '').trim();
 
-let title = street || 'Unknown road';
-if (city) title = `${title} • ${city}`;
+  const streetRaw = String(p.street || 'Unknown road').trim();
+
+  // Strip roadKey + junction out of the title so it doesn't repeat the shield
+  let titleClean = stripRoadAndJunctionFromTitle(streetRaw, roadKey, junction);
+
+  // If the "street" was basically just the roadKey (e.g. "M60"), avoid repeating it
+  if (!titleClean){
+    // Fallback: use something non-duplicative
+    if (junction) titleClean = 'Junction';
+    else titleClean = 'Location';
+  }
+
+  // Build contextual suffixes (junction + city) without clutter
+  const suffix = [];
+  if (junction) suffix.push(junction);
+  if (city) suffix.push(city);
+
+  const title = suffix.length ? `${titleClean} • ${suffix.join(' • ')}` : titleClean;
 
   const conf = Math.max(1, Math.min(5, Number(p.effectiveConfidence || 1)));
   const confPct = (conf / 5) * 100;
+
+  // Badge text: roadKey if we have it, otherwise a dash (don’t force TL)
+  const badgeText = roadKey || '—';
 
   el.innerHTML = `
     <div class="spotlight-card">
       <div class="spotlight-arrow"></div>
 
       <div class="spotlight-badge ${shieldClass(roadKey)}">
-        ${escapeHtml(roadKey || '—')}
+        ${escapeHtml(badgeText)}
       </div>
 
       <div class="spotlight-info">
