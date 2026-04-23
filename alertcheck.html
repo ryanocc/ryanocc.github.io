@@ -1415,68 +1415,56 @@ function buildReportText(){
   const officer = ($("#officerName").value || "").trim();
   const lines = [];
 
-  lines.push("Bus diversion check ✅");
-  lines.push("");
-
   const routesStr = (it) =>
     (it.routes || []).slice(0,12).map(formatRouteChipLabel).join(", ") || "—";
 
-  const shortSummary = (it) => {
-    const s = String(it.summary || "—").replace(/\s+/g," ").trim();
-    return s.length > 90 ? s.slice(0,87) + "…" : s;
-  };
+  const shortSummary = (it) =>
+    String(it.summary || "—").replace(/\s+/g," ").trim();
 
-  const status = (it) => statusTextForReport(it);
-
-  /* =========================
-     GROUP 1 — FINISHED / REMOVE
-  ========================= */
-  const finished = allItems.filter(it => {
-    const st = decisions[it.id]?.status;
-    return (
-      st === STATUS.ENDED ||
-      st === STATUS.REMOVE ||
-      st === STATUS.FINISHED
-    );
-  });
-
-  lines.push("ENDED / REMOVE:");
-  if(finished.length){
-    finished.forEach(it => {
-      lines.push(`• [${status(it)}] ${routesStr(it)} — ${shortSummary(it)}`);
-      if(it.recordUrl) lines.push(`  ${it.recordUrl}`);
-    });
-  } else {
-    lines.push("• None");
-  }
+  lines.push("Bus Travel Alert Check 🚌");
   lines.push("");
 
   /* =========================
-     GROUP 2 — EDITS NEEDED
+     REMOVE
+  ========================= */
+  const removed = allItems.filter(it => {
+    const st = decisions[it.id]?.status;
+    return st === STATUS.ENDED || st === STATUS.REMOVE || st === STATUS.FINISHED;
+  });
+
+  if(removed.length){
+    lines.push("❎ REMOVE");
+    removed.forEach((it,i)=>{
+      lines.push(`${i+1}) ${shortSummary(it)} | ${routesStr(it)}`);
+      if(it.recordUrl) lines.push(`   🔗 <${it.recordUrl}>`);
+    });
+    lines.push("");
+  }
+
+  /* =========================
+     EDIT NEEDED
   ========================= */
   const edits = allItems.filter(it =>
     decisions[it.id]?.status === STATUS.EDIT
   );
 
-  lines.push("EDITS NEEDED:");
   if(edits.length){
-    edits.forEach(it => {
-      lines.push(`• [EDIT] ${routesStr(it)} — ${shortSummary(it)}`);
-      const note = getEditNote(it.id);
-      if(note) lines.push(`  Note: ${note}`);
-      if(it.recordUrl) lines.push(`  ${it.recordUrl}`);
+    lines.push("✏️ EDIT NEEDED");
+    edits.forEach((it,i)=>{
+      lines.push(`${i+1}) ${shortSummary(it)} | ${routesStr(it)}`);
+      const note = (decisions[it.id]?.editNote || "").trim();
+      if(note) lines.push(`   ${note}`);
+      if(it.recordUrl) lines.push(`   🔗 <${it.recordUrl}>`);
     });
-  } else {
-    lines.push("• None");
+    lines.push("");
   }
-  lines.push("");
 
   /* =========================
-     GROUP 3 — CONTINUING (MINIMAL)
+     STILL ONGOING (NO LINKS)
   ========================= */
-  const continuing = allItems.filter(it => {
+  const ongoing = allItems.filter(it => {
     const d = decisions[it.id];
-    if(!d) return true; // untouched = still active
+    if(!d) return true;
     if(d.status === STATUS.EDIT) return false;
     if(
       d.status === STATUS.ENDED ||
@@ -1486,28 +1474,28 @@ function buildReportText(){
     return true;
   });
 
-  lines.push("CONTINUING / ACTIVE (for awareness):");
-  if(continuing.length){
-    continuing.forEach(it => {
-      lines.push(`• [In Progress] ${routesStr(it)} — ${shortSummary(it)}`);
+  if(ongoing.length){
+    lines.push("☑️ STILL ONGOING (REFERENCE ONLY)");
+    ongoing.forEach((it,i)=>{
+      lines.push(`${i+1}) ${shortSummary(it)} | ${routesStr(it)}`);
     });
-  } else {
-    lines.push("• None");
+    lines.push("");
   }
-  lines.push("");
 
   const stamp = new Intl.DateTimeFormat(undefined,{
     hour:"2-digit", minute:"2-digit"
   }).format(new Date());
 
-  lines.push(officer
-    ? `Checked by ${officer} — ${stamp}`
-    : `Checked — ${stamp}`
+  lines.push(
+    officer
+      ? `Checked by ${officer} — ${stamp}`
+      : `Checked — ${stamp}`
   );
 
   return lines.join("\n");
 }
-``
+
+
 
 /* =========================
    Fetch (JSON-first, XML fallback)
