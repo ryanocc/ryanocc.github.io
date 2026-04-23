@@ -201,7 +201,7 @@
       display: none !important;
     }
     
-/* =======================================================:#fff; }
+
 .shield-broad{ background:#fff; color:#000; box-shadow: inset -1px 0 0 rgba(255,255,255,0.10), inset 0 0 0 3px #000; }
 .shield-unk{ background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.85); }
 
@@ -238,9 +238,6 @@
   background: linear-gradient(90deg,#FFE04A,#ff9a1f,#ff4d4f);
   transition: width 380ms ease;
 }
-``
-   WAZE ALERT SPOTLIGHT (25% badge / 75% info)
-   ======================================================= */
 
 /* =======================================================
    Spotlight card – minimal, premium, distance‑readable
@@ -330,6 +327,12 @@
     inset -1px 0 0 rgba(255,255,255,0.10),
     inset 0 0 0 3px #000;
 }
+
+.shield-tl{
+  background: #28c76f;   /* match your green */
+  color: #000;
+}
+
 .shield-unk{
   background: rgba(255,255,255,0.10);
   color: rgba(255,255,255,0.85);
@@ -825,43 +828,6 @@
       };
     }
 
-    function createHexDivertIcon(map, color = '#FFFFFF') {
-      const size = 128; const targetFps = 8; const frameMs = 1000 / targetFps; let last = 0;
-      return {
-        width: size, height: size, data: new Uint8Array(size * size * 4),
-        onAdd() {
-          const c = document.createElement('canvas');
-          c.width = this.width; c.height = this.height;
-          this.ctx = c.getContext('2d', { willReadFrequently:true, desynchronized:true });
-        },
-        render() {
-          const now = performance.now(); if (now - last < frameMs) return false; last = now;
-          const ctx = this.ctx, w = this.width, h = this.height, cx = w/2, cy = h/2;
-          const dur = 1200; const t = (now % dur) / dur; const glow = 0.85 + Math.sin(t * Math.PI * 2) * 0.15;
-          ctx.clearRect(0,0,w,h);
-          ctx.beginPath(); ctx.arc(cx, cy, (w/2)*0.44, 0, Math.PI*2); ctx.fillStyle='rgba(0,0,0,0.55)';
-          ctx.shadowColor = color; ctx.shadowBlur = 24 * glow; ctx.fill(); ctx.shadowBlur = 0;
-
-          const R = (w/2)*0.34; const rotation = Math.PI/2 + Math.PI;
-          function hexPath(radius) {
-            ctx.beginPath();
-            for (let i = 0; i < 6; i++) {
-              const a = rotation + (i * Math.PI / 3);
-              const x = cx + radius * Math.cos(a);
-              const y = cy + radius * Math.sin(a);
-              if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-            }
-            ctx.closePath();
-          }
-          hexPath(R); ctx.fillStyle = color; ctx.fill();
-          ctx.lineJoin = 'round';
-          ctx.lineWidth = Math.max(2, w * 0.028); ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.stroke();
-          ctx.lineWidth = Math.max(2, w * 0.010); ctx.strokeStyle = 'rgba(0,0,0,0.70)'; hexPath(R * 1.02); ctx.stroke();
-          const img = ctx.getImageData(0,0,w,h); this.data.set(img.data);
-          map.triggerRepaint(); return true;
-        }
-      };
-    }
 
     /* === OCC Highlights support === */
     const HIGHLIGHT_POINTS = [];
@@ -1018,41 +984,86 @@ const heFresh   = lastOkHe   && (now - lastOkHe)   <= thr;
 
     let fetchTimer = null, inFlight = null;
 
-    async function runCycle(){
-      if (inFlight) { try{ inFlight.abort(); }catch(e){} inFlight = null; }
+async function runCycle(){
+  if (inFlight) {
+    try { inFlight.abort(); } catch(e){}
+    inFlight = null;
+  }
 
-      const controller = new AbortController();
-      inFlight = controller;
+  const controller = new AbortController();
+  inFlight = controller;
 
-      try{
-        const data = await fetchJsonViaOccProxy(WAZE_URL, controller.signal);
+  try{
+    const data = await fetchJsonViaOccProxy(WAZE_URL, controller.signal);
 
-        const accidentPoints = alertsToAccidentPoints(data);
-        const icePoints      = alertsToIcePoints(data);
-        const signalPoints   = alertsToSignalFaultPoints(data);
+    // ---------- Parse raw alerts ----------
+    const accidentPoints = alertsToAccidentPoints(data);
+    const icePoints      = alertsToIcePoints(data);
+    const signalPoints   = alertsToSignalFaultPoints(data);
 
-        const clusterFeatures = clusterAccidents(accidentPoints);
-        // cache latest accidents for half‑hour carousel
-latestAccidentFeatures = Array.isArray(clusterFeatures)
-  ? clusterFeatures.slice()
-  : [];
-        const iceFeatures     = clusterGeneric(icePoints, MERGE_METERS);
-        const signalFeatures  = clusterGeneric(signalPoints, MERGE_METERS);
+    // ---------- ACCIDENTS ----------
+    const accidentClusters = clusterAccidents(accidentPoints);
 
-        map.getSource('accidents')?.setData({ type:'FeatureCollection', features: clusterFeatures });
-        map.getSource('waze-ice')?.setData({ type:'FeatureCollection', features: iceFeatures });
-        map.getSource('waze-signal-faults')?.setData({ type:'FeatureCollection', features: signalFeatures });
+    // Cache for half‑hour carousel
+    latestAccidentFeatures = Array.isArray(accidentClusters)
+      ? accidentClusters.slice()
+      : [];
 
-        markHealthOK_Waze();
-        scheduleNext(REFRESH_MS);
-      }catch(e){
-        console.error('Waze fetch failed:', e);
-        markHealthStale_Waze(e?.message || 'request error');
-        scheduleNext(Math.min(REFRESH_MS * 2, 180000));
-      }finally{
-        inFlight = null;
-      }
-    }
+    // ---------- ICE ----------
+    const iceFeatures = clusterGeneric(icePoints, MERGE_METERS);
+
+    // ---------- TRAFFIC LIGHT FAULTS ----------
+    const signalClustersRaw = clusterGeneric(signalPoints, MERGE_METERS);
+
+    // Normalise signal faults so the carousel can use them
+    const signalClusters = (Array.isArray(signalClustersRaw) ? signalClustersRaw : []).map(f => {
+      const count = Number(f?.properties?.count || 1);
+
+      return {
+        ...f,
+        properties: {
+          ...(f.properties || {}),
+          kind: 'signal',
+          street: 'Traffic Light Fault',
+          roadKey: 'TL',
+          effectiveConfidence: Math.max(1, Math.min(5, count)),
+          reportCount: count
+        }
+      };
+    });
+
+    // Cache for half‑hour carousel
+    latestSignalFaultFeatures = signalClusters.slice();
+
+    // ---------- Push to map ----------
+    map.getSource('accidents')?.setData({
+      type:'FeatureCollection',
+      features: accidentClusters
+    });
+
+    map.getSource('waze-ice')?.setData({
+      type:'FeatureCollection',
+      features: iceFeatures
+    });
+
+    map.getSource('waze-signal-faults')?.setData({
+      type:'FeatureCollection',
+      features: signalClusters
+    });
+
+    // ---------- Health + scheduling ----------
+    markHealthOK_Waze();
+    scheduleNext(REFRESH_MS);
+
+  } catch(e){
+    console.error('Waze fetch failed:', e);
+    markHealthStale_Waze(e?.message || 'request error');
+    scheduleNext(Math.min(REFRESH_MS * 2, 180000));
+  } finally {
+    inFlight = null;
+  }
+}
+
     
     function staleThresholdMs(){
   // allow 2 cycles + a little cushion
@@ -1273,248 +1284,9 @@ startAnimationPump();
 
 
 
-      /* =======================================================
-         BODS (SIRI‑SX) → DIVERT CENTROIDS
-         ======================================================= */
-      const BEE_OPERATORS = ["BNML","BNGN","BNSM","BNDB","BNVB","BNFM"];
-      const OP_COLOR_MAP = {
-        BNML:"#ff4d4f",  BNGN:"#003C6E",  BNSM:"#ff9a1f",
-        BNDB:"#9AC331",  BNVB:"#7a3ffe",  BNFM:"#ff66b3"
-      };
-
-      const BODS_URL = `${API_BASE}/api/bods-siri-sx`;
-      const BODS_REFRESH_MS = 45000;
-      const UNPLANNED_ONLY = true;
-
-      const parseISO = s => s ? new Date(s) : null;
-      function isToday(d){ const n=new Date(); return d && d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth() && d.getDate()===n.getDate(); }
-      function isCurrentlyValid(sit){
-        const now=new Date();
-        const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-        const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-        if(!s) return false; if(s > now) return false; if(e && e < now) return false; return true;
-      }
-      function isUnplanned(sit){
-        const p = sit?.Planned;
-        if (typeof p === 'boolean') return p === false;
-        if (typeof p === 'string')  return p.trim().toLowerCase() === 'false';
-        return false;
-      }
-      function isDiversion(sit){
-        const txt = (sit?.Description || sit?.Summary || "").toLowerCase();
-        return /\bdivert(?:ed|ing)?\b|\bdiversion(s)?\b/.test(txt);
-      }
-      function getOperatorRefs(sit){
-        const out = new Set();
-        const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-        const add = v => { if(v) out.add(String(v).toUpperCase()); };
-        if (Array.isArray(avj)){ avj.forEach(j => add(j?.OperatorRef)); }
-        else if (avj){ add(avj?.OperatorRef); }
-        if (Array.isArray(sit.__operatorRefs)){ sit.__operatorRefs.forEach(r => add(r)); }
-        return [...out];
-      }
-      function singleOperatorForTint(sit){
-        const avj = sit?.Affects?.VehicleJourneys?.AffectedVehicleJourney;
-        if (Array.isArray(avj) && avj.length && avj[0]?.OperatorRef) return String(avj[0].OperatorRef).toUpperCase();
-        if (avj?.OperatorRef) return String(avj.OperatorRef).toUpperCase();
-        if (sit?.OperatorRef) return String(sit.OperatorRef).toUpperCase();
-        if (sit?.__operatorRefs?.length) return String(sit.__operatorRefs[0]).toUpperCase();
-        return "";
-      }
-      function inDisplayPool(sit){
-        const s = parseISO(sit?.ValidityPeriod?.StartTime || sit?.StartTime);
-        const e = parseISO(sit?.ValidityPeriod?.EndTime   || sit?.EndTime);
-        const startIsToday = !!(s && isToday(s));
-        const endIsToday   = !!(e && isToday(e));
-        const isUFN        = !e;
-        return startIsToday || endIsToday || isUFN;
-      }
-      function withinGMBounds(lon,lat){
-        const sw = GM_BOUNDS[0], ne = GM_BOUNDS[1];
-        return lon>=sw[0] && lon<=ne[0] && lat>=sw[1] && lat<=ne[1];
-      }
-
-      function extractSituationsFromJSON(json){
-        const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
-        if(!sd) return [];
-        const sed = Array.isArray(sd.SituationExchangeDelivery) ? sd.SituationExchangeDelivery : [sd.SituationExchangeDelivery].filter(Boolean);
-        const out=[];
-        for(const d of sed){
-          const pe = d?.Situations?.PtSituationElement;
-          if(Array.isArray(pe)) out.push(...pe);
-          else if(pe) out.push(pe);
-        }
-        return out;
-      }
-      function extractSituationsFromXML(doc){
-        const els = [...doc.querySelectorAll("PtSituationElement")];
-        return els.map(el=>{
-          const T = s => el.querySelector(s)?.textContent?.trim() || null;
-          const opsRef = [...el.querySelectorAll("AffectedVehicleJourney > OperatorRef, OperatorRef")].map(n=>n.textContent.trim()).filter(Boolean);
-          const stops   = [...el.querySelectorAll("AffectedStopPoint")];
-          return {
-            Summary: T("Summary") || T("Description"),
-            Description: T("Description"),
-            Planned: (T("Planned") || "")?.toLowerCase(),
-            SituationNumber: T("SituationNumber") || T("SituationRef"),
-            ParticipantRef:  T("ParticipantRef"),
-            ValidityPeriod: {
-              StartTime: T("ValidityPeriod > StartTime") || T("StartTime"),
-              EndTime:   T("ValidityPeriod > EndTime")   || T("EndTime"),
-            },
-            Affects: {
-              VehicleJourneys: {},
-              StopPoints: { AffectedStopPoint: stops.map(sEl => {
-                const lon = Number(sEl.querySelector("Location > Longitude")?.textContent);
-                const lat = Number(sEl.querySelector("Location > Latitude")?.textContent);
-                const ref = sEl.querySelector("StopPointRef")?.textContent?.trim() || null;
-                const p = {};
-                if (Number.isFinite(lon) && Number.isFinite(lat)) p.Location = { Longitude:lon, Latitude:lat };
-                if (ref) p.StopPointRef = ref;
-                return p;
-              }) }
-            },
-            __operatorRefs: opsRef
-          };
-        });
-      }
-
-      function getAffectedStops(sit){
-        const points = sit?.Affects?.StopPoints?.AffectedStopPoint;
-        const stops = [];
-        if (Array.isArray(points)){
-          for(const p of points){
-            const lon = Number(p?.Location?.Longitude ?? p?.Longitude);
-            const lat = Number(p?.Location?.Latitude  ?? p?.Latitude);
-            if (Number.isFinite(lon) && Number.isFinite(lat)){
-              if (!GM_BOUNDS || withinGMBounds(lon,lat)){ stops.push({ lon, lat }); }
-            }
-          }
-        }
-        const seen = new Set(); const out=[];
-        for(const s of stops){
-          const k = `${s.lon.toFixed(6)},${s.lat.toFixed(6)}`;
-          if(!seen.has(k)){ seen.add(k); out.push(s); }
-        }
-        return out;
-      }
-
-      function centroidOf(stops){
-        if(!stops.length) return null;
-        const sum = stops.reduce((a,s)=>({ lon:a.lon + s.lon, lat: a.lat + s.lat }), {lon:0, lat:0});
-        return { lon: sum.lon / stops.length, lat: sum.lat / stops.length };
-      }
-
-      function mapSituationToCentroidFeature(sit){
-        const op = (singleOperatorForTint(sit) || getOperatorRefs(sit)[0] || '').toUpperCase();
-        if (!op || !BEE_OPERATORS.includes(op)) return null;
-
-        const stops = getAffectedStops(sit);
-        if (!stops.length) return null;
-        const c = centroidOf(stops);
-        if (!c) return null;
-
-        const id = String(sit?.SituationNumber || sit?.SituationRef || sit?.ParticipantRef || sit?.Summary || Math.random()).slice(0,80);
-        const color = OP_COLOR_MAP[op] || '#cfcfd6';
-        const isUFN = !(sit?.ValidityPeriod?.EndTime || sit?.EndTime);
-
-        return {
-          type: 'Feature',
-          id: `centroid-${id}`,
-          geometry: { type:'Point', coordinates: [c.lon, c.lat] },
-          properties: { id, op, color, isUFN: !!isUFN }
-        };
-      }
-
-      map.addSource('divert-centroids', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
-
-      map.addLayer({
-        id:'divert-centroids-halo',
-        type:'circle',
-        source:'divert-centroids',
-        paint:{
-          'circle-color': ['get','color'],
-          'circle-opacity': 0.30,
-          'circle-blur': 0.5,
-          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 8, 12, 11, 16, 15]
-        }
-      });
-
-      function ensureDivertImages() {
-        function addIfMissing(name, color) {
-          if (!map.hasImage(name)) {
-            map.addImage(name, createHexDivertIcon(map, color), { pixelRatio: 2 });
-          }
-        }
-        addIfMissing('divert-default', '#cfcfd6');
-        Object.entries(OP_COLOR_MAP).forEach(([op, col]) => addIfMissing(`divert-${op}`, col));
-      }
-      ensureDivertImages();
-
-      map.addLayer({
-        id: 'divert-centroids-icon',
-        type: 'symbol',
-        source: 'divert-centroids',
-        layout: {
-          'icon-image': [
-            'match', ['get', 'op'],
-            'BNML', 'divert-BNML',
-            'BNGN', 'divert-BNGN',
-            'BNSM', 'divert-BNSM',
-            'BNDB', 'divert-BNDB',
-            'BNVB', 'divert-BNVB',
-            'BNFM', 'divert-BNFM',
-            'divert-default'
-          ],
-          'icon-size': ['interpolate', ['linear'], ['zoom'], 8,0.83, 12,1.19, 16,1.65],
-          'icon-allow-overlap': true
-        }
-      });
-
-      async function updateDivertCentroidsOnce(){
-        try{
-          const res = await fetch(withCacheBust(BODS_URL), { cache: 'no-store' });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const clone = res.clone();
-          let data, type;
-          try { data = await res.json(); type = 'json'; }
-          catch { const text = await clone.text(); data = new DOMParser().parseFromString(text, 'application/xml'); type = 'xml'; }
-
-          const all = (type === 'json') ? extractSituationsFromJSON(data) : extractSituationsFromXML(data);
-
-          const live = all
-            .filter(s =>
-              getOperatorRefs(s).some(r => BEE_OPERATORS.includes(String(r).toUpperCase())) ||
-              BEE_OPERATORS.includes((singleOperatorForTint(s) || '').toUpperCase())
-            )
-            .filter(isDiversion)
-            .filter(isCurrentlyValid);
-
-          const liveUnplanned = UNPLANNED_ONLY ? live.filter(isUnplanned) : live;
-
-          const display = liveUnplanned
-            .filter(inDisplayPool)
-            .filter(sit => {
-              const e = sit?.ValidityPeriod?.EndTime || sit?.EndTime;
-              return !e;
-            });
-
-          const feats = display
-            .map(mapSituationToCentroidFeature)
-            .filter(f => f?.properties?.isUFN === true);
-
-          map.getSource('divert-centroids')?.setData({ type:'FeatureCollection', features:feats });
-        }catch(e){
-          console.error('[BODS centroids] fetch/update failed:', e);
-        }
-      }
-
-      await runCycle(); scheduleNext(REFRESH_MS);
-      await runHeCycle(); scheduleHeNext(REFRESH_MS);
-      await updateDivertCentroidsOnce();
-      setInterval(updateDivertCentroidsOnce, BODS_REFRESH_MS);
-
-      updateGlobalStatus({animate:false});
+await runCycle(); scheduleNext(REFRESH_MS);
+await runHeCycle(); scheduleHeNext(REFRESH_MS);
+updateGlobalStatus({animate:false});
     });
 
     window.addEventListener('resize', () => { map.resize(); });
@@ -1617,10 +1389,13 @@ startAnimationPump();
    ======================================================= */
 
 let latestAccidentFeatures = [];
+let latestSignalFaultFeatures = [];   // ✅ NEW: cache signal fault features for carousel
+
 let carouselRunning = false;
 let spotlightAnchor = null;
 let carouselRunToken = 0;
-let spotlightAnchorLngLat = null
+let spotlightAnchorLngLat = null;
+
 
 const SPOTLIGHT_MS = 8000;
 const SPOTLIGHT_ZOOM = 15.7;
@@ -1635,9 +1410,11 @@ function escapeHtml(s){
 }
 
 function shieldClass(roadKey){
-  if(/^M\d+/i.test(roadKey)) return 'shield-mway';
-  if(/^A\d+/i.test(roadKey)) return 'shield-aroad';
-  if(/^B\d+/i.test(roadKey)) return 'shield-broad';
+  const rk = String(roadKey || '').toUpperCase();
+  if (rk === 'TL') return 'shield-tl';
+  if(/^M\d+/i.test(rk)) return 'shield-mway';
+  if(/^A\d+/i.test(rk)) return 'shield-aroad';
+  if(/^B\d+/i.test(rk)) return 'shield-broad';
   return 'shield-unk';
 }
 
@@ -1681,7 +1458,7 @@ function hideSpotlight(){
   el.classList.remove('is-visible');
   spotlightAnchorLngLat = null;
 }
-``
+
 
 function positionSpotlight(){
   if(!spotlightAnchorLngLat) return;
@@ -1747,9 +1524,16 @@ const DWELL_MS = 8000;               // your per-alert dwell
 async function startWazeCarousel(reason='timer'){
   if (carouselRunning) return;
 
-  const features = Array.isArray(latestAccidentFeatures) ? latestAccidentFeatures.slice() : [];
-  const list = features.filter(f => f?.geometry?.coordinates?.length >= 2);
-  if (!list.length) return;
+const a = Array.isArray(latestAccidentFeatures) ? latestAccidentFeatures.slice() : [];
+const s = Array.isArray(latestSignalFaultFeatures) ? latestSignalFaultFeatures.slice() : [];
+
+// ✅ Merge + keep only valid points
+const list = [...a, ...s]
+  .filter(f => f?.geometry?.coordinates?.length >= 2)
+  // ✅ optional: newest first (works for both accidents + signals)
+  .sort((x, y) => (Number(y?.properties?.time || 0) - Number(x?.properties?.time || 0)));
+
+if (!list.length) return;
 
   carouselRunning = true;
   const myToken = ++carouselRunToken;
