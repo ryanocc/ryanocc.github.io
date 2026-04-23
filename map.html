@@ -415,6 +415,8 @@
 
     /* ✅ Your backend base URL */
     const API_BASE = 'https://renderexpress-ebb0.onrender.com';
+    
+        const TVT_URL = `${API_BASE}/api/waze/tvt`;
 
     /* Originals kept for readability / mapping */
     const WAZE_URL = 'https://www.waze.com/row-partnerhub-api/partners/11867436614/waze-feeds/4e8ef399-d6b9-4338-9840-7c2beacd235b?format=1';
@@ -504,7 +506,7 @@
 
 // ===== Abnormal traffic overlay (TVT) =====
 const TVT_REFRESH_MS = 5 * 60 * 1000;     // same cadence as your wall screen
-const TVT_MIN_DELAY_MIN = 15;             // highlight >= 15 minutes
+const TVT_MIN_DELAY_MIN = 10;             // highlight >= 15 minutes
 const TVT_SOURCE_ID = 'tvt-abnormal';
 const TVT_LAYER_BASE = 'tvt-abnormal-base';
 const TVT_LAYER_PULSE = 'tvt-abnormal-pulse';
@@ -1436,7 +1438,7 @@ map.addLayer({
 // (does NOT change size, style, or layout)
 // =======================================================
 
-    const TVT_URL = `${API_BASE}/api/waze/tvt`;
+
 
 let tvtOverlayTimer = null;
 let tvtOverlayCtrl = null;
@@ -1481,7 +1483,7 @@ function startTvtPulse(){
   }
   tick();
 }
-``
+
 
 function computeDelayMinFromTvtRoute(r){
   const time = Number(r?.time);
@@ -1537,7 +1539,7 @@ function tvtToAbnormalLineFeatures(tvtData, minDelayMin = 15){
   feats.sort((a,b)=> (Number(b?.properties?.delayMin||0) - Number(a?.properties?.delayMin||0)));
   return feats;
 }
-``
+
 
 function startAnimationPump(){
   let rafId = null;
