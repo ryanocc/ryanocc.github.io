@@ -502,6 +502,14 @@
       return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     }
 
+// ===== Abnormal traffic overlay (TVT) =====
+const TVT_REFRESH_MS = 5 * 60 * 1000;     // same cadence as your wall screen
+const TVT_MIN_DELAY_MIN = 15;             // highlight >= 15 minutes
+const TVT_SOURCE_ID = 'tvt-abnormal';
+const TVT_LAYER_BASE = 'tvt-abnormal-base';
+const TVT_LAYER_PULSE = 'tvt-abnormal-pulse';
+
+
     /* =======================================================
        Road parsing
        ======================================================= */
@@ -894,6 +902,8 @@ isMotorway: c.isMotorway
         }
       }));
     }
+
+
 
     /* =========================
        Animated custom images
@@ -1341,19 +1351,75 @@ latestSignalFaultFeatures = signalClusters.slice();
         }
       });
 
-      map.addSource('waze-ice', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
-      map.addLayer({
-        id: 'waze-ice-dots', type: 'circle', source: 'waze-ice',
-        paint: {
-          'circle-radius': ['interpolate',['linear'],['zoom'], 8, 4.0, 12, 5.5, 16, 7.0],
-          'circle-color': varColor('--blueMedium', '#5bb1ff'),
-          'circle-stroke-color': '#ffffff',
-          'circle-stroke-width': 1.1,
-          'circle-blur': 0.03
-        }
-      });
+// 1️⃣ SOURCE FIRST
+map.addSource('waze-ice', {
+  type: 'geojson',
+  data: { type:'FeatureCollection', features:[] }
+});
+
+// 2️⃣ THEN THE LAYER
+map.addLayer({
+  id: 'waze-ice-snowflake',
+  type: 'symbol',
+  source: 'waze-ice',
+  layout: {
+    'text-field': 'ICE',  // ✅ NOT ❄️
+    'text-font': ['Noto Sans Regular', 'Open Sans Regular'],
+    'text-size': ['interpolate', ['linear'], ['zoom'], 8, 12, 12, 16, 16, 22],
+    'text-allow-overlap': true,
+    'text-ignore-placement': true
+  },
+  paint: {
+    'text-color': '#e7f4ff',          // ✅ explicit
+    'text-halo-color': '#5bb1ff',
+    'text-halo-width': 1.5,
+    'text-halo-blur': 0.8
+  }
+});
+
+      // ===== TVT abnormal traffic overlay source =====
+map.addSource(TVT_SOURCE_ID, {
+  type: 'geojson',
+  data: { type:'FeatureCollection', features:[] }
+});
+
+// Base line (steady)
+map.addLayer({
+  id: TVT_LAYER_BASE,
+  type: 'line',
+  source: TVT_SOURCE_ID,
+  layout: {
+    'line-join': 'round',
+    'line-cap': 'round'
+  },
+  paint: {
+    'line-color': '#ff2e34',
+    'line-width': ['interpolate',['linear'],['zoom'], 8, 2.0, 12, 4.0, 16, 8.0],
+    'line-opacity': 0.35,
+    'line-blur': 0.6
+  }
+});
+
+// Pulse overlay (opacity animated)
+map.addLayer({
+  id: TVT_LAYER_PULSE,
+  type: 'line',
+  source: TVT_SOURCE_ID,
+  layout: {
+    'line-join': 'round',
+    'line-cap': 'round'
+  },
+  paint: {
+    'line-color': '#ff0000',
+    'line-width': ['interpolate',['linear'],['zoom'], 8, 3.0, 12, 6.0, 16, 12.0],
+    'line-opacity': 0.0,
+    'line-blur': 0.9
+  }
+});
+
 
       await addExternalSvgImage(map, 'tl-icon', 'https://ryanocc.github.io/tl.svg');
+    
 
       map.addSource('waze-signal-faults', { type:'geojson', data:{ type:'FeatureCollection', features:[] } });
       map.addLayer({
@@ -1369,6 +1435,109 @@ latestSignalFaultFeatures = signalClusters.slice();
 // Animation pump – keeps animated markers alive
 // (does NOT change size, style, or layout)
 // =======================================================
+
+    const TVT_URL = `${API_BASE}/api/waze/tvt`;
+
+let tvtOverlayTimer = null;
+let tvtOverlayCtrl = null;
+
+async function runTvtOverlayOnce(){
+  if (tvtOverlayCtrl) { try{ tvtOverlayCtrl.abort(); }catch(e){} }
+  tvtOverlayCtrl = new AbortController();
+
+  try{
+    // You already have fetchTVTUsersOnJams; here we need full TVT payload
+    const res = await fetch(withCacheBust(TVT_URL), { cache:'no-store', signal: tvtOverlayCtrl.signal });
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const tvtData = await res.json();
+
+    const feats = tvtToAbnormalLineFeatures(tvtData, TVT_MIN_DELAY_MIN);
+    const fc = { type:'FeatureCollection', features: feats };
+
+    const src = map.getSource(TVT_SOURCE_ID);
+    if (src) src.setData(fc);
+
+  } catch(e){
+    console.warn('[TVT overlay] fetch failed:', e);
+    // If it fails, leave previous overlay (don’t blank it) to avoid flicker
+  } finally {
+    clearTimeout(tvtOverlayTimer);
+    tvtOverlayTimer = setTimeout(runTvtOverlayOnce, TVT_REFRESH_MS);
+  }
+}
+
+// Pulse animation (no carousel; just animates overlay opacity)
+function startTvtPulse(){
+  function tick(){
+    if (!document.hidden && map && map.isStyleLoaded()){
+      // smooth pulse 0.15..0.95
+      const t = performance.now() / 1000;
+      const a = 0.15 + 0.80 * (0.5 + 0.5 * Math.sin(t * Math.PI * 2 * 0.75)); // ~0.75Hz
+      try{
+        map.setPaintProperty(TVT_LAYER_PULSE, 'line-opacity', a);
+      }catch(e){}
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+}
+``
+
+function computeDelayMinFromTvtRoute(r){
+  const time = Number(r?.time);
+  const hist = Number(r?.historicTime);
+  if (!Number.isFinite(time) || !Number.isFinite(hist)) return 0;
+  return Math.max(0, Math.round((time - hist) / 60));
+}
+
+function lineCoordsFromRoute(r){
+  const pts = Array.isArray(r?.line) ? r.line : [];
+  const coords = [];
+  for (const p of pts){
+    const x = Number(p?.x), y = Number(p?.y);
+    if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
+    coords.push([x, y]); // [lon, lat]
+  }
+  if (coords.length >= 2) return coords;
+
+  const bb = r?.bbox;
+  const minX = Number(bb?.minX), maxX = Number(bb?.maxX);
+  const minY = Number(bb?.minY), maxY = Number(bb?.maxY);
+  if ([minX,maxX,minY,maxY].every(Number.isFinite)){
+    return [[minX,minY],[maxX,minY],[maxX,maxY],[minX,maxY],[minX,minY]];
+  }
+  return null;
+}
+
+function tvtToAbnormalLineFeatures(tvtData, minDelayMin = 15){
+  const routes = []
+    .concat(Array.isArray(tvtData?.routes) ? tvtData.routes : [])
+    .concat(Array.isArray(tvtData?.irregularities) ? tvtData.irregularities : []);
+
+  const feats = [];
+  for (const r of routes){
+    const delayMin = computeDelayMinFromTvtRoute(r);
+    if (delayMin < minDelayMin) continue;
+
+    const coords = lineCoordsFromRoute(r);
+    if (!coords) continue;
+
+    const base = String(r?.id ?? r?.name ?? 'route').slice(0,80);
+    const id = `tvt-${base}-${delayMin}-${coords[0][0].toFixed(4)},${coords[0][1].toFixed(4)}`
+      .replace(/[^a-zA-Z0-9_-]/g,'_');
+
+    feats.push({
+      type:'Feature',
+      id,
+      geometry:{ type:'LineString', coordinates: coords },
+      properties:{ id, delayMin, name: String(r?.name || '').trim() }
+    });
+  }
+
+  feats.sort((a,b)=> (Number(b?.properties?.delayMin||0) - Number(a?.properties?.delayMin||0)));
+  return feats;
+}
+``
 
 function startAnimationPump(){
   let rafId = null;
@@ -1399,6 +1568,9 @@ startAnimationPump();
 await runCycle(); scheduleNext(REFRESH_MS);
 await runHeCycle(); scheduleHeNext(REFRESH_MS);
 updateGlobalStatus({animate:false});
+// Start abnormal traffic overlay + pulse
+await runTvtOverlayOnce();
+startTvtPulse();
     });
 
     window.addEventListener('resize', () => { map.resize(); });
@@ -1414,7 +1586,7 @@ updateGlobalStatus({animate:false});
        Bottom row: Network health bar + custom attribution chip
        ======================================================= */
 
-    const TVT_URL = `${API_BASE}/api/waze/tvt`;
+
     const NET_HEALTH_REFRESH_MS = 60 * 1000;
 
     function networkGradientFromUsersOnJams(usersOnJams){
