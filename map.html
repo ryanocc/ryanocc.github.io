@@ -260,7 +260,8 @@
 
 .spotlight-card{
   width: 560px;
-  height: 120px;
+  min-height: 120px;
+  height: auto;
   border-radius: 22px;
   overflow: hidden;
   position: relative;
@@ -329,8 +330,8 @@
 }
 
 .shield-tl{
-  background: #28c76f;   /* match your green */
-  color: #000;
+  background: #ff2e34;   /* ✅ red */
+  color: #fff;
 }
 
 .shield-unk{
@@ -338,25 +339,34 @@
   color: rgba(255,255,255,0.85);
 }
 
-/* RIGHT: stacked info */
 .spotlight-info{
-  padding: 14px 18px 14px 18px;
+  padding: 22px 18px 18px 18px;
+
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
+  justify-content:center;     /* ✅ vertical centering */
+  align-items:center;         /* ✅ horizontal centering */
+
+  text-align:center;          /* ✅ text centered by default */
 }
 
 .spotlight-title{
   margin:0;
-  font-size: 38px;           /* BIG */
+  font-size: 34px;
   font-weight: 950;
-  line-height: 1.02;
+  line-height: 1.1;
   letter-spacing: 0.2px;
   color:#fff;
   text-shadow: 0 2px 14px rgba(0,0,0,0.55);
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
+
+  white-space: normal;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  max-width: 100%;   /* ✅ prevents awkward stretching */
 }
 
 /* confidence bar = calm + segmented */
@@ -506,7 +516,7 @@
 
 // ===== Abnormal traffic overlay (TVT) =====
 const TVT_REFRESH_MS = 5 * 60 * 1000;     // same cadence as your wall screen
-const TVT_MIN_DELAY_MIN = 10;             // highlight >= 15 minutes
+const TVT_MIN_DELAY_MIN = 15;             // highlight >= 15 minutes
 const TVT_SOURCE_ID = 'tvt-abnormal';
 const TVT_LAYER_BASE = 'tvt-abnormal-base';
 const TVT_LAYER_PULSE = 'tvt-abnormal-pulse';
@@ -1454,6 +1464,7 @@ async function runTvtOverlayOnce(){
     const tvtData = await res.json();
 
     const feats = tvtToAbnormalLineFeatures(tvtData, TVT_MIN_DELAY_MIN);
+    latestTvtFeatures = tvtToCarouselPoints(tvtData, TVT_MIN_DELAY_MIN);
     const fc = { type:'FeatureCollection', features: feats };
 
     const src = map.getSource(TVT_SOURCE_ID);
@@ -1540,6 +1551,66 @@ function tvtToAbnormalLineFeatures(tvtData, minDelayMin = 15){
   return feats;
 }
 
+function tvtToCarouselPoints(tvtData, minDelayMin = 15){
+  const routes = []
+    .concat(Array.isArray(tvtData?.routes) ? tvtData.routes : [])
+    .concat(Array.isArray(tvtData?.irregularities) ? tvtData.irregularities : []);
+
+  const features = [];
+
+  for (const r of routes){
+    const delayMin = computeDelayMinFromTvtRoute(r);
+    if (delayMin < minDelayMin) continue;
+
+    const coords = lineCoordsFromRoute(r);
+    if (!coords || coords.length < 2) continue;
+
+    // ✅ calculate bounding box (NOW in correct place)
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+
+    coords.forEach(c => {
+      minX = Math.min(minX, c[0]);
+      minY = Math.min(minY, c[1]);
+      maxX = Math.max(maxX, c[0]);
+      maxY = Math.max(maxY, c[1]);
+    });
+
+    const bbox = [[minX, minY], [maxX, maxY]];
+
+    // midpoint for camera focus
+    const midIndex = Math.floor(coords.length / 2);
+    const mid = coords[midIndex];
+
+    const name = String(r?.name || 'Traffic delay').trim();
+
+    const id = `tvt-spot-${name}-${delayMin}-${mid[0].toFixed(4)}`
+      .replace(/[^a-zA-Z0-9_-]/g,'_');
+
+    features.push({
+      type: 'Feature',
+      id,
+      geometry: { type: 'Point', coordinates: mid },
+      properties: {
+        id,
+        kind: 'tvt',
+        street: name,
+        city: '',
+        roadKey: '',
+        isMotorway: false,
+        junction: '',
+        effectiveConfidence: Math.min(5, Math.max(2, Math.round(delayMin / 10))),
+        delayMin,
+        time: Date.now(),
+        bbox: bbox   // ✅ FIXED (comma + proper key:value)
+      }
+    });
+  }
+
+  features.sort((a,b) => b.properties.delayMin - a.properties.delayMin);
+
+  return features;
+}
+``
 
 function startAnimationPump(){
   let rafId = null;
@@ -1676,6 +1747,7 @@ startTvtPulse();
 
 let latestAccidentFeatures = [];
 let latestSignalFaultFeatures = [];   // ✅ NEW: cache signal fault features for carousel
+let latestTvtFeatures = [];
 
 let carouselRunning = false;
 let spotlightAnchor = null;
@@ -1738,7 +1810,9 @@ function renderSpotlight(feature){
   const el = document.getElementById('alertSpotlight');
   if(!el) return;
 
-  const roadKey  = String(p.roadKey || '').toUpperCase();
+const isTVT = p.kind === 'tvt';
+
+const roadKey  = isTVT ? 'DELAY' : String(p.roadKey || '').toUpperCase();
   const junction = String(p.junction || '').toUpperCase(); // e.g. J12A
   const city     = String(p.city || '').trim();
 
@@ -1759,27 +1833,35 @@ function renderSpotlight(feature){
   if (junction) suffix.push(junction);
   if (city) suffix.push(city);
 
-  const title = suffix.length ? `${titleClean} • ${suffix.join(' • ')}` : titleClean;
+let title = suffix.length ? `${titleClean} • ${suffix.join(' • ')}` : titleClean;
+
+if (isTVT){
+  title = titleClean;
+}
 
   const conf = Math.max(1, Math.min(5, Number(p.effectiveConfidence || 1)));
   const confPct = (conf / 5) * 100;
 
   // Badge text: roadKey if we have it, otherwise a dash (don’t force TL)
-  const badgeText = roadKey || '—';
+let badgeText;
+
+if (isTVT){
+  badgeText = `+${p.delayMin}m`;
+} else {
+  badgeText = roadKey || '—';
+}
 
   el.innerHTML = `
     <div class="spotlight-card">
       <div class="spotlight-arrow"></div>
 
-      <div class="spotlight-badge ${shieldClass(roadKey)}">
+<div class="spotlight-badge ${isTVT ? 'shield-tl' : shieldClass(roadKey)}">
         ${escapeHtml(badgeText)}
       </div>
 
       <div class="spotlight-info">
         <p class="spotlight-title">${escapeHtml(title)}</p>
-        <div class="confidence-track" aria-label="Confidence">
-          <div class="confidence-fill" style="width:${confPct}%"></div>
-        </div>
+
       </div>
     </div>
   `;
@@ -1864,13 +1946,12 @@ async function startWazeCarousel(reason='timer'){
 
 const a = Array.isArray(latestAccidentFeatures) ? latestAccidentFeatures.slice() : [];
 const s = Array.isArray(latestSignalFaultFeatures) ? latestSignalFaultFeatures.slice() : [];
+const t = Array.isArray(latestTvtFeatures) ? latestTvtFeatures.slice() : [];
 
-// ✅ Merge + keep only valid points
-const list = [...a, ...s]
+const list = [...a, ...s, ...t]
   .filter(f => f?.geometry?.coordinates?.length >= 2)
-  // ✅ optional: newest first (works for both accidents + signals)
   .sort((x, y) => (Number(y?.properties?.time || 0) - Number(x?.properties?.time || 0)));
-
+  
 if (!list.length) return;
 
   carouselRunning = true;
@@ -1895,29 +1976,44 @@ if (!list.length) return;
       if (document.hidden) break;
 
       const f = list[i];
-      const target = f.geometry.coordinates.slice(0,2);
+const isTVT = f.properties?.kind === 'tvt';
+const target = f.geometry.coordinates.slice(0,2);
 
-      // (1) GM-wide pan to the marker (no zoom change)
-      map.easeTo({
-        center: target,
-        zoom: GM_ZOOM,
-        duration: PAN_MS,
-        essential: true,
-        easing: smooth
-      });
-      await waitForMoveEnd();
+if (isTVT && f.properties?.bbox){
+  map.fitBounds(f.properties.bbox, {
+    padding: 80,
+    duration: PAN_MS,
+    essential: true
+  });
+} else {
+  map.easeTo({
+    center: target,
+    zoom: GM_ZOOM,
+    duration: PAN_MS,
+    essential: true,
+    easing: smooth
+  });
+}
+await waitForMoveEnd();
 
       if (carouselRunToken !== myToken) break;
 
-      // (2) Zoom into it (stays centred)
-      map.easeTo({
-        center: target,
-        zoom: FOCUS_ZOOM,
-        duration: ZOOM_IN_MS,
-        essential: true,
-        easing: smooth
-      });
-      await waitForMoveEnd();
+if (isTVT && f.properties?.bbox){
+  map.fitBounds(f.properties.bbox, {
+    padding: 120,
+    duration: ZOOM_IN_MS,
+    essential: true
+  });
+} else {
+  map.easeTo({
+    center: target,
+    zoom: FOCUS_ZOOM,
+    duration: ZOOM_IN_MS,
+    essential: true,
+    easing: smooth
+  });
+}
+await waitForMoveEnd();
 
       if (carouselRunToken !== myToken) break;
 
