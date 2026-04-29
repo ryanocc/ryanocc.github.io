@@ -417,6 +417,47 @@
     }
 
 /* =========================================================
+   ✅ SERVICE ERROR BLACKOUT OVERLAY
+   - Covers EVERYTHING (header, status pill, grid, map)
+   - Centre Bee logo
+   - Tiny hours-since-last-good-fetch (top-right)
+========================================================= */
+#serviceErrorOverlay{
+  position: fixed;
+  inset: 0;
+  z-index: 999999;          /* higher than everything else */
+  background: #000;
+  display: none;            /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+#serviceErrorOverlay.show{
+  display: flex;
+}
+
+#serviceErrorOverlay .seoLogo{
+  width: min(22vw, 260px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,0.55));
+  opacity: 0.98;
+}
+
+#serviceErrorOverlay .seoTopRight{
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 12px;          /* very small */
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: rgba(255,255,255,0.68);
+  font-family: "IBM Plex Sans Condensed","Barlow Semi Condensed",system-ui,sans-serif;
+  user-select: none;
+}
+
+/* =========================================================
    ✅ FULLSCREEN OVERLAY ALERT (BEE NETWORK / TFGM STYLE)
 ========================================================= */
 
@@ -976,6 +1017,18 @@
 
   <div id="pageProgress" aria-hidden="true"></div>
 
+<!-- ✅ SERVICE ERROR BLACKOUT OVERLAY -->
+<div id="serviceErrorOverlay" aria-live="assertive" aria-atomic="true" role="alert">
+  <div class="seoTopRight" id="serviceErrorHours">—</div>
+  <img
+    class="seoLogo"
+    src="https://tfgm.com/static/android-chrome-192x192.png"
+    alt="Bee Network"
+    width="220"
+    height="220"
+    decoding="async"
+  >
+</div>
 
 <!-- ✅ FULLSCREEN OVERLAY DOM -->
 <div id="ufnOverlay" aria-live="assertive" aria-atomic="true" role="alert">
@@ -1145,6 +1198,54 @@ let lastOkLabel = "";
 let staleActive = false;
 let hourlyTimer = null;
 let staleWatchTimer = null;
+
+/* ===========================
+   ✅ SERVICE ERROR BLACKOUT LOGIC
+   - Trigger if feed body contains the service error text
+   - Track last GOOD fetch timestamp (without the error text)
+   - Show hours since last good fetch in tiny top-right text
+=========================== */
+const SERVICE_ERROR_TEXT = "Sorry, there is a problem with the service";
+
+let lastGoodFetchAt = null;       // timestamp (ms) of last fetch WITHOUT error text
+let serviceOverlayTimer = null;
+
+function formatHoursSince(ts){
+  if (!ts) return "—";
+  const hrs = (Date.now() - ts) / 3600000;
+  if (!isFinite(hrs) || hrs < 0) return "—";
+  // show a stable small value: 2dp under 10h, 1dp otherwise
+  return (hrs < 10 ? hrs.toFixed(2) : hrs.toFixed(1)) + "h";
+}
+
+function updateServiceOverlayHours(){
+  const el = document.getElementById("serviceErrorHours");
+  if (!el) return;
+  el.textContent = formatHoursSince(lastGoodFetchAt);
+}
+
+function showServiceErrorOverlay(){
+  const ov = document.getElementById("serviceErrorOverlay");
+  if (!ov) return;
+
+  ov.classList.add("show");
+  updateServiceOverlayHours();
+
+  if (serviceOverlayTimer) clearInterval(serviceOverlayTimer);
+  serviceOverlayTimer = setInterval(updateServiceOverlayHours, 1000);
+
+  // Optional: also mark status as stale underneath (overlay covers it anyway)
+  try { setStatusPill(false); } catch {}
+}
+
+function hideServiceErrorOverlay(){
+  const ov = document.getElementById("serviceErrorOverlay");
+  if (!ov) return;
+
+  ov.classList.remove("show");
+  if (serviceOverlayTimer) clearInterval(serviceOverlayTimer);
+  serviceOverlayTimer = null;
+}
 
 function nowHHMMSS(){
   return new Intl.DateTimeFormat(undefined,{hour:"2-digit",minute:"2-digit",second:"2-digit"}).format(new Date());
@@ -2326,14 +2427,29 @@ async function fetchAll(){
     });
     if(!res.ok) throw new Error(`HTTP ${res.status}`);
 
-    let parsed;
-    const clone = res.clone();
-    try{
-      parsed = { type:"json", data: await res.json() };
-    }catch{
-      const txt = await clone.text();
-      parsed = { type:"xml", data: (new DOMParser()).parseFromString(txt, "application/xml") };
-    }
+// ✅ Read a text probe FIRST so we can detect service-down responses
+const probeText = await res.clone().text();
+
+// If the upstream service is returning its generic failure page/message:
+if (probeText && probeText.includes(SERVICE_ERROR_TEXT)){
+  showServiceErrorOverlay();
+  // Do not update UI/pages; keep last known display under the blackout
+  return;
+}
+
+// If we got here, it is NOT the known service error text.
+// Mark this as a "good fetch" moment (even if content later fails to parse)
+lastGoodFetchAt = Date.now();
+hideServiceErrorOverlay();
+
+let parsed;
+try{
+  // try JSON from the original response stream
+  parsed = { type:"json", data: await res.json() };
+}catch{
+  // fallback: parse the probe text as XML (since we already have it)
+  parsed = { type:"xml", data: (new DOMParser()).parseFromString(probeText, "application/xml") };
+}
 
     const extractSituationsFromJSON = (json) => {
       const sd = json?.ServiceDelivery || json?.Siri?.ServiceDelivery || json?.SIRI?.ServiceDelivery || json;
