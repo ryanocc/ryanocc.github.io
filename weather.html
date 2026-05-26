@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GM Weather Wallboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0b0f14;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 320px;
+    height: 100vh;
+}
+
+/* ===== TOP ROW ===== */
+.top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 16px;
+}
+
+/* ===== CARD (shared for ALL top sections) ===== */
+.card {
+    background: #161b22;
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   /* ✅ centres horizontally */
+    text-align: center;    /* ✅ centres text */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+
+/* ===== CURRENT ===== */
+.now-icon { font-size: 120px; }
+.now-temp { font-size: 110px; font-weight: bold; line-height: 1; }
+.now-feels { font-size: 28px; opacity: 0.8; }
+.now-label { font-size: 24px; margin-top: 6px; }
+
+/* ===== SUMMARY ===== */
+.summary {
+    text-align: center;
+    align-items: center;
+}
+
+.summary-text {
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+/* ===== HOURLY (UNCHANGED) ===== */
+.hourly-wrapper {
+    padding: 0 16px 16px 16px;
+}
+
+.hourly {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.hour-card {
+    background: #161b22;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hour-time { font-size: 42px; font-weight: bold; }
+.hour-icon { font-size: 48px; }
+.hour-temp { font-size: 40px; }
+
+/* ===== ALERT STATES ===== */
+.hot {
+    box-shadow: 0 0 25px rgba(255,0,0,0.6);
+}
+
+.rain {
+    border-left: 8px solid #00bfff;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(255,0,0,0.3); }
+    50% { box-shadow: 0 0 35px rgba(255,0,0,0.8); }
+    100% { box-shadow: 0 0 15px rgba(255,0,0,0.3); }
+}
+
+.hot { animation: pulse 2s infinite; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="top-row">
+
+    <div id="now" class="card"></div>
+
+    <div id="tomorrow" class="card tomorrow"></div>
+
+    <div id="summary" class="card summary"></div>
+
+</div>
+
+    <!-- HOURLY -->
+    <div class="hourly-wrapper">
+        <div id="hourly" class="hourly"></div>
+    </div>
+
+</div>
+
+<script>
+const lat = 53.4808;
+const lon = -2.2426;
+
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}
+&current=temperature_2m,apparent_temperature,precipitation,weathercode
+&hourly=temperature_2m,precipitation,weathercode
+&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode
+&timezone=Europe/London`;
+
+fetch(url)
+.then(res => res.json())
+.then(data => {
+
+    const icons = {
+        0:"☀️",1:"🌤",2:"⛅",3:"☁️",
+        51:"🌦",61:"🌧",63:"🌧",65:"⛈",
+        80:"🌧",95:"⛈"
+    };
+
+    let c = data.current;
+    let h = data.hourly;
+    let d = data.daily;
+
+    let nowTime = new Date();
+    let start = h.time.findIndex(t => new Date(t) >= nowTime);
+
+    // TREND
+    let avg = h.temperature_2m.slice(start,start+6)
+        .reduce((a,b)=>a+b,0)/6;
+
+    let trendSymbol="→", trendText="steady";
+    if(avg > c.temperature_2m+1){trendSymbol="↑";trendText="rising";}
+    if(avg < c.temperature_2m-1){trendSymbol="↓";trendText="falling";}
+
+
+// ===== CURRENT =====
+let nowClass="card";
+if(c.temperature_2m>=24) nowClass+=" hot";
+if(c.precipitation>0) nowClass+=" rain";
+
+document.getElementById("now").className=nowClass;
+
+document.getElementById("now").innerHTML=`
+    <div class="now-icon">${icons[c.weathercode]||"❓"}</div>
+    <div class="now-temp">${Math.round(c.temperature_2m)}° ${trendSymbol}</div>
+    <div class="now-feels">Feels ${Math.round(c.apparent_temperature)}°</div>
+    <div class="now-label">${trendText}</div>
+`;
+
+
+// ===== SUMMARY (FINAL VERSION) =====
+let parts = [];
+
+let temp = c.temperature_2m;
+
+if (temp >= 24) parts.push("HOT");
+else if (temp >= 20) parts.push("WARM");
+else if (temp >= 14) parts.push("MILD");
+else if (temp >= 10) parts.push("COOL");
+else if (temp >= 5) parts.push("COLD");
+else parts.push("FREEZING");
+
+// TREND (WARMING / COOLING / STABLE)
+let trendWord = "STABLE";
+
+if (avg > c.temperature_2m + 1) {
+    trendWord = "WARMING";
+} else if (avg < c.temperature_2m - 1) {
+    trendWord = "COOLING";
+}
+
+parts.push(trendWord);
+
+// PRECIP (ALWAYS INCLUDED)
+let precipIndex = h.precipitation.findIndex((p,i)=>i>start && p>0);
+
+if (precipIndex !== -1 && (precipIndex - start) <= 6) {
+    let hours = precipIndex - start;
+
+    if (hours <= 1) {
+        parts.push("PRECIP <1H");
+    } else {
+        parts.push(`PRECIP ${hours}H`);
+    }
+} else {
+    parts.push("DRY");
+}
+
+// OUTPUT
+document.getElementById("summary").innerHTML = `
+    <div class="summary-text">${parts.join(" • ")}</div>
+`;
+
+    // HOURLY
+    let hourlyHTML="";
+    for(let i=start;i<start+4;i++){
+        let temp=h.temperature_2m[i];
+        let cls="hour-card";
+        if(temp>=24) cls+=" hot";
+        if(h.precipitation[i]>0) cls+=" rain";
+
+        hourlyHTML+=`
+            <div class="${cls}">
+                <div class="hour-time">${h.time[i].substring(11,16)}</div>
+                <div class="hour-icon">${icons[h.weathercode[i]]||"❓"}</div>
+                <div class="hour-temp">${Math.round(temp)}°</div>
+            </div>
+        `;
+    }
+    document.getElementById("hourly").innerHTML=hourlyHTML;
+
+
+// ===== TOMORROW (MATCHED STRUCTURE) =====
+let tClass="card";
+if(d.temperature_2m_max[1]>=24) tClass+=" hot";
+if(d.precipitation_sum[1]>0) tClass+=" rain";
+
+document.getElementById("tomorrow").className=tClass;
+
+document.getElementById("tomorrow").innerHTML=`
+    <div class="now-icon">${icons[d.weathercode[1]]||"❓"}</div>
+    <div class="now-temp">${Math.round(d.temperature_2m_max[1])}°</div>
+    <div class="now-feels">Min ${Math.round(d.temperature_2m_min[1])}°</div>
+    <div class="now-label">Tomorrow</div>
+`;
+
+});
+</script>
+
+</body>
+</html>
