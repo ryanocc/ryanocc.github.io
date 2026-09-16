@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Radio Logger</title>
-
 <style>
     :root {
         --yellow: #ffdd00;
@@ -20,9 +18,7 @@
         --red: #ff5a5a;
     }
 
-    * {
-        box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html,
     body {
@@ -40,13 +36,9 @@
 
     button,
     input,
-    textarea {
-        font: inherit;
-    }
+    textarea { font: inherit; }
 
-    button {
-        touch-action: manipulation;
-    }
+    button { touch-action: manipulation; }
 
     .app {
         width: 100%;
@@ -62,8 +54,6 @@
         min-height: 44px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 12px;
         padding: 7px 12px;
         background: var(--yellow);
         color: var(--black);
@@ -76,12 +66,6 @@
         font-weight: 850;
         line-height: 1;
         letter-spacing: -0.5px;
-    }
-
-    .header-subtitle {
-        font-size: 12px;
-        font-weight: 750;
-        text-align: right;
     }
 
     .panel {
@@ -122,6 +106,14 @@
         letter-spacing: 0.45px;
     }
 
+    .optional-label {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 750;
+        text-transform: uppercase;
+    }
+
     .call-sign-layout {
         display: grid;
         grid-template-columns: 1fr 2.7fr;
@@ -133,17 +125,9 @@
         gap: 4px;
     }
 
-    .letter-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-
-    .number-grid {
-        grid-template-columns: repeat(17, minmax(0, 1fr));
-    }
-
-    .location-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
+    .letter-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .number-grid { grid-template-columns: repeat(17, minmax(0, 1fr)); }
+    .location-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 
     .choice-button {
         min-width: 0;
@@ -176,9 +160,7 @@
         box-shadow: inset 0 0 0 1px var(--black);
     }
 
-    .letter-button {
-        font-size: clamp(11px, 0.8vw, 14px);
-    }
+    .letter-button { font-size: clamp(11px, 0.8vw, 14px); }
 
     .number-button {
         min-height: 29px;
@@ -211,9 +193,7 @@
         margin-top: 5px;
     }
 
-    .other-location-row.visible {
-        display: grid;
-    }
+    .other-location-row.visible { display: grid; }
 
     .other-label {
         color: var(--yellow);
@@ -225,10 +205,11 @@
         min-height: 0;
         display: grid;
         grid-template-columns:
-            minmax(110px, 0.38fr)
-            minmax(140px, 0.48fr)
-            minmax(240px, 1.2fr)
-            minmax(290px, 1.5fr);
+            minmax(95px, 0.33fr)
+            minmax(125px, 0.43fr)
+            minmax(245px, 0.95fr)
+            minmax(245px, 1.15fr)
+            minmax(275px, 1.3fr);
         gap: 7px;
     }
 
@@ -272,15 +253,42 @@
     }
 
     .text-input::placeholder,
-    .message-input::placeholder {
-        color: #858585;
-    }
+    .message-input::placeholder { color: #858585; }
 
     .input-help {
         margin-top: 5px;
         color: var(--muted);
         font-size: 10px;
         line-height: 1.2;
+    }
+
+    .response-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+    }
+
+    .response-service {
+        grid-column: 1 / -1;
+        color: var(--white);
+        font-size: 11px;
+        font-weight: 850;
+        text-align: center;
+        margin-top: 2px;
+    }
+
+    .response-button {
+        min-height: 29px;
+        padding: 4px;
+        font-size: 11px;
+    }
+
+    .site-button {
+        grid-column: 1 / -1;
+        min-height: 34px;
+        margin-top: 3px;
+        color: var(--yellow);
+        border-color: var(--yellow);
     }
 
     .output-box {
@@ -351,18 +359,14 @@
         color: var(--black);
     }
 
-    .copy-button:hover {
-        background: var(--yellow-hover);
-    }
+    .copy-button:hover { background: var(--yellow-hover); }
 
     .copy-clear-button {
         background: var(--black);
         color: var(--yellow);
     }
 
-    .copy-clear-button:hover {
-        background: #282828;
-    }
+    .copy-clear-button:hover { background: #282828; }
 
     .reset-button {
         border-color: #666666;
@@ -370,71 +374,29 @@
         color: var(--white);
     }
 
-    .reset-button:hover {
-        border-color: var(--white);
-    }
+    .reset-button:hover { border-color: var(--white); }
 
     @media (max-height: 760px) {
-        .app {
-            gap: 5px;
-            padding: 5px;
-        }
-
-        .header {
-            min-height: 38px;
-            padding: 5px 9px;
-        }
-
-        .panel {
-            padding: 5px;
-        }
-
-        .section-header {
-            margin-bottom: 4px;
-        }
-
-        .section-number {
-            width: 20px;
-            height: 20px;
-            font-size: 10px;
-        }
-
-        .section-title {
-            font-size: 12px;
-        }
-
-        .choice-button {
-            min-height: 25px;
-        }
-
-        .number-button {
-            min-height: 24px;
-        }
-
-        .location-button {
-            min-height: 31px;
-            padding: 2px 4px;
-        }
-
-        .text-input {
-            height: 32px;
-        }
-
+        .app { gap: 5px; padding: 5px; }
+        .header { min-height: 38px; padding: 5px 9px; }
+        .panel { padding: 5px; }
+        .section-header { margin-bottom: 4px; }
+        .section-number { width: 20px; height: 20px; font-size: 10px; }
+        .section-title { font-size: 12px; }
+        .choice-button { min-height: 25px; }
+        .number-button { min-height: 24px; }
+        .location-button { min-height: 31px; padding: 2px 4px; }
+        .text-input { height: 32px; }
         .message-input,
-        .output-box {
-            min-height: 42px;
-        }
-
-        .action-button {
-            min-height: 32px;
-        }
+        .output-box { min-height: 42px; }
+        .response-button { min-height: 24px; }
+        .site-button { min-height: 28px; }
+        .action-button { min-height: 32px; }
     }
 
-    @media (max-width: 1050px) {
+    @media (max-width: 1150px) {
         html,
-        body {
-            overflow: auto;
-        }
+        body { overflow: auto; }
 
         .app {
             height: auto;
@@ -442,95 +404,43 @@
             overflow: visible;
         }
 
-        .location-grid {
+        .location-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .location-button { min-height: 34px; }
+        .number-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+        .details-grid {
             grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
-        .location-button {
-            min-height: 34px;
-        }
-
-        .number-grid {
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-        }
-
-        .details-grid {
-            grid-template-columns:
-                minmax(110px, 0.4fr)
-                minmax(140px, 0.5fr)
-                minmax(260px, 1fr);
-        }
-
-        .details-grid .panel:last-child {
-            grid-column: 1 / -1;
-        }
+        .details-grid .panel:nth-child(4),
+        .details-grid .panel:nth-child(5) { grid-column: span 2; }
     }
 
     @media (max-width: 700px) {
-        .header-subtitle {
-            display: none;
-        }
-
-        .call-sign-layout {
-            grid-template-columns: 1fr;
-        }
-
-        .letter-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        .number-grid {
-            grid-template-columns: repeat(7, minmax(0, 1fr));
-        }
-
-        .location-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .details-grid {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .details-grid .panel:nth-child(3),
-        .details-grid .panel:nth-child(4) {
-            grid-column: 1 / -1;
-        }
-
-        .footer-actions {
-            grid-template-columns: 1fr;
-        }
-
-        .status {
-            min-height: 38px;
-        }
+        .call-sign-layout { grid-template-columns: 1fr; }
+        .letter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .number-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+        .location-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .details-grid { grid-template-columns: 1fr 1fr; }
+        .details-grid .panel:nth-child(n+3) { grid-column: 1 / -1; }
+        .footer-actions { grid-template-columns: 1fr; }
+        .status { min-height: 38px; }
     }
 </style>
 </head>
-
 <body>
-
 <main class="app">
-
     <header class="header">
         <h1 class="header-title">Radio Logger</h1>
-
-        <div class="header-subtitle">
-            SELECT CALLSIGN • LOCATION • ENTER MESSAGE • COPY
-        </div>
     </header>
 
     <section class="call-sign-layout">
-
         <div class="panel">
             <div class="section-header">
                 <span class="section-number">1</span>
                 <h2 class="section-title">Radio callsign</h2>
             </div>
-
-            <div
-                id="letterButtons"
-                class="button-grid letter-grid"
-            ></div>
+            <div id="letterButtons" class="button-grid letter-grid"></div>
         </div>
 
         <div class="panel">
@@ -538,67 +448,33 @@
                 <span class="section-number">2</span>
                 <h2 class="section-title">Callsign number</h2>
             </div>
-
-            <div
-                id="numberButtons"
-                class="button-grid number-grid"
-            ></div>
+            <div id="numberButtons" class="button-grid number-grid"></div>
         </div>
-
     </section>
 
     <section class="panel location-panel">
         <div class="section-header">
             <span class="section-number">3</span>
             <h2 class="section-title">Location</h2>
+            <span class="optional-label">Optional</span>
         </div>
 
-        <div
-            id="locationButtons"
-            class="button-grid location-grid"
-        ></div>
+        <div id="locationButtons" class="button-grid location-grid"></div>
 
-        <div
-            id="otherLocationRow"
-            class="other-location-row"
-        >
-            <label
-                class="other-label"
-                for="otherLocationInput"
-            >
-                OTHER LOCATION
-            </label>
-
-            <input
-                id="otherLocationInput"
-                class="text-input"
-                type="text"
-                autocomplete="off"
-                placeholder="Type the location"
-            >
+        <div id="otherLocationRow" class="other-location-row">
+            <label class="other-label" for="otherLocationInput">OTHER LOCATION</label>
+            <input id="otherLocationInput" class="text-input" type="text" autocomplete="off" placeholder="Type the location">
         </div>
     </section>
 
     <section class="details-grid">
-
         <div class="panel">
             <div class="section-header">
                 <span class="section-number">4</span>
                 <h2 class="section-title">Stand</h2>
             </div>
-
-            <input
-                id="standInput"
-                class="text-input"
-                type="text"
-                maxlength="2"
-                autocomplete="off"
-                placeholder="A, B, CZ..."
-            >
-
-            <div class="input-help">
-                Optional. Maximum two letters.
-            </div>
+            <input id="standInput" class="text-input" type="text" maxlength="2" autocomplete="off" placeholder="A, B, CZ...">
+            <div class="input-help">Optional. Maximum two letters.</div>
         </div>
 
         <div class="panel">
@@ -606,85 +482,53 @@
                 <span class="section-number">5</span>
                 <h2 class="section-title">Fleet number</h2>
             </div>
-
-            <input
-                id="fleetInput"
-                class="text-input"
-                type="text"
-                inputmode="numeric"
-                maxlength="10"
-                autocomplete="off"
-                placeholder="e.g. 37123"
-            >
-
-            <div class="input-help">
-                Optional bus fleet number.
-            </div>
+            <input id="fleetInput" class="text-input" type="text" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="e.g. 37123">
+            <div class="input-help">Optional bus fleet number.</div>
         </div>
 
         <div class="panel">
             <div class="section-header">
                 <span class="section-number">6</span>
-                <h2 class="section-title">Message received</h2>
+                <h2 class="section-title">Response</h2>
+                <span class="optional-label">Optional</span>
             </div>
 
-            <textarea
-                id="messageInput"
-                class="message-input"
-                spellcheck="true"
-                placeholder="Type the radio message received..."
-            ></textarea>
+            <div class="response-grid">
+                <div class="response-service">NWAS</div>
+                <button class="choice-button response-button" type="button" data-service="NWAS" data-status="CALLED">CALLED</button>
+                <button class="choice-button response-button" type="button" data-service="NWAS" data-status="ON SITE">ON SITE</button>
+
+                <div class="response-service">GMP</div>
+                <button class="choice-button response-button" type="button" data-service="GMP" data-status="CALLED">CALLED</button>
+                <button class="choice-button response-button" type="button" data-service="GMP" data-status="ON SITE">ON SITE</button>
+
+                <button id="siteCoordinatorButton" class="choice-button response-button site-button" type="button">SITE CO-ORDINATOR AWARE</button>
+            </div>
         </div>
 
         <div class="panel">
             <div class="section-header">
                 <span class="section-number">7</span>
-                <h2 class="section-title">IMS output</h2>
+                <h2 class="section-title">Message received</h2>
             </div>
-
-            <div
-                id="outputBox"
-                class="output-box"
-                aria-live="polite"
-            ></div>
+            <textarea id="messageInput" class="message-input" spellcheck="true" placeholder="Type the radio message received..."></textarea>
         </div>
 
+        <div class="panel">
+            <div class="section-header">
+                <span class="section-number">8</span>
+                <h2 class="section-title">IMS output</h2>
+            </div>
+            <div id="outputBox" class="output-box" aria-live="polite"></div>
+        </div>
     </section>
 
     <footer class="footer-actions">
-        <div
-            id="statusBox"
-            class="status"
-            aria-live="polite"
-        >
-            Select a callsign, number and location.
-        </div>
-
-        <button
-            id="copyButton"
-            class="action-button copy-button"
-            type="button"
-        >
-            COPY LOG
-        </button>
-
-        <button
-            id="copyClearButton"
-            class="action-button copy-clear-button"
-            type="button"
-        >
-            COPY &amp; CLEAR
-        </button>
-
-        <button
-            id="resetButton"
-            class="action-button reset-button"
-            type="button"
-        >
-            CLEAR
-        </button>
+        <div id="statusBox" class="status" aria-live="polite">Select a callsign and enter a message.</div>
+        <button id="copyButton" class="action-button copy-button" type="button">COPY LOG</button>
+        <button id="copyClearButton" class="action-button copy-clear-button" type="button">COPY &amp; CLEAR</button>
+        <button id="resetButton" class="action-button reset-button" type="button">CLEAR</button>
     </footer>
-
 </main>
 
 <script>
@@ -718,7 +562,6 @@
         "Radcliffe Bus Station",
         "Rochdale Interchange",
         "Shudehill Interchange",
-        "Southern Cemetery Bus Station",
         "Stalybridge Bus Station",
         "Stockport Interchange",
         "The Trafford Centre Bus Station",
@@ -730,51 +573,28 @@
     let selectedLetterCode = "";
     let selectedCallsignNumber = "";
     let selectedLocation = "";
+    const responseSelections = { NWAS: "", GMP: "" };
+    let siteCoordinatorAware = false;
 
-    const letterButtonsContainer =
-        document.getElementById("letterButtons");
-
-    const numberButtonsContainer =
-        document.getElementById("numberButtons");
-
-    const locationButtonsContainer =
-        document.getElementById("locationButtons");
-
-    const otherLocationRow =
-        document.getElementById("otherLocationRow");
-
-    const otherLocationInput =
-        document.getElementById("otherLocationInput");
-
-    const standInput =
-        document.getElementById("standInput");
-
-    const fleetInput =
-        document.getElementById("fleetInput");
-
-    const messageInput =
-        document.getElementById("messageInput");
-
-    const outputBox =
-        document.getElementById("outputBox");
-
-    const statusBox =
-        document.getElementById("statusBox");
-
-    const copyButton =
-        document.getElementById("copyButton");
-
-    const copyClearButton =
-        document.getElementById("copyClearButton");
-
-    const resetButton =
-        document.getElementById("resetButton");
-
+    const letterButtonsContainer = document.getElementById("letterButtons");
+    const numberButtonsContainer = document.getElementById("numberButtons");
+    const locationButtonsContainer = document.getElementById("locationButtons");
+    const otherLocationRow = document.getElementById("otherLocationRow");
+    const otherLocationInput = document.getElementById("otherLocationInput");
+    const standInput = document.getElementById("standInput");
+    const fleetInput = document.getElementById("fleetInput");
+    const messageInput = document.getElementById("messageInput");
+    const outputBox = document.getElementById("outputBox");
+    const statusBox = document.getElementById("statusBox");
+    const copyButton = document.getElementById("copyButton");
+    const copyClearButton = document.getElementById("copyClearButton");
+    const resetButton = document.getElementById("resetButton");
+    const responseButtons = document.querySelectorAll("[data-service][data-status]");
+    const siteCoordinatorButton = document.getElementById("siteCoordinatorButton");
 
     function createRadioLetterButtons() {
         radioGroups.forEach(function (radioGroup) {
             const button = document.createElement("button");
-
             button.type = "button";
             button.className = "choice-button letter-button";
             button.textContent = radioGroup.label;
@@ -782,10 +602,8 @@
 
             button.addEventListener("click", function () {
                 selectedLetterCode = radioGroup.code;
-
                 clearSelectedButtons(letterButtonsContainer);
                 button.classList.add("selected");
-
                 updateOutput();
             });
 
@@ -793,11 +611,9 @@
         });
     }
 
-
     function createNumberButtons() {
         for (let number = 1; number <= 34; number += 1) {
             const button = document.createElement("button");
-
             button.type = "button";
             button.className = "choice-button number-button";
             button.textContent = String(number);
@@ -805,10 +621,8 @@
 
             button.addEventListener("click", function () {
                 selectedCallsignNumber = String(number);
-
                 clearSelectedButtons(numberButtonsContainer);
                 button.classList.add("selected");
-
                 updateOutput();
             });
 
@@ -816,11 +630,9 @@
         }
     }
 
-
     function createLocationButtons() {
         locations.forEach(function (locationName) {
             const button = document.createElement("button");
-
             button.type = "button";
             button.className = "choice-button location-button";
             button.textContent = locationName;
@@ -831,8 +643,14 @@
             }
 
             button.addEventListener("click", function () {
-                selectedLocation = locationName;
+                if (selectedLocation === locationName && locationName !== "Other") {
+                    selectedLocation = "";
+                    button.classList.remove("selected");
+                    updateOutput();
+                    return;
+                }
 
+                selectedLocation = locationName;
                 clearSelectedButtons(locationButtonsContainer);
                 button.classList.add("selected");
 
@@ -851,16 +669,40 @@
         });
     }
 
+    function setupResponseButtons() {
+        responseButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                const service = button.dataset.service;
+                const status = button.dataset.status;
+                const alreadySelected = responseSelections[service] === status;
 
-    function clearSelectedButtons(container) {
-        const buttons =
-            container.querySelectorAll(".choice-button");
+                document.querySelectorAll('[data-service="' + service + '"]').forEach(function (serviceButton) {
+                    serviceButton.classList.remove("selected");
+                });
 
-        buttons.forEach(function (button) {
-            button.classList.remove("selected");
+                if (alreadySelected) {
+                    responseSelections[service] = "";
+                } else {
+                    responseSelections[service] = status;
+                    button.classList.add("selected");
+                }
+
+                updateOutput();
+            });
+        });
+
+        siteCoordinatorButton.addEventListener("click", function () {
+            siteCoordinatorAware = !siteCoordinatorAware;
+            siteCoordinatorButton.classList.toggle("selected", siteCoordinatorAware);
+            updateOutput();
         });
     }
 
+    function clearSelectedButtons(container) {
+        container.querySelectorAll(".choice-button").forEach(function (button) {
+            button.classList.remove("selected");
+        });
+    }
 
     function normaliseStand() {
         const cleanedStand = standInput.value
@@ -875,7 +717,6 @@
         return cleanedStand;
     }
 
-
     function normaliseFleetNumber() {
         const cleanedFleetNumber = fleetInput.value
             .replace(/[^0-9]/g, "")
@@ -888,35 +729,29 @@
         return cleanedFleetNumber;
     }
 
-
     function getLocationText() {
         if (selectedLocation === "Other") {
             return otherLocationInput.value.trim();
         }
-
         return selectedLocation;
     }
 
-
     function buildOutputText() {
-        const callsign =
-            selectedLetterCode + selectedCallsignNumber;
-
+        const callsign = selectedLetterCode + selectedCallsignNumber;
         const locationText = getLocationText();
         const standText = normaliseStand();
         const fleetNumber = normaliseFleetNumber();
         const messageText = messageInput.value.trim();
+        const optionalUpdates = [];
 
-        let result = "Callsign";
+        let result = "🔈";
 
         if (callsign) {
             result += " " + callsign;
         }
 
-        result += " at";
-
         if (locationText) {
-            result += " " + locationText;
+            result += " at " + locationText;
         }
 
         if (standText) {
@@ -927,131 +762,106 @@
             result += " (Fleet " + fleetNumber + ")";
         }
 
-        result += " :";
+        result += ":";
 
         if (messageText) {
             result += " " + messageText;
         }
 
+        if (responseSelections.NWAS) {
+            optionalUpdates.push("NWAS " + responseSelections.NWAS);
+        }
+
+        if (responseSelections.GMP) {
+            optionalUpdates.push("GMP " + responseSelections.GMP);
+        }
+
+        if (siteCoordinatorAware) {
+            optionalUpdates.push("SITE CO-ORDINATOR AWARE");
+        }
+
+        if (optionalUpdates.length > 0) {
+            result += " | " + optionalUpdates.join(" | ");
+        }
+
         return result;
     }
 
-
     function updateOutput() {
         outputBox.textContent = buildOutputText();
-
         const missingItems = [];
 
-        if (!selectedLetterCode) {
-            missingItems.push("callsign letter");
-        }
-
-        if (!selectedCallsignNumber) {
-            missingItems.push("callsign number");
-        }
-
-        if (!getLocationText()) {
-            missingItems.push("location");
-        }
-
-        if (!messageInput.value.trim()) {
-            missingItems.push("message");
-        }
+        if (!selectedLetterCode) missingItems.push("callsign letter");
+        if (!selectedCallsignNumber) missingItems.push("callsign number");
+        if (!messageInput.value.trim()) missingItems.push("message");
 
         statusBox.classList.remove("success", "error");
 
         if (missingItems.length === 0) {
-            statusBox.textContent = "Log ready to copy.";
+            statusBox.textContent = "Log ready to copy. Location and response details are optional.";
             statusBox.classList.add("success");
         } else {
-            statusBox.textContent =
-                "Still required: " + missingItems.join(", ") + ".";
+            statusBox.textContent = "Still required: " + missingItems.join(", ") + ". Location is optional.";
         }
     }
-
 
     function isLogComplete() {
         return Boolean(
             selectedLetterCode &&
             selectedCallsignNumber &&
-            getLocationText() &&
             messageInput.value.trim()
         );
     }
 
-
     async function copyToClipboard() {
         if (!isLogComplete()) {
-            statusBox.textContent =
-                "Complete the callsign, location and message before copying.";
-
+            statusBox.textContent = "Complete the callsign and message before copying. Location is optional.";
             statusBox.classList.remove("success");
             statusBox.classList.add("error");
-
             return false;
         }
 
         const textToCopy = buildOutputText();
 
         try {
-            if (
-                navigator.clipboard &&
-                window.isSecureContext
-            ) {
+            if (navigator.clipboard && window.isSecureContext) {
                 await navigator.clipboard.writeText(textToCopy);
             } else {
                 fallbackCopy(textToCopy);
             }
 
-            statusBox.textContent =
-                "IMS log copied to clipboard.";
-
+            statusBox.textContent = "IMS log copied to clipboard.";
             statusBox.classList.remove("error");
             statusBox.classList.add("success");
-
             return true;
         } catch (error) {
             try {
                 fallbackCopy(textToCopy);
-
-                statusBox.textContent =
-                    "IMS log copied to clipboard.";
-
+                statusBox.textContent = "IMS log copied to clipboard.";
                 statusBox.classList.remove("error");
                 statusBox.classList.add("success");
-
                 return true;
             } catch (fallbackError) {
-                statusBox.textContent =
-                    "Copy failed. Select the output text and copy it manually.";
-
+                statusBox.textContent = "Copy failed. Select the output text and copy it manually.";
                 statusBox.classList.remove("success");
                 statusBox.classList.add("error");
-
                 return false;
             }
         }
     }
 
-
     function fallbackCopy(textToCopy) {
-        const temporaryTextArea =
-            document.createElement("textarea");
-
+        const temporaryTextArea = document.createElement("textarea");
         temporaryTextArea.value = textToCopy;
         temporaryTextArea.setAttribute("readonly", "");
         temporaryTextArea.style.position = "fixed";
         temporaryTextArea.style.left = "-9999px";
         temporaryTextArea.style.top = "0";
-
         document.body.appendChild(temporaryTextArea);
-
         temporaryTextArea.focus();
         temporaryTextArea.select();
 
-        const successful =
-            document.execCommand("copy");
-
+        const successful = document.execCommand("copy");
         document.body.removeChild(temporaryTextArea);
 
         if (!successful) {
@@ -1059,31 +869,31 @@
         }
     }
 
-
     function clearForm() {
         selectedLetterCode = "";
         selectedCallsignNumber = "";
         selectedLocation = "";
+        responseSelections.NWAS = "";
+        responseSelections.GMP = "";
+        siteCoordinatorAware = false;
 
         clearSelectedButtons(letterButtonsContainer);
         clearSelectedButtons(numberButtonsContainer);
         clearSelectedButtons(locationButtonsContainer);
+        responseButtons.forEach(function (button) {
+            button.classList.remove("selected");
+        });
+        siteCoordinatorButton.classList.remove("selected");
 
         otherLocationInput.value = "";
         otherLocationRow.classList.remove("visible");
-
         standInput.value = "";
         fleetInput.value = "";
         messageInput.value = "";
-
         updateOutput();
     }
 
-
-    otherLocationInput.addEventListener(
-        "input",
-        updateOutput
-    );
+    otherLocationInput.addEventListener("input", updateOutput);
 
     standInput.addEventListener("input", function () {
         normaliseStand();
@@ -1095,43 +905,27 @@
         updateOutput();
     });
 
-    messageInput.addEventListener(
-        "input",
-        updateOutput
-    );
+    messageInput.addEventListener("input", updateOutput);
+    copyButton.addEventListener("click", copyToClipboard);
 
-    copyButton.addEventListener("click", function () {
-        copyToClipboard();
+    copyClearButton.addEventListener("click", async function () {
+        const copied = await copyToClipboard();
+        if (copied) {
+            clearForm();
+            statusBox.textContent = "IMS log copied. Form cleared for the next call.";
+            statusBox.classList.remove("error");
+            statusBox.classList.add("success");
+        }
     });
 
-    copyClearButton.addEventListener(
-        "click",
-        async function () {
-            const copied = await copyToClipboard();
-
-            if (copied) {
-                clearForm();
-
-                statusBox.textContent =
-                    "IMS log copied. Form cleared for the next call.";
-
-                statusBox.classList.remove("error");
-                statusBox.classList.add("success");
-            }
-        }
-    );
-
-    resetButton.addEventListener(
-        "click",
-        clearForm
-    );
+    resetButton.addEventListener("click", clearForm);
 
     createRadioLetterButtons();
     createNumberButtons();
     createLocationButtons();
+    setupResponseButtons();
     updateOutput();
 })();
 </script>
-
 </body>
 </html>
