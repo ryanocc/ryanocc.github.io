@@ -44,7 +44,7 @@
         width: 100%;
         height: 100vh;
         display: grid;
-        grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+        grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
         gap: 7px;
         padding: 8px;
         overflow: hidden;
@@ -67,6 +67,63 @@
         line-height: 1;
         letter-spacing: -0.5px;
     }
+
+    .quick-code-bar {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 7px;
+        min-height: 34px;
+        padding: 4px 7px;
+        background: #171717;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+    }
+
+    .quick-code-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 850;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    .quick-code-input {
+        width: 100%;
+        min-width: 0;
+        height: 26px;
+        padding: 3px 8px;
+        border: 1px solid #555555;
+        border-radius: 4px;
+        outline: none;
+        background: #080808;
+        color: var(--white);
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .quick-code-input:focus {
+        border-color: var(--yellow);
+        box-shadow: 0 0 0 2px rgba(255, 221, 0, 0.12);
+    }
+
+    .quick-code-input::placeholder { color: #747474; }
+
+    .quick-code-button {
+        height: 26px;
+        padding: 2px 12px;
+        border: 1px solid var(--yellow);
+        border-radius: 4px;
+        background: var(--yellow);
+        color: var(--black);
+        cursor: pointer;
+        font-size: 11px;
+        font-weight: 900;
+    }
+
+    .quick-code-button:hover { background: var(--yellow-hover); }
 
     .panel {
         min-width: 0;
@@ -179,6 +236,27 @@
         font-size: clamp(9px, 0.68vw, 12px);
     }
 
+    .location-code {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 2px 4px;
+        border-radius: 3px;
+        background: var(--yellow);
+        color: var(--black);
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.35px;
+    }
+
+    .location-name {
+        vertical-align: middle;
+    }
+
+    .location-button.selected .location-code {
+        background: var(--black);
+        color: var(--yellow);
+    }
+
     .other-button {
         background: #303030;
         border-color: var(--yellow);
@@ -287,8 +365,6 @@
         grid-column: 1 / -1;
         min-height: 34px;
         margin-top: 3px;
-        color: var(--yellow);
-        border-color: var(--yellow);
     }
 
     .output-box {
@@ -379,6 +455,8 @@
     @media (max-height: 760px) {
         .app { gap: 5px; padding: 5px; }
         .header { min-height: 38px; padding: 5px 9px; }
+        .quick-code-bar { min-height: 29px; padding: 2px 5px; }
+        .quick-code-input, .quick-code-button { height: 24px; }
         .panel { padding: 5px; }
         .section-header { margin-bottom: 4px; }
         .section-number { width: 20px; height: 20px; font-size: 10px; }
@@ -417,6 +495,8 @@
     }
 
     @media (max-width: 700px) {
+        .quick-code-bar { grid-template-columns: 1fr auto; }
+        .quick-code-label { display: none; }
         .call-sign-layout { grid-template-columns: 1fr; }
         .letter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         .number-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
@@ -433,6 +513,12 @@
     <header class="header">
         <h1 class="header-title">Radio Logger</h1>
     </header>
+
+    <section class="quick-code-bar" aria-label="Quick code entry">
+        <label class="quick-code-label" for="quickCodeInput">Quick code</label>
+        <input id="quickCodeInput" class="quick-code-input" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. B1ALSBF4343NCGOCA Passenger feeling unwell">
+        <button id="applyQuickCodeButton" class="quick-code-button" type="button">APPLY</button>
+    </section>
 
     <section class="call-sign-layout">
         <div class="panel">
@@ -502,7 +588,8 @@
                 <button class="choice-button response-button" type="button" data-service="GMP" data-status="CALLED">CALLED</button>
                 <button class="choice-button response-button" type="button" data-service="GMP" data-status="ON SITE">ON SITE</button>
 
-                <button id="siteCoordinatorButton" class="choice-button response-button site-button" type="button">SITE CO-ORDINATOR AWARE</button>
+                <div class="response-service">SITE CO-ORDINATOR</div>
+                <button id="siteCoordinatorButton" class="choice-button response-button site-button" type="button">AWARE</button>
             </div>
         </div>
 
@@ -545,29 +632,24 @@
     ];
 
     const locations = [
-        "Altrincham Interchange",
-        "Ashton-under-Lyne Interchange",
-        "Bolton Interchange",
-        "Bury Interchange",
-        "Chorlton Bus Station",
-        "Eccles Interchange",
-        "Farnworth Bus Station",
-        "Hyde Bus Station",
-        "Leigh Bus Station",
-        "Manchester Airport The Station",
-        "Manchester Central Coach Station",
-        "Manchester Piccadilly Gardens",
-        "Middleton Bus Station",
-        "Oldham Bus Station",
-        "Radcliffe Bus Station",
-        "Rochdale Interchange",
-        "Shudehill Interchange",
-        "Stalybridge Bus Station",
-        "Stockport Interchange",
-        "The Trafford Centre Bus Station",
-        "Wigan Bus Station",
-        "Wythenshawe Interchange",
-        "Other"
+        { code: "ALS", name: "Altrincham Interchange" },
+        { code: "ASH", name: "Ashton-under-Lyne Interchange" },
+        { code: "BOL", name: "Bolton Interchange" },
+        { code: "BUR", name: "Bury Interchange" },
+        { code: "ECC", name: "Eccles Interchange" },
+        { code: "HYD", name: "Hyde Bus Station" },
+        { code: "LEI", name: "Leigh Bus Station" },
+        { code: "MATA", name: "Manchester Airport The Station" },
+        { code: "MANPIC", name: "Manchester Piccadilly Gardens" },
+        { code: "MID", name: "Middleton Bus Station" },
+        { code: "OLD", name: "Oldham Bus Station" },
+        { code: "ROC", name: "Rochdale Interchange" },
+        { code: "SHU", name: "Shudehill Interchange" },
+        { code: "STO", name: "Stockport Interchange" },
+        { code: "TRA", name: "The Trafford Centre Bus Station" },
+        { code: "WIG", name: "Wigan Bus Station" },
+        { code: "WYT", name: "Wythenshawe Interchange" },
+        { code: "OTH", name: "Other" }
     ];
 
     let selectedLetterCode = "";
@@ -589,6 +671,8 @@
     const copyButton = document.getElementById("copyButton");
     const copyClearButton = document.getElementById("copyClearButton");
     const resetButton = document.getElementById("resetButton");
+    const quickCodeInput = document.getElementById("quickCodeInput");
+    const applyQuickCodeButton = document.getElementById("applyQuickCodeButton");
     const responseButtons = document.querySelectorAll("[data-service][data-status]");
     const siteCoordinatorButton = document.getElementById("siteCoordinatorButton");
 
@@ -631,12 +715,24 @@
     }
 
     function createLocationButtons() {
-        locations.forEach(function (locationName) {
+        locations.forEach(function (locationItem) {
+            const locationName = locationItem.name;
             const button = document.createElement("button");
+            const codeSpan = document.createElement("span");
+            const nameSpan = document.createElement("span");
+
             button.type = "button";
             button.className = "choice-button location-button";
-            button.textContent = locationName;
             button.dataset.location = locationName;
+            button.dataset.locationCode = locationItem.code;
+            button.title = locationItem.code + " = " + locationName;
+
+            codeSpan.className = "location-code";
+            codeSpan.textContent = locationItem.code;
+            nameSpan.className = "location-name";
+            nameSpan.textContent = locationName;
+            button.appendChild(codeSpan);
+            button.appendChild(nameSpan);
 
             if (locationName === "Other") {
                 button.classList.add("other-button");
@@ -869,6 +965,175 @@
         }
     }
 
+    function parseResponseCodes(value) {
+        const codes = [];
+        let remaining = value;
+
+        while (remaining.length > 0) {
+            const code = remaining.slice(0, 2);
+            if (!["NC", "NO", "GC", "GO", "CA"].includes(code)) {
+                return null;
+            }
+            codes.push(code);
+            remaining = remaining.slice(2);
+        }
+
+        const nwasCodes = codes.filter(function (code) { return code === "NC" || code === "NO"; });
+        const gmpCodes = codes.filter(function (code) { return code === "GC" || code === "GO"; });
+        const coordinatorCodes = codes.filter(function (code) { return code === "CA"; });
+
+        if (nwasCodes.length > 1 || gmpCodes.length > 1 || coordinatorCodes.length > 1) {
+            return null;
+        }
+        return codes;
+    }
+
+    function parseQuickCode() {
+        const enteredText = quickCodeInput.value.trim();
+        if (!enteredText) {
+            showQuickCodeError("Enter a quick code first.");
+            return;
+        }
+
+        const firstSpace = enteredText.search(/\s/);
+        const compactCode = (firstSpace === -1 ? enteredText : enteredText.slice(0, firstSpace)).toUpperCase();
+        const messageText = firstSpace === -1 ? "" : enteredText.slice(firstSpace).trim();
+        let position = 0;
+
+        const callsignGroup = radioGroups
+            .slice()
+            .sort(function (a, b) { return b.code.length - a.code.length; })
+            .find(function (group) { return compactCode.startsWith(group.code); });
+
+        if (!callsignGroup) {
+            showQuickCodeError("Quick code has an unrecognised callsign letter.");
+            return;
+        }
+        position += callsignGroup.code.length;
+
+        const numberMatch = compactCode.slice(position).match(/^([0-9]{1,2})/);
+        if (!numberMatch || Number(numberMatch[1]) < 1 || Number(numberMatch[1]) > 34) {
+            showQuickCodeError("Quick code needs a callsign number from 1 to 34.");
+            return;
+        }
+        const callsignNumber = numberMatch[1];
+        position += callsignNumber.length;
+
+        const locationItem = locations
+            .filter(function (item) { return item.name !== "Other"; })
+            .slice()
+            .sort(function (a, b) { return b.code.length - a.code.length; })
+            .find(function (item) { return compactCode.slice(position).startsWith(item.code); });
+
+        if (!locationItem) {
+            showQuickCodeError("Quick code has an unrecognised or missing location code.");
+            return;
+        }
+        position += locationItem.code.length;
+
+        let remaining = compactCode.slice(position);
+        let stand = "";
+        let fleet = "";
+        let responseText = "";
+        const fleetMarker = remaining.indexOf("F");
+
+        if (fleetMarker !== -1) {
+            stand = remaining.slice(0, fleetMarker);
+            const afterFleetMarker = remaining.slice(fleetMarker + 1);
+            const fleetMatch = afterFleetMarker.match(/^([0-9]{1,10})/);
+            if (!fleetMatch) {
+                showQuickCodeError("F must be followed by a fleet number.");
+                return;
+            }
+            fleet = fleetMatch[1];
+            responseText = afterFleetMarker.slice(fleet.length);
+        } else {
+            let matchedWithoutFleet = false;
+            for (let standLength = 0; standLength <= Math.min(2, remaining.length); standLength += 1) {
+                const possibleStand = remaining.slice(0, standLength);
+                const possibleResponses = remaining.slice(standLength);
+                if (/^[A-Z]{0,2}$/.test(possibleStand) && parseResponseCodes(possibleResponses) !== null) {
+                    stand = possibleStand;
+                    responseText = possibleResponses;
+                    matchedWithoutFleet = true;
+                    break;
+                }
+            }
+            if (!matchedWithoutFleet) {
+                showQuickCodeError("The stand or response section of the quick code is not recognised.");
+                return;
+            }
+        }
+
+        if (!/^[A-Z]{0,2}$/.test(stand)) {
+            showQuickCodeError("Stand must contain no more than two letters.");
+            return;
+        }
+
+        const responseCodes = parseResponseCodes(responseText);
+        if (responseCodes === null) {
+            showQuickCodeError("Response codes are invalid or contain conflicting selections.");
+            return;
+        }
+
+        selectedLetterCode = callsignGroup.code;
+        selectedCallsignNumber = callsignNumber;
+        selectedLocation = locationItem.name;
+        responseSelections.NWAS = "";
+        responseSelections.GMP = "";
+        siteCoordinatorAware = false;
+
+        clearSelectedButtons(letterButtonsContainer);
+        clearSelectedButtons(numberButtonsContainer);
+        clearSelectedButtons(locationButtonsContainer);
+        responseButtons.forEach(function (button) { button.classList.remove("selected"); });
+        siteCoordinatorButton.classList.remove("selected");
+
+        const letterButton = letterButtonsContainer.querySelector('[data-code="' + callsignGroup.code + '"]');
+        const numberButton = numberButtonsContainer.querySelector('[data-number="' + callsignNumber + '"]');
+        const locationButton = locationButtonsContainer.querySelector('[data-location-code="' + locationItem.code + '"]');
+        if (letterButton) letterButton.classList.add("selected");
+        if (numberButton) numberButton.classList.add("selected");
+        if (locationButton) locationButton.classList.add("selected");
+
+        otherLocationInput.value = "";
+        otherLocationRow.classList.remove("visible");
+        standInput.value = stand;
+        fleetInput.value = fleet;
+        messageInput.value = messageText;
+
+        responseCodes.forEach(function (code) {
+            let service = "";
+            let status = "";
+            if (code === "NC") { service = "NWAS"; status = "CALLED"; }
+            if (code === "NO") { service = "NWAS"; status = "ON SITE"; }
+            if (code === "GC") { service = "GMP"; status = "CALLED"; }
+            if (code === "GO") { service = "GMP"; status = "ON SITE"; }
+            if (code === "CA") { siteCoordinatorAware = true; }
+
+            if (service) {
+                responseSelections[service] = status;
+                const responseButton = document.querySelector('[data-service="' + service + '"][data-status="' + status + '"]');
+                if (responseButton) responseButton.classList.add("selected");
+            }
+        });
+
+        siteCoordinatorButton.classList.toggle("selected", siteCoordinatorAware);
+        updateOutput();
+        statusBox.textContent = messageText
+            ? "Quick code applied. Log ready to check and copy."
+            : "Quick code applied. Enter the message before copying.";
+        statusBox.classList.remove("error");
+        if (messageText) statusBox.classList.add("success");
+    }
+
+    function showQuickCodeError(message) {
+        statusBox.textContent = message;
+        statusBox.classList.remove("success");
+        statusBox.classList.add("error");
+        quickCodeInput.focus();
+    }
+
     function clearForm() {
         selectedLetterCode = "";
         selectedCallsignNumber = "";
@@ -890,8 +1155,17 @@
         standInput.value = "";
         fleetInput.value = "";
         messageInput.value = "";
+        quickCodeInput.value = "";
         updateOutput();
     }
+
+    applyQuickCodeButton.addEventListener("click", parseQuickCode);
+    quickCodeInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            parseQuickCode();
+        }
+    });
 
     otherLocationInput.addEventListener("input", updateOutput);
 
