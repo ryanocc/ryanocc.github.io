@@ -404,8 +404,8 @@ button{
 
 .site-button{
     grid-column:1/-1;
-    min-height:34px;
-    margin-top:3px;
+    min-height:30px;
+    margin-top:1px;
 }
 
 .output-box{
@@ -565,7 +565,7 @@ button{
     }
 
     .site-button{
-        min-height:28px;
+        min-height:25px;
     }
 
     .action-button{
@@ -845,6 +845,16 @@ button{
                 AWARE
             </button>
 
+            <div class="response-service">EYES ON</div>
+
+            <button
+                id="eyesOnButton"
+                class="choice-button response-button site-button"
+                type="button"
+            >
+                REQUESTED
+            </button>
+
         </div>
     </div>
 
@@ -1022,6 +1032,7 @@ button{
     let selectedLocation = "";
     let gmpLogNumber = "";
     let siteCoordinatorAware = false;
+    let eyesOnRequested = false;
 
     const responseSelections = {
         NWAS: "",
@@ -1046,6 +1057,7 @@ button{
     const quickEntryInput = $("quickEntryInput");
     const applyQuickEntryButton = $("applyQuickEntryButton");
     const siteCoordinatorButton = $("siteCoordinatorButton");
+    const eyesOnButton = $("eyesOnButton");
 
     const responseButtons = document.querySelectorAll(
         "[data-service][data-status]"
@@ -1213,6 +1225,17 @@ button{
 
             updateOutput();
         });
+
+        eyesOnButton.addEventListener("click", () => {
+            eyesOnRequested = !eyesOnRequested;
+
+            eyesOnButton.classList.toggle(
+                "selected",
+                eyesOnRequested
+            );
+
+            updateOutput();
+        });
     }
 
     function setResponse(service, status, toggle) {
@@ -1337,6 +1360,10 @@ button{
 
         if (siteCoordinatorAware) {
             updates.push("SITE CO-ORDINATOR AWARE");
+        }
+
+        if (eyesOnRequested) {
+            updates.push("Eyes on requested");
         }
 
         if (updates.length) {
@@ -1584,11 +1611,11 @@ button{
         selectedCallsignNumber = "";
         selectedLocation = "";
         gmpLogNumber = "";
+        siteCoordinatorAware = false;
+        eyesOnRequested = false;
 
         responseSelections.NWAS = "";
         responseSelections.GMP = "";
-
-        siteCoordinatorAware = false;
 
         clearSelectedButtons(letterButtonsContainer);
         clearSelectedButtons(numberButtonsContainer);
@@ -1599,6 +1626,7 @@ button{
         });
 
         siteCoordinatorButton.classList.remove("selected");
+        eyesOnButton.classList.remove("selected");
 
         otherLocationInput.value = "";
         otherLocationRow.classList.remove("visible");
