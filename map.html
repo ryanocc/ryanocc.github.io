@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>OCC Dashboard - Highways Alerts</title>
+  <title>OCC Dashboard - Live Traffic Alerts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css">
   <script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
@@ -22,7 +22,7 @@
 <body>
   <div id="map"></div>
   <div id="bottomStatusRow" aria-label="Network health and map attribution">
-    <div id="networkHealthBar" title="TVT network health unavailable until /api/tvt is added"></div>
+    <div id="networkHealthBar" title="Network health"></div>
     <div id="attribChip" aria-label="Map attribution"></div>
   </div>
 <script>
@@ -30,9 +30,8 @@
 
 /* Netlify functions on the same site as this HTML. */
 const WAZE_URL="/api/waze";
-const HE_URL="/api/highways";
-const TVT_ENABLED = true;
-const TVT_URL = "/api/tvt";
+const TVT_ENABLED=true;
+const TVT_URL="/api/tvt";
 
 const REFRESH_MS=30000;
 const TVT_REFRESH_MS=5*60*1000;
@@ -105,17 +104,37 @@ function createPulsingDot(mapInstance){const size=128;return{width:size,height:s
 function createTriangleIcon(mapInstance){const size=128;return{width:size,height:size,data:new Uint8Array(size*size*4),onAdd(){const c=document.createElement("canvas");c.width=c.height=size;this.context=c.getContext("2d",{willReadFrequently:true})},render(){const c=this.context;c.clearRect(0,0,size,size);c.beginPath();c.moveTo(size/2,14);c.lineTo(size-14,size-14);c.lineTo(14,size-14);c.closePath();c.fillStyle="#28c76f";c.strokeStyle="#fff";c.lineWidth=4;c.fill();c.stroke();this.data.set(c.getImageData(0,0,size,size).data);mapInstance.triggerRepaint();return true}}}
 async function addExternalSvgImage(id,url){try{const response=await fetch(withCacheBust(url),{cache:"no-store"});if(!response.ok)throw new Error(`HTTP ${response.status}`);const svg=await response.text(),objectUrl=URL.createObjectURL(new Blob([svg],{type:"image/svg+xml"}));await new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{try{if(!map.hasImage(id))map.addImage(id,image,{pixelRatio:2});resolve()}catch(e){reject(e)}finally{URL.revokeObjectURL(objectUrl)}};image.onerror=reject;image.src=objectUrl})}catch(error){console.warn("Traffic-light icon failed to load:",error)}}
 
-function tryNumber(v){const n=Number(v);return Number.isFinite(n)?n:null}
-function parseHeRss(xmlString){const documentXml=new DOMParser().parseFromString(xmlString,"text/xml");if(documentXml.querySelector("parsererror"))throw new Error("Highways endpoint returned invalid XML");const features=[];for(const item of documentXml.querySelectorAll("item")){let latitude=null,longitude=null;const point=item.querySelector("ge\\:point, georss\\:point, point");if(point?.textContent){const p=point.textContent.trim().split(/[ ,]+/);latitude=tryNumber(p[0]);longitude=tryNumber(p[1])}if(latitude===null||longitude===null){latitude=tryNumber(item.querySelector("geo\\:lat, lat")?.textContent);longitude=tryNumber(item.querySelector("geo\\:long, lon, long")?.textContent)}if(latitude===null||longitude===null)continue;features.push({type:"Feature",geometry:{type:"Point",coordinates:[longitude,latitude]},properties:{title:item.querySelector("title")?.textContent?.trim()||"Unplanned event"}})}return{type:"FeatureCollection",features}}
 function computeDelayMinutes(route){const c=Number(route?.time),h=Number(route?.historicTime);return Number.isFinite(c)&&Number.isFinite(h)?Math.max(0,Math.round((c-h)/60)):0}
 function lineCoordinatesFromRoute(route){const coords=(Array.isArray(route?.line)?route.line:[]).map(p=>[Number(p?.x),Number(p?.y)]).filter(p=>p.every(Number.isFinite));return coords.length>=2?coords:null}
 function tvtToAbnormalLineFeatures(data){const routes=[...(Array.isArray(data?.routes)?data.routes:[]),...(Array.isArray(data?.irregularities)?data.irregularities:[])];return routes.flatMap((r,i)=>{const delayMin=computeDelayMinutes(r),coordinates=lineCoordinatesFromRoute(r);return delayMin>=TVT_MIN_DELAY_MIN&&coordinates?[{type:"Feature",id:`tvt-${i}-${delayMin}`,geometry:{type:"LineString",coordinates},properties:{delayMin,name:String(r?.name||"")}}]:[]})}
 
-let wazeTimer=null,wazeController=null,heTimer=null,heController=null,tvtTimer=null,tvtController=null;
+let wazeTimer=null,wazeController=null,tvtTimer=null,tvtController=null;
 async function runWazeCycle(){if(wazeController)wazeController.abort();wazeController=new AbortController();try{const data=await fetchJsonFromNetlify(WAZE_URL,wazeController.signal);if(!Array.isArray(data?.alerts))throw new Error("Waze response does not contain an alerts array");map.getSource("accidents")?.setData({type:"FeatureCollection",features:clusterAccidents(alertsToAccidentPoints(data))});map.getSource("waze-ice")?.setData({type:"FeatureCollection",features:clusterGeneric(alertsToSimplePoints(data,isIceAlert))});map.getSource("waze-signal-faults")?.setData({type:"FeatureCollection",features:clusterGeneric(alertsToSimplePoints(data,isTrafficLightFault))})}catch(error){if(error.name!=="AbortError")console.error("Waze fetch failed:",error)}finally{clearTimeout(wazeTimer);wazeTimer=setTimeout(runWazeCycle,REFRESH_MS)}}
-async function runHeCycle(){if(heController)heController.abort();heController=new AbortController();try{const xml=await fetchTextFromNetlify(HE_URL,heController.signal);map.getSource("he-unplanned")?.setData(parseHeRss(xml))}catch(error){if(error.name!=="AbortError")console.error("Highways fetch failed:",error)}finally{clearTimeout(heTimer);heTimer=setTimeout(runHeCycle,REFRESH_MS)}}
 async function runTvtCycle(){if(!TVT_ENABLED)return;if(tvtController)tvtController.abort();tvtController=new AbortController();try{const data=await fetchJsonFromNetlify(TVT_URL,tvtController.signal);map.getSource(TVT_SOURCE_ID)?.setData({type:"FeatureCollection",features:tvtToAbnormalLineFeatures(data)})}catch(error){if(error.name!=="AbortError")console.warn("TVT overlay fetch failed:",error)}finally{clearTimeout(tvtTimer);tvtTimer=setTimeout(runTvtCycle,TVT_REFRESH_MS)}}
 function startTvtPulse(){const tick=()=>{if(TVT_ENABLED&&!document.hidden&&map.isStyleLoaded()){const opacity=.15+.8*(.5+.5*Math.sin(performance.now()/1000*Math.PI*2*.75));try{map.setPaintProperty(TVT_LAYER_PULSE,"line-opacity",opacity)}catch(error){}}requestAnimationFrame(tick)};tick()}
+function networkGradientFromUsersOnJams(usersOnJams){
+  if(!Array.isArray(usersOnJams)||!usersOnJams.length)return "linear-gradient(90deg,#42be4b,#ffe04a,#ff4d4f)";
+  const colours={0:"#42be4b",1:"#9ddc43",2:"#ffe04a",3:"#ff9a1f",4:"#ff4d4f"};
+  const total=usersOnJams.reduce((sum,item)=>sum+(Number(item.wazersCount)||0),0)||1;
+  let accumulated=0;
+  const stops=usersOnJams.slice().sort((a,b)=>Number(a.jamLevel)-Number(b.jamLevel)).map(item=>{
+    const start=accumulated;
+    accumulated+=(Number(item.wazersCount)||0)/total*100;
+    return `${colours[item.jamLevel]||"#666"} ${start.toFixed(2)}% ${accumulated.toFixed(2)}%`;
+  });
+  return `linear-gradient(90deg,${stops.join(",")})`;
+}
+async function updateNetworkHealth(){
+  if(document.hidden||!TVT_ENABLED)return;
+  try{
+    const data=await fetchJsonFromNetlify(TVT_URL);
+    const bar=document.getElementById("networkHealthBar");
+    bar.style.background=networkGradientFromUsersOnJams(data?.usersOnJams||[]);
+    bar.title=`Network health - Updated ${new Date().toLocaleTimeString("en-GB",{hour12:false})}`;
+  }catch(error){
+    console.warn("Network health update failed:",error);
+  }
+}
 function syncAttributionIntoChip(){const chip=document.getElementById("attribChip"),attribution=document.querySelector(".maplibregl-ctrl-attrib");if(chip&&attribution)chip.innerHTML=attribution.innerHTML}
 
 map.on("load",()=>{
@@ -127,7 +146,6 @@ map.on("load",()=>{
   map.addLayer({id:"accidents-two",type:"circle",source:"accidents",filter:["==",["get","effectiveConfidence"],2],paint:{"circle-radius":["interpolate",["linear"],["zoom"],8,4.4,12,6,16,7.4],"circle-color":"#ffe04a","circle-stroke-color":"#fff1a6","circle-stroke-width":1.2}});
   map.addLayer({id:"accidents-three",type:"circle",source:"accidents",filter:["==",["get","effectiveConfidence"],3],paint:{"circle-radius":["interpolate",["linear"],["zoom"],8,6.2,12,8.2,16,10.2],"circle-color":"#f00","circle-stroke-color":"#ffd0d0","circle-stroke-width":1.6}});
   map.addLayer({id:"accidents-high",type:"symbol",source:"accidents",filter:[">=",["get","effectiveConfidence"],HIGH_CONF_MIN],layout:{"icon-image":"pulsing-red","icon-size":["interpolate",["linear"],["zoom"],8,.8,12,1.36,16,2.1],"icon-allow-overlap":true}});
-  map.addSource("he-unplanned",{type:"geojson",data:empty});map.addLayer({id:"he-unplanned-dots",type:"circle",source:"he-unplanned",paint:{"circle-radius":["interpolate",["linear"],["zoom"],8,3.4,12,5.2,16,7],"circle-color":"#3a90ff","circle-stroke-color":"#fff","circle-stroke-width":1.2}});
   map.addSource("waze-ice",{type:"geojson",data:empty});map.addLayer({id:"waze-ice-label",type:"symbol",source:"waze-ice",layout:{"text-field":"ICE","text-size":["interpolate",["linear"],["zoom"],8,12,12,16,16,22],"text-allow-overlap":true,"text-ignore-placement":true},paint:{"text-color":"#e7f4ff","text-halo-color":"#5bb1ff","text-halo-width":1.5,"text-halo-blur":.8}});
   map.addSource("waze-signal-faults",{type:"geojson",data:empty});map.addLayer({id:"waze-signal-faults-icon",type:"symbol",source:"waze-signal-faults",layout:{"icon-image":"triangle-green","icon-size":.5,"icon-allow-overlap":true}});
   void addExternalSvgImage("tl-icon","https://ryanocc.github.io/tl.svg").then(()=>{if(map.hasImage("tl-icon")&&map.getLayer("waze-signal-faults-icon"))map.setLayoutProperty("waze-signal-faults-icon","icon-image","tl-icon")});
@@ -135,9 +153,15 @@ map.on("load",()=>{
   map.addLayer({id:TVT_LAYER_BASE,type:"line",source:TVT_SOURCE_ID,layout:{"line-join":"round","line-cap":"round"},paint:{"line-color":"#ff2e34","line-width":["interpolate",["linear"],["zoom"],8,2,12,4,16,8],"line-opacity":.35,"line-blur":.6}});
   map.addLayer({id:TVT_LAYER_PULSE,type:"line",source:TVT_SOURCE_ID,layout:{"line-join":"round","line-cap":"round"},paint:{"line-color":"#f00","line-width":["interpolate",["linear"],["zoom"],8,3,12,6,16,12],"line-opacity":0,"line-blur":.9}});
   syncAttributionIntoChip();const attribution=document.querySelector(".maplibregl-ctrl-attrib");if(attribution)new MutationObserver(syncAttributionIntoChip).observe(attribution,{childList:true,subtree:true,characterData:true});
-  setTimeout(()=>{void runWazeCycle()},0);setTimeout(()=>{void runHeCycle()},25);if(TVT_ENABLED){setTimeout(()=>{void runTvtCycle()},50);startTvtPulse()}
+  setTimeout(()=>{void runWazeCycle()},0);
+  if(TVT_ENABLED){
+    setTimeout(()=>{void runTvtCycle()},25);
+    setTimeout(()=>{void updateNetworkHealth()},50);
+    startTvtPulse();
+    setInterval(()=>{void updateNetworkHealth()},NET_HEALTH_REFRESH_MS);
+  }
 });
-document.addEventListener("visibilitychange",()=>{if(!document.hidden){map.resize();syncAttributionIntoChip()}});window.addEventListener("resize",()=>map.resize());
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){map.resize();syncAttributionIntoChip();if(TVT_ENABLED)void updateNetworkHealth()}});window.addEventListener("resize",()=>map.resize());
 </script>
 </body>
 </html>
