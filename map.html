@@ -35,7 +35,6 @@ const TVT_URL="/api/tvt";
 
 const REFRESH_MS=30000;
 const TVT_REFRESH_MS=5*60*1000;
-const NET_HEALTH_REFRESH_MS=60*1000;
 const TVT_MIN_DELAY_MIN=15;
 const MERGE_METERS=200;
 const NON_MWAY_MERGE_METERS=500;
@@ -109,8 +108,25 @@ function lineCoordinatesFromRoute(route){const coords=(Array.isArray(route?.line
 function tvtToAbnormalLineFeatures(data){const routes=[...(Array.isArray(data?.routes)?data.routes:[]),...(Array.isArray(data?.irregularities)?data.irregularities:[])];return routes.flatMap((r,i)=>{const delayMin=computeDelayMinutes(r),coordinates=lineCoordinatesFromRoute(r);return delayMin>=TVT_MIN_DELAY_MIN&&coordinates?[{type:"Feature",id:`tvt-${i}-${delayMin}`,geometry:{type:"LineString",coordinates},properties:{delayMin,name:String(r?.name||"")}}]:[]})}
 
 let wazeTimer=null,wazeController=null,tvtTimer=null,tvtController=null;
-async function runWazeCycle(){if(wazeController)wazeController.abort();wazeController=new AbortController();try{const data=await fetchJsonFromNetlify(WAZE_URL,wazeController.signal);if(!Array.isArray(data?.alerts))throw new Error("Waze response does not contain an alerts array");map.getSource("accidents")?.setData({type:"FeatureCollection",features:clusterAccidents(alertsToAccidentPoints(data))});map.getSource("waze-ice")?.setData({type:"FeatureCollection",features:clusterGeneric(alertsToSimplePoints(data,isIceAlert))});map.getSource("waze-signal-faults")?.setData({type:"FeatureCollection",features:clusterGeneric(alertsToSimplePoints(data,isTrafficLightFault))})}catch(error){if(error.name!=="AbortError")console.error("Waze fetch failed:",error)}finally{clearTimeout(wazeTimer);wazeTimer=setTimeout(runWazeCycle,REFRESH_MS)}}
-async function runTvtCycle(){if(!TVT_ENABLED)return;if(tvtController)tvtController.abort();tvtController=new AbortController();try{const data=await fetchJsonFromNetlify(TVT_URL,tvtController.signal);map.getSource(TVT_SOURCE_ID)?.setData({type:"FeatureCollection",features:tvtToAbnormalLineFeatures(data)})}catch(error){if(error.name!=="AbortError")console.warn("TVT overlay fetch failed:",error)}finally{clearTimeout(tvtTimer);tvtTimer=setTimeout(runTvtCycle,TVT_REFRESH_MS)}}
+async function runWazeCycle(){if(wazeController)wazeController.abort();wazeController=new AbortController();try{const data=await fetchJsonFromNetlify(WAZE_URL,wazeController.signal);if(!Array.isArray(data?.alerts))throw new Error("Waze response does not contain an alerts array");map.getSource("accidents")?.setData({type:"FeatureCollection",features:clusterAccidents(alertsToAccidentPoints(data))});map.getSource("waze-ice")?.setData({type:"FeatureCollection",features:clusterGeneric(alertsToSimplePoints(data,isIceAlert))});map.getSource("waze-signal-faults")?.setData({type:"FeatureCollection",features:clusterGeneric(alertsToSimplePoints(data,isTrafficLightFault))})}catch(error){if(error.name!=="AbortError")console.error("Waze fetch failed:",error)}finally{clearTimeout(wazeTimer);if(!document.hidden)wazeTimer=setTimeout(runWazeCycle,REFRESH_MS)}}
+async function runTvtCycle(){
+  if(!TVT_ENABLED)return;
+  if(tvtController)tvtController.abort();
+  tvtController=new AbortController();
+  try{
+    const data=await fetchJsonFromNetlify(TVT_URL,tvtController.signal);
+    map.getSource(TVT_SOURCE_ID)?.setData({
+      type:"FeatureCollection",
+      features:tvtToAbnormalLineFeatures(data)
+    });
+    updateNetworkHealthFromData(data);
+  }catch(error){
+    if(error.name!=="AbortError")console.warn("TVT / network health fetch failed:",error);
+  }finally{
+    clearTimeout(tvtTimer);
+    if(!document.hidden)tvtTimer=setTimeout(runTvtCycle,TVT_REFRESH_MS);
+  }
+}
 function startTvtPulse(){const tick=()=>{if(TVT_ENABLED&&!document.hidden&&map.isStyleLoaded()){const opacity=.15+.8*(.5+.5*Math.sin(performance.now()/1000*Math.PI*2*.75));try{map.setPaintProperty(TVT_LAYER_PULSE,"line-opacity",opacity)}catch(error){}}requestAnimationFrame(tick)};tick()}
 function networkGradientFromUsersOnJams(usersOnJams){
   if(!Array.isArray(usersOnJams)||!usersOnJams.length)return "linear-gradient(90deg,#42be4b,#ffe04a,#ff4d4f)";
@@ -124,16 +140,11 @@ function networkGradientFromUsersOnJams(usersOnJams){
   });
   return `linear-gradient(90deg,${stops.join(",")})`;
 }
-async function updateNetworkHealth(){
-  if(document.hidden||!TVT_ENABLED)return;
-  try{
-    const data=await fetchJsonFromNetlify(TVT_URL);
-    const bar=document.getElementById("networkHealthBar");
-    bar.style.background=networkGradientFromUsersOnJams(data?.usersOnJams||[]);
-    bar.title=`Network health - Updated ${new Date().toLocaleTimeString("en-GB",{hour12:false})}`;
-  }catch(error){
-    console.warn("Network health update failed:",error);
-  }
+function updateNetworkHealthFromData(data){
+  const bar=document.getElementById("networkHealthBar");
+  if(!bar)return;
+  bar.style.background=networkGradientFromUsersOnJams(data?.usersOnJams||[]);
+  bar.title=`Network health - Updated ${new Date().toLocaleTimeString("en-GB",{hour12:false})}`;
 }
 function syncAttributionIntoChip(){const chip=document.getElementById("attribChip"),attribution=document.querySelector(".maplibregl-ctrl-attrib");if(chip&&attribution)chip.innerHTML=attribution.innerHTML}
 
@@ -156,12 +167,23 @@ map.on("load",()=>{
   setTimeout(()=>{void runWazeCycle()},0);
   if(TVT_ENABLED){
     setTimeout(()=>{void runTvtCycle()},25);
-    setTimeout(()=>{void updateNetworkHealth()},50);
     startTvtPulse();
-    setInterval(()=>{void updateNetworkHealth()},NET_HEALTH_REFRESH_MS);
   }
 });
-document.addEventListener("visibilitychange",()=>{if(!document.hidden){map.resize();syncAttributionIntoChip();if(TVT_ENABLED)void updateNetworkHealth()}});window.addEventListener("resize",()=>map.resize());
+document.addEventListener("visibilitychange",()=>{
+  if(document.hidden){
+    clearTimeout(wazeTimer);
+    clearTimeout(tvtTimer);
+    if(wazeController)wazeController.abort();
+    if(tvtController)tvtController.abort();
+    return;
+  }
+  map.resize();
+  syncAttributionIntoChip();
+  void runWazeCycle();
+  if(TVT_ENABLED)void runTvtCycle();
+});
+window.addEventListener("resize",()=>map.resize());
 </script>
 </body>
 </html>
