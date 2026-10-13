@@ -4,828 +4,140 @@
   <meta charset="utf-8">
   <title>OCC Dashboard - Highways Alerts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css">
   <script src="https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.js"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --bg: #000;
-      --text: #f2f2f2;
-      --yellow: #ffe04a;
-      --red: #ff0000;
-      --blue: #5bb1ff;
-      --green: #42be4b;
-      --bottom-pad: 12px;
-      --chip-height: 28px;
-      --chip-bg: rgba(0, 0, 0, 0.72);
-      --chip-border: rgba(255, 255, 255, 0.14);
-      --chip-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-      --ui-font: "IBM Plex Sans Condensed", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--ui-font);
-    }
-
-    #map {
-      position: absolute;
-      inset: 0;
-    }
-
-    .maplibregl-ctrl-group button {
-      filter: invert(1) hue-rotate(180deg);
-    }
-
-    .maplibregl-ctrl-attrib {
-      display: none !important;
-    }
-
-    #bottomStatusRow {
-      position: absolute;
-      left: var(--bottom-pad);
-      right: var(--bottom-pad);
-      bottom: var(--bottom-pad);
-      z-index: 70;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      pointer-events: none;
-    }
-
-    #networkHealthBar {
-      flex: 1 1 auto;
-      height: var(--chip-height);
-      border-radius: 999px;
-      background: linear-gradient(90deg, #42be4b, #ffe04a, #ff4d4f);
-      box-shadow: 0 0 0 1px var(--chip-border) inset, var(--chip-shadow);
-      pointer-events: auto;
-    }
-
-    #attribChip {
-      flex: 0 0 auto;
-      height: var(--chip-height);
-      display: inline-flex;
-      align-items: center;
-      padding: 0 12px;
-      border-radius: 999px;
-      background: var(--chip-bg);
-      box-shadow: 0 0 0 1px var(--chip-border) inset, var(--chip-shadow);
-      color: #ddd;
-      font-size: 12px;
-      line-height: 1;
-      white-space: nowrap;
-      pointer-events: auto;
-    }
-
-    #attribChip a {
-      color: #fff;
-      text-decoration: none;
-      opacity: 0.92;
-    }
-
-    #attribChip a:hover {
-      opacity: 1;
-      text-decoration: underline;
-    }
+    :root{--bg:#000;--text:#f2f2f2;--bottom-pad:12px;--chip-height:28px;--chip-bg:rgba(0,0,0,.72);--chip-border:rgba(255,255,255,.14);--chip-shadow:0 6px 18px rgba(0,0,0,.35);--ui-font:"IBM Plex Sans Condensed",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--ui-font)}
+    #map{position:absolute;inset:0}.maplibregl-ctrl-group button{filter:invert(1) hue-rotate(180deg)}.maplibregl-ctrl-attrib{display:none!important}
+    #bottomStatusRow{position:absolute;left:var(--bottom-pad);right:var(--bottom-pad);bottom:var(--bottom-pad);z-index:70;display:flex;align-items:center;gap:10px;pointer-events:none}
+    #networkHealthBar{flex:1 1 auto;height:var(--chip-height);border-radius:999px;background:linear-gradient(90deg,#42be4b,#ffe04a,#ff4d4f);box-shadow:0 0 0 1px var(--chip-border) inset,var(--chip-shadow);pointer-events:auto}
+    #attribChip{flex:0 0 auto;height:var(--chip-height);display:inline-flex;align-items:center;padding:0 12px;border-radius:999px;background:var(--chip-bg);box-shadow:0 0 0 1px var(--chip-border) inset,var(--chip-shadow);color:#ddd;font-size:12px;line-height:1;white-space:nowrap;pointer-events:auto}
+    #attribChip a{color:#fff;text-decoration:none;opacity:.92}#attribChip a:hover{opacity:1;text-decoration:underline}
   </style>
 </head>
 <body>
   <div id="map"></div>
-
   <div id="bottomStatusRow" aria-label="Network health and map attribution">
-    <div id="networkHealthBar" title="Network health"></div>
+    <div id="networkHealthBar" title="TVT network health unavailable until /api/tvt is added"></div>
     <div id="attribChip" aria-label="Map attribution"></div>
   </div>
+<script>
+"use strict";
 
-  <script>
-    "use strict";
+/* Netlify functions on the same site as this HTML. */
+const WAZE_URL="/api/waze";
+const HE_URL="/api/highways";
+const TVT_ENABLED=false;
+const TVT_URL="/api/tvt";
 
-    /* =======================================================
-       CONFIGURATION
-       ======================================================= */
+const REFRESH_MS=30000;
+const TVT_REFRESH_MS=5*60*1000;
+const NET_HEALTH_REFRESH_MS=60*1000;
+const TVT_MIN_DELAY_MIN=15;
+const MERGE_METERS=200;
+const NON_MWAY_MERGE_METERS=500;
+const MWAY_MERGE_METERS=500;
+const HIGH_CONF_MIN=4;
+const GM_BOUNDS=[[-2.75,53.33],[-1.95,53.62]];
+const TVT_SOURCE_ID="tvt-abnormal";
+const TVT_LAYER_BASE="tvt-abnormal-base";
+const TVT_LAYER_PULSE="tvt-abnormal-pulse";
 
-const WAZE_URL = "/api/waze";
-const HE_URL = "/api/highways";
+const map=new maplibregl.Map({container:"map",style:"https://api.maptiler.com/maps/019c7761-a6b7-72d1-a48e-14ef5b3caf94/style.json?key=ileJHPYoUxyL17ZpmERr",center:[-2.3297,53.5],zoom:10.44,pitch:0,bearing:0,attributionControl:true});
 
+function withCacheBust(url){return `${url}${url.includes("?")?"&":"?"}ts=${Date.now()}`}
+function cleanResponseText(value){return String(value||"").replace(/^\uFEFF/,"").trim()}
 
+async function fetchTextFromNetlify(url,signal){
+  const response=await fetch(withCacheBust(url),{method:"GET",cache:"no-store",credentials:"same-origin",signal});
+  if(!response.ok)throw new Error(`Netlify endpoint returned HTTP ${response.status}: ${url}`);
+  const text=cleanResponseText(await response.text());
+  if(!text)throw new Error(`Netlify endpoint returned an empty response: ${url}`);
+  return text;
+}
+async function fetchJsonFromNetlify(url,signal){
+  const text=await fetchTextFromNetlify(url,signal);
+  try{return JSON.parse(text)}catch(error){throw new Error(`Netlify endpoint returned invalid JSON: ${url}`)}
+}
 
-    const REFRESH_MS = 30000;
-    const TVT_REFRESH_MS = 5 * 60 * 1000;
-    const NET_HEALTH_REFRESH_MS = 60 * 1000;
-    const TVT_MIN_DELAY_MIN = 15;
-    const MERGE_METERS = 200;
-    const NON_MWAY_MERGE_METERS = 500;
-    const MWAY_MERGE_METERS = 500;
-    const HIGH_CONF_MIN = 4;
+const toRad=d=>d*Math.PI/180;
+function haversineMeters([lon1,lat1],[lon2,lat2]){const r=6371000,dLat=toRad(lat2-lat1),dLon=toRad(lon2-lon1);const a=Math.sin(dLat/2)**2+Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;return 2*r*Math.atan2(Math.sqrt(a),Math.sqrt(1-a))}
+function getLngLatFromAlert(alert){try{const l=alert?.location;if(l){if(Number.isFinite(l.x)&&Number.isFinite(l.y))return[l.x,l.y];if(Number.isFinite(l.lon)&&Number.isFinite(l.lat))return[l.lon,l.lat];if(Array.isArray(l.coordinates)&&l.coordinates.length>=2)return l.coordinates.slice(0,2);if(Number.isFinite(l.point?.x)&&Number.isFinite(l.point?.y))return[l.point.x,l.point.y]}if(Array.isArray(alert?.geometry?.coordinates)&&alert.geometry.coordinates.length>=2)return alert.geometry.coordinates.slice(0,2);if(Number.isFinite(alert?.longitude)&&Number.isFinite(alert?.latitude))return[alert.longitude,alert.latitude]}catch(error){}return null}
+const readConfidence=a=>Number(a?.confidence??a?.confidenceLevel??a?.level??0)||0;
+const readReliability=a=>Number(a?.reliability??a?.reliabilityScore??0)||0;
+const readType=a=>String(a?.type||a?.alertType||"").toUpperCase();
+const readSubType=a=>String(a?.subtype||a?.subType||a?.sub_type||"").toUpperCase();
+const readDescription=a=>String(a?.description||a?.reportDescription||a?.title||"").toUpperCase();
+const isAccident=a=>readType(a).includes("ACCIDENT")||readSubType(a).includes("ACCIDENT");
+function isIceAlert(a){return /RECENT(LY)?\s+FORMED\s+ICE|BLACK\s*ICE|\bICE\b|\bICY\b/.test(`${readType(a)} ${readSubType(a)} ${readDescription(a)}`)}
+function isTrafficLightFault(a){const t=readType(a),s=readSubType(a),d=readDescription(a);return(t.includes("TRAFFIC")&&t.includes("LIGHT"))||s.includes("TRAFFIC_LIGHT")||s.includes("LIGHT_FAULT")||/BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/.test(d)}
+function alertsToAccidentPoints(feed){const out=[];for(const a of Array.isArray(feed?.alerts)?feed.alerts:[]){if(!isAccident(a))continue;const coord=getLngLatFromAlert(a),conf10=readConfidence(a);if(!coord||conf10<=0)continue;out.push({coord,conf10,rel10:readReliability(a),isMotorway:/\bM\d{1,3}\b|\bA\d{1,4}\s*\(M\)/i.test(`${a.street||""} ${a.description||""}`)})}return out}
+function alertsToSimplePoints(feed,predicate){const out=[];for(const a of Array.isArray(feed?.alerts)?feed.alerts:[]){if(!predicate(a))continue;const coord=getLngLatFromAlert(a);if(coord)out.push({coord})}return out}
 
-    const GM_BOUNDS = [[-2.75, 53.33], [-1.95, 53.62]];
-
-    const TVT_SOURCE_ID = "tvt-abnormal";
-    const TVT_LAYER_BASE = "tvt-abnormal-base";
-    const TVT_LAYER_PULSE = "tvt-abnormal-pulse";
-
-    const map = new maplibregl.Map({
-      container: "map",
-      style: "https://api.maptiler.com/maps/019c7761-a6b7-72d1-a48e-14ef5b3caf94/style.json?key=ileJHPYoUxyL17ZpmERr",
-      center: [-2.3297, 53.5],
-      zoom: 10.44,
-      pitch: 0,
-      bearing: 0,
-      attributionControl: true
-    });
-
-    /* The map is deliberately static. There is no timed carousel,
-       no scheduled fitBounds/easeTo movement, and no status pill. */
-
-    function withCacheBust(url) {
-      const separator = url.includes("?") ? "&" : "?";
-      return `${url}${separator}ts=${Date.now()}`;
+function clusterPointsSpatially(points,thresholdForPair){
+  if(!points.length)return[];
+  const parent=points.map((_,i)=>i);
+  const find=i=>{let root=i;while(parent[root]!==root)root=parent[root];while(parent[i]!==i){const next=parent[i];parent[i]=root;i=next}return root};
+  const union=(a,b)=>{const ra=find(a),rb=find(b);if(ra!==rb)parent[rb]=ra};
+  const maxThreshold=Math.max(MERGE_METERS,NON_MWAY_MERGE_METERS,MWAY_MERGE_METERS);
+  const meanLat=points.reduce((sum,p)=>sum+p.coord[1],0)/points.length;
+  const mLat=111320,mLon=Math.max(1,mLat*Math.cos(toRad(meanLat)));
+  const cellW=maxThreshold/mLon,cellH=maxThreshold/mLat,grid=new Map();
+  for(let i=0;i<points.length;i++){
+    const x=Math.floor(points[i].coord[0]/cellW),y=Math.floor(points[i].coord[1]/cellH);
+    for(let ox=-1;ox<=1;ox++)for(let oy=-1;oy<=1;oy++){
+      const nearby=grid.get(`${x+ox}:${y+oy}`);if(!nearby)continue;
+      for(const j of nearby)if(haversineMeters(points[i].coord,points[j].coord)<=thresholdForPair(points[i],points[j]))union(i,j);
     }
+    const key=`${x}:${y}`;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(i);
+  }
+  const groups=new Map();points.forEach((p,i)=>{const root=find(i);if(!groups.has(root))groups.set(root,[]);groups.get(root).push(p)});return[...groups.values()];
+}
+function averageCoord(members){return members.reduce((s,m)=>[s[0]+m.coord[0],s[1]+m.coord[1]],[0,0]).map(v=>v/members.length)}
+function clusterGeneric(points,mergeMeters=MERGE_METERS){return clusterPointsSpatially(points,()=>mergeMeters).map((members,i)=>{const coordinates=averageCoord(members);return{type:"Feature",id:`generic-${i}-${coordinates[0].toFixed(4)}-${coordinates[1].toFixed(4)}`,geometry:{type:"Point",coordinates},properties:{count:members.length}}})}
+function clusterAccidents(points){return clusterPointsSpatially(points,(a,b)=>a.isMotorway||b.isMotorway?MWAY_MERGE_METERS:NON_MWAY_MERGE_METERS).map((members,i)=>{const coordinates=averageCoord(members),base=Math.max(...members.map(m=>m.conf10)),rel=Math.max(...members.map(m=>m.rel10)),effective10=Math.min(12,base+(rel>8?2:0)),effectiveConfidence=Math.max(1,Math.min(5,Math.round(effective10/2)));return{type:"Feature",id:`acc-${i}-${coordinates[0].toFixed(4)}-${coordinates[1].toFixed(4)}`,geometry:{type:"Point",coordinates},properties:{effectiveConfidence,reportCount:members.length}}})}
 
-    function mapUpstreamToBackend(url) {
-      const value = String(url || "");
-      if (!value || value.startsWith(API_BASE)) return value;
-      if (value.includes("/row-partnerhub-api/partners/") && value.includes("/waze-feeds/")) {
-        return `${API_BASE}/api/waze/partner-feed`;
-      }
-      if (value.includes("/row-partnerhub-api/feeds-tvt")) {
-        return `${API_BASE}/api/waze/tvt`;
-      }
-      if (value.includes("highwaysengland.co.uk/feeds/rss/UnplannedEvents")) {
-        return `${API_BASE}/api/highways-nw`;
-      }
-      return value;
-    }
+function createPulsingDot(mapInstance){const size=128;return{width:size,height:size,data:new Uint8Array(size*size*4),onAdd(){const c=document.createElement("canvas");c.width=c.height=size;this.context=c.getContext("2d",{willReadFrequently:true})},render(){const c=this.context,t=(performance.now()%1200)/1200;c.clearRect(0,0,size,size);c.beginPath();c.arc(size/2,size/2,(size/2)*(.30+.20*t),0,Math.PI*2);c.fillStyle=`rgba(255,80,80,${.55-.4*t})`;c.fill();c.beginPath();c.arc(size/2,size/2,size*.09,0,Math.PI*2);c.fillStyle="#f00";c.strokeStyle="#fff";c.lineWidth=3;c.fill();c.stroke();this.data.set(c.getImageData(0,0,size,size).data);mapInstance.triggerRepaint();return true}}}
+function createTriangleIcon(mapInstance){const size=128;return{width:size,height:size,data:new Uint8Array(size*size*4),onAdd(){const c=document.createElement("canvas");c.width=c.height=size;this.context=c.getContext("2d",{willReadFrequently:true})},render(){const c=this.context;c.clearRect(0,0,size,size);c.beginPath();c.moveTo(size/2,14);c.lineTo(size-14,size-14);c.lineTo(14,size-14);c.closePath();c.fillStyle="#28c76f";c.strokeStyle="#fff";c.lineWidth=4;c.fill();c.stroke();this.data.set(c.getImageData(0,0,size,size).data);mapInstance.triggerRepaint();return true}}}
+async function addExternalSvgImage(id,url){try{const response=await fetch(withCacheBust(url),{cache:"no-store"});if(!response.ok)throw new Error(`HTTP ${response.status}`);const svg=await response.text(),objectUrl=URL.createObjectURL(new Blob([svg],{type:"image/svg+xml"}));await new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>{try{if(!map.hasImage(id))map.addImage(id,image,{pixelRatio:2});resolve()}catch(e){reject(e)}finally{URL.revokeObjectURL(objectUrl)}};image.onerror=reject;image.src=objectUrl})}catch(error){console.warn("Traffic-light icon failed to load:",error)}}
 
-    async function fetchJsonViaOccProxy(url, signal) {
-      const response = await fetch(withCacheBust(mapUpstreamToBackend(url)), {
-        cache: "no-store",
-        signal
-      });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const text = (await response.text()).replace(/^\uFEFF/, "").trim();
-      if (!text) throw new Error("Empty response");
-      return JSON.parse(text);
-    }
+function tryNumber(v){const n=Number(v);return Number.isFinite(n)?n:null}
+function parseHeRss(xmlString){const documentXml=new DOMParser().parseFromString(xmlString,"text/xml");if(documentXml.querySelector("parsererror"))throw new Error("Highways endpoint returned invalid XML");const features=[];for(const item of documentXml.querySelectorAll("item")){let latitude=null,longitude=null;const point=item.querySelector("ge\\:point, georss\\:point, point");if(point?.textContent){const p=point.textContent.trim().split(/[ ,]+/);latitude=tryNumber(p[0]);longitude=tryNumber(p[1])}if(latitude===null||longitude===null){latitude=tryNumber(item.querySelector("geo\\:lat, lat")?.textContent);longitude=tryNumber(item.querySelector("geo\\:long, lon, long")?.textContent)}if(latitude===null||longitude===null)continue;features.push({type:"Feature",geometry:{type:"Point",coordinates:[longitude,latitude]},properties:{title:item.querySelector("title")?.textContent?.trim()||"Unplanned event"}})}return{type:"FeatureCollection",features}}
+function computeDelayMinutes(route){const c=Number(route?.time),h=Number(route?.historicTime);return Number.isFinite(c)&&Number.isFinite(h)?Math.max(0,Math.round((c-h)/60)):0}
+function lineCoordinatesFromRoute(route){const coords=(Array.isArray(route?.line)?route.line:[]).map(p=>[Number(p?.x),Number(p?.y)]).filter(p=>p.every(Number.isFinite));return coords.length>=2?coords:null}
+function tvtToAbnormalLineFeatures(data){const routes=[...(Array.isArray(data?.routes)?data.routes:[]),...(Array.isArray(data?.irregularities)?data.irregularities:[])];return routes.flatMap((r,i)=>{const delayMin=computeDelayMinutes(r),coordinates=lineCoordinatesFromRoute(r);return delayMin>=TVT_MIN_DELAY_MIN&&coordinates?[{type:"Feature",id:`tvt-${i}-${delayMin}`,geometry:{type:"LineString",coordinates},properties:{delayMin,name:String(r?.name||"")}}]:[]})}
 
-    async function fetchTextViaOccProxy(url, signal) {
-      const response = await fetch(withCacheBust(mapUpstreamToBackend(url)), {
-        cache: "no-store",
-        signal
-      });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const text = await response.text();
-      if (!text.trim()) throw new Error("Empty response");
-      return text;
-    }
+let wazeTimer=null,wazeController=null,heTimer=null,heController=null,tvtTimer=null,tvtController=null;
+async function runWazeCycle(){if(wazeController)wazeController.abort();wazeController=new AbortController();try{const data=await fetchJsonFromNetlify(WAZE_URL,wazeController.signal);if(!Array.isArray(data?.alerts))throw new Error("Waze response does not contain an alerts array");map.getSource("accidents")?.setData({type:"FeatureCollection",features:clusterAccidents(alertsToAccidentPoints(data))});map.getSource("waze-ice")?.setData({type:"FeatureCollection",features:clusterGeneric(alertsToSimplePoints(data,isIceAlert))});map.getSource("waze-signal-faults")?.setData({type:"FeatureCollection",features:clusterGeneric(alertsToSimplePoints(data,isTrafficLightFault))})}catch(error){if(error.name!=="AbortError")console.error("Waze fetch failed:",error)}finally{clearTimeout(wazeTimer);wazeTimer=setTimeout(runWazeCycle,REFRESH_MS)}}
+async function runHeCycle(){if(heController)heController.abort();heController=new AbortController();try{const xml=await fetchTextFromNetlify(HE_URL,heController.signal);map.getSource("he-unplanned")?.setData(parseHeRss(xml))}catch(error){if(error.name!=="AbortError")console.error("Highways fetch failed:",error)}finally{clearTimeout(heTimer);heTimer=setTimeout(runHeCycle,REFRESH_MS)}}
+async function runTvtCycle(){if(!TVT_ENABLED)return;if(tvtController)tvtController.abort();tvtController=new AbortController();try{const data=await fetchJsonFromNetlify(TVT_URL,tvtController.signal);map.getSource(TVT_SOURCE_ID)?.setData({type:"FeatureCollection",features:tvtToAbnormalLineFeatures(data)})}catch(error){if(error.name!=="AbortError")console.warn("TVT overlay fetch failed:",error)}finally{clearTimeout(tvtTimer);tvtTimer=setTimeout(runTvtCycle,TVT_REFRESH_MS)}}
+function startTvtPulse(){const tick=()=>{if(TVT_ENABLED&&!document.hidden&&map.isStyleLoaded()){const opacity=.15+.8*(.5+.5*Math.sin(performance.now()/1000*Math.PI*2*.75));try{map.setPaintProperty(TVT_LAYER_PULSE,"line-opacity",opacity)}catch(error){}}requestAnimationFrame(tick)};tick()}
+function syncAttributionIntoChip(){const chip=document.getElementById("attribChip"),attribution=document.querySelector(".maplibregl-ctrl-attrib");if(chip&&attribution)chip.innerHTML=attribution.innerHTML}
 
-    function toRad(degrees) {
-      return degrees * Math.PI / 180;
-    }
-
-    function haversineMeters([lon1, lat1], [lon2, lat2]) {
-      const radius = 6371000;
-      const dLat = toRad(lat2 - lat1);
-      const dLon = toRad(lon2 - lon1);
-      const a = Math.sin(dLat / 2) ** 2 +
-        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
-      return 2 * radius * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    }
-
-    function getLngLatFromAlert(alert) {
-      try {
-        const locationData = alert?.location;
-        if (locationData) {
-          if (Number.isFinite(locationData.x) && Number.isFinite(locationData.y)) return [locationData.x, locationData.y];
-          if (Number.isFinite(locationData.lon) && Number.isFinite(locationData.lat)) return [locationData.lon, locationData.lat];
-          if (Array.isArray(locationData.coordinates) && locationData.coordinates.length >= 2) return locationData.coordinates.slice(0, 2);
-          if (Number.isFinite(locationData.point?.x) && Number.isFinite(locationData.point?.y)) return [locationData.point.x, locationData.point.y];
-        }
-        if (Array.isArray(alert?.geometry?.coordinates) && alert.geometry.coordinates.length >= 2) {
-          return alert.geometry.coordinates.slice(0, 2);
-        }
-        if (Number.isFinite(alert?.longitude) && Number.isFinite(alert?.latitude)) {
-          return [alert.longitude, alert.latitude];
-        }
-      } catch (error) {}
-      return null;
-    }
-
-    const readConfidence = alert => Number(alert?.confidence ?? alert?.confidenceLevel ?? alert?.level ?? 0) || 0;
-    const readReliability = alert => Number(alert?.reliability ?? alert?.reliabilityScore ?? 0) || 0;
-    const readType = alert => String(alert?.type || alert?.alertType || "").toUpperCase();
-    const readSubType = alert => String(alert?.subtype || alert?.subType || alert?.sub_type || "").toUpperCase();
-    const readDescription = alert => String(alert?.description || alert?.reportDescription || alert?.title || "").toUpperCase();
-
-    function isAccident(alert) {
-      return readType(alert).includes("ACCIDENT") || readSubType(alert).includes("ACCIDENT");
-    }
-
-    function isIceAlert(alert) {
-      const text = `${readType(alert)} ${readSubType(alert)} ${readDescription(alert)}`;
-      return /RECENT(LY)?\s+FORMED\s+ICE|BLACK\s*ICE|\bICE\b|\bICY\b/.test(text);
-    }
-
-    function isTrafficLightFault(alert) {
-      const type = readType(alert);
-      const subtype = readSubType(alert);
-      const description = readDescription(alert);
-      return (type.includes("TRAFFIC") && type.includes("LIGHT")) ||
-        subtype.includes("TRAFFIC_LIGHT") ||
-        subtype.includes("LIGHT_FAULT") ||
-        /BROKEN\s+TRAFFIC\s+LIGHT|TRAFFIC\s+LIGHT\s+FAULT|SIGNAL\s+FAULT/.test(description);
-    }
-
-    function alertsToAccidentPoints(feed) {
-      const points = [];
-      for (const alert of Array.isArray(feed?.alerts) ? feed.alerts : []) {
-        if (!isAccident(alert)) continue;
-        const coord = getLngLatFromAlert(alert);
-        const conf10 = readConfidence(alert);
-        if (!coord || conf10 <= 0) continue;
-        points.push({
-          id: alert.uuid || alert.id || `${coord[0]},${coord[1]},${alert.pubMillis || ""}`,
-          coord,
-          conf10,
-          rel10: readReliability(alert),
-          time: Number(alert.pubMillis || alert.updateTime || alert.reportMillis || 0),
-          isMotorway: /\bM\d{1,3}\b|\bA\d{1,4}\s*\(M\)/i.test(`${alert.street || ""} ${alert.description || ""}`)
-        });
-      }
-      return points;
-    }
-
-    function alertsToSimplePoints(feed, predicate) {
-      const points = [];
-      for (const alert of Array.isArray(feed?.alerts) ? feed.alerts : []) {
-        if (!predicate(alert)) continue;
-        const coord = getLngLatFromAlert(alert);
-        if (!coord) continue;
-        points.push({
-          id: alert.uuid || alert.id || `${coord[0]},${coord[1]},${alert.pubMillis || ""}`,
-          coord,
-          time: Number(alert.pubMillis || alert.updateTime || alert.reportMillis || 0)
-        });
-      }
-      return points;
-    }
-
-    function clusterGeneric(points, mergeMeters = MERGE_METERS) {
-      if (!points.length) return [];
-      const parent = points.map((_, index) => index);
-      const find = index => {
-        while (parent[index] !== index) {
-          parent[index] = parent[parent[index]];
-          index = parent[index];
-        }
-        return index;
-      };
-      const union = (a, b) => {
-        a = find(a);
-        b = find(b);
-        if (a !== b) parent[a] = b;
-      };
-
-      for (let i = 0; i < points.length; i++) {
-        for (let j = i + 1; j < points.length; j++) {
-          if (haversineMeters(points[i].coord, points[j].coord) <= mergeMeters) union(i, j);
-        }
-      }
-
-      const groups = new Map();
-      points.forEach((point, index) => {
-        const root = find(index);
-        if (!groups.has(root)) groups.set(root, []);
-        groups.get(root).push(point);
-      });
-
-      return [...groups.values()].map((members, index) => {
-        const count = members.length;
-        const coordinates = members.reduce((sum, member) => [sum[0] + member.coord[0], sum[1] + member.coord[1]], [0, 0])
-          .map(value => value / count);
-        return {
-          type: "Feature",
-          id: `generic-${index}-${coordinates[0].toFixed(4)}-${coordinates[1].toFixed(4)}`,
-          geometry: { type: "Point", coordinates },
-          properties: { count }
-        };
-      });
-    }
-
-    function clusterAccidents(points) {
-      if (!points.length) return [];
-      const parent = points.map((_, index) => index);
-      const find = index => {
-        while (parent[index] !== index) {
-          parent[index] = parent[parent[index]];
-          index = parent[index];
-        }
-        return index;
-      };
-      const union = (a, b) => {
-        a = find(a);
-        b = find(b);
-        if (a !== b) parent[a] = b;
-      };
-
-      for (let i = 0; i < points.length; i++) {
-        for (let j = i + 1; j < points.length; j++) {
-          const threshold = points[i].isMotorway || points[j].isMotorway ? MWAY_MERGE_METERS : NON_MWAY_MERGE_METERS;
-          if (haversineMeters(points[i].coord, points[j].coord) <= threshold) union(i, j);
-        }
-      }
-
-      const groups = new Map();
-      points.forEach((point, index) => {
-        const root = find(index);
-        if (!groups.has(root)) groups.set(root, []);
-        groups.get(root).push(point);
-      });
-
-      return [...groups.values()].map((members, index) => {
-        const count = members.length;
-        const coordinates = members.reduce((sum, member) => [sum[0] + member.coord[0], sum[1] + member.coord[1]], [0, 0])
-          .map(value => value / count);
-        const baseConfidence = Math.max(...members.map(member => member.conf10));
-        const bestReliability = Math.max(...members.map(member => member.rel10));
-        const effective10 = Math.min(12, baseConfidence + (bestReliability > 8 ? 2 : 0));
-        const effectiveConfidence = Math.max(1, Math.min(5, Math.round(effective10 / 2)));
-        return {
-          type: "Feature",
-          id: `acc-${index}-${coordinates[0].toFixed(4)}-${coordinates[1].toFixed(4)}`,
-          geometry: { type: "Point", coordinates },
-          properties: { effectiveConfidence, reportCount: count }
-        };
-      });
-    }
-
-    function createPulsingDot(mapInstance) {
-      const size = 128;
-      return {
-        width: size,
-        height: size,
-        data: new Uint8Array(size * size * 4),
-        onAdd() {
-          const canvas = document.createElement("canvas");
-          canvas.width = size;
-          canvas.height = size;
-          this.context = canvas.getContext("2d", { willReadFrequently: true });
-        },
-        render() {
-          const context = this.context;
-          const t = (performance.now() % 1200) / 1200;
-          context.clearRect(0, 0, size, size);
-          context.beginPath();
-          context.arc(size / 2, size / 2, (size / 2) * (0.30 + 0.20 * t), 0, Math.PI * 2);
-          context.fillStyle = `rgba(255, 80, 80, ${0.55 - 0.4 * t})`;
-          context.fill();
-          context.beginPath();
-          context.arc(size / 2, size / 2, size * 0.09, 0, Math.PI * 2);
-          context.fillStyle = "#ff0000";
-          context.strokeStyle = "#ffffff";
-          context.lineWidth = 3;
-          context.fill();
-          context.stroke();
-          this.data.set(context.getImageData(0, 0, size, size).data);
-          mapInstance.triggerRepaint();
-          return true;
-        }
-      };
-    }
-
-    async function addExternalSvgImage(mapInstance, id, url) {
-      function loadViaImage(source) {
-        return new Promise((resolve, reject) => {
-          const image = new Image();
-          image.crossOrigin = "anonymous";
-          image.onload = () => {
-            try {
-              if (!mapInstance.hasImage(id)) mapInstance.addImage(id, image, { pixelRatio: 2 });
-              resolve(true);
-            } catch (error) {
-              resolve(false);
-            }
-          };
-          image.onerror = reject;
-          image.src = source;
-        });
-      }
-
-      try {
-        const separator = url.includes("?") ? "&" : "?";
-        await loadViaImage(`${url}${separator}ts=${Date.now()}`);
-      } catch (firstError) {
-        try {
-          const response = await fetch(url, { cache: "no-store" });
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const svgText = await response.text();
-          const objectUrl = URL.createObjectURL(new Blob([svgText], { type: "image/svg+xml" }));
-          try {
-            await loadViaImage(objectUrl);
-          } finally {
-            URL.revokeObjectURL(objectUrl);
-          }
-        } catch (secondError) {
-          console.error("Traffic-light icon failed to load:", secondError);
-        }
-      }
-    }
-
-    function createTriangleIcon(mapInstance) {
-      const size = 128;
-      return {
-        width: size,
-        height: size,
-        data: new Uint8Array(size * size * 4),
-        onAdd() {
-          const canvas = document.createElement("canvas");
-          canvas.width = size;
-          canvas.height = size;
-          this.context = canvas.getContext("2d", { willReadFrequently: true });
-        },
-        render() {
-          const context = this.context;
-          context.clearRect(0, 0, size, size);
-          context.beginPath();
-          context.moveTo(size / 2, 14);
-          context.lineTo(size - 14, size - 14);
-          context.lineTo(14, size - 14);
-          context.closePath();
-          context.fillStyle = "#28c76f";
-          context.strokeStyle = "#ffffff";
-          context.lineWidth = 4;
-          context.fill();
-          context.stroke();
-          this.data.set(context.getImageData(0, 0, size, size).data);
-          mapInstance.triggerRepaint();
-          return true;
-        }
-      };
-    }
-
-    function tryNumber(value) {
-      const number = Number(value);
-      return Number.isFinite(number) ? number : null;
-    }
-
-    function parseHeRss(xmlString) {
-      let documentXml;
-      try {
-        documentXml = new DOMParser().parseFromString(xmlString, "text/xml");
-      } catch (error) {
-        return { type: "FeatureCollection", features: [] };
-      }
-
-      const features = [];
-      for (const item of documentXml.querySelectorAll("item")) {
-        let latitude = null;
-        let longitude = null;
-        const point = item.querySelector("ge\\:point, georss\\:point, point");
-        if (point?.textContent) {
-          const parts = point.textContent.trim().split(/[ ,]+/);
-          latitude = tryNumber(parts[0]);
-          longitude = tryNumber(parts[1]);
-        }
-        if (latitude === null || longitude === null) {
-          const latElement = item.querySelector("geo\\:lat, lat");
-          const lonElement = item.querySelector("geo\\:long, lon, long");
-          latitude = tryNumber(latElement?.textContent);
-          longitude = tryNumber(lonElement?.textContent);
-        }
-        if (latitude === null || longitude === null) continue;
-        const title = item.querySelector("title")?.textContent?.trim() || "Unplanned event";
-        features.push({
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [longitude, latitude] },
-          properties: { title }
-        });
-      }
-      return { type: "FeatureCollection", features };
-    }
-
-    function computeDelayMinutes(route) {
-      const current = Number(route?.time);
-      const historic = Number(route?.historicTime);
-      if (!Number.isFinite(current) || !Number.isFinite(historic)) return 0;
-      return Math.max(0, Math.round((current - historic) / 60));
-    }
-
-    function lineCoordinatesFromRoute(route) {
-      const coordinates = (Array.isArray(route?.line) ? route.line : [])
-        .map(point => [Number(point?.x), Number(point?.y)])
-        .filter(point => point.every(Number.isFinite));
-      return coordinates.length >= 2 ? coordinates : null;
-    }
-
-    function tvtToAbnormalLineFeatures(data) {
-      const routes = [
-        ...(Array.isArray(data?.routes) ? data.routes : []),
-        ...(Array.isArray(data?.irregularities) ? data.irregularities : [])
-      ];
-      return routes.flatMap((route, index) => {
-        const delayMin = computeDelayMinutes(route);
-        const coordinates = lineCoordinatesFromRoute(route);
-        if (delayMin < TVT_MIN_DELAY_MIN || !coordinates) return [];
-        return [{
-          type: "Feature",
-          id: `tvt-${index}-${delayMin}`,
-          geometry: { type: "LineString", coordinates },
-          properties: { delayMin, name: String(route?.name || "") }
-        }];
-      });
-    }
-
-    let wazeTimer = null;
-    let wazeController = null;
-    let heTimer = null;
-    let heController = null;
-    let tvtTimer = null;
-    let tvtController = null;
-
-    async function runWazeCycle() {
-      if (wazeController) wazeController.abort();
-      wazeController = new AbortController();
-      try {
-        const data = await fetchJsonViaOccProxy(WAZE_URL, wazeController.signal);
-        const accidents = clusterAccidents(alertsToAccidentPoints(data));
-        const ice = clusterGeneric(alertsToSimplePoints(data, isIceAlert));
-        const signals = clusterGeneric(alertsToSimplePoints(data, isTrafficLightFault));
-        map.getSource("accidents")?.setData({ type: "FeatureCollection", features: accidents });
-        map.getSource("waze-ice")?.setData({ type: "FeatureCollection", features: ice });
-        map.getSource("waze-signal-faults")?.setData({ type: "FeatureCollection", features: signals });
-      } catch (error) {
-        if (error.name !== "AbortError") console.error("Waze fetch failed:", error);
-      } finally {
-        clearTimeout(wazeTimer);
-        wazeTimer = setTimeout(runWazeCycle, REFRESH_MS);
-      }
-    }
-
-    async function runHeCycle() {
-      if (heController) heController.abort();
-      heController = new AbortController();
-      try {
-        const xml = await fetchTextViaOccProxy(HE_URL, heController.signal);
-        map.getSource("he-unplanned")?.setData(parseHeRss(xml));
-      } catch (error) {
-        if (error.name !== "AbortError") console.error("Highways fetch failed:", error);
-      } finally {
-        clearTimeout(heTimer);
-        heTimer = setTimeout(runHeCycle, REFRESH_MS);
-      }
-    }
-
-    async function runTvtCycle() {
-      if (tvtController) tvtController.abort();
-      tvtController = new AbortController();
-      try {
-        const data = await fetchJsonViaOccProxy(TVT_URL, tvtController.signal);
-        map.getSource(TVT_SOURCE_ID)?.setData({
-          type: "FeatureCollection",
-          features: tvtToAbnormalLineFeatures(data)
-        });
-      } catch (error) {
-        if (error.name !== "AbortError") console.warn("TVT overlay fetch failed:", error);
-      } finally {
-        clearTimeout(tvtTimer);
-        tvtTimer = setTimeout(runTvtCycle, TVT_REFRESH_MS);
-      }
-    }
-
-    function startTvtPulse() {
-      function tick() {
-        if (!document.hidden && map.isStyleLoaded()) {
-          const t = performance.now() / 1000;
-          const opacity = 0.15 + 0.80 * (0.5 + 0.5 * Math.sin(t * Math.PI * 2 * 0.75));
-          try {
-            map.setPaintProperty(TVT_LAYER_PULSE, "line-opacity", opacity);
-          } catch (error) {}
-        }
-        requestAnimationFrame(tick);
-      }
-      tick();
-    }
-
-    function networkGradientFromUsersOnJams(usersOnJams) {
-      if (!Array.isArray(usersOnJams) || !usersOnJams.length) {
-        return "linear-gradient(90deg, #42be4b, #ffe04a, #ff4d4f)";
-      }
-      const colours = { 0: "#42be4b", 1: "#9ddc43", 2: "#ffe04a", 3: "#ff9a1f", 4: "#ff4d4f" };
-      const total = usersOnJams.reduce((sum, item) => sum + (Number(item.wazersCount) || 0), 0) || 1;
-      let accumulated = 0;
-      const stops = usersOnJams.slice().sort((a, b) => a.jamLevel - b.jamLevel).map(item => {
-        const start = accumulated;
-        accumulated += (Number(item.wazersCount) || 0) / total * 100;
-        return `${colours[item.jamLevel] || "#666"} ${start.toFixed(2)}% ${accumulated.toFixed(2)}%`;
-      });
-      return `linear-gradient(90deg, ${stops.join(", ")})`;
-    }
-
-    async function updateNetworkHealth() {
-      if (document.hidden) return;
-      try {
-        const data = await fetchJsonViaOccProxy(TVT_URL);
-        const bar = document.getElementById("networkHealthBar");
-        bar.style.background = networkGradientFromUsersOnJams(data?.usersOnJams || []);
-        bar.title = `Network health - Updated ${new Date().toLocaleTimeString("en-GB", { hour12: false })}`;
-      } catch (error) {
-        console.warn("Network health update failed:", error);
-      }
-    }
-
-    function syncAttributionIntoChip() {
-      const chip = document.getElementById("attribChip");
-      const attribution = document.querySelector(".maplibregl-ctrl-attrib");
-      if (chip && attribution) chip.innerHTML = attribution.innerHTML;
-    }
-
-    map.on("load", async () => {
-      /* Initial framing only. It is not repeated, so the map remains static afterwards. */
-      map.fitBounds(GM_BOUNDS, { padding: 4, duration: 0 });
-
-      map.addImage("pulsing-red", createPulsingDot(map), { pixelRatio: 2 });
-      map.addImage("triangle-green", createTriangleIcon(map), { pixelRatio: 2 });
-
-      map.addSource("accidents", {
-        type: "geojson",
-        data: { type: "FeatureCollection", features: [] }
-      });
-
-      map.addLayer({
-        id: "accidents-one",
-        type: "circle",
-        source: "accidents",
-        filter: ["==", ["get", "effectiveConfidence"], 1],
-        paint: {
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 3, 12, 4, 16, 5.5],
-          "circle-color": "#ffe04a",
-          "circle-stroke-color": "#fff1a6",
-          "circle-stroke-width": 1
-        }
-      });
-
-      map.addLayer({
-        id: "accidents-two",
-        type: "circle",
-        source: "accidents",
-        filter: ["==", ["get", "effectiveConfidence"], 2],
-        paint: {
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 4.4, 12, 6, 16, 7.4],
-          "circle-color": "#ffe04a",
-          "circle-stroke-color": "#fff1a6",
-          "circle-stroke-width": 1.2
-        }
-      });
-
-      map.addLayer({
-        id: "accidents-three",
-        type: "circle",
-        source: "accidents",
-        filter: ["==", ["get", "effectiveConfidence"], 3],
-        paint: {
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 6.2, 12, 8.2, 16, 10.2],
-          "circle-color": "#ff0000",
-          "circle-stroke-color": "#ffd0d0",
-          "circle-stroke-width": 1.6
-        }
-      });
-
-      map.addLayer({
-        id: "accidents-high",
-        type: "symbol",
-        source: "accidents",
-        filter: [">=", ["get", "effectiveConfidence"], HIGH_CONF_MIN],
-        layout: {
-          "icon-image": "pulsing-red",
-          "icon-size": ["interpolate", ["linear"], ["zoom"], 8, 0.8, 12, 1.36, 16, 2.1],
-          "icon-allow-overlap": true
-        }
-      });
-
-      map.addSource("he-unplanned", {
-        type: "geojson",
-        data: { type: "FeatureCollection", features: [] }
-      });
-
-      map.addLayer({
-        id: "he-unplanned-dots",
-        type: "circle",
-        source: "he-unplanned",
-        paint: {
-          "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 3.4, 12, 5.2, 16, 7],
-          "circle-color": "#3a90ff",
-          "circle-stroke-color": "#ffffff",
-          "circle-stroke-width": 1.2
-        }
-      });
-
-      map.addSource("waze-ice", {
-        type: "geojson",
-        data: { type: "FeatureCollection", features: [] }
-      });
-
-      map.addLayer({
-        id: "waze-ice-label",
-        type: "symbol",
-        source: "waze-ice",
-        layout: {
-          "text-field": "ICE",
-          "text-size": ["interpolate", ["linear"], ["zoom"], 8, 12, 12, 16, 16, 22],
-          "text-allow-overlap": true,
-          "text-ignore-placement": true
-        },
-        paint: {
-          "text-color": "#e7f4ff",
-          "text-halo-color": "#5bb1ff",
-          "text-halo-width": 1.5,
-          "text-halo-blur": 0.8
-        }
-      });
-
-      await addExternalSvgImage(map, "tl-icon", "https://ryanocc.github.io/tl.svg");
-
-      map.addSource("waze-signal-faults", {
-        type: "geojson",
-        data: { type: "FeatureCollection", features: [] }
-      });
-
-      map.addLayer({
-        id: "waze-signal-faults-icon",
-        type: "symbol",
-        source: "waze-signal-faults",
-        layout: {
-          "icon-image": map.hasImage("tl-icon") ? "tl-icon" : "triangle-green",
-          "icon-size": ["interpolate", ["linear"], ["zoom"], 8, 0.5, 12, 0.5, 16, 0.5],
-          "icon-allow-overlap": true
-        }
-      });
-
-      map.addSource(TVT_SOURCE_ID, {
-        type: "geojson",
-        data: { type: "FeatureCollection", features: [] }
-      });
-
-      map.addLayer({
-        id: TVT_LAYER_BASE,
-        type: "line",
-        source: TVT_SOURCE_ID,
-        layout: { "line-join": "round", "line-cap": "round" },
-        paint: {
-          "line-color": "#ff2e34",
-          "line-width": ["interpolate", ["linear"], ["zoom"], 8, 2, 12, 4, 16, 8],
-          "line-opacity": 0.35,
-          "line-blur": 0.6
-        }
-      });
-
-      map.addLayer({
-        id: TVT_LAYER_PULSE,
-        type: "line",
-        source: TVT_SOURCE_ID,
-        layout: { "line-join": "round", "line-cap": "round" },
-        paint: {
-          "line-color": "#ff0000",
-          "line-width": ["interpolate", ["linear"], ["zoom"], 8, 3, 12, 6, 16, 12],
-          "line-opacity": 0,
-          "line-blur": 0.9
-        }
-      });
-
-      syncAttributionIntoChip();
-      const attribution = document.querySelector(".maplibregl-ctrl-attrib");
-      if (attribution) {
-        new MutationObserver(syncAttributionIntoChip).observe(attribution, {
-          childList: true,
-          subtree: true,
-          characterData: true
-        });
-      }
-
-      await Promise.allSettled([runWazeCycle(), runHeCycle(), runTvtCycle(), updateNetworkHealth()]);
-      startTvtPulse();
-      setInterval(updateNetworkHealth, NET_HEALTH_REFRESH_MS);
-    });
-
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden) {
-        map.resize();
-        syncAttributionIntoChip();
-        updateNetworkHealth();
-      }
-    });
-
-    window.addEventListener("resize", () => map.resize());
-  </script>
+map.on("load",()=>{
+  map.fitBounds(GM_BOUNDS,{padding:4,duration:0});
+  map.addImage("pulsing-red",createPulsingDot(map),{pixelRatio:2});map.addImage("triangle-green",createTriangleIcon(map),{pixelRatio:2});
+  const empty={type:"FeatureCollection",features:[]};
+  map.addSource("accidents",{type:"geojson",data:empty});
+  map.addLayer({id:"accidents-one",type:"circle",source:"accidents",filter:["==",["get","effectiveConfidence"],1],paint:{"circle-radius":["interpolate",["linear"],["zoom"],8,3,12,4,16,5.5],"circle-color":"#ffe04a","circle-stroke-color":"#fff1a6","circle-stroke-width":1}});
+  map.addLayer({id:"accidents-two",type:"circle",source:"accidents",filter:["==",["get","effectiveConfidence"],2],paint:{"circle-radius":["interpolate",["linear"],["zoom"],8,4.4,12,6,16,7.4],"circle-color":"#ffe04a","circle-stroke-color":"#fff1a6","circle-stroke-width":1.2}});
+  map.addLayer({id:"accidents-three",type:"circle",source:"accidents",filter:["==",["get","effectiveConfidence"],3],paint:{"circle-radius":["interpolate",["linear"],["zoom"],8,6.2,12,8.2,16,10.2],"circle-color":"#f00","circle-stroke-color":"#ffd0d0","circle-stroke-width":1.6}});
+  map.addLayer({id:"accidents-high",type:"symbol",source:"accidents",filter:[">=",["get","effectiveConfidence"],HIGH_CONF_MIN],layout:{"icon-image":"pulsing-red","icon-size":["interpolate",["linear"],["zoom"],8,.8,12,1.36,16,2.1],"icon-allow-overlap":true}});
+  map.addSource("he-unplanned",{type:"geojson",data:empty});map.addLayer({id:"he-unplanned-dots",type:"circle",source:"he-unplanned",paint:{"circle-radius":["interpolate",["linear"],["zoom"],8,3.4,12,5.2,16,7],"circle-color":"#3a90ff","circle-stroke-color":"#fff","circle-stroke-width":1.2}});
+  map.addSource("waze-ice",{type:"geojson",data:empty});map.addLayer({id:"waze-ice-label",type:"symbol",source:"waze-ice",layout:{"text-field":"ICE","text-size":["interpolate",["linear"],["zoom"],8,12,12,16,16,22],"text-allow-overlap":true,"text-ignore-placement":true},paint:{"text-color":"#e7f4ff","text-halo-color":"#5bb1ff","text-halo-width":1.5,"text-halo-blur":.8}});
+  map.addSource("waze-signal-faults",{type:"geojson",data:empty});map.addLayer({id:"waze-signal-faults-icon",type:"symbol",source:"waze-signal-faults",layout:{"icon-image":"triangle-green","icon-size":.5,"icon-allow-overlap":true}});
+  void addExternalSvgImage("tl-icon","https://ryanocc.github.io/tl.svg").then(()=>{if(map.hasImage("tl-icon")&&map.getLayer("waze-signal-faults-icon"))map.setLayoutProperty("waze-signal-faults-icon","icon-image","tl-icon")});
+  map.addSource(TVT_SOURCE_ID,{type:"geojson",data:empty});
+  map.addLayer({id:TVT_LAYER_BASE,type:"line",source:TVT_SOURCE_ID,layout:{"line-join":"round","line-cap":"round"},paint:{"line-color":"#ff2e34","line-width":["interpolate",["linear"],["zoom"],8,2,12,4,16,8],"line-opacity":.35,"line-blur":.6}});
+  map.addLayer({id:TVT_LAYER_PULSE,type:"line",source:TVT_SOURCE_ID,layout:{"line-join":"round","line-cap":"round"},paint:{"line-color":"#f00","line-width":["interpolate",["linear"],["zoom"],8,3,12,6,16,12],"line-opacity":0,"line-blur":.9}});
+  syncAttributionIntoChip();const attribution=document.querySelector(".maplibregl-ctrl-attrib");if(attribution)new MutationObserver(syncAttributionIntoChip).observe(attribution,{childList:true,subtree:true,characterData:true});
+  setTimeout(()=>{void runWazeCycle()},0);setTimeout(()=>{void runHeCycle()},25);if(TVT_ENABLED){setTimeout(()=>{void runTvtCycle()},50);startTvtPulse()}
+});
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){map.resize();syncAttributionIntoChip()}});window.addEventListener("resize",()=>map.resize());
+</script>
 </body>
 </html>
