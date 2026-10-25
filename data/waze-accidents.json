@@ -1,21 +1,63 @@
 {
-  "updatedAt": "2026-10-25T06:11:37.761382+00:00",
+  "updatedAt": "2026-10-25T18:28:22.268548+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 4,
   "incidents": [
     {
-      "id": "c75d2c56-8ed4-47f1-b558-6d205ffb2219",
+      "id": "7dde094f-e4a7-49c2-b5bb-5ab56d7fb77b",
       "title": "alert",
-      "published": "Sun Oct 25 05:50:59 +0000 2026",
+      "published": "Sun Oct 25 17:46:04 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Benchill Rd",
-      "city": "Wythenshawe",
+      "subtype": "",
+      "road": "A50 > Lymm",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.35885 -2.509074"
+    },
+    {
+      "id": "cb9ce801-198a-4f9b-afbe-41969ad76c66",
+      "title": "alert",
+      "published": "Sun Oct 25 17:29:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Parrs Wood Rd",
+      "city": "Burnage",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.427775 -2.216542"
+    },
+    {
+      "id": "3fc34314-5680-47bc-a55f-03f839a368f7",
+      "title": "alert",
+      "published": "Sun Oct 25 18:10:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Manchester Rd",
+      "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.483503 -2.108141"
+    },
+    {
+      "id": "82fd8137-3bd9-40fd-8baa-410dbcd67cd0",
+      "title": "alert",
+      "published": "Sun Oct 25 18:25:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.393527 -2.265481"
+      "point": "53.639842 -1.967158"
     }
   ]
 }
