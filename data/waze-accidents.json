@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-25T21:16:32.593582+00:00",
+  "updatedAt": "2026-10-25T21:39:05.369440+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "8b85f9c8-88c4-494d-aa92-06496d73d35b",
@@ -18,18 +18,18 @@
       "point": "53.524596 -2.202521"
     },
     {
-      "id": "0e5b1808-6a20-4e4e-92de-98f6fd727075",
+      "id": "56aa9577-26c4-4f77-9007-d1c4fa45024c",
       "title": "alert",
-      "published": "Sun Oct 25 20:19:53 +0000 2026",
+      "published": "Sun Oct 25 21:27:30 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A640 - Huddersfield Rd",
-      "city": "",
+      "road": "A6042 - Trinity Way",
+      "city": "Ordsall",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.603361 -2.073224"
+      "point": "53.481904 -2.257264"
     },
     {
       "id": "8b93ac05-4ac4-4989-b93a-72a0600697be",
@@ -44,6 +44,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.601925 -2.070866"
+    },
+    {
+      "id": "0e5b1808-6a20-4e4e-92de-98f6fd727075",
+      "title": "alert",
+      "published": "Sun Oct 25 20:19:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A640 - Huddersfield Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.603361 -2.073224"
     }
   ]
 }
