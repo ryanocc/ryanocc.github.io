@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T18:30:47.815985+00:00",
+  "updatedAt": "2026-10-26T18:35:47.714058+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 15,
   "incidents": [
     {
       "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
@@ -32,32 +32,18 @@
       "point": "53.463487 -2.281569"
     },
     {
-      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
+      "id": "58d7f960-1477-4855-8e40-a46430306c5e",
       "title": "alert",
-      "published": "Mon Oct 26 18:16:11 +0000 2026",
+      "published": "Mon Oct 26 18:35:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "",
+      "road": "",
+      "city": "Stockport",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.633609 -2.486"
-    },
-    {
-      "id": "8231e3b6-5b33-4323-8f52-2bc60cc02cd4",
-      "title": "alert",
-      "published": "Mon Oct 26 18:17:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "Belmont",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.634332 -2.487256"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.424021 -2.124801"
     },
     {
       "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
@@ -74,6 +60,34 @@
       "point": "53.633716 -2.486195"
     },
     {
+      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
+      "title": "alert",
+      "published": "Mon Oct 26 18:16:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.633609 -2.486"
+    },
+    {
+      "id": "8231e3b6-5b33-4323-8f52-2bc60cc02cd4",
+      "title": "alert",
+      "published": "Mon Oct 26 18:17:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.634332 -2.487256"
+    },
+    {
       "id": "599db845-f707-459e-8e28-76079d03acae",
       "title": "alert",
       "published": "Mon Oct 26 18:27:46 +0000 2026",
@@ -88,18 +102,18 @@
       "point": "53.481605 -2.195632"
     },
     {
-      "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
+      "id": "b4ac2093-255b-4842-b6f5-f386328e6b9f",
       "title": "alert",
-      "published": "Mon Oct 26 17:18:06 +0000 2026",
+      "published": "Mon Oct 26 18:32:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Dinting Vale",
-      "city": "Glossop",
+      "road": "A662 - Ashton New Rd",
+      "city": "Clayton",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.447759 -1.975226"
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.48209 -2.193002"
     },
     {
       "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
@@ -116,6 +130,20 @@
       "point": "53.493057 -2.078043"
     },
     {
+      "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
+      "title": "alert",
+      "published": "Mon Oct 26 17:18:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Dinting Vale",
+      "city": "Glossop",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.447759 -1.975226"
+    },
+    {
       "id": "ce670134-d337-4437-9b30-39dd28df21cd",
       "title": "alert",
       "published": "Mon Oct 26 18:28:09 +0000 2026",
@@ -128,6 +156,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.328706 -2.249069"
+    },
+    {
+      "id": "fdcbee48-8ff8-4efd-8f5e-2fe3da06dabd",
+      "title": "alert",
+      "published": "Mon Oct 26 18:34:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Alan Turing Way",
+      "city": "Clayton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.482126 -2.195306"
     },
     {
       "id": "bb1f1908-ff74-41d1-a50c-d04fab0a787d",
@@ -156,6 +198,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.461573 -2.346016"
+    },
+    {
+      "id": "b283449c-4369-4e2f-825d-5bd601049c26",
+      "title": "alert",
+      "published": "Mon Oct 26 18:31:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.456554 -2.120833"
     }
   ]
 }
