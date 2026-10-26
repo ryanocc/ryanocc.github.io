@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T16:55:48.150052+00:00",
+  "updatedAt": "2026-10-26T17:00:48.263484+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
@@ -32,18 +32,18 @@
       "point": "53.463487 -2.281569"
     },
     {
-      "id": "42266ebc-3cf2-4a6e-bd39-c8ef1444ac19",
+      "id": "cc04308b-934e-4dab-b6a7-09790ca1b438",
       "title": "alert",
-      "published": "Mon Oct 26 15:34:47 +0000 2026",
+      "published": "Mon Oct 26 16:59:38 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 > Ring Rd E & S",
+      "subtype": "",
+      "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
-      "point": "53.541282 -2.285031"
+      "point": "53.409645 -2.174954"
     },
     {
       "id": "af9dd6dc-3d4e-4ca0-b4e9-1a5cd656ffdc",
@@ -54,24 +54,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.409039 -2.173371"
     },
     {
-      "id": "e56f2a96-868f-40cc-9e7a-a8e359587a62",
+      "id": "f6afa83a-55dc-48e7-85d8-5b349bfa4f7e",
       "title": "alert",
-      "published": "Mon Oct 26 16:46:25 +0000 2026",
+      "published": "Mon Oct 26 16:59:22 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.527248 -2.332949"
+      "reportRating": 2.0,
+      "point": "53.363851 -2.423464"
     },
     {
       "id": "b0f059d5-ae21-4caa-9275-eba265df60da",
@@ -86,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.540163 -2.286705"
+    },
+    {
+      "id": "e56f2a96-868f-40cc-9e7a-a8e359587a62",
+      "title": "alert",
+      "published": "Mon Oct 26 16:46:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.527248 -2.332949"
     }
   ]
 }
