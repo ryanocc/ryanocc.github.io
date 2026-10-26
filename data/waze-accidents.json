@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T15:15:48.219804+00:00",
+  "updatedAt": "2026-10-26T15:20:48.144614+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "548036d2-ff72-4aa1-8d36-8ee6dc21b8d3",
@@ -41,7 +41,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.398203 -2.20095"
     },
@@ -60,6 +60,20 @@
       "point": "53.664223 -2.295023"
     },
     {
+      "id": "cfc65750-c353-4f22-82d8-50b3e43ab3fe",
+      "title": "alert",
+      "published": "Mon Oct 26 15:20:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (N) - Handforth Bypass",
+      "city": "Cheadle Hulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.359413 -2.199683"
+    },
+    {
       "id": "680050a7-6446-47ba-abac-c3ac0d79ff68",
       "title": "alert",
       "published": "Mon Oct 26 15:15:29 +0000 2026",
@@ -68,8 +82,8 @@
       "road": "M602 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.480389 -2.284489"
     }
