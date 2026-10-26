@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T18:55:47.665211+00:00",
+  "updatedAt": "2026-10-26T19:00:47.666574+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -12,8 +12,8 @@
       "road": "J5 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.556443 -2.490363"
     },
@@ -32,6 +32,20 @@
       "point": "53.424021 -2.124801"
     },
     {
+      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
+      "title": "alert",
+      "published": "Mon Oct 26 18:16:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.633609 -2.486"
+    },
+    {
       "id": "8231e3b6-5b33-4323-8f52-2bc60cc02cd4",
       "title": "alert",
       "published": "Mon Oct 26 18:17:57 +0000 2026",
@@ -44,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.634332 -2.487256"
+    },
+    {
+      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
+      "title": "alert",
+      "published": "Mon Oct 26 18:16:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.633716 -2.486195"
     },
     {
       "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
@@ -60,32 +88,18 @@
       "point": "53.635016 -2.488695"
     },
     {
-      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
+      "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
       "title": "alert",
-      "published": "Mon Oct 26 18:16:33 +0000 2026",
+      "published": "Mon Oct 26 18:10:25 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "Belmont",
+      "road": "A670 - Mossley Rd",
+      "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.633716 -2.486195"
-    },
-    {
-      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
-      "title": "alert",
-      "published": "Mon Oct 26 18:16:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.633609 -2.486"
+      "point": "53.493057 -2.078043"
     },
     {
       "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
@@ -102,18 +116,18 @@
       "point": "53.447759 -1.975226"
     },
     {
-      "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
+      "id": "e56745fc-f564-4bd5-9037-b28c7b5cefa0",
       "title": "alert",
-      "published": "Mon Oct 26 18:10:25 +0000 2026",
+      "published": "Mon Oct 26 18:36:52 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "Ashton-under-Lyne",
+      "road": "M67 (E)",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.493057 -2.078043"
+      "reportRating": 1.0,
+      "point": "53.457475 -2.117393"
     },
     {
       "id": "ce6dd588-f015-4ede-8cdf-ce81720aa450",
@@ -128,20 +142,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.456471 -2.122665"
-    },
-    {
-      "id": "e56745fc-f564-4bd5-9037-b28c7b5cefa0",
-      "title": "alert",
-      "published": "Mon Oct 26 18:36:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.457475 -2.117393"
     }
   ]
 }
