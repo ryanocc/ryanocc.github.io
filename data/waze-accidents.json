@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T09:20:47.933894+00:00",
+  "updatedAt": "2026-10-26T09:25:48.049813+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 9,
   "incidents": [
     {
       "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
@@ -32,6 +32,20 @@
       "point": "53.361673 -2.33753"
     },
     {
+      "id": "09a81314-68b1-4861-bef1-8c0d730d703f",
+      "title": "alert",
+      "published": "Mon Oct 26 09:23:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J4 to M60 (W), M62",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.552123 -2.262574"
+    },
+    {
       "id": "826f1353-09da-463c-ad68-c91aa05aea9d",
       "title": "alert",
       "published": "Mon Oct 26 08:29:40 +0000 2026",
@@ -44,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.4227 -2.338973"
+    },
+    {
+      "id": "f785a0f4-94e2-4439-aa45-1a59b9a6be9a",
+      "title": "alert",
+      "published": "Mon Oct 26 09:21:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Bolton Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.502871 -2.613528"
     },
     {
       "id": "b16b3981-a903-49a5-8ec3-3c2f7b43f8b1",
@@ -86,6 +114,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.42333 -2.433169"
+    },
+    {
+      "id": "6751a71f-8479-4789-b99c-4bb4818c3b8e",
+      "title": "alert",
+      "published": "Mon Oct 26 09:23:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.624803 -2.052744"
     }
   ]
 }
