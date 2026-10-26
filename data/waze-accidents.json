@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T10:20:47.731039+00:00",
+  "updatedAt": "2026-10-26T10:25:47.735562+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "773e4879-8d81-4e45-a1ec-144ffe0d195b",
@@ -32,20 +32,6 @@
       "point": "53.4227 -2.338973"
     },
     {
-      "id": "900ebf83-c4d5-46c6-813f-4d365561d222",
-      "title": "alert",
-      "published": "Mon Oct 26 10:02:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A556 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.362727 -2.392069"
-    },
-    {
       "id": "bea4baab-b77b-4a4f-96c9-236ec3aff7ca",
       "title": "alert",
       "published": "Mon Oct 26 10:19:48 +0000 2026",
@@ -54,24 +40,10 @@
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.357325 -2.397812"
-    },
-    {
-      "id": "b291fb56-bcfd-4e23-a8f8-a1404ff0a8e0",
-      "title": "alert",
-      "published": "Mon Oct 26 09:59:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A556 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.362375 -2.392567"
+      "point": "53.357325 -2.397812"
     },
     {
       "id": "f24515ec-23b4-43d4-a243-be83db6e3e90",
@@ -100,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.363584 -2.391421"
+    },
+    {
+      "id": "900ebf83-c4d5-46c6-813f-4d365561d222",
+      "title": "alert",
+      "published": "Mon Oct 26 10:02:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.362727 -2.392069"
     },
     {
       "id": "eb08b0dc-5339-48b3-8c5d-7b749ec7e8fb",
