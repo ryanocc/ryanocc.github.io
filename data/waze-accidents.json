@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T11:45:47.797634+00:00",
+  "updatedAt": "2026-10-26T11:50:47.769357+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -41,7 +41,7 @@
       "city": "Walkden",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.519352 -2.397473"
     },
@@ -55,7 +55,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.66405 -2.294511"
     },
@@ -72,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.362727 -2.392069"
+    },
+    {
+      "id": "6f37e7ec-313f-4954-9f3f-e4acb5aea37b",
+      "title": "alert",
+      "published": "Mon Oct 26 11:26:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.345394 -2.495059"
     },
     {
       "id": "8c1a0b6a-65e0-401a-bfb6-c298cb7d947a",
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.347254 -2.497265"
-    },
-    {
-      "id": "6f37e7ec-313f-4954-9f3f-e4acb5aea37b",
-      "title": "alert",
-      "published": "Mon Oct 26 11:26:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.345394 -2.495059"
     }
   ]
 }
