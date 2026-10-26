@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T11:00:47.729766+00:00",
+  "updatedAt": "2026-10-26T11:05:47.782229+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.455922 -2.160974"
     },
     {
-      "id": "569654cc-3609-4175-b073-d8ee350ee290",
-      "title": "alert",
-      "published": "Mon Oct 26 10:40:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A680 - Spotland Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.619806 -2.165763"
-    },
-    {
       "id": "900ebf83-c4d5-46c6-813f-4d365561d222",
       "title": "alert",
       "published": "Mon Oct 26 10:02:32 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.485763 -2.059168"
+    },
+    {
+      "id": "d7646928-6d6d-430a-b20c-b9cf5fb107ad",
+      "title": "alert",
+      "published": "Mon Oct 26 11:05:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.346085 -2.495894"
     }
   ]
 }
