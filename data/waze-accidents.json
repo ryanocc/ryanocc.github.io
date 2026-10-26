@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T12:20:47.782819+00:00",
+  "updatedAt": "2026-10-26T12:25:47.801572+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 9,
   "incidents": [
     {
       "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
@@ -68,8 +68,8 @@
       "road": "B5211 - Barton Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.499994 -2.381977"
     },
@@ -82,24 +82,10 @@
       "road": "B5211 - Barton Dock Rd",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.469891 -2.349078"
-    },
-    {
-      "id": "f908f690-47f1-453e-a8ba-62bf132873be",
-      "title": "alert",
-      "published": "Mon Oct 26 11:39:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A680 - Rochdale Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.66405 -2.294511"
     },
     {
       "id": "80352020-1078-416b-bcff-1cdda5af8460",
@@ -116,6 +102,20 @@
       "point": "53.665268 -2.297007"
     },
     {
+      "id": "f908f690-47f1-453e-a8ba-62bf132873be",
+      "title": "alert",
+      "published": "Mon Oct 26 11:39:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A680 - Rochdale Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.66405 -2.294511"
+    },
+    {
       "id": "578d3573-67c9-4074-a632-e6075256fdf1",
       "title": "alert",
       "published": "Mon Oct 26 12:15:57 +0000 2026",
@@ -124,52 +124,10 @@
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.312985 -2.418355"
-    },
-    {
-      "id": "2ca8d184-79e8-4f89-b54e-c3bf572be5de",
-      "title": "alert",
-      "published": "Mon Oct 26 11:56:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.500031 -2.382602"
-    },
-    {
-      "id": "8c1a0b6a-65e0-401a-bfb6-c298cb7d947a",
-      "title": "alert",
-      "published": "Mon Oct 26 11:13:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.346477 -2.496716"
-    },
-    {
-      "id": "f0e9dabd-de95-402f-9c02-5f42975fd86b",
-      "title": "alert",
-      "published": "Mon Oct 26 11:58:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.44691 -2.591353"
     }
   ]
 }
