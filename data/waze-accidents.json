@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-10-26T16:40:48.158562+00:00",
+  "updatedAt": "2026-10-26T16:45:48.228714+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 5,
   "incidents": [
+    {
+      "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
+      "title": "alert",
+      "published": "Mon Oct 26 16:41:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Goulder Rd",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.45528 -2.160062"
+    },
+    {
+      "id": "14430b26-3a10-4d66-9529-8ce9011c3fe6",
+      "title": "alert",
+      "published": "Mon Oct 26 16:44:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Old Trafford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.463487 -2.281569"
+    },
     {
       "id": "42266ebc-3cf2-4a6e-bd39-c8ef1444ac19",
       "title": "alert",
@@ -16,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.541282 -2.285031"
+    },
+    {
+      "id": "af9dd6dc-3d4e-4ca0-b4e9-1a5cd656ffdc",
+      "title": "alert",
+      "published": "Mon Oct 26 16:42:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.409039 -2.173371"
     },
     {
       "id": "b0f059d5-ae21-4caa-9275-eba265df60da",
