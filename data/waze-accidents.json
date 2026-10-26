@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T17:30:47.921281+00:00",
+  "updatedAt": "2026-10-26T17:35:47.976851+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.41432 -2.267035"
     },
     {
-      "id": "5c9458e3-38bf-4f0c-824f-1ffdfd0df620",
-      "title": "alert",
-      "published": "Mon Oct 26 17:26:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 > Manchester",
-      "city": "Old Trafford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.463741 -2.282117"
-    },
-    {
       "id": "14430b26-3a10-4d66-9529-8ce9011c3fe6",
       "title": "alert",
       "published": "Mon Oct 26 16:44:28 +0000 2026",
@@ -74,6 +60,20 @@
       "point": "53.463487 -2.281569"
     },
     {
+      "id": "61aad8de-17ab-4a5d-b48a-a28644824a0a",
+      "title": "alert",
+      "published": "Mon Oct 26 17:34:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A626 - Marple Rd",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.395094 -2.0988"
+    },
+    {
       "id": "7ff2afee-042d-4e72-a6a0-0a8673b375b8",
       "title": "alert",
       "published": "Mon Oct 26 17:30:26 +0000 2026",
@@ -83,7 +83,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.472156 -2.257678"
     },
@@ -96,38 +96,38 @@
       "road": "A57 - Dinting Vale",
       "city": "Glossop",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.447759 -1.975226"
     },
     {
-      "id": "3c229204-7a74-469e-a3aa-be493be0c8d4",
+      "id": "43a9c983-3dc3-434f-a8be-6b81a0cdb006",
       "title": "alert",
-      "published": "Mon Oct 26 17:13:12 +0000 2026",
+      "published": "Mon Oct 26 17:33:10 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - St. Peter's Way",
-      "city": "Bolton",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6 - London Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.579923 -2.422214"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.382465 -2.124941"
     },
     {
-      "id": "6bd376df-9624-4228-ab4a-9de67d8f81ec",
+      "id": "0d19131d-ecb9-4daf-8c9e-b55e9003d2d8",
       "title": "alert",
-      "published": "Mon Oct 26 17:26:06 +0000 2026",
+      "published": "Mon Oct 26 17:34:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.569599 -2.699018"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.530807 -2.698638"
     }
   ]
 }
