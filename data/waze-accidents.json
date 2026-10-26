@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T10:40:47.778403+00:00",
+  "updatedAt": "2026-10-26T10:45:47.742923+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "773e4879-8d81-4e45-a1ec-144ffe0d195b",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.435012 -2.161131"
+    },
+    {
+      "id": "569654cc-3609-4175-b073-d8ee350ee290",
+      "title": "alert",
+      "published": "Mon Oct 26 10:40:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A680 - Spotland Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.619806 -2.165763"
     },
     {
       "id": "900ebf83-c4d5-46c6-813f-4d365561d222",
@@ -40,7 +54,7 @@
       "road": "A556 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.362437 -2.392499"
