@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T18:50:48.141249+00:00",
+  "updatedAt": "2026-10-26T18:55:47.665211+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 10,
   "incidents": [
     {
       "id": "5be333b7-f729-42a2-8040-c4e99806713d",
@@ -12,8 +12,8 @@
       "road": "J5 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.556443 -2.490363"
     },
@@ -26,38 +26,10 @@
       "road": "",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.424021 -2.124801"
-    },
-    {
-      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
-      "title": "alert",
-      "published": "Mon Oct 26 18:16:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.633609 -2.486"
-    },
-    {
-      "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
-      "title": "alert",
-      "published": "Mon Oct 26 18:42:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "Belmont",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.635016 -2.488695"
     },
     {
       "id": "8231e3b6-5b33-4323-8f52-2bc60cc02cd4",
@@ -74,6 +46,20 @@
       "point": "53.634332 -2.487256"
     },
     {
+      "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
+      "title": "alert",
+      "published": "Mon Oct 26 18:42:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.635016 -2.488695"
+    },
+    {
       "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
       "title": "alert",
       "published": "Mon Oct 26 18:16:33 +0000 2026",
@@ -86,6 +72,20 @@
       "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.633716 -2.486195"
+    },
+    {
+      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
+      "title": "alert",
+      "published": "Mon Oct 26 18:16:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.633609 -2.486"
     },
     {
       "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
@@ -116,32 +116,18 @@
       "point": "53.493057 -2.078043"
     },
     {
-      "id": "ce670134-d337-4437-9b30-39dd28df21cd",
+      "id": "ce6dd588-f015-4ede-8cdf-ce81720aa450",
       "title": "alert",
-      "published": "Mon Oct 26 18:28:09 +0000 2026",
+      "published": "Mon Oct 26 18:46:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
+      "road": "M67 (W)",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.328706 -2.249069"
-    },
-    {
-      "id": "dc17bf71-aa0c-4ad8-84c4-d6e92cafacaa",
-      "title": "alert",
-      "published": "Mon Oct 26 18:43:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5063 - Trafford Rd",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 1.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.473337 -2.282246"
+      "reportRating": 1.0,
+      "point": "53.456471 -2.122665"
     },
     {
       "id": "e56745fc-f564-4bd5-9037-b28c7b5cefa0",
@@ -156,20 +142,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.457475 -2.117393"
-    },
-    {
-      "id": "ce6dd588-f015-4ede-8cdf-ce81720aa450",
-      "title": "alert",
-      "published": "Mon Oct 26 18:46:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.456445 -2.123414"
     }
   ]
 }
