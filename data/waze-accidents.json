@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T17:50:47.856329+00:00",
+  "updatedAt": "2026-10-26T17:55:47.834466+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
@@ -18,20 +18,6 @@
       "point": "53.45528 -2.160062"
     },
     {
-      "id": "f02c0b58-1cca-46f2-b09e-a9bc0b6f83bc",
-      "title": "alert",
-      "published": "Mon Oct 26 17:16:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "J5 to A5103",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.41432 -2.267035"
-    },
-    {
       "id": "1c215964-ebec-4c92-8160-2708fb24bdba",
       "title": "alert",
       "published": "Mon Oct 26 17:12:51 +0000 2026",
@@ -44,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.414599 -2.266103"
+    },
+    {
+      "id": "f02c0b58-1cca-46f2-b09e-a9bc0b6f83bc",
+      "title": "alert",
+      "published": "Mon Oct 26 17:16:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "J5 to A5103",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.41432 -2.267035"
     },
     {
       "id": "14430b26-3a10-4d66-9529-8ce9011c3fe6",
@@ -68,8 +68,8 @@
       "road": "A626 - Marple Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.395094 -2.0988"
     },
@@ -82,24 +82,10 @@
       "road": "A57 - Dinting Vale",
       "city": "Glossop",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.447759 -1.975226"
-    },
-    {
-      "id": "43a9c983-3dc3-434f-a8be-6b81a0cdb006",
-      "title": "alert",
-      "published": "Mon Oct 26 17:33:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6 - London Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.382465 -2.124941"
     }
   ]
 }
