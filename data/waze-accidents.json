@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-26T08:05:48.033611+00:00",
+  "updatedAt": "2026-10-26T08:10:47.981940+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
-    {
-      "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
-      "title": "alert",
-      "published": "Mon Oct 26 07:57:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Ashley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.361673 -2.33753"
-    },
     {
       "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
       "title": "alert",
@@ -27,9 +13,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.361753 -2.337665"
+    },
+    {
+      "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
+      "title": "alert",
+      "published": "Mon Oct 26 07:57:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Ashley Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.361673 -2.33753"
     },
     {
       "id": "b3ee9ebc-20d0-4382-b142-05955388aa87",
@@ -46,6 +46,20 @@
       "point": "53.532201 -2.696883"
     },
     {
+      "id": "e026cc89-b4f0-4c20-8c90-2a3c080439a8",
+      "title": "alert",
+      "published": "Mon Oct 26 07:50:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Cadishead Way",
+      "city": "Cadishead",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.422922 -2.434363"
+    },
+    {
       "id": "f2db2f0b-d303-49c5-a27a-ed26e64c1d73",
       "title": "alert",
       "published": "Mon Oct 26 07:57:08 +0000 2026",
@@ -60,18 +74,18 @@
       "point": "53.42333 -2.433169"
     },
     {
-      "id": "e026cc89-b4f0-4c20-8c90-2a3c080439a8",
+      "id": "f77b3bed-696f-4d06-9d01-af71dd5f4da4",
       "title": "alert",
-      "published": "Mon Oct 26 07:50:41 +0000 2026",
+      "published": "Mon Oct 26 08:07:26 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Cadishead Way",
-      "city": "Cadishead",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (E)",
+      "city": "",
       "country": "UK",
       "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.422922 -2.434363"
+      "point": "53.624686 -2.054981"
     }
   ]
 }
