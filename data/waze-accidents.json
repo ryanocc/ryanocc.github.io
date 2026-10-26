@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T07:45:48.046892+00:00",
+  "updatedAt": "2026-10-26T07:50:48.113352+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "b3ee9ebc-20d0-4382-b142-05955388aa87",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.532201 -2.696883"
+    },
+    {
+      "id": "e026cc89-b4f0-4c20-8c90-2a3c080439a8",
+      "title": "alert",
+      "published": "Mon Oct 26 07:50:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Cadishead Way",
+      "city": "Cadishead",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.422922 -2.434363"
     }
   ]
 }
