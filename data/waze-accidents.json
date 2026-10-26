@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T17:45:47.886001+00:00",
+  "updatedAt": "2026-10-26T17:50:47.856329+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
     {
       "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
@@ -18,20 +18,6 @@
       "point": "53.45528 -2.160062"
     },
     {
-      "id": "1c215964-ebec-4c92-8160-2708fb24bdba",
-      "title": "alert",
-      "published": "Mon Oct 26 17:12:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J5 to A5103 > Manchester (Ctr)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.414599 -2.266103"
-    },
-    {
       "id": "f02c0b58-1cca-46f2-b09e-a9bc0b6f83bc",
       "title": "alert",
       "published": "Mon Oct 26 17:16:04 +0000 2026",
@@ -44,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.41432 -2.267035"
+    },
+    {
+      "id": "1c215964-ebec-4c92-8160-2708fb24bdba",
+      "title": "alert",
+      "published": "Mon Oct 26 17:12:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J5 to A5103 > Manchester (Ctr)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.414599 -2.266103"
     },
     {
       "id": "14430b26-3a10-4d66-9529-8ce9011c3fe6",
@@ -60,20 +60,6 @@
       "point": "53.463487 -2.281569"
     },
     {
-      "id": "1a98b057-c7cd-487f-be8a-2241cfca0f68",
-      "title": "alert",
-      "published": "Mon Oct 26 17:38:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6186 - Frederick Rd",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.49213 -2.275707"
-    },
-    {
       "id": "61aad8de-17ab-4a5d-b48a-a28644824a0a",
       "title": "alert",
       "published": "Mon Oct 26 17:34:44 +0000 2026",
@@ -86,20 +72,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.395094 -2.0988"
-    },
-    {
-      "id": "7ff2afee-042d-4e72-a6a0-0a8673b375b8",
-      "title": "alert",
-      "published": "Mon Oct 26 17:30:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.472156 -2.257678"
     },
     {
       "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
@@ -124,7 +96,7 @@
       "road": "A6 - London Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.382465 -2.124941"
