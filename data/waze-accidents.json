@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-26T11:50:47.769357+00:00",
+  "updatedAt": "2026-10-26T11:55:47.803110+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
+    {
+      "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
+      "title": "alert",
+      "published": "Mon Oct 26 11:55:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Burns Ave",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.575833 -2.293717"
+    },
     {
       "id": "4a033605-8d48-4de6-88a7-4ed5f5dce399",
       "title": "alert",
@@ -16,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.455922 -2.160974"
+    },
+    {
+      "id": "c2cbcf55-7df0-4dce-8652-3f22bec07be8",
+      "title": "alert",
+      "published": "Mon Oct 26 11:54:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Errwood Rd",
+      "city": "Burnage",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.425389 -2.202186"
     },
     {
       "id": "e0c86add-76b7-48d7-bb13-9f3915ae6c50",
@@ -85,7 +113,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.345394 -2.495059"
+      "point": "53.346025 -2.495822"
     },
     {
       "id": "8c1a0b6a-65e0-401a-bfb6-c298cb7d947a",
@@ -96,24 +124,10 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.346477 -2.496716"
-    },
-    {
-      "id": "5dcb5590-2a88-4d71-bc1f-b1e49f4c83bb",
-      "title": "alert",
-      "published": "Mon Oct 26 11:22:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.347254 -2.497265"
     }
   ]
 }
