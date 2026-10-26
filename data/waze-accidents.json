@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-26T08:10:47.981940+00:00",
+  "updatedAt": "2026-10-26T08:15:47.984103+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 9,
   "incidents": [
-    {
-      "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
-      "title": "alert",
-      "published": "Mon Oct 26 08:01:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Ashley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.361753 -2.337665"
-    },
     {
       "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.361673 -2.33753"
+    },
+    {
+      "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
+      "title": "alert",
+      "published": "Mon Oct 26 08:01:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Ashley Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.361753 -2.337665"
     },
     {
       "id": "b3ee9ebc-20d0-4382-b142-05955388aa87",
@@ -54,7 +54,7 @@
       "road": "A57 - Cadishead Way",
       "city": "Cadishead",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.422922 -2.434363"
@@ -74,6 +74,20 @@
       "point": "53.42333 -2.433169"
     },
     {
+      "id": "9a541c93-1b34-4203-b9c1-39b50bb06e1f",
+      "title": "alert",
+      "published": "Mon Oct 26 08:15:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.624934 -2.049769"
+    },
+    {
       "id": "f77b3bed-696f-4d06-9d01-af71dd5f4da4",
       "title": "alert",
       "published": "Mon Oct 26 08:07:26 +0000 2026",
@@ -82,10 +96,38 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.624686 -2.054981"
+      "point": "53.62486 -2.051966"
+    },
+    {
+      "id": "5ad212b9-2fbc-40c9-9818-11c27cf46db4",
+      "title": "alert",
+      "published": "Mon Oct 26 08:15:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.624521 -2.055339"
+    },
+    {
+      "id": "72c8f994-adeb-445a-a744-051640de3278",
+      "title": "alert",
+      "published": "Mon Oct 26 08:14:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.624454 -2.065737"
     }
   ]
 }
