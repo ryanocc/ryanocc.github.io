@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T12:45:47.789492+00:00",
+  "updatedAt": "2026-10-26T12:50:47.780186+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -68,24 +68,10 @@
       "road": "B5211 - Barton Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.499994 -2.381977"
-    },
-    {
-      "id": "f908f690-47f1-453e-a8ba-62bf132873be",
-      "title": "alert",
-      "published": "Mon Oct 26 11:39:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A680 - Rochdale Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.66405 -2.294511"
     },
     {
       "id": "80352020-1078-416b-bcff-1cdda5af8460",
@@ -100,6 +86,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.665268 -2.297007"
+    },
+    {
+      "id": "f908f690-47f1-453e-a8ba-62bf132873be",
+      "title": "alert",
+      "published": "Mon Oct 26 11:39:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A680 - Rochdale Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.66405 -2.294511"
     }
   ]
 }
