@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T18:20:47.772857+00:00",
+  "updatedAt": "2026-10-26T18:25:47.848571+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.463487 -2.281569"
     },
     {
-      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
-      "title": "alert",
-      "published": "Mon Oct 26 18:16:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "Belmont",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.633716 -2.486195"
-    },
-    {
       "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
       "title": "alert",
       "published": "Mon Oct 26 18:16:11 +0000 2026",
@@ -74,18 +60,18 @@
       "point": "53.634332 -2.487256"
     },
     {
-      "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
+      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
       "title": "alert",
-      "published": "Mon Oct 26 17:18:06 +0000 2026",
+      "published": "Mon Oct 26 18:16:33 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Dinting Vale",
-      "city": "Glossop",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.447759 -1.975226"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.633716 -2.486195"
     },
     {
       "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
@@ -102,6 +88,20 @@
       "point": "53.493057 -2.078043"
     },
     {
+      "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
+      "title": "alert",
+      "published": "Mon Oct 26 17:18:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Dinting Vale",
+      "city": "Glossop",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.447759 -1.975226"
+    },
+    {
       "id": "098556cd-2c88-44f3-b2f4-e9bdb33d519a",
       "title": "alert",
       "published": "Mon Oct 26 18:13:37 +0000 2026",
@@ -111,7 +111,7 @@
       "city": "Hyde",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.458581 -2.088197"
     },
@@ -124,7 +124,7 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.474903 -2.261451"
