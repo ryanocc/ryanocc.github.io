@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T10:00:47.674314+00:00",
+  "updatedAt": "2026-10-26T10:05:47.704230+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "773e4879-8d81-4e45-a1ec-144ffe0d195b",
@@ -18,20 +18,6 @@
       "point": "53.435012 -2.161131"
     },
     {
-      "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
-      "title": "alert",
-      "published": "Mon Oct 26 07:57:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Ashley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.361673 -2.33753"
-    },
-    {
       "id": "826f1353-09da-463c-ad68-c91aa05aea9d",
       "title": "alert",
       "published": "Mon Oct 26 08:29:40 +0000 2026",
@@ -46,32 +32,32 @@
       "point": "53.4227 -2.338973"
     },
     {
-      "id": "b16b3981-a903-49a5-8ec3-3c2f7b43f8b1",
+      "id": "c856fe90-621a-4673-978b-8515646f958f",
       "title": "alert",
-      "published": "Mon Oct 26 09:11:57 +0000 2026",
+      "published": "Mon Oct 26 10:05:33 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A665 - Bury Old Rd",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.517987 -2.257296"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.518131 -2.25771"
     },
     {
-      "id": "0d6e1bab-1d33-4b29-a02a-7a6fe0e80af0",
+      "id": "900ebf83-c4d5-46c6-813f-4d365561d222",
       "title": "alert",
-      "published": "Mon Oct 26 09:37:57 +0000 2026",
+      "published": "Mon Oct 26 10:02:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A556 (N)",
+      "road": "A556 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.363584 -2.391421"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.362727 -2.392069"
     },
     {
       "id": "f24515ec-23b4-43d4-a243-be83db6e3e90",
@@ -88,6 +74,20 @@
       "point": "53.361539 -2.393696"
     },
     {
+      "id": "0d6e1bab-1d33-4b29-a02a-7a6fe0e80af0",
+      "title": "alert",
+      "published": "Mon Oct 26 09:37:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.363584 -2.391421"
+    },
+    {
       "id": "b291fb56-bcfd-4e23-a8f8-a1404ff0a8e0",
       "title": "alert",
       "published": "Mon Oct 26 09:59:16 +0000 2026",
@@ -96,24 +96,10 @@
       "road": "A556 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.362375 -2.392567"
-    },
-    {
-      "id": "f2db2f0b-d303-49c5-a27a-ed26e64c1d73",
-      "title": "alert",
-      "published": "Mon Oct 26 07:57:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Cadishead Way",
-      "city": "Cadishead",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.42333 -2.433169"
     }
   ]
 }
