@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T16:10:48.034331+00:00",
+  "updatedAt": "2026-10-26T16:15:47.802822+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "7e81803d-1887-4c04-afe6-3c39b094c837",
@@ -30,6 +30,34 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.541282 -2.285031"
+    },
+    {
+      "id": "9e7356bb-95f4-419b-9d6f-1e70e6057f7a",
+      "title": "alert",
+      "published": "Mon Oct 26 16:15:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.54667 -2.385288"
+    },
+    {
+      "id": "859e437d-7bd2-4a1e-bc7e-691372c8a684",
+      "title": "alert",
+      "published": "Mon Oct 26 16:11:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.499056 -2.384413"
     }
   ]
 }
