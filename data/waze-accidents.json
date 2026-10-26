@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T18:35:47.714058+00:00",
+  "updatedAt": "2026-10-26T18:40:48.043172+00:00",
   "source": "Waze GeoRSS",
   "count": 15,
   "incidents": [
@@ -41,7 +41,7 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.424021 -2.124801"
     },
@@ -110,8 +110,8 @@
       "road": "A662 - Ashton New Rd",
       "city": "Clayton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.48209 -2.193002"
     },
@@ -158,20 +158,6 @@
       "point": "53.328706 -2.249069"
     },
     {
-      "id": "fdcbee48-8ff8-4efd-8f5e-2fe3da06dabd",
-      "title": "alert",
-      "published": "Mon Oct 26 18:34:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - Alan Turing Way",
-      "city": "Clayton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 4.0,
-      "point": "53.482126 -2.195306"
-    },
-    {
       "id": "bb1f1908-ff74-41d1-a50c-d04fab0a787d",
       "title": "alert",
       "published": "Mon Oct 26 18:25:57 +0000 2026",
@@ -200,18 +186,32 @@
       "point": "53.461573 -2.346016"
     },
     {
-      "id": "b283449c-4369-4e2f-825d-5bd601049c26",
+      "id": "e56745fc-f564-4bd5-9037-b28c7b5cefa0",
       "title": "alert",
-      "published": "Mon Oct 26 18:31:03 +0000 2026",
+      "published": "Mon Oct 26 18:36:52 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M67 (W)",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.457475 -2.117393"
+    },
+    {
+      "id": "6c04e72e-db37-4fe9-9805-1d633588817f",
+      "title": "alert",
+      "published": "Mon Oct 26 18:36:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.456554 -2.120833"
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.45848 -2.113991"
     }
   ]
 }
