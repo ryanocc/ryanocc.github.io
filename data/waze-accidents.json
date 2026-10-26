@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T11:05:47.782229+00:00",
+  "updatedAt": "2026-10-26T11:10:47.751382+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "773e4879-8d81-4e45-a1ec-144ffe0d195b",
@@ -55,9 +55,23 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.485763 -2.059168"
+    },
+    {
+      "id": "1c7b5509-ba87-4de7-93c8-09389d996922",
+      "title": "alert",
+      "published": "Mon Oct 26 11:06:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.347794 -2.497845"
     },
     {
       "id": "d7646928-6d6d-430a-b20c-b9cf5fb107ad",
@@ -68,10 +82,10 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.346085 -2.495894"
+      "point": "53.346091 -2.4959"
     }
   ]
 }
