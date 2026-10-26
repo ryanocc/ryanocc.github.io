@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T13:10:48.107758+00:00",
+  "updatedAt": "2026-10-26T13:15:48.217581+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
@@ -68,8 +68,8 @@
       "road": "",
       "city": "Burnage",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.424944 -2.202556"
     },
@@ -102,6 +102,20 @@
       "point": "53.665268 -2.297007"
     },
     {
+      "id": "0539b1e8-0177-44c8-9ced-e0fd11bc852f",
+      "title": "alert",
+      "published": "Mon Oct 26 13:13:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A680 - Rochdale Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.664223 -2.295023"
+    },
+    {
       "id": "f908f690-47f1-453e-a8ba-62bf132873be",
       "title": "alert",
       "published": "Mon Oct 26 11:39:27 +0000 2026",
@@ -124,10 +138,24 @@
       "road": "A663 - Broadway",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.532766 -2.153084"
+    },
+    {
+      "id": "b9774b5d-f5c0-4026-a2c5-52cd27476e13",
+      "title": "alert",
+      "published": "Mon Oct 26 13:11:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A663 - Broadway",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.533767 -2.152601"
     }
   ]
 }
