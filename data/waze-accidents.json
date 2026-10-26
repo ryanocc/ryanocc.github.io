@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-26T08:20:48.116462+00:00",
+  "updatedAt": "2026-10-26T08:25:47.988863+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
-    {
-      "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
-      "title": "alert",
-      "published": "Mon Oct 26 07:57:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Ashley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.361673 -2.33753"
-    },
     {
       "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.361753 -2.337665"
+    },
+    {
+      "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
+      "title": "alert",
+      "published": "Mon Oct 26 07:57:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Ashley Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.361673 -2.33753"
     },
     {
       "id": "b3ee9ebc-20d0-4382-b142-05955388aa87",
@@ -74,20 +74,6 @@
       "point": "53.42333 -2.433169"
     },
     {
-      "id": "72c8f994-adeb-445a-a744-051640de3278",
-      "title": "alert",
-      "published": "Mon Oct 26 08:14:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.624454 -2.065737"
-    },
-    {
       "id": "5ad212b9-2fbc-40c9-9818-11c27cf46db4",
       "title": "alert",
       "published": "Mon Oct 26 08:15:46 +0000 2026",
@@ -124,10 +110,24 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.624934 -2.049769"
+      "point": "53.624864 -2.050311"
+    },
+    {
+      "id": "72c8f994-adeb-445a-a744-051640de3278",
+      "title": "alert",
+      "published": "Mon Oct 26 08:14:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.624454 -2.065737"
     }
   ]
 }
