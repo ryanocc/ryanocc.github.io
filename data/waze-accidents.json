@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T12:15:47.785065+00:00",
+  "updatedAt": "2026-10-26T12:20:47.782819+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.575833 -2.293717"
+    },
+    {
+      "id": "c873fc10-dbdc-464e-98f7-8eaf1b184ba7",
+      "title": "alert",
+      "published": "Mon Oct 26 12:17:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Back George St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.480015 -2.239511"
     },
     {
       "id": "4a033605-8d48-4de6-88a7-4ed5f5dce399",
@@ -40,24 +54,10 @@
       "road": "Errwood Rd",
       "city": "Burnage",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.425389 -2.202186"
-    },
-    {
-      "id": "77c91920-e8ed-4275-a468-66a40c9a9c1a",
-      "title": "alert",
-      "published": "Mon Oct 26 11:43:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Park Rd",
-      "city": "Walkden",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.519352 -2.397473"
     },
     {
       "id": "e0c86add-76b7-48d7-bb13-9f3915ae6c50",
@@ -82,8 +82,8 @@
       "road": "B5211 - Barton Dock Rd",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.469891 -2.349078"
     },
@@ -114,6 +114,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.665268 -2.297007"
+    },
+    {
+      "id": "578d3573-67c9-4074-a632-e6075256fdf1",
+      "title": "alert",
+      "published": "Mon Oct 26 12:15:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.312985 -2.418355"
     },
     {
       "id": "2ca8d184-79e8-4f89-b54e-c3bf572be5de",
@@ -152,8 +166,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.44691 -2.591353"
     }
