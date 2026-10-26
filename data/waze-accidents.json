@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T12:00:47.833396+00:00",
+  "updatedAt": "2026-10-26T12:05:47.873685+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
@@ -88,6 +88,20 @@
       "point": "53.66405 -2.294511"
     },
     {
+      "id": "80352020-1078-416b-bcff-1cdda5af8460",
+      "title": "alert",
+      "published": "Mon Oct 26 12:03:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A680 - Rochdale Rd",
+      "city": "Edenfield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.665268 -2.297007"
+    },
+    {
       "id": "900ebf83-c4d5-46c6-813f-4d365561d222",
       "title": "alert",
       "published": "Mon Oct 26 10:02:32 +0000 2026",
@@ -110,24 +124,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.500031 -2.382602"
-    },
-    {
-      "id": "8c1a0b6a-65e0-401a-bfb6-c298cb7d947a",
-      "title": "alert",
-      "published": "Mon Oct 26 11:13:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.346477 -2.496716"
     },
     {
       "id": "6f37e7ec-313f-4954-9f3f-e4acb5aea37b",
@@ -144,6 +144,20 @@
       "point": "53.346025 -2.495822"
     },
     {
+      "id": "8c1a0b6a-65e0-401a-bfb6-c298cb7d947a",
+      "title": "alert",
+      "published": "Mon Oct 26 11:13:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.346477 -2.496716"
+    },
+    {
       "id": "f0e9dabd-de95-402f-9c02-5f42975fd86b",
       "title": "alert",
       "published": "Mon Oct 26 11:58:43 +0000 2026",
@@ -153,7 +167,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.44691 -2.591353"
     }
