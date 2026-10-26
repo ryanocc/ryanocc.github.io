@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-26T09:00:48.006031+00:00",
+  "updatedAt": "2026-10-26T09:05:48.133805+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
-    {
-      "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
-      "title": "alert",
-      "published": "Mon Oct 26 07:57:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Ashley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.361673 -2.33753"
-    },
     {
       "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.361753 -2.337665"
+    },
+    {
+      "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
+      "title": "alert",
+      "published": "Mon Oct 26 07:57:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Ashley Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.361673 -2.33753"
     },
     {
       "id": "b3ee9ebc-20d0-4382-b142-05955388aa87",
@@ -102,18 +102,18 @@
       "point": "53.472931 -2.167008"
     },
     {
-      "id": "9a541c93-1b34-4203-b9c1-39b50bb06e1f",
+      "id": "c78c5259-df49-4803-a154-237f09c6bec0",
       "title": "alert",
-      "published": "Mon Oct 26 08:15:00 +0000 2026",
+      "published": "Mon Oct 26 09:03:28 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (W)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.624931 -2.049788"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.553111 -2.263901"
     }
   ]
 }
