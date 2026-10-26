@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T12:10:47.831569+00:00",
+  "updatedAt": "2026-10-26T12:15:47.785065+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
@@ -40,24 +40,10 @@
       "road": "Errwood Rd",
       "city": "Burnage",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.425389 -2.202186"
-    },
-    {
-      "id": "e0c86add-76b7-48d7-bb13-9f3915ae6c50",
-      "title": "alert",
-      "published": "Mon Oct 26 11:41:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5211 - Barton Rd",
-      "city": "Worsley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.499994 -2.381977"
     },
     {
       "id": "77c91920-e8ed-4275-a468-66a40c9a9c1a",
@@ -74,18 +60,32 @@
       "point": "53.519352 -2.397473"
     },
     {
-      "id": "80352020-1078-416b-bcff-1cdda5af8460",
+      "id": "e0c86add-76b7-48d7-bb13-9f3915ae6c50",
       "title": "alert",
-      "published": "Mon Oct 26 12:03:24 +0000 2026",
+      "published": "Mon Oct 26 11:41:09 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A680 - Rochdale Rd",
-      "city": "Edenfield",
+      "subtype": "",
+      "road": "B5211 - Barton Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.499994 -2.381977"
+    },
+    {
+      "id": "8a27d1ff-2df9-4e33-b6b7-93012099bca0",
+      "title": "alert",
+      "published": "Mon Oct 26 12:13:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5211 - Barton Dock Rd",
+      "city": "Trafford Park",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.665268 -2.297007"
+      "point": "53.469891 -2.349078"
     },
     {
       "id": "f908f690-47f1-453e-a8ba-62bf132873be",
@@ -102,6 +102,20 @@
       "point": "53.66405 -2.294511"
     },
     {
+      "id": "80352020-1078-416b-bcff-1cdda5af8460",
+      "title": "alert",
+      "published": "Mon Oct 26 12:03:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A680 - Rochdale Rd",
+      "city": "Edenfield",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.665268 -2.297007"
+    },
+    {
       "id": "2ca8d184-79e8-4f89-b54e-c3bf572be5de",
       "title": "alert",
       "published": "Mon Oct 26 11:56:57 +0000 2026",
@@ -110,7 +124,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.500031 -2.382602"
@@ -138,8 +152,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.44691 -2.591353"
     }
