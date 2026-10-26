@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T15:45:48.163764+00:00",
+  "updatedAt": "2026-10-26T15:50:48.185295+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 4,
   "incidents": [
     {
       "id": "548036d2-ff72-4aa1-8d36-8ee6dc21b8d3",
@@ -40,24 +40,10 @@
       "road": "M60 > Ring Rd E & S",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.541282 -2.285031"
-    },
-    {
-      "id": "0539b1e8-0177-44c8-9ced-e0fd11bc852f",
-      "title": "alert",
-      "published": "Mon Oct 26 13:13:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A680 - Rochdale Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.664223 -2.295023"
+      "point": "53.541282 -2.285031"
     },
     {
       "id": "861cfb62-eb04-42aa-b71b-87755aff5679",
@@ -72,20 +58,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.373919 -2.381693"
-    },
-    {
-      "id": "71f64e65-a38d-45a7-93bf-9f8a9744e71e",
-      "title": "alert",
-      "published": "Mon Oct 26 15:36:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.508873 -2.242478"
     }
   ]
 }
