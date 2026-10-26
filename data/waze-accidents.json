@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T11:55:47.803110+00:00",
+  "updatedAt": "2026-10-26T12:00:47.833396+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
@@ -41,7 +41,7 @@
       "city": "Burnage",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.425389 -2.202186"
     },
@@ -102,6 +102,34 @@
       "point": "53.362727 -2.392069"
     },
     {
+      "id": "2ca8d184-79e8-4f89-b54e-c3bf572be5de",
+      "title": "alert",
+      "published": "Mon Oct 26 11:56:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 4.0,
+      "point": "53.500031 -2.382602"
+    },
+    {
+      "id": "8c1a0b6a-65e0-401a-bfb6-c298cb7d947a",
+      "title": "alert",
+      "published": "Mon Oct 26 11:13:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.346477 -2.496716"
+    },
+    {
       "id": "6f37e7ec-313f-4954-9f3f-e4acb5aea37b",
       "title": "alert",
       "published": "Mon Oct 26 11:26:45 +0000 2026",
@@ -116,18 +144,18 @@
       "point": "53.346025 -2.495822"
     },
     {
-      "id": "8c1a0b6a-65e0-401a-bfb6-c298cb7d947a",
+      "id": "f0e9dabd-de95-402f-9c02-5f42975fd86b",
       "title": "alert",
-      "published": "Mon Oct 26 11:13:47 +0000 2026",
+      "published": "Mon Oct 26 11:58:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
+      "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.346477 -2.496716"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.44691 -2.591353"
     }
   ]
 }
