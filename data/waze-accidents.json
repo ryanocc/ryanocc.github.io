@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T15:35:48.199504+00:00",
+  "updatedAt": "2026-10-26T15:40:48.119659+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.480017 -2.225154"
     },
     {
-      "id": "384aaac2-d5cd-497f-bb2b-702b5ed9dfd1",
-      "title": "alert",
-      "published": "Mon Oct 26 15:05:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J2 to A560",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.398203 -2.20095"
-    },
-    {
       "id": "42266ebc-3cf2-4a6e-bd39-c8ef1444ac19",
       "title": "alert",
       "published": "Mon Oct 26 15:34:47 +0000 2026",
@@ -55,7 +41,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.541282 -2.285031"
     },
@@ -86,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.373919 -2.381693"
+    },
+    {
+      "id": "71f64e65-a38d-45a7-93bf-9f8a9744e71e",
+      "title": "alert",
+      "published": "Mon Oct 26 15:36:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.508873 -2.242478"
     }
   ]
 }
