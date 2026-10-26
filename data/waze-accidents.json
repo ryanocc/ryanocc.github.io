@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-10-26T04:25:48.477817+00:00",
+  "updatedAt": "2026-10-26T04:30:47.968914+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 2,
   "incidents": [
     {
-      "id": "31e257c8-a95d-47e0-a0b3-2a55a13957d9",
+      "id": "964ad3fb-7d7d-439a-a286-9b29029d8762",
       "title": "alert",
-      "published": "Mon Oct 26 02:22:54 +0000 2026",
+      "published": "Mon Oct 26 02:47:05 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Higher Broughton",
+      "road": "M6 (N)",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.501614 -2.258631"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.403679 -2.516941"
     },
     {
       "id": "ae639f8d-7df1-4174-acd1-191a09631dc8",
@@ -30,20 +30,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.402142 -2.514513"
-    },
-    {
-      "id": "964ad3fb-7d7d-439a-a286-9b29029d8762",
-      "title": "alert",
-      "published": "Mon Oct 26 02:47:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.403679 -2.516941"
     }
   ]
 }
