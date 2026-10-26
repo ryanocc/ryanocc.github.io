@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T17:10:48.146743+00:00",
+  "updatedAt": "2026-10-26T17:15:47.879998+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
@@ -18,6 +18,20 @@
       "point": "53.45528 -2.160062"
     },
     {
+      "id": "1c215964-ebec-4c92-8160-2708fb24bdba",
+      "title": "alert",
+      "published": "Mon Oct 26 17:12:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J5 to A5103 > Manchester (Ctr)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.414447 -2.266722"
+    },
+    {
       "id": "14430b26-3a10-4d66-9529-8ce9011c3fe6",
       "title": "alert",
       "published": "Mon Oct 26 16:44:28 +0000 2026",
@@ -32,18 +46,18 @@
       "point": "53.463487 -2.281569"
     },
     {
-      "id": "19d213bb-7b76-4cb9-87f0-acf72f0bd831",
+      "id": "3c229204-7a74-469e-a3aa-be493be0c8d4",
       "title": "alert",
-      "published": "Mon Oct 26 17:08:28 +0000 2026",
+      "published": "Mon Oct 26 17:13:12 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.46572 -2.362582"
+      "point": "53.579923 -2.422214"
     }
   ]
 }
