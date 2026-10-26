@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T20:10:48.150546+00:00",
+  "updatedAt": "2026-10-26T20:15:48.078102+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 8,
   "incidents": [
     {
       "id": "a5f48f2a-7715-48f4-ac1e-4a72897eed38",
@@ -32,20 +32,6 @@
       "point": "53.633716 -2.486195"
     },
     {
-      "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
-      "title": "alert",
-      "published": "Mon Oct 26 18:42:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "Belmont",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.635016 -2.488695"
-    },
-    {
       "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
       "title": "alert",
       "published": "Mon Oct 26 18:16:11 +0000 2026",
@@ -74,18 +60,18 @@
       "point": "53.634096 -2.486847"
     },
     {
-      "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
+      "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
       "title": "alert",
-      "published": "Mon Oct 26 18:10:25 +0000 2026",
+      "published": "Mon Oct 26 18:42:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "Ashton-under-Lyne",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.493057 -2.078043"
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.6348 -2.488069"
     },
     {
       "id": "ad84ad82-29e9-4a81-a0eb-ec3944f74815",
@@ -100,20 +86,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.5117 -2.391804"
-    },
-    {
-      "id": "4810c4fb-3f6f-4229-a811-6c8fb1f4e613",
-      "title": "alert",
-      "published": "Mon Oct 26 19:24:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Stadium Way",
-      "city": "Irlam",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470839 -2.379758"
     },
     {
       "id": "ec54c670-e31e-4291-8fb8-ca24dbf52221",
@@ -142,20 +114,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.457475 -2.117393"
-    },
-    {
-      "id": "61e00143-8398-41da-9bb3-7bc43e0ce954",
-      "title": "alert",
-      "published": "Mon Oct 26 19:36:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M67 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.45661 -2.120224"
     }
   ]
 }
