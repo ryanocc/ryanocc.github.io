@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T21:05:48.170199+00:00",
+  "updatedAt": "2026-10-26T21:10:48.122456+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 2,
   "incidents": [
     {
       "id": "c5438e03-f610-4f6b-a3d9-49993eaecfb6",
@@ -12,8 +12,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.55544 -2.139789"
     },
@@ -30,20 +30,6 @@
       "reliability": 6.0,
       "reportRating": 5.0,
       "point": "53.441123 -2.190701"
-    },
-    {
-      "id": "ec54c670-e31e-4291-8fb8-ca24dbf52221",
-      "title": "alert",
-      "published": "Mon Oct 26 19:25:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 - Birchfields Rd",
-      "city": "Rusholme",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.446445 -2.206584"
     }
   ]
 }
