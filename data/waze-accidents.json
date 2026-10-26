@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-26T19:05:47.934593+00:00",
+  "updatedAt": "2026-10-26T19:10:47.930416+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 11,
   "incidents": [
-    {
-      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
-      "title": "alert",
-      "published": "Mon Oct 26 18:16:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.633609 -2.486"
-    },
     {
       "id": "8231e3b6-5b33-4323-8f52-2bc60cc02cd4",
       "title": "alert",
@@ -26,24 +12,24 @@
       "road": "A675 - Belmont Rd",
       "city": "Belmont",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.634332 -2.487256"
     },
     {
-      "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
+      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
       "title": "alert",
-      "published": "Mon Oct 26 18:42:57 +0000 2026",
+      "published": "Mon Oct 26 18:16:11 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A675 - Belmont Rd",
-      "city": "Belmont",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.635016 -2.488695"
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.633609 -2.486"
     },
     {
       "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
@@ -58,6 +44,20 @@
       "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.633716 -2.486195"
+    },
+    {
+      "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
+      "title": "alert",
+      "published": "Mon Oct 26 18:42:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.635016 -2.488695"
     },
     {
       "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
@@ -88,6 +88,20 @@
       "point": "53.447759 -1.975226"
     },
     {
+      "id": "7b23413f-eecf-469a-8310-b35fda5743ec",
+      "title": "alert",
+      "published": "Mon Oct 26 19:09:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A34 - Birchfields Rd",
+      "city": "Rusholme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.445947 -2.206442"
+    },
+    {
       "id": "e56745fc-f564-4bd5-9037-b28c7b5cefa0",
       "title": "alert",
       "published": "Mon Oct 26 18:36:52 +0000 2026",
@@ -114,6 +128,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.456525 -2.121213"
+    },
+    {
+      "id": "512f80b4-f72f-4cf3-ad9d-de390b57f3d5",
+      "title": "alert",
+      "published": "Mon Oct 26 19:09:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.457624 -2.10603"
+    },
+    {
+      "id": "e04b6140-8a64-4b42-ad65-e15b129d01e4",
+      "title": "alert",
+      "published": "Mon Oct 26 19:10:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.644619 -1.944229"
     }
   ]
 }
