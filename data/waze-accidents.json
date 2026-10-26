@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T17:20:48.183260+00:00",
+  "updatedAt": "2026-10-26T17:25:49.187061+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 6,
   "incidents": [
     {
       "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
@@ -18,20 +18,6 @@
       "point": "53.45528 -2.160062"
     },
     {
-      "id": "f02c0b58-1cca-46f2-b09e-a9bc0b6f83bc",
-      "title": "alert",
-      "published": "Mon Oct 26 17:16:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "J5 to A5103",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.41432 -2.267035"
-    },
-    {
       "id": "1c215964-ebec-4c92-8160-2708fb24bdba",
       "title": "alert",
       "published": "Mon Oct 26 17:12:51 +0000 2026",
@@ -40,10 +26,24 @@
       "road": "J5 to A5103 > Manchester (Ctr)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.414447 -2.266722"
+    },
+    {
+      "id": "f02c0b58-1cca-46f2-b09e-a9bc0b6f83bc",
+      "title": "alert",
+      "published": "Mon Oct 26 17:16:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "J5 to A5103",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.41432 -2.267035"
     },
     {
       "id": "14430b26-3a10-4d66-9529-8ce9011c3fe6",
@@ -68,8 +68,8 @@
       "road": "A57 - Dinting Vale",
       "city": "Glossop",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.447759 -1.975226"
     },
@@ -82,38 +82,10 @@
       "road": "A666 - St. Peter's Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.579923 -2.422214"
-    },
-    {
-      "id": "28fb699d-640d-4c48-8c0e-8ba1821f3fb5",
-      "title": "alert",
-      "published": "Mon Oct 26 17:16:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.415657 -2.281088"
-    },
-    {
-      "id": "d56a2c80-4311-48ba-8cc0-5380daab99bb",
-      "title": "alert",
-      "published": "Mon Oct 26 17:19:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.573726 -2.697512"
     }
   ]
 }
