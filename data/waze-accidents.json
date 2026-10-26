@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-26T19:15:47.771383+00:00",
+  "updatedAt": "2026-10-26T19:20:48.154973+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
-    {
-      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
-      "title": "alert",
-      "published": "Mon Oct 26 18:16:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "Belmont",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.633716 -2.486195"
-    },
     {
       "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.635016 -2.488695"
+    },
+    {
+      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
+      "title": "alert",
+      "published": "Mon Oct 26 18:16:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.633716 -2.486195"
     },
     {
       "id": "8231e3b6-5b33-4323-8f52-2bc60cc02cd4",
@@ -96,24 +96,10 @@
       "road": "A34 - Birchfields Rd",
       "city": "Rusholme",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.445947 -2.206442"
-    },
-    {
-      "id": "ce6dd588-f015-4ede-8cdf-ce81720aa450",
-      "title": "alert",
-      "published": "Mon Oct 26 18:46:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (W)",
-      "city": "",
-      "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.456525 -2.121213"
+      "point": "53.44641 -2.206574"
     },
     {
       "id": "e56745fc-f564-4bd5-9037-b28c7b5cefa0",
@@ -130,6 +116,20 @@
       "point": "53.457475 -2.117393"
     },
     {
+      "id": "ce6dd588-f015-4ede-8cdf-ce81720aa450",
+      "title": "alert",
+      "published": "Mon Oct 26 18:46:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.456525 -2.121213"
+    },
+    {
       "id": "512f80b4-f72f-4cf3-ad9d-de390b57f3d5",
       "title": "alert",
       "published": "Mon Oct 26 19:09:09 +0000 2026",
@@ -138,8 +138,8 @@
       "road": "M67 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.457624 -2.10603"
     }
