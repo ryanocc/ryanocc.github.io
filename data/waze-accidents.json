@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T12:55:47.843939+00:00",
+  "updatedAt": "2026-10-26T13:00:47.867804+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 10,
   "incidents": [
     {
       "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
@@ -46,6 +46,20 @@
       "point": "53.455922 -2.160974"
     },
     {
+      "id": "a4ccd876-855d-4aba-aaa9-02ff98ede0a6",
+      "title": "alert",
+      "published": "Mon Oct 26 13:00:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Burnage",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.424944 -2.202556"
+    },
+    {
       "id": "c2cbcf55-7df0-4dce-8652-3f22bec07be8",
       "title": "alert",
       "published": "Mon Oct 26 11:54:53 +0000 2026",
@@ -74,6 +88,20 @@
       "point": "53.499994 -2.381977"
     },
     {
+      "id": "382a201b-6398-46bb-9de6-37eb0e113872",
+      "title": "alert",
+      "published": "Mon Oct 26 12:56:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6536 - Manchester Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.561489 -2.408715"
+    },
+    {
       "id": "80352020-1078-416b-bcff-1cdda5af8460",
       "title": "alert",
       "published": "Mon Oct 26 12:03:24 +0000 2026",
@@ -100,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.66405 -2.294511"
+    },
+    {
+      "id": "e59a788e-6096-4f56-9019-a49f9d2c9031",
+      "title": "alert",
+      "published": "Mon Oct 26 12:56:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A663 - Broadway",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.532766 -2.153084"
     }
   ]
 }
