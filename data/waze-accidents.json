@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T11:35:47.790685+00:00",
+  "updatedAt": "2026-10-26T11:40:47.790182+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "4a033605-8d48-4de6-88a7-4ed5f5dce399",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.455922 -2.160974"
+    },
+    {
+      "id": "f908f690-47f1-453e-a8ba-62bf132873be",
+      "title": "alert",
+      "published": "Mon Oct 26 11:39:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A680 - Rochdale Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.66405 -2.294511"
     },
     {
       "id": "900ebf83-c4d5-46c6-813f-4d365561d222",
@@ -54,7 +68,7 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.347254 -2.497265"
