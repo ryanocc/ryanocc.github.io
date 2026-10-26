@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T18:05:47.816754+00:00",
+  "updatedAt": "2026-10-26T18:10:47.765082+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
@@ -60,6 +60,20 @@
       "point": "53.463487 -2.281569"
     },
     {
+      "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
+      "title": "alert",
+      "published": "Mon Oct 26 18:10:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A670 - Mossley Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.493057 -2.078043"
+    },
+    {
       "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
       "title": "alert",
       "published": "Mon Oct 26 17:18:06 +0000 2026",
@@ -72,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.447759 -1.975226"
+    },
+    {
+      "id": "b4ccac94-c6f1-43a0-bdaf-41b0ee25cc9f",
+      "title": "alert",
+      "published": "Mon Oct 26 18:10:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.474903 -2.261451"
     }
   ]
 }
