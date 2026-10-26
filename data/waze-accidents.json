@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-26T13:55:48.085835+00:00",
+  "updatedAt": "2026-10-26T14:00:48.009484+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
-    {
-      "id": "b17a0068-87e7-41eb-aa50-6bd05ebfc462",
-      "title": "alert",
-      "published": "Mon Oct 26 11:55:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Burns Ave",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.575833 -2.293717"
-    },
     {
       "id": "c873fc10-dbdc-464e-98f7-8eaf1b184ba7",
       "title": "alert",
@@ -46,20 +32,6 @@
       "point": "53.589334 -2.176005"
     },
     {
-      "id": "c2cbcf55-7df0-4dce-8652-3f22bec07be8",
-      "title": "alert",
-      "published": "Mon Oct 26 11:54:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Errwood Rd",
-      "city": "Burnage",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.425389 -2.202186"
-    },
-    {
       "id": "a4ccd876-855d-4aba-aaa9-02ff98ede0a6",
       "title": "alert",
       "published": "Mon Oct 26 13:00:17 +0000 2026",
@@ -68,7 +40,7 @@
       "road": "",
       "city": "Burnage",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.424944 -2.202556"
@@ -82,24 +54,10 @@
       "road": "B6536 - Manchester Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.561489 -2.408715"
-    },
-    {
-      "id": "0539b1e8-0177-44c8-9ced-e0fd11bc852f",
-      "title": "alert",
-      "published": "Mon Oct 26 13:13:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A680 - Rochdale Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.664223 -2.295023"
     },
     {
       "id": "80352020-1078-416b-bcff-1cdda5af8460",
@@ -116,6 +74,20 @@
       "point": "53.665268 -2.297007"
     },
     {
+      "id": "0539b1e8-0177-44c8-9ced-e0fd11bc852f",
+      "title": "alert",
+      "published": "Mon Oct 26 13:13:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A680 - Rochdale Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.664223 -2.295023"
+    },
+    {
       "id": "552bce60-a51a-4a75-b00e-78b5c389ba88",
       "title": "alert",
       "published": "Mon Oct 26 13:52:43 +0000 2026",
@@ -124,8 +96,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.338727 -1.980933"
     }
