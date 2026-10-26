@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T20:00:48.173774+00:00",
+  "updatedAt": "2026-10-26T20:05:48.136211+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "a5f48f2a-7715-48f4-ac1e-4a72897eed38",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 5.0,
       "point": "53.441123 -2.190701"
+    },
+    {
+      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
+      "title": "alert",
+      "published": "Mon Oct 26 18:16:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.633716 -2.486195"
     },
     {
       "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
@@ -40,24 +54,10 @@
       "road": "A675 - Belmont Rd",
       "city": "Belmont",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.634332 -2.487256"
-    },
-    {
-      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
-      "title": "alert",
-      "published": "Mon Oct 26 18:16:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "Belmont",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.633716 -2.486195"
     },
     {
       "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
@@ -86,6 +86,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.493057 -2.078043"
+    },
+    {
+      "id": "ad84ad82-29e9-4a81-a0eb-ec3944f74815",
+      "title": "alert",
+      "published": "Mon Oct 26 20:01:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A575 - Walkden Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.5117 -2.391804"
     },
     {
       "id": "4810c4fb-3f6f-4229-a811-6c8fb1f4e613",
