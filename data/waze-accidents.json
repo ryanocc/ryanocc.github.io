@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T08:00:47.962364+00:00",
+  "updatedAt": "2026-10-26T08:05:48.033611+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.361673 -2.33753"
+    },
+    {
+      "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
+      "title": "alert",
+      "published": "Mon Oct 26 08:01:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Ashley Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.361753 -2.337665"
     },
     {
       "id": "b3ee9ebc-20d0-4382-b142-05955388aa87",
@@ -54,8 +68,8 @@
       "road": "A57 - Cadishead Way",
       "city": "Cadishead",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.422922 -2.434363"
     }
