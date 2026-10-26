@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T15:00:47.745652+00:00",
+  "updatedAt": "2026-10-26T15:05:48.253117+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "548036d2-ff72-4aa1-8d36-8ee6dc21b8d3",
@@ -46,6 +46,20 @@
       "point": "53.589334 -2.176005"
     },
     {
+      "id": "384aaac2-d5cd-497f-bb2b-702b5ed9dfd1",
+      "title": "alert",
+      "published": "Mon Oct 26 15:05:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J2 to A560",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.398203 -2.20095"
+    },
+    {
       "id": "0539b1e8-0177-44c8-9ced-e0fd11bc852f",
       "title": "alert",
       "published": "Mon Oct 26 13:13:10 +0000 2026",
@@ -58,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.664223 -2.295023"
+    },
+    {
+      "id": "38a19ecb-021e-4152-b139-85bc3e0b5c81",
+      "title": "alert",
+      "published": "Mon Oct 26 15:05:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.453411 -2.07186"
     }
   ]
 }
