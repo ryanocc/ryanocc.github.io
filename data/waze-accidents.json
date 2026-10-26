@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-26T09:10:47.978195+00:00",
+  "updatedAt": "2026-10-26T09:15:47.987234+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
@@ -46,18 +46,18 @@
       "point": "53.4227 -2.338973"
     },
     {
-      "id": "e026cc89-b4f0-4c20-8c90-2a3c080439a8",
+      "id": "b16b3981-a903-49a5-8ec3-3c2f7b43f8b1",
       "title": "alert",
-      "published": "Mon Oct 26 07:50:41 +0000 2026",
+      "published": "Mon Oct 26 09:11:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Cadishead Way",
-      "city": "Cadishead",
+      "road": "A665 - Bury Old Rd",
+      "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.422922 -2.434363"
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 5.0,
+      "point": "53.517987 -2.257296"
     },
     {
       "id": "f2db2f0b-d303-49c5-a27a-ed26e64c1d73",
@@ -74,6 +74,20 @@
       "point": "53.42333 -2.433169"
     },
     {
+      "id": "e026cc89-b4f0-4c20-8c90-2a3c080439a8",
+      "title": "alert",
+      "published": "Mon Oct 26 07:50:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Cadishead Way",
+      "city": "Cadishead",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.422922 -2.434363"
+    },
+    {
       "id": "c78c5259-df49-4803-a154-237f09c6bec0",
       "title": "alert",
       "published": "Mon Oct 26 09:03:28 +0000 2026",
@@ -82,7 +96,7 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.552763 -2.26358"
