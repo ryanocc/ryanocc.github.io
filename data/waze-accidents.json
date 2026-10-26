@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-26T09:30:48.154276+00:00",
+  "updatedAt": "2026-10-26T09:35:48.027160+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
+    {
+      "id": "773e4879-8d81-4e45-a1ec-144ffe0d195b",
+      "title": "alert",
+      "published": "Mon Oct 26 09:31:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Tudor Cl",
+      "city": "Reddish",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.435012 -2.161131"
+    },
     {
       "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
       "title": "alert",
@@ -12,7 +26,7 @@
       "road": "Ashley Rd",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.361753 -2.337665"
@@ -30,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.361673 -2.33753"
-    },
-    {
-      "id": "09a81314-68b1-4861-bef1-8c0d730d703f",
-      "title": "alert",
-      "published": "Mon Oct 26 09:23:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J4 to M60 (W), M62",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.552123 -2.262574"
     },
     {
       "id": "826f1353-09da-463c-ad68-c91aa05aea9d",
@@ -100,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.422922 -2.434363"
-    },
-    {
-      "id": "6751a71f-8479-4789-b99c-4bb4818c3b8e",
-      "title": "alert",
-      "published": "Mon Oct 26 09:23:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.624803 -2.052744"
     }
   ]
 }
