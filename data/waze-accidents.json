@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T17:35:47.976851+00:00",
+  "updatedAt": "2026-10-26T17:40:47.920368+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -26,7 +26,7 @@
       "road": "J5 to A5103 > Manchester (Ctr)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.414447 -2.266722"
@@ -60,6 +60,20 @@
       "point": "53.463487 -2.281569"
     },
     {
+      "id": "1a98b057-c7cd-487f-be8a-2241cfca0f68",
+      "title": "alert",
+      "published": "Mon Oct 26 17:38:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6186 - Frederick Rd",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.49213 -2.275707"
+    },
+    {
       "id": "61aad8de-17ab-4a5d-b48a-a28644824a0a",
       "title": "alert",
       "published": "Mon Oct 26 17:34:44 +0000 2026",
@@ -69,7 +83,7 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.395094 -2.0988"
     },
@@ -82,8 +96,8 @@
       "road": "A56 - Chester Rd",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.472156 -2.257678"
     },
@@ -96,7 +110,7 @@
       "road": "A57 - Dinting Vale",
       "city": "Glossop",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.447759 -1.975226"
@@ -110,24 +124,10 @@
       "road": "A6 - London Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.382465 -2.124941"
-    },
-    {
-      "id": "0d19131d-ecb9-4daf-8c9e-b55e9003d2d8",
-      "title": "alert",
-      "published": "Mon Oct 26 17:34:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
       "confidence": 1.0,
       "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.530807 -2.698638"
+      "reportRating": 3.0,
+      "point": "53.382465 -2.124941"
     }
   ]
 }
