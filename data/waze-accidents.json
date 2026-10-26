@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-26T19:20:48.154973+00:00",
+  "updatedAt": "2026-10-26T19:25:48.157917+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
+    {
+      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
+      "title": "alert",
+      "published": "Mon Oct 26 18:16:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A675 - Belmont Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.633609 -2.486"
+    },
     {
       "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
       "title": "alert",
@@ -46,18 +60,18 @@
       "point": "53.634332 -2.487256"
     },
     {
-      "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
+      "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
       "title": "alert",
-      "published": "Mon Oct 26 18:16:11 +0000 2026",
+      "published": "Mon Oct 26 17:18:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "",
+      "road": "A57 - Dinting Vale",
+      "city": "Glossop",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.633609 -2.486"
+      "reportRating": 0.0,
+      "point": "53.447759 -1.975226"
     },
     {
       "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
@@ -74,18 +88,32 @@
       "point": "53.493057 -2.078043"
     },
     {
-      "id": "14b60b48-465d-47e8-ba3f-6f2326010bf3",
+      "id": "4810c4fb-3f6f-4229-a811-6c8fb1f4e613",
       "title": "alert",
-      "published": "Mon Oct 26 17:18:06 +0000 2026",
+      "published": "Mon Oct 26 19:24:24 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Dinting Vale",
-      "city": "Glossop",
+      "road": "A57 - Stadium Way",
+      "city": "Irlam",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.447759 -1.975226"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.470839 -2.379758"
+    },
+    {
+      "id": "ec54c670-e31e-4291-8fb8-ca24dbf52221",
+      "title": "alert",
+      "published": "Mon Oct 26 19:25:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 - Birchfields Rd",
+      "city": "Rusholme",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.446445 -2.206584"
     },
     {
       "id": "7b23413f-eecf-469a-8310-b35fda5743ec",
@@ -116,20 +144,6 @@
       "point": "53.457475 -2.117393"
     },
     {
-      "id": "ce6dd588-f015-4ede-8cdf-ce81720aa450",
-      "title": "alert",
-      "published": "Mon Oct 26 18:46:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.456525 -2.121213"
-    },
-    {
       "id": "512f80b4-f72f-4cf3-ad9d-de390b57f3d5",
       "title": "alert",
       "published": "Mon Oct 26 19:09:09 +0000 2026",
@@ -138,7 +152,7 @@
       "road": "M67 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.457624 -2.10603"
