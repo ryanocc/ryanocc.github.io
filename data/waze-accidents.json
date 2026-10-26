@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T13:25:48.159135+00:00",
+  "updatedAt": "2026-10-26T13:30:48.074376+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.589334 -2.176005"
     },
     {
+      "id": "a4ccd876-855d-4aba-aaa9-02ff98ede0a6",
+      "title": "alert",
+      "published": "Mon Oct 26 13:00:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Burnage",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.424944 -2.202556"
+    },
+    {
       "id": "c2cbcf55-7df0-4dce-8652-3f22bec07be8",
       "title": "alert",
       "published": "Mon Oct 26 11:54:53 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.425389 -2.202186"
-    },
-    {
-      "id": "a4ccd876-855d-4aba-aaa9-02ff98ede0a6",
-      "title": "alert",
-      "published": "Mon Oct 26 13:00:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Burnage",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.424944 -2.202556"
     },
     {
       "id": "382a201b-6398-46bb-9de6-37eb0e113872",
@@ -88,18 +88,18 @@
       "point": "53.561489 -2.408715"
     },
     {
-      "id": "80352020-1078-416b-bcff-1cdda5af8460",
+      "id": "0539b1e8-0177-44c8-9ced-e0fd11bc852f",
       "title": "alert",
-      "published": "Mon Oct 26 12:03:24 +0000 2026",
+      "published": "Mon Oct 26 13:13:10 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "A680 - Rochdale Rd",
-      "city": "Edenfield",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.665268 -2.297007"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.664223 -2.295023"
     },
     {
       "id": "f908f690-47f1-453e-a8ba-62bf132873be",
@@ -116,18 +116,18 @@
       "point": "53.66405 -2.294511"
     },
     {
-      "id": "0539b1e8-0177-44c8-9ced-e0fd11bc852f",
+      "id": "80352020-1078-416b-bcff-1cdda5af8460",
       "title": "alert",
-      "published": "Mon Oct 26 13:13:10 +0000 2026",
+      "published": "Mon Oct 26 12:03:24 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
+      "subtype": "ACCIDENT_MAJOR",
       "road": "A680 - Rochdale Rd",
-      "city": "",
+      "city": "Edenfield",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.664223 -2.295023"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.665268 -2.297007"
     },
     {
       "id": "e59a788e-6096-4f56-9019-a49f9d2c9031",
