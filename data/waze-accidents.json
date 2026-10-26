@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-10-26T18:40:48.043172+00:00",
+  "updatedAt": "2026-10-26T18:45:48.225488+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 13,
   "incidents": [
     {
-      "id": "894ce010-f51f-488f-b892-a0d0f79b03a1",
+      "id": "5be333b7-f729-42a2-8040-c4e99806713d",
       "title": "alert",
-      "published": "Mon Oct 26 16:41:02 +0000 2026",
+      "published": "Mon Oct 26 18:45:44 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Goulder Rd",
-      "city": "Gorton",
+      "road": "J5 to A58",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.45528 -2.160062"
+      "reportRating": 1.0,
+      "point": "53.556443 -2.490363"
     },
     {
       "id": "14430b26-3a10-4d66-9529-8ce9011c3fe6",
@@ -40,24 +40,10 @@
       "road": "",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.424021 -2.124801"
-    },
-    {
-      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
-      "title": "alert",
-      "published": "Mon Oct 26 18:16:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A675 - Belmont Rd",
-      "city": "Belmont",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.633716 -2.486195"
     },
     {
       "id": "62e72b3a-3d7c-40b1-b249-35c39bae0036",
@@ -88,32 +74,32 @@
       "point": "53.634332 -2.487256"
     },
     {
-      "id": "599db845-f707-459e-8e28-76079d03acae",
+      "id": "7d0a9c80-a6f9-493a-8480-6071cdfd0c19",
       "title": "alert",
-      "published": "Mon Oct 26 18:27:46 +0000 2026",
+      "published": "Mon Oct 26 18:42:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Bradford",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.481605 -2.195632"
+      "point": "53.635016 -2.488695"
     },
     {
-      "id": "b4ac2093-255b-4842-b6f5-f386328e6b9f",
+      "id": "4fff8434-2732-4b8e-8c11-47fc723a197d",
       "title": "alert",
-      "published": "Mon Oct 26 18:32:06 +0000 2026",
+      "published": "Mon Oct 26 18:16:33 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A662 - Ashton New Rd",
-      "city": "Clayton",
+      "road": "A675 - Belmont Rd",
+      "city": "Belmont",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.48209 -2.193002"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.633716 -2.486195"
     },
     {
       "id": "49b8eefe-870d-4f8d-8812-907b734aaa41",
@@ -158,32 +144,32 @@
       "point": "53.328706 -2.249069"
     },
     {
-      "id": "bb1f1908-ff74-41d1-a50c-d04fab0a787d",
+      "id": "dc17bf71-aa0c-4ad8-84c4-d6e92cafacaa",
       "title": "alert",
-      "published": "Mon Oct 26 18:25:57 +0000 2026",
+      "published": "Mon Oct 26 18:43:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
+      "road": "A5063 - Trafford Rd",
+      "city": "Ordsall",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.342375 -2.491765"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.473337 -2.282246"
     },
     {
-      "id": "c8ba012c-2574-4da4-958b-d6445d66c296",
+      "id": "6c04e72e-db37-4fe9-9805-1d633588817f",
       "title": "alert",
-      "published": "Mon Oct 26 18:10:57 +0000 2026",
+      "published": "Mon Oct 26 18:36:59 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "M67 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.461573 -2.346016"
+      "point": "53.45848 -2.113991"
     },
     {
       "id": "e56745fc-f564-4bd5-9037-b28c7b5cefa0",
@@ -198,20 +184,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.457475 -2.117393"
-    },
-    {
-      "id": "6c04e72e-db37-4fe9-9805-1d633588817f",
-      "title": "alert",
-      "published": "Mon Oct 26 18:36:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.45848 -2.113991"
     }
   ]
 }
