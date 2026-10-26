@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-26T09:05:48.133805+00:00",
+  "updatedAt": "2026-10-26T09:10:47.978195+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 6,
   "incidents": [
-    {
-      "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
-      "title": "alert",
-      "published": "Mon Oct 26 08:01:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Ashley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.361753 -2.337665"
-    },
     {
       "id": "f697c0d5-7f7f-4846-8e56-0b3073279bec",
       "title": "alert",
@@ -32,18 +18,18 @@
       "point": "53.361673 -2.33753"
     },
     {
-      "id": "b3ee9ebc-20d0-4382-b142-05955388aa87",
+      "id": "53af6668-561e-4f73-a069-1d9296c9b5f8",
       "title": "alert",
-      "published": "Mon Oct 26 07:04:15 +0000 2026",
+      "published": "Mon Oct 26 08:01:59 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 > Birmingham",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Ashley Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.532201 -2.696883"
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.361753 -2.337665"
     },
     {
       "id": "826f1353-09da-463c-ad68-c91aa05aea9d",
@@ -60,20 +46,6 @@
       "point": "53.4227 -2.338973"
     },
     {
-      "id": "f2db2f0b-d303-49c5-a27a-ed26e64c1d73",
-      "title": "alert",
-      "published": "Mon Oct 26 07:57:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Cadishead Way",
-      "city": "Cadishead",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.42333 -2.433169"
-    },
-    {
       "id": "e026cc89-b4f0-4c20-8c90-2a3c080439a8",
       "title": "alert",
       "published": "Mon Oct 26 07:50:41 +0000 2026",
@@ -88,18 +60,18 @@
       "point": "53.422922 -2.434363"
     },
     {
-      "id": "5bfaa2d8-77ac-4c83-88fa-ce179640de43",
+      "id": "f2db2f0b-d303-49c5-a27a-ed26e64c1d73",
       "title": "alert",
-      "published": "Mon Oct 26 08:48:08 +0000 2026",
+      "published": "Mon Oct 26 07:57:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A635 - Ashton Old Rd",
-      "city": "Gorton",
+      "road": "A57 - Cadishead Way",
+      "city": "Cadishead",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.472931 -2.167008"
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.42333 -2.433169"
     },
     {
       "id": "c78c5259-df49-4803-a154-237f09c6bec0",
@@ -110,10 +82,10 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.553111 -2.263901"
+      "point": "53.552763 -2.26358"
     }
   ]
 }
