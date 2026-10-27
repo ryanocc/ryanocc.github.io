@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T12:50:47.746169+00:00",
+  "updatedAt": "2026-10-27T12:55:47.732992+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 12,
   "incidents": [
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
@@ -32,6 +32,34 @@
       "point": "53.544644 -2.627791"
     },
     {
+      "id": "c9d4f7c9-43ea-4391-9df2-db68d44e1327",
+      "title": "alert",
+      "published": "Tue Oct 27 12:53:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.51117 -2.39409"
+    },
+    {
+      "id": "54c35e81-06c4-4928-a4e6-59a48f7e644e",
+      "title": "alert",
+      "published": "Tue Oct 27 12:53:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.504521 -2.342698"
+    },
+    {
       "id": "3905432e-7a94-4248-9b31-f560d07fd295",
       "title": "alert",
       "published": "Tue Oct 27 12:44:18 +0000 2026",
@@ -40,8 +68,8 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.50479 -2.343597"
     },
@@ -54,7 +82,7 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.505042 -2.344151"
@@ -110,10 +138,10 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.449137 -2.596101"
+      "point": "53.448761 -2.595299"
     },
     {
       "id": "afb6dee4-4f94-493d-9dbf-164c9b98977d",
@@ -124,22 +152,22 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.447669 -2.59297"
     },
     {
-      "id": "dff12e9e-b8d5-43e8-8f47-f33b9f817d62",
+      "id": "700a2cb2-1ba7-4427-aaae-6790bfe08d3b",
       "title": "alert",
-      "published": "Tue Oct 27 12:41:55 +0000 2026",
+      "published": "Tue Oct 27 12:54:07 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
+      "subtype": "ACCIDENT_MAJOR",
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.482894 -2.648158"
     }
