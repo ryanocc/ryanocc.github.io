@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T14:15:48.756272+00:00",
+  "updatedAt": "2026-10-27T14:20:48.093121+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "e49f70f5-cfb9-4371-969f-1e66fbf2aa56",
@@ -26,8 +26,8 @@
       "road": "A58 - Cricketers Way",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.546678 -2.519483"
     },
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.469849 -2.246748"
+    },
+    {
+      "id": "c4ecbbcf-67cd-48f7-8b4f-11b2b25e1cfd",
+      "title": "alert",
+      "published": "Tue Oct 27 14:18:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.579722 -2.200161"
     }
   ]
 }
