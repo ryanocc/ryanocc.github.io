@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T11:40:47.687164+00:00",
+  "updatedAt": "2026-10-27T11:45:47.759188+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -60,20 +60,6 @@
       "point": "53.535781 -2.131919"
     },
     {
-      "id": "6e291d4e-88a3-4113-8ef0-f870fe12326f",
-      "title": "alert",
-      "published": "Tue Oct 27 11:11:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.512068 -2.391004"
-    },
-    {
       "id": "6717a019-0c28-4f14-be29-f0ef256cf282",
       "title": "alert",
       "published": "Tue Oct 27 11:13:49 +0000 2026",
@@ -86,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.511898 -2.391689"
+    },
+    {
+      "id": "6e291d4e-88a3-4113-8ef0-f870fe12326f",
+      "title": "alert",
+      "published": "Tue Oct 27 11:11:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.512068 -2.391004"
     },
     {
       "id": "3f5c80ff-a97e-4d4a-aaba-ad1d65f22365",
@@ -124,8 +124,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.341989 -2.491294"
     },
