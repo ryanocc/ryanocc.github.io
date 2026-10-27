@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T08:20:48.063682+00:00",
+  "updatedAt": "2026-10-27T08:25:48.036816+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "6e3443a6-8e2b-4a21-b771-4d1bc46e5794",
@@ -32,6 +32,20 @@
       "point": "53.442306 -2.065615"
     },
     {
+      "id": "9d9d6cab-cb7a-45c2-86d8-f535c33f0b97",
+      "title": "alert",
+      "published": "Tue Oct 27 08:23:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.558567 -2.402364"
+    },
+    {
       "id": "ec764fce-e93d-4d6a-8c2d-89158231af99",
       "title": "alert",
       "published": "Tue Oct 27 08:19:20 +0000 2026",
@@ -40,8 +54,8 @@
       "road": "M6 > Preston",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.35113 -2.501198"
     },
@@ -54,8 +68,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.314758 -2.425902"
     }
