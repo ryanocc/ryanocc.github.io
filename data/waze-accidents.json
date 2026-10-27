@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T18:55:48.196387+00:00",
+  "updatedAt": "2026-10-27T19:00:48.093453+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
@@ -74,18 +74,18 @@
       "point": "53.54655 -2.089522"
     },
     {
-      "id": "27a97308-6862-4c4b-9bae-254c1e5c02a0",
+      "id": "904e4d25-a8ea-49af-9793-69a2cce7e3da",
       "title": "alert",
-      "published": "Tue Oct 27 18:11:08 +0000 2026",
+      "published": "Tue Oct 27 18:59:22 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Waterloo St",
-      "city": "Crumpsall",
+      "road": "",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.51213 -2.22402"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.479318 -2.280959"
     },
     {
       "id": "e93ff546-e1bf-497c-a3c4-b8b858d5c9de",
@@ -96,8 +96,8 @@
       "road": "A57 - Liverpool Rd",
       "city": "Barton Upon Irwell",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.480353 -2.360983"
     },
@@ -152,10 +152,24 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.508863 -2.356548"
+    },
+    {
+      "id": "c12a5a4a-4c2e-45fc-9d6d-c4958de550f3",
+      "title": "alert",
+      "published": "Tue Oct 27 18:59:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Regent Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.478984 -2.281099"
     },
     {
       "id": "727cf3dd-ff2a-41b5-bada-a3312090f319",
@@ -166,24 +180,10 @@
       "road": "A664 - Edinburgh Way",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.601143 -2.167263"
-    },
-    {
-      "id": "43e1dfee-62ac-4791-b9a5-f79f82444e53",
-      "title": "alert",
-      "published": "Tue Oct 27 18:52:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.508441 -2.373402"
     }
   ]
 }
