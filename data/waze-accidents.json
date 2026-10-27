@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T19:45:48.302436+00:00",
+  "updatedAt": "2026-10-27T19:50:48.112494+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "dc2e4947-6fbc-4400-87b8-2941ed56fd5d",
@@ -69,7 +69,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.608858 -2.164135"
     },
@@ -139,7 +139,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.546882 -2.627816"
     },
@@ -156,6 +156,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.620898 -2.151758"
+    },
+    {
+      "id": "8fcf73ee-e4e7-44e9-9a57-8228c5a214cd",
+      "title": "alert",
+      "published": "Tue Oct 27 19:50:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.551283 -2.478251"
     }
   ]
 }
