@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T19:35:48.075442+00:00",
+  "updatedAt": "2026-10-27T19:40:48.045498+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "dc2e4947-6fbc-4400-87b8-2941ed56fd5d",
@@ -58,6 +58,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.54655 -2.089522"
+    },
+    {
+      "id": "e20d462c-3433-4dd7-a138-9b15ca2e4098",
+      "title": "alert",
+      "published": "Tue Oct 27 19:40:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Tweedale St",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.608858 -2.164135"
     },
     {
       "id": "263e16ad-9c4c-4552-abfa-b4e06e8b49f4",
@@ -130,18 +144,18 @@
       "point": "53.546882 -2.627816"
     },
     {
-      "id": "57aa0fe7-c6cc-4b61-9b90-60691d8bbcc1",
+      "id": "f777ba36-b5a9-45b0-abb4-92ba93a2bef8",
       "title": "alert",
-      "published": "Tue Oct 27 19:19:30 +0000 2026",
+      "published": "Tue Oct 27 19:36:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
+      "road": "A58 - Yorkshire St",
+      "city": "Rochdale",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.460232 -2.168776"
+      "point": "53.620898 -2.151758"
     }
   ]
 }
