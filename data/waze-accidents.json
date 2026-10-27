@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T15:10:48.094426+00:00",
+  "updatedAt": "2026-10-27T15:15:48.092806+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "85df1420-d1cf-4768-a3bc-fca075d65e34",
@@ -18,18 +18,18 @@
       "point": "53.427486 -2.557519"
     },
     {
-      "id": "06fa915d-a891-4121-ba0f-f317c02c9135",
+      "id": "cd959033-65bf-419f-8a1f-d6a029dc91e1",
       "title": "alert",
-      "published": "Tue Oct 27 14:56:50 +0000 2026",
+      "published": "Tue Oct 27 15:15:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5184 - Plymouth Gr",
-      "city": "Longsight",
+      "road": "B5359 - Wilmslow Rd",
+      "city": "Alderley Edge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.463063 -2.218425"
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.311844 -2.237008"
     },
     {
       "id": "08b56577-9f1d-4e8e-93a2-07fb81002d82",
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.546678 -2.519483"
+    },
+    {
+      "id": "e62d69df-e077-4b36-b872-7a4f5b18a77a",
+      "title": "alert",
+      "published": "Tue Oct 27 15:15:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.448716 -2.339859"
     }
   ]
 }
