@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T07:25:48.050316+00:00",
+  "updatedAt": "2026-10-27T07:30:48.053687+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -18,18 +18,18 @@
       "point": "53.532235 -2.649477"
     },
     {
-      "id": "01e0aa33-66a3-4aea-8ac3-f0d8ba71cf54",
+      "id": "144d73bd-d37c-4b14-8633-25e340d33abb",
       "title": "alert",
-      "published": "Tue Oct 27 07:20:58 +0000 2026",
+      "published": "Tue Oct 27 07:27:24 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 > Preston",
-      "city": "",
+      "subtype": "",
+      "road": "A56 - Peel Way",
+      "city": "Bury",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.352149 -2.49891"
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.594885 -2.298294"
     },
     {
       "id": "1d05f4fe-d457-4541-acb4-3ad80e003137",
@@ -46,18 +46,18 @@
       "point": "53.367832 -2.509542"
     },
     {
-      "id": "9107385c-b43e-4744-8de5-74bdd2e44756",
+      "id": "01e0aa33-66a3-4aea-8ac3-f0d8ba71cf54",
       "title": "alert",
-      "published": "Tue Oct 27 07:23:06 +0000 2026",
+      "published": "Tue Oct 27 07:20:58 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 > Preston",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.476859 -2.122661"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.352149 -2.49891"
     }
   ]
 }
