@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T11:50:47.717903+00:00",
+  "updatedAt": "2026-10-27T11:55:47.809004+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -32,6 +32,20 @@
       "point": "53.575855 -2.293715"
     },
     {
+      "id": "3dc52d8c-62f4-49a9-8dd4-5edcb6da97ce",
+      "title": "alert",
+      "published": "Tue Oct 27 11:54:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5359 - Wilmslow Rd",
+      "city": "Alderley Edge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.305822 -2.237786"
+    },
+    {
       "id": "1afb1a70-0d00-4521-9b4a-c466c2b066b1",
       "title": "alert",
       "published": "Tue Oct 27 11:48:38 +0000 2026",
@@ -55,7 +69,7 @@
       "city": "Werneth",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.535759 -2.131897"
     },
@@ -82,10 +96,10 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.511898 -2.391689"
+      "point": "53.511898 -2.391688"
     },
     {
       "id": "3f5c80ff-a97e-4d4a-aaba-ad1d65f22365",
@@ -97,7 +111,7 @@
       "city": "Astley Bridge",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.604456 -2.431976"
     },
@@ -125,7 +139,7 @@
       "city": "Newton Heath",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.501587 -2.192011"
     },
@@ -166,8 +180,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.325033 -2.452926"
     }
