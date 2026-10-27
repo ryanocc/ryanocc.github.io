@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-27T12:05:48.110156+00:00",
+  "updatedAt": "2026-10-27T12:10:47.713047+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 13,
   "incidents": [
-    {
-      "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
-      "title": "alert",
-      "published": "Tue Oct 27 10:05:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Haig Rd",
-      "city": "Knutsford",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.313234 -2.354108"
-    },
     {
       "id": "f41a922d-5e26-459e-9c09-52a63d510145",
       "title": "alert",
@@ -69,23 +55,23 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.481 -2.241546"
     },
     {
-      "id": "c6278cf5-ada0-432e-b914-4804b010ec8a",
+      "id": "b3d72944-7f05-4aec-8d10-76c7a1bca8fd",
       "title": "alert",
-      "published": "Tue Oct 27 10:05:09 +0000 2026",
+      "published": "Tue Oct 27 12:06:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B6192 - Edward St",
-      "city": "Werneth",
+      "road": "A57 - Manchester Rd S",
+      "city": "Denton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.535781 -2.131919"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.456227 -2.129253"
     },
     {
       "id": "6717a019-0c28-4f14-be29-f0ef256cf282",
@@ -110,24 +96,10 @@
       "road": "A666 - Blackburn Rd",
       "city": "Astley Bridge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.604456 -2.431976"
-    },
-    {
-      "id": "d4f1ac6f-2688-4b08-bccb-a7606988a040",
-      "title": "alert",
-      "published": "Tue Oct 27 11:57:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Mancunian Way",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.474872 -2.220152"
     },
     {
       "id": "d8cecfca-40aa-40cd-87eb-4f47787d6a56",
@@ -138,10 +110,24 @@
       "road": "A635 - Mancunian Way",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.475299 -2.219703"
+    },
+    {
+      "id": "d4f1ac6f-2688-4b08-bccb-a7606988a040",
+      "title": "alert",
+      "published": "Tue Oct 27 11:57:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Mancunian Way",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.474872 -2.220152"
     },
     {
       "id": "08f15cdb-27c6-481f-80a1-e6245b38d9b0",
@@ -166,7 +152,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.341989 -2.491294"
