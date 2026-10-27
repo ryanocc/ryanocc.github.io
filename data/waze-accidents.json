@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-27T20:00:48.030557+00:00",
+  "updatedAt": "2026-10-27T20:05:48.029772+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
+    {
+      "id": "94423fac-c3f4-43f7-bc12-4458861cdfe0",
+      "title": "alert",
+      "published": "Tue Oct 27 20:02:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hall Ln",
+      "city": "Farnworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.555969 -2.400521"
+    },
     {
       "id": "9467a261-9b31-4487-9bfc-a55e6a3c5368",
       "title": "alert",
@@ -30,20 +44,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.54655 -2.089522"
-    },
-    {
-      "id": "d25a7e21-d0c2-46fb-a6f0-b3e5dacb71ab",
-      "title": "alert",
-      "published": "Tue Oct 27 19:53:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627 > Oldham",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.557338 -2.139434"
     },
     {
       "id": "e20d462c-3433-4dd7-a138-9b15ca2e4098",
@@ -142,20 +142,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.620898 -2.151758"
-    },
-    {
-      "id": "8fcf73ee-e4e7-44e9-9a57-8228c5a214cd",
-      "title": "alert",
-      "published": "Tue Oct 27 19:50:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.551283 -2.478251"
     }
   ]
 }
