@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T17:40:48.402104+00:00",
+  "updatedAt": "2026-10-27T17:45:48.420086+00:00",
   "source": "Waze GeoRSS",
-  "count": 17,
+  "count": 14,
   "incidents": [
     {
       "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
@@ -13,7 +13,7 @@
       "city": "Burnage",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.431774 -2.198191"
     },
@@ -30,20 +30,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.554535 -2.628336"
-    },
-    {
-      "id": "461bf129-7e1a-4b0d-8598-1c889aae1e7a",
-      "title": "alert",
-      "published": "Tue Oct 27 17:33:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 4.0,
-      "point": "53.398495 -2.224452"
     },
     {
       "id": "9ec0274f-8927-4f70-b862-3abb80006159",
@@ -116,20 +102,6 @@
       "point": "53.524999 -2.273334"
     },
     {
-      "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
-      "title": "alert",
-      "published": "Tue Oct 27 16:33:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.556367 -2.628483"
-    },
-    {
       "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
       "title": "alert",
       "published": "Tue Oct 27 16:42:29 +0000 2026",
@@ -144,18 +116,18 @@
       "point": "53.556102 -2.628453"
     },
     {
-      "id": "8202861d-037a-4f93-83e3-518d61107e42",
+      "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
       "title": "alert",
-      "published": "Tue Oct 27 17:09:09 +0000 2026",
+      "published": "Tue Oct 27 16:33:48 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Cricketers Way",
-      "city": "Westhoughton",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.546702 -2.520144"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.556367 -2.628483"
     },
     {
       "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
@@ -166,24 +138,10 @@
       "road": "A49 - Wigan Ln",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.555749 -2.628366"
-    },
-    {
-      "id": "83c90f9a-8c16-4c1e-99ff-01f82ce2baea",
-      "title": "alert",
-      "published": "Tue Oct 27 17:40:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 4.0,
-      "point": "53.397067 -2.509228"
     },
     {
       "id": "1dfbf42f-e72b-4a26-96f1-0983554dc364",
@@ -194,38 +152,24 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.423736 -2.571941"
     },
     {
-      "id": "1b3fddbd-3afe-44bc-a409-5b47d31b82f8",
+      "id": "f9696048-4918-411e-83fa-39b9ba15cf6b",
       "title": "alert",
-      "published": "Tue Oct 27 17:32:01 +0000 2026",
+      "published": "Tue Oct 27 17:44:01 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M602 (W)",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.489699 -2.364395"
-    },
-    {
-      "id": "35eaaa73-8bff-45fc-b840-505199e3853a",
-      "title": "alert",
-      "published": "Tue Oct 27 17:33:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
-      "point": "53.561433 -2.242979"
+      "point": "53.3716 -2.291064"
     },
     {
       "id": "387b306a-e2a9-4e97-a23b-634a220a6421",
@@ -240,6 +184,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.589814 -2.272672"
+    },
+    {
+      "id": "41825f36-b916-49be-9655-f6cab70b489e",
+      "title": "alert",
+      "published": "Tue Oct 27 17:44:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.584462 -2.272922"
     }
   ]
 }
