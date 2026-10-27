@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T07:50:48.083677+00:00",
+  "updatedAt": "2026-10-27T07:55:48.081124+00:00",
   "source": "Waze GeoRSS",
   "count": 3,
   "incidents": [
@@ -18,6 +18,20 @@
       "point": "53.532235 -2.649477"
     },
     {
+      "id": "6e3443a6-8e2b-4a21-b771-4d1bc46e5794",
+      "title": "alert",
+      "published": "Tue Oct 27 07:52:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Dantzic St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.491028 -2.235123"
+    },
+    {
       "id": "d293ff8b-beb1-49e8-9e92-5277fd2cee24",
       "title": "alert",
       "published": "Tue Oct 27 07:48:56 +0000 2026",
@@ -30,20 +44,6 @@
       "reliability": 5.0,
       "reportRating": 4.0,
       "point": "53.442306 -2.065615"
-    },
-    {
-      "id": "01e0aa33-66a3-4aea-8ac3-f0d8ba71cf54",
-      "title": "alert",
-      "published": "Tue Oct 27 07:20:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 > Preston",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.352149 -2.49891"
     }
   ]
 }
