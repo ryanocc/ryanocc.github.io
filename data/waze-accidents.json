@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T19:15:48.132721+00:00",
+  "updatedAt": "2026-10-27T19:20:48.129811+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 13,
   "incidents": [
     {
       "id": "bae60896-e00d-431b-9657-0d6e21837d26",
@@ -41,7 +41,7 @@
       "city": "Farnworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.55597 -2.400537"
     },
@@ -102,20 +102,6 @@
       "point": "53.480353 -2.360983"
     },
     {
-      "id": "ea297e30-566d-4953-9c5e-00756bbfeefb",
-      "title": "alert",
-      "published": "Tue Oct 27 18:37:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A575 - Bolton Rd",
-      "city": "Farnworth",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.55628 -2.400973"
-    },
-    {
       "id": "9854e21a-8cc8-4b95-b92c-edf886a99bf7",
       "title": "alert",
       "published": "Tue Oct 27 18:51:40 +0000 2026",
@@ -144,6 +130,20 @@
       "point": "53.392874 -2.226488"
     },
     {
+      "id": "b4457ad2-69ec-45f0-b7a3-ca2e9283e301",
+      "title": "alert",
+      "published": "Tue Oct 27 19:16:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - River Way",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.546882 -2.627816"
+    },
+    {
       "id": "e6d3814b-4b74-4b2e-a15d-6e481675615d",
       "title": "alert",
       "published": "Tue Oct 27 18:47:02 +0000 2026",
@@ -156,6 +156,34 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.508863 -2.356548"
+    },
+    {
+      "id": "57aa0fe7-c6cc-4b61-9b90-60691d8bbcc1",
+      "title": "alert",
+      "published": "Tue Oct 27 19:19:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.460232 -2.168776"
+    },
+    {
+      "id": "6a3c2076-85ed-4ae9-b7ae-a68430750ef7",
+      "title": "alert",
+      "published": "Tue Oct 27 19:17:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.460135 -2.168328"
     }
   ]
 }
