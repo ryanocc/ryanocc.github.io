@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T11:35:47.706762+00:00",
+  "updatedAt": "2026-10-27T11:40:47.687164+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -68,7 +68,7 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.512068 -2.391004"
@@ -86,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.511898 -2.391689"
+    },
+    {
+      "id": "3f5c80ff-a97e-4d4a-aaba-ad1d65f22365",
+      "title": "alert",
+      "published": "Tue Oct 27 11:40:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 - Blackburn Rd",
+      "city": "Astley Bridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.604456 -2.431976"
     },
     {
       "id": "08f15cdb-27c6-481f-80a1-e6245b38d9b0",
