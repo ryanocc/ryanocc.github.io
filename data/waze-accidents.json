@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T18:10:48.341645+00:00",
+  "updatedAt": "2026-10-27T18:15:48.333517+00:00",
   "source": "Waze GeoRSS",
-  "count": 17,
+  "count": 15,
   "incidents": [
     {
       "id": "d5508691-b9ed-4d1d-a91a-258ca2769e45",
@@ -60,18 +60,18 @@
       "point": "53.55597 -2.400537"
     },
     {
-      "id": "2a980019-6a0b-4012-a991-57bd42031481",
+      "id": "27a97308-6862-4c4b-9bae-254c1e5c02a0",
       "title": "alert",
-      "published": "Tue Oct 27 18:05:16 +0000 2026",
+      "published": "Tue Oct 27 18:11:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 > Stockport",
-      "city": "",
+      "road": "Waterloo St",
+      "city": "Crumpsall",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 1.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.39649 -2.255641"
+      "reportRating": 4.0,
+      "point": "53.51213 -2.22402"
     },
     {
       "id": "7c5cf5bb-6ac1-41af-883c-27be0b08d215",
@@ -102,20 +102,6 @@
       "point": "53.589258 -2.273045"
     },
     {
-      "id": "cb1f16fd-8dd9-49a1-9722-5c373eb70ed2",
-      "title": "alert",
-      "published": "Tue Oct 27 17:54:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Heap Brow",
-      "city": "Heap Bridge",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.590769 -2.265829"
-    },
-    {
       "id": "fb03c2bb-a8a5-44b9-96c8-4b6a3a005264",
       "title": "alert",
       "published": "Tue Oct 27 17:19:05 +0000 2026",
@@ -138,10 +124,24 @@
       "road": "A6053 - Bolton Rd",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.555659 -2.400629"
+    },
+    {
+      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
+      "title": "alert",
+      "published": "Tue Oct 27 16:43:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.555749 -2.628366"
     },
     {
       "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
@@ -170,20 +170,6 @@
       "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.556367 -2.628483"
-    },
-    {
-      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
-      "title": "alert",
-      "published": "Tue Oct 27 16:43:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.555749 -2.628366"
     },
     {
       "id": "f342e106-caf4-47b7-9b15-123c27aa9ef7",
@@ -226,20 +212,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.584462 -2.272922"
-    },
-    {
-      "id": "52b16541-e315-491e-878d-4220ae0c63b5",
-      "title": "alert",
-      "published": "Tue Oct 27 17:57:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.58007 -2.271786"
     }
   ]
 }
