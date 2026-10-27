@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T05:00:47.927708+00:00",
+  "updatedAt": "2026-10-27T05:05:47.924243+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -18,20 +18,6 @@
       "point": "53.357145 -2.507412"
     },
     {
-      "id": "40e21e5f-14fd-4cbb-bb4c-9686dfccc669",
-      "title": "alert",
-      "published": "Tue Oct 27 03:29:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.358804 -2.508512"
-    },
-    {
       "id": "b8ad320f-dee3-423a-a87d-44d1ee45362b",
       "title": "alert",
       "published": "Tue Oct 27 04:46:30 +0000 2026",
@@ -41,23 +27,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 5.0,
       "point": "53.329285 -2.46834"
     },
     {
-      "id": "58656487-1388-4d6e-a2c8-ff29b667c089",
+      "id": "40e21e5f-14fd-4cbb-bb4c-9686dfccc669",
       "title": "alert",
-      "published": "Tue Oct 27 04:46:10 +0000 2026",
+      "published": "Tue Oct 27 03:29:30 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.326156 -2.457199"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.358804 -2.508512"
     },
     {
       "id": "36e5b545-4517-44d8-96ce-b0d5d5518c5c",
@@ -72,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.32364 -2.448299"
+    },
+    {
+      "id": "58656487-1388-4d6e-a2c8-ff29b667c089",
+      "title": "alert",
+      "published": "Tue Oct 27 04:46:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.326156 -2.457199"
     }
   ]
 }
