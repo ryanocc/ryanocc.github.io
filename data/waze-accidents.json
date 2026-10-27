@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T12:30:47.692344+00:00",
+  "updatedAt": "2026-10-27T12:35:47.715467+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
@@ -32,18 +32,32 @@
       "point": "53.544644 -2.627791"
     },
     {
-      "id": "3f5c80ff-a97e-4d4a-aaba-ad1d65f22365",
+      "id": "e031126b-174f-480c-9345-60959e7205dd",
       "title": "alert",
-      "published": "Tue Oct 27 11:40:42 +0000 2026",
+      "published": "Tue Oct 27 12:31:53 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A666 - Blackburn Rd",
-      "city": "Astley Bridge",
+      "subtype": "",
+      "road": "A640 - Milnrow Rd",
+      "city": "Rochdale",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.616272 -2.128707"
+    },
+    {
+      "id": "f1b2c2ab-58a9-4584-9f55-57e90ae09ed3",
+      "title": "alert",
+      "published": "Tue Oct 27 12:35:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5081 - Wharfside Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.604456 -2.431976"
+      "point": "53.465649 -2.299187"
     },
     {
       "id": "08f15cdb-27c6-481f-80a1-e6245b38d9b0",
@@ -110,10 +124,24 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.500104 -2.65821"
+    },
+    {
+      "id": "87680a1e-2515-4a7f-81a7-d7ce1a4d532e",
+      "title": "alert",
+      "published": "Tue Oct 27 12:35:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.482623 -2.647789"
     }
   ]
 }
