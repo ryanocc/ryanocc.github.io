@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T13:40:49.002288+00:00",
+  "updatedAt": "2026-10-27T13:45:48.704406+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 7,
   "incidents": [
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
@@ -46,6 +46,20 @@
       "point": "53.397887 -2.295066"
     },
     {
+      "id": "db573699-61d2-4ba3-8d32-7ceb096d7512",
+      "title": "alert",
+      "published": "Tue Oct 27 13:43:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5066 - Oldfield Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.480073 -2.266324"
+    },
+    {
       "id": "f1b2c2ab-58a9-4584-9f55-57e90ae09ed3",
       "title": "alert",
       "published": "Tue Oct 27 12:35:34 +0000 2026",
@@ -58,6 +72,34 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.465649 -2.299187"
+    },
+    {
+      "id": "7b57c364-7136-484a-ba89-d8f3b3f83861",
+      "title": "alert",
+      "published": "Tue Oct 27 13:42:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.469849 -2.246748"
+    },
+    {
+      "id": "f7ae8828-1add-4af9-9d55-b82820409703",
+      "title": "alert",
+      "published": "Tue Oct 27 13:41:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.547068 -2.268218"
     }
   ]
 }
