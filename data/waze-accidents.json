@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-27T12:25:47.743457+00:00",
+  "updatedAt": "2026-10-27T12:30:47.692344+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
-    {
-      "id": "f41a922d-5e26-459e-9c09-52a63d510145",
-      "title": "alert",
-      "published": "Tue Oct 27 10:23:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Burns Ave",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.575855 -2.293715"
-    },
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
       "title": "alert",
@@ -26,8 +12,8 @@
       "road": "B5359 - Wilmslow Rd",
       "city": "Alderley Edge",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.305767 -2.237807"
     },
@@ -44,20 +30,6 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.544644 -2.627791"
-    },
-    {
-      "id": "b3d72944-7f05-4aec-8d10-76c7a1bca8fd",
-      "title": "alert",
-      "published": "Tue Oct 27 12:06:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Manchester Rd S",
-      "city": "Denton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.456227 -2.129253"
     },
     {
       "id": "3f5c80ff-a97e-4d4a-aaba-ad1d65f22365",
@@ -96,7 +68,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.341989 -2.491294"
@@ -138,8 +110,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.500104 -2.65821"
     }
