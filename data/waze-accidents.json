@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-27T06:10:47.949601+00:00",
+  "updatedAt": "2026-10-27T06:15:47.907475+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
+    {
+      "id": "a8fc8497-b343-4aac-8898-7f14905d8c30",
+      "title": "alert",
+      "published": "Tue Oct 27 06:11:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Worsley Mesnes Dr",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.532235 -2.649477"
+    },
     {
       "id": "1d05f4fe-d457-4541-acb4-3ad80e003137",
       "title": "alert",
@@ -12,10 +26,10 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.367832 -2.509542"
+      "point": "53.369536 -2.508995"
     }
   ]
 }
