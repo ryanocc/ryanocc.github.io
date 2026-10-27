@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T12:20:47.739462+00:00",
+  "updatedAt": "2026-10-27T12:25:47.743457+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "f41a922d-5e26-459e-9c09-52a63d510145",
@@ -54,24 +54,10 @@
       "road": "A57 - Manchester Rd S",
       "city": "Denton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.456227 -2.129253"
-    },
-    {
-      "id": "6717a019-0c28-4f14-be29-f0ef256cf282",
-      "title": "alert",
-      "published": "Tue Oct 27 11:13:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.511898 -2.391688"
     },
     {
       "id": "3f5c80ff-a97e-4d4a-aaba-ad1d65f22365",
@@ -86,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.604456 -2.431976"
-    },
-    {
-      "id": "d8cecfca-40aa-40cd-87eb-4f47787d6a56",
-      "title": "alert",
-      "published": "Tue Oct 27 11:58:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Mancunian Way",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.475299 -2.219703"
     },
     {
       "id": "08f15cdb-27c6-481f-80a1-e6245b38d9b0",
@@ -156,6 +128,20 @@
       "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.325033 -2.452926"
+    },
+    {
+      "id": "bb90b6d4-1d88-4dfb-a8e1-274778362f9a",
+      "title": "alert",
+      "published": "Tue Oct 27 12:24:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.500104 -2.65821"
     }
   ]
 }
