@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T19:50:48.112494+00:00",
+  "updatedAt": "2026-10-27T19:55:48.270664+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
     {
       "id": "dc2e4947-6fbc-4400-87b8-2941ed56fd5d",
@@ -60,6 +60,20 @@
       "point": "53.54655 -2.089522"
     },
     {
+      "id": "d25a7e21-d0c2-46fb-a6f0-b3e5dacb71ab",
+      "title": "alert",
+      "published": "Tue Oct 27 19:53:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627 > Oldham",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.557338 -2.139434"
+    },
+    {
       "id": "e20d462c-3433-4dd7-a138-9b15ca2e4098",
       "title": "alert",
       "published": "Tue Oct 27 19:40:43 +0000 2026",
@@ -68,8 +82,8 @@
       "road": "Tweedale St",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.608858 -2.164135"
     },
@@ -166,8 +180,8 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.551283 -2.478251"
     }
