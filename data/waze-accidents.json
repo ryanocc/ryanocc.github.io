@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T17:15:48.277386+00:00",
+  "updatedAt": "2026-10-27T17:20:48.350214+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 14,
   "incidents": [
     {
       "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.431774 -2.198191"
-    },
-    {
-      "id": "630def09-c63d-4d8e-8032-c410edb03ac6",
-      "title": "alert",
-      "published": "Tue Oct 27 15:42:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Hacken Bridge Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.564906 -2.400312"
     },
     {
       "id": "c8b12d4c-16d2-4a06-9fa3-eb882033f98b",
@@ -60,18 +46,18 @@
       "point": "53.568152 -2.402763"
     },
     {
-      "id": "ac8a46c2-99c3-49af-bbad-110f497574ad",
+      "id": "fb03c2bb-a8a5-44b9-96c8-4b6a3a005264",
       "title": "alert",
-      "published": "Tue Oct 27 16:53:43 +0000 2026",
+      "published": "Tue Oct 27 17:19:05 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6044 - Scholes Ln",
-      "city": "Prestwich",
+      "road": "",
+      "city": "Gorton",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.524986 -2.273452"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.462376 -2.173209"
     },
     {
       "id": "ffce55e9-edfc-4cfd-90cf-9290f57a18f3",
@@ -83,37 +69,37 @@
       "city": "Prestwich",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.524999 -2.273334"
     },
     {
-      "id": "8202861d-037a-4f93-83e3-518d61107e42",
+      "id": "ac8a46c2-99c3-49af-bbad-110f497574ad",
       "title": "alert",
-      "published": "Tue Oct 27 17:09:09 +0000 2026",
+      "published": "Tue Oct 27 16:53:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Cricketers Way",
-      "city": "Westhoughton",
+      "road": "A6044 - Scholes Ln",
+      "city": "Prestwich",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.524986 -2.273452"
+    },
+    {
+      "id": "62ac5f92-957e-444a-a03c-723c01b075cc",
+      "title": "alert",
+      "published": "Tue Oct 27 17:18:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (N) - Kingsway",
+      "city": "Gatley",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.546702 -2.520144"
-    },
-    {
-      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
-      "title": "alert",
-      "published": "Tue Oct 27 16:43:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.555749 -2.628366"
+      "reportRating": 3.0,
+      "point": "53.392894 -2.226664"
     },
     {
       "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
@@ -138,10 +124,24 @@
       "road": "A58 - Cricketers Way",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.546665 -2.519135"
+    },
+    {
+      "id": "8202861d-037a-4f93-83e3-518d61107e42",
+      "title": "alert",
+      "published": "Tue Oct 27 17:09:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Cricketers Way",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.546702 -2.520144"
     },
     {
       "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
@@ -156,6 +156,48 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.556102 -2.628453"
+    },
+    {
+      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
+      "title": "alert",
+      "published": "Tue Oct 27 16:43:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.555749 -2.628366"
+    },
+    {
+      "id": "c60e1c5e-1423-4b66-a53f-2c3df6001917",
+      "title": "alert",
+      "published": "Tue Oct 27 17:16:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6042 - Trinity Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.488299 -2.248047"
+    },
+    {
+      "id": "7c404413-6630-46f6-93ea-8e66a593303e",
+      "title": "alert",
+      "published": "Tue Oct 27 17:20:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Queen's Rd",
+      "city": "Collyhurst",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.502326 -2.222243"
     }
   ]
 }
