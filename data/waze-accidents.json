@@ -1,8 +1,64 @@
 {
-  "updatedAt": "2026-10-27T10:00:47.733024+00:00",
+  "updatedAt": "2026-10-27T10:05:48.433544+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 11,
   "incidents": [
+    {
+      "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
+      "title": "alert",
+      "published": "Tue Oct 27 10:05:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Haig Rd",
+      "city": "Knutsford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.313234 -2.354108"
+    },
+    {
+      "id": "4779d865-224e-4a21-a221-c2798a073da3",
+      "title": "alert",
+      "published": "Tue Oct 27 10:05:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6192 - Edward St",
+      "city": "Werneth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.535759 -2.131897"
+    },
+    {
+      "id": "c6278cf5-ada0-432e-b914-4804b010ec8a",
+      "title": "alert",
+      "published": "Tue Oct 27 10:05:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6192 - Edward St",
+      "city": "Werneth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.535781 -2.131919"
+    },
+    {
+      "id": "7ef85d70-b698-4a3d-a4e2-3d68777848bc",
+      "title": "alert",
+      "published": "Tue Oct 27 10:03:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Eccles Old Rd",
+      "city": "Weaste",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.48894 -2.327307"
+    },
     {
       "id": "8a60fe90-bdab-4918-8efc-88c91c3819d7",
       "title": "alert",
@@ -16,6 +72,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.604189 -2.432068"
+    },
+    {
+      "id": "4ff527ce-e7ca-46cc-ad20-e1584b2cad44",
+      "title": "alert",
+      "published": "Tue Oct 27 10:02:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - Blackburn Rd",
+      "city": "Astley Bridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.607748 -2.430875"
+    },
+    {
+      "id": "dfb56156-1336-4811-b609-90edcb00eea1",
+      "title": "alert",
+      "published": "Tue Oct 27 10:01:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.378713 -2.505906"
     },
     {
       "id": "81da6c9a-8554-43dc-8001-0a3018060108",
@@ -46,6 +130,20 @@
       "point": "53.444213 -2.588402"
     },
     {
+      "id": "662e5945-0fd6-4d89-b61b-52d166d262a8",
+      "title": "alert",
+      "published": "Tue Oct 27 09:57:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.450771 -2.598583"
+    },
+    {
       "id": "26d1ab56-95e6-4453-b54d-d6639f8b0f0a",
       "title": "alert",
       "published": "Tue Oct 27 09:20:45 +0000 2026",
@@ -58,20 +156,6 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.44207 -2.586451"
-    },
-    {
-      "id": "662e5945-0fd6-4d89-b61b-52d166d262a8",
-      "title": "alert",
-      "published": "Tue Oct 27 09:57:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.450771 -2.598583"
     }
   ]
 }
