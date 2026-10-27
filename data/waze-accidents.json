@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T16:40:48.266442+00:00",
+  "updatedAt": "2026-10-27T16:45:48.259807+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 10,
   "incidents": [
     {
       "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
@@ -69,7 +69,7 @@
       "city": "Prestwich",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.524999 -2.273334"
     },
@@ -86,6 +86,48 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.556367 -2.628483"
+    },
+    {
+      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
+      "title": "alert",
+      "published": "Tue Oct 27 16:42:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.556102 -2.628453"
+    },
+    {
+      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
+      "title": "alert",
+      "published": "Tue Oct 27 16:43:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.555749 -2.628366"
+    },
+    {
+      "id": "8ce23ac4-54bf-4eb1-9950-ce6484cd0574",
+      "title": "alert",
+      "published": "Tue Oct 27 16:43:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Cricketers Way",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.546665 -2.519135"
     },
     {
       "id": "52e9a84a-f6fe-4b91-a961-2ea16c673960",
