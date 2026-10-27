@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T21:30:48.227209+00:00",
+  "updatedAt": "2026-10-27T21:35:48.079026+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "94423fac-c3f4-43f7-bc12-4458861cdfe0",
@@ -54,8 +54,8 @@
       "road": "A572 - Worsley Brow",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.501401 -2.384355"
     },
@@ -72,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.620898 -2.151758"
+    },
+    {
+      "id": "20a3e102-cd0a-4fbd-a107-6fc0dc68d7da",
+      "title": "alert",
+      "published": "Tue Oct 27 21:34:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.526963 -2.334306"
     }
   ]
 }
