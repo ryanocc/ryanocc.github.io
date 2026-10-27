@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T11:15:48.095176+00:00",
+  "updatedAt": "2026-10-27T11:20:47.711301+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -46,20 +46,6 @@
       "point": "53.305419 -2.237761"
     },
     {
-      "id": "c6278cf5-ada0-432e-b914-4804b010ec8a",
-      "title": "alert",
-      "published": "Tue Oct 27 10:05:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6192 - Edward St",
-      "city": "Werneth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.535781 -2.131919"
-    },
-    {
       "id": "4779d865-224e-4a21-a221-c2798a073da3",
       "title": "alert",
       "published": "Tue Oct 27 10:05:00 +0000 2026",
@@ -74,18 +60,18 @@
       "point": "53.535759 -2.131897"
     },
     {
-      "id": "6e291d4e-88a3-4113-8ef0-f870fe12326f",
+      "id": "c6278cf5-ada0-432e-b914-4804b010ec8a",
       "title": "alert",
-      "published": "Tue Oct 27 11:11:57 +0000 2026",
+      "published": "Tue Oct 27 10:05:09 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
+      "road": "B6192 - Edward St",
+      "city": "Werneth",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.512068 -2.391004"
+      "reportRating": 1.0,
+      "point": "53.535781 -2.131919"
     },
     {
       "id": "6717a019-0c28-4f14-be29-f0ef256cf282",
@@ -97,9 +83,23 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.511898 -2.391689"
+    },
+    {
+      "id": "6e291d4e-88a3-4113-8ef0-f870fe12326f",
+      "title": "alert",
+      "published": "Tue Oct 27 11:11:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.512068 -2.391004"
     },
     {
       "id": "08f15cdb-27c6-481f-80a1-e6245b38d9b0",
@@ -114,6 +114,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.484345 -2.232136"
+    },
+    {
+      "id": "74de94cb-64cd-4c06-86f8-7683944f5d3e",
+      "title": "alert",
+      "published": "Tue Oct 27 11:20:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 > Preston",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.353907 -2.507196"
     }
   ]
 }
