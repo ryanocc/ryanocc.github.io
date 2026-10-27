@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T17:50:48.334630+00:00",
+  "updatedAt": "2026-10-27T17:55:48.367004+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 17,
   "incidents": [
     {
       "id": "bae60896-e00d-431b-9657-0d6e21837d26",
@@ -18,32 +18,32 @@
       "point": "53.554535 -2.628336"
     },
     {
-      "id": "9ec0274f-8927-4f70-b862-3abb80006159",
+      "id": "dc2e4947-6fbc-4400-87b8-2941ed56fd5d",
       "title": "alert",
-      "published": "Tue Oct 27 15:50:45 +0000 2026",
+      "published": "Tue Oct 27 17:53:22 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B6209 - Radcliffe Rd",
-      "city": "Bolton",
+      "road": "",
+      "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.568152 -2.402763"
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.559263 -2.628628"
     },
     {
-      "id": "3a74c1a7-2c53-47ac-8829-2fd96ffa3256",
+      "id": "71b3c5dd-9080-443d-babc-92566f2ae52d",
       "title": "alert",
-      "published": "Tue Oct 27 17:33:10 +0000 2026",
+      "published": "Tue Oct 27 17:52:52 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6167 - Gorton Rd",
-      "city": "Reddish",
+      "subtype": "",
+      "road": "Hall Ln",
+      "city": "Farnworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.442844 -2.157734"
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.55597 -2.400537"
     },
     {
       "id": "7c5cf5bb-6ac1-41af-883c-27be0b08d215",
@@ -74,6 +74,20 @@
       "point": "53.589258 -2.273045"
     },
     {
+      "id": "cb1f16fd-8dd9-49a1-9722-5c373eb70ed2",
+      "title": "alert",
+      "published": "Tue Oct 27 17:54:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Heap Brow",
+      "city": "Heap Bridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.590769 -2.265829"
+    },
+    {
       "id": "fb03c2bb-a8a5-44b9-96c8-4b6a3a005264",
       "title": "alert",
       "published": "Tue Oct 27 17:19:05 +0000 2026",
@@ -83,9 +97,37 @@
       "city": "Gorton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.462376 -2.173209"
+    },
+    {
+      "id": "4a810950-eb18-4f36-b3a2-b866ef7d7d89",
+      "title": "alert",
+      "published": "Tue Oct 27 17:53:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A575 - Bolton Rd",
+      "city": "Farnworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.55615 -2.400901"
+    },
+    {
+      "id": "09497d51-6323-498f-95df-8c395fc93fb9",
+      "title": "alert",
+      "published": "Tue Oct 27 17:52:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6044 - Scholes Ln",
+      "city": "Prestwich",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.524952 -2.273668"
     },
     {
       "id": "ffce55e9-edfc-4cfd-90cf-9290f57a18f3",
@@ -100,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.524999 -2.273334"
+    },
+    {
+      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
+      "title": "alert",
+      "published": "Tue Oct 27 16:42:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.556102 -2.628453"
     },
     {
       "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
@@ -130,20 +186,6 @@
       "point": "53.555749 -2.628366"
     },
     {
-      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
-      "title": "alert",
-      "published": "Tue Oct 27 16:42:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.556102 -2.628453"
-    },
-    {
       "id": "1dfbf42f-e72b-4a26-96f1-0983554dc364",
       "title": "alert",
       "published": "Tue Oct 27 17:39:51 +0000 2026",
@@ -158,18 +200,18 @@
       "point": "53.423736 -2.571941"
     },
     {
-      "id": "f9696048-4918-411e-83fa-39b9ba15cf6b",
+      "id": "41825f36-b916-49be-9655-f6cab70b489e",
       "title": "alert",
-      "published": "Tue Oct 27 17:44:01 +0000 2026",
+      "published": "Tue Oct 27 17:44:15 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (E)",
+      "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.3716 -2.291064"
+      "reportRating": 0.0,
+      "point": "53.584462 -2.272922"
     },
     {
       "id": "387b306a-e2a9-4e97-a23b-634a220a6421",
@@ -186,20 +228,6 @@
       "point": "53.589814 -2.272672"
     },
     {
-      "id": "41825f36-b916-49be-9655-f6cab70b489e",
-      "title": "alert",
-      "published": "Tue Oct 27 17:44:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.584462 -2.272922"
-    },
-    {
       "id": "028da2d5-bf13-4689-8ff2-599f076b63fa",
       "title": "alert",
       "published": "Tue Oct 27 17:47:17 +0000 2026",
@@ -208,7 +236,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.587464 -2.158496"
