@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T18:25:48.224721+00:00",
+  "updatedAt": "2026-10-27T18:30:48.172117+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 14,
   "incidents": [
     {
       "id": "d5508691-b9ed-4d1d-a91a-258ca2769e45",
@@ -68,7 +68,7 @@
       "road": "Waterloo St",
       "city": "Crumpsall",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.51213 -2.22402"
@@ -116,20 +116,6 @@
       "point": "53.555659 -2.400629"
     },
     {
-      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
-      "title": "alert",
-      "published": "Tue Oct 27 16:42:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.556102 -2.628453"
-    },
-    {
       "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
       "title": "alert",
       "published": "Tue Oct 27 16:33:48 +0000 2026",
@@ -158,6 +144,20 @@
       "point": "53.555749 -2.628366"
     },
     {
+      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
+      "title": "alert",
+      "published": "Tue Oct 27 16:42:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.556102 -2.628453"
+    },
+    {
       "id": "f342e106-caf4-47b7-9b15-123c27aa9ef7",
       "title": "alert",
       "published": "Tue Oct 27 18:00:52 +0000 2026",
@@ -172,18 +172,18 @@
       "point": "53.52575 -2.278492"
     },
     {
-      "id": "41825f36-b916-49be-9655-f6cab70b489e",
+      "id": "8391964e-34c3-4ede-90a1-e8cfc91f292f",
       "title": "alert",
-      "published": "Tue Oct 27 17:44:15 +0000 2026",
+      "published": "Tue Oct 27 18:28:25 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M66 (N)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.584462 -2.272922"
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.470782 -2.370847"
     },
     {
       "id": "387b306a-e2a9-4e97-a23b-634a220a6421",
@@ -198,20 +198,6 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.589814 -2.272672"
-    },
-    {
-      "id": "bddaa160-4eb1-4fde-a9b1-ddb8e0cfdadc",
-      "title": "alert",
-      "published": "Tue Oct 27 18:24:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.581622 -2.271827"
     }
   ]
 }
