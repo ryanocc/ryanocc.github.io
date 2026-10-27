@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-27T17:45:48.420086+00:00",
+  "updatedAt": "2026-10-27T17:50:48.334630+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 15,
   "incidents": [
-    {
-      "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
-      "title": "alert",
-      "published": "Tue Oct 27 15:42:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Asquith Rd",
-      "city": "Burnage",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.431774 -2.198191"
-    },
     {
       "id": "bae60896-e00d-431b-9657-0d6e21837d26",
       "title": "alert",
@@ -26,8 +12,8 @@
       "road": "Swinley Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.554535 -2.628336"
     },
@@ -55,9 +41,23 @@
       "city": "Reddish",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.442844 -2.157734"
+    },
+    {
+      "id": "7c5cf5bb-6ac1-41af-883c-27be0b08d215",
+      "title": "alert",
+      "published": "Tue Oct 27 17:46:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Briscoe Ln",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.498171 -2.182671"
     },
     {
       "id": "08826307-fb00-4558-b112-c4ae320387da",
@@ -102,20 +102,6 @@
       "point": "53.524999 -2.273334"
     },
     {
-      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
-      "title": "alert",
-      "published": "Tue Oct 27 16:42:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.556102 -2.628453"
-    },
-    {
       "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
       "title": "alert",
       "published": "Tue Oct 27 16:33:48 +0000 2026",
@@ -144,6 +130,20 @@
       "point": "53.555749 -2.628366"
     },
     {
+      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
+      "title": "alert",
+      "published": "Tue Oct 27 16:42:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.556102 -2.628453"
+    },
+    {
       "id": "1dfbf42f-e72b-4a26-96f1-0983554dc364",
       "title": "alert",
       "published": "Tue Oct 27 17:39:51 +0000 2026",
@@ -166,8 +166,8 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.3716 -2.291064"
     },
@@ -194,10 +194,24 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.584462 -2.272922"
+    },
+    {
+      "id": "028da2d5-bf13-4689-8ff2-599f076b63fa",
+      "title": "alert",
+      "published": "Tue Oct 27 17:47:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.587464 -2.158496"
     }
   ]
 }
