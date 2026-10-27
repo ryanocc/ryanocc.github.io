@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-27T19:25:48.178839+00:00",
+  "updatedAt": "2026-10-27T19:30:48.060062+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 10,
   "incidents": [
-    {
-      "id": "bae60896-e00d-431b-9657-0d6e21837d26",
-      "title": "alert",
-      "published": "Tue Oct 27 17:23:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Swinley Rd",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.554535 -2.628336"
-    },
     {
       "id": "dc2e4947-6fbc-4400-87b8-2941ed56fd5d",
       "title": "alert",
@@ -72,20 +58,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.54655 -2.089522"
-    },
-    {
-      "id": "904e4d25-a8ea-49af-9793-69a2cce7e3da",
-      "title": "alert",
-      "published": "Tue Oct 27 18:59:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.479318 -2.280959"
     },
     {
       "id": "e93ff546-e1bf-497c-a3c4-b8b858d5c9de",
@@ -144,6 +116,20 @@
       "point": "53.546882 -2.627816"
     },
     {
+      "id": "6a3c2076-85ed-4ae9-b7ae-a68430750ef7",
+      "title": "alert",
+      "published": "Tue Oct 27 19:17:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.460135 -2.168328"
+    },
+    {
       "id": "57aa0fe7-c6cc-4b61-9b90-60691d8bbcc1",
       "title": "alert",
       "published": "Tue Oct 27 19:19:30 +0000 2026",
@@ -153,23 +139,9 @@
       "city": "Gorton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.460232 -2.168776"
-    },
-    {
-      "id": "6a3c2076-85ed-4ae9-b7ae-a68430750ef7",
-      "title": "alert",
-      "published": "Tue Oct 27 19:17:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.460135 -2.168328"
+      "point": "53.460232 -2.168776"
     }
   ]
 }
