@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T10:20:47.691768+00:00",
+  "updatedAt": "2026-10-27T10:25:47.703552+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.313234 -2.354108"
+    },
+    {
+      "id": "f41a922d-5e26-459e-9c09-52a63d510145",
+      "title": "alert",
+      "published": "Tue Oct 27 10:23:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Burns Ave",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.575855 -2.293715"
     },
     {
       "id": "4779d865-224e-4a21-a221-c2798a073da3",
@@ -68,8 +82,8 @@
       "road": "A666 - Blackburn Rd",
       "city": "Astley Bridge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.607748 -2.430875"
     },
@@ -82,7 +96,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.315126 -2.42645"
@@ -99,21 +113,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.444213 -2.588402"
-    },
-    {
-      "id": "662e5945-0fd6-4d89-b61b-52d166d262a8",
-      "title": "alert",
-      "published": "Tue Oct 27 09:57:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.450771 -2.598583"
+      "point": "53.444909 -2.58901"
     }
   ]
 }
