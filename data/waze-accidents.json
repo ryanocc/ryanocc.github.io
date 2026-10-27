@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T09:40:48.093184+00:00",
+  "updatedAt": "2026-10-27T09:45:47.860406+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "6e3443a6-8e2b-4a21-b771-4d1bc46e5794",
@@ -32,18 +32,32 @@
       "point": "53.442306 -2.065615"
     },
     {
-      "id": "ec764fce-e93d-4d6a-8c2d-89158231af99",
+      "id": "7908d963-5c98-44ff-9bab-98fed96ff2ab",
       "title": "alert",
-      "published": "Tue Oct 27 08:19:20 +0000 2026",
+      "published": "Tue Oct 27 09:42:44 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 > Preston",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.35113 -2.501198"
+      "reportRating": 1.0,
+      "point": "53.417766 -2.261949"
+    },
+    {
+      "id": "8a60fe90-bdab-4918-8efc-88c91c3819d7",
+      "title": "alert",
+      "published": "Tue Oct 27 09:43:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - Blackburn Rd",
+      "city": "Astley Bridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.604189 -2.432068"
     },
     {
       "id": "81da6c9a-8554-43dc-8001-0a3018060108",
@@ -60,20 +74,6 @@
       "point": "53.315126 -2.42645"
     },
     {
-      "id": "26d1ab56-95e6-4453-b54d-d6639f8b0f0a",
-      "title": "alert",
-      "published": "Tue Oct 27 09:20:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.44207 -2.586451"
-    },
-    {
       "id": "d8dfc403-c330-4271-9f51-f1b6f75a2bf2",
       "title": "alert",
       "published": "Tue Oct 27 09:21:24 +0000 2026",
@@ -86,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.444213 -2.588402"
+    },
+    {
+      "id": "26d1ab56-95e6-4453-b54d-d6639f8b0f0a",
+      "title": "alert",
+      "published": "Tue Oct 27 09:20:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.44207 -2.586451"
     }
   ]
 }
