@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T18:50:48.168676+00:00",
+  "updatedAt": "2026-10-27T18:55:48.196387+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 13,
   "incidents": [
     {
       "id": "bae60896-e00d-431b-9657-0d6e21837d26",
@@ -46,6 +46,20 @@
       "point": "53.55597 -2.400537"
     },
     {
+      "id": "9467a261-9b31-4487-9bfc-a55e6a3c5368",
+      "title": "alert",
+      "published": "Tue Oct 27 18:54:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Kippax St",
+      "city": "Moss Side",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.452444 -2.234055"
+    },
+    {
       "id": "8f54a49f-da3b-4830-b2ae-b254dc9446bb",
       "title": "alert",
       "published": "Tue Oct 27 18:34:04 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.54655 -2.089522"
-    },
-    {
-      "id": "b861ee55-c66a-4ace-8428-6cc88402b1bf",
-      "title": "alert",
-      "published": "Tue Oct 27 18:34:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J26 to M58",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.534073 -2.700996"
     },
     {
       "id": "27a97308-6862-4c4b-9bae-254c1e5c02a0",
@@ -88,6 +88,20 @@
       "point": "53.51213 -2.22402"
     },
     {
+      "id": "e93ff546-e1bf-497c-a3c4-b8b858d5c9de",
+      "title": "alert",
+      "published": "Tue Oct 27 18:52:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Liverpool Rd",
+      "city": "Barton Upon Irwell",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.480353 -2.360983"
+    },
+    {
       "id": "ea297e30-566d-4953-9c5e-00756bbfeefb",
       "title": "alert",
       "published": "Tue Oct 27 18:37:27 +0000 2026",
@@ -100,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.55628 -2.400973"
+    },
+    {
+      "id": "9854e21a-8cc8-4b95-b92c-edf886a99bf7",
+      "title": "alert",
+      "published": "Tue Oct 27 18:51:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6041 - Blackfriars Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.485268 -2.250231"
     },
     {
       "id": "eddaa437-90d9-4707-b053-cb168e10af14",
@@ -124,24 +152,10 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.508863 -2.356548"
-    },
-    {
-      "id": "6d095906-414a-4445-8f57-dc7f522aab3d",
-      "title": "alert",
-      "published": "Tue Oct 27 18:47:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Regent Rd",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.478975 -2.281083"
     },
     {
       "id": "727cf3dd-ff2a-41b5-bada-a3312090f319",
@@ -153,9 +167,23 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.601143 -2.167263"
+    },
+    {
+      "id": "43e1dfee-62ac-4791-b9a5-f79f82444e53",
+      "title": "alert",
+      "published": "Tue Oct 27 18:52:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.508441 -2.373402"
     }
   ]
 }
