@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T16:35:48.315427+00:00",
+  "updatedAt": "2026-10-27T16:40:48.266442+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
@@ -26,7 +26,7 @@
       "road": "Hacken Bridge Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.564906 -2.400312"
@@ -58,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.568152 -2.402763"
+    },
+    {
+      "id": "ffce55e9-edfc-4cfd-90cf-9290f57a18f3",
+      "title": "alert",
+      "published": "Tue Oct 27 16:40:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6044 - Scholes Ln",
+      "city": "Prestwich",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.524999 -2.273334"
     },
     {
       "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
