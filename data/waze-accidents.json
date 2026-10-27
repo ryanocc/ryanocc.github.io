@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T19:30:48.060062+00:00",
+  "updatedAt": "2026-10-27T19:35:48.075442+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -60,6 +60,20 @@
       "point": "53.54655 -2.089522"
     },
     {
+      "id": "263e16ad-9c4c-4552-abfa-b4e06e8b49f4",
+      "title": "alert",
+      "published": "Tue Oct 27 19:35:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A573 - Crompton St",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.546945 -2.626961"
+    },
+    {
       "id": "e93ff546-e1bf-497c-a3c4-b8b858d5c9de",
       "title": "alert",
       "published": "Tue Oct 27 18:52:53 +0000 2026",
@@ -83,7 +97,7 @@
       "city": "Ordsall",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.485268 -2.250231"
     },
@@ -116,20 +130,6 @@
       "point": "53.546882 -2.627816"
     },
     {
-      "id": "6a3c2076-85ed-4ae9-b7ae-a68430750ef7",
-      "title": "alert",
-      "published": "Tue Oct 27 19:17:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.460135 -2.168328"
-    },
-    {
       "id": "57aa0fe7-c6cc-4b61-9b90-60691d8bbcc1",
       "title": "alert",
       "published": "Tue Oct 27 19:19:30 +0000 2026",
@@ -138,7 +138,7 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460232 -2.168776"
