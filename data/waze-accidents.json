@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T11:55:47.809004+00:00",
+  "updatedAt": "2026-10-27T12:00:48.134429+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 15,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -41,7 +41,7 @@
       "city": "Alderley Edge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.305822 -2.237786"
     },
@@ -55,23 +55,23 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.544644 -2.627791"
     },
     {
-      "id": "4779d865-224e-4a21-a221-c2798a073da3",
+      "id": "583ca93c-6976-458c-9e66-4daa2cd2e7e8",
       "title": "alert",
-      "published": "Tue Oct 27 10:05:00 +0000 2026",
+      "published": "Tue Oct 27 11:57:13 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6192 - Edward St",
-      "city": "Werneth",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "York St",
+      "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.535759 -2.131897"
+      "point": "53.481 -2.241546"
     },
     {
       "id": "c6278cf5-ada0-432e-b914-4804b010ec8a",
@@ -96,7 +96,7 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.511898 -2.391688"
@@ -114,6 +114,34 @@
       "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.604456 -2.431976"
+    },
+    {
+      "id": "d8cecfca-40aa-40cd-87eb-4f47787d6a56",
+      "title": "alert",
+      "published": "Tue Oct 27 11:58:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Mancunian Way",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.475299 -2.219703"
+    },
+    {
+      "id": "d4f1ac6f-2688-4b08-bccb-a7606988a040",
+      "title": "alert",
+      "published": "Tue Oct 27 11:57:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Mancunian Way",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.474872 -2.220152"
     },
     {
       "id": "08f15cdb-27c6-481f-80a1-e6245b38d9b0",
@@ -139,7 +167,7 @@
       "city": "Newton Heath",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.501587 -2.192011"
     },
@@ -152,7 +180,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.341989 -2.491294"
