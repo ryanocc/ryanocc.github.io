@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T13:15:47.769586+00:00",
+  "updatedAt": "2026-10-27T13:20:47.770898+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
@@ -46,20 +46,6 @@
       "point": "53.397887 -2.295066"
     },
     {
-      "id": "54c35e81-06c4-4928-a4e6-59a48f7e644e",
-      "title": "alert",
-      "published": "Tue Oct 27 12:53:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.504521 -2.342698"
-    },
-    {
       "id": "f1b2c2ab-58a9-4584-9f55-57e90ae09ed3",
       "title": "alert",
       "published": "Tue Oct 27 12:35:34 +0000 2026",
@@ -74,6 +60,20 @@
       "point": "53.465649 -2.299187"
     },
     {
+      "id": "54c35e81-06c4-4928-a4e6-59a48f7e644e",
+      "title": "alert",
+      "published": "Tue Oct 27 12:53:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.504521 -2.342698"
+    },
+    {
       "id": "38bf5c16-670d-4ebc-a4da-34d62aa1c1f3",
       "title": "alert",
       "published": "Tue Oct 27 13:10:53 +0000 2026",
@@ -82,10 +82,24 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.437333 -2.578771"
+    },
+    {
+      "id": "0e791029-3c7c-4cf5-97f5-631e3e796959",
+      "title": "alert",
+      "published": "Tue Oct 27 13:19:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.541636 -2.283703"
     }
   ]
 }
