@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T21:20:48.308008+00:00",
+  "updatedAt": "2026-10-27T21:25:48.029830+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "94423fac-c3f4-43f7-bc12-4458861cdfe0",
@@ -32,18 +32,32 @@
       "point": "53.608858 -2.164135"
     },
     {
-      "id": "263e16ad-9c4c-4552-abfa-b4e06e8b49f4",
+      "id": "5e5718fc-c0c0-4c36-be94-ba073e02edb1",
       "title": "alert",
-      "published": "Tue Oct 27 19:35:24 +0000 2026",
+      "published": "Tue Oct 27 21:21:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "A573 - Crompton St",
-      "city": "Wigan",
+      "road": "A574 - Birchwood Way",
+      "city": "Blackbrook",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.546945 -2.626961"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.407484 -2.562096"
+    },
+    {
+      "id": "cd2d67dc-c406-42f2-bf4c-6fadcb939878",
+      "title": "alert",
+      "published": "Tue Oct 27 21:21:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A572 - Worsley Brow",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.501401 -2.384355"
     },
     {
       "id": "f777ba36-b5a9-45b0-abb4-92ba93a2bef8",
