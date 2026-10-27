@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T14:35:48.107435+00:00",
+  "updatedAt": "2026-10-27T14:40:48.554489+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "85df1420-d1cf-4768-a3bc-fca075d65e34",
@@ -32,6 +32,34 @@
       "point": "53.397887 -2.295066"
     },
     {
+      "id": "08b56577-9f1d-4e8e-93a2-07fb81002d82",
+      "title": "alert",
+      "published": "Tue Oct 27 14:37:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.47011 -2.246998"
+    },
+    {
+      "id": "5232c487-65cf-42ab-b441-926fc43b160e",
+      "title": "alert",
+      "published": "Tue Oct 27 14:36:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.469985 -2.246929"
+    },
+    {
       "id": "3d74b367-0fd0-4125-a631-4f18a29a4675",
       "title": "alert",
       "published": "Tue Oct 27 14:10:38 +0000 2026",
@@ -46,20 +74,6 @@
       "point": "53.546678 -2.519483"
     },
     {
-      "id": "f1b2c2ab-58a9-4584-9f55-57e90ae09ed3",
-      "title": "alert",
-      "published": "Tue Oct 27 12:35:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5081 - Wharfside Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.465649 -2.299187"
-    },
-    {
       "id": "c1f09c9b-9c27-4931-ba23-aa21fa89b843",
       "title": "alert",
       "published": "Tue Oct 27 14:35:00 +0000 2026",
@@ -68,24 +82,24 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.470228 -2.24659"
     },
     {
-      "id": "4fc9e01d-d07f-43ac-b8c7-5bb4b8459a38",
+      "id": "b48113b3-455b-4024-9718-910521a6efb6",
       "title": "alert",
-      "published": "Tue Oct 27 14:35:03 +0000 2026",
+      "published": "Tue Oct 27 14:39:50 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.539769 -2.236593"
+      "point": "53.451863 -2.600111"
     }
   ]
 }
