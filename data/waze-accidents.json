@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T18:45:48.143130+00:00",
+  "updatedAt": "2026-10-27T18:50:48.168676+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 11,
   "incidents": [
     {
       "id": "bae60896-e00d-431b-9657-0d6e21837d26",
@@ -88,20 +88,6 @@
       "point": "53.51213 -2.22402"
     },
     {
-      "id": "08826307-fb00-4558-b112-c4ae320387da",
-      "title": "alert",
-      "published": "Tue Oct 27 17:21:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J2 to A58",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.589258 -2.273045"
-    },
-    {
       "id": "ea297e30-566d-4953-9c5e-00756bbfeefb",
       "title": "alert",
       "published": "Tue Oct 27 18:37:27 +0000 2026",
@@ -111,37 +97,9 @@
       "city": "Farnworth",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.55628 -2.400973"
-    },
-    {
-      "id": "25615b03-6a14-4055-9b32-fa67eba3f700",
-      "title": "alert",
-      "published": "Tue Oct 27 18:00:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6053 - Bolton Rd",
-      "city": "Farnworth",
-      "country": "UK",
-      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.555659 -2.400629"
-    },
-    {
-      "id": "bc259411-ad73-42cd-afec-ce55ea2c741e",
-      "title": "alert",
-      "published": "Tue Oct 27 18:43:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (S) - Kingsway",
-      "city": "Gatley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.392334 -2.22646"
+      "point": "53.55628 -2.400973"
     },
     {
       "id": "eddaa437-90d9-4707-b053-cb168e10af14",
@@ -158,32 +116,46 @@
       "point": "53.392874 -2.226488"
     },
     {
-      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
+      "id": "e6d3814b-4b74-4b2e-a15d-6e481675615d",
       "title": "alert",
-      "published": "Tue Oct 27 16:43:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.555749 -2.628366"
-    },
-    {
-      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
-      "title": "alert",
-      "published": "Tue Oct 27 16:42:29 +0000 2026",
+      "published": "Tue Oct 27 18:47:02 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.556102 -2.628453"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.508863 -2.356548"
+    },
+    {
+      "id": "6d095906-414a-4445-8f57-dc7f522aab3d",
+      "title": "alert",
+      "published": "Tue Oct 27 18:47:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Regent Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.478975 -2.281083"
+    },
+    {
+      "id": "727cf3dd-ff2a-41b5-bada-a3312090f319",
+      "title": "alert",
+      "published": "Tue Oct 27 18:49:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Edinburgh Way",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.601143 -2.167263"
     }
   ]
 }
