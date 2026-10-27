@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T16:10:47.850878+00:00",
+  "updatedAt": "2026-10-27T16:15:47.843871+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
@@ -74,6 +74,20 @@
       "point": "53.568152 -2.402763"
     },
     {
+      "id": "07e06f08-af4d-4820-8a3d-3b46e2e5601b",
+      "title": "alert",
+      "published": "Tue Oct 27 16:13:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A676 - Folds Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.582602 -2.42284"
+    },
+    {
       "id": "6836aa14-c38e-45aa-b2a4-4a75dfe1850e",
       "title": "alert",
       "published": "Tue Oct 27 16:09:25 +0000 2026",
@@ -82,10 +96,24 @@
       "road": "A666 - St. Peter's Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.57839 -2.42136"
+    },
+    {
+      "id": "549d38eb-a760-4b6e-b7a3-5eb352f9cd93",
+      "title": "alert",
+      "published": "Tue Oct 27 16:12:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.579059 -2.421408"
     }
   ]
 }
