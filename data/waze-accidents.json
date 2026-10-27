@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T14:30:48.082164+00:00",
+  "updatedAt": "2026-10-27T14:35:48.107435+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "85df1420-d1cf-4768-a3bc-fca075d65e34",
@@ -60,46 +60,32 @@
       "point": "53.465649 -2.299187"
     },
     {
-      "id": "7b57c364-7136-484a-ba89-d8f3b3f83861",
+      "id": "c1f09c9b-9c27-4931-ba23-aa21fa89b843",
       "title": "alert",
-      "published": "Tue Oct 27 13:42:33 +0000 2026",
+      "published": "Tue Oct 27 14:35:00 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.469849 -2.246748"
-    },
-    {
-      "id": "c4ecbbcf-67cd-48f7-8b4f-11b2b25e1cfd",
-      "title": "alert",
-      "published": "Tue Oct 27 14:18:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.579722 -2.200161"
-    },
-    {
-      "id": "7a0361b5-b630-43f3-a5ce-a6096c12f96e",
-      "title": "alert",
-      "published": "Tue Oct 27 14:26:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.61214 -2.090214"
+      "point": "53.470228 -2.24659"
+    },
+    {
+      "id": "4fc9e01d-d07f-43ac-b8c7-5bb4b8459a38",
+      "title": "alert",
+      "published": "Tue Oct 27 14:35:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.539769 -2.236593"
     }
   ]
 }
