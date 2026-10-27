@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T10:05:48.433544+00:00",
+  "updatedAt": "2026-10-27T10:10:47.640527+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -46,20 +46,6 @@
       "point": "53.535781 -2.131919"
     },
     {
-      "id": "7ef85d70-b698-4a3d-a4e2-3d68777848bc",
-      "title": "alert",
-      "published": "Tue Oct 27 10:03:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Eccles Old Rd",
-      "city": "Weaste",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.48894 -2.327307"
-    },
-    {
       "id": "8a60fe90-bdab-4918-8efc-88c91c3819d7",
       "title": "alert",
       "published": "Tue Oct 27 09:43:02 +0000 2026",
@@ -68,7 +54,7 @@
       "road": "A666 - Blackburn Rd",
       "city": "Astley Bridge",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.604189 -2.432068"
@@ -82,24 +68,10 @@
       "road": "A666 - Blackburn Rd",
       "city": "Astley Bridge",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.607748 -2.430875"
-    },
-    {
-      "id": "dfb56156-1336-4811-b609-90edcb00eea1",
-      "title": "alert",
-      "published": "Tue Oct 27 10:01:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.378713 -2.505906"
     },
     {
       "id": "81da6c9a-8554-43dc-8001-0a3018060108",
@@ -116,20 +88,6 @@
       "point": "53.315126 -2.42645"
     },
     {
-      "id": "d8dfc403-c330-4271-9f51-f1b6f75a2bf2",
-      "title": "alert",
-      "published": "Tue Oct 27 09:21:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.444213 -2.588402"
-    },
-    {
       "id": "662e5945-0fd6-4d89-b61b-52d166d262a8",
       "title": "alert",
       "published": "Tue Oct 27 09:57:49 +0000 2026",
@@ -138,7 +96,7 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.450771 -2.598583"
@@ -156,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.44207 -2.586451"
+    },
+    {
+      "id": "d8dfc403-c330-4271-9f51-f1b6f75a2bf2",
+      "title": "alert",
+      "published": "Tue Oct 27 09:21:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.444213 -2.588402"
     }
   ]
 }
