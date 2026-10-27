@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T14:40:48.554489+00:00",
+  "updatedAt": "2026-10-27T14:45:48.052563+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "85df1420-d1cf-4768-a3bc-fca075d65e34",
@@ -40,8 +40,8 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.47011 -2.246998"
     },
@@ -54,8 +54,8 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.469985 -2.246929"
     },
@@ -68,7 +68,7 @@
       "road": "A58 - Cricketers Way",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.546678 -2.519483"
@@ -82,24 +82,10 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470228 -2.24659"
-    },
-    {
-      "id": "b48113b3-455b-4024-9718-910521a6efb6",
-      "title": "alert",
-      "published": "Tue Oct 27 14:39:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.451863 -2.600111"
     }
   ]
 }
