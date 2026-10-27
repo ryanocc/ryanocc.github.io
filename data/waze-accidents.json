@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-10-27T15:40:48.184608+00:00",
+  "updatedAt": "2026-10-27T15:45:48.221206+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
+      "title": "alert",
+      "published": "Tue Oct 27 15:42:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Asquith Rd",
+      "city": "Burnage",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.431774 -2.198191"
+    },
+    {
+      "id": "630def09-c63d-4d8e-8032-c410edb03ac6",
+      "title": "alert",
+      "published": "Tue Oct 27 15:42:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hacken Bridge Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.564906 -2.400312"
+    },
     {
       "id": "c8b12d4c-16d2-4a06-9fa3-eb882033f98b",
       "title": "alert",
@@ -40,8 +68,8 @@
       "road": "Green Ln",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.558858 -2.418013"
     },
