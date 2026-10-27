@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T11:45:47.759188+00:00",
+  "updatedAt": "2026-10-27T11:50:47.717903+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 12,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -32,6 +32,20 @@
       "point": "53.575855 -2.293715"
     },
     {
+      "id": "1afb1a70-0d00-4521-9b4a-c466c2b066b1",
+      "title": "alert",
+      "published": "Tue Oct 27 11:48:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Millgate",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.544644 -2.627791"
+    },
+    {
       "id": "4779d865-224e-4a21-a221-c2798a073da3",
       "title": "alert",
       "published": "Tue Oct 27 10:05:00 +0000 2026",
@@ -41,7 +55,7 @@
       "city": "Werneth",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.535759 -2.131897"
     },
@@ -68,24 +82,10 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.511898 -2.391689"
-    },
-    {
-      "id": "6e291d4e-88a3-4113-8ef0-f870fe12326f",
-      "title": "alert",
-      "published": "Tue Oct 27 11:11:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
       "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.512068 -2.391004"
+      "point": "53.511898 -2.391689"
     },
     {
       "id": "3f5c80ff-a97e-4d4a-aaba-ad1d65f22365",
@@ -96,8 +96,8 @@
       "road": "A666 - Blackburn Rd",
       "city": "Astley Bridge",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.604456 -2.431976"
     },
@@ -114,6 +114,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.484345 -2.232136"
+    },
+    {
+      "id": "38cdb806-2274-44ab-8926-f907e2f5171f",
+      "title": "alert",
+      "published": "Tue Oct 27 11:46:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.501587 -2.192011"
     },
     {
       "id": "15795511-a88c-4732-84ac-fccf938d7c50",
@@ -142,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.353907 -2.507196"
+    },
+    {
+      "id": "7fe95007-afdf-4fc0-a6d3-09c0f74cef9e",
+      "title": "alert",
+      "published": "Tue Oct 27 11:46:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.325033 -2.452926"
     }
   ]
 }
