@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T14:25:48.039758+00:00",
+  "updatedAt": "2026-10-27T14:30:48.082164+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "85df1420-d1cf-4768-a3bc-fca075d65e34",
@@ -41,7 +41,7 @@
       "city": "Westhoughton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.546678 -2.519483"
     },
@@ -86,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.579722 -2.200161"
+    },
+    {
+      "id": "7a0361b5-b630-43f3-a5ce-a6096c12f96e",
+      "title": "alert",
+      "published": "Tue Oct 27 14:26:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.61214 -2.090214"
     }
   ]
 }
