@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T09:00:47.745997+00:00",
+  "updatedAt": "2026-10-27T09:05:48.121653+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "6e3443a6-8e2b-4a21-b771-4d1bc46e5794",
@@ -46,20 +46,6 @@
       "point": "53.558567 -2.402364"
     },
     {
-      "id": "167ff158-0b82-47cd-8b76-eb5ed0f0fb4e",
-      "title": "alert",
-      "published": "Tue Oct 27 08:55:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.359643 -2.475193"
-    },
-    {
       "id": "ec764fce-e93d-4d6a-8c2d-89158231af99",
       "title": "alert",
       "published": "Tue Oct 27 08:19:20 +0000 2026",
@@ -72,6 +58,48 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.35113 -2.501198"
+    },
+    {
+      "id": "167ff158-0b82-47cd-8b76-eb5ed0f0fb4e",
+      "title": "alert",
+      "published": "Tue Oct 27 08:55:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.359643 -2.475193"
+    },
+    {
+      "id": "98ca0130-0f37-4522-bae2-c68187d35a91",
+      "title": "alert",
+      "published": "Tue Oct 27 09:05:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.460963 -2.612719"
+    },
+    {
+      "id": "8ba8e126-832e-4e52-a58b-436afe9dbde7",
+      "title": "alert",
+      "published": "Tue Oct 27 09:05:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.442338 -2.451573"
     }
   ]
 }
