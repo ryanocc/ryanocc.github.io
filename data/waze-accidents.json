@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T13:55:48.968038+00:00",
+  "updatedAt": "2026-10-27T14:00:48.721000+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "050b32e4-3e4b-430d-802f-054929da3dbd",
@@ -68,7 +68,7 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.469849 -2.246748"
@@ -82,10 +82,24 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.446491 -2.340139"
+    },
+    {
+      "id": "6e315fd2-0c7b-4677-9a21-c553b5ddb232",
+      "title": "alert",
+      "published": "Tue Oct 27 13:58:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.546863 -2.268944"
     }
   ]
 }
