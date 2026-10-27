@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T10:35:47.985445+00:00",
+  "updatedAt": "2026-10-27T10:40:48.114017+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -13,7 +13,7 @@
       "city": "Knutsford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.313234 -2.354108"
     },
@@ -60,20 +60,6 @@
       "point": "53.535781 -2.131919"
     },
     {
-      "id": "4ff527ce-e7ca-46cc-ad20-e1584b2cad44",
-      "title": "alert",
-      "published": "Tue Oct 27 10:02:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - Blackburn Rd",
-      "city": "Astley Bridge",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.607748 -2.430875"
-    },
-    {
       "id": "8a60fe90-bdab-4918-8efc-88c91c3819d7",
       "title": "alert",
       "published": "Tue Oct 27 09:43:02 +0000 2026",
@@ -82,10 +68,38 @@
       "road": "A666 - Blackburn Rd",
       "city": "Astley Bridge",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.604189 -2.432068"
+    },
+    {
+      "id": "08f15cdb-27c6-481f-80a1-e6245b38d9b0",
+      "title": "alert",
+      "published": "Tue Oct 27 10:39:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.484345 -2.232136"
+    },
+    {
+      "id": "cf5ac8b8-001c-49a6-97e1-6cfd2c976c49",
+      "title": "alert",
+      "published": "Tue Oct 27 10:39:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A62 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.48435 -2.232146"
     },
     {
       "id": "81da6c9a-8554-43dc-8001-0a3018060108",
@@ -96,7 +110,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.315126 -2.42645"
