@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T10:15:47.732931+00:00",
+  "updatedAt": "2026-10-27T10:20:47.691768+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -69,7 +69,7 @@
       "city": "Astley Bridge",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.607748 -2.430875"
     },
@@ -82,24 +82,10 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.315126 -2.42645"
-    },
-    {
-      "id": "662e5945-0fd6-4d89-b61b-52d166d262a8",
-      "title": "alert",
-      "published": "Tue Oct 27 09:57:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.450771 -2.598583"
     },
     {
       "id": "d8dfc403-c330-4271-9f51-f1b6f75a2bf2",
@@ -116,18 +102,18 @@
       "point": "53.444213 -2.588402"
     },
     {
-      "id": "26d1ab56-95e6-4453-b54d-d6639f8b0f0a",
+      "id": "662e5945-0fd6-4d89-b61b-52d166d262a8",
       "title": "alert",
-      "published": "Tue Oct 27 09:20:45 +0000 2026",
+      "published": "Tue Oct 27 09:57:49 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.44207 -2.586451"
+      "reportRating": 0.0,
+      "point": "53.450771 -2.598583"
     }
   ]
 }
