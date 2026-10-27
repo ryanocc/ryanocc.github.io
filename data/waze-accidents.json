@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T13:05:47.734522+00:00",
+  "updatedAt": "2026-10-27T13:10:48.517185+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 9,
   "incidents": [
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
@@ -54,52 +54,10 @@
       "road": "A6140 - Lord Sheldon Way",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 5.0,
       "point": "53.49077 -2.102254"
-    },
-    {
-      "id": "8a3b7942-44f9-4ee6-958c-01c8bc9def48",
-      "title": "alert",
-      "published": "Tue Oct 27 13:04:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.475595 -2.520745"
-    },
-    {
-      "id": "f1b2c2ab-58a9-4584-9f55-57e90ae09ed3",
-      "title": "alert",
-      "published": "Tue Oct 27 12:35:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5081 - Wharfside Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.465649 -2.299187"
-    },
-    {
-      "id": "c9d4f7c9-43ea-4391-9df2-db68d44e1327",
-      "title": "alert",
-      "published": "Tue Oct 27 12:53:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.51117 -2.39409"
     },
     {
       "id": "3905432e-7a94-4248-9b31-f560d07fd295",
@@ -130,46 +88,18 @@
       "point": "53.504521 -2.342698"
     },
     {
-      "id": "4573de59-836d-4cb3-ab4e-c399ae3661ed",
+      "id": "f1b2c2ab-58a9-4584-9f55-57e90ae09ed3",
       "title": "alert",
-      "published": "Tue Oct 27 12:41:27 +0000 2026",
+      "published": "Tue Oct 27 12:35:34 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
+      "road": "A5081 - Wharfside Way",
+      "city": "Trafford Park",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.505042 -2.344151"
-    },
-    {
-      "id": "7fe95007-afdf-4fc0-a6d3-09c0f74cef9e",
-      "title": "alert",
-      "published": "Tue Oct 27 11:46:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.325033 -2.452926"
-    },
-    {
-      "id": "700a2cb2-1ba7-4427-aaae-6790bfe08d3b",
-      "title": "alert",
-      "published": "Tue Oct 27 12:54:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.482894 -2.648158"
+      "point": "53.465649 -2.299187"
     },
     {
       "id": "afb6dee4-4f94-493d-9dbf-164c9b98977d",
@@ -180,10 +110,24 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.447669 -2.59297"
+    },
+    {
+      "id": "700a2cb2-1ba7-4427-aaae-6790bfe08d3b",
+      "title": "alert",
+      "published": "Tue Oct 27 12:54:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.482894 -2.648158"
     }
   ]
 }
