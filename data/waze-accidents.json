@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T17:25:48.307472+00:00",
+  "updatedAt": "2026-10-27T17:30:48.297624+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 11,
   "incidents": [
     {
       "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
@@ -68,8 +68,8 @@
       "road": "J2 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.589258 -2.273045"
     },
@@ -102,18 +102,18 @@
       "point": "53.524999 -2.273334"
     },
     {
-      "id": "62ac5f92-957e-444a-a03c-723c01b075cc",
+      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
       "title": "alert",
-      "published": "Tue Oct 27 17:18:50 +0000 2026",
+      "published": "Tue Oct 27 16:42:29 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A34 (N) - Kingsway",
-      "city": "Gatley",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.392894 -2.226664"
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.556102 -2.628453"
     },
     {
       "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
@@ -130,18 +130,18 @@
       "point": "53.556367 -2.628483"
     },
     {
-      "id": "8ce23ac4-54bf-4eb1-9950-ce6484cd0574",
+      "id": "8202861d-037a-4f93-83e3-518d61107e42",
       "title": "alert",
-      "published": "Tue Oct 27 16:43:01 +0000 2026",
+      "published": "Tue Oct 27 17:09:09 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A58 - Cricketers Way",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.546665 -2.519135"
+      "reportRating": 0.0,
+      "point": "53.546702 -2.520144"
     },
     {
       "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
@@ -152,52 +152,10 @@
       "road": "A49 - Wigan Ln",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.555749 -2.628366"
-    },
-    {
-      "id": "8202861d-037a-4f93-83e3-518d61107e42",
-      "title": "alert",
-      "published": "Tue Oct 27 17:09:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Cricketers Way",
-      "city": "Westhoughton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.546702 -2.520144"
-    },
-    {
-      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
-      "title": "alert",
-      "published": "Tue Oct 27 16:42:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.556102 -2.628453"
-    },
-    {
-      "id": "c60e1c5e-1423-4b66-a53f-2c3df6001917",
-      "title": "alert",
-      "published": "Tue Oct 27 17:16:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6042 - Trinity Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.488299 -2.248047"
     }
   ]
 }
