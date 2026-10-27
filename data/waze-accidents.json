@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T12:40:47.775561+00:00",
+  "updatedAt": "2026-10-27T12:45:47.713897+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 10,
   "incidents": [
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
@@ -13,7 +13,7 @@
       "city": "Alderley Edge",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.305767 -2.237807"
     },
@@ -32,18 +32,18 @@
       "point": "53.544644 -2.627791"
     },
     {
-      "id": "e031126b-174f-480c-9345-60959e7205dd",
+      "id": "23f597cb-0f55-4427-827f-dfbfa981b532",
       "title": "alert",
-      "published": "Tue Oct 27 12:31:53 +0000 2026",
+      "published": "Tue Oct 27 12:41:12 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A640 - Milnrow Rd",
-      "city": "Rochdale",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A572 - Worsley Rd",
+      "city": "Swinton",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.616272 -2.128707"
+      "reportRating": 4.0,
+      "point": "53.505125 -2.343089"
     },
     {
       "id": "f1b2c2ab-58a9-4584-9f55-57e90ae09ed3",
@@ -60,18 +60,32 @@
       "point": "53.465649 -2.299187"
     },
     {
-      "id": "08f15cdb-27c6-481f-80a1-e6245b38d9b0",
+      "id": "3905432e-7a94-4248-9b31-f560d07fd295",
       "title": "alert",
-      "published": "Tue Oct 27 10:39:27 +0000 2026",
+      "published": "Tue Oct 27 12:44:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A62 - Great Ancoats St",
-      "city": "Manchester",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.484345 -2.232136"
+      "reportRating": 3.0,
+      "point": "53.50479 -2.343597"
+    },
+    {
+      "id": "4573de59-836d-4cb3-ab4e-c399ae3661ed",
+      "title": "alert",
+      "published": "Tue Oct 27 12:41:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.505042 -2.344151"
     },
     {
       "id": "74de94cb-64cd-4c06-86f8-7683944f5d3e",
@@ -96,10 +110,38 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.325033 -2.452926"
+    },
+    {
+      "id": "dff12e9e-b8d5-43e8-8f47-f33b9f817d62",
+      "title": "alert",
+      "published": "Tue Oct 27 12:41:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.482894 -2.648158"
+    },
+    {
+      "id": "5723527a-e8b9-4bc3-bc77-5e7313ad1bcf",
+      "title": "alert",
+      "published": "Tue Oct 27 12:44:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.449137 -2.596101"
     }
   ]
 }
