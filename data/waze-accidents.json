@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T12:35:47.715467+00:00",
+  "updatedAt": "2026-10-27T12:40:47.775561+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 7,
   "incidents": [
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
@@ -12,8 +12,8 @@
       "road": "B5359 - Wilmslow Rd",
       "city": "Alderley Edge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.305767 -2.237807"
     },
@@ -41,7 +41,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.616272 -2.128707"
     },
@@ -74,20 +74,6 @@
       "point": "53.484345 -2.232136"
     },
     {
-      "id": "15795511-a88c-4732-84ac-fccf938d7c50",
-      "title": "alert",
-      "published": "Tue Oct 27 11:24:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.341989 -2.491294"
-    },
-    {
       "id": "74de94cb-64cd-4c06-86f8-7683944f5d3e",
       "title": "alert",
       "published": "Tue Oct 27 11:20:06 +0000 2026",
@@ -96,7 +82,7 @@
       "road": "M6 > Preston",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.353907 -2.507196"
@@ -114,34 +100,6 @@
       "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.325033 -2.452926"
-    },
-    {
-      "id": "bb90b6d4-1d88-4dfb-a8e1-274778362f9a",
-      "title": "alert",
-      "published": "Tue Oct 27 12:24:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.500104 -2.65821"
-    },
-    {
-      "id": "87680a1e-2515-4a7f-81a7-d7ce1a4d532e",
-      "title": "alert",
-      "published": "Tue Oct 27 12:35:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.482623 -2.647789"
     }
   ]
 }
