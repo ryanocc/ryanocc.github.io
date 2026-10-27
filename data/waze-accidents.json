@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T13:10:48.517185+00:00",
+  "updatedAt": "2026-10-27T13:15:47.769586+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 6,
   "incidents": [
     {
       "id": "84d62427-b86f-4fca-91be-ea00acc29609",
@@ -46,34 +46,6 @@
       "point": "53.397887 -2.295066"
     },
     {
-      "id": "5eaae87a-a2d6-47dc-ac0f-490cee6a523e",
-      "title": "alert",
-      "published": "Tue Oct 27 12:56:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6140 - Lord Sheldon Way",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 5.0,
-      "point": "53.49077 -2.102254"
-    },
-    {
-      "id": "3905432e-7a94-4248-9b31-f560d07fd295",
-      "title": "alert",
-      "published": "Tue Oct 27 12:44:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.50479 -2.343597"
-    },
-    {
       "id": "54c35e81-06c4-4928-a4e6-59a48f7e644e",
       "title": "alert",
       "published": "Tue Oct 27 12:53:29 +0000 2026",
@@ -82,7 +54,7 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.504521 -2.342698"
@@ -102,32 +74,18 @@
       "point": "53.465649 -2.299187"
     },
     {
-      "id": "afb6dee4-4f94-493d-9dbf-164c9b98977d",
+      "id": "38bf5c16-670d-4ebc-a4da-34d62aa1c1f3",
       "title": "alert",
-      "published": "Tue Oct 27 12:50:12 +0000 2026",
+      "published": "Tue Oct 27 13:10:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
-      "point": "53.447669 -2.59297"
-    },
-    {
-      "id": "700a2cb2-1ba7-4427-aaae-6790bfe08d3b",
-      "title": "alert",
-      "published": "Tue Oct 27 12:54:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.482894 -2.648158"
+      "point": "53.437333 -2.578771"
     }
   ]
 }
