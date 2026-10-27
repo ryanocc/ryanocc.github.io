@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T16:55:48.274297+00:00",
+  "updatedAt": "2026-10-27T17:00:48.326068+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
@@ -69,7 +69,7 @@
       "city": "Prestwich",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.524986 -2.273452"
     },
@@ -88,9 +88,9 @@
       "point": "53.524999 -2.273334"
     },
     {
-      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
+      "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
       "title": "alert",
-      "published": "Tue Oct 27 16:43:51 +0000 2026",
+      "published": "Tue Oct 27 16:33:48 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
       "road": "A49 - Wigan Ln",
@@ -98,8 +98,8 @@
       "country": "UK",
       "confidence": 1.0,
       "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.555749 -2.628366"
+      "reportRating": 3.0,
+      "point": "53.556367 -2.628483"
     },
     {
       "id": "8ce23ac4-54bf-4eb1-9950-ce6484cd0574",
@@ -110,24 +110,10 @@
       "road": "A58 - Cricketers Way",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.546665 -2.519135"
-    },
-    {
-      "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
-      "title": "alert",
-      "published": "Tue Oct 27 16:33:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.556367 -2.628483"
     },
     {
       "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
@@ -144,18 +130,18 @@
       "point": "53.556102 -2.628453"
     },
     {
-      "id": "52e9a84a-f6fe-4b91-a961-2ea16c673960",
+      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
       "title": "alert",
-      "published": "Tue Oct 27 16:19:00 +0000 2026",
+      "published": "Tue Oct 27 16:43:51 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "A57 - Dawson St",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
-      "point": "53.474198 -2.260832"
+      "point": "53.555749 -2.628366"
     }
   ]
 }
