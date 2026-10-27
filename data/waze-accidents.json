@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T15:50:49.002392+00:00",
+  "updatedAt": "2026-10-27T15:55:47.742116+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "e5570b87-5d7b-43d7-aeca-db95ae07f0e5",
@@ -60,20 +60,6 @@
       "point": "53.427486 -2.557519"
     },
     {
-      "id": "91caf431-001b-4c12-9cc8-210be2373394",
-      "title": "alert",
-      "published": "Tue Oct 27 15:25:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Green Ln",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.558858 -2.418013"
-    },
-    {
       "id": "9ec0274f-8927-4f70-b862-3abb80006159",
       "title": "alert",
       "published": "Tue Oct 27 15:50:45 +0000 2026",
@@ -88,18 +74,18 @@
       "point": "53.568152 -2.402763"
     },
     {
-      "id": "3d74b367-0fd0-4125-a631-4f18a29a4675",
+      "id": "91caf431-001b-4c12-9cc8-210be2373394",
       "title": "alert",
-      "published": "Tue Oct 27 14:10:38 +0000 2026",
+      "published": "Tue Oct 27 15:25:30 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Cricketers Way",
-      "city": "Westhoughton",
+      "road": "Green Ln",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.546678 -2.519483"
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.558858 -2.418013"
     }
   ]
 }
