@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T11:00:48.094532+00:00",
+  "updatedAt": "2026-10-27T11:05:48.073111+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "54b0196a-19cf-4aec-9f2c-70ee81eb86f3",
@@ -41,7 +41,7 @@
       "city": "Alderley Edge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.305419 -2.237761"
     },
@@ -54,8 +54,8 @@
       "road": "B6192 - Edward St",
       "city": "Werneth",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.535759 -2.131897"
     },
@@ -100,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.315126 -2.42645"
+    },
+    {
+      "id": "0f363b66-5228-490c-a6d4-275f3921aa71",
+      "title": "alert",
+      "published": "Tue Oct 27 11:02:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.458347 -2.60665"
     }
   ]
 }
