@@ -1,36 +1,8 @@
 {
-  "updatedAt": "2026-10-27T09:55:48.983805+00:00",
+  "updatedAt": "2026-10-27T10:00:47.733024+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
-    {
-      "id": "6e3443a6-8e2b-4a21-b771-4d1bc46e5794",
-      "title": "alert",
-      "published": "Tue Oct 27 07:52:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Dantzic St",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.491028 -2.235123"
-    },
-    {
-      "id": "50c28ecc-b27b-459a-818f-2f4dacffbe3c",
-      "title": "alert",
-      "published": "Tue Oct 27 09:52:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.416598 -2.147822"
-    },
     {
       "id": "8a60fe90-bdab-4918-8efc-88c91c3819d7",
       "title": "alert",
@@ -41,7 +13,7 @@
       "city": "Astley Bridge",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.604189 -2.432068"
     },
@@ -55,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.315126 -2.42645"
     },
@@ -86,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.44207 -2.586451"
+    },
+    {
+      "id": "662e5945-0fd6-4d89-b61b-52d166d262a8",
+      "title": "alert",
+      "published": "Tue Oct 27 09:57:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.450771 -2.598583"
     }
   ]
 }
