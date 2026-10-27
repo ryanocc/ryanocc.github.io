@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T10:10:47.640527+00:00",
+  "updatedAt": "2026-10-27T10:15:47.732931+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -83,7 +83,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.315126 -2.42645"
     },
@@ -102,20 +102,6 @@
       "point": "53.450771 -2.598583"
     },
     {
-      "id": "26d1ab56-95e6-4453-b54d-d6639f8b0f0a",
-      "title": "alert",
-      "published": "Tue Oct 27 09:20:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.44207 -2.586451"
-    },
-    {
       "id": "d8dfc403-c330-4271-9f51-f1b6f75a2bf2",
       "title": "alert",
       "published": "Tue Oct 27 09:21:24 +0000 2026",
@@ -128,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.444213 -2.588402"
+    },
+    {
+      "id": "26d1ab56-95e6-4453-b54d-d6639f8b0f0a",
+      "title": "alert",
+      "published": "Tue Oct 27 09:20:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.44207 -2.586451"
     }
   ]
 }
