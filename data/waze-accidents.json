@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-27T14:20:48.093121+00:00",
+  "updatedAt": "2026-10-27T14:25:48.039758+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
+    {
+      "id": "85df1420-d1cf-4768-a3bc-fca075d65e34",
+      "title": "alert",
+      "published": "Tue Oct 27 14:25:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J21A to M62 > Leeds",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.427486 -2.557519"
+    },
     {
       "id": "e49f70f5-cfb9-4371-969f-1e66fbf2aa56",
       "title": "alert",
@@ -26,8 +40,8 @@
       "road": "A58 - Cricketers Way",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.546678 -2.519483"
     },
@@ -68,7 +82,7 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.579722 -2.200161"
