@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T18:15:48.333517+00:00",
+  "updatedAt": "2026-10-27T18:20:48.265952+00:00",
   "source": "Waze GeoRSS",
   "count": 15,
   "incidents": [
@@ -68,7 +68,7 @@
       "road": "Waterloo St",
       "city": "Crumpsall",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.51213 -2.22402"
@@ -180,24 +180,10 @@
       "road": "A56 - Bury New Rd",
       "city": "Prestwich",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.52575 -2.278492"
-    },
-    {
-      "id": "387b306a-e2a9-4e97-a23b-634a220a6421",
-      "title": "alert",
-      "published": "Tue Oct 27 17:32:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.589814 -2.272672"
     },
     {
       "id": "41825f36-b916-49be-9655-f6cab70b489e",
@@ -212,6 +198,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.584462 -2.272922"
+    },
+    {
+      "id": "387b306a-e2a9-4e97-a23b-634a220a6421",
+      "title": "alert",
+      "published": "Tue Oct 27 17:32:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.589814 -2.272672"
     }
   ]
 }
