@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-27T09:20:48.307500+00:00",
+  "updatedAt": "2026-10-27T09:25:48.197570+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "6e3443a6-8e2b-4a21-b771-4d1bc46e5794",
@@ -60,6 +60,20 @@
       "point": "53.35113 -2.501198"
     },
     {
+      "id": "81da6c9a-8554-43dc-8001-0a3018060108",
+      "title": "alert",
+      "published": "Tue Oct 27 09:24:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.315126 -2.42645"
+    },
+    {
       "id": "98ca0130-0f37-4522-bae2-c68187d35a91",
       "title": "alert",
       "published": "Tue Oct 27 09:05:43 +0000 2026",
@@ -68,10 +82,24 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460963 -2.612719"
+    },
+    {
+      "id": "d8dfc403-c330-4271-9f51-f1b6f75a2bf2",
+      "title": "alert",
+      "published": "Tue Oct 27 09:21:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.443709 -2.587964"
     },
     {
       "id": "26d1ab56-95e6-4453-b54d-d6639f8b0f0a",
@@ -83,23 +111,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 4.0,
       "point": "53.44207 -2.586451"
-    },
-    {
-      "id": "8ba8e126-832e-4e52-a58b-436afe9dbde7",
-      "title": "alert",
-      "published": "Tue Oct 27 09:05:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.442338 -2.451573"
     },
     {
       "id": "0a346e6c-9ba4-4725-b4f3-49f5df3904cd",
