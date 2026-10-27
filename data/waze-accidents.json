@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-27T15:30:48.130640+00:00",
+  "updatedAt": "2026-10-27T15:35:48.225856+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
+    {
+      "id": "c8b12d4c-16d2-4a06-9fa3-eb882033f98b",
+      "title": "alert",
+      "published": "Tue Oct 27 15:30:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Ravensbury St",
+      "city": "Clayton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.486214 -2.186744"
+    },
     {
       "id": "85df1420-d1cf-4768-a3bc-fca075d65e34",
       "title": "alert",
@@ -18,20 +32,6 @@
       "point": "53.427486 -2.557519"
     },
     {
-      "id": "cd959033-65bf-419f-8a1f-d6a029dc91e1",
-      "title": "alert",
-      "published": "Tue Oct 27 15:15:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5359 - Wilmslow Rd",
-      "city": "Alderley Edge",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.311844 -2.237008"
-    },
-    {
       "id": "91caf431-001b-4c12-9cc8-210be2373394",
       "title": "alert",
       "published": "Tue Oct 27 15:25:30 +0000 2026",
@@ -40,24 +40,10 @@
       "road": "Green Ln",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.558858 -2.418013"
-    },
-    {
-      "id": "08b56577-9f1d-4e8e-93a2-07fb81002d82",
-      "title": "alert",
-      "published": "Tue Oct 27 14:37:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.47011 -2.246998"
     },
     {
       "id": "3d74b367-0fd0-4125-a631-4f18a29a4675",
