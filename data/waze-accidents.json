@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-27T18:00:48.374746+00:00",
+  "updatedAt": "2026-10-27T18:05:48.304498+00:00",
   "source": "Waze GeoRSS",
-  "count": 16,
+  "count": 18,
   "incidents": [
+    {
+      "id": "d5508691-b9ed-4d1d-a91a-258ca2769e45",
+      "title": "alert",
+      "published": "Tue Oct 27 18:02:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Wellfield Rd",
+      "city": "Brooklands",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.400785 -2.28143"
+    },
     {
       "id": "bae60896-e00d-431b-9657-0d6e21837d26",
       "title": "alert",
@@ -46,6 +60,20 @@
       "point": "53.55597 -2.400537"
     },
     {
+      "id": "2a980019-6a0b-4012-a991-57bd42031481",
+      "title": "alert",
+      "published": "Tue Oct 27 18:05:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 > Stockport",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.39649 -2.255641"
+    },
+    {
       "id": "7c5cf5bb-6ac1-41af-883c-27be0b08d215",
       "title": "alert",
       "published": "Tue Oct 27 17:46:09 +0000 2026",
@@ -60,20 +88,6 @@
       "point": "53.498171 -2.182671"
     },
     {
-      "id": "83c71e35-1733-4c01-a527-c813f12cdf6f",
-      "title": "alert",
-      "published": "Tue Oct 27 17:57:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J19 to A6046",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.576523 -2.205251"
-    },
-    {
       "id": "08826307-fb00-4558-b112-c4ae320387da",
       "title": "alert",
       "published": "Tue Oct 27 17:21:27 +0000 2026",
@@ -86,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.589258 -2.273045"
+    },
+    {
+      "id": "83c71e35-1733-4c01-a527-c813f12cdf6f",
+      "title": "alert",
+      "published": "Tue Oct 27 17:57:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J19 to A6046",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.576523 -2.205251"
     },
     {
       "id": "cb1f16fd-8dd9-49a1-9722-5c373eb70ed2",
@@ -116,60 +144,18 @@
       "point": "53.462376 -2.173209"
     },
     {
-      "id": "4a810950-eb18-4f36-b3a2-b866ef7d7d89",
+      "id": "25615b03-6a14-4055-9b32-fa67eba3f700",
       "title": "alert",
-      "published": "Tue Oct 27 17:53:32 +0000 2026",
+      "published": "Tue Oct 27 18:00:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A575 - Bolton Rd",
+      "road": "A6053 - Bolton Rd",
       "city": "Farnworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.55615 -2.400901"
-    },
-    {
-      "id": "ffce55e9-edfc-4cfd-90cf-9290f57a18f3",
-      "title": "alert",
-      "published": "Tue Oct 27 16:40:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6044 - Scholes Ln",
-      "city": "Prestwich",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.524999 -2.273334"
-    },
-    {
-      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
-      "title": "alert",
-      "published": "Tue Oct 27 16:43:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.555749 -2.628366"
-    },
-    {
-      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
-      "title": "alert",
-      "published": "Tue Oct 27 16:42:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Wigan Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.556102 -2.628453"
+      "point": "53.555659 -2.400629"
     },
     {
       "id": "8d48ee6d-ff71-4e5c-9c93-b8229907c1ff",
@@ -186,18 +172,46 @@
       "point": "53.556367 -2.628483"
     },
     {
-      "id": "52b16541-e315-491e-878d-4220ae0c63b5",
+      "id": "eaf566a0-4b69-4642-9e6f-215635c5837b",
       "title": "alert",
-      "published": "Tue Oct 27 17:57:44 +0000 2026",
+      "published": "Tue Oct 27 16:42:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.556102 -2.628453"
+    },
+    {
+      "id": "c3c6c0de-17c7-4827-aa6a-c9891a810585",
+      "title": "alert",
+      "published": "Tue Oct 27 16:43:51 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "M66 (N)",
-      "city": "",
+      "road": "A49 - Wigan Ln",
+      "city": "Wigan",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.58007 -2.271786"
+      "reportRating": 0.0,
+      "point": "53.555749 -2.628366"
+    },
+    {
+      "id": "f342e106-caf4-47b7-9b15-123c27aa9ef7",
+      "title": "alert",
+      "published": "Tue Oct 27 18:00:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Bury New Rd",
+      "city": "Prestwich",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.52575 -2.278492"
     },
     {
       "id": "387b306a-e2a9-4e97-a23b-634a220a6421",
@@ -214,6 +228,20 @@
       "point": "53.589814 -2.272672"
     },
     {
+      "id": "52b16541-e315-491e-878d-4220ae0c63b5",
+      "title": "alert",
+      "published": "Tue Oct 27 17:57:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.58007 -2.271786"
+    },
+    {
       "id": "41825f36-b916-49be-9655-f6cab70b489e",
       "title": "alert",
       "published": "Tue Oct 27 17:44:15 +0000 2026",
@@ -222,7 +250,7 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.584462 -2.272922"
