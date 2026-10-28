@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T17:35:48.458537+00:00",
+  "updatedAt": "2026-10-28T17:40:48.380128+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
@@ -26,7 +26,7 @@
       "road": "Kings Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.331071 -2.252447"
@@ -82,7 +82,7 @@
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.331464 -2.253044"
@@ -130,6 +130,20 @@
       "point": "53.33069 -2.252029"
     },
     {
+      "id": "fa00422a-d848-4d2d-8b82-529e3a23b785",
+      "title": "alert",
+      "published": "Wed Oct 28 17:38:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.413085 -2.265634"
+    },
+    {
       "id": "916aca3c-48ab-4ccb-be59-acecc47d07fd",
       "title": "alert",
       "published": "Wed Oct 28 17:26:27 +0000 2026",
@@ -138,8 +152,8 @@
       "road": "",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.541177 -2.647733"
     },
@@ -152,8 +166,8 @@
       "road": "A5209 - Hall Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.592381 -2.702136"
     },
@@ -167,7 +181,7 @@
       "city": "Old Trafford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.458835 -2.292969"
     },
