@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T11:45:48.153351+00:00",
+  "updatedAt": "2026-10-28T11:50:48.452168+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "8b4779b2-3e6a-4431-94f8-dc3af114f3ac",
@@ -12,8 +12,8 @@
       "road": "Bradford Rd",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.484696 -2.216128"
     },
@@ -44,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.533766 -2.421311"
+    },
+    {
+      "id": "c84294f0-280a-4ce3-8926-d2933fc82387",
+      "title": "alert",
+      "published": "Wed Oct 28 11:48:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.51884 -2.369008"
     },
     {
       "id": "95e146b5-801b-4d99-bd95-dfc19c6d131a",
