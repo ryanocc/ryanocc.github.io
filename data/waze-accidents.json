@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T15:35:48.316292+00:00",
+  "updatedAt": "2026-10-28T15:40:48.419814+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "19c154e8-a40b-4472-ae19-17635cdb8d24",
@@ -18,18 +18,46 @@
       "point": "53.485466 -2.076099"
     },
     {
-      "id": "2acc27f0-5d4d-4171-9fb8-8e2955741321",
+      "id": "e90f5ad1-acda-4644-b79e-78fd0f17dc04",
       "title": "alert",
-      "published": "Wed Oct 28 15:22:19 +0000 2026",
+      "published": "Wed Oct 28 15:40:21 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Stretford",
+      "road": "Livesey St",
+      "city": "Ancoats",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.451998 -2.300874"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.490524 -2.227266"
+    },
+    {
+      "id": "33062647-a697-40b7-b98d-2eaca1dd3dd9",
+      "title": "alert",
+      "published": "Wed Oct 28 15:39:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Livesey St",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.490196 -2.226749"
+    },
+    {
+      "id": "2cd0670a-eefc-4db4-bfbc-58e65a36b087",
+      "title": "alert",
+      "published": "Wed Oct 28 15:38:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Atherton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.527652 -2.494613"
     }
   ]
 }
