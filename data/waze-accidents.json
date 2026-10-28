@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T09:15:48.151742+00:00",
+  "updatedAt": "2026-10-28T09:20:48.098468+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "99728f8c-edd8-43b7-be7d-79bc6766552e",
@@ -60,20 +60,6 @@
       "point": "53.628261 -2.183017"
     },
     {
-      "id": "30840c79-c8fc-4929-8ae5-ec750914ec36",
-      "title": "alert",
-      "published": "Wed Oct 28 08:25:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6225 - Wildhouse Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.618938 -2.11125"
-    },
-    {
       "id": "3c0cbc24-aa0b-4613-b19e-f938508b1b51",
       "title": "alert",
       "published": "Wed Oct 28 08:29:59 +0000 2026",
@@ -82,10 +68,24 @@
       "road": "B6225 - Wildhouse Ln",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.619132 -2.111183"
+    },
+    {
+      "id": "30840c79-c8fc-4929-8ae5-ec750914ec36",
+      "title": "alert",
+      "published": "Wed Oct 28 08:25:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6225 - Wildhouse Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.618938 -2.11125"
     },
     {
       "id": "31c7acdd-32d0-4815-9913-8c21adf2987d",
@@ -96,7 +96,7 @@
       "road": "A575 - Albert Rd",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548855 -2.401485"
@@ -110,10 +110,24 @@
       "road": "A523 - London Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.311311 -2.138256"
+    },
+    {
+      "id": "8355fdca-447b-4167-8a83-a782dfc038f2",
+      "title": "alert",
+      "published": "Wed Oct 28 09:16:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.542815 -2.290525"
     },
     {
       "id": "b163f32f-fa46-4cf1-8c53-05833d8659c4",
