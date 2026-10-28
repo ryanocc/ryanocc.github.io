@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T22:55:48.011306+00:00",
+  "updatedAt": "2026-10-28T23:00:48.090073+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "e65ad142-d57a-4a67-8f0b-6c58c2a74eb2",
@@ -12,10 +12,24 @@
       "road": "A577 - Elliott St",
       "city": "Tyldesley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.514022 -2.468923"
+    },
+    {
+      "id": "16485f19-a5c1-4a1a-95cc-dc5d92d7c8d0",
+      "title": "alert",
+      "published": "Wed Oct 28 22:58:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.5542 -1.918509"
     }
   ]
 }
