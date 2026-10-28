@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-28T14:55:47.747264+00:00",
+  "updatedAt": "2026-10-28T15:00:47.741697+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
-    {
-      "id": "5a9edcd1-48b9-48d3-b3e2-5b3bec34b902",
-      "title": "alert",
-      "published": "Wed Oct 28 14:51:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Middleton Old Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.524135 -2.215641"
-    },
     {
       "id": "86b71974-8393-4feb-9b22-c3eb7d6908e1",
       "title": "alert",
@@ -32,18 +18,18 @@
       "point": "53.470898 -2.360377"
     },
     {
-      "id": "6aeff618-6a6e-413f-b52b-1c66aafde9c6",
+      "id": "fb5a58ac-a7c7-4aaa-8ee9-c8c965b8e9b8",
       "title": "alert",
-      "published": "Wed Oct 28 14:54:00 +0000 2026",
+      "published": "Wed Oct 28 14:56:43 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "",
-      "city": "Manchester",
+      "subtype": "",
+      "road": "A58 - Bury New Rd",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.470407 -2.245943"
+      "point": "53.591148 -2.266445"
     },
     {
       "id": "d72dbb08-b0aa-4e56-aada-614057020e6e",
@@ -54,8 +40,8 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.512775 -2.370999"
     }
