@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T15:55:48.168702+00:00",
+  "updatedAt": "2026-10-28T16:00:48.358340+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 6,
   "incidents": [
     {
       "id": "19c154e8-a40b-4472-ae19-17635cdb8d24",
@@ -30,6 +30,62 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.527652 -2.494613"
+    },
+    {
+      "id": "adb849ef-75f4-4139-aca2-4dd65952a1ae",
+      "title": "alert",
+      "published": "Wed Oct 28 16:00:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5063 - Trafford Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.466868 -2.283799"
+    },
+    {
+      "id": "26b7c322-5acb-4108-9d06-8588983457f5",
+      "title": "alert",
+      "published": "Wed Oct 28 16:00:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A62 - Manchester Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.519085 -2.145008"
+    },
+    {
+      "id": "b8b3087c-6f76-4e28-89d3-01f9eb26d2a2",
+      "title": "alert",
+      "published": "Wed Oct 28 15:58:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.362449 -2.509872"
+    },
+    {
+      "id": "3ab41b46-544a-4373-b972-4867de384146",
+      "title": "alert",
+      "published": "Wed Oct 28 16:00:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.573131 -2.214238"
     }
   ]
 }
