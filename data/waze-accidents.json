@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T09:00:47.897965+00:00",
+  "updatedAt": "2026-10-28T09:05:53.117274+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.597073 -2.594344"
+    },
+    {
+      "id": "e62d0538-d741-4de3-b388-98bd47a820a3",
+      "title": "alert",
+      "published": "Wed Oct 28 09:03:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5211 - Barton Rd",
+      "city": "Winton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.494408 -2.37614"
     },
     {
       "id": "882aba71-0626-4216-9c19-fb08a6cf14ae",
@@ -68,24 +82,10 @@
       "road": "A575 - Albert Rd",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548855 -2.401485"
-    },
-    {
-      "id": "da1104c2-9057-4481-82c3-ce65544a7412",
-      "title": "alert",
-      "published": "Wed Oct 28 08:42:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.497034 -2.384733"
     },
     {
       "id": "b163f32f-fa46-4cf1-8c53-05833d8659c4",
