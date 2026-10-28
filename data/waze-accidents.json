@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T15:20:48.140507+00:00",
+  "updatedAt": "2026-10-28T15:25:48.153890+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "19c154e8-a40b-4472-ae19-17635cdb8d24",
@@ -26,8 +26,8 @@
       "road": "M60 (N) > Leeds",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.487083 -2.374123"
     },
@@ -44,6 +44,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.470898 -2.360377"
+    },
+    {
+      "id": "2acc27f0-5d4d-4171-9fb8-8e2955741321",
+      "title": "alert",
+      "published": "Wed Oct 28 15:22:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.451998 -2.300874"
     },
     {
       "id": "d72dbb08-b0aa-4e56-aada-614057020e6e",
