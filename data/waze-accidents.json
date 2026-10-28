@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T07:30:48.223434+00:00",
+  "updatedAt": "2026-10-28T07:35:48.052447+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.597073 -2.594344"
+    },
+    {
+      "id": "0b2f6370-20ca-4231-9ebc-721a132f80e5",
+      "title": "alert",
+      "published": "Wed Oct 28 07:30:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J12 to M60 (N) > Leeds",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.48461 -2.385955"
     },
     {
       "id": "f4d2798d-1e5f-48f7-963f-4a5fdef18bc3",
@@ -46,20 +60,6 @@
       "point": "53.616362 -2.168537"
     },
     {
-      "id": "7afe3ff9-d866-4f1d-8eec-a500d5ba5ca4",
-      "title": "alert",
-      "published": "Wed Oct 28 07:28:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.484183 -2.386694"
-    },
-    {
       "id": "45c62fdd-11c8-469b-80bb-12af5e54d686",
       "title": "alert",
       "published": "Wed Oct 28 07:29:34 +0000 2026",
@@ -68,29 +68,15 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.484871 -2.384684"
     },
     {
-      "id": "7f9e3147-236a-479e-919e-93d3a2209060",
+      "id": "7afe3ff9-d866-4f1d-8eec-a500d5ba5ca4",
       "title": "alert",
-      "published": "Wed Oct 28 06:56:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.471617 -2.133587"
-    },
-    {
-      "id": "812ed4eb-9c8e-4178-a7dd-256ef9cc2bcc",
-      "title": "alert",
-      "published": "Wed Oct 28 07:22:43 +0000 2026",
+      "published": "Wed Oct 28 07:28:20 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M62 (W)",
@@ -98,8 +84,22 @@
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.585898 -2.168835"
+      "reportRating": 2.0,
+      "point": "53.484472 -2.385872"
+    },
+    {
+      "id": "ddf2af10-4c76-448f-95ae-47d1fed6df06",
+      "title": "alert",
+      "published": "Wed Oct 28 07:32:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.532867 -2.38634"
     },
     {
       "id": "907311ae-cce5-47ab-a2a9-67c0308505a4",
@@ -113,7 +113,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.585785 -2.165437"
+      "point": "53.585905 -2.162473"
     }
   ]
 }
