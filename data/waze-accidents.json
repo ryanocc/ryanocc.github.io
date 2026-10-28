@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T15:00:47.741697+00:00",
+  "updatedAt": "2026-10-28T15:05:48.619542+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "86b71974-8393-4feb-9b22-c3eb7d6908e1",
@@ -18,18 +18,18 @@
       "point": "53.470898 -2.360377"
     },
     {
-      "id": "fb5a58ac-a7c7-4aaa-8ee9-c8c965b8e9b8",
+      "id": "2de7855e-fa3a-4488-8766-f5b370335f93",
       "title": "alert",
-      "published": "Wed Oct 28 14:56:43 +0000 2026",
+      "published": "Wed Oct 28 15:05:14 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Bury New Rd",
-      "city": "",
+      "road": "A627 - Dukinfield Rd",
+      "city": "Hyde",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.591148 -2.266445"
+      "point": "53.458662 -2.088213"
     },
     {
       "id": "d72dbb08-b0aa-4e56-aada-614057020e6e",
@@ -40,10 +40,24 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.512775 -2.370999"
+    },
+    {
+      "id": "bef6ba5d-ab71-441d-956e-b074f3c894fb",
+      "title": "alert",
+      "published": "Wed Oct 28 15:01:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.583347 -2.188752"
     }
   ]
 }
