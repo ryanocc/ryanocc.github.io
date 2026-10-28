@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T19:30:48.249798+00:00",
+  "updatedAt": "2026-10-28T19:35:48.179407+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.367848 -2.001348"
-    },
-    {
-      "id": "75e9c451-73ca-4047-ad0e-b03a57bb648f",
-      "title": "alert",
-      "published": "Wed Oct 28 17:27:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Moss Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.592484 -2.701944"
     },
     {
       "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
@@ -82,7 +68,7 @@
       "road": "A62 - Oldham Rd",
       "city": "Newton Heath",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.502171 -2.187702"
@@ -100,6 +86,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.591714 -2.27394"
+    },
+    {
+      "id": "a0862d2e-091a-40ee-9599-20227ff9824e",
+      "title": "alert",
+      "published": "Wed Oct 28 19:32:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.52989 -2.372212"
     }
   ]
 }
