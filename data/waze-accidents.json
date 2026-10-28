@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T09:10:48.134193+00:00",
+  "updatedAt": "2026-10-28T09:15:48.151742+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.597073 -2.594344"
     },
     {
-      "id": "e62d0538-d741-4de3-b388-98bd47a820a3",
-      "title": "alert",
-      "published": "Wed Oct 28 09:03:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5211 - Barton Rd",
-      "city": "Winton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.494408 -2.37614"
-    },
-    {
       "id": "882aba71-0626-4216-9c19-fb08a6cf14ae",
       "title": "alert",
       "published": "Wed Oct 28 07:49:22 +0000 2026",
@@ -72,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.628261 -2.183017"
-    },
-    {
-      "id": "3c0cbc24-aa0b-4613-b19e-f938508b1b51",
-      "title": "alert",
-      "published": "Wed Oct 28 08:29:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6225 - Wildhouse Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.619132 -2.111183"
     },
     {
       "id": "30840c79-c8fc-4929-8ae5-ec750914ec36",
@@ -102,6 +74,20 @@
       "point": "53.618938 -2.11125"
     },
     {
+      "id": "3c0cbc24-aa0b-4613-b19e-f938508b1b51",
+      "title": "alert",
+      "published": "Wed Oct 28 08:29:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6225 - Wildhouse Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.619132 -2.111183"
+    },
+    {
       "id": "31c7acdd-32d0-4815-9913-8c21adf2987d",
       "title": "alert",
       "published": "Wed Oct 28 08:58:14 +0000 2026",
@@ -110,10 +96,24 @@
       "road": "A575 - Albert Rd",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548855 -2.401485"
+    },
+    {
+      "id": "2b79e16b-804f-406b-a87e-bc67456e2a50",
+      "title": "alert",
+      "published": "Wed Oct 28 09:12:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A523 - London Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.311311 -2.138256"
     },
     {
       "id": "b163f32f-fa46-4cf1-8c53-05833d8659c4",
