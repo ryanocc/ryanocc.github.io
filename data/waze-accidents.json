@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T15:30:48.313474+00:00",
+  "updatedAt": "2026-10-28T15:35:48.316292+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 2,
   "incidents": [
     {
       "id": "19c154e8-a40b-4472-ae19-17635cdb8d24",
@@ -26,24 +26,10 @@
       "road": "A56 - Chester Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.451998 -2.300874"
-    },
-    {
-      "id": "3a2c38e9-847c-44f3-b5ed-3b4dc6e2a2a7",
-      "title": "alert",
-      "published": "Wed Oct 28 15:28:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.479219 -2.11831"
     }
   ]
 }
