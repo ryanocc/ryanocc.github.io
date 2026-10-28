@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T06:40:48.204461+00:00",
+  "updatedAt": "2026-10-28T06:45:48.088215+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "80dade36-7452-4b14-ae6b-6338fc0d5e57",
@@ -13,9 +13,23 @@
       "city": "Eccles",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.482098 -2.332093"
+    },
+    {
+      "id": "222b3f80-f040-472b-85d4-0ced42aff815",
+      "title": "alert",
+      "published": "Wed Oct 28 06:42:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.462037 -2.138047"
     }
   ]
 }
