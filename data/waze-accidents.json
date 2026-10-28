@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-28T13:40:48.191219+00:00",
+  "updatedAt": "2026-10-28T13:45:48.238807+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
+    {
+      "id": "57f69aeb-6644-456a-bca3-152ad4ca6cc1",
+      "title": "alert",
+      "published": "Wed Oct 28 13:41:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6469 - Whitworth St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.475928 -2.236884"
+    },
     {
       "id": "86b71974-8393-4feb-9b22-c3eb7d6908e1",
       "title": "alert",
@@ -13,7 +27,7 @@
       "city": "Trafford Park",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.470898 -2.360377"
     },
@@ -26,8 +40,8 @@
       "road": "A6 - Crescent",
       "city": "Irwell Riverside",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.485237 -2.275376"
     }
