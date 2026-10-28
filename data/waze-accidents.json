@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T18:25:48.251565+00:00",
+  "updatedAt": "2026-10-28T18:30:48.365692+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -55,7 +55,7 @@
       "city": "Hollins",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.56637 -2.291505"
     },
@@ -88,18 +88,18 @@
       "point": "53.441548 -2.593604"
     },
     {
-      "id": "b75e3cc2-50f6-440b-a8a5-99e8617d275c",
+      "id": "916aca3c-48ab-4ccb-be59-acecc47d07fd",
       "title": "alert",
-      "published": "Wed Oct 28 17:30:19 +0000 2026",
+      "published": "Wed Oct 28 17:26:27 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5209 - Hall Ln",
-      "city": "",
+      "road": "",
+      "city": "Wigan",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.592381 -2.702136"
+      "reportRating": 1.0,
+      "point": "53.541177 -2.647733"
     },
     {
       "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
@@ -116,18 +116,18 @@
       "point": "53.591948 -2.699678"
     },
     {
-      "id": "916aca3c-48ab-4ccb-be59-acecc47d07fd",
+      "id": "b75e3cc2-50f6-440b-a8a5-99e8617d275c",
       "title": "alert",
-      "published": "Wed Oct 28 17:26:27 +0000 2026",
+      "published": "Wed Oct 28 17:30:19 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Wigan",
+      "road": "A5209 - Hall Ln",
+      "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.541177 -2.647733"
+      "reportRating": 0.0,
+      "point": "53.592381 -2.702136"
     },
     {
       "id": "b316b0e8-f8bf-4ac1-b244-91662c49a81f",
@@ -138,8 +138,8 @@
       "road": "A57 - Manchester Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.457358 -2.14137"
     },
