@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T12:55:48.111067+00:00",
+  "updatedAt": "2026-10-28T13:00:48.230168+00:00",
   "source": "Waze GeoRSS",
   "count": 3,
   "incidents": [
@@ -12,24 +12,10 @@
       "road": "Sackville St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.477585 -2.238135"
-    },
-    {
-      "id": "4e6289d3-e373-4991-807c-29e7e9763951",
-      "title": "alert",
-      "published": "Wed Oct 28 12:30:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Bradford Rd",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.484697 -2.216127"
     },
     {
       "id": "5e05f23f-bd41-44db-a0d2-a480ac634da8",
@@ -44,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.533766 -2.421311"
+    },
+    {
+      "id": "c5958cbf-eb0c-4b36-ab73-4f7af856bf66",
+      "title": "alert",
+      "published": "Wed Oct 28 12:56:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.558922 -2.702226"
     }
   ]
 }
