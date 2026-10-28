@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T16:20:48.263208+00:00",
+  "updatedAt": "2026-10-28T16:25:48.496206+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "cf96388e-087c-4a47-b571-2b967b760a18",
@@ -32,20 +32,6 @@
       "point": "53.485466 -2.076099"
     },
     {
-      "id": "de31ea52-a020-4f24-bfb8-af99780773ca",
-      "title": "alert",
-      "published": "Wed Oct 28 16:14:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6209 - Radcliffe Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.569089 -2.381738"
-    },
-    {
       "id": "2cd0670a-eefc-4db4-bfbc-58e65a36b087",
       "title": "alert",
       "published": "Wed Oct 28 15:38:41 +0000 2026",
@@ -69,9 +55,37 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.519016 -2.145096"
+      "point": "53.519206 -2.144853"
+    },
+    {
+      "id": "5505bd84-6ba4-4ddf-bfcc-2e26bd010b2f",
+      "title": "alert",
+      "published": "Wed Oct 28 16:22:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.591803 -2.273226"
+    },
+    {
+      "id": "b0cacb76-d772-474e-b3ee-860eaafca4d4",
+      "title": "alert",
+      "published": "Wed Oct 28 16:25:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.358048 -2.481577"
     },
     {
       "id": "9a6100a9-7fea-47ff-82da-33da297ecd28",
@@ -86,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.362743 -2.43678"
+    },
+    {
+      "id": "55d2b318-1918-4aef-94f7-aabcb65b6427",
+      "title": "alert",
+      "published": "Wed Oct 28 16:20:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.529982 -2.320358"
     },
     {
       "id": "3ab41b46-544a-4373-b972-4867de384146",
