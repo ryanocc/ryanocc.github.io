@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-28T12:35:47.717296+00:00",
+  "updatedAt": "2026-10-28T12:40:48.118820+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
+    {
+      "id": "78c24c19-efee-41ab-b79b-72f61fd0cedf",
+      "title": "alert",
+      "published": "Wed Oct 28 12:40:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Sackville St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.477585 -2.238135"
+    },
     {
       "id": "4e6289d3-e373-4991-807c-29e7e9763951",
       "title": "alert",
@@ -44,6 +58,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.533766 -2.421311"
+    },
+    {
+      "id": "fa6fd40e-1c37-4cef-b8fa-e08f0b89a86c",
+      "title": "alert",
+      "published": "Wed Oct 28 12:38:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Fallowfield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.446707 -2.244378"
     }
   ]
 }
