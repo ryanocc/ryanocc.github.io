@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T20:50:47.145321+00:00",
+  "updatedAt": "2026-10-28T20:55:47.632066+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "fd116b66-8d44-451d-8f26-fa42e9eb9a94",
@@ -26,8 +26,8 @@
       "road": "Stanley Gr",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.458361 -2.192486"
     },
@@ -58,6 +58,20 @@
       "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.390213 -2.141301"
+    },
+    {
+      "id": "a0ce51f4-bce1-44dd-bf13-63d35a9cf102",
+      "title": "alert",
+      "published": "Wed Oct 28 20:53:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.497218 -2.123941"
     },
     {
       "id": "d82e3ac0-d23b-487c-b0b8-0fdd95023807",
