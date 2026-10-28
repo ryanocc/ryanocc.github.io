@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-28T18:35:48.353960+00:00",
+  "updatedAt": "2026-10-28T18:40:48.445337+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
+    {
+      "id": "782ace7e-51e7-47c3-9dc0-e7289d9bcde3",
+      "title": "alert",
+      "published": "Wed Oct 28 18:36:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 > Preston",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.365737 -2.510219"
+    },
     {
       "id": "ba432706-ebad-4312-93f4-01771c5f6b13",
       "title": "alert",
@@ -26,8 +40,8 @@
       "road": "Moss Ln",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.592484 -2.701944"
     },
@@ -40,24 +54,10 @@
       "road": "M60 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.442948 -2.338709"
-    },
-    {
-      "id": "1aca4fc8-8978-40a6-8128-c2b537ce596b",
-      "title": "alert",
-      "published": "Wed Oct 28 18:23:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Pilsworth Rd",
-      "city": "Pilsworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.574988 -2.279851"
     },
     {
       "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
@@ -102,20 +102,6 @@
       "point": "53.592381 -2.702136"
     },
     {
-      "id": "b316b0e8-f8bf-4ac1-b244-91662c49a81f",
-      "title": "alert",
-      "published": "Wed Oct 28 18:25:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Manchester Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.457358 -2.14137"
-    },
-    {
       "id": "8f1b8360-7eff-473c-9c89-e9734f8c3180",
       "title": "alert",
       "published": "Wed Oct 28 17:54:05 +0000 2026",
@@ -128,6 +114,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.591714 -2.27394"
+    },
+    {
+      "id": "bb025f8f-eae6-4d80-a9f0-f07011a71bfe",
+      "title": "alert",
+      "published": "Wed Oct 28 18:39:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.366879 -2.510048"
     }
   ]
 }
