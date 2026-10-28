@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T08:30:48.137554+00:00",
+  "updatedAt": "2026-10-28T08:35:48.111142+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "d02bd101-b561-488c-a4fb-06f2e9eaa47e",
@@ -32,20 +32,6 @@
       "point": "53.618938 -2.11125"
     },
     {
-      "id": "3c0cbc24-aa0b-4613-b19e-f938508b1b51",
-      "title": "alert",
-      "published": "Wed Oct 28 08:29:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6225 - Wildhouse Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.619132 -2.111183"
-    },
-    {
       "id": "882aba71-0626-4216-9c19-fb08a6cf14ae",
       "title": "alert",
       "published": "Wed Oct 28 07:49:22 +0000 2026",
@@ -54,10 +40,24 @@
       "road": "Ings Ln",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.628261 -2.183017"
+    },
+    {
+      "id": "3c0cbc24-aa0b-4613-b19e-f938508b1b51",
+      "title": "alert",
+      "published": "Wed Oct 28 08:29:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6225 - Wildhouse Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.619132 -2.111183"
     },
     {
       "id": "b163f32f-fa46-4cf1-8c53-05833d8659c4",
@@ -72,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.545157 -2.27537"
-    },
-    {
-      "id": "c15e6ae1-953d-4b3f-84ad-90b272b28e91",
-      "title": "alert",
-      "published": "Wed Oct 28 08:29:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.544499 -2.276616"
     }
   ]
 }
