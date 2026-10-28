@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T07:35:48.052447+00:00",
+  "updatedAt": "2026-10-28T07:40:48.117427+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "d02bd101-b561-488c-a4fb-06f2e9eaa47e",
@@ -13,7 +13,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.597073 -2.594344"
     },
@@ -26,7 +26,7 @@
       "road": "J12 to M60 (N) > Leeds",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.48461 -2.385955"
@@ -46,34 +46,6 @@
       "point": "53.585681 -2.163622"
     },
     {
-      "id": "228db8b7-42fb-486c-a21d-c69414e03c1e",
-      "title": "alert",
-      "published": "Wed Oct 28 07:17:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6222 - College Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 5.0,
-      "point": "53.616362 -2.168537"
-    },
-    {
-      "id": "45c62fdd-11c8-469b-80bb-12af5e54d686",
-      "title": "alert",
-      "published": "Wed Oct 28 07:29:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.484871 -2.384684"
-    },
-    {
       "id": "7afe3ff9-d866-4f1d-8eec-a500d5ba5ca4",
       "title": "alert",
       "published": "Wed Oct 28 07:28:20 +0000 2026",
@@ -88,18 +60,32 @@
       "point": "53.484472 -2.385872"
     },
     {
-      "id": "ddf2af10-4c76-448f-95ae-47d1fed6df06",
+      "id": "81fd73eb-bd3e-4f36-a0ae-6b98fa5ba6af",
       "title": "alert",
-      "published": "Wed Oct 28 07:32:07 +0000 2026",
+      "published": "Wed Oct 28 07:38:07 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M61 (S)",
+      "road": "",
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
-      "point": "53.532867 -2.38634"
+      "point": "53.48499 -2.384759"
+    },
+    {
+      "id": "45c62fdd-11c8-469b-80bb-12af5e54d686",
+      "title": "alert",
+      "published": "Wed Oct 28 07:29:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.484796 -2.384909"
     },
     {
       "id": "907311ae-cce5-47ab-a2a9-67c0308505a4",
