@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T08:45:48.093924+00:00",
+  "updatedAt": "2026-10-28T08:50:48.412797+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "d02bd101-b561-488c-a4fb-06f2e9eaa47e",
@@ -18,6 +18,20 @@
       "point": "53.597073 -2.594344"
     },
     {
+      "id": "30840c79-c8fc-4929-8ae5-ec750914ec36",
+      "title": "alert",
+      "published": "Wed Oct 28 08:25:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6225 - Wildhouse Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.618938 -2.11125"
+    },
+    {
       "id": "882aba71-0626-4216-9c19-fb08a6cf14ae",
       "title": "alert",
       "published": "Wed Oct 28 07:49:22 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.628261 -2.183017"
     },
@@ -40,24 +54,10 @@
       "road": "B6225 - Wildhouse Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.619132 -2.111183"
-    },
-    {
-      "id": "30840c79-c8fc-4929-8ae5-ec750914ec36",
-      "title": "alert",
-      "published": "Wed Oct 28 08:25:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6225 - Wildhouse Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.618938 -2.11125"
     },
     {
       "id": "da1104c2-9057-4481-82c3-ce65544a7412",
@@ -68,24 +68,10 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.497034 -2.384733"
-    },
-    {
-      "id": "928f7d94-11d4-409f-a715-0f72fe794fc8",
-      "title": "alert",
-      "published": "Wed Oct 28 08:44:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.500792 -2.383988"
     },
     {
       "id": "b163f32f-fa46-4cf1-8c53-05833d8659c4",
