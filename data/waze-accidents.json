@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T19:10:48.262375+00:00",
+  "updatedAt": "2026-10-28T19:15:48.227175+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
     {
       "id": "fd116b66-8d44-451d-8f26-fa42e9eb9a94",
@@ -46,20 +46,6 @@
       "point": "53.442948 -2.338709"
     },
     {
-      "id": "8cdb15e3-ed18-4781-8d90-b1378b3a7e36",
-      "title": "alert",
-      "published": "Wed Oct 28 18:53:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J24 to M67, A57",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.457633 -2.135694"
-    },
-    {
       "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
       "title": "alert",
       "published": "Wed Oct 28 18:08:55 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.441548 -2.593604"
+    },
+    {
+      "id": "6d44af90-4b2c-466c-b50e-6aa1a0b6fbdf",
+      "title": "alert",
+      "published": "Wed Oct 28 19:14:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.519771 -2.14381"
     },
     {
       "id": "0d3568ba-4ed2-4ef6-86ae-76951d555c4f",
@@ -96,7 +96,7 @@
       "road": "A56 - Chester Rd",
       "city": "Old Trafford",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.461883 -2.286321"
@@ -110,8 +110,8 @@
       "road": "A62 - Oldham Rd",
       "city": "Newton Heath",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.502171 -2.187702"
     },
@@ -128,6 +128,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.591714 -2.27394"
+    },
+    {
+      "id": "1f189f27-20a3-4925-adf6-83c6924730f0",
+      "title": "alert",
+      "published": "Wed Oct 28 19:15:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.540358 -2.236224"
     },
     {
       "id": "01dbb717-9fd0-4835-829a-3e98f63a3c3b",
