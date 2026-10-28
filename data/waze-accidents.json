@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T07:00:48.309038+00:00",
+  "updatedAt": "2026-10-28T07:05:48.100064+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "80dade36-7452-4b14-ae6b-6338fc0d5e57",
@@ -12,10 +12,24 @@
       "road": "A57 - Bentcliffe Way",
       "city": "Eccles",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.482098 -2.332093"
+    },
+    {
+      "id": "86d9329a-b9c6-4528-8f98-85a516ea30e9",
+      "title": "alert",
+      "published": "Wed Oct 28 07:01:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5063 - Trafford Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.47095 -2.282705"
     },
     {
       "id": "7f9e3147-236a-479e-919e-93d3a2209060",
