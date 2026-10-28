@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T19:00:48.293759+00:00",
+  "updatedAt": "2026-10-28T19:05:48.288211+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 12,
   "incidents": [
     {
       "id": "fd116b66-8d44-451d-8f26-fa42e9eb9a94",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.592484 -2.701944"
     },
@@ -54,24 +54,10 @@
       "road": "J24 to M67, A57",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.457633 -2.135694"
-    },
-    {
-      "id": "5a086ce3-5816-43ad-bd29-b79160361586",
-      "title": "alert",
-      "published": "Wed Oct 28 18:56:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Dean Ln",
-      "city": "Newton Heath",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.503134 -2.184353"
     },
     {
       "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
@@ -102,20 +88,6 @@
       "point": "53.547745 -2.089121"
     },
     {
-      "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
-      "title": "alert",
-      "published": "Wed Oct 28 17:42:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Crow Orchard Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.591948 -2.699678"
-    },
-    {
       "id": "462bbe5c-16e8-4c2b-862f-ebe6aa355f24",
       "title": "alert",
       "published": "Wed Oct 28 18:56:36 +0000 2026",
@@ -124,8 +96,8 @@
       "road": "A56 - Chester Rd",
       "city": "Old Trafford",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.461883 -2.286321"
     },
@@ -144,6 +116,20 @@
       "point": "53.591714 -2.27394"
     },
     {
+      "id": "ea66bf66-9a05-4823-98d9-fc9dfdac356b",
+      "title": "alert",
+      "published": "Wed Oct 28 19:03:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.495964 -2.384354"
+    },
+    {
       "id": "365d1769-461f-438a-b777-c489a5bd2809",
       "title": "alert",
       "published": "Wed Oct 28 19:00:02 +0000 2026",
@@ -152,8 +138,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460113 -2.341711"
     },
@@ -167,7 +153,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.528782 -2.367767"
     },
