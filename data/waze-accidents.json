@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T18:20:48.355491+00:00",
+  "updatedAt": "2026-10-28T18:25:48.251565+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "ba432706-ebad-4312-93f4-01771c5f6b13",
@@ -26,7 +26,7 @@
       "road": "M60 (E & N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.409584 -2.173319"
@@ -46,18 +46,32 @@
       "point": "53.592484 -2.701944"
     },
     {
-      "id": "3463a327-f761-483d-9016-ba4944cf64d5",
+      "id": "5a2c6d28-7dcb-4fe7-b5db-0097458bb8fe",
       "title": "alert",
-      "published": "Wed Oct 28 18:01:28 +0000 2026",
+      "published": "Wed Oct 28 18:24:49 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6144 - Carrington Ln",
-      "city": "",
+      "subtype": "",
+      "road": "Hollins Brow",
+      "city": "Hollins",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.433856 -2.374973"
+      "point": "53.56637 -2.291505"
+    },
+    {
+      "id": "1aca4fc8-8978-40a6-8128-c2b537ce596b",
+      "title": "alert",
+      "published": "Wed Oct 28 18:23:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Pilsworth Rd",
+      "city": "Pilsworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.574988 -2.279851"
     },
     {
       "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
@@ -72,6 +86,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.441548 -2.593604"
+    },
+    {
+      "id": "b75e3cc2-50f6-440b-a8a5-99e8617d275c",
+      "title": "alert",
+      "published": "Wed Oct 28 17:30:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - Hall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.592381 -2.702136"
     },
     {
       "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
@@ -102,18 +130,18 @@
       "point": "53.541177 -2.647733"
     },
     {
-      "id": "b75e3cc2-50f6-440b-a8a5-99e8617d275c",
+      "id": "b316b0e8-f8bf-4ac1-b244-91662c49a81f",
       "title": "alert",
-      "published": "Wed Oct 28 17:30:19 +0000 2026",
+      "published": "Wed Oct 28 18:25:25 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5209 - Hall Ln",
+      "road": "A57 - Manchester Rd",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.592381 -2.702136"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.457358 -2.14137"
     },
     {
       "id": "8f1b8360-7eff-473c-9c89-e9734f8c3180",
