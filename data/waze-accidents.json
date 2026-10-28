@@ -1,35 +1,21 @@
 {
-  "updatedAt": "2026-10-28T18:40:48.445337+00:00",
+  "updatedAt": "2026-10-28T18:45:48.416663+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
-      "id": "782ace7e-51e7-47c3-9dc0-e7289d9bcde3",
+      "id": "5f76f69d-d686-4d66-b914-9ad8ad19679e",
       "title": "alert",
-      "published": "Wed Oct 28 18:36:23 +0000 2026",
+      "published": "Wed Oct 28 18:43:00 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 > Preston",
-      "city": "",
+      "road": "Outwood Ln",
+      "city": "Manchester Airport",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.365737 -2.510219"
-    },
-    {
-      "id": "ba432706-ebad-4312-93f4-01771c5f6b13",
-      "title": "alert",
-      "published": "Wed Oct 28 17:57:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Mobberley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.333974 -2.255838"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.364487 -2.270943"
     },
     {
       "id": "75e9c451-73ca-4047-ad0e-b03a57bb648f",
@@ -54,10 +40,24 @@
       "road": "M60 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.442948 -2.338709"
+    },
+    {
+      "id": "85efbc82-01f7-4179-8686-7f3ad496179f",
+      "title": "alert",
+      "published": "Wed Oct 28 18:44:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Hale Rd",
+      "city": "Hale Barns",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.365601 -2.303062"
     },
     {
       "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
@@ -74,6 +74,20 @@
       "point": "53.441548 -2.593604"
     },
     {
+      "id": "0d3568ba-4ed2-4ef6-86ae-76951d555c4f",
+      "title": "alert",
+      "published": "Wed Oct 28 18:45:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A672 - Ripponden Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.547745 -2.089121"
+    },
+    {
       "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
       "title": "alert",
       "published": "Wed Oct 28 17:42:42 +0000 2026",
@@ -88,20 +102,6 @@
       "point": "53.591948 -2.699678"
     },
     {
-      "id": "b75e3cc2-50f6-440b-a8a5-99e8617d275c",
-      "title": "alert",
-      "published": "Wed Oct 28 17:30:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Hall Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.592381 -2.702136"
-    },
-    {
       "id": "8f1b8360-7eff-473c-9c89-e9734f8c3180",
       "title": "alert",
       "published": "Wed Oct 28 17:54:05 +0000 2026",
@@ -114,20 +114,6 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.591714 -2.27394"
-    },
-    {
-      "id": "bb025f8f-eae6-4d80-a9f0-f07011a71bfe",
-      "title": "alert",
-      "published": "Wed Oct 28 18:39:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.366879 -2.510048"
     }
   ]
 }
