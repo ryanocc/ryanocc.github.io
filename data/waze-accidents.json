@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T07:55:48.100119+00:00",
+  "updatedAt": "2026-10-28T08:00:48.185364+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 2,
   "incidents": [
     {
       "id": "d02bd101-b561-488c-a4fb-06f2e9eaa47e",
@@ -12,8 +12,8 @@
       "road": "Dark Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.597073 -2.594344"
     },
@@ -30,20 +30,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.628261 -2.183017"
-    },
-    {
-      "id": "907311ae-cce5-47ab-a2a9-67c0308505a4",
-      "title": "alert",
-      "published": "Wed Oct 28 07:20:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.585905 -2.162473"
     }
   ]
 }
