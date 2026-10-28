@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T18:00:48.486684+00:00",
+  "updatedAt": "2026-10-28T18:05:48.379487+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 12,
   "incidents": [
     {
       "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
@@ -60,32 +60,18 @@
       "point": "53.592484 -2.701944"
     },
     {
-      "id": "048e21fa-0438-41e4-83de-a20de857b28d",
+      "id": "3463a327-f761-483d-9016-ba4944cf64d5",
       "title": "alert",
-      "published": "Wed Oct 28 17:57:39 +0000 2026",
+      "published": "Wed Oct 28 18:01:28 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "The Quays",
-      "city": "Ordsall",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6144 - Carrington Ln",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.473833 -2.291945"
-    },
-    {
-      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
-      "title": "alert",
-      "published": "Wed Oct 28 17:17:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.331464 -2.253044"
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.433856 -2.374973"
     },
     {
       "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
@@ -116,18 +102,18 @@
       "point": "53.33069 -2.252029"
     },
     {
-      "id": "d0b366bd-f25e-4fed-ab4c-8a97fa4adec6",
+      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
       "title": "alert",
-      "published": "Wed Oct 28 17:50:20 +0000 2026",
+      "published": "Wed Oct 28 17:17:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.41348 -2.265422"
+      "reportRating": 3.0,
+      "point": "53.331464 -2.253044"
     },
     {
       "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
@@ -180,24 +166,10 @@
       "road": "A58 - Rochdale Rd",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.591714 -2.27394"
-    },
-    {
-      "id": "3ab41b46-544a-4373-b972-4867de384146",
-      "title": "alert",
-      "published": "Wed Oct 28 16:00:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.573131 -2.214238"
     }
   ]
 }
