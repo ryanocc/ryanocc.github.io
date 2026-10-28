@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-10-28T07:15:48.047554+00:00",
+  "updatedAt": "2026-10-28T07:20:48.045960+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
-      "id": "80dade36-7452-4b14-ae6b-6338fc0d5e57",
+      "id": "f4d2798d-1e5f-48f7-963f-4a5fdef18bc3",
       "title": "alert",
-      "published": "Wed Oct 28 05:39:13 +0000 2026",
+      "published": "Wed Oct 28 07:16:27 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Bentcliffe Way",
-      "city": "Eccles",
+      "road": "M62 > Liverpool",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
+      "confidence": 1.0,
       "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.482098 -2.332093"
+      "point": "53.585681 -2.163622"
+    },
+    {
+      "id": "228db8b7-42fb-486c-a21d-c69414e03c1e",
+      "title": "alert",
+      "published": "Wed Oct 28 07:17:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6222 - College Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 5.0,
+      "point": "53.616362 -2.168537"
     },
     {
       "id": "7f9e3147-236a-479e-919e-93d3a2209060",
@@ -32,18 +46,18 @@
       "point": "53.471617 -2.133587"
     },
     {
-      "id": "697dbca7-4820-46f3-8324-eebf38eb50d3",
+      "id": "907311ae-cce5-47ab-a2a9-67c0308505a4",
       "title": "alert",
-      "published": "Wed Oct 28 07:15:35 +0000 2026",
+      "published": "Wed Oct 28 07:20:34 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.585892 -2.168675"
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.585785 -2.165437"
     }
   ]
 }
