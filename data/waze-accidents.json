@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T08:55:48.112596+00:00",
+  "updatedAt": "2026-10-28T09:00:47.897965+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "d02bd101-b561-488c-a4fb-06f2e9eaa47e",
@@ -16,20 +16,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.597073 -2.594344"
-    },
-    {
-      "id": "30840c79-c8fc-4929-8ae5-ec750914ec36",
-      "title": "alert",
-      "published": "Wed Oct 28 08:25:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6225 - Wildhouse Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.618938 -2.11125"
     },
     {
       "id": "882aba71-0626-4216-9c19-fb08a6cf14ae",
@@ -58,6 +44,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.619132 -2.111183"
+    },
+    {
+      "id": "30840c79-c8fc-4929-8ae5-ec750914ec36",
+      "title": "alert",
+      "published": "Wed Oct 28 08:25:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6225 - Wildhouse Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.618938 -2.11125"
+    },
+    {
+      "id": "31c7acdd-32d0-4815-9913-8c21adf2987d",
+      "title": "alert",
+      "published": "Wed Oct 28 08:58:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A575 - Albert Rd",
+      "city": "Farnworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.548855 -2.401485"
     },
     {
       "id": "da1104c2-9057-4481-82c3-ce65544a7412",
