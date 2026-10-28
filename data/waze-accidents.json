@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-10-28T10:35:48.131533+00:00",
+  "updatedAt": "2026-10-28T10:40:48.331401+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
-      "id": "95e146b5-801b-4d99-bd95-dfc19c6d131a",
+      "id": "7cd1b4a2-f5b1-4922-9ae0-21bb22cd6b0b",
       "title": "alert",
-      "published": "Wed Oct 28 10:17:56 +0000 2026",
+      "published": "Wed Oct 28 10:38:13 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
+      "road": "Clarence Ct",
+      "city": "Wilmslow",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.61769 -2.087174"
+      "point": "53.324769 -2.235633"
     },
     {
       "id": "a2cb1126-122f-4021-8e3b-5fc91f9b53df",
@@ -30,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.618029 -2.086503"
+    },
+    {
+      "id": "95e146b5-801b-4d99-bd95-dfc19c6d131a",
+      "title": "alert",
+      "published": "Wed Oct 28 10:17:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.61769 -2.087174"
     }
   ]
 }
