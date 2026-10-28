@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-10-28T13:20:47.872156+00:00",
+  "updatedAt": "2026-10-28T13:25:48.212743+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 5,
   "incidents": [
     {
-      "id": "5e05f23f-bd41-44db-a0d2-a480ac634da8",
+      "id": "86b71974-8393-4feb-9b22-c3eb7d6908e1",
       "title": "alert",
-      "published": "Wed Oct 28 11:14:04 +0000 2026",
+      "published": "Wed Oct 28 13:25:39 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5082 - Clegg's Ln",
-      "city": "Little Hulton",
+      "road": "",
+      "city": "Trafford Park",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.470898 -2.360377"
+    },
+    {
+      "id": "25b033d6-3452-4d13-ae38-71d185b42656",
+      "title": "alert",
+      "published": "Wed Oct 28 13:21:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
       "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.533766 -2.421311"
+      "reportRating": 2.0,
+      "point": "53.410364 -2.147495"
     },
     {
       "id": "a4f844da-48d4-46bf-8438-2bcff96b1d46",
@@ -27,9 +41,37 @@
       "city": "Irwell Riverside",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.485237 -2.275376"
+    },
+    {
+      "id": "c248dbbe-a608-49ea-9bf7-71df5a3f4f32",
+      "title": "alert",
+      "published": "Wed Oct 28 13:22:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.592078 -2.275865"
+    },
+    {
+      "id": "1b367d46-aab6-439f-a90c-b3854c8f7a3b",
+      "title": "alert",
+      "published": "Wed Oct 28 13:23:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.591837 -2.273844"
     }
   ]
 }
