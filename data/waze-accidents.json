@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T07:20:48.045960+00:00",
+  "updatedAt": "2026-10-28T07:25:48.146311+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "f4d2798d-1e5f-48f7-963f-4a5fdef18bc3",
@@ -12,8 +12,8 @@
       "road": "M62 > Liverpool",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.585681 -2.163622"
     },
@@ -54,10 +54,24 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.585785 -2.165437"
+    },
+    {
+      "id": "812ed4eb-9c8e-4178-a7dd-256ef9cc2bcc",
+      "title": "alert",
+      "published": "Wed Oct 28 07:22:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.585898 -2.168835"
     }
   ]
 }
