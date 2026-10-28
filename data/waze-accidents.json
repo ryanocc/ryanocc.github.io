@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T17:40:48.380128+00:00",
+  "updatedAt": "2026-10-28T17:45:48.450382+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 13,
   "incidents": [
     {
       "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
@@ -12,8 +12,8 @@
       "road": "Longbarn Blvd",
       "city": "Grange",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.412077 -2.539661"
     },
@@ -26,7 +26,7 @@
       "road": "Kings Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.331071 -2.252447"
@@ -60,18 +60,18 @@
       "point": "53.592484 -2.701944"
     },
     {
-      "id": "2cd0670a-eefc-4db4-bfbc-58e65a36b087",
+      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
       "title": "alert",
-      "published": "Wed Oct 28 15:38:41 +0000 2026",
+      "published": "Wed Oct 28 17:08:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Atherton",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.527652 -2.494613"
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.33069 -2.252029"
     },
     {
       "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
@@ -82,24 +82,10 @@
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.331464 -2.253044"
-    },
-    {
-      "id": "4a36c395-f616-4c5b-8fa6-1ff917998d23",
-      "title": "alert",
-      "published": "Wed Oct 28 16:47:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.331179 -2.252774"
     },
     {
       "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
@@ -116,18 +102,18 @@
       "point": "53.332167 -2.253538"
     },
     {
-      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
+      "id": "4a36c395-f616-4c5b-8fa6-1ff917998d23",
       "title": "alert",
-      "published": "Wed Oct 28 17:08:43 +0000 2026",
+      "published": "Wed Oct 28 16:47:41 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.33069 -2.252029"
+      "point": "53.331179 -2.252774"
     },
     {
       "id": "fa00422a-d848-4d2d-8b82-529e3a23b785",
@@ -138,7 +124,7 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.413085 -2.265634"
@@ -152,8 +138,8 @@
       "road": "",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.541177 -2.647733"
     },
@@ -166,24 +152,24 @@
       "road": "A5209 - Hall Ln",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.592381 -2.702136"
     },
     {
-      "id": "a349629f-d80d-4e09-be13-9970be0b32bd",
+      "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
       "title": "alert",
-      "published": "Wed Oct 28 17:26:23 +0000 2026",
+      "published": "Wed Oct 28 17:42:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Old Trafford",
+      "road": "A5209 - Crow Orchard Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
+      "confidence": 1.0,
       "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.458835 -2.292969"
+      "reportRating": 4.0,
+      "point": "53.591948 -2.699678"
     },
     {
       "id": "3ab41b46-544a-4373-b972-4867de384146",
