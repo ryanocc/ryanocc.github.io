@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T16:55:48.364822+00:00",
+  "updatedAt": "2026-10-28T17:00:48.411794+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 12,
   "incidents": [
     {
       "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
@@ -54,8 +54,8 @@
       "road": "M60 (N & E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.439937 -2.333344"
     },
@@ -97,7 +97,7 @@
       "city": "Ordsall",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.47589 -2.286923"
     },
@@ -116,20 +116,6 @@
       "point": "53.328808 -2.249219"
     },
     {
-      "id": "4a36c395-f616-4c5b-8fa6-1ff917998d23",
-      "title": "alert",
-      "published": "Wed Oct 28 16:47:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.331179 -2.252774"
-    },
-    {
       "id": "5b80365f-27fb-41df-80b1-aeacc49d1ce9",
       "title": "alert",
       "published": "Wed Oct 28 16:42:52 +0000 2026",
@@ -144,32 +130,32 @@
       "point": "53.331344 -2.252945"
     },
     {
-      "id": "7287d77c-6a45-485e-8b46-e61263eff13e",
+      "id": "4a36c395-f616-4c5b-8fa6-1ff917998d23",
       "title": "alert",
-      "published": "Wed Oct 28 16:51:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A56 - Bridgewater Way",
-      "city": "Old Trafford",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.469013 -2.267261"
-    },
-    {
-      "id": "f95ab617-699a-43db-9da3-e97cb84cb30a",
-      "title": "alert",
-      "published": "Wed Oct 28 16:55:08 +0000 2026",
+      "published": "Wed Oct 28 16:47:41 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A34 - Upper Brook St",
-      "city": "Chorlton-on-Medlock",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.331179 -2.252774"
+    },
+    {
+      "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
+      "title": "alert",
+      "published": "Wed Oct 28 16:59:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
-      "point": "53.466774 -2.22905"
+      "point": "53.332167 -2.253538"
     },
     {
       "id": "3ab41b46-544a-4373-b972-4867de384146",
