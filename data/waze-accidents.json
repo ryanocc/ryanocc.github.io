@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-28T20:20:47.658955+00:00",
+  "updatedAt": "2026-10-28T20:25:48.102939+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "60f5683b-c9cd-4f3b-bcfd-4e551f71e98e",
+      "title": "alert",
+      "published": "Wed Oct 28 20:23:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J3 to A34 (S)",
+      "city": "Gatley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.394505 -2.22643"
+    },
     {
       "id": "fd116b66-8d44-451d-8f26-fa42e9eb9a94",
       "title": "alert",
@@ -16,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.367848 -2.001348"
+    },
+    {
+      "id": "8034b1e6-7e50-4163-8581-6f9e778d6c6f",
+      "title": "alert",
+      "published": "Wed Oct 28 20:22:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5082 - Peel Ln",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.527314 -2.427389"
     },
     {
       "id": "6d44af90-4b2c-466c-b50e-6aa1a0b6fbdf",
