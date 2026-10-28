@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T21:35:48.184474+00:00",
+  "updatedAt": "2026-10-28T21:40:48.077087+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "55bc0366-9375-4e53-a317-d41a718c7a9c",
@@ -18,20 +18,6 @@
       "point": "53.390213 -2.141301"
     },
     {
-      "id": "248a4d84-0717-4d51-81e7-d45b7a122d5e",
-      "title": "alert",
-      "published": "Wed Oct 28 21:30:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.497519 -2.124655"
-    },
-    {
       "id": "cee72f34-7eee-4aff-9783-7a9aeb33a314",
       "title": "alert",
       "published": "Wed Oct 28 21:33:44 +0000 2026",
@@ -40,10 +26,52 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.501405 -2.127909"
+    },
+    {
+      "id": "248a4d84-0717-4d51-81e7-d45b7a122d5e",
+      "title": "alert",
+      "published": "Wed Oct 28 21:30:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.497519 -2.124655"
+    },
+    {
+      "id": "78a6720a-b8ab-4499-892e-891c182983d3",
+      "title": "alert",
+      "published": "Wed Oct 28 21:36:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.510251 -2.134066"
+    },
+    {
+      "id": "a0ec2971-2ff4-455d-ad3f-45d5038dc1f5",
+      "title": "alert",
+      "published": "Wed Oct 28 21:39:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.600156 -2.115383"
     },
     {
       "id": "d82e3ac0-d23b-487c-b0b8-0fdd95023807",
