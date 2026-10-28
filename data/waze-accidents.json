@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T17:25:48.408213+00:00",
+  "updatedAt": "2026-10-28T17:30:48.493778+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 16,
   "incidents": [
     {
       "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
@@ -46,6 +46,20 @@
       "point": "53.461278 -2.288493"
     },
     {
+      "id": "75e9c451-73ca-4047-ad0e-b03a57bb648f",
+      "title": "alert",
+      "published": "Wed Oct 28 17:27:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Moss Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.592484 -2.701944"
+    },
+    {
       "id": "2cd0670a-eefc-4db4-bfbc-58e65a36b087",
       "title": "alert",
       "published": "Wed Oct 28 15:38:41 +0000 2026",
@@ -60,18 +74,18 @@
       "point": "53.527652 -2.494613"
     },
     {
-      "id": "ce159a65-734f-4d66-82eb-92df7184e544",
+      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
       "title": "alert",
-      "published": "Wed Oct 28 17:09:33 +0000 2026",
+      "published": "Wed Oct 28 17:17:06 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Ordsall",
+      "subtype": "",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.475717 -2.286706"
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.331464 -2.253044"
     },
     {
       "id": "40521f6e-5c9f-45a1-8eae-f72641059539",
@@ -82,7 +96,7 @@
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.328808 -2.249219"
@@ -96,24 +110,10 @@
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.331179 -2.252774"
-    },
-    {
-      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
-      "title": "alert",
-      "published": "Wed Oct 28 17:08:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.33069 -2.252029"
     },
     {
       "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
@@ -130,18 +130,74 @@
       "point": "53.332167 -2.253538"
     },
     {
-      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
+      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
       "title": "alert",
-      "published": "Wed Oct 28 17:17:06 +0000 2026",
+      "published": "Wed Oct 28 17:08:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.331464 -2.253044"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.33069 -2.252029"
+    },
+    {
+      "id": "50b716dc-32ff-456f-98ac-d62aa9accacd",
+      "title": "alert",
+      "published": "Wed Oct 28 17:29:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.413187 -2.265587"
+    },
+    {
+      "id": "916aca3c-48ab-4ccb-be59-acecc47d07fd",
+      "title": "alert",
+      "published": "Wed Oct 28 17:26:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.541177 -2.647733"
+    },
+    {
+      "id": "b75e3cc2-50f6-440b-a8a5-99e8617d275c",
+      "title": "alert",
+      "published": "Wed Oct 28 17:30:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - Hall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.592381 -2.702136"
+    },
+    {
+      "id": "a349629f-d80d-4e09-be13-9970be0b32bd",
+      "title": "alert",
+      "published": "Wed Oct 28 17:26:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Old Trafford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.458835 -2.292969"
     },
     {
       "id": "20110113-c15a-4071-b5e4-5d4515128368",
@@ -152,24 +208,10 @@
       "road": "A58 - Rochdale Rd",
       "city": "Bury",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.591794 -2.274269"
-    },
-    {
-      "id": "5d357fd8-5a87-434c-b083-49db74f88507",
-      "title": "alert",
-      "published": "Wed Oct 28 17:18:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A62 - Manchester St",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.537314 -2.127922"
     },
     {
       "id": "3ab41b46-544a-4373-b972-4867de384146",
