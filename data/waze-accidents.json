@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T17:20:48.545345+00:00",
+  "updatedAt": "2026-10-28T17:25:48.408213+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 13,
   "incidents": [
     {
       "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
@@ -26,8 +26,8 @@
       "road": "Kings Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.331071 -2.252447"
     },
@@ -68,24 +68,10 @@
       "road": "",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.475717 -2.286706"
-    },
-    {
-      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
-      "title": "alert",
-      "published": "Wed Oct 28 17:17:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.331464 -2.253044"
     },
     {
       "id": "40521f6e-5c9f-45a1-8eae-f72641059539",
@@ -124,24 +110,10 @@
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.330058 -2.251056"
-    },
-    {
-      "id": "8d07dbe1-00d5-4052-a4be-5e919512ee90",
-      "title": "alert",
-      "published": "Wed Oct 28 17:12:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A538 - Altrincham Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.337835 -2.25668"
+      "point": "53.33069 -2.252029"
     },
     {
       "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
@@ -152,10 +124,38 @@
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.332167 -2.253538"
+    },
+    {
+      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
+      "title": "alert",
+      "published": "Wed Oct 28 17:17:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.331464 -2.253044"
+    },
+    {
+      "id": "20110113-c15a-4071-b5e4-5d4515128368",
+      "title": "alert",
+      "published": "Wed Oct 28 17:22:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.591794 -2.274269"
     },
     {
       "id": "5d357fd8-5a87-434c-b083-49db74f88507",
@@ -167,7 +167,7 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.537314 -2.127922"
     },
@@ -184,20 +184,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.573131 -2.214238"
-    },
-    {
-      "id": "9bd36a7c-1e07-48ad-ac71-a75005398312",
-      "title": "alert",
-      "published": "Wed Oct 28 17:12:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.576666 -2.20592"
     }
   ]
 }
