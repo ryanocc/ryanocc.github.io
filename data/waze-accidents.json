@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-28T15:05:48.619542+00:00",
+  "updatedAt": "2026-10-28T15:10:48.125211+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "19c154e8-a40b-4472-ae19-17635cdb8d24",
+      "title": "alert",
+      "published": "Wed Oct 28 15:06:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Rutland St",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.485466 -2.076099"
+    },
     {
       "id": "86b71974-8393-4feb-9b22-c3eb7d6908e1",
       "title": "alert",
@@ -27,9 +41,23 @@
       "city": "Hyde",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.458662 -2.088213"
+    },
+    {
+      "id": "66d056d4-ed9d-46f4-806e-6544e27d4d23",
+      "title": "alert",
+      "published": "Wed Oct 28 15:06:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.591803 -2.273592"
     },
     {
       "id": "d72dbb08-b0aa-4e56-aada-614057020e6e",
@@ -55,7 +83,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.583347 -2.188752"
     }
