@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-28T07:25:48.146311+00:00",
+  "updatedAt": "2026-10-28T07:30:48.223434+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 8,
   "incidents": [
+    {
+      "id": "d02bd101-b561-488c-a4fb-06f2e9eaa47e",
+      "title": "alert",
+      "published": "Wed Oct 28 07:30:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Dark Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.597073 -2.594344"
+    },
     {
       "id": "f4d2798d-1e5f-48f7-963f-4a5fdef18bc3",
       "title": "alert",
@@ -12,7 +26,7 @@
       "road": "M62 > Liverpool",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.585681 -2.163622"
@@ -27,9 +41,37 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 5.0,
       "point": "53.616362 -2.168537"
+    },
+    {
+      "id": "7afe3ff9-d866-4f1d-8eec-a500d5ba5ca4",
+      "title": "alert",
+      "published": "Wed Oct 28 07:28:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.484183 -2.386694"
+    },
+    {
+      "id": "45c62fdd-11c8-469b-80bb-12af5e54d686",
+      "title": "alert",
+      "published": "Wed Oct 28 07:29:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.484871 -2.384684"
     },
     {
       "id": "7f9e3147-236a-479e-919e-93d3a2209060",
@@ -46,6 +88,20 @@
       "point": "53.471617 -2.133587"
     },
     {
+      "id": "812ed4eb-9c8e-4178-a7dd-256ef9cc2bcc",
+      "title": "alert",
+      "published": "Wed Oct 28 07:22:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.585898 -2.168835"
+    },
+    {
       "id": "907311ae-cce5-47ab-a2a9-67c0308505a4",
       "title": "alert",
       "published": "Wed Oct 28 07:20:34 +0000 2026",
@@ -58,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.585785 -2.165437"
-    },
-    {
-      "id": "812ed4eb-9c8e-4178-a7dd-256ef9cc2bcc",
-      "title": "alert",
-      "published": "Wed Oct 28 07:22:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.585898 -2.168835"
     }
   ]
 }
