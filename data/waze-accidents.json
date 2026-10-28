@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T10:40:48.331401+00:00",
+  "updatedAt": "2026-10-28T10:45:48.230678+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "7cd1b4a2-f5b1-4922-9ae0-21bb22cd6b0b",
@@ -18,6 +18,34 @@
       "point": "53.324769 -2.235633"
     },
     {
+      "id": "e9d27035-64df-490c-b881-b9ae56e5a96f",
+      "title": "alert",
+      "published": "Wed Oct 28 10:43:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.624387 -2.059343"
+    },
+    {
+      "id": "95e146b5-801b-4d99-bd95-dfc19c6d131a",
+      "title": "alert",
+      "published": "Wed Oct 28 10:17:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.61769 -2.087174"
+    },
+    {
       "id": "a2cb1126-122f-4021-8e3b-5fc91f9b53df",
       "title": "alert",
       "published": "Wed Oct 28 10:24:33 +0000 2026",
@@ -30,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.618029 -2.086503"
-    },
-    {
-      "id": "95e146b5-801b-4d99-bd95-dfc19c6d131a",
-      "title": "alert",
-      "published": "Wed Oct 28 10:17:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.61769 -2.087174"
     }
   ]
 }
