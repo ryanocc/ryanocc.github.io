@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T18:50:48.437370+00:00",
+  "updatedAt": "2026-10-28T18:55:48.335916+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 13,
   "incidents": [
     {
       "id": "02dffd7e-a5d9-4df6-a5a0-3199505ab6b0",
@@ -12,10 +12,24 @@
       "road": "Palma Ave",
       "city": "Manchester Airport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.366213 -2.276835"
+    },
+    {
+      "id": "fd116b66-8d44-451d-8f26-fa42e9eb9a94",
+      "title": "alert",
+      "published": "Wed Oct 28 18:51:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Market St",
+      "city": "New Mills",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.367848 -2.001348"
     },
     {
       "id": "75e9c451-73ca-4047-ad0e-b03a57bb648f",
@@ -32,6 +46,20 @@
       "point": "53.592484 -2.701944"
     },
     {
+      "id": "79de21f1-5cc6-4b9f-a37a-55d7c618e982",
+      "title": "alert",
+      "published": "Wed Oct 28 18:54:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J12 to M62 (W) > Liverpool",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.485566 -2.379181"
+    },
+    {
       "id": "62736ee7-8403-499c-bb87-e3fc68de7fdf",
       "title": "alert",
       "published": "Wed Oct 28 18:34:22 +0000 2026",
@@ -40,38 +68,24 @@
       "road": "M60 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.442948 -2.338709"
     },
     {
-      "id": "6ea2c4ae-a265-41b9-86e0-26efcb617fe6",
+      "id": "8cdb15e3-ed18-4781-8d90-b1378b3a7e36",
       "title": "alert",
-      "published": "Wed Oct 28 18:49:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5117 - Wilmslow Rd",
-      "city": "Rusholme",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.45659 -2.225853"
-    },
-    {
-      "id": "85efbc82-01f7-4179-8686-7f3ad496179f",
-      "title": "alert",
-      "published": "Wed Oct 28 18:44:33 +0000 2026",
+      "published": "Wed Oct 28 18:53:37 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A538 - Hale Rd",
-      "city": "Hale Barns",
+      "road": "J24 to M67, A57",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.365601 -2.303062"
+      "reportRating": 0.0,
+      "point": "53.457633 -2.135694"
     },
     {
       "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
@@ -97,7 +111,7 @@
       "city": "Hindley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.53297 -2.58241"
     },
@@ -110,8 +124,8 @@
       "road": "A672 - Ripponden Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.547745 -2.089121"
     },
@@ -144,18 +158,32 @@
       "point": "53.591714 -2.27394"
     },
     {
-      "id": "ceee261e-8911-4600-bffd-e1b1e11c3501",
+      "id": "a8c90309-2679-48db-abdd-e14a9e244c1f",
       "title": "alert",
-      "published": "Wed Oct 28 18:49:03 +0000 2026",
+      "published": "Wed Oct 28 18:53:28 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M61 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.528532 -2.365809"
+      "point": "53.528782 -2.367767"
+    },
+    {
+      "id": "7bf4aa8b-bf85-4dbb-b24f-80ca1d51f512",
+      "title": "alert",
+      "published": "Wed Oct 28 18:53:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.529043 -2.368197"
     }
   ]
 }
