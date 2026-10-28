@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-28T18:55:48.335916+00:00",
+  "updatedAt": "2026-10-28T19:00:48.293759+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
-    {
-      "id": "02dffd7e-a5d9-4df6-a5a0-3199505ab6b0",
-      "title": "alert",
-      "published": "Wed Oct 28 18:50:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Palma Ave",
-      "city": "Manchester Airport",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.366213 -2.276835"
-    },
     {
       "id": "fd116b66-8d44-451d-8f26-fa42e9eb9a94",
       "title": "alert",
@@ -46,20 +32,6 @@
       "point": "53.592484 -2.701944"
     },
     {
-      "id": "79de21f1-5cc6-4b9f-a37a-55d7c618e982",
-      "title": "alert",
-      "published": "Wed Oct 28 18:54:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J12 to M62 (W) > Liverpool",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.485566 -2.379181"
-    },
-    {
       "id": "62736ee7-8403-499c-bb87-e3fc68de7fdf",
       "title": "alert",
       "published": "Wed Oct 28 18:34:22 +0000 2026",
@@ -68,7 +40,7 @@
       "road": "M60 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.442948 -2.338709"
@@ -82,10 +54,24 @@
       "road": "J24 to M67, A57",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.457633 -2.135694"
+    },
+    {
+      "id": "5a086ce3-5816-43ad-bd29-b79160361586",
+      "title": "alert",
+      "published": "Wed Oct 28 18:56:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Dean Ln",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.503134 -2.184353"
     },
     {
       "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
@@ -100,20 +86,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.441548 -2.593604"
-    },
-    {
-      "id": "7f9ace71-00a6-4369-a1e2-3cec2b6a3dea",
-      "title": "alert",
-      "published": "Wed Oct 28 18:50:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A58 - Liverpool Rd",
-      "city": "Hindley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.53297 -2.58241"
     },
     {
       "id": "0d3568ba-4ed2-4ef6-86ae-76951d555c4f",
@@ -144,6 +116,20 @@
       "point": "53.591948 -2.699678"
     },
     {
+      "id": "462bbe5c-16e8-4c2b-862f-ebe6aa355f24",
+      "title": "alert",
+      "published": "Wed Oct 28 18:56:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Old Trafford",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.461883 -2.286321"
+    },
+    {
       "id": "8f1b8360-7eff-473c-9c89-e9734f8c3180",
       "title": "alert",
       "published": "Wed Oct 28 17:54:05 +0000 2026",
@@ -158,6 +144,20 @@
       "point": "53.591714 -2.27394"
     },
     {
+      "id": "365d1769-461f-438a-b777-c489a5bd2809",
+      "title": "alert",
+      "published": "Wed Oct 28 19:00:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.460113 -2.341711"
+    },
+    {
       "id": "a8c90309-2679-48db-abdd-e14a9e244c1f",
       "title": "alert",
       "published": "Wed Oct 28 18:53:28 +0000 2026",
@@ -167,7 +167,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.528782 -2.367767"
     },
@@ -180,7 +180,7 @@
       "road": "M61 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.529043 -2.368197"
