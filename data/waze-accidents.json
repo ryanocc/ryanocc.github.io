@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T17:45:48.450382+00:00",
+  "updatedAt": "2026-10-28T17:50:48.422895+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 12,
   "incidents": [
     {
       "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
@@ -13,23 +13,9 @@
       "city": "Grange",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.412077 -2.539661"
-    },
-    {
-      "id": "8a390eb2-ab6c-4f3a-b3ba-a024804996b1",
-      "title": "alert",
-      "published": "Wed Oct 28 17:09:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Kings Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.331071 -2.252447"
     },
     {
       "id": "cf96388e-087c-4a47-b571-2b967b760a18",
@@ -60,34 +46,6 @@
       "point": "53.592484 -2.701944"
     },
     {
-      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
-      "title": "alert",
-      "published": "Wed Oct 28 17:08:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.33069 -2.252029"
-    },
-    {
-      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
-      "title": "alert",
-      "published": "Wed Oct 28 17:17:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.331464 -2.253044"
-    },
-    {
       "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
       "title": "alert",
       "published": "Wed Oct 28 16:59:17 +0000 2026",
@@ -100,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.332167 -2.253538"
+    },
+    {
+      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
+      "title": "alert",
+      "published": "Wed Oct 28 17:08:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.33069 -2.252029"
     },
     {
       "id": "4a36c395-f616-4c5b-8fa6-1ff917998d23",
@@ -116,18 +88,46 @@
       "point": "53.331179 -2.252774"
     },
     {
-      "id": "fa00422a-d848-4d2d-8b82-529e3a23b785",
+      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
       "title": "alert",
-      "published": "Wed Oct 28 17:38:18 +0000 2026",
+      "published": "Wed Oct 28 17:17:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.331464 -2.253044"
+    },
+    {
+      "id": "d0b366bd-f25e-4fed-ab4c-8a97fa4adec6",
+      "title": "alert",
+      "published": "Wed Oct 28 17:50:20 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
-      "point": "53.413085 -2.265634"
+      "point": "53.41348 -2.265422"
+    },
+    {
+      "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
+      "title": "alert",
+      "published": "Wed Oct 28 17:42:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - Crow Orchard Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 4.0,
+      "point": "53.591948 -2.699678"
     },
     {
       "id": "916aca3c-48ab-4ccb-be59-acecc47d07fd",
@@ -152,24 +152,10 @@
       "road": "A5209 - Hall Ln",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.592381 -2.702136"
-    },
-    {
-      "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
-      "title": "alert",
-      "published": "Wed Oct 28 17:42:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Crow Orchard Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 4.0,
-      "point": "53.591948 -2.699678"
     },
     {
       "id": "3ab41b46-544a-4373-b972-4867de384146",
