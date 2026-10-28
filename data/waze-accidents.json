@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T16:15:48.404251+00:00",
+  "updatedAt": "2026-10-28T16:20:48.263208+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -41,7 +41,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.569089 -2.381738"
     },
@@ -60,20 +60,6 @@
       "point": "53.527652 -2.494613"
     },
     {
-      "id": "55f632ba-8ed3-4228-85a8-0a8b31ddf402",
-      "title": "alert",
-      "published": "Wed Oct 28 16:14:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.408698 -2.174928"
-    },
-    {
       "id": "5f5da0b9-fff1-4136-a81a-bdf105d704e5",
       "title": "alert",
       "published": "Wed Oct 28 16:14:30 +0000 2026",
@@ -82,10 +68,24 @@
       "road": "A62 - Manchester Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
-      "point": "53.519206 -2.144853"
+      "point": "53.519016 -2.145096"
+    },
+    {
+      "id": "9a6100a9-7fea-47ff-82da-33da297ecd28",
+      "title": "alert",
+      "published": "Wed Oct 28 16:17:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.362743 -2.43678"
     },
     {
       "id": "3ab41b46-544a-4373-b972-4867de384146",
