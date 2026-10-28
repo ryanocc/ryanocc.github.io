@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T15:45:48.789256+00:00",
+  "updatedAt": "2026-10-28T15:50:48.301354+00:00",
   "source": "Waze GeoRSS",
   "count": 3,
   "incidents": [
@@ -18,20 +18,6 @@
       "point": "53.485466 -2.076099"
     },
     {
-      "id": "e90f5ad1-acda-4644-b79e-78fd0f17dc04",
-      "title": "alert",
-      "published": "Wed Oct 28 15:40:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Livesey St",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.490524 -2.227266"
-    },
-    {
       "id": "2cd0670a-eefc-4db4-bfbc-58e65a36b087",
       "title": "alert",
       "published": "Wed Oct 28 15:38:41 +0000 2026",
@@ -44,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.527652 -2.494613"
+    },
+    {
+      "id": "ac32f32b-9002-4a99-b603-268e0fcd99a1",
+      "title": "alert",
+      "published": "Wed Oct 28 15:47:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Manchester Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.519208 -2.144849"
     }
   ]
 }
