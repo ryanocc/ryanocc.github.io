@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T10:50:48.145255+00:00",
+  "updatedAt": "2026-10-28T10:55:47.945900+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -18,32 +18,18 @@
       "point": "53.324769 -2.235633"
     },
     {
-      "id": "a2cb1126-122f-4021-8e3b-5fc91f9b53df",
+      "id": "dbef1ce1-67f8-4dc8-96b5-f008cb0b45b9",
       "title": "alert",
-      "published": "Wed Oct 28 10:24:33 +0000 2026",
+      "published": "Wed Oct 28 10:52:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (W)",
+      "road": "A57 - Regent Rd",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.618029 -2.086503"
-    },
-    {
-      "id": "e9d27035-64df-490c-b881-b9ae56e5a96f",
-      "title": "alert",
-      "published": "Wed Oct 28 10:43:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.624387 -2.059343"
+      "reportRating": 0.0,
+      "point": "53.479505 -2.282253"
     },
     {
       "id": "a083e95e-01ba-44ba-ae0e-73ae23e047aa",
@@ -55,23 +41,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.63443 -1.989109"
-    },
-    {
-      "id": "231c8e3f-45ea-470c-9475-444bc4c64dda",
-      "title": "alert",
-      "published": "Wed Oct 28 10:47:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.637843 -1.974962"
+      "point": "53.63443 -1.989109"
     },
     {
       "id": "95e146b5-801b-4d99-bd95-dfc19c6d131a",
@@ -86,6 +58,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.61769 -2.087174"
+    },
+    {
+      "id": "231c8e3f-45ea-470c-9475-444bc4c64dda",
+      "title": "alert",
+      "published": "Wed Oct 28 10:47:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.637843 -1.974962"
+    },
+    {
+      "id": "a2cb1126-122f-4021-8e3b-5fc91f9b53df",
+      "title": "alert",
+      "published": "Wed Oct 28 10:24:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.618029 -2.086503"
     }
   ]
 }
