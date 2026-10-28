@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T08:40:48.065826+00:00",
+  "updatedAt": "2026-10-28T08:45:48.093924+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "d02bd101-b561-488c-a4fb-06f2e9eaa47e",
@@ -12,7 +12,7 @@
       "road": "Dark Ln",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.597073 -2.594344"
@@ -54,10 +54,38 @@
       "road": "B6225 - Wildhouse Ln",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.618938 -2.11125"
+    },
+    {
+      "id": "da1104c2-9057-4481-82c3-ce65544a7412",
+      "title": "alert",
+      "published": "Wed Oct 28 08:42:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.497034 -2.384733"
+    },
+    {
+      "id": "928f7d94-11d4-409f-a715-0f72fe794fc8",
+      "title": "alert",
+      "published": "Wed Oct 28 08:44:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.500792 -2.383988"
     },
     {
       "id": "b163f32f-fa46-4cf1-8c53-05833d8659c4",
