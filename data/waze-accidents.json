@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T18:10:48.294923+00:00",
+  "updatedAt": "2026-10-28T18:15:48.411324+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 10,
   "incidents": [
     {
       "id": "cf96388e-087c-4a47-b571-2b967b760a18",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.333974 -2.255838"
     },
@@ -40,8 +40,8 @@
       "road": "M60 (E & N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.409584 -2.173319"
     },
@@ -68,8 +68,8 @@
       "road": "A6144 - Carrington Ln",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.433856 -2.374973"
     },
@@ -88,48 +88,6 @@
       "point": "53.441548 -2.593604"
     },
     {
-      "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
-      "title": "alert",
-      "published": "Wed Oct 28 17:17:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.331464 -2.253044"
-    },
-    {
-      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
-      "title": "alert",
-      "published": "Wed Oct 28 17:08:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.33069 -2.252029"
-    },
-    {
-      "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
-      "title": "alert",
-      "published": "Wed Oct 28 16:59:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.332167 -2.253538"
-    },
-    {
       "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
       "title": "alert",
       "published": "Wed Oct 28 17:42:42 +0000 2026",
@@ -138,7 +96,7 @@
       "road": "A5209 - Crow Orchard Rd",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.591948 -2.699678"
