@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-10-28T18:45:48.416663+00:00",
+  "updatedAt": "2026-10-28T18:50:48.437370+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 11,
   "incidents": [
     {
-      "id": "5f76f69d-d686-4d66-b914-9ad8ad19679e",
+      "id": "02dffd7e-a5d9-4df6-a5a0-3199505ab6b0",
       "title": "alert",
-      "published": "Wed Oct 28 18:43:00 +0000 2026",
+      "published": "Wed Oct 28 18:50:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Outwood Ln",
+      "road": "Palma Ave",
       "city": "Manchester Airport",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 4.0,
-      "point": "53.364487 -2.270943"
+      "reportRating": 3.0,
+      "point": "53.366213 -2.276835"
     },
     {
       "id": "75e9c451-73ca-4047-ad0e-b03a57bb648f",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.592484 -2.701944"
     },
@@ -40,10 +40,24 @@
       "road": "M60 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.442948 -2.338709"
+    },
+    {
+      "id": "6ea2c4ae-a265-41b9-86e0-26efcb617fe6",
+      "title": "alert",
+      "published": "Wed Oct 28 18:49:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5117 - Wilmslow Rd",
+      "city": "Rusholme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.45659 -2.225853"
     },
     {
       "id": "85efbc82-01f7-4179-8686-7f3ad496179f",
@@ -72,6 +86,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.441548 -2.593604"
+    },
+    {
+      "id": "7f9ace71-00a6-4369-a1e2-3cec2b6a3dea",
+      "title": "alert",
+      "published": "Wed Oct 28 18:50:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A58 - Liverpool Rd",
+      "city": "Hindley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.53297 -2.58241"
     },
     {
       "id": "0d3568ba-4ed2-4ef6-86ae-76951d555c4f",
@@ -114,6 +142,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.591714 -2.27394"
+    },
+    {
+      "id": "ceee261e-8911-4600-bffd-e1b1e11c3501",
+      "title": "alert",
+      "published": "Wed Oct 28 18:49:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.528532 -2.365809"
     }
   ]
 }
