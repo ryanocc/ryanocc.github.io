@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-28T16:40:48.291749+00:00",
+  "updatedAt": "2026-10-28T16:45:48.464886+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 10,
   "incidents": [
     {
       "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
@@ -46,6 +46,20 @@
       "point": "53.485466 -2.076099"
     },
     {
+      "id": "7ce2aca3-b93b-4efb-a7ee-0fe37cd0c2cf",
+      "title": "alert",
+      "published": "Wed Oct 28 16:41:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (N & E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.439937 -2.333344"
+    },
+    {
       "id": "2cd0670a-eefc-4db4-bfbc-58e65a36b087",
       "title": "alert",
       "published": "Wed Oct 28 15:38:41 +0000 2026",
@@ -60,6 +74,20 @@
       "point": "53.527652 -2.494613"
     },
     {
+      "id": "7edcdef7-e25e-479f-8564-b58a96659c85",
+      "title": "alert",
+      "published": "Wed Oct 28 16:42:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A574 - Birchwood Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.414476 -2.541223"
+    },
+    {
       "id": "40521f6e-5c9f-45a1-8eae-f72641059539",
       "title": "alert",
       "published": "Wed Oct 28 16:38:55 +0000 2026",
@@ -68,10 +96,24 @@
       "road": "A538 - Altrincham Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.328808 -2.249219"
+    },
+    {
+      "id": "5b80365f-27fb-41df-80b1-aeacc49d1ce9",
+      "title": "alert",
+      "published": "Wed Oct 28 16:42:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.331344 -2.252945"
     },
     {
       "id": "5f5da0b9-fff1-4136-a81a-bdf105d704e5",
@@ -82,7 +124,7 @@
       "road": "A62 - Manchester Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.519206 -2.144853"
