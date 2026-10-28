@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-28T16:30:48.413068+00:00",
+  "updatedAt": "2026-10-28T16:35:48.380474+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
+    {
+      "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
+      "title": "alert",
+      "published": "Wed Oct 28 16:33:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Longbarn Blvd",
+      "city": "Grange",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.412077 -2.539661"
+    },
     {
       "id": "cf96388e-087c-4a47-b571-2b967b760a18",
       "title": "alert",
@@ -68,38 +82,10 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.358048 -2.481577"
-    },
-    {
-      "id": "9a6100a9-7fea-47ff-82da-33da297ecd28",
-      "title": "alert",
-      "published": "Wed Oct 28 16:17:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.362743 -2.43678"
-    },
-    {
-      "id": "55d2b318-1918-4aef-94f7-aabcb65b6427",
-      "title": "alert",
-      "published": "Wed Oct 28 16:20:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.529982 -2.320358"
     },
     {
       "id": "3ab41b46-544a-4373-b972-4867de384146",
