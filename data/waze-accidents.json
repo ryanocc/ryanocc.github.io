@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-28T18:05:48.379487+00:00",
+  "updatedAt": "2026-10-28T18:10:48.294923+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
-    {
-      "id": "3858d8e4-a23f-4ed3-9f0b-1476183b4aad",
-      "title": "alert",
-      "published": "Wed Oct 28 16:33:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Longbarn Blvd",
-      "city": "Grange",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.412077 -2.539661"
-    },
     {
       "id": "cf96388e-087c-4a47-b571-2b967b760a18",
       "title": "alert",
@@ -46,6 +32,20 @@
       "point": "53.333974 -2.255838"
     },
     {
+      "id": "6309fbd4-e759-476a-8537-a0d99cfda813",
+      "title": "alert",
+      "published": "Wed Oct 28 18:08:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (E & N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.409584 -2.173319"
+    },
+    {
       "id": "75e9c451-73ca-4047-ad0e-b03a57bb648f",
       "title": "alert",
       "published": "Wed Oct 28 17:27:28 +0000 2026",
@@ -69,37 +69,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.433856 -2.374973"
     },
     {
-      "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
+      "id": "d4416af4-8bcd-4502-9628-e8127a8ad50a",
       "title": "alert",
-      "published": "Wed Oct 28 16:59:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.332167 -2.253538"
-    },
-    {
-      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
-      "title": "alert",
-      "published": "Wed Oct 28 17:08:43 +0000 2026",
+      "published": "Wed Oct 28 18:08:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A538 - Altrincham Rd",
-      "city": "Wilmslow",
+      "road": "A573 - Golborne Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.33069 -2.252029"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.441548 -2.593604"
     },
     {
       "id": "5b62912b-3914-4ca1-a7c5-5e97c14f5641",
@@ -116,6 +102,34 @@
       "point": "53.331464 -2.253044"
     },
     {
+      "id": "13a1f318-8ab1-442e-98e7-a462fd46dbfc",
+      "title": "alert",
+      "published": "Wed Oct 28 17:08:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.33069 -2.252029"
+    },
+    {
+      "id": "909eaf90-05d5-4bc4-8135-1ca87eae3a83",
+      "title": "alert",
+      "published": "Wed Oct 28 16:59:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A538 - Altrincham Rd",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.332167 -2.253538"
+    },
+    {
       "id": "3441767f-2c98-48b1-b04f-f283feaf90dc",
       "title": "alert",
       "published": "Wed Oct 28 17:42:42 +0000 2026",
@@ -130,20 +144,6 @@
       "point": "53.591948 -2.699678"
     },
     {
-      "id": "b75e3cc2-50f6-440b-a8a5-99e8617d275c",
-      "title": "alert",
-      "published": "Wed Oct 28 17:30:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Hall Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.592381 -2.702136"
-    },
-    {
       "id": "916aca3c-48ab-4ccb-be59-acecc47d07fd",
       "title": "alert",
       "published": "Wed Oct 28 17:26:27 +0000 2026",
@@ -156,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.541177 -2.647733"
+    },
+    {
+      "id": "b75e3cc2-50f6-440b-a8a5-99e8617d275c",
+      "title": "alert",
+      "published": "Wed Oct 28 17:30:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - Hall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.592381 -2.702136"
     },
     {
       "id": "8f1b8360-7eff-473c-9c89-e9734f8c3180",
