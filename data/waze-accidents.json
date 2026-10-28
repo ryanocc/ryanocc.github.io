@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-28T11:35:47.953234+00:00",
+  "updatedAt": "2026-10-28T11:40:49.097595+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
+    {
+      "id": "8b4779b2-3e6a-4431-94f8-dc3af114f3ac",
+      "title": "alert",
+      "published": "Wed Oct 28 11:38:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bradford Rd",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.484696 -2.216128"
+    },
     {
       "id": "7cd1b4a2-f5b1-4922-9ae0-21bb22cd6b0b",
       "title": "alert",
@@ -32,20 +46,6 @@
       "point": "53.533766 -2.421311"
     },
     {
-      "id": "e9306414-92d1-436d-8704-329e683c7bbf",
-      "title": "alert",
-      "published": "Wed Oct 28 11:30:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.408603 -2.178401"
-    },
-    {
       "id": "95e146b5-801b-4d99-bd95-dfc19c6d131a",
       "title": "alert",
       "published": "Wed Oct 28 10:17:56 +0000 2026",
@@ -58,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.61769 -2.087174"
-    },
-    {
-      "id": "a2cb1126-122f-4021-8e3b-5fc91f9b53df",
-      "title": "alert",
-      "published": "Wed Oct 28 10:24:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.617508 -2.087017"
     }
   ]
 }
