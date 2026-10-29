@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T10:25:48.168435+00:00",
+  "updatedAt": "2026-10-29T10:30:48.163107+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -26,8 +26,8 @@
       "road": "M60 > Oldham",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 5.0,
       "point": "53.548011 -2.266093"
     },
@@ -46,32 +46,32 @@
       "point": "53.411882 -2.211493"
     },
     {
-      "id": "81aa0894-6efb-4d2d-966a-c349943da241",
+      "id": "8797f90d-9ed1-4ba1-bf45-bd67a9e73e46",
       "title": "alert",
-      "published": "Thu Oct 29 10:22:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (N) - Princess Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.428213 -2.252812"
-    },
-    {
-      "id": "4dc24672-9781-4b83-913b-abf1df861d84",
-      "title": "alert",
-      "published": "Thu Oct 29 10:22:31 +0000 2026",
+      "published": "Thu Oct 29 10:09:27 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.556433 -2.248392"
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.556196 -2.248684"
+    },
+    {
+      "id": "8ff5e80f-49f7-47f8-a62c-3e4df88b87f9",
+      "title": "alert",
+      "published": "Thu Oct 29 10:18:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.541194 -2.284889"
     },
     {
       "id": "f32cb907-51ea-4def-bc8f-d647e4515c73",
@@ -88,32 +88,32 @@
       "point": "53.552546 -2.254879"
     },
     {
-      "id": "8ff5e80f-49f7-47f8-a62c-3e4df88b87f9",
+      "id": "4dc24672-9781-4b83-913b-abf1df861d84",
       "title": "alert",
-      "published": "Thu Oct 29 10:18:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.541194 -2.284889"
-    },
-    {
-      "id": "8797f90d-9ed1-4ba1-bf45-bd67a9e73e46",
-      "title": "alert",
-      "published": "Thu Oct 29 10:09:27 +0000 2026",
+      "published": "Thu Oct 29 10:22:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.556196 -2.248684"
+      "reportRating": 2.0,
+      "point": "53.556433 -2.248392"
+    },
+    {
+      "id": "d3b1242c-852b-4b35-9d50-ec06bbbc327d",
+      "title": "alert",
+      "published": "Thu Oct 29 10:26:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.558024 -2.246591"
     }
   ]
 }
