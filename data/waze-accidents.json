@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T10:45:48.094004+00:00",
+  "updatedAt": "2026-10-29T10:50:47.897912+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "09b7c087-94d6-42a7-8829-3ea889a72936",
@@ -18,32 +18,32 @@
       "point": "53.411882 -2.211493"
     },
     {
-      "id": "98f0ce5e-1605-45c1-8c2c-df9754066d23",
+      "id": "f0b32953-baf7-471a-8b75-9ce291b26193",
       "title": "alert",
-      "published": "Thu Oct 29 10:44:55 +0000 2026",
+      "published": "Thu Oct 29 10:46:59 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A576 - Great Cheetham St E",
-      "city": "Higher Broughton",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Moss Side",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.502634 -2.255934"
+      "point": "53.447315 -2.244635"
     },
     {
-      "id": "96828298-2027-42d5-8892-473e6a6eecc9",
+      "id": "f6c68166-0c6e-4f4d-9e48-2dc5e7add172",
       "title": "alert",
-      "published": "Thu Oct 29 10:41:41 +0000 2026",
+      "published": "Thu Oct 29 10:48:41 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Fallowfield",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.522401 -2.362309"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.448283 -2.244503"
     },
     {
       "id": "09277d1f-20fd-4fe8-92ad-630c7d6890b7",
@@ -54,10 +54,24 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.537563 -2.295279"
+    },
+    {
+      "id": "d3b1242c-852b-4b35-9d50-ec06bbbc327d",
+      "title": "alert",
+      "published": "Thu Oct 29 10:26:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.558024 -2.246591"
     },
     {
       "id": "f32cb907-51ea-4def-bc8f-d647e4515c73",
@@ -72,34 +86,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.553882 -2.252475"
-    },
-    {
-      "id": "8797f90d-9ed1-4ba1-bf45-bd67a9e73e46",
-      "title": "alert",
-      "published": "Thu Oct 29 10:09:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.556196 -2.248684"
-    },
-    {
-      "id": "d3b1242c-852b-4b35-9d50-ec06bbbc327d",
-      "title": "alert",
-      "published": "Thu Oct 29 10:26:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.558024 -2.246591"
     }
   ]
 }
