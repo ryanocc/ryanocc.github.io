@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T17:30:48.625046+00:00",
+  "updatedAt": "2026-10-29T17:35:48.447683+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 11,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -12,7 +12,7 @@
       "road": "Queen St",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.486606 -2.252699"
@@ -41,7 +41,7 @@
       "city": "Stretford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.458196 -2.338106"
     },
@@ -83,7 +83,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.529086 -2.674331"
     },
@@ -102,18 +102,18 @@
       "point": "53.527683 -2.676297"
     },
     {
-      "id": "65bc858e-2add-4680-8ec5-651849fbaabb",
+      "id": "bc66b11d-d348-44f3-b1d3-fae6f573889f",
       "title": "alert",
-      "published": "Thu Oct 29 17:18:27 +0000 2026",
+      "published": "Thu Oct 29 17:29:29 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "",
+      "subtype": "",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.363287 -2.298356"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.478236 -2.219568"
     },
     {
       "id": "3549ebce-0230-4e5b-b85e-576666ed08f5",
@@ -130,20 +130,6 @@
       "point": "53.461277 -2.207294"
     },
     {
-      "id": "bc66b11d-d348-44f3-b1d3-fae6f573889f",
-      "title": "alert",
-      "published": "Thu Oct 29 17:29:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.478236 -2.219568"
-    },
-    {
       "id": "5c09e6ec-8519-4ea9-9cd3-47baece78e56",
       "title": "alert",
       "published": "Thu Oct 29 17:23:57 +0000 2026",
@@ -152,8 +138,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.601974 -2.113366"
     },
