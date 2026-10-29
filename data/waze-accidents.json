@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-29T16:25:48.380184+00:00",
+  "updatedAt": "2026-10-29T16:30:48.387993+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
+    {
+      "id": "79088a08-c386-4841-aadb-03fa92335ffe",
+      "title": "alert",
+      "published": "Thu Oct 29 16:27:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Queen St",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.486606 -2.252699"
+    },
     {
       "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
       "title": "alert",
@@ -32,18 +46,18 @@
       "point": "53.313793 -2.418544"
     },
     {
-      "id": "55e8818c-3ed5-44e6-a6b7-398957cd0f6f",
+      "id": "670cdad6-f61e-43d3-b737-3af54983ed06",
       "title": "alert",
-      "published": "Thu Oct 29 16:25:07 +0000 2026",
+      "published": "Thu Oct 29 16:26:15 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A673 - Chorley New Rd",
       "city": "Lostock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.579395 -2.488271"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.579172 -2.490877"
     },
     {
       "id": "041b664c-2e40-49d5-bb60-f34551d42c11",
@@ -54,10 +68,24 @@
       "road": "A673 - Chorley New Rd",
       "city": "Lostock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 4.0,
       "point": "53.57936 -2.488728"
+    },
+    {
+      "id": "55e8818c-3ed5-44e6-a6b7-398957cd0f6f",
+      "title": "alert",
+      "published": "Thu Oct 29 16:25:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.579395 -2.488271"
     },
     {
       "id": "b1455dd5-7aa8-4e4c-b9e9-2c0a21e660d8",
@@ -82,24 +110,24 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.470221 -2.246323"
+    },
+    {
+      "id": "6f117b29-231b-4b63-8280-736f83e0ed5e",
+      "title": "alert",
+      "published": "Thu Oct 29 16:27:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.470214 -2.246074"
-    },
-    {
-      "id": "9de0757d-2111-4f7c-bb6e-47529909393d",
-      "title": "alert",
-      "published": "Thu Oct 29 15:27:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A62 - Oldham Rd",
-      "city": "Miles Platting",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.494919 -2.213263"
+      "point": "53.397012 -2.267616"
     },
     {
       "id": "7247e45f-31b1-46f9-a3c1-2430fa7a4f88",
