@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-29T18:25:48.315621+00:00",
+  "updatedAt": "2026-10-29T18:30:48.341894+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
+    {
+      "id": "51642cca-f334-4ca4-95bc-2bb0d9bc13d9",
+      "title": "alert",
+      "published": "Thu Oct 29 18:30:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "St. Stephen St",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.486824 -2.257172"
+    },
     {
       "id": "68641461-d22d-4202-ac9f-46ab2b5126db",
       "title": "alert",
@@ -12,7 +26,7 @@
       "road": "Oakfield Rd",
       "city": "Altrincham",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.386607 -2.345569"
@@ -26,8 +40,8 @@
       "road": "B5167 - Wythenshawe Rd",
       "city": "Northern Moor",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.40688 -2.268423"
     },
@@ -40,8 +54,8 @@
       "road": "B5167 - Palatine Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.406843 -2.26798"
     },
@@ -88,18 +102,18 @@
       "point": "53.527683 -2.676297"
     },
     {
-      "id": "d3943d62-be91-4fae-9294-22e4327eec56",
+      "id": "0b27b86f-209b-48e0-99a2-4b40264b8bba",
       "title": "alert",
-      "published": "Thu Oct 29 18:25:47 +0000 2026",
+      "published": "Thu Oct 29 18:26:33 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
+      "road": "A665 - Blackburn St",
+      "city": "Radcliffe",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.467912 -2.589453"
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.562508 -2.328353"
     },
     {
       "id": "5767b081-ece2-474d-b7f1-ef878faa535d",
@@ -110,8 +124,8 @@
       "road": "A579 - Atherleigh Way",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.496218 -2.528435"
     },
@@ -125,7 +139,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.4701 -2.245695"
     },
