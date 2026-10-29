@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T16:45:48.432645+00:00",
+  "updatedAt": "2026-10-29T16:50:48.645044+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 13,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -16,6 +16,34 @@
       "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.486606 -2.252699"
+    },
+    {
+      "id": "4d7b13ac-5ddc-4314-8eaa-a186cfd904bf",
+      "title": "alert",
+      "published": "Thu Oct 29 16:49:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5166 > Northenden",
+      "city": "Northenden",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.408256 -2.266885"
+    },
+    {
+      "id": "fcd03f59-8a22-4d5a-afd9-d4aede3142e4",
+      "title": "alert",
+      "published": "Thu Oct 29 16:49:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5235 - Lovers Ln",
+      "city": "Atherton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.521043 -2.514886"
     },
     {
       "id": "5b09a303-1af7-46ad-b2b0-0b62f4ce11fb",
@@ -41,9 +69,23 @@
       "city": "Horwich",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.581815 -2.530432"
+    },
+    {
+      "id": "b6a2bd55-1869-4f13-b17d-0213d82f7d68",
+      "title": "alert",
+      "published": "Thu Oct 29 16:50:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A571 - Billinge Rd",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.529044 -2.674504"
     },
     {
       "id": "978ee37f-8b1d-4f14-9ab7-39efe71a24c6",
@@ -60,32 +102,46 @@
       "point": "53.313793 -2.418544"
     },
     {
-      "id": "041b664c-2e40-49d5-bb60-f34551d42c11",
+      "id": "1c5f537c-0e16-41e4-bcab-ada0586f7d7a",
       "title": "alert",
-      "published": "Thu Oct 29 16:25:12 +0000 2026",
+      "published": "Thu Oct 29 16:49:05 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A673 - Chorley New Rd",
-      "city": "Lostock",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.57936 -2.488728"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.40906 -2.266872"
     },
     {
-      "id": "55e8818c-3ed5-44e6-a6b7-398957cd0f6f",
+      "id": "ec5f2dba-dd72-4ad1-b41e-a550295b0841",
       "title": "alert",
-      "published": "Thu Oct 29 16:25:07 +0000 2026",
+      "published": "Thu Oct 29 16:46:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.403847 -2.267746"
+    },
+    {
+      "id": "b201b5cd-8193-45e0-99f1-7d0483313c2f",
+      "title": "alert",
+      "published": "Thu Oct 29 16:49:02 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A673 - Chorley New Rd",
-      "city": "Lostock",
+      "road": "A58 - Victoria Rd",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.579395 -2.488271"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.580246 -2.487318"
     },
     {
       "id": "bf4f8c23-cc86-47ed-ba4c-ad3e193023be",
@@ -97,7 +153,7 @@
       "city": "Cheetham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.489805 -2.241745"
     },
@@ -114,6 +170,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.470237 -2.245048"
+    },
+    {
+      "id": "31254bf1-f7d1-4455-baed-0dd09257317b",
+      "title": "alert",
+      "published": "Thu Oct 29 16:48:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.473455 -2.231495"
     }
   ]
 }
