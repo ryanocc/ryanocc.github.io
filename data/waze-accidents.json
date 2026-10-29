@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T13:00:48.221631+00:00",
+  "updatedAt": "2026-10-29T13:05:48.276428+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.464114 -2.340756"
     },
     {
-      "id": "5917b60e-a646-4f19-bccb-802a04c12c3c",
-      "title": "alert",
-      "published": "Thu Oct 29 12:11:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Park Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.550748 -2.498851"
-    },
-    {
       "id": "0e233015-ee39-4198-be73-0c58b2b3ff99",
       "title": "alert",
       "published": "Thu Oct 29 12:27:19 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.585403 -2.482926"
+    },
+    {
+      "id": "5917b60e-a646-4f19-bccb-802a04c12c3c",
+      "title": "alert",
+      "published": "Thu Oct 29 12:11:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Park Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.550748 -2.498851"
     }
   ]
 }
