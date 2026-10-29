@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T06:35:48.203108+00:00",
+  "updatedAt": "2026-10-29T06:40:48.175151+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
     {
       "id": "c16a83c0-6491-44a7-9beb-d7d54c27e565",
@@ -16,6 +16,34 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.470805 -2.236422"
+    },
+    {
+      "id": "54f6d6f9-465e-49b3-b599-fe85b3b7bdd7",
+      "title": "alert",
+      "published": "Thu Oct 29 06:37:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (E & S)",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.527261 -2.159662"
+    },
+    {
+      "id": "c45c9de9-d5fb-4f2c-bebc-c40ef3a868bf",
+      "title": "alert",
+      "published": "Thu Oct 29 06:40:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.635425 -1.985849"
     }
   ]
 }
