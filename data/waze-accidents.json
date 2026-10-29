@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-29T15:25:48.321412+00:00",
+  "updatedAt": "2026-10-29T15:30:48.268659+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
-    {
-      "id": "ed1a4216-fc6c-467e-a664-4254c026b670",
-      "title": "alert",
-      "published": "Thu Oct 29 13:26:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Cardigan Dr",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.579577 -2.30153"
-    },
     {
       "id": "e02589da-7604-45f1-9ae7-26ca9816c8b8",
       "title": "alert",
@@ -32,32 +18,18 @@
       "point": "53.527299 -2.208643"
     },
     {
-      "id": "0fc0270a-979a-402d-b2aa-8edb0d0095ef",
+      "id": "d46da2c2-8618-4454-9940-3b88aacccc14",
       "title": "alert",
-      "published": "Thu Oct 29 14:54:18 +0000 2026",
+      "published": "Thu Oct 29 15:28:14 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Cawley Ln",
+      "road": "M6 > Birmingham",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
+      "confidence": 1.0,
       "reliability": 7.0,
       "reportRating": 2.0,
-      "point": "53.331405 -2.116192"
-    },
-    {
-      "id": "180da0c6-c849-40e0-ac73-2d4d3ac267b6",
-      "title": "alert",
-      "published": "Thu Oct 29 15:21:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.470215 -2.246124"
+      "point": "53.312796 -2.417508"
     },
     {
       "id": "b1455dd5-7aa8-4e4c-b9e9-2c0a21e660d8",
@@ -72,6 +44,34 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.470003 -2.246729"
+    },
+    {
+      "id": "180da0c6-c849-40e0-ac73-2d4d3ac267b6",
+      "title": "alert",
+      "published": "Thu Oct 29 15:21:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.470215 -2.246124"
+    },
+    {
+      "id": "9de0757d-2111-4f7c-bb6e-47529909393d",
+      "title": "alert",
+      "published": "Thu Oct 29 15:27:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Miles Platting",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.494919 -2.213263"
     }
   ]
 }
