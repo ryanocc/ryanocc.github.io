@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T17:45:48.544223+00:00",
+  "updatedAt": "2026-10-29T17:50:48.405108+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "d2659e08-6bc9-4a33-b20b-190ddc5b10cc",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.406874 -2.26834"
+    },
+    {
+      "id": "69aaf477-ed16-4343-bd89-d8f524f6989f",
+      "title": "alert",
+      "published": "Thu Oct 29 17:49:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 > Ring Road (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.53764 -2.292705"
     },
     {
       "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
@@ -55,7 +69,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.527683 -2.676297"
     },
@@ -102,6 +116,20 @@
       "point": "53.46936 -2.60098"
     },
     {
+      "id": "2804eb9d-dd21-42da-8f5c-fed4b70526b7",
+      "title": "alert",
+      "published": "Thu Oct 29 17:38:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Victoria Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.580012 -2.487362"
+    },
+    {
       "id": "01bc2105-a47c-48ce-b30b-82e51a034c4f",
       "title": "alert",
       "published": "Thu Oct 29 17:43:45 +0000 2026",
@@ -111,23 +139,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.555339 -2.489235"
-    },
-    {
-      "id": "2804eb9d-dd21-42da-8f5c-fed4b70526b7",
-      "title": "alert",
-      "published": "Thu Oct 29 17:38:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Victoria Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.580012 -2.487362"
     },
     {
       "id": "5c09e6ec-8519-4ea9-9cd3-47baece78e56",
