@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-29T10:30:48.163107+00:00",
+  "updatedAt": "2026-10-29T10:35:48.105272+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 5,
   "incidents": [
-    {
-      "id": "90690117-8cab-46ad-9cdb-7ffb22f99d03",
-      "title": "alert",
-      "published": "Thu Oct 29 09:31:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J22 to A49",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.440783 -2.584353"
-    },
     {
       "id": "58b96e29-81df-4348-9bfd-42cc8ae7139c",
       "title": "alert",
@@ -46,34 +32,6 @@
       "point": "53.411882 -2.211493"
     },
     {
-      "id": "8797f90d-9ed1-4ba1-bf45-bd67a9e73e46",
-      "title": "alert",
-      "published": "Thu Oct 29 10:09:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.556196 -2.248684"
-    },
-    {
-      "id": "8ff5e80f-49f7-47f8-a62c-3e4df88b87f9",
-      "title": "alert",
-      "published": "Thu Oct 29 10:18:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.541194 -2.284889"
-    },
-    {
       "id": "f32cb907-51ea-4def-bc8f-d647e4515c73",
       "title": "alert",
       "published": "Thu Oct 29 10:07:19 +0000 2026",
@@ -85,21 +43,21 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.552546 -2.254879"
+      "point": "53.553882 -2.252475"
     },
     {
-      "id": "4dc24672-9781-4b83-913b-abf1df861d84",
+      "id": "8797f90d-9ed1-4ba1-bf45-bd67a9e73e46",
       "title": "alert",
-      "published": "Thu Oct 29 10:22:31 +0000 2026",
+      "published": "Thu Oct 29 10:09:27 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 4.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.556433 -2.248392"
+      "reportRating": 0.0,
+      "point": "53.556196 -2.248684"
     },
     {
       "id": "d3b1242c-852b-4b35-9d50-ec06bbbc327d",
@@ -110,8 +68,8 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.558024 -2.246591"
     }
