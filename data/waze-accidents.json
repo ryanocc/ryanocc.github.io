@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T16:40:48.335595+00:00",
+  "updatedAt": "2026-10-29T16:45:48.432645+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -16,6 +16,20 @@
       "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.486606 -2.252699"
+    },
+    {
+      "id": "5b09a303-1af7-46ad-b2b0-0b62f4ce11fb",
+      "title": "alert",
+      "published": "Thu Oct 29 16:45:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Moor Ln",
+      "city": "Kersal",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.514821 -2.271602"
     },
     {
       "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
@@ -46,20 +60,6 @@
       "point": "53.313793 -2.418544"
     },
     {
-      "id": "0aced09e-6c17-43eb-a239-4764237c730a",
-      "title": "alert",
-      "published": "Thu Oct 29 16:36:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.405365 -2.267785"
-    },
-    {
       "id": "041b664c-2e40-49d5-bb60-f34551d42c11",
       "title": "alert",
       "published": "Thu Oct 29 16:25:12 +0000 2026",
@@ -82,38 +82,24 @@
       "road": "A673 - Chorley New Rd",
       "city": "Lostock",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.579395 -2.488271"
     },
     {
-      "id": "161a28ce-831a-49dc-9f7c-3a19cf947770",
+      "id": "bf4f8c23-cc86-47ed-ba4c-ad3e193023be",
       "title": "alert",
-      "published": "Thu Oct 29 16:19:56 +0000 2026",
+      "published": "Thu Oct 29 16:42:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Manchester",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470221 -2.246323"
-    },
-    {
-      "id": "6f117b29-231b-4b63-8280-736f83e0ed5e",
-      "title": "alert",
-      "published": "Thu Oct 29 16:27:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.397012 -2.267616"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.489805 -2.241745"
     },
     {
       "id": "7247e45f-31b1-46f9-a3c1-2430fa7a4f88",
