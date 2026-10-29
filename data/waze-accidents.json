@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-29T10:40:47.738219+00:00",
+  "updatedAt": "2026-10-29T10:45:48.094004+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
-    {
-      "id": "58b96e29-81df-4348-9bfd-42cc8ae7139c",
-      "title": "alert",
-      "published": "Thu Oct 29 10:22:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 > Oldham",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 5.0,
-      "point": "53.548011 -2.266093"
-    },
     {
       "id": "09b7c087-94d6-42a7-8829-3ea889a72936",
       "title": "alert",
@@ -30,6 +16,48 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.411882 -2.211493"
+    },
+    {
+      "id": "98f0ce5e-1605-45c1-8c2c-df9754066d23",
+      "title": "alert",
+      "published": "Thu Oct 29 10:44:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Great Cheetham St E",
+      "city": "Higher Broughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.502634 -2.255934"
+    },
+    {
+      "id": "96828298-2027-42d5-8892-473e6a6eecc9",
+      "title": "alert",
+      "published": "Thu Oct 29 10:41:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.522401 -2.362309"
+    },
+    {
+      "id": "09277d1f-20fd-4fe8-92ad-630c7d6890b7",
+      "title": "alert",
+      "published": "Thu Oct 29 10:44:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.537563 -2.295279"
     },
     {
       "id": "f32cb907-51ea-4def-bc8f-d647e4515c73",
