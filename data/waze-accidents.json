@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-29T19:10:48.293184+00:00",
+  "updatedAt": "2026-10-29T19:15:48.259979+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
-    {
-      "id": "51642cca-f334-4ca4-95bc-2bb0d9bc13d9",
-      "title": "alert",
-      "published": "Thu Oct 29 18:30:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "St. Stephen St",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.486824 -2.257172"
-    },
     {
       "id": "da2e11a1-7a56-4533-b599-6b689031ad83",
       "title": "alert",
@@ -55,9 +41,23 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.528145 -2.676014"
+    },
+    {
+      "id": "460d4e83-c331-4ae2-b80e-5c33d2e4a3bb",
+      "title": "alert",
+      "published": "Thu Oct 29 19:11:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A571 - Billinge Rd",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.531137 -2.668599"
     },
     {
       "id": "f8cbd37e-e2ea-4c35-9468-1ca563812d4f",
@@ -74,20 +74,6 @@
       "point": "53.470213 -2.246043"
     },
     {
-      "id": "dd70ccc2-c78a-41bb-a556-e390aa3642f7",
-      "title": "alert",
-      "published": "Thu Oct 29 19:00:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Chapel St",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.483267 -2.262242"
-    },
-    {
       "id": "dacdb695-c686-44d5-b992-6892626d6b33",
       "title": "alert",
       "published": "Thu Oct 29 18:51:18 +0000 2026",
@@ -102,18 +88,18 @@
       "point": "53.43344 -2.308776"
     },
     {
-      "id": "db3a967f-78e9-4b7e-9582-f956f91c3e1b",
+      "id": "82a20954-3e0e-48c8-9025-5daee43a4251",
       "title": "alert",
-      "published": "Thu Oct 29 18:55:39 +0000 2026",
+      "published": "Thu Oct 29 19:13:59 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "M602 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.439386 -2.328929"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.481566 -2.292122"
     }
   ]
 }
