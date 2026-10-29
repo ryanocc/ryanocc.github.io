@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T17:05:48.468454+00:00",
+  "updatedAt": "2026-10-29T17:10:48.399222+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 11,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -18,32 +18,18 @@
       "point": "53.486606 -2.252699"
     },
     {
-      "id": "4d7b13ac-5ddc-4314-8eaa-a186cfd904bf",
+      "id": "75cf490a-1051-4564-ba6a-dbbfdb3a4e7e",
       "title": "alert",
-      "published": "Thu Oct 29 16:49:16 +0000 2026",
+      "published": "Thu Oct 29 17:07:51 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B5166 > Northenden",
-      "city": "Northenden",
+      "road": "J3 to M56 > Stockport & M60 (E)",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.408256 -2.266885"
-    },
-    {
-      "id": "fcd03f59-8a22-4d5a-afd9-d4aede3142e4",
-      "title": "alert",
-      "published": "Thu Oct 29 16:49:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5235 - Lovers Ln",
-      "city": "Atherton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.521043 -2.514886"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 4.0,
+      "point": "53.393031 -2.271625"
     },
     {
       "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
@@ -111,9 +97,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.526114 -2.159377"
+    },
+    {
+      "id": "78825dcc-8e10-4313-bc10-3b05f27615b4",
+      "title": "alert",
+      "published": "Thu Oct 29 17:06:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.402283 -2.267937"
     },
     {
       "id": "31110882-aaca-492d-bb6b-45810fc3a0d7",
@@ -124,24 +124,10 @@
       "road": "A58 - Victoria Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.579789 -2.487393"
-    },
-    {
-      "id": "3c7d2cbb-3cb2-4af3-ac5c-542e7cc7b870",
-      "title": "alert",
-      "published": "Thu Oct 29 16:54:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Victoria Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.5801 -2.487346"
     },
     {
       "id": "3549ebce-0230-4e5b-b85e-576666ed08f5",
@@ -152,7 +138,7 @@
       "road": "A6 - Stockport Rd",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.461277 -2.207294"
