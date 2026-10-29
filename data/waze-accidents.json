@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T07:40:48.099992+00:00",
+  "updatedAt": "2026-10-29T07:45:48.156548+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "c16a83c0-6491-44a7-9beb-d7d54c27e565",
@@ -41,23 +41,9 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.457588 -2.339085"
-    },
-    {
-      "id": "ce2eda75-3346-48b4-a30a-5cb433a665aa",
-      "title": "alert",
-      "published": "Thu Oct 29 07:31:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A663 - Broadway",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.52711 -2.160004"
     },
     {
       "id": "911f3cec-8ef5-4bbf-80f8-323ac1c7d77c",
@@ -74,18 +60,32 @@
       "point": "53.527021 -2.159834"
     },
     {
-      "id": "183d919f-65d8-4d82-80ea-bca619a4494c",
+      "id": "ce2eda75-3346-48b4-a30a-5cb433a665aa",
       "title": "alert",
-      "published": "Thu Oct 29 07:09:25 +0000 2026",
+      "published": "Thu Oct 29 07:31:48 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (E)",
+      "subtype": "",
+      "road": "A663 - Broadway",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.52711 -2.160004"
+    },
+    {
+      "id": "6301953a-e7d1-414d-b4b8-50f9bf1d93c1",
+      "title": "alert",
+      "published": "Thu Oct 29 07:42:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.630452 -2.013199"
+      "point": "53.544006 -2.278648"
     },
     {
       "id": "ab0e85ce-3fdd-464e-8a1e-10e28213832e",
@@ -96,7 +96,7 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.629432 -2.027324"
@@ -114,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.630747 -2.010806"
+    },
+    {
+      "id": "b8d88d37-900c-4380-b265-e7715f372a6e",
+      "title": "alert",
+      "published": "Thu Oct 29 07:43:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.630117 -2.016303"
     }
   ]
 }
