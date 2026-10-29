@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T18:05:48.299556+00:00",
+  "updatedAt": "2026-10-29T18:10:48.411984+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -12,10 +12,10 @@
       "road": "B5167 - Wythenshawe Rd",
       "city": "Northern Moor",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.406874 -2.26834"
+      "point": "53.406974 -2.269395"
     },
     {
       "id": "ed3c28e2-f977-4105-af60-989ee2ea87f1",
@@ -26,8 +26,8 @@
       "road": "B5386 - Warrington Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.536237 -2.653771"
     },
@@ -40,7 +40,7 @@
       "road": "M60 > Ring Road (W)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.53764 -2.292705"
@@ -88,18 +88,18 @@
       "point": "53.527683 -2.676297"
     },
     {
-      "id": "3013b834-e843-40f5-80ad-756a62c6cf2c",
+      "id": "f8cbd37e-e2ea-4c35-9468-1ca563812d4f",
       "title": "alert",
-      "published": "Thu Oct 29 17:59:12 +0000 2026",
+      "published": "Thu Oct 29 18:05:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470289 -2.245984"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.470213 -2.246043"
     },
     {
       "id": "d147d71a-cfab-4267-b293-8ae9bd34a5ae",
@@ -111,23 +111,23 @@
       "city": "Crumpsall",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.513507 -2.246231"
     },
     {
-      "id": "e49d0cd6-6748-4f57-a1e0-cbfa13db98a2",
+      "id": "0a529744-1bc0-40e0-a27c-a13f4cfeae8a",
       "title": "alert",
-      "published": "Thu Oct 29 17:59:43 +0000 2026",
+      "published": "Thu Oct 29 18:09:59 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.455459 -2.33882"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.455368 -2.338841"
     },
     {
       "id": "37787d4f-66ab-48f9-af30-2c5ef091a697",
@@ -138,38 +138,38 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.458405 -2.339601"
     },
     {
-      "id": "a612845a-882a-4f7b-9720-afa26deb8dd6",
+      "id": "da1bd2d2-55ea-4a50-af4d-f26d9f1287f3",
       "title": "alert",
-      "published": "Thu Oct 29 17:52:50 +0000 2026",
+      "published": "Thu Oct 29 18:08:24 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M61 (S)",
+      "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.540944 -2.419667"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.527956 -2.328676"
     },
     {
-      "id": "4ba7a4c8-31a1-4174-891f-e59a2988c11d",
+      "id": "e6ade1cb-d1b2-4df8-8343-d725d8b05023",
       "title": "alert",
-      "published": "Thu Oct 29 18:04:46 +0000 2026",
+      "published": "Thu Oct 29 18:08:12 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (W)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.561619 -2.242368"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.528208 -2.32845"
     }
   ]
 }
