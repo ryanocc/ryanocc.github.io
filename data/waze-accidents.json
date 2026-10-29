@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T08:00:48.185939+00:00",
+  "updatedAt": "2026-10-29T08:05:48.236491+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "c16a83c0-6491-44a7-9beb-d7d54c27e565",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.541697 -2.284224"
     },
@@ -41,23 +41,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.541416 -2.28477"
-    },
-    {
-      "id": "1edbd503-48a2-4a29-99d6-15a999526847",
-      "title": "alert",
-      "published": "Thu Oct 29 07:16:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.526859 -2.160136"
     },
     {
       "id": "d6ee785a-cc84-41ca-9c1f-89f1cf773824",
@@ -68,24 +54,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.457588 -2.339085"
     },
     {
-      "id": "911f3cec-8ef5-4bbf-80f8-323ac1c7d77c",
+      "id": "3728ed1f-34d5-4e5d-9727-15e43722e0ff",
       "title": "alert",
-      "published": "Thu Oct 29 07:10:08 +0000 2026",
+      "published": "Thu Oct 29 08:04:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A663 - Broadway",
-      "city": "Chadderton",
+      "road": "M60 (ACW)",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.527021 -2.159834"
+      "reportRating": 1.0,
+      "point": "53.543713 -2.278775"
     }
   ]
 }
