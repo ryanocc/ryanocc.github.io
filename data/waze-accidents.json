@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T06:50:48.045327+00:00",
+  "updatedAt": "2026-10-29T06:55:48.151363+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.527261 -2.159662"
     },
     {
-      "id": "1ebcb4e0-c204-4304-b350-af9439652ced",
-      "title": "alert",
-      "published": "Thu Oct 29 06:48:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A663 - Broadway",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.52703 -2.160128"
-    },
-    {
       "id": "e8699bfe-165c-4874-9fae-862578e79180",
       "title": "alert",
       "published": "Thu Oct 29 06:48:15 +0000 2026",
@@ -54,10 +40,24 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.635705 -1.984572"
+    },
+    {
+      "id": "d8b44e3e-69b3-4f8a-a0c3-fc96bd247446",
+      "title": "alert",
+      "published": "Thu Oct 29 06:55:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.635448 -1.984723"
     }
   ]
 }
