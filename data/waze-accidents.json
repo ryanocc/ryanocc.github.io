@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T19:40:48.222812+00:00",
+  "updatedAt": "2026-10-29T19:45:48.271232+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 5,
   "incidents": [
     {
       "id": "1f45f200-3bf5-4522-b9b4-da3e3cc9bcc3",
@@ -16,34 +16,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.507327 -2.166758"
-    },
-    {
-      "id": "da2e11a1-7a56-4533-b599-6b689031ad83",
-      "title": "alert",
-      "published": "Thu Oct 29 18:49:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5218 - Upper Chorlton Rd",
-      "city": "Old Trafford",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.458395 -2.258983"
-    },
-    {
-      "id": "73a04ab6-51e6-4d4e-a0e9-e76239440d92",
-      "title": "alert",
-      "published": "Thu Oct 29 19:09:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A571 - Billinge Rd",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.528145 -2.676014"
     },
     {
       "id": "460d4e83-c331-4ae2-b80e-5c33d2e4a3bb",
@@ -74,20 +46,6 @@
       "point": "53.470213 -2.246043"
     },
     {
-      "id": "41edcf3a-1968-4110-8821-f4daf9469438",
-      "title": "alert",
-      "published": "Thu Oct 29 19:28:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 - Princess Rd",
-      "city": "Hulme",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.467047 -2.245389"
-    },
-    {
       "id": "dacdb695-c686-44d5-b992-6892626d6b33",
       "title": "alert",
       "published": "Thu Oct 29 18:51:18 +0000 2026",
@@ -110,8 +68,8 @@
       "road": "M602 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.481646 -2.292745"
     }
