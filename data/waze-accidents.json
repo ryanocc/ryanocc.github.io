@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-29T16:20:48.285412+00:00",
+  "updatedAt": "2026-10-29T16:25:48.380184+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
-    {
-      "id": "e3319dcf-b9fb-48a6-bc82-544c05aacab4",
-      "title": "alert",
-      "published": "Thu Oct 29 16:02:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5228 - Weaste Ln",
-      "city": "Weaste",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.487513 -2.308145"
-    },
     {
       "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
       "title": "alert",
@@ -46,6 +32,34 @@
       "point": "53.313793 -2.418544"
     },
     {
+      "id": "55e8818c-3ed5-44e6-a6b7-398957cd0f6f",
+      "title": "alert",
+      "published": "Thu Oct 29 16:25:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.579395 -2.488271"
+    },
+    {
+      "id": "041b664c-2e40-49d5-bb60-f34551d42c11",
+      "title": "alert",
+      "published": "Thu Oct 29 16:25:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.57936 -2.488728"
+    },
+    {
       "id": "b1455dd5-7aa8-4e4c-b9e9-2c0a21e660d8",
       "title": "alert",
       "published": "Thu Oct 29 14:34:11 +0000 2026",
@@ -69,7 +83,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.470214 -2.246074"
     },
