@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-29T19:35:48.162044+00:00",
+  "updatedAt": "2026-10-29T19:40:48.222812+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
+    {
+      "id": "1f45f200-3bf5-4522-b9b4-da3e3cc9bcc3",
+      "title": "alert",
+      "published": "Thu Oct 29 19:37:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Sydney St",
+      "city": "Failsworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.507327 -2.166758"
+    },
     {
       "id": "da2e11a1-7a56-4533-b599-6b689031ad83",
       "title": "alert",
@@ -27,7 +41,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.528145 -2.676014"
     },
@@ -86,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.43344 -2.308776"
+    },
+    {
+      "id": "a8ecda99-b0ad-44a2-9296-13cf8b799e4c",
+      "title": "alert",
+      "published": "Thu Oct 29 19:38:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M602 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.481646 -2.292745"
     }
   ]
 }
