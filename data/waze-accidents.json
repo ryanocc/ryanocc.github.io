@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T18:45:48.343592+00:00",
+  "updatedAt": "2026-10-29T18:50:48.250933+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 11,
   "incidents": [
     {
       "id": "51642cca-f334-4ca4-95bc-2bb0d9bc13d9",
@@ -26,7 +26,7 @@
       "road": "St. Stephen St",
       "city": "Irwell Riverside",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.486474 -2.257254"
@@ -40,10 +40,52 @@
       "road": "Oakfield Rd",
       "city": "Altrincham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.386607 -2.345569"
+    },
+    {
+      "id": "4447c431-4c1e-45ea-a1c2-05564bf2b844",
+      "title": "alert",
+      "published": "Thu Oct 29 18:48:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (N & E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.527494 -2.332563"
+    },
+    {
+      "id": "da2e11a1-7a56-4533-b599-6b689031ad83",
+      "title": "alert",
+      "published": "Thu Oct 29 18:49:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5218 - Upper Chorlton Rd",
+      "city": "Old Trafford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.458395 -2.258983"
+    },
+    {
+      "id": "6de61f8b-be58-4f07-8192-6298279563ee",
+      "title": "alert",
+      "published": "Thu Oct 29 18:50:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5218 - Upper Chorlton Rd",
+      "city": "Old Trafford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.458411 -2.258955"
     },
     {
       "id": "711ed71e-a9bb-47cb-90cc-de7eef1a4f48",
@@ -74,18 +116,18 @@
       "point": "53.57103 -2.344324"
     },
     {
-      "id": "09c248af-a6cd-409d-8951-2492a35926d3",
+      "id": "c25ce4c9-497c-4e50-9627-925a60db2ad2",
       "title": "alert",
-      "published": "Thu Oct 29 17:04:20 +0000 2026",
+      "published": "Thu Oct 29 18:47:54 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A571 - Billinge Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.527683 -2.676297"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.528551 -2.675651"
     },
     {
       "id": "f8cbd37e-e2ea-4c35-9468-1ca563812d4f",
@@ -110,8 +152,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.528271 -2.32816"
     }
