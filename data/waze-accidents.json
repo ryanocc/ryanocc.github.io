@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T12:40:48.185731+00:00",
+  "updatedAt": "2026-10-29T12:45:48.331983+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -40,24 +40,10 @@
       "road": "A58 - Stapleton Ave",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 4.0,
       "point": "53.585403 -2.482926"
-    },
-    {
-      "id": "ea016789-07c2-4496-abdb-6a39cf4165c4",
-      "title": "alert",
-      "published": "Thu Oct 29 12:05:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Cricketers Way",
-      "city": "Westhoughton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.546637 -2.517106"
     },
     {
       "id": "5917b60e-a646-4f19-bccb-802a04c12c3c",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.550748 -2.498851"
+    },
+    {
+      "id": "ea016789-07c2-4496-abdb-6a39cf4165c4",
+      "title": "alert",
+      "published": "Thu Oct 29 12:05:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Cricketers Way",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.546637 -2.517106"
     },
     {
       "id": "f6c68166-0c6e-4f4d-9e48-2dc5e7add172",
