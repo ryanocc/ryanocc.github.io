@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T10:20:48.130805+00:00",
+  "updatedAt": "2026-10-29T10:25:48.168435+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 8,
   "incidents": [
     {
       "id": "90690117-8cab-46ad-9cdb-7ffb22f99d03",
@@ -18,6 +18,20 @@
       "point": "53.440783 -2.584353"
     },
     {
+      "id": "58b96e29-81df-4348-9bfd-42cc8ae7139c",
+      "title": "alert",
+      "published": "Thu Oct 29 10:22:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 > Oldham",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 5.0,
+      "point": "53.548011 -2.266093"
+    },
+    {
       "id": "09b7c087-94d6-42a7-8829-3ea889a72936",
       "title": "alert",
       "published": "Thu Oct 29 08:50:55 +0000 2026",
@@ -30,6 +44,34 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.411882 -2.211493"
+    },
+    {
+      "id": "81aa0894-6efb-4d2d-966a-c349943da241",
+      "title": "alert",
+      "published": "Thu Oct 29 10:22:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.428213 -2.252812"
+    },
+    {
+      "id": "4dc24672-9781-4b83-913b-abf1df861d84",
+      "title": "alert",
+      "published": "Thu Oct 29 10:22:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.556433 -2.248392"
     },
     {
       "id": "f32cb907-51ea-4def-bc8f-d647e4515c73",
@@ -54,8 +96,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.541194 -2.284889"
     },
