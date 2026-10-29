@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-29T12:25:48.274362+00:00",
+  "updatedAt": "2026-10-29T12:30:48.271790+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "6d94a63f-8d00-42d8-ae43-f50335fc9bf5",
+      "title": "alert",
+      "published": "Thu Oct 29 12:27:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Long Ln",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.57172 -2.395315"
+    },
     {
       "id": "5875998c-5e93-4e27-8185-659525d9a2a9",
       "title": "alert",
@@ -32,6 +46,20 @@
       "point": "53.546637 -2.517106"
     },
     {
+      "id": "0e233015-ee39-4198-be73-0c58b2b3ff99",
+      "title": "alert",
+      "published": "Thu Oct 29 12:27:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Stapleton Ave",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.585403 -2.482926"
+    },
+    {
       "id": "5917b60e-a646-4f19-bccb-802a04c12c3c",
       "title": "alert",
       "published": "Thu Oct 29 12:11:42 +0000 2026",
@@ -40,7 +68,7 @@
       "road": "A58 - Park Rd",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.550748 -2.498851"
