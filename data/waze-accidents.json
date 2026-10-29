@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T16:50:48.645044+00:00",
+  "updatedAt": "2026-10-29T16:55:48.328287+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -55,7 +55,7 @@
       "city": "Kersal",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.514821 -2.271602"
     },
@@ -74,6 +74,20 @@
       "point": "53.581815 -2.530432"
     },
     {
+      "id": "51661b04-8250-49ca-b6b8-34aebef99625",
+      "title": "alert",
+      "published": "Thu Oct 29 16:53:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Radcliffe",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.57103 -2.344324"
+    },
+    {
       "id": "b6a2bd55-1869-4f13-b17d-0213d82f7d68",
       "title": "alert",
       "published": "Thu Oct 29 16:50:43 +0000 2026",
@@ -82,10 +96,10 @@
       "road": "A571 - Billinge Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
-      "point": "53.529044 -2.674504"
+      "point": "53.529086 -2.674331"
     },
     {
       "id": "978ee37f-8b1d-4f14-9ab7-39efe71a24c6",
@@ -102,20 +116,6 @@
       "point": "53.313793 -2.418544"
     },
     {
-      "id": "1c5f537c-0e16-41e4-bcab-ada0586f7d7a",
-      "title": "alert",
-      "published": "Thu Oct 29 16:49:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.40906 -2.266872"
-    },
-    {
       "id": "ec5f2dba-dd72-4ad1-b41e-a550295b0841",
       "title": "alert",
       "published": "Thu Oct 29 16:46:26 +0000 2026",
@@ -124,15 +124,15 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.403847 -2.267746"
     },
     {
-      "id": "b201b5cd-8193-45e0-99f1-7d0483313c2f",
+      "id": "3c7d2cbb-3cb2-4af3-ac5c-542e7cc7b870",
       "title": "alert",
-      "published": "Thu Oct 29 16:49:02 +0000 2026",
+      "published": "Thu Oct 29 16:54:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A58 - Victoria Rd",
@@ -141,7 +141,21 @@
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.580246 -2.487318"
+      "point": "53.5801 -2.487346"
+    },
+    {
+      "id": "3549ebce-0230-4e5b-b85e-576666ed08f5",
+      "title": "alert",
+      "published": "Thu Oct 29 16:55:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Stockport Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.461277 -2.207294"
     },
     {
       "id": "bf4f8c23-cc86-47ed-ba4c-ad3e193023be",
