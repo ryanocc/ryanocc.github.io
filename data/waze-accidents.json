@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T10:05:48.411150+00:00",
+  "updatedAt": "2026-10-29T10:10:48.265809+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
     {
       "id": "90690117-8cab-46ad-9cdb-7ffb22f99d03",
@@ -27,7 +27,7 @@
       "city": "Bury",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.589393 -2.341697"
     },
@@ -44,6 +44,34 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.411882 -2.211493"
+    },
+    {
+      "id": "8797f90d-9ed1-4ba1-bf45-bd67a9e73e46",
+      "title": "alert",
+      "published": "Thu Oct 29 10:09:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.556196 -2.248684"
+    },
+    {
+      "id": "f32cb907-51ea-4def-bc8f-d647e4515c73",
+      "title": "alert",
+      "published": "Thu Oct 29 10:07:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.552546 -2.254879"
     }
   ]
 }
