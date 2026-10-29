@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-29T09:30:48.189097+00:00",
+  "updatedAt": "2026-10-29T09:35:48.221505+00:00",
   "source": "Waze GeoRSS",
   "count": 2,
   "incidents": [
+    {
+      "id": "90690117-8cab-46ad-9cdb-7ffb22f99d03",
+      "title": "alert",
+      "published": "Thu Oct 29 09:31:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J22 to A49",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.440849 -2.584459"
+    },
     {
       "id": "09b7c087-94d6-42a7-8829-3ea889a72936",
       "title": "alert",
@@ -16,20 +30,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.411882 -2.211493"
-    },
-    {
-      "id": "f5c564ff-167d-45c9-8ad5-49d80297c537",
-      "title": "alert",
-      "published": "Thu Oct 29 09:27:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.468324 -2.327183"
     }
   ]
 }
