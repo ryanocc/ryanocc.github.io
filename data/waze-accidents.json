@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T15:00:48.166753+00:00",
+  "updatedAt": "2026-10-29T15:05:48.361327+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.527299 -2.208643"
     },
     {
-      "id": "9e559e28-a591-42d3-bd0c-b76c08af7f86",
-      "title": "alert",
-      "published": "Thu Oct 29 14:49:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Street Ln",
-      "city": "Poynton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.332288 -2.116722"
-    },
-    {
       "id": "0fc0270a-979a-402d-b2aa-8edb0d0095ef",
       "title": "alert",
       "published": "Thu Oct 29 14:54:18 +0000 2026",
@@ -55,9 +41,37 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.331405 -2.116192"
+    },
+    {
+      "id": "9e559e28-a591-42d3-bd0c-b76c08af7f86",
+      "title": "alert",
+      "published": "Thu Oct 29 14:49:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Street Ln",
+      "city": "Poynton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.332288 -2.116722"
+    },
+    {
+      "id": "77ecc3d2-0574-43cf-8a36-38abb8117992",
+      "title": "alert",
+      "published": "Thu Oct 29 14:51:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 5.0,
+      "point": "53.470215 -2.246111"
     },
     {
       "id": "b1455dd5-7aa8-4e4c-b9e9-2c0a21e660d8",
@@ -72,20 +86,6 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.470003 -2.246729"
-    },
-    {
-      "id": "77ecc3d2-0574-43cf-8a36-38abb8117992",
-      "title": "alert",
-      "published": "Thu Oct 29 14:51:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 5.0,
-      "point": "53.470215 -2.246111"
     }
   ]
 }
