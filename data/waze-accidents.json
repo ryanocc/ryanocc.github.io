@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T19:45:48.271232+00:00",
+  "updatedAt": "2026-10-29T19:50:48.238834+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "1f45f200-3bf5-4522-b9b4-da3e3cc9bcc3",
@@ -46,6 +46,20 @@
       "point": "53.470213 -2.246043"
     },
     {
+      "id": "741c453e-ae20-4275-b475-afa4c3d42235",
+      "title": "alert",
+      "published": "Thu Oct 29 19:48:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Rd",
+      "city": "Hulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.466837 -2.245296"
+    },
+    {
       "id": "dacdb695-c686-44d5-b992-6892626d6b33",
       "title": "alert",
       "published": "Thu Oct 29 18:51:18 +0000 2026",
@@ -68,7 +82,7 @@
       "road": "M602 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.481646 -2.292745"
