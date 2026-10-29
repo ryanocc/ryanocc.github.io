@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T18:00:48.433258+00:00",
+  "updatedAt": "2026-10-29T18:05:48.299556+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "d2659e08-6bc9-4a33-b20b-190ddc5b10cc",
@@ -12,8 +12,8 @@
       "road": "B5167 - Wythenshawe Rd",
       "city": "Northern Moor",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.406874 -2.26834"
     },
@@ -27,7 +27,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.536237 -2.653771"
     },
@@ -40,7 +40,7 @@
       "road": "M60 > Ring Road (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.53764 -2.292705"
@@ -55,7 +55,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.480525 -2.241032"
     },
@@ -83,7 +83,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.527683 -2.676297"
     },
@@ -96,38 +96,24 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470289 -2.245984"
     },
     {
-      "id": "5c09e6ec-8519-4ea9-9cd3-47baece78e56",
+      "id": "d147d71a-cfab-4267-b293-8ae9bd34a5ae",
       "title": "alert",
-      "published": "Thu Oct 29 17:23:57 +0000 2026",
+      "published": "Thu Oct 29 18:05:07 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.601974 -2.113366"
-    },
-    {
-      "id": "37787d4f-66ab-48f9-af30-2c5ef091a697",
-      "title": "alert",
-      "published": "Thu Oct 29 18:00:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
+      "road": "A665 - Bury Old Rd",
+      "city": "Crumpsall",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.456589 -2.33878"
+      "point": "53.513507 -2.246231"
     },
     {
       "id": "e49d0cd6-6748-4f57-a1e0-cbfa13db98a2",
@@ -138,10 +124,24 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.455459 -2.33882"
+    },
+    {
+      "id": "37787d4f-66ab-48f9-af30-2c5ef091a697",
+      "title": "alert",
+      "published": "Thu Oct 29 18:00:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.458405 -2.339601"
     },
     {
       "id": "a612845a-882a-4f7b-9720-afa26deb8dd6",
@@ -156,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.540944 -2.419667"
+    },
+    {
+      "id": "4ba7a4c8-31a1-4174-891f-e59a2988c11d",
+      "title": "alert",
+      "published": "Thu Oct 29 18:04:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.561619 -2.242368"
     }
   ]
 }
