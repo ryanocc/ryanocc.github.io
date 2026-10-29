@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T08:10:48.174100+00:00",
+  "updatedAt": "2026-10-29T08:15:48.091619+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "c16a83c0-6491-44a7-9beb-d7d54c27e565",
@@ -18,20 +18,6 @@
       "point": "53.470805 -2.236422"
     },
     {
-      "id": "19f58b36-435a-4406-a5c0-758380479a57",
-      "title": "alert",
-      "published": "Thu Oct 29 07:47:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 > Ring Rd E & S",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.541697 -2.284224"
-    },
-    {
       "id": "eb8e5278-12fc-44f8-8eed-e509e65d023a",
       "title": "alert",
       "published": "Thu Oct 29 07:47:10 +0000 2026",
@@ -46,18 +32,18 @@
       "point": "53.541416 -2.28477"
     },
     {
-      "id": "d6ee785a-cc84-41ca-9c1f-89f1cf773824",
+      "id": "19f58b36-435a-4406-a5c0-758380479a57",
       "title": "alert",
-      "published": "Thu Oct 29 07:34:03 +0000 2026",
+      "published": "Thu Oct 29 07:47:23 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
+      "road": "M60 > Ring Rd E & S",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.457588 -2.339085"
+      "reportRating": 0.0,
+      "point": "53.541697 -2.284224"
     },
     {
       "id": "3728ed1f-34d5-4e5d-9727-15e43722e0ff",
@@ -68,7 +54,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.543713 -2.278775"
