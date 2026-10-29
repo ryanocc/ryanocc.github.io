@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T16:55:48.328287+00:00",
+  "updatedAt": "2026-10-29T17:00:48.368427+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 12,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -12,8 +12,8 @@
       "road": "Queen St",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.486606 -2.252699"
     },
@@ -26,8 +26,8 @@
       "road": "B5166 > Northenden",
       "city": "Northenden",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.408256 -2.266885"
     },
@@ -54,8 +54,8 @@
       "road": "Moor Ln",
       "city": "Kersal",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.514821 -2.271602"
     },
@@ -97,7 +97,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.529086 -2.674331"
     },
@@ -116,18 +116,18 @@
       "point": "53.313793 -2.418544"
     },
     {
-      "id": "ec5f2dba-dd72-4ad1-b41e-a550295b0841",
+      "id": "31110882-aaca-492d-bb6b-45810fc3a0d7",
       "title": "alert",
-      "published": "Thu Oct 29 16:46:26 +0000 2026",
+      "published": "Thu Oct 29 17:00:42 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
+      "subtype": "",
+      "road": "A58 - Victoria Rd",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.403847 -2.267746"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.579789 -2.487393"
     },
     {
       "id": "3c7d2cbb-3cb2-4af3-ac5c-542e7cc7b870",
@@ -138,8 +138,8 @@
       "road": "A58 - Victoria Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.5801 -2.487346"
     },
@@ -152,24 +152,10 @@
       "road": "A6 - Stockport Rd",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.461277 -2.207294"
-    },
-    {
-      "id": "bf4f8c23-cc86-47ed-ba4c-ad3e193023be",
-      "title": "alert",
-      "published": "Thu Oct 29 16:42:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.489805 -2.241745"
     },
     {
       "id": "7247e45f-31b1-46f9-a3c1-2430fa7a4f88",
@@ -184,20 +170,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.470237 -2.245048"
-    },
-    {
-      "id": "31254bf1-f7d1-4455-baed-0dd09257317b",
-      "title": "alert",
-      "published": "Thu Oct 29 16:48:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.473455 -2.231495"
     }
   ]
 }
