@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T08:35:48.227634+00:00",
+  "updatedAt": "2026-10-29T08:40:48.214764+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
     {
       "id": "19f58b36-435a-4406-a5c0-758380479a57",
@@ -12,10 +12,38 @@
       "road": "M60 > Ring Rd E & S",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.541697 -2.284224"
+    },
+    {
+      "id": "9619a7cb-66cd-44e1-b184-64a84aa4dd27",
+      "title": "alert",
+      "published": "Thu Oct 29 08:37:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Cadishead Way",
+      "city": "Irlam",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.445088 -2.411056"
+    },
+    {
+      "id": "7e648b3c-7675-401b-b9c7-a28063fd856d",
+      "title": "alert",
+      "published": "Thu Oct 29 08:38:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M602 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.488496 -2.354443"
     }
   ]
 }
