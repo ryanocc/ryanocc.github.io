@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T18:20:48.539170+00:00",
+  "updatedAt": "2026-10-29T18:25:48.315621+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "68641461-d22d-4202-ac9f-46ab2b5126db",
@@ -13,7 +13,7 @@
       "city": "Altrincham",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.386607 -2.345569"
     },
@@ -26,24 +26,24 @@
       "road": "B5167 - Wythenshawe Rd",
       "city": "Northern Moor",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.40688 -2.268423"
     },
     {
-      "id": "ed3c28e2-f977-4105-af60-989ee2ea87f1",
+      "id": "a14bfc2d-e8fd-48a7-9383-a29a082f3dd9",
       "title": "alert",
-      "published": "Thu Oct 29 17:50:55 +0000 2026",
+      "published": "Thu Oct 29 18:21:15 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B5386 - Warrington Rd",
-      "city": "Wigan",
+      "road": "B5167 - Palatine Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.536237 -2.653771"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.406843 -2.26798"
     },
     {
       "id": "711ed71e-a9bb-47cb-90cc-de7eef1a4f48",
@@ -88,6 +88,48 @@
       "point": "53.527683 -2.676297"
     },
     {
+      "id": "d3943d62-be91-4fae-9294-22e4327eec56",
+      "title": "alert",
+      "published": "Thu Oct 29 18:25:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.467912 -2.589453"
+    },
+    {
+      "id": "5767b081-ece2-474d-b7f1-ef878faa535d",
+      "title": "alert",
+      "published": "Thu Oct 29 18:23:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.496218 -2.528435"
+    },
+    {
+      "id": "a59cf409-fba8-42d2-bb8b-836041d69802",
+      "title": "alert",
+      "published": "Thu Oct 29 18:19:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.4701 -2.245695"
+    },
+    {
       "id": "f8cbd37e-e2ea-4c35-9468-1ca563812d4f",
       "title": "alert",
       "published": "Thu Oct 29 18:05:50 +0000 2026",
@@ -100,20 +142,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.470213 -2.246043"
-    },
-    {
-      "id": "a59cf409-fba8-42d2-bb8b-836041d69802",
-      "title": "alert",
-      "published": "Thu Oct 29 18:19:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.4701 -2.245695"
     },
     {
       "id": "0a529744-1bc0-40e0-a27c-a13f4cfeae8a",
@@ -138,24 +166,10 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.528178 -2.328585"
-    },
-    {
-      "id": "da1bd2d2-55ea-4a50-af4d-f26d9f1287f3",
-      "title": "alert",
-      "published": "Thu Oct 29 18:08:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.527956 -2.328676"
+      "point": "53.528178 -2.328585"
     }
   ]
 }
