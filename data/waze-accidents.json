@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T15:35:48.289332+00:00",
+  "updatedAt": "2026-10-29T15:40:48.189424+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "e02589da-7604-45f1-9ae7-26ca9816c8b8",
@@ -18,20 +18,6 @@
       "point": "53.527299 -2.208643"
     },
     {
-      "id": "d46da2c2-8618-4454-9940-3b88aacccc14",
-      "title": "alert",
-      "published": "Thu Oct 29 15:28:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 > Birmingham",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.312796 -2.417508"
-    },
-    {
       "id": "0797a2da-e0ff-47f5-b79a-dfb78d0afe07",
       "title": "alert",
       "published": "Thu Oct 29 15:31:40 +0000 2026",
@@ -40,8 +26,8 @@
       "road": "A58 - Snydale Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.552115 -2.496197"
     },
@@ -69,7 +55,7 @@
       "city": "Miles Platting",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.494919 -2.213263"
     }
