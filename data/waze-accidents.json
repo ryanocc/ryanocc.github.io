@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T17:50:48.405108+00:00",
+  "updatedAt": "2026-10-29T17:55:48.415409+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -13,9 +13,23 @@
       "city": "Northern Moor",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.406874 -2.26834"
+    },
+    {
+      "id": "ed3c28e2-f977-4105-af60-989ee2ea87f1",
+      "title": "alert",
+      "published": "Thu Oct 29 17:50:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5386 - Warrington Rd",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.536237 -2.653771"
     },
     {
       "id": "69aaf477-ed16-4343-bd89-d8f524f6989f",
@@ -27,23 +41,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.53764 -2.292705"
     },
     {
-      "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
+      "id": "711ed71e-a9bb-47cb-90cc-de7eef1a4f48",
       "title": "alert",
-      "published": "Thu Oct 29 15:47:42 +0000 2026",
+      "published": "Thu Oct 29 17:55:00 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Horwich",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Fountain St",
+      "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.581815 -2.530432"
+      "point": "53.480525 -2.241032"
     },
     {
       "id": "51661b04-8250-49ca-b6b8-34aebef99625",
@@ -97,37 +111,9 @@
       "city": "Leigh",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.512793 -2.543528"
-    },
-    {
-      "id": "ebebb0bd-bbc6-4aef-b859-9f7a3f4e2b54",
-      "title": "alert",
-      "published": "Thu Oct 29 17:44:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.46936 -2.60098"
-    },
-    {
-      "id": "2804eb9d-dd21-42da-8f5c-fed4b70526b7",
-      "title": "alert",
-      "published": "Thu Oct 29 17:38:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Victoria Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.580012 -2.487362"
     },
     {
       "id": "01bc2105-a47c-48ce-b30b-82e51a034c4f",
@@ -138,8 +124,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.555339 -2.489235"
     },
@@ -156,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.601974 -2.113366"
+    },
+    {
+      "id": "a612845a-882a-4f7b-9720-afa26deb8dd6",
+      "title": "alert",
+      "published": "Thu Oct 29 17:52:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.540944 -2.419667"
     },
     {
       "id": "7247e45f-31b1-46f9-a3c1-2430fa7a4f88",
