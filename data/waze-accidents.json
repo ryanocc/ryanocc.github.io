@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T16:35:48.274691+00:00",
+  "updatedAt": "2026-10-29T16:40:48.335595+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -12,8 +12,8 @@
       "road": "Queen St",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.486606 -2.252699"
     },
@@ -46,18 +46,18 @@
       "point": "53.313793 -2.418544"
     },
     {
-      "id": "0e45925f-9d34-458d-bb75-d1d53bfe3444",
+      "id": "0aced09e-6c17-43eb-a239-4764237c730a",
       "title": "alert",
-      "published": "Thu Oct 29 16:34:22 +0000 2026",
+      "published": "Thu Oct 29 16:36:36 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Stretford",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.436948 -2.315424"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.405365 -2.267785"
     },
     {
       "id": "041b664c-2e40-49d5-bb60-f34551d42c11",
@@ -88,20 +88,6 @@
       "point": "53.579395 -2.488271"
     },
     {
-      "id": "b1455dd5-7aa8-4e4c-b9e9-2c0a21e660d8",
-      "title": "alert",
-      "published": "Thu Oct 29 14:34:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.470003 -2.246729"
-    },
-    {
       "id": "161a28ce-831a-49dc-9f7c-3a19cf947770",
       "title": "alert",
       "published": "Thu Oct 29 16:19:56 +0000 2026",
@@ -110,24 +96,10 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470221 -2.246323"
-    },
-    {
-      "id": "ac9682b1-632a-4d9d-ac23-e227f1e31c55",
-      "title": "alert",
-      "published": "Thu Oct 29 16:32:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.341532 -2.490733"
     },
     {
       "id": "6f117b29-231b-4b63-8280-736f83e0ed5e",
@@ -138,7 +110,7 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.397012 -2.267616"
