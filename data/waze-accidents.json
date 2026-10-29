@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T14:50:47.696969+00:00",
+  "updatedAt": "2026-10-29T14:55:48.345596+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "ed1a4216-fc6c-467e-a664-4254c026b670",
@@ -41,9 +41,37 @@
       "city": "Poynton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.332288 -2.116722"
+    },
+    {
+      "id": "0fc0270a-979a-402d-b2aa-8edb0d0095ef",
+      "title": "alert",
+      "published": "Thu Oct 29 14:54:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Cawley Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.331405 -2.116192"
+    },
+    {
+      "id": "77ecc3d2-0574-43cf-8a36-38abb8117992",
+      "title": "alert",
+      "published": "Thu Oct 29 14:51:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 5.0,
+      "point": "53.470215 -2.246111"
     },
     {
       "id": "b1455dd5-7aa8-4e4c-b9e9-2c0a21e660d8",
