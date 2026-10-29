@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T14:30:48.298212+00:00",
+  "updatedAt": "2026-10-29T14:35:48.249348+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "ed1a4216-fc6c-467e-a664-4254c026b670",
@@ -32,20 +32,6 @@
       "point": "53.527299 -2.208643"
     },
     {
-      "id": "6eaea9f4-9bf1-41c5-8927-377a281ac0e2",
-      "title": "alert",
-      "published": "Thu Oct 29 13:58:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6170 - Scotland St",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.48668 -2.088631"
-    },
-    {
       "id": "2f061291-e358-4b3f-b042-430b3c7b0f82",
       "title": "alert",
       "published": "Thu Oct 29 14:05:24 +0000 2026",
@@ -58,6 +44,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.467898 -2.555107"
+    },
+    {
+      "id": "b1455dd5-7aa8-4e4c-b9e9-2c0a21e660d8",
+      "title": "alert",
+      "published": "Thu Oct 29 14:34:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.470003 -2.246729"
+    },
+    {
+      "id": "853d0b49-8256-4a23-a7fa-ef7c39133a91",
+      "title": "alert",
+      "published": "Thu Oct 29 14:31:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.470219 -2.246238"
     }
   ]
 }
