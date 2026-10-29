@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-29T18:40:48.240511+00:00",
+  "updatedAt": "2026-10-29T18:45:48.343592+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
-    {
-      "id": "1c34181c-0f18-4bc6-8db1-d964f838befb",
-      "title": "alert",
-      "published": "Thu Oct 29 18:31:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "St. Stephen St",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.486474 -2.257254"
-    },
     {
       "id": "51642cca-f334-4ca4-95bc-2bb0d9bc13d9",
       "title": "alert",
@@ -26,10 +12,24 @@
       "road": "St. Stephen St",
       "city": "Irwell Riverside",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.486824 -2.257172"
+    },
+    {
+      "id": "1c34181c-0f18-4bc6-8db1-d964f838befb",
+      "title": "alert",
+      "published": "Thu Oct 29 18:31:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "St. Stephen St",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.486474 -2.257254"
     },
     {
       "id": "68641461-d22d-4202-ac9f-46ab2b5126db",
@@ -44,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.386607 -2.345569"
-    },
-    {
-      "id": "a14bfc2d-e8fd-48a7-9383-a29a082f3dd9",
-      "title": "alert",
-      "published": "Thu Oct 29 18:21:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5167 - Palatine Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.406843 -2.26798"
     },
     {
       "id": "711ed71e-a9bb-47cb-90cc-de7eef1a4f48",
@@ -116,32 +102,18 @@
       "point": "53.470213 -2.246043"
     },
     {
-      "id": "0a529744-1bc0-40e0-a27c-a13f4cfeae8a",
+      "id": "d376e9e8-7af6-4108-8379-c869667943fa",
       "title": "alert",
-      "published": "Thu Oct 29 18:09:59 +0000 2026",
+      "published": "Thu Oct 29 18:45:47 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.455368 -2.338841"
-    },
-    {
-      "id": "7da79765-466f-4c52-9a79-8b1639701313",
-      "title": "alert",
-      "published": "Thu Oct 29 18:34:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.528109 -2.328903"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.528271 -2.32816"
     }
   ]
 }
