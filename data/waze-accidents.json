@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T18:55:48.306842+00:00",
+  "updatedAt": "2026-10-29T19:00:48.180772+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "51642cca-f334-4ca4-95bc-2bb0d9bc13d9",
@@ -32,20 +32,6 @@
       "point": "53.486474 -2.257254"
     },
     {
-      "id": "68641461-d22d-4202-ac9f-46ab2b5126db",
-      "title": "alert",
-      "published": "Thu Oct 29 18:18:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Oakfield Rd",
-      "city": "Altrincham",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.386607 -2.345569"
-    },
-    {
       "id": "4447c431-4c1e-45ea-a1c2-05564bf2b844",
       "title": "alert",
       "published": "Thu Oct 29 18:48:32 +0000 2026",
@@ -54,7 +40,7 @@
       "road": "M60 (N & E)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.527494 -2.332563"
@@ -68,8 +54,8 @@
       "road": "B5218 - Upper Chorlton Rd",
       "city": "Old Trafford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.458395 -2.258983"
     },
@@ -82,8 +68,8 @@
       "road": "B5218 - Upper Chorlton Rd",
       "city": "Old Trafford",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.458411 -2.258955"
     },
@@ -102,20 +88,6 @@
       "point": "53.480525 -2.241032"
     },
     {
-      "id": "51661b04-8250-49ca-b6b8-34aebef99625",
-      "title": "alert",
-      "published": "Thu Oct 29 16:53:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Radcliffe",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.57103 -2.344324"
-    },
-    {
       "id": "c25ce4c9-497c-4e50-9627-925a60db2ad2",
       "title": "alert",
       "published": "Thu Oct 29 18:47:54 +0000 2026",
@@ -125,7 +97,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.528551 -2.675651"
     },
@@ -144,18 +116,32 @@
       "point": "53.470213 -2.246043"
     },
     {
-      "id": "71a1a388-3089-4e04-ae73-6cf5d818859e",
+      "id": "690c90c2-f957-4501-8db9-16d6531a0dee",
       "title": "alert",
-      "published": "Thu Oct 29 18:52:24 +0000 2026",
+      "published": "Thu Oct 29 18:59:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 - Princess Rd",
-      "city": "Hulme",
+      "road": "",
+      "city": "Manchester",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
-      "point": "53.467627 -2.245743"
+      "point": "53.46997 -2.246733"
+    },
+    {
+      "id": "dd70ccc2-c78a-41bb-a556-e390aa3642f7",
+      "title": "alert",
+      "published": "Thu Oct 29 19:00:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Chapel St",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.483267 -2.262242"
     },
     {
       "id": "dacdb695-c686-44d5-b992-6892626d6b33",
@@ -166,10 +152,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.43344 -2.308776"
+    },
+    {
+      "id": "f5751e34-1992-41ea-8072-24e08e015ca5",
+      "title": "alert",
+      "published": "Thu Oct 29 18:57:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.489065 -2.37741"
     },
     {
       "id": "db3a967f-78e9-4b7e-9582-f956f91c3e1b",
@@ -180,10 +180,24 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.439524 -2.330637"
+      "point": "53.439386 -2.328929"
+    },
+    {
+      "id": "884d0831-9952-4132-bb72-7440946f6d2a",
+      "title": "alert",
+      "published": "Thu Oct 29 18:56:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "Urmston",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.439424 -2.326284"
     }
   ]
 }
