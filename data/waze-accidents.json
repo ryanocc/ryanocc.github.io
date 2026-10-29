@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T16:30:48.387993+00:00",
+  "updatedAt": "2026-10-29T16:35:48.274691+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -46,18 +46,18 @@
       "point": "53.313793 -2.418544"
     },
     {
-      "id": "670cdad6-f61e-43d3-b737-3af54983ed06",
+      "id": "0e45925f-9d34-458d-bb75-d1d53bfe3444",
       "title": "alert",
-      "published": "Thu Oct 29 16:26:15 +0000 2026",
+      "published": "Thu Oct 29 16:34:22 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A673 - Chorley New Rd",
-      "city": "Lostock",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
       "country": "UK",
       "confidence": 1.0,
       "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.579172 -2.490877"
+      "reportRating": 3.0,
+      "point": "53.436948 -2.315424"
     },
     {
       "id": "041b664c-2e40-49d5-bb60-f34551d42c11",
@@ -69,7 +69,7 @@
       "city": "Lostock",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.57936 -2.488728"
     },
@@ -82,8 +82,8 @@
       "road": "A673 - Chorley New Rd",
       "city": "Lostock",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.579395 -2.488271"
     },
@@ -110,10 +110,24 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470221 -2.246323"
+    },
+    {
+      "id": "ac9682b1-632a-4d9d-ac23-e227f1e31c55",
+      "title": "alert",
+      "published": "Thu Oct 29 16:32:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.341532 -2.490733"
     },
     {
       "id": "6f117b29-231b-4b63-8280-736f83e0ed5e",
@@ -124,8 +138,8 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.397012 -2.267616"
     },
