@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T17:00:48.368427+00:00",
+  "updatedAt": "2026-10-29T17:05:48.468454+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -26,8 +26,8 @@
       "road": "B5166 > Northenden",
       "city": "Northenden",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.408256 -2.266885"
     },
@@ -44,20 +44,6 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.521043 -2.514886"
-    },
-    {
-      "id": "5b09a303-1af7-46ad-b2b0-0b62f4ce11fb",
-      "title": "alert",
-      "published": "Thu Oct 29 16:45:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Moor Ln",
-      "city": "Kersal",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.514821 -2.271602"
     },
     {
       "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
@@ -102,18 +88,32 @@
       "point": "53.529086 -2.674331"
     },
     {
-      "id": "978ee37f-8b1d-4f14-9ab7-39efe71a24c6",
+      "id": "09c248af-a6cd-409d-8951-2492a35926d3",
       "title": "alert",
-      "published": "Thu Oct 29 15:51:58 +0000 2026",
+      "published": "Thu Oct 29 17:04:20 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A556 (S)",
+      "road": "A571 - Billinge Rd",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.527683 -2.676297"
+    },
+    {
+      "id": "268e387b-7ea2-4d7d-a4c4-3c12393636ed",
+      "title": "alert",
+      "published": "Thu Oct 29 17:04:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Semple Way",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.313793 -2.418544"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.526114 -2.159377"
     },
     {
       "id": "31110882-aaca-492d-bb6b-45810fc3a0d7",
@@ -125,7 +125,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.579789 -2.487393"
     },
@@ -139,7 +139,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.5801 -2.487346"
     },
@@ -152,7 +152,7 @@
       "road": "A6 - Stockport Rd",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.461277 -2.207294"
