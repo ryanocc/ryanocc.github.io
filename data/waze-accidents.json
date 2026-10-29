@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-29T20:50:48.109606+00:00",
+  "updatedAt": "2026-10-29T20:55:48.161511+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 5,
   "incidents": [
+    {
+      "id": "2cece7f0-1162-460d-80f1-9639c7c97d00",
+      "title": "alert",
+      "published": "Thu Oct 29 20:51:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bell Cr",
+      "city": "Bradford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.475641 -2.196909"
+    },
     {
       "id": "1f45f200-3bf5-4522-b9b4-da3e3cc9bcc3",
       "title": "alert",
@@ -18,6 +32,20 @@
       "point": "53.507327 -2.166758"
     },
     {
+      "id": "aa9cc1d3-ba7f-4270-a44e-74f18c6d15ca",
+      "title": "alert",
+      "published": "Thu Oct 29 20:51:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hazelbottom Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.505804 -2.228745"
+    },
+    {
       "id": "741c453e-ae20-4275-b475-afa4c3d42235",
       "title": "alert",
       "published": "Thu Oct 29 19:48:09 +0000 2026",
@@ -30,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.467225 -2.245492"
+    },
+    {
+      "id": "51fda079-f409-44cc-83cc-31f37e28042b",
+      "title": "alert",
+      "published": "Thu Oct 29 20:53:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.465172 -2.360237"
     }
   ]
 }
