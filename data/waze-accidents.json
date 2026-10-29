@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T15:50:48.254673+00:00",
+  "updatedAt": "2026-10-29T15:55:48.297234+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "e02589da-7604-45f1-9ae7-26ca9816c8b8",
@@ -40,10 +40,24 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470627 -2.246006"
+    },
+    {
+      "id": "978ee37f-8b1d-4f14-9ab7-39efe71a24c6",
+      "title": "alert",
+      "published": "Thu Oct 29 15:51:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.313793 -2.418544"
     },
     {
       "id": "b1455dd5-7aa8-4e4c-b9e9-2c0a21e660d8",
@@ -68,8 +82,8 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 4.0,
       "point": "53.470216 -2.246136"
     },
@@ -82,7 +96,7 @@
       "road": "A62 - Oldham Rd",
       "city": "Miles Platting",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.494919 -2.213263"
@@ -97,7 +111,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.470237 -2.245048"
     }
