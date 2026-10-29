@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-29T18:10:48.411984+00:00",
+  "updatedAt": "2026-10-29T18:15:48.450604+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 9,
   "incidents": [
-    {
-      "id": "d2659e08-6bc9-4a33-b20b-190ddc5b10cc",
-      "title": "alert",
-      "published": "Thu Oct 29 17:44:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5167 - Wythenshawe Rd",
-      "city": "Northern Moor",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.406974 -2.269395"
-    },
     {
       "id": "ed3c28e2-f977-4105-af60-989ee2ea87f1",
       "title": "alert",
@@ -26,8 +12,8 @@
       "road": "B5386 - Warrington Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.536237 -2.653771"
     },
@@ -111,7 +97,7 @@
       "city": "Crumpsall",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.513507 -2.246231"
     },
@@ -124,24 +110,10 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.455368 -2.338841"
-    },
-    {
-      "id": "37787d4f-66ab-48f9-af30-2c5ef091a697",
-      "title": "alert",
-      "published": "Thu Oct 29 18:00:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.458405 -2.339601"
     },
     {
       "id": "da1bd2d2-55ea-4a50-af4d-f26d9f1287f3",
@@ -152,24 +124,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.527956 -2.328676"
-    },
-    {
-      "id": "e6ade1cb-d1b2-4df8-8343-d725d8b05023",
-      "title": "alert",
-      "published": "Thu Oct 29 18:08:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.528208 -2.32845"
     }
   ]
 }
