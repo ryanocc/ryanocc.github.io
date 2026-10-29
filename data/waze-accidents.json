@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T17:35:48.447683+00:00",
+  "updatedAt": "2026-10-29T17:40:48.507703+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -18,34 +18,6 @@
       "point": "53.486606 -2.252699"
     },
     {
-      "id": "f42c5163-1396-4b9a-b259-7bd4e400dc5d",
-      "title": "alert",
-      "published": "Thu Oct 29 17:15:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5167 - Wythenshawe Rd",
-      "city": "Northern Moor",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.406882 -2.268447"
-    },
-    {
-      "id": "477053ef-9ece-4c4f-8338-f9d5f1f96979",
-      "title": "alert",
-      "published": "Thu Oct 29 17:28:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Barton Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.458196 -2.338106"
-    },
-    {
       "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
       "title": "alert",
       "published": "Thu Oct 29 15:47:42 +0000 2026",
@@ -55,7 +27,7 @@
       "city": "Horwich",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.581815 -2.530432"
     },
@@ -102,18 +74,18 @@
       "point": "53.527683 -2.676297"
     },
     {
-      "id": "bc66b11d-d348-44f3-b1d3-fae6f573889f",
+      "id": "2804eb9d-dd21-42da-8f5c-fed4b70526b7",
       "title": "alert",
-      "published": "Thu Oct 29 17:29:29 +0000 2026",
+      "published": "Thu Oct 29 17:38:34 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
+      "road": "A58 - Victoria Rd",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.478236 -2.219568"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.580012 -2.487362"
     },
     {
       "id": "3549ebce-0230-4e5b-b85e-576666ed08f5",
@@ -130,6 +102,20 @@
       "point": "53.461277 -2.207294"
     },
     {
+      "id": "bc66b11d-d348-44f3-b1d3-fae6f573889f",
+      "title": "alert",
+      "published": "Thu Oct 29 17:29:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.478236 -2.219568"
+    },
+    {
       "id": "5c09e6ec-8519-4ea9-9cd3-47baece78e56",
       "title": "alert",
       "published": "Thu Oct 29 17:23:57 +0000 2026",
@@ -138,8 +124,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.601974 -2.113366"
     },
@@ -152,8 +138,8 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.470237 -2.245048"
     }
