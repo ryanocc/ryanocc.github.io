@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T10:15:48.235681+00:00",
+  "updatedAt": "2026-10-29T10:20:48.130805+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.440783 -2.584353"
-    },
-    {
-      "id": "5d2533ad-5fd7-47a9-9799-4756935b6134",
-      "title": "alert",
-      "published": "Thu Oct 29 09:49:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6292 - Starling Rd",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.589393 -2.341697"
     },
     {
       "id": "09b7c087-94d6-42a7-8829-3ea889a72936",
@@ -54,10 +40,24 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.552546 -2.254879"
+    },
+    {
+      "id": "8ff5e80f-49f7-47f8-a62c-3e4df88b87f9",
+      "title": "alert",
+      "published": "Thu Oct 29 10:18:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 5.0,
+      "point": "53.541194 -2.284889"
     },
     {
       "id": "8797f90d-9ed1-4ba1-bf45-bd67a9e73e46",
@@ -68,7 +68,7 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.556196 -2.248684"
