@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T19:15:48.259979+00:00",
+  "updatedAt": "2026-10-29T19:20:48.206073+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 10,
   "incidents": [
     {
       "id": "da2e11a1-7a56-4533-b599-6b689031ad83",
@@ -27,7 +27,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.480525 -2.241032"
     },
@@ -54,8 +54,8 @@
       "road": "A571 - Billinge Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.531137 -2.668599"
     },
@@ -68,10 +68,24 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.470213 -2.246043"
+    },
+    {
+      "id": "a6f6adfd-7644-4d18-b146-686d176bff14",
+      "title": "alert",
+      "published": "Thu Oct 29 19:20:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Rd",
+      "city": "Hulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.469665 -2.24627"
     },
     {
       "id": "dacdb695-c686-44d5-b992-6892626d6b33",
@@ -88,6 +102,20 @@
       "point": "53.43344 -2.308776"
     },
     {
+      "id": "ce0f6e46-097c-44c3-8d65-3274b6860154",
+      "title": "alert",
+      "published": "Thu Oct 29 19:20:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.489543 -2.377737"
+    },
+    {
       "id": "82a20954-3e0e-48c8-9025-5daee43a4251",
       "title": "alert",
       "published": "Thu Oct 29 19:13:59 +0000 2026",
@@ -96,10 +124,24 @@
       "road": "M602 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.481566 -2.292122"
+    },
+    {
+      "id": "a5ca14d2-3bd3-4957-a1ad-3e3c75e3ffc0",
+      "title": "alert",
+      "published": "Thu Oct 29 19:18:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.539383 -2.413977"
     }
   ]
 }
