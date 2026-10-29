@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T14:05:48.426267+00:00",
+  "updatedAt": "2026-10-29T14:10:48.229342+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.48668 -2.088631"
     },
     {
+      "id": "7b0aa148-74ef-4e0e-a4f1-15ca326d485a",
+      "title": "alert",
+      "published": "Thu Oct 29 14:08:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Salford Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.543299 -2.451585"
+    },
+    {
       "id": "2f061291-e358-4b3f-b042-430b3c7b0f82",
       "title": "alert",
       "published": "Thu Oct 29 14:05:24 +0000 2026",
@@ -54,24 +68,10 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.467898 -2.555107"
-    },
-    {
-      "id": "5d056d1b-c715-4a9a-9f6f-9ffcf76c6af4",
-      "title": "alert",
-      "published": "Thu Oct 29 14:04:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.470218 -2.246217"
     },
     {
       "id": "c6cf35f5-8ed7-46b3-b329-e7c7e1ee7409",
@@ -82,8 +82,8 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.504534 -2.235813"
     }
