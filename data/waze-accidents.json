@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T17:55:48.415409+00:00",
+  "updatedAt": "2026-10-29T18:00:48.433258+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 11,
   "incidents": [
     {
       "id": "d2659e08-6bc9-4a33-b20b-190ddc5b10cc",
@@ -13,7 +13,7 @@
       "city": "Northern Moor",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.406874 -2.26834"
     },
@@ -26,8 +26,8 @@
       "road": "B5386 - Warrington Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.536237 -2.653771"
     },
@@ -40,8 +40,8 @@
       "road": "M60 > Ring Road (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.53764 -2.292705"
     },
@@ -88,46 +88,18 @@
       "point": "53.527683 -2.676297"
     },
     {
-      "id": "b6a2bd55-1869-4f13-b17d-0213d82f7d68",
+      "id": "3013b834-e843-40f5-80ad-756a62c6cf2c",
       "title": "alert",
-      "published": "Thu Oct 29 16:50:43 +0000 2026",
+      "published": "Thu Oct 29 17:59:12 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A571 - Billinge Rd",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.529086 -2.674331"
-    },
-    {
-      "id": "9ef780a6-e862-49b8-a4ad-be1270e7599e",
-      "title": "alert",
-      "published": "Thu Oct 29 17:43:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A578 - Leigh Rd",
-      "city": "Leigh",
+      "road": "",
+      "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.512793 -2.543528"
-    },
-    {
-      "id": "01bc2105-a47c-48ce-b30b-82e51a034c4f",
-      "title": "alert",
-      "published": "Thu Oct 29 17:43:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.555339 -2.489235"
+      "point": "53.470289 -2.245984"
     },
     {
       "id": "5c09e6ec-8519-4ea9-9cd3-47baece78e56",
@@ -144,6 +116,34 @@
       "point": "53.601974 -2.113366"
     },
     {
+      "id": "37787d4f-66ab-48f9-af30-2c5ef091a697",
+      "title": "alert",
+      "published": "Thu Oct 29 18:00:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.456589 -2.33878"
+    },
+    {
+      "id": "e49d0cd6-6748-4f57-a1e0-cbfa13db98a2",
+      "title": "alert",
+      "published": "Thu Oct 29 17:59:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.455459 -2.33882"
+    },
+    {
       "id": "a612845a-882a-4f7b-9720-afa26deb8dd6",
       "title": "alert",
       "published": "Thu Oct 29 17:52:50 +0000 2026",
@@ -152,24 +152,10 @@
       "road": "M61 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.540944 -2.419667"
-    },
-    {
-      "id": "7247e45f-31b1-46f9-a3c1-2430fa7a4f88",
-      "title": "alert",
-      "published": "Thu Oct 29 15:47:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.470237 -2.245048"
     }
   ]
 }
