@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-29T17:10:48.399222+00:00",
+  "updatedAt": "2026-10-29T17:15:48.374091+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 14,
   "incidents": [
     {
       "id": "79088a08-c386-4841-aadb-03fa92335ffe",
@@ -12,7 +12,7 @@
       "road": "Queen St",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.486606 -2.252699"
@@ -26,10 +26,24 @@
       "road": "J3 to M56 > Stockport & M60 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 4.0,
       "point": "53.393031 -2.271625"
+    },
+    {
+      "id": "f42c5163-1396-4b9a-b259-7bd4e400dc5d",
+      "title": "alert",
+      "published": "Thu Oct 29 17:15:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5167 - Wythenshawe Rd",
+      "city": "Northern Moor",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.406882 -2.268447"
     },
     {
       "id": "f2b859f2-551b-4c42-a005-f3722513ea6d",
@@ -96,8 +110,8 @@
       "road": "A6104 - Semple Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.526114 -2.159377"
     },
@@ -110,8 +124,8 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.402283 -2.267937"
     },
@@ -124,8 +138,8 @@
       "road": "A58 - Victoria Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.579789 -2.487393"
     },
@@ -138,10 +152,38 @@
       "road": "A6 - Stockport Rd",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.461277 -2.207294"
+    },
+    {
+      "id": "1a4f09fe-b3a9-402d-9976-23c25e4d9327",
+      "title": "alert",
+      "published": "Thu Oct 29 17:11:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.392952 -2.271463"
+    },
+    {
+      "id": "26754d6a-928a-44d2-9f5e-8c7d28968948",
+      "title": "alert",
+      "published": "Thu Oct 29 17:14:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.574374 -2.696902"
     },
     {
       "id": "7247e45f-31b1-46f9-a3c1-2430fa7a4f88",
