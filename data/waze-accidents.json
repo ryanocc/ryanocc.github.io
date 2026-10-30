@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T16:05:48.416096+00:00",
+  "updatedAt": "2026-10-30T16:10:48.265993+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "0fdee21f-ac50-49cf-8661-9b408231cd2f",
@@ -26,7 +26,7 @@
       "road": "Nell Ln",
       "city": "Chorlton-cum-Hardy",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.43049 -2.256039"
@@ -58,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.612013 -2.579628"
+    },
+    {
+      "id": "561f9645-6f6f-4f0f-b7fe-272fa37405a6",
+      "title": "alert",
+      "published": "Fri Oct 30 16:06:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Mottram Moor",
+      "city": "Mottram in Longdendale",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.459656 -2.002241"
     }
   ]
 }
