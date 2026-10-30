@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-30T15:05:48.311574+00:00",
+  "updatedAt": "2026-10-30T15:10:48.414219+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
-    {
-      "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
-      "title": "alert",
-      "published": "Fri Oct 30 13:04:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Baysdale Ave",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.563427 -2.476868"
-    },
     {
       "id": "ab6d9d67-7305-4250-abd2-94311559814a",
       "title": "alert",
@@ -110,7 +96,7 @@
       "road": "A665 - Great Ancoats St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.483349 -2.230238"
@@ -124,24 +110,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.399001 -2.225625"
-    },
-    {
-      "id": "e2fa9548-56b4-4dba-beb3-e24351dbbf84",
-      "title": "alert",
-      "published": "Fri Oct 30 15:02:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.402979 -2.245522"
     }
   ]
 }
