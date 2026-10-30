@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T18:30:48.181640+00:00",
+  "updatedAt": "2026-10-30T18:35:48.272098+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "e6c7c052-0910-4d01-b26b-dea6c89894d5",
@@ -60,18 +60,46 @@
       "point": "53.596577 -2.426967"
     },
     {
-      "id": "eaf064f5-2d67-47bc-9a70-2eabf17488db",
+      "id": "c0b6bad6-3331-4bff-8559-45906b0c2060",
       "title": "alert",
-      "published": "Fri Oct 30 18:21:43 +0000 2026",
+      "published": "Fri Oct 30 18:33:03 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
+      "road": "A572 - Manchester Rd",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.492372 -2.497839"
+    },
+    {
+      "id": "48ee6906-11dd-47e7-9636-12cb8fd975a6",
+      "title": "alert",
+      "published": "Fri Oct 30 18:35:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.458395 -2.339303"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.508262 -2.355402"
+    },
+    {
+      "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
+      "title": "alert",
+      "published": "Fri Oct 30 18:35:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 - Blackburn Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.594259 -2.431538"
     },
     {
       "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
@@ -88,18 +116,18 @@
       "point": "53.589241 -2.430452"
     },
     {
-      "id": "acb39768-0e81-4c3a-b793-ed2cb8580e7b",
+      "id": "880dd157-1475-414f-89c7-53f8602710f0",
       "title": "alert",
-      "published": "Fri Oct 30 18:13:10 +0000 2026",
+      "published": "Fri Oct 30 18:34:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A666 - Blackburn Rd",
-      "city": "Bolton",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.593561 -2.431392"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.480547 -2.224148"
     },
     {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
@@ -127,7 +155,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.642746 -1.947947"
+      "point": "53.643389 -1.946739"
     }
   ]
 }
