@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T11:50:48.150104+00:00",
+  "updatedAt": "2026-10-30T11:55:49.143663+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "8a3cb60b-69ba-464c-aacb-761436fb9978",
@@ -68,8 +68,8 @@
       "road": "A6 - Buxton Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.393277 -2.146719"
     },
@@ -96,10 +96,24 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 5.0,
       "point": "53.604265 -2.690026"
+    },
+    {
+      "id": "af6a60c6-1fac-442b-a98e-7bc3cab0ab26",
+      "title": "alert",
+      "published": "Fri Oct 30 11:52:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.582178 -2.693966"
     }
   ]
 }
