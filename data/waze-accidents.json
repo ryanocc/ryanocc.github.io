@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T18:40:48.088065+00:00",
+  "updatedAt": "2026-10-30T18:45:48.219865+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -26,7 +26,7 @@
       "road": "Minshull St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.477863 -2.234286"
@@ -68,10 +68,24 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.508262 -2.355402"
+      "point": "53.508275 -2.355436"
+    },
+    {
+      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
+      "title": "alert",
+      "published": "Fri Oct 30 18:12:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 (N) - Blackburn Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.589241 -2.430452"
     },
     {
       "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
@@ -88,34 +102,6 @@
       "point": "53.594259 -2.431538"
     },
     {
-      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
-      "title": "alert",
-      "published": "Fri Oct 30 18:12:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A666 (N) - Blackburn Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.589241 -2.430452"
-    },
-    {
-      "id": "880dd157-1475-414f-89c7-53f8602710f0",
-      "title": "alert",
-      "published": "Fri Oct 30 18:34:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.480547 -2.224148"
-    },
-    {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
       "title": "alert",
       "published": "Fri Oct 30 17:38:45 +0000 2026",
@@ -128,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.487343 -2.089451"
+    },
+    {
+      "id": "97bc6b6f-92c9-4c25-b572-97344123fad1",
+      "title": "alert",
+      "published": "Fri Oct 30 18:42:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.43976 -2.583414"
     },
     {
       "id": "8650bf1a-264a-4515-be25-b2b8e82d9546",
