@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T13:40:48.239832+00:00",
+  "updatedAt": "2026-10-30T13:45:48.204070+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -60,20 +60,6 @@
       "point": "53.365584 -2.010768"
     },
     {
-      "id": "8a3cb60b-69ba-464c-aacb-761436fb9978",
-      "title": "alert",
-      "published": "Fri Oct 30 11:39:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.42312 -2.115457"
-    },
-    {
       "id": "f6dca9b4-cd28-4c1a-922d-229e9d24daa0",
       "title": "alert",
       "published": "Fri Oct 30 12:08:26 +0000 2026",
@@ -102,20 +88,6 @@
       "point": "53.432112 -2.515983"
     },
     {
-      "id": "7458a021-55c3-4ea2-b138-f051b4094a75",
-      "title": "alert",
-      "published": "Fri Oct 30 13:14:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Beaumont Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.564112 -2.478971"
-    },
-    {
       "id": "abbeb889-1633-4d28-832c-305037815fbb",
       "title": "alert",
       "published": "Fri Oct 30 13:15:12 +0000 2026",
@@ -124,10 +96,24 @@
       "road": "A58 - Beaumont Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.562655 -2.475568"
+    },
+    {
+      "id": "7458a021-55c3-4ea2-b138-f051b4094a75",
+      "title": "alert",
+      "published": "Fri Oct 30 13:14:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Beaumont Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.564112 -2.478971"
     }
   ]
 }
