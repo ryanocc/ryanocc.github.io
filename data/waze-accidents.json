@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-30T22:55:48.072312+00:00",
+  "updatedAt": "2026-10-30T23:00:48.141605+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
+    {
+      "id": "a8f2106b-5913-487f-a2d5-61f7c2e3c7d2",
+      "title": "alert",
+      "published": "Fri Oct 30 22:59:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Tanhouse Rd",
+      "city": "Davyhulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.451125 -2.398042"
+    },
     {
       "id": "d21b663e-579e-4d71-87eb-e576b98cdbd4",
       "title": "alert",
@@ -18,18 +32,32 @@
       "point": "53.521618 -2.110279"
     },
     {
-      "id": "34be6c84-da70-4f45-a00c-94b53970b70e",
+      "id": "bab01569-2e1e-4d70-9ab3-255eb3f8b141",
       "title": "alert",
-      "published": "Fri Oct 30 22:21:12 +0000 2026",
+      "published": "Fri Oct 30 22:56:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A34 - New Quay St",
-      "city": "Manchester",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Didsbury",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.480027 -2.255287"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 5.0,
+      "point": "53.430294 -2.251075"
+    },
+    {
+      "id": "56ab9e55-91a4-47f8-a118-ac6f45a9b5d9",
+      "title": "alert",
+      "published": "Fri Oct 30 22:58:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6010 - Queens Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.500213 -2.235546"
     }
   ]
 }
