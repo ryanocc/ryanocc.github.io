@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T20:25:48.225739+00:00",
+  "updatedAt": "2026-10-30T20:30:48.125544+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "6f21658d-2f8d-40eb-8a2b-eba1f71982f2",
@@ -18,20 +18,6 @@
       "point": "53.479754 -2.280932"
     },
     {
-      "id": "4796fdcf-7311-4925-b836-7a0f348ffec5",
-      "title": "alert",
-      "published": "Fri Oct 30 20:25:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.48317 -2.229899"
-    },
-    {
       "id": "160465a1-448a-457a-8e4d-f5779ac8df0e",
       "title": "alert",
       "published": "Fri Oct 30 20:20:42 +0000 2026",
@@ -40,10 +26,24 @@
       "road": "A635 - Manchester Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.48224 -2.114736"
+    },
+    {
+      "id": "a53f2353-dd03-47f1-ab77-cc9ac607a42e",
+      "title": "alert",
+      "published": "Fri Oct 30 20:29:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A628 - Market St",
+      "city": "Hollingworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.461439 -1.994846"
     },
     {
       "id": "3e6f5803-cb61-4ba5-80d6-d9aa4e9472ba",
@@ -58,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.459643 -2.002308"
-    },
-    {
-      "id": "326a790a-eecf-4ad9-8249-9ece10b3f031",
-      "title": "alert",
-      "published": "Fri Oct 30 20:25:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.564796 -2.52142"
     },
     {
       "id": "865a34ac-87cd-425c-bf71-3c94e671399b",
