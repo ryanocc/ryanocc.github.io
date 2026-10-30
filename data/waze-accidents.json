@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T23:25:48.072626+00:00",
+  "updatedAt": "2026-10-30T23:30:48.013195+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "a8f2106b-5913-487f-a2d5-61f7c2e3c7d2",
@@ -26,10 +26,24 @@
       "road": "A34 - New Quay St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.480022 -2.255282"
+    },
+    {
+      "id": "e68a6f80-18d4-4cda-9975-339578150e19",
+      "title": "alert",
+      "published": "Fri Oct 30 23:28:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A662 - Ashton New Rd",
+      "city": "Bradford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.481398 -2.197074"
     },
     {
       "id": "55374701-bf73-49ae-864b-474fb83b2265",
@@ -40,7 +54,7 @@
       "road": "A662 - Ashton New Rd",
       "city": "Clayton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.481709 -2.194704"
