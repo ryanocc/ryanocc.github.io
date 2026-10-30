@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-30T11:25:48.142372+00:00",
+  "updatedAt": "2026-10-30T11:30:48.162004+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
-    {
-      "id": "b229862a-3e22-494e-bac8-a41a9056076b",
-      "title": "alert",
-      "published": "Fri Oct 30 10:03:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Urmston",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.449896 -2.354877"
-    },
     {
       "id": "bbdb6a85-f07b-440d-9db1-f08869d26255",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.47124 -2.21479"
+    },
+    {
+      "id": "b229862a-3e22-494e-bac8-a41a9056076b",
+      "title": "alert",
+      "published": "Fri Oct 30 10:03:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Urmston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.449896 -2.354877"
     },
     {
       "id": "781625a7-1038-46b8-9a21-efb344882704",
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.397192 -2.151251"
+    },
+    {
+      "id": "5a9036d7-edfb-4f31-a0f8-5edae690befb",
+      "title": "alert",
+      "published": "Fri Oct 30 11:29:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.456396 -2.421502"
     }
   ]
 }
