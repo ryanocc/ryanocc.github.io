@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T19:25:48.228006+00:00",
+  "updatedAt": "2026-10-30T19:30:48.029914+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "e6c7c052-0910-4d01-b26b-dea6c89894d5",
@@ -54,7 +54,7 @@
       "road": "A572 - Manchester Rd",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.492913 -2.497293"
@@ -68,24 +68,10 @@
       "road": "A665 - Higher Ln",
       "city": "Whitefield",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.548848 -2.300165"
-    },
-    {
-      "id": "48ee6906-11dd-47e7-9636-12cb8fd975a6",
-      "title": "alert",
-      "published": "Fri Oct 30 18:35:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.508275 -2.355436"
     },
     {
       "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
@@ -142,20 +128,6 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.459643 -2.002308"
-    },
-    {
-      "id": "c29fefc6-480b-4ae4-9b80-830f4127072b",
-      "title": "alert",
-      "published": "Fri Oct 30 19:15:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.519616 -2.366867"
     }
   ]
 }
