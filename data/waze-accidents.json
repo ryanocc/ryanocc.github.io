@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-30T12:20:48.245342+00:00",
+  "updatedAt": "2026-10-30T12:25:48.271368+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
+    {
+      "id": "2ef950f8-612f-438e-9b52-c1a9f616fd08",
+      "title": "alert",
+      "published": "Fri Oct 30 12:22:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Carrslea Cl",
+      "city": "Radcliffe",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.570437 -2.345687"
+    },
     {
       "id": "8a3cb60b-69ba-464c-aacb-761436fb9978",
       "title": "alert",
@@ -46,20 +60,6 @@
       "point": "53.396591 -2.246885"
     },
     {
-      "id": "bbdb6a85-f07b-440d-9db1-f08869d26255",
-      "title": "alert",
-      "published": "Fri Oct 30 10:07:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Ardwick",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.47124 -2.21479"
-    },
-    {
       "id": "781625a7-1038-46b8-9a21-efb344882704",
       "title": "alert",
       "published": "Fri Oct 30 10:49:16 +0000 2026",
@@ -100,20 +100,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.59669 -2.410043"
-    },
-    {
-      "id": "8508cd9b-3c51-4388-af80-e22370b1cf1b",
-      "title": "alert",
-      "published": "Fri Oct 30 12:06:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.587266 -2.693956"
     }
   ]
 }
