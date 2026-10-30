@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T15:55:48.338399+00:00",
+  "updatedAt": "2026-10-30T16:00:48.270201+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -13,23 +13,9 @@
       "city": "Chorlton-cum-Hardy",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.43049 -2.256039"
-    },
-    {
-      "id": "be2b50b1-7d25-4757-92b0-7284a98d6ca1",
-      "title": "alert",
-      "published": "Fri Oct 30 15:50:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Nell Ln",
-      "city": "Chorlton-cum-Hardy",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.429266 -2.253473"
     },
     {
       "id": "38a95684-3eed-4866-9e29-2778ec1423bd",
@@ -41,7 +27,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.56794 -2.435233"
     },
@@ -58,6 +44,20 @@
       "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.391964 -2.144948"
+    },
+    {
+      "id": "e14764f6-3dd0-4445-a50f-eb699e2a9840",
+      "title": "alert",
+      "published": "Fri Oct 30 15:56:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.527467 -2.698419"
     }
   ]
 }
