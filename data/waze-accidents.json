@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-30T20:55:48.153880+00:00",
+  "updatedAt": "2026-10-30T21:00:48.213741+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
+    {
+      "id": "c6e7a1ec-b93e-4492-aa14-ce7624c5a49d",
+      "title": "alert",
+      "published": "Fri Oct 30 21:00:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) > Liverpool",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.471766 -2.236002"
+    },
     {
       "id": "0b8b358f-546e-46dc-b2bd-3e284cb7f6e1",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "J23 to A635",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.482616 -2.115167"
     },
@@ -30,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.479754 -2.280932"
+    },
+    {
+      "id": "82014680-0d51-4d4a-86ec-513e5cf773ab",
+      "title": "alert",
+      "published": "Fri Oct 30 20:58:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Bury Old Rd",
+      "city": "Crumpsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.514747 -2.24758"
     },
     {
       "id": "865a34ac-87cd-425c-bf71-3c94e671399b",
