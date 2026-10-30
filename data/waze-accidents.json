@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T14:50:48.383005+00:00",
+  "updatedAt": "2026-10-30T14:55:48.348758+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -88,20 +88,6 @@
       "point": "53.391964 -2.144948"
     },
     {
-      "id": "2ec361a6-d7c1-4764-b78a-940dd9d16660",
-      "title": "alert",
-      "published": "Fri Oct 30 14:27:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - St. Peter's Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.558196 -2.401276"
-    },
-    {
       "id": "1846f6ee-c236-42e4-9018-2b8a3ae80971",
       "title": "alert",
       "published": "Fri Oct 30 14:26:09 +0000 2026",
@@ -125,23 +111,9 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.483349 -2.230238"
-    },
-    {
-      "id": "64ed6c41-6b0b-4c63-8062-10787dd5e7ed",
-      "title": "alert",
-      "published": "Fri Oct 30 14:47:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Ashton Old Rd",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.47284 -2.161725"
     }
   ]
 }
