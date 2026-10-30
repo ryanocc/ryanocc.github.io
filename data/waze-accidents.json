@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T21:50:48.046971+00:00",
+  "updatedAt": "2026-10-30T21:55:48.129792+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "d21b663e-579e-4d71-87eb-e576b98cdbd4",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.521618 -2.110279"
+    },
+    {
+      "id": "71ab33b8-1949-44f8-a5ff-fce914994c53",
+      "title": "alert",
+      "published": "Fri Oct 30 21:53:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.430022 -2.251587"
     }
   ]
 }
