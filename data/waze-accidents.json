@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T14:55:48.348758+00:00",
+  "updatedAt": "2026-10-30T15:00:48.273347+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -60,20 +60,6 @@
       "point": "53.56794 -2.435233"
     },
     {
-      "id": "0913ec44-25f1-49f0-8e80-570bad987a46",
-      "title": "alert",
-      "published": "Fri Oct 30 13:52:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A624",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.418462 -1.949683"
-    },
-    {
       "id": "3ac973c5-f0eb-4f2a-a3ce-58e277190989",
       "title": "alert",
       "published": "Fri Oct 30 13:59:21 +0000 2026",
@@ -102,6 +88,20 @@
       "point": "53.5597 -2.404658"
     },
     {
+      "id": "680df65e-4ff3-4493-a6f7-d5fc075bd1e2",
+      "title": "alert",
+      "published": "Fri Oct 30 14:59:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.558797 -2.402504"
+    },
+    {
       "id": "ecf98974-e111-483a-b348-8212605a168f",
       "title": "alert",
       "published": "Fri Oct 30 14:50:14 +0000 2026",
@@ -110,8 +110,8 @@
       "road": "A665 - Great Ancoats St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.483349 -2.230238"
     }
