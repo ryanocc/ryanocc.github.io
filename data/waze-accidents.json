@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T15:00:48.273347+00:00",
+  "updatedAt": "2026-10-30T15:05:48.311574+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.563427 -2.476868"
+    },
+    {
+      "id": "ab6d9d67-7305-4250-abd2-94311559814a",
+      "title": "alert",
+      "published": "Fri Oct 30 15:02:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5166 - Styal Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.341172 -2.24094"
     },
     {
       "id": "0742d7ca-9d44-48e3-8663-ab962eed63bb",
@@ -74,20 +88,6 @@
       "point": "53.391964 -2.144948"
     },
     {
-      "id": "1846f6ee-c236-42e4-9018-2b8a3ae80971",
-      "title": "alert",
-      "published": "Fri Oct 30 14:26:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - St. Peter's Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.5597 -2.404658"
-    },
-    {
       "id": "680df65e-4ff3-4493-a6f7-d5fc075bd1e2",
       "title": "alert",
       "published": "Fri Oct 30 14:59:12 +0000 2026",
@@ -96,8 +96,8 @@
       "road": "A666 - St. Peter's Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.558797 -2.402504"
     },
@@ -110,10 +110,38 @@
       "road": "A665 - Great Ancoats St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.483349 -2.230238"
+    },
+    {
+      "id": "ba24f90d-9c4c-41e9-a831-e969d0cead3e",
+      "title": "alert",
+      "published": "Fri Oct 30 15:04:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.399001 -2.225625"
+    },
+    {
+      "id": "e2fa9548-56b4-4dba-beb3-e24351dbbf84",
+      "title": "alert",
+      "published": "Fri Oct 30 15:02:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.402979 -2.245522"
     }
   ]
 }
