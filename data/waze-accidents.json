@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T17:00:48.332733+00:00",
+  "updatedAt": "2026-10-30T17:05:48.369764+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 8,
   "incidents": [
     {
       "id": "7514b720-df12-4994-9fed-41722fafc45e",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.431758 -2.135802"
+    },
+    {
+      "id": "742f0c5b-f023-41cd-9ef0-ae12c4b5cc84",
+      "title": "alert",
+      "published": "Fri Oct 30 17:02:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Park St",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.48989 -2.242"
     },
     {
       "id": "0fdee21f-ac50-49cf-8661-9b408231cd2f",
@@ -54,7 +68,7 @@
       "road": "A62 - Oldham Way",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.53837 -2.11038"
@@ -69,9 +83,37 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548688 -2.08309"
+    },
+    {
+      "id": "efe5e687-3ec6-43b1-b3c3-fc3f5f19a6aa",
+      "title": "alert",
+      "published": "Fri Oct 30 17:02:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.554577 -2.394145"
+    },
+    {
+      "id": "862d1ce5-f080-45d8-b439-f8d367dfb51e",
+      "title": "alert",
+      "published": "Fri Oct 30 17:01:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.535944 -2.305771"
     }
   ]
 }
