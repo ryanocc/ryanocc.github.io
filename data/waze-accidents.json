@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T14:20:48.223097+00:00",
+  "updatedAt": "2026-10-30T14:25:48.282462+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.563427 -2.476868"
-    },
-    {
-      "id": "2ef950f8-612f-438e-9b52-c1a9f616fd08",
-      "title": "alert",
-      "published": "Fri Oct 30 12:22:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Carrslea Cl",
-      "city": "Radcliffe",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.570437 -2.345687"
     },
     {
       "id": "1893d494-f78b-447e-b58a-96f9c9df8c36",
@@ -82,7 +68,7 @@
       "road": "A624",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.418462 -1.949683"
@@ -96,8 +82,8 @@
       "road": "A6 - Buxton Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.391964 -2.144948"
     },
@@ -144,18 +130,18 @@
       "point": "53.487291 -2.089627"
     },
     {
-      "id": "e67cc01f-f036-4826-b6a2-742b9fed9e67",
+      "id": "d868a68c-1c2f-4990-a4ec-bc9ab5e17207",
       "title": "alert",
-      "published": "Fri Oct 30 14:18:46 +0000 2026",
+      "published": "Fri Oct 30 14:24:05 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
+      "subtype": "ACCIDENT_MAJOR",
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.399332 -2.223039"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.544081 -2.247407"
     }
   ]
 }
