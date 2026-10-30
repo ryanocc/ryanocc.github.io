@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T17:35:48.292652+00:00",
+  "updatedAt": "2026-10-30T17:40:48.306115+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
     {
       "id": "742f0c5b-f023-41cd-9ef0-ae12c4b5cc84",
@@ -27,7 +27,7 @@
       "city": "Hollinwood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.521861 -2.150606"
     },
@@ -44,6 +44,34 @@
       "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.554757 -2.394517"
+    },
+    {
+      "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
+      "title": "alert",
+      "published": "Fri Oct 30 17:38:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.487343 -2.089451"
+    },
+    {
+      "id": "61ca31bc-9b64-49f8-8729-e9653ac0af36",
+      "title": "alert",
+      "published": "Fri Oct 30 17:36:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.390258 -2.273265"
     }
   ]
 }
