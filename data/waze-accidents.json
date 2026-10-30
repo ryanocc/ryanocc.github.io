@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-30T11:15:48.061785+00:00",
+  "updatedAt": "2026-10-30T11:20:48.177303+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
-    {
-      "id": "bbdb6a85-f07b-440d-9db1-f08869d26255",
-      "title": "alert",
-      "published": "Fri Oct 30 10:07:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Ardwick",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.47124 -2.21479"
-    },
     {
       "id": "b229862a-3e22-494e-bac8-a41a9056076b",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.449896 -2.354877"
+    },
+    {
+      "id": "bbdb6a85-f07b-440d-9db1-f08869d26255",
+      "title": "alert",
+      "published": "Fri Oct 30 10:07:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ardwick",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.47124 -2.21479"
     },
     {
       "id": "781625a7-1038-46b8-9a21-efb344882704",
@@ -55,7 +55,7 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.397192 -2.151251"
     }
