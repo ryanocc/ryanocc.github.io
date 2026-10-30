@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T21:15:48.019084+00:00",
+  "updatedAt": "2026-10-30T21:20:48.013073+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "0b8b358f-546e-46dc-b2bd-3e284cb7f6e1",
@@ -12,7 +12,7 @@
       "road": "J23 to A635",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.482616 -2.115167"
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.521618 -2.110279"
+    },
+    {
+      "id": "0604b037-0129-4037-967c-e3babc760077",
+      "title": "alert",
+      "published": "Fri Oct 30 21:16:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A671 - John St",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.61808 -2.151534"
     },
     {
       "id": "6f21658d-2f8d-40eb-8a2b-eba1f71982f2",
@@ -54,7 +68,7 @@
       "road": "A665 - Bury Old Rd",
       "city": "Crumpsall",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.514747 -2.24758"
