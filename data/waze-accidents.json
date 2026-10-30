@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T12:15:48.207845+00:00",
+  "updatedAt": "2026-10-30T12:20:48.245342+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -60,20 +60,6 @@
       "point": "53.47124 -2.21479"
     },
     {
-      "id": "99ca08bb-18db-440e-bd68-ba791a477cff",
-      "title": "alert",
-      "published": "Fri Oct 30 11:57:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (N) - Ainslie Way",
-      "city": "Handforth",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.338995 -2.204735"
-    },
-    {
       "id": "781625a7-1038-46b8-9a21-efb344882704",
       "title": "alert",
       "published": "Fri Oct 30 10:49:16 +0000 2026",
@@ -102,6 +88,20 @@
       "point": "53.397192 -2.151251"
     },
     {
+      "id": "3692de34-690b-4c6a-b389-13f6e02fc0d8",
+      "title": "alert",
+      "published": "Fri Oct 30 12:16:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.59669 -2.410043"
+    },
+    {
       "id": "8508cd9b-3c51-4388-af80-e22370b1cf1b",
       "title": "alert",
       "published": "Fri Oct 30 12:06:35 +0000 2026",
@@ -110,7 +110,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.587266 -2.693956"
