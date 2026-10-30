@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T14:45:48.235977+00:00",
+  "updatedAt": "2026-10-30T14:50:48.383005+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -46,6 +46,20 @@
       "point": "53.367081 -2.017903"
     },
     {
+      "id": "38a95684-3eed-4866-9e29-2778ec1423bd",
+      "title": "alert",
+      "published": "Fri Oct 30 14:48:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bridgeman St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.56794 -2.435233"
+    },
+    {
       "id": "0913ec44-25f1-49f0-8e80-570bad987a46",
       "title": "alert",
       "published": "Fri Oct 30 13:52:27 +0000 2026",
@@ -74,20 +88,6 @@
       "point": "53.391964 -2.144948"
     },
     {
-      "id": "1846f6ee-c236-42e4-9018-2b8a3ae80971",
-      "title": "alert",
-      "published": "Fri Oct 30 14:26:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - St. Peter's Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.5597 -2.404658"
-    },
-    {
       "id": "2ec361a6-d7c1-4764-b78a-940dd9d16660",
       "title": "alert",
       "published": "Fri Oct 30 14:27:29 +0000 2026",
@@ -102,32 +102,46 @@
       "point": "53.558196 -2.401276"
     },
     {
-      "id": "31ca9f29-c980-432e-b1ed-c67bbd7f2608",
+      "id": "1846f6ee-c236-42e4-9018-2b8a3ae80971",
       "title": "alert",
-      "published": "Fri Oct 30 14:42:00 +0000 2026",
+      "published": "Fri Oct 30 14:26:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.5597 -2.404658"
+    },
+    {
+      "id": "ecf98974-e111-483a-b348-8212605a168f",
+      "title": "alert",
+      "published": "Fri Oct 30 14:50:14 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A665 - Great Ancoats St",
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.483409 -2.230351"
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.483349 -2.230238"
     },
     {
-      "id": "9dcf4039-3844-4f31-9dd7-09c67248661b",
+      "id": "64ed6c41-6b0b-4c63-8062-10787dd5e7ed",
       "title": "alert",
-      "published": "Fri Oct 30 14:13:15 +0000 2026",
+      "published": "Fri Oct 30 14:47:56 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Ashton-under-Lyne",
+      "road": "A635 - Ashton Old Rd",
+      "city": "Gorton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.487291 -2.089627"
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.47284 -2.161725"
     }
   ]
 }
