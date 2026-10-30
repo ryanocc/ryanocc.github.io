@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-30T18:10:48.281920+00:00",
+  "updatedAt": "2026-10-30T18:15:48.223751+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "e6c7c052-0910-4d01-b26b-dea6c89894d5",
+      "title": "alert",
+      "published": "Fri Oct 30 18:10:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Russell Rd",
+      "city": "Whalley Range",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.451381 -2.261151"
+    },
     {
       "id": "b99eb94b-fc33-4b22-b7a4-1673ad977c59",
       "title": "alert",
@@ -12,7 +26,7 @@
       "road": "Minshull St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.477863 -2.234286"
@@ -32,34 +46,6 @@
       "point": "53.48989 -2.242"
     },
     {
-      "id": "1ce399f7-7aff-4084-828b-6695262fbfa0",
-      "title": "alert",
-      "published": "Fri Oct 30 18:00:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Hempshaw Ln",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.402484 -2.14915"
-    },
-    {
-      "id": "40e64e3e-295b-4498-9de8-f5b2efd1b458",
-      "title": "alert",
-      "published": "Fri Oct 30 18:00:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Hempshaw Ln",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.402484 -2.14915"
-    },
-    {
       "id": "308a8d4f-1267-447b-b82d-3070df5f1871",
       "title": "alert",
       "published": "Fri Oct 30 17:57:17 +0000 2026",
@@ -68,10 +54,24 @@
       "road": "Waters Meeting Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.596577 -2.426967"
+    },
+    {
+      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
+      "title": "alert",
+      "published": "Fri Oct 30 18:12:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 (N) - Blackburn Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.589241 -2.430452"
     },
     {
       "id": "b77ff829-e924-4b4c-a148-d36f2c1820ad",
@@ -82,10 +82,24 @@
       "road": "A676 - Wigan Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.569314 -2.458207"
+    },
+    {
+      "id": "acb39768-0e81-4c3a-b793-ed2cb8580e7b",
+      "title": "alert",
+      "published": "Fri Oct 30 18:13:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - Blackburn Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.593561 -2.431392"
     },
     {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
@@ -96,10 +110,24 @@
       "road": "",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.487343 -2.089451"
+    },
+    {
+      "id": "2872b8ae-dcba-43ff-92d7-d16a885c4403",
+      "title": "alert",
+      "published": "Fri Oct 30 18:14:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.390107 -2.273366"
     }
   ]
 }
