@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T20:35:48.140394+00:00",
+  "updatedAt": "2026-10-30T20:40:48.114795+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "6f21658d-2f8d-40eb-8a2b-eba1f71982f2",
@@ -26,7 +26,7 @@
       "road": "A635 - Manchester Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.48224 -2.114736"
@@ -55,9 +55,23 @@
       "city": "Hollingworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.461439 -1.994846"
+    },
+    {
+      "id": "1779e938-0fba-4b4e-92ed-6342c9b8862a",
+      "title": "alert",
+      "published": "Fri Oct 30 20:40:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.471612 -2.237946"
     },
     {
       "id": "865a34ac-87cd-425c-bf71-3c94e671399b",
