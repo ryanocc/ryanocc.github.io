@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T13:25:48.172939+00:00",
+  "updatedAt": "2026-10-30T13:30:48.283262+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -13,7 +13,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.563427 -2.476868"
     },
@@ -74,20 +74,6 @@
       "point": "53.432112 -2.515983"
     },
     {
-      "id": "7458a021-55c3-4ea2-b138-f051b4094a75",
-      "title": "alert",
-      "published": "Fri Oct 30 13:14:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Beaumont Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.564112 -2.478971"
-    },
-    {
       "id": "abbeb889-1633-4d28-832c-305037815fbb",
       "title": "alert",
       "published": "Fri Oct 30 13:15:12 +0000 2026",
@@ -96,10 +82,24 @@
       "road": "A58 - Beaumont Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.562655 -2.475568"
+    },
+    {
+      "id": "7458a021-55c3-4ea2-b138-f051b4094a75",
+      "title": "alert",
+      "published": "Fri Oct 30 13:14:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Beaumont Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.564112 -2.478971"
     },
     {
       "id": "3692de34-690b-4c6a-b389-13f6e02fc0d8",
