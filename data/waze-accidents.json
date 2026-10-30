@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T14:00:48.216351+00:00",
+  "updatedAt": "2026-10-30T14:05:48.336794+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -41,7 +41,7 @@
       "city": "New Mills",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.367081 -2.017903"
     },
@@ -82,10 +82,24 @@
       "road": "A624",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.418462 -1.949683"
+    },
+    {
+      "id": "e08aefbd-b9e6-4e66-b96e-e578bab1fc0a",
+      "title": "alert",
+      "published": "Fri Oct 30 14:01:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 4.0,
+      "point": "53.355493 -2.199699"
     },
     {
       "id": "3ac973c5-f0eb-4f2a-a3ce-58e277190989",
@@ -139,23 +153,23 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.483381 -2.230299"
     },
     {
-      "id": "66faebc1-5ac2-4c39-a328-7617edba1726",
+      "id": "f3b31901-ada6-4463-9672-174c9e8fa0d0",
       "title": "alert",
-      "published": "Fri Oct 30 13:58:00 +0000 2026",
+      "published": "Fri Oct 30 14:05:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (ACW)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.544269 -2.24814"
+      "reportRating": 2.0,
+      "point": "53.427627 -2.125214"
     }
   ]
 }
