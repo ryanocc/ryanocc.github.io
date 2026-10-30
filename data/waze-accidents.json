@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T16:45:48.363571+00:00",
+  "updatedAt": "2026-10-30T16:50:48.327282+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "7514b720-df12-4994-9fed-41722fafc45e",
@@ -30,6 +30,34 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.562739 -2.197709"
+    },
+    {
+      "id": "ddeff34f-7a3b-4d3a-a5e8-5ea3738dc4b2",
+      "title": "alert",
+      "published": "Fri Oct 30 16:46:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Huddersfield Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.548688 -2.08309"
+    },
+    {
+      "id": "d8670382-310b-4287-ab9d-fd2292cf48f3",
+      "title": "alert",
+      "published": "Fri Oct 30 16:46:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.544987 -2.251443"
     }
   ]
 }
