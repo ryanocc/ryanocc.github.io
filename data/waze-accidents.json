@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T12:30:48.162584+00:00",
+  "updatedAt": "2026-10-30T12:35:48.239445+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "2ef950f8-612f-438e-9b52-c1a9f616fd08",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.570437 -2.345687"
+    },
+    {
+      "id": "5317f485-4358-4bb2-8cb9-f37393ebaaa2",
+      "title": "alert",
+      "published": "Fri Oct 30 12:33:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) > Ring Road",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.472723 -2.23294"
     },
     {
       "id": "8a3cb60b-69ba-464c-aacb-761436fb9978",
@@ -97,7 +111,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.59669 -2.410043"
     }
