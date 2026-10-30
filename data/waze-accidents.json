@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T18:50:48.232093+00:00",
+  "updatedAt": "2026-10-30T18:55:48.094775+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -40,10 +40,38 @@
       "road": "Park St",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.48989 -2.242"
+    },
+    {
+      "id": "4945d633-21d6-4df5-a18f-5ca02a5b7100",
+      "title": "alert",
+      "published": "Fri Oct 30 18:55:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Stanneylands Rd",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.339214 -2.223098"
+    },
+    {
+      "id": "6301aa56-1017-4c6d-bfdc-5dae8391abf5",
+      "title": "alert",
+      "published": "Fri Oct 30 18:54:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.471324 -2.255092"
     },
     {
       "id": "f3ee9ec6-7ab1-45a4-badb-7c3fb7bb5802",
@@ -83,9 +111,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.502056 -2.38608"
+    },
+    {
+      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
+      "title": "alert",
+      "published": "Fri Oct 30 18:12:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 (N) - Blackburn Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.589241 -2.430452"
     },
     {
       "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
@@ -102,20 +144,6 @@
       "point": "53.594259 -2.431538"
     },
     {
-      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
-      "title": "alert",
-      "published": "Fri Oct 30 18:12:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A666 (N) - Blackburn Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.589241 -2.430452"
-    },
-    {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
       "title": "alert",
       "published": "Fri Oct 30 17:38:45 +0000 2026",
@@ -130,20 +158,6 @@
       "point": "53.487343 -2.089451"
     },
     {
-      "id": "db507743-351a-4ab1-9006-ca9e2e30fc01",
-      "title": "alert",
-      "published": "Fri Oct 30 18:49:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.466996 -2.36612"
-    },
-    {
       "id": "3773c05c-6d02-4110-9146-52203973ae76",
       "title": "alert",
       "published": "Fri Oct 30 18:49:57 +0000 2026",
@@ -153,23 +167,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.593833 -2.164795"
-    },
-    {
-      "id": "8650bf1a-264a-4515-be25-b2b8e82d9546",
-      "title": "alert",
-      "published": "Fri Oct 30 18:24:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.643389 -1.946739"
     }
   ]
 }
