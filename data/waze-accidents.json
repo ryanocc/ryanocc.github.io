@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T23:15:48.036270+00:00",
+  "updatedAt": "2026-10-30T23:20:48.072104+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -18,18 +18,18 @@
       "point": "53.451125 -2.398042"
     },
     {
-      "id": "d21b663e-579e-4d71-87eb-e576b98cdbd4",
+      "id": "31a09701-484e-4496-92ce-2a7e51e3d39d",
       "title": "alert",
-      "published": "Fri Oct 30 21:12:46 +0000 2026",
+      "published": "Fri Oct 30 23:18:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Oldham",
+      "road": "A34 - New Quay St",
+      "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.521618 -2.110279"
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.480022 -2.255282"
     },
     {
       "id": "55374701-bf73-49ae-864b-474fb83b2265",
@@ -40,24 +40,10 @@
       "road": "A662 - Ashton New Rd",
       "city": "Clayton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.481709 -2.194704"
-    },
-    {
-      "id": "3b70c3a4-9f0a-4778-a88e-9c6b2f84d2ff",
-      "title": "alert",
-      "published": "Fri Oct 30 23:09:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - Alan Turing Way",
-      "city": "Clayton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.482275 -2.195401"
     },
     {
       "id": "98dd438b-cae3-41be-87f8-bfd77f849907",
@@ -72,6 +58,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.481884 -2.195155"
+    },
+    {
+      "id": "3b70c3a4-9f0a-4778-a88e-9c6b2f84d2ff",
+      "title": "alert",
+      "published": "Fri Oct 30 23:09:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Alan Turing Way",
+      "city": "Clayton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.482275 -2.195401"
     }
   ]
 }
