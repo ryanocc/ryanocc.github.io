@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T19:20:48.169431+00:00",
+  "updatedAt": "2026-10-30T19:25:48.228006+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "e6c7c052-0910-4d01-b26b-dea6c89894d5",
@@ -55,9 +55,23 @@
       "city": "Leigh",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.492913 -2.497293"
+    },
+    {
+      "id": "9e4c6c94-8841-4be6-824b-45f15b57dbd8",
+      "title": "alert",
+      "published": "Fri Oct 30 19:21:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Higher Ln",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.548848 -2.300165"
     },
     {
       "id": "48ee6906-11dd-47e7-9636-12cb8fd975a6",
@@ -74,20 +88,6 @@
       "point": "53.508275 -2.355436"
     },
     {
-      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
-      "title": "alert",
-      "published": "Fri Oct 30 18:12:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A666 (N) - Blackburn Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.589241 -2.430452"
-    },
-    {
       "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
       "title": "alert",
       "published": "Fri Oct 30 18:35:47 +0000 2026",
@@ -100,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.594259 -2.431538"
+    },
+    {
+      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
+      "title": "alert",
+      "published": "Fri Oct 30 18:12:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 (N) - Blackburn Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.589241 -2.430452"
     },
     {
       "id": "6f21658d-2f8d-40eb-8a2b-eba1f71982f2",
