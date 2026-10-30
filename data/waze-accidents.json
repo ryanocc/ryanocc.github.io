@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-30T07:05:48.174389+00:00",
+  "updatedAt": "2026-10-30T07:10:48.251490+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
+    {
+      "id": "b48d9eba-a2be-4465-a721-c6e784dfe00a",
+      "title": "alert",
+      "published": "Fri Oct 30 07:06:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6188 - Manchester Rd",
+      "city": "Heaton Chapel",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.425737 -2.171116"
+    },
     {
       "id": "8c95c636-460d-4660-b0ab-9bfb1da61f44",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "A580 - East Lancashire Rd",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.471133 -2.634924"
     },
