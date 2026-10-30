@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T13:20:48.263813+00:00",
+  "updatedAt": "2026-10-30T13:25:48.172939+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -74,34 +74,6 @@
       "point": "53.432112 -2.515983"
     },
     {
-      "id": "d6ad3b46-6da5-4634-9071-bd4da8d294e1",
-      "title": "alert",
-      "published": "Fri Oct 30 11:02:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Buxton Rd",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.397192 -2.151251"
-    },
-    {
-      "id": "abbeb889-1633-4d28-832c-305037815fbb",
-      "title": "alert",
-      "published": "Fri Oct 30 13:15:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Beaumont Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.562655 -2.475568"
-    },
-    {
       "id": "7458a021-55c3-4ea2-b138-f051b4094a75",
       "title": "alert",
       "published": "Fri Oct 30 13:14:48 +0000 2026",
@@ -114,6 +86,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.564112 -2.478971"
+    },
+    {
+      "id": "abbeb889-1633-4d28-832c-305037815fbb",
+      "title": "alert",
+      "published": "Fri Oct 30 13:15:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Beaumont Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.562655 -2.475568"
     },
     {
       "id": "3692de34-690b-4c6a-b389-13f6e02fc0d8",
