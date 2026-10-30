@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T18:05:48.341148+00:00",
+  "updatedAt": "2026-10-30T18:10:48.281920+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "b99eb94b-fc33-4b22-b7a4-1673ad977c59",
@@ -12,8 +12,8 @@
       "road": "Minshull St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.477863 -2.234286"
     },
@@ -32,20 +32,6 @@
       "point": "53.48989 -2.242"
     },
     {
-      "id": "40e64e3e-295b-4498-9de8-f5b2efd1b458",
-      "title": "alert",
-      "published": "Fri Oct 30 18:00:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Hempshaw Ln",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.402484 -2.14915"
-    },
-    {
       "id": "1ce399f7-7aff-4084-828b-6695262fbfa0",
       "title": "alert",
       "published": "Fri Oct 30 18:00:17 +0000 2026",
@@ -55,7 +41,21 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.402484 -2.14915"
+    },
+    {
+      "id": "40e64e3e-295b-4498-9de8-f5b2efd1b458",
+      "title": "alert",
+      "published": "Fri Oct 30 18:00:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hempshaw Ln",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.402484 -2.14915"
     },
@@ -74,32 +74,18 @@
       "point": "53.596577 -2.426967"
     },
     {
-      "id": "d251d3ad-37a8-4446-b1cf-b909d3265ebd",
+      "id": "b77ff829-e924-4b4c-a148-d36f2c1820ad",
       "title": "alert",
-      "published": "Fri Oct 30 18:04:33 +0000 2026",
+      "published": "Fri Oct 30 18:09:07 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A666 - Blackburn Rd",
+      "subtype": "",
+      "road": "A676 - Wigan Rd",
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.59168 -2.430963"
-    },
-    {
-      "id": "efe5e687-3ec6-43b1-b3c3-fc3f5f19a6aa",
-      "title": "alert",
-      "published": "Fri Oct 30 17:02:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - St. Peter's Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.554757 -2.394517"
+      "point": "53.569314 -2.458207"
     },
     {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
