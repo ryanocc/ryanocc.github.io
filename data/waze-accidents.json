@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-30T11:35:48.162357+00:00",
+  "updatedAt": "2026-10-30T11:40:48.218870+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
+    {
+      "id": "8a3cb60b-69ba-464c-aacb-761436fb9978",
+      "title": "alert",
+      "published": "Fri Oct 30 11:39:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.42312 -2.115457"
+    },
     {
       "id": "bbdb6a85-f07b-440d-9db1-f08869d26255",
       "title": "alert",
@@ -68,8 +82,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.333598 -2.479085"
     },
@@ -82,8 +96,8 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.458826 -2.418074"
     }
