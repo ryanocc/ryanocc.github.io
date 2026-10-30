@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T19:10:48.168483+00:00",
+  "updatedAt": "2026-10-30T19:15:48.607662+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "e6c7c052-0910-4d01-b26b-dea6c89894d5",
@@ -30,20 +30,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.477863 -2.234286"
-    },
-    {
-      "id": "742f0c5b-f023-41cd-9ef0-ae12c4b5cc84",
-      "title": "alert",
-      "published": "Fri Oct 30 17:02:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Park St",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.48989 -2.242"
     },
     {
       "id": "4945d633-21d6-4df5-a18f-5ca02a5b7100",
@@ -88,18 +74,18 @@
       "point": "53.508275 -2.355436"
     },
     {
-      "id": "a7b23729-e48e-4cb7-8e85-b3323cc0120e",
+      "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
       "title": "alert",
-      "published": "Fri Oct 30 18:50:38 +0000 2026",
+      "published": "Fri Oct 30 18:35:47 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A572 - Worsley Brow",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 - Blackburn Rd",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 1.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.502056 -2.38608"
+      "reportRating": 0.0,
+      "point": "53.594259 -2.431538"
     },
     {
       "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
@@ -116,20 +102,6 @@
       "point": "53.589241 -2.430452"
     },
     {
-      "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
-      "title": "alert",
-      "published": "Fri Oct 30 18:35:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A666 - Blackburn Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.594259 -2.431538"
-    },
-    {
       "id": "3e6f5803-cb61-4ba5-80d6-d9aa4e9472ba",
       "title": "alert",
       "published": "Fri Oct 30 19:08:32 +0000 2026",
@@ -138,8 +110,8 @@
       "road": "A57 - Mottram Moor",
       "city": "Mottram in Longdendale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.459643 -2.002308"
     },
@@ -156,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.487343 -2.089451"
+    },
+    {
+      "id": "c29fefc6-480b-4ae4-9b80-830f4127072b",
+      "title": "alert",
+      "published": "Fri Oct 30 19:15:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.519616 -2.366867"
     }
   ]
 }
