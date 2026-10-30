@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T11:55:49.143663+00:00",
+  "updatedAt": "2026-10-30T12:00:47.749816+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "8a3cb60b-69ba-464c-aacb-761436fb9978",
@@ -60,6 +60,20 @@
       "point": "53.449896 -2.354877"
     },
     {
+      "id": "99ca08bb-18db-440e-bd68-ba791a477cff",
+      "title": "alert",
+      "published": "Fri Oct 30 11:57:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (N) - Ainslie Way",
+      "city": "Handforth",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.338995 -2.204735"
+    },
+    {
       "id": "781625a7-1038-46b8-9a21-efb344882704",
       "title": "alert",
       "published": "Fri Oct 30 10:49:16 +0000 2026",
@@ -82,24 +96,24 @@
       "road": "A6 - Buxton Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.397192 -2.151251"
     },
     {
-      "id": "d5d6bcb5-d740-401a-ae7a-ad4d42b2b1a5",
+      "id": "719bf76a-b2b4-424b-8000-906bf6674112",
       "title": "alert",
-      "published": "Fri Oct 30 11:45:42 +0000 2026",
+      "published": "Fri Oct 30 12:00:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 5.0,
-      "point": "53.604265 -2.690026"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.322007 -2.441997"
     },
     {
       "id": "af6a60c6-1fac-442b-a98e-7bc3cab0ab26",
@@ -110,8 +124,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.582178 -2.693966"
     }
