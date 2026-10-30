@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T19:05:48.112181+00:00",
+  "updatedAt": "2026-10-30T19:10:48.168483+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -55,7 +55,7 @@
       "city": "Wilmslow",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.339214 -2.223098"
     },
@@ -68,24 +68,10 @@
       "road": "A572 - Manchester Rd",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.492913 -2.497293"
-    },
-    {
-      "id": "a7b23729-e48e-4cb7-8e85-b3323cc0120e",
-      "title": "alert",
-      "published": "Fri Oct 30 18:50:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A572 - Worsley Brow",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.502056 -2.38608"
     },
     {
       "id": "48ee6906-11dd-47e7-9636-12cb8fd975a6",
@@ -100,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.508275 -2.355436"
+    },
+    {
+      "id": "a7b23729-e48e-4cb7-8e85-b3323cc0120e",
+      "title": "alert",
+      "published": "Fri Oct 30 18:50:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A572 - Worsley Brow",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.502056 -2.38608"
     },
     {
       "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
@@ -124,10 +124,24 @@
       "road": "A666 - Blackburn Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.594259 -2.431538"
+    },
+    {
+      "id": "3e6f5803-cb61-4ba5-80d6-d9aa4e9472ba",
+      "title": "alert",
+      "published": "Fri Oct 30 19:08:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Mottram Moor",
+      "city": "Mottram in Longdendale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.459643 -2.002308"
     },
     {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
@@ -142,20 +156,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.487343 -2.089451"
-    },
-    {
-      "id": "7c406dda-3ba8-43c9-9eb4-fa2529f0b738",
-      "title": "alert",
-      "published": "Fri Oct 30 18:58:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.518425 -2.367956"
     }
   ]
 }
