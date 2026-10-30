@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T23:05:48.175066+00:00",
+  "updatedAt": "2026-10-30T23:10:48.114720+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 6,
   "incidents": [
     {
       "id": "a8f2106b-5913-487f-a2d5-61f7c2e3c7d2",
@@ -32,6 +32,20 @@
       "point": "53.521618 -2.110279"
     },
     {
+      "id": "55374701-bf73-49ae-864b-474fb83b2265",
+      "title": "alert",
+      "published": "Fri Oct 30 23:09:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A662 - Ashton New Rd",
+      "city": "Clayton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.481709 -2.194704"
+    },
+    {
       "id": "bab01569-2e1e-4d70-9ab3-255eb3f8b141",
       "title": "alert",
       "published": "Fri Oct 30 22:56:50 +0000 2026",
@@ -40,10 +54,38 @@
       "road": "A5103 (S) - Princess Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.430294 -2.251075"
+    },
+    {
+      "id": "3b70c3a4-9f0a-4778-a88e-9c6b2f84d2ff",
+      "title": "alert",
+      "published": "Fri Oct 30 23:09:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Alan Turing Way",
+      "city": "Clayton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.482275 -2.195401"
+    },
+    {
+      "id": "98dd438b-cae3-41be-87f8-bfd77f849907",
+      "title": "alert",
+      "published": "Fri Oct 30 23:09:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6010 - Alan Turing Way",
+      "city": "Clayton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.481884 -2.195155"
     }
   ]
 }
