@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T17:55:48.229336+00:00",
+  "updatedAt": "2026-10-30T18:00:48.356777+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -13,7 +13,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.477863 -2.234286"
     },
@@ -46,6 +46,48 @@
       "point": "53.483388 -2.187935"
     },
     {
+      "id": "40e64e3e-295b-4498-9de8-f5b2efd1b458",
+      "title": "alert",
+      "published": "Fri Oct 30 18:00:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hempshaw Ln",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.402484 -2.14915"
+    },
+    {
+      "id": "1ce399f7-7aff-4084-828b-6695262fbfa0",
+      "title": "alert",
+      "published": "Fri Oct 30 18:00:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hempshaw Ln",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.402484 -2.14915"
+    },
+    {
+      "id": "308a8d4f-1267-447b-b82d-3070df5f1871",
+      "title": "alert",
+      "published": "Fri Oct 30 17:57:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Waters Meeting Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.596577 -2.426967"
+    },
+    {
       "id": "efe5e687-3ec6-43b1-b3c3-fc3f5f19a6aa",
       "title": "alert",
       "published": "Fri Oct 30 17:02:43 +0000 2026",
@@ -60,20 +102,6 @@
       "point": "53.554757 -2.394517"
     },
     {
-      "id": "b4de3b16-bada-400d-a107-95686d5dfce0",
-      "title": "alert",
-      "published": "Fri Oct 30 17:52:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Moss Side",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.460848 -2.2449"
-    },
-    {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
       "title": "alert",
       "published": "Fri Oct 30 17:38:45 +0000 2026",
@@ -83,37 +111,9 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.487343 -2.089451"
-    },
-    {
-      "id": "11130422-76e3-4a0a-b40e-bf77339a94f1",
-      "title": "alert",
-      "published": "Fri Oct 30 17:53:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.390786 -2.272911"
-    },
-    {
-      "id": "cb8bda88-1f1e-4557-9c3b-cc988d06c814",
-      "title": "alert",
-      "published": "Fri Oct 30 17:49:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.397358 -2.261427"
     }
   ]
 }
