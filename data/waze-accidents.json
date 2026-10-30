@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T18:45:48.219865+00:00",
+  "updatedAt": "2026-10-30T18:50:48.232093+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 12,
   "incidents": [
     {
       "id": "e6c7c052-0910-4d01-b26b-dea6c89894d5",
@@ -46,18 +46,18 @@
       "point": "53.48989 -2.242"
     },
     {
-      "id": "a368d0f8-7612-4cc5-bf84-3387e74db162",
+      "id": "f3ee9ec6-7ab1-45a4-badb-7c3fb7bb5802",
       "title": "alert",
-      "published": "Fri Oct 30 18:38:56 +0000 2026",
+      "published": "Fri Oct 30 18:47:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A572 - Manchester Rd",
       "city": "Leigh",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.492994 -2.497215"
+      "point": "53.492913 -2.497293"
     },
     {
       "id": "48ee6906-11dd-47e7-9636-12cb8fd975a6",
@@ -68,10 +68,38 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.508275 -2.355436"
+    },
+    {
+      "id": "a7b23729-e48e-4cb7-8e85-b3323cc0120e",
+      "title": "alert",
+      "published": "Fri Oct 30 18:50:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A572 - Worsley Brow",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.502056 -2.38608"
+    },
+    {
+      "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
+      "title": "alert",
+      "published": "Fri Oct 30 18:35:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 - Blackburn Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.594259 -2.431538"
     },
     {
       "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
@@ -88,20 +116,6 @@
       "point": "53.589241 -2.430452"
     },
     {
-      "id": "fc13e148-84a4-43c0-89dd-0effde5621d2",
-      "title": "alert",
-      "published": "Fri Oct 30 18:35:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A666 - Blackburn Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.594259 -2.431538"
-    },
-    {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
       "title": "alert",
       "published": "Fri Oct 30 17:38:45 +0000 2026",
@@ -116,18 +130,32 @@
       "point": "53.487343 -2.089451"
     },
     {
-      "id": "97bc6b6f-92c9-4c25-b572-97344123fad1",
+      "id": "db507743-351a-4ab1-9006-ca9e2e30fc01",
       "title": "alert",
-      "published": "Fri Oct 30 18:42:01 +0000 2026",
+      "published": "Fri Oct 30 18:49:52 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.43976 -2.583414"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.466996 -2.36612"
+    },
+    {
+      "id": "3773c05c-6d02-4110-9146-52203973ae76",
+      "title": "alert",
+      "published": "Fri Oct 30 18:49:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627(M) (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.593833 -2.164795"
     },
     {
       "id": "8650bf1a-264a-4515-be25-b2b8e82d9546",
