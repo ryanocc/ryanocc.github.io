@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-30T20:40:48.114795+00:00",
+  "updatedAt": "2026-10-30T20:45:47.947810+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
+    {
+      "id": "0b8b358f-546e-46dc-b2bd-3e284cb7f6e1",
+      "title": "alert",
+      "published": "Fri Oct 30 20:40:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J23 to A635",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.482616 -2.115167"
+    },
     {
       "id": "6f21658d-2f8d-40eb-8a2b-eba1f71982f2",
       "title": "alert",
@@ -32,20 +46,6 @@
       "point": "53.48224 -2.114736"
     },
     {
-      "id": "3e6f5803-cb61-4ba5-80d6-d9aa4e9472ba",
-      "title": "alert",
-      "published": "Fri Oct 30 19:08:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Mottram Moor",
-      "city": "Mottram in Longdendale",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.459643 -2.002308"
-    },
-    {
       "id": "a53f2353-dd03-47f1-ab77-cc9ac607a42e",
       "title": "alert",
       "published": "Fri Oct 30 20:29:10 +0000 2026",
@@ -55,23 +55,9 @@
       "city": "Hollingworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.461439 -1.994846"
-    },
-    {
-      "id": "1779e938-0fba-4b4e-92ed-6342c9b8862a",
-      "title": "alert",
-      "published": "Fri Oct 30 20:40:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.471612 -2.237946"
     },
     {
       "id": "865a34ac-87cd-425c-bf71-3c94e671399b",
