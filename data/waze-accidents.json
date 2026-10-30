@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-30T06:15:47.992909+00:00",
+  "updatedAt": "2026-10-30T06:20:47.971991+00:00",
   "source": "Waze GeoRSS",
   "count": 2,
   "incidents": [
-    {
-      "id": "690c8099-8e37-4952-8ccf-10ef16fa82d8",
-      "title": "alert",
-      "published": "Fri Oct 30 05:38:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.529089 -2.369294"
-    },
     {
       "id": "acac93a2-3092-4a90-8a0e-15a4180f35fd",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 5.0,
       "point": "53.538705 -2.408385"
+    },
+    {
+      "id": "690c8099-8e37-4952-8ccf-10ef16fa82d8",
+      "title": "alert",
+      "published": "Fri Oct 30 05:38:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.529089 -2.369294"
     }
   ]
 }
