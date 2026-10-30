@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T18:15:48.223751+00:00",
+  "updatedAt": "2026-10-30T18:20:48.209820+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "e6c7c052-0910-4d01-b26b-dea6c89894d5",
@@ -26,7 +26,7 @@
       "road": "Minshull St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.477863 -2.234286"
@@ -55,37 +55,9 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.596577 -2.426967"
-    },
-    {
-      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
-      "title": "alert",
-      "published": "Fri Oct 30 18:12:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A666 (N) - Blackburn Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.589241 -2.430452"
-    },
-    {
-      "id": "b77ff829-e924-4b4c-a148-d36f2c1820ad",
-      "title": "alert",
-      "published": "Fri Oct 30 18:09:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A676 - Wigan Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.569314 -2.458207"
     },
     {
       "id": "acb39768-0e81-4c3a-b793-ed2cb8580e7b",
@@ -96,10 +68,24 @@
       "road": "A666 - Blackburn Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.593561 -2.431392"
+    },
+    {
+      "id": "9e11b136-ff29-4ce2-adde-fa8a06b849d8",
+      "title": "alert",
+      "published": "Fri Oct 30 18:12:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A666 (N) - Blackburn Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.589241 -2.430452"
     },
     {
       "id": "42e5b724-eaff-4fb6-ab35-01b5835213f0",
@@ -110,7 +96,7 @@
       "road": "",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.487343 -2.089451"
@@ -124,7 +110,7 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.390107 -2.273366"
