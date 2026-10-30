@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T13:10:48.246694+00:00",
+  "updatedAt": "2026-10-30T13:15:48.242807+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -88,6 +88,34 @@
       "point": "53.397192 -2.151251"
     },
     {
+      "id": "7458a021-55c3-4ea2-b138-f051b4094a75",
+      "title": "alert",
+      "published": "Fri Oct 30 13:14:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Beaumont Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.564112 -2.478971"
+    },
+    {
+      "id": "abbeb889-1633-4d28-832c-305037815fbb",
+      "title": "alert",
+      "published": "Fri Oct 30 13:15:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Beaumont Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.562655 -2.475568"
+    },
+    {
       "id": "3692de34-690b-4c6a-b389-13f6e02fc0d8",
       "title": "alert",
       "published": "Fri Oct 30 12:16:18 +0000 2026",
@@ -96,7 +124,7 @@
       "road": "A58 - Crompton Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.59669 -2.410043"
