@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T13:35:48.245106+00:00",
+  "updatedAt": "2026-10-30T13:40:48.239832+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -44,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.367081 -2.017903"
+    },
+    {
+      "id": "0742d7ca-9d44-48e3-8663-ab962eed63bb",
+      "title": "alert",
+      "published": "Fri Oct 30 13:35:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6101 - Haguebar Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.365584 -2.010768"
     },
     {
       "id": "8a3cb60b-69ba-464c-aacb-761436fb9978",
@@ -97,7 +111,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.564112 -2.478971"
     },
@@ -110,24 +124,10 @@
       "road": "A58 - Beaumont Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.562655 -2.475568"
-    },
-    {
-      "id": "3692de34-690b-4c6a-b389-13f6e02fc0d8",
-      "title": "alert",
-      "published": "Fri Oct 30 12:16:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.59669 -2.410043"
     }
   ]
 }
