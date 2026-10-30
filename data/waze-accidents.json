@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-30T22:30:48.105575+00:00",
+  "updatedAt": "2026-10-30T22:35:48.130971+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
-    {
-      "id": "e4ea1ad7-96ee-4271-a58e-89662de135b7",
-      "title": "alert",
-      "published": "Fri Oct 30 22:03:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Wellington St",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.538123 -2.110679"
-    },
     {
       "id": "d21b663e-579e-4d71-87eb-e576b98cdbd4",
       "title": "alert",
@@ -40,8 +26,8 @@
       "road": "A34 - New Quay St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.480027 -2.255287"
     },
@@ -54,7 +40,7 @@
       "road": "M67 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.456779 -2.120052"
