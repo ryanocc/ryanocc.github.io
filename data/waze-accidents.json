@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T20:30:48.125544+00:00",
+  "updatedAt": "2026-10-30T20:35:48.140394+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -26,24 +26,10 @@
       "road": "A635 - Manchester Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.48224 -2.114736"
-    },
-    {
-      "id": "a53f2353-dd03-47f1-ab77-cc9ac607a42e",
-      "title": "alert",
-      "published": "Fri Oct 30 20:29:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A628 - Market St",
-      "city": "Hollingworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.461439 -1.994846"
     },
     {
       "id": "3e6f5803-cb61-4ba5-80d6-d9aa4e9472ba",
@@ -58,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.459643 -2.002308"
+    },
+    {
+      "id": "a53f2353-dd03-47f1-ab77-cc9ac607a42e",
+      "title": "alert",
+      "published": "Fri Oct 30 20:29:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A628 - Market St",
+      "city": "Hollingworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.461439 -1.994846"
     },
     {
       "id": "865a34ac-87cd-425c-bf71-3c94e671399b",
