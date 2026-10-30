@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T12:50:48.162114+00:00",
+  "updatedAt": "2026-10-30T12:55:48.272742+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "2ef950f8-612f-438e-9b52-c1a9f616fd08",
@@ -26,7 +26,7 @@
       "road": "A57(M) > Ring Road",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.472723 -2.23294"
@@ -46,20 +46,6 @@
       "point": "53.42312 -2.115457"
     },
     {
-      "id": "2fddccdd-447e-4156-8390-27e9e6da7f69",
-      "title": "alert",
-      "published": "Fri Oct 30 11:43:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.432112 -2.515983"
-    },
-    {
       "id": "f6dca9b4-cd28-4c1a-922d-229e9d24daa0",
       "title": "alert",
       "published": "Fri Oct 30 12:08:26 +0000 2026",
@@ -74,18 +60,18 @@
       "point": "53.396591 -2.246885"
     },
     {
-      "id": "781625a7-1038-46b8-9a21-efb344882704",
+      "id": "2fddccdd-447e-4156-8390-27e9e6da7f69",
       "title": "alert",
-      "published": "Fri Oct 30 10:49:16 +0000 2026",
+      "published": "Fri Oct 30 11:43:52 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6 - Buxton Rd",
-      "city": "Stockport",
+      "subtype": "",
+      "road": "",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.393277 -2.146719"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.432112 -2.515983"
     },
     {
       "id": "d6ad3b46-6da5-4634-9071-bd4da8d294e1",
@@ -111,7 +97,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.59669 -2.410043"
     }
