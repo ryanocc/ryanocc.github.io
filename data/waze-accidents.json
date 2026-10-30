@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T13:50:48.375501+00:00",
+  "updatedAt": "2026-10-30T13:55:48.359450+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "8366fd87-7a32-41fa-be3f-a96ca28b3a99",
@@ -74,6 +74,20 @@
       "point": "53.396591 -2.246885"
     },
     {
+      "id": "0913ec44-25f1-49f0-8e80-570bad987a46",
+      "title": "alert",
+      "published": "Fri Oct 30 13:52:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A624",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.418462 -1.949683"
+    },
+    {
       "id": "7458a021-55c3-4ea2-b138-f051b4094a75",
       "title": "alert",
       "published": "Fri Oct 30 13:14:48 +0000 2026",
@@ -96,10 +110,24 @@
       "road": "A58 - Beaumont Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.562655 -2.475568"
+    },
+    {
+      "id": "dc1b307d-4716-417c-9138-7ad292a3443a",
+      "title": "alert",
+      "published": "Fri Oct 30 13:53:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.483381 -2.230299"
     }
   ]
 }
