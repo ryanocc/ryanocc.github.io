@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-30T16:50:48.327282+00:00",
+  "updatedAt": "2026-10-30T16:55:48.341466+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "7514b720-df12-4994-9fed-41722fafc45e",
@@ -13,7 +13,7 @@
       "city": "Brinnington",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.431758 -2.135802"
     },
@@ -32,6 +32,20 @@
       "point": "53.562739 -2.197709"
     },
     {
+      "id": "e51af4d7-45cd-4402-9137-875fa2e97fab",
+      "title": "alert",
+      "published": "Fri Oct 30 16:54:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Way",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.53837 -2.11038"
+    },
+    {
       "id": "ddeff34f-7a3b-4d3a-a5e8-5ea3738dc4b2",
       "title": "alert",
       "published": "Fri Oct 30 16:46:07 +0000 2026",
@@ -41,7 +55,7 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.548688 -2.08309"
     },
@@ -54,8 +68,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.544987 -2.251443"
     }
