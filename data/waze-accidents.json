@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T11:25:48.069660+00:00",
+  "updatedAt": "2026-10-31T11:30:48.251130+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 5,
   "incidents": [
     {
       "id": "d17b978b-e033-4770-b374-f3526c89bef1",
@@ -32,20 +32,6 @@
       "point": "53.474468 -2.334734"
     },
     {
-      "id": "181c1f19-31a1-40f9-a09f-400c5f9581cb",
-      "title": "alert",
-      "published": "Sat Oct 31 10:59:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.41335 -2.14687"
-    },
-    {
       "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
       "title": "alert",
       "published": "Sat Oct 31 10:57:37 +0000 2026",
@@ -68,7 +54,7 @@
       "road": "A6188 - St. Marys Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.415226 -2.147885"
@@ -86,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.490555 -2.4993"
-    },
-    {
-      "id": "31fdeb99-53ed-4338-b9c6-719471a3744b",
-      "title": "alert",
-      "published": "Sat Oct 31 11:15:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Chapel Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.541778 -2.630539"
     }
   ]
 }
