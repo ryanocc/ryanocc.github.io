@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T19:50:48.077788+00:00",
+  "updatedAt": "2026-10-31T19:55:48.029304+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "e06a7ade-6337-4935-b97c-724002922c31",
@@ -13,7 +13,7 @@
       "city": "Wilmslow",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.335105 -2.225878"
     },
@@ -30,20 +30,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.412508 -2.14692"
-    },
-    {
-      "id": "d821ad3f-e422-4cc5-8a0a-01960b71e95a",
-      "title": "alert",
-      "published": "Sat Oct 31 17:48:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6101 - Union Rd",
-      "city": "New Mills",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.365034 -2.001485"
     },
     {
       "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
@@ -130,6 +116,20 @@
       "point": "53.480783 -2.359486"
     },
     {
+      "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
+      "title": "alert",
+      "published": "Sat Oct 31 19:40:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6018 - Stamford St",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.485115 -2.057569"
+    },
+    {
       "id": "38099745-ab05-4e91-b6e4-bf8c285b821c",
       "title": "alert",
       "published": "Sat Oct 31 19:28:13 +0000 2026",
@@ -142,20 +142,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.485718 -2.058758"
-    },
-    {
-      "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
-      "title": "alert",
-      "published": "Sat Oct 31 19:40:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6018 - Stamford St",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.485115 -2.057569"
     }
   ]
 }
