@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-31T14:05:48.120086+00:00",
+  "updatedAt": "2026-10-31T14:10:48.133622+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
-    {
-      "id": "f69390dc-a93f-41cd-bb80-03ffb0c5a07f",
-      "title": "alert",
-      "published": "Sat Oct 31 13:43:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Belmont St",
-      "city": "Heaton Norris",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.417409 -2.165437"
-    },
     {
       "id": "e7ccff01-838f-43b2-8e27-e79dc3903e20",
       "title": "alert",
@@ -74,6 +60,20 @@
       "point": "53.433285 -2.27143"
     },
     {
+      "id": "8dcf81ad-d99d-4859-b1cd-27b0b5e7f595",
+      "title": "alert",
+      "published": "Sat Oct 31 13:57:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.411889 -2.146286"
+    },
+    {
       "id": "93078850-ded8-475b-89cc-d3625a12f365",
       "title": "alert",
       "published": "Sat Oct 31 13:08:57 +0000 2026",
@@ -86,20 +86,6 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.413891 -2.14718"
-    },
-    {
-      "id": "8dcf81ad-d99d-4859-b1cd-27b0b5e7f595",
-      "title": "alert",
-      "published": "Sat Oct 31 13:57:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.411889 -2.146286"
     },
     {
       "id": "1b51e42e-6310-44c3-9d56-c7602ee35cfa",
@@ -128,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.369548 -2.508991"
-    },
-    {
-      "id": "d096051c-07a2-406c-bc7a-12f693faebe0",
-      "title": "alert",
-      "published": "Sat Oct 31 14:01:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.3844 -2.504645"
     }
   ]
 }
