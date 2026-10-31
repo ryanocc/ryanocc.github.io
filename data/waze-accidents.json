@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T17:10:48.122344+00:00",
+  "updatedAt": "2026-10-31T17:15:48.199285+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
     {
       "id": "94ff61e1-0e96-470c-8da0-6a1278cb4f83",
@@ -18,6 +18,20 @@
       "point": "53.425935 -2.129936"
     },
     {
+      "id": "f8d5510b-112d-45be-8b8a-b73acdf1f3fd",
+      "title": "alert",
+      "published": "Sat Oct 31 17:11:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5238 - Scot Ln",
+      "city": "Aspull",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.570886 -2.582423"
+    },
+    {
       "id": "5b0986ef-9266-409d-a1f8-0447a1c64e65",
       "title": "alert",
       "published": "Sat Oct 31 16:58:56 +0000 2026",
@@ -26,38 +40,10 @@
       "road": "A6044 - Sheepfoot Ln",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.52524 -2.261825"
-    },
-    {
-      "id": "c24b58a1-adf5-4a44-8d3d-6895c6621cfa",
-      "title": "alert",
-      "published": "Sat Oct 31 16:47:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A671 - Market St",
-      "city": "Whitworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.64051 -2.178564"
-    },
-    {
-      "id": "a7c03d38-abd5-4706-a5b7-1f233fae3eee",
-      "title": "alert",
-      "published": "Sat Oct 31 16:45:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Manchester Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.611368 -2.163761"
     }
   ]
 }
