@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-31T19:15:48.060070+00:00",
+  "updatedAt": "2026-10-31T19:20:48.091531+00:00",
   "source": "Waze GeoRSS",
-  "count": 16,
+  "count": 15,
   "incidents": [
-    {
-      "id": "1c52e292-f73e-415b-bb0e-079087b432db",
-      "title": "alert",
-      "published": "Sat Oct 31 18:14:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.535869 -2.115835"
-    },
     {
       "id": "e06a7ade-6337-4935-b97c-724002922c31",
       "title": "alert",
@@ -26,8 +12,8 @@
       "road": "Manchester Rd",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.335105 -2.225878"
     },
@@ -60,20 +46,6 @@
       "point": "53.412508 -2.14692"
     },
     {
-      "id": "6d5eac59-42a7-47cc-ae56-c4cdad96b6bc",
-      "title": "alert",
-      "published": "Sat Oct 31 17:46:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6101 - Haguebar Rd",
-      "city": "New Mills",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.365418 -2.003736"
-    },
-    {
       "id": "d821ad3f-e422-4cc5-8a0a-01960b71e95a",
       "title": "alert",
       "published": "Sat Oct 31 17:48:52 +0000 2026",
@@ -88,18 +60,18 @@
       "point": "53.365034 -2.001485"
     },
     {
-      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
+      "id": "6d5eac59-42a7-47cc-ae56-c4cdad96b6bc",
       "title": "alert",
-      "published": "Sat Oct 31 17:52:32 +0000 2026",
+      "published": "Sat Oct 31 17:46:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "Rivington Rd",
-      "city": "",
+      "road": "B6101 - Haguebar Rd",
+      "city": "New Mills",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.636695 -2.53379"
+      "point": "53.365418 -2.003736"
     },
     {
       "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
@@ -114,6 +86,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.636709 -2.533667"
+    },
+    {
+      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
+      "title": "alert",
+      "published": "Sat Oct 31 17:52:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Rivington Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.636695 -2.53379"
     },
     {
       "id": "e5aa581d-2a47-481a-9bb5-e851d292e796",
@@ -144,20 +130,6 @@
       "point": "53.445134 -2.157794"
     },
     {
-      "id": "01f3dbd1-b4c7-4fe5-95d3-50f8edc14dd0",
-      "title": "alert",
-      "published": "Sat Oct 31 19:14:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Crumpsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.513758 -2.244281"
-    },
-    {
       "id": "7095db56-4cab-4f10-a9d0-c79f7347a1e2",
       "title": "alert",
       "published": "Sat Oct 31 19:15:40 +0000 2026",
@@ -170,6 +142,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.513912 -2.24347"
+    },
+    {
+      "id": "01f3dbd1-b4c7-4fe5-95d3-50f8edc14dd0",
+      "title": "alert",
+      "published": "Sat Oct 31 19:14:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Crumpsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.513758 -2.244281"
     },
     {
       "id": "164612f9-f47e-407a-be39-2403fece6f7f",
