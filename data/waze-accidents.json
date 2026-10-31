@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-31T11:45:48.127346+00:00",
+  "updatedAt": "2026-10-31T11:50:48.112920+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
+    {
+      "id": "ff207abf-58c4-4d17-a5d6-ec8df51b0cfd",
+      "title": "alert",
+      "published": "Sat Oct 31 11:45:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5358 - Wilmslow Rd",
+      "city": "Heald Green",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.368722 -2.216466"
+    },
     {
       "id": "d17b978b-e033-4770-b374-f3526c89bef1",
       "title": "alert",
@@ -72,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.412025 -2.146311"
-    },
-    {
-      "id": "4b1f004a-5db6-455f-bb37-e2fe663c8e37",
-      "title": "alert",
-      "published": "Sat Oct 31 11:22:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A574 - Warrington Rd",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.490555 -2.4993"
     }
   ]
 }
