@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-10-31T09:55:48.993354+00:00",
+  "updatedAt": "2026-10-31T10:05:47.628395+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
-      "id": "c95db822-b778-41f6-beab-c92b4b65b8e8",
+      "id": "bbfa5efc-ab0c-43ff-895d-14c5060051e6",
       "title": "alert",
-      "published": "Sat Oct 31 07:42:28 +0000 2026",
+      "published": "Sat Oct 31 10:01:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A574 - Warrington Rd",
-      "city": "Leigh",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.490326 -2.499303"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.60776 -2.207227"
+    },
+    {
+      "id": "4fddc274-5d16-443f-bc5c-789e52c54aa0",
+      "title": "alert",
+      "published": "Sat Oct 31 10:01:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.474468 -2.334734"
     }
   ]
 }
