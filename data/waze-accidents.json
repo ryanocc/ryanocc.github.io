@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T23:45:48.161416+00:00",
+  "updatedAt": "2026-10-31T23:50:48.081046+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "c9cb6821-45d3-437b-b1c7-1a16f5878c70",
@@ -26,8 +26,8 @@
       "road": "B6177 - Stamford Rd",
       "city": "Mossley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.518868 -2.042336"
     },
@@ -44,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.408226 -2.218907"
+    },
+    {
+      "id": "bf8bba79-068e-4c1c-ab62-238d5ee569d3",
+      "title": "alert",
+      "published": "Sat Oct 31 23:47:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 - Grosvenor St",
+      "city": "Chorlton-on-Medlock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.470537 -2.236073"
     }
   ]
 }
