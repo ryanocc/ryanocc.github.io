@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T23:15:48.115384+00:00",
+  "updatedAt": "2026-10-31T23:20:48.120537+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "4660d205-813a-4646-8af4-2d585741acca",
@@ -26,7 +26,7 @@
       "road": "Wellington St",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.538675 -2.108899"
@@ -58,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.518868 -2.042336"
+    },
+    {
+      "id": "ca2b91fe-32f4-4c69-9516-373fb8cbc014",
+      "title": "alert",
+      "published": "Sat Oct 31 23:19:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.408226 -2.218907"
     },
     {
       "id": "3a83e6fd-856d-4a03-b36a-929bd7621263",
