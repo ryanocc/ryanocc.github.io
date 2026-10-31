@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T13:45:48.207106+00:00",
+  "updatedAt": "2026-10-31T13:50:48.208582+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 10,
   "incidents": [
     {
       "id": "f69390dc-a93f-41cd-bb80-03ffb0c5a07f",
@@ -13,7 +13,7 @@
       "city": "Heaton Norris",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.417409 -2.165437"
     },
@@ -40,8 +40,8 @@
       "road": "Robert Hall St",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.474128 -2.273829"
     },
@@ -130,20 +130,6 @@
       "point": "53.445942 -2.313771"
     },
     {
-      "id": "80985a41-c6ef-48dd-a45d-a5963c67883c",
-      "title": "alert",
-      "published": "Sat Oct 31 13:37:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.472439 -2.257084"
-    },
-    {
       "id": "1b51e42e-6310-44c3-9d56-c7602ee35cfa",
       "title": "alert",
       "published": "Sat Oct 31 12:45:13 +0000 2026",
@@ -156,20 +142,6 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.528196 -2.158289"
-    },
-    {
-      "id": "70f11eb9-99ae-48b1-8213-a29adcfae586",
-      "title": "alert",
-      "published": "Sat Oct 31 13:41:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.369133 -2.509125"
     }
   ]
 }
