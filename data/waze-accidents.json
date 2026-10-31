@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T15:00:48.048841+00:00",
+  "updatedAt": "2026-10-31T15:05:48.097781+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 5,
   "incidents": [
     {
       "id": "adde8cf9-14c1-4899-9d8d-e2bffd3a49f6",
@@ -40,24 +40,10 @@
       "road": "B5238 - Scot Ln",
       "city": "Aspull",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.570994 -2.58216"
-    },
-    {
-      "id": "12cd7c8d-3f93-4097-9810-d0342754aedf",
-      "title": "alert",
-      "published": "Sat Oct 31 14:51:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Pilsworth Rd",
-      "city": "Pilsworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.578521 -2.268475"
     },
     {
       "id": "8dcf81ad-d99d-4859-b1cd-27b0b5e7f595",
@@ -86,20 +72,6 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.413891 -2.14718"
-    },
-    {
-      "id": "15076487-ace3-4748-b090-37534e9431cc",
-      "title": "alert",
-      "published": "Sat Oct 31 13:57:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.370912 -2.508535"
     }
   ]
 }
