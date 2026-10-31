@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T12:20:48.069652+00:00",
+  "updatedAt": "2026-10-31T12:25:48.010602+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "e4d289ec-a26d-4cfa-b84f-6b1303eb4a72",
@@ -60,20 +60,6 @@
       "point": "53.414893 -2.140805"
     },
     {
-      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
-      "title": "alert",
-      "published": "Sat Oct 31 10:57:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.412025 -2.146311"
-    },
-    {
       "id": "f9fd1f65-3ac4-40cd-8ff0-d60b12ea0e36",
       "title": "alert",
       "published": "Sat Oct 31 11:01:28 +0000 2026",
@@ -88,6 +74,20 @@
       "point": "53.415226 -2.147885"
     },
     {
+      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
+      "title": "alert",
+      "published": "Sat Oct 31 10:57:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.412025 -2.146311"
+    },
+    {
       "id": "c3fe2c19-1623-4556-97a5-a8af9545405d",
       "title": "alert",
       "published": "Sat Oct 31 11:59:33 +0000 2026",
@@ -100,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.416851 -2.146538"
-    },
-    {
-      "id": "1beebd77-d870-4b99-a3a3-908b245a07cb",
-      "title": "alert",
-      "published": "Sat Oct 31 12:02:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - Tiviot Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.41739 -2.150037"
     }
   ]
 }
