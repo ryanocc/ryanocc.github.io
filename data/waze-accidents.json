@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T21:55:48.123503+00:00",
+  "updatedAt": "2026-10-31T22:00:48.127985+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -26,8 +26,8 @@
       "road": "Wellington St",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.538675 -2.108899"
     },
@@ -44,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.512525 -2.236144"
+    },
+    {
+      "id": "c8026419-4445-457f-8123-2801f97ed9ea",
+      "title": "alert",
+      "published": "Sat Oct 31 20:08:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6017 - Stockport Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.481763 -2.10665"
     },
     {
       "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
@@ -68,24 +82,10 @@
       "road": "A6017 - Stockport Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.481152 -2.10705"
-    },
-    {
-      "id": "c8026419-4445-457f-8123-2801f97ed9ea",
-      "title": "alert",
-      "published": "Sat Oct 31 20:08:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6017 - Stockport Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.481763 -2.10665"
     },
     {
       "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
