@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T16:55:48.073302+00:00",
+  "updatedAt": "2026-10-31T17:00:48.199288+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "94ff61e1-0e96-470c-8da0-6a1278cb4f83",
@@ -16,6 +16,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.425935 -2.129936"
+    },
+    {
+      "id": "5b0986ef-9266-409d-a1f8-0447a1c64e65",
+      "title": "alert",
+      "published": "Sat Oct 31 16:58:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6044 - Sheepfoot Ln",
+      "city": "Sedgley Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.52524 -2.261825"
     },
     {
       "id": "c24b58a1-adf5-4a44-8d3d-6895c6621cfa",
@@ -41,7 +55,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.611368 -2.163761"
     }
