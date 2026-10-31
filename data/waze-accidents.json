@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T19:40:48.142871+00:00",
+  "updatedAt": "2026-10-31T19:45:48.111396+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.412508 -2.14692"
     },
     {
-      "id": "6d5eac59-42a7-47cc-ae56-c4cdad96b6bc",
-      "title": "alert",
-      "published": "Sat Oct 31 17:46:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6101 - Haguebar Rd",
-      "city": "New Mills",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.365418 -2.003736"
-    },
-    {
       "id": "d821ad3f-e422-4cc5-8a0a-01960b71e95a",
       "title": "alert",
       "published": "Sat Oct 31 17:48:52 +0000 2026",
@@ -60,6 +46,20 @@
       "point": "53.365034 -2.001485"
     },
     {
+      "id": "6d5eac59-42a7-47cc-ae56-c4cdad96b6bc",
+      "title": "alert",
+      "published": "Sat Oct 31 17:46:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6101 - Haguebar Rd",
+      "city": "New Mills",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.365418 -2.003736"
+    },
+    {
       "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
       "title": "alert",
       "published": "Sat Oct 31 17:52:32 +0000 2026",
@@ -68,8 +68,8 @@
       "road": "Rivington Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.636695 -2.53379"
     },
@@ -130,20 +130,6 @@
       "point": "53.412362 -2.14649"
     },
     {
-      "id": "38099745-ab05-4e91-b6e4-bf8c285b821c",
-      "title": "alert",
-      "published": "Sat Oct 31 19:28:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Stamford St",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.485718 -2.058758"
-    },
-    {
       "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
       "title": "alert",
       "published": "Sat Oct 31 19:40:46 +0000 2026",
@@ -153,9 +139,23 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.485115 -2.057569"
+    },
+    {
+      "id": "38099745-ab05-4e91-b6e4-bf8c285b821c",
+      "title": "alert",
+      "published": "Sat Oct 31 19:28:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Stamford St",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.485718 -2.058758"
     }
   ]
 }
