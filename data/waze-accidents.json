@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T18:55:48.087020+00:00",
+  "updatedAt": "2026-10-31T19:00:48.060639+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
@@ -27,7 +27,7 @@
       "city": "Wilmslow",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.335105 -2.225878"
     },
@@ -88,20 +88,6 @@
       "point": "53.365418 -2.003736"
     },
     {
-      "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
-      "title": "alert",
-      "published": "Sat Oct 31 17:35:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Rivington Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.636709 -2.533667"
-    },
-    {
       "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
       "title": "alert",
       "published": "Sat Oct 31 17:52:32 +0000 2026",
@@ -114,6 +100,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.636695 -2.53379"
+    },
+    {
+      "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
+      "title": "alert",
+      "published": "Sat Oct 31 17:35:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Rivington Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.636709 -2.533667"
     },
     {
       "id": "e5aa581d-2a47-481a-9bb5-e851d292e796",
@@ -158,6 +158,20 @@
       "point": "53.412282 -2.146373"
     },
     {
+      "id": "962135de-da93-4230-95ca-55a13ba6e948",
+      "title": "alert",
+      "published": "Sat Oct 31 18:57:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Leicester Rd",
+      "city": "Broughton Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.51045 -2.252857"
+    },
+    {
       "id": "b0d00be9-c561-4b33-a94d-840c56c30a3b",
       "title": "alert",
       "published": "Sat Oct 31 18:48:25 +0000 2026",
@@ -167,23 +181,9 @@
       "city": "Sedgley Park",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.524873 -2.263041"
-    },
-    {
-      "id": "8c9e204a-4a24-47aa-bd3f-1cd4ff4f303a",
-      "title": "alert",
-      "published": "Sat Oct 31 18:14:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A627 - King St",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.535726 -2.115707"
     }
   ]
 }
