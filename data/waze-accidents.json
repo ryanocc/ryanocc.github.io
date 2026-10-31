@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T11:50:48.112920+00:00",
+  "updatedAt": "2026-10-31T11:55:48.127295+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "ff207abf-58c4-4d17-a5d6-ec8df51b0cfd",
@@ -12,8 +12,8 @@
       "road": "B5358 - Wilmslow Rd",
       "city": "Heald Green",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.368722 -2.216466"
     },
@@ -60,6 +60,20 @@
       "point": "53.474468 -2.334734"
     },
     {
+      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
+      "title": "alert",
+      "published": "Sat Oct 31 10:57:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.412025 -2.146311"
+    },
+    {
       "id": "f9fd1f65-3ac4-40cd-8ff0-d60b12ea0e36",
       "title": "alert",
       "published": "Sat Oct 31 11:01:28 +0000 2026",
@@ -74,18 +88,18 @@
       "point": "53.415226 -2.147885"
     },
     {
-      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
+      "id": "1773f120-73fc-4b14-9668-e3650b793420",
       "title": "alert",
-      "published": "Sat Oct 31 10:57:37 +0000 2026",
+      "published": "Sat Oct 31 11:55:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.412025 -2.146311"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.583169 -2.51971"
     }
   ]
 }
