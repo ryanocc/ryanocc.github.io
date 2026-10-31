@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T18:20:48.069980+00:00",
+  "updatedAt": "2026-10-31T18:25:48.285629+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -12,8 +12,8 @@
       "road": "",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.535869 -2.115835"
     },
@@ -46,6 +46,20 @@
       "point": "53.412508 -2.14692"
     },
     {
+      "id": "d821ad3f-e422-4cc5-8a0a-01960b71e95a",
+      "title": "alert",
+      "published": "Sat Oct 31 17:48:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6101 - Union Rd",
+      "city": "New Mills",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.365034 -2.001485"
+    },
+    {
       "id": "6d5eac59-42a7-47cc-ae56-c4cdad96b6bc",
       "title": "alert",
       "published": "Sat Oct 31 17:46:18 +0000 2026",
@@ -60,18 +74,18 @@
       "point": "53.365418 -2.003736"
     },
     {
-      "id": "d821ad3f-e422-4cc5-8a0a-01960b71e95a",
+      "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
       "title": "alert",
-      "published": "Sat Oct 31 17:48:52 +0000 2026",
+      "published": "Sat Oct 31 17:35:28 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "B6101 - Union Rd",
-      "city": "New Mills",
+      "road": "Rivington Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.365034 -2.001485"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.636709 -2.533667"
     },
     {
       "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
@@ -86,20 +100,6 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.636695 -2.53379"
-    },
-    {
-      "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
-      "title": "alert",
-      "published": "Sat Oct 31 17:35:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Rivington Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.636709 -2.533667"
     },
     {
       "id": "164612f9-f47e-407a-be39-2403fece6f7f",
@@ -152,8 +152,8 @@
       "road": "A627 - King St",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.535726 -2.115707"
     }
