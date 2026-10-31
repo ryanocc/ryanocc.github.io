@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T13:30:48.124865+00:00",
+  "updatedAt": "2026-10-31T13:35:48.173580+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -27,7 +27,7 @@
       "city": "Ordsall",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.474128 -2.273829"
     },
@@ -54,24 +54,10 @@
       "road": "B5358 - Wilmslow Rd",
       "city": "Heald Green",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.368722 -2.216466"
-    },
-    {
-      "id": "48488da0-6b01-4202-b6c2-355eaee2b66c",
-      "title": "alert",
-      "published": "Sat Oct 31 12:14:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "New Bridge Ln",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.414893 -2.140805"
     },
     {
       "id": "b8d87442-a5eb-49fc-b75f-65bbb5267a73",
@@ -86,6 +72,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.412507 -2.146923"
+    },
+    {
+      "id": "48488da0-6b01-4202-b6c2-355eaee2b66c",
+      "title": "alert",
+      "published": "Sat Oct 31 12:14:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "New Bridge Ln",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.414893 -2.140805"
     },
     {
       "id": "2919a638-3eb9-4a9b-bb80-2529262211ac",
@@ -110,7 +110,7 @@
       "road": "",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.413842 -2.151879"
