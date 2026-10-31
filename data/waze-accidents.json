@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-31T23:20:48.120537+00:00",
+  "updatedAt": "2026-10-31T23:25:48.062465+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
-    {
-      "id": "4660d205-813a-4646-8af4-2d585741acca",
-      "title": "alert",
-      "published": "Sat Oct 31 21:18:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Pall Mall",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.481635 -2.243252"
-    },
     {
       "id": "c9cb6821-45d3-437b-b1c7-1a16f5878c70",
       "title": "alert",
@@ -55,7 +41,7 @@
       "city": "Mossley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.518868 -2.042336"
     },
@@ -83,7 +69,7 @@
       "city": "Middleton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.550877 -2.183218"
     },
@@ -100,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.485722 -2.057948"
+    },
+    {
+      "id": "cb029f57-f854-4d08-a497-947666544af8",
+      "title": "alert",
+      "published": "Sat Oct 31 23:25:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.405022 -2.519111"
     }
   ]
 }
