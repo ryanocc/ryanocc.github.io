@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T19:00:48.060639+00:00",
+  "updatedAt": "2026-10-31T19:05:48.102487+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "1c52e292-f73e-415b-bb0e-079087b432db",
@@ -124,10 +124,24 @@
       "road": "M60 (S & E) > Manchester Airport",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.484325 -2.375566"
+    },
+    {
+      "id": "818a66e7-bb15-4b46-b6fe-fdfb6f6c64b6",
+      "title": "alert",
+      "published": "Sat Oct 31 19:03:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Longford Rd W",
+      "city": "Reddish",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.445134 -2.157794"
     },
     {
       "id": "164612f9-f47e-407a-be39-2403fece6f7f",
@@ -152,7 +166,7 @@
       "road": "A6188 - St. Mary's Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.412282 -2.146373"
@@ -166,8 +180,8 @@
       "road": "A576 - Leicester Rd",
       "city": "Broughton Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.51045 -2.252857"
     },
@@ -180,7 +194,7 @@
       "road": "A6044 - Sheepfoot Ln",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.524873 -2.263041"
