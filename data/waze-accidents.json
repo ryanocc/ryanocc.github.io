@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T17:50:48.111506+00:00",
+  "updatedAt": "2026-10-31T17:55:48.241208+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "6a1166b6-768f-43ff-8d06-da6c653a3c21",
@@ -41,7 +41,7 @@
       "city": "New Mills",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.365034 -2.001485"
     },
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.570886 -2.582423"
+    },
+    {
+      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
+      "title": "alert",
+      "published": "Sat Oct 31 17:52:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Rivington Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.636695 -2.53379"
     },
     {
       "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
