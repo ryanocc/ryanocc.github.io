@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T12:00:48.109606+00:00",
+  "updatedAt": "2026-10-31T12:05:48.125475+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "ff207abf-58c4-4d17-a5d6-ec8df51b0cfd",
@@ -13,9 +13,23 @@
       "city": "Heald Green",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.368722 -2.216466"
+    },
+    {
+      "id": "e89d0fcc-04de-4bc7-87fc-8fa603de57f6",
+      "title": "alert",
+      "published": "Sat Oct 31 12:05:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5358 - Wilmslow Rd",
+      "city": "Heald Green",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.373695 -2.216684"
     },
     {
       "id": "b8d87442-a5eb-49fc-b75f-65bbb5267a73",
@@ -82,24 +96,24 @@
       "road": "A560 - Crookilley Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.416796 -2.146661"
-    },
-    {
-      "id": "1773f120-73fc-4b14-9668-e3650b793420",
-      "title": "alert",
-      "published": "Sat Oct 31 11:55:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A673 - Chorley New Rd",
-      "city": "Lostock",
-      "country": "UK",
       "confidence": 2.0,
       "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.416851 -2.146538"
+    },
+    {
+      "id": "1beebd77-d870-4b99-a3a3-908b245a07cb",
+      "title": "alert",
+      "published": "Sat Oct 31 12:02:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - Tiviot Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.583169 -2.51971"
+      "point": "53.41739 -2.150037"
     }
   ]
 }
