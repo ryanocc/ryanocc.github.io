@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T00:55:48.223201+00:00",
+  "updatedAt": "2026-10-31T01:00:48.112200+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -13,7 +13,7 @@
       "city": "Davyhulme",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.451125 -2.398042"
     },
@@ -32,20 +32,6 @@
       "point": "53.481398 -2.197074"
     },
     {
-      "id": "07c10e71-94d3-4ffb-bf69-efc947f3516e",
-      "title": "alert",
-      "published": "Sat Oct 31 00:37:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A672 - Oldham Rd",
-      "city": "Ripponden",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.668605 -1.948202"
-    },
-    {
       "id": "a175d943-bbae-4de5-8bc8-e956b4e07ddd",
       "title": "alert",
       "published": "Sat Oct 31 00:38:42 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.669278 -1.947857"
+    },
+    {
+      "id": "07c10e71-94d3-4ffb-bf69-efc947f3516e",
+      "title": "alert",
+      "published": "Sat Oct 31 00:37:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A672 - Oldham Rd",
+      "city": "Ripponden",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.668605 -1.948202"
     },
     {
       "id": "98dd438b-cae3-41be-87f8-bfd77f849907",
@@ -83,7 +83,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.433505 -2.308482"
     }
