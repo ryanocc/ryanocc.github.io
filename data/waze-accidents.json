@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T18:25:48.285629+00:00",
+  "updatedAt": "2026-10-31T18:30:48.249384+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -12,7 +12,7 @@
       "road": "",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.535869 -2.115835"
@@ -74,6 +74,20 @@
       "point": "53.365418 -2.003736"
     },
     {
+      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
+      "title": "alert",
+      "published": "Sat Oct 31 17:52:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Rivington Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.636695 -2.53379"
+    },
+    {
       "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
       "title": "alert",
       "published": "Sat Oct 31 17:35:28 +0000 2026",
@@ -86,20 +100,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.636709 -2.533667"
-    },
-    {
-      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
-      "title": "alert",
-      "published": "Sat Oct 31 17:52:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Rivington Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.636695 -2.53379"
     },
     {
       "id": "164612f9-f47e-407a-be39-2403fece6f7f",
@@ -139,7 +139,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.365754 -2.519294"
     },
