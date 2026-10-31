@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T18:30:48.249384+00:00",
+  "updatedAt": "2026-10-31T18:35:48.100546+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "1c52e292-f73e-415b-bb0e-079087b432db",
@@ -12,7 +12,7 @@
       "road": "",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.535869 -2.115835"
@@ -46,6 +46,20 @@
       "point": "53.412508 -2.14692"
     },
     {
+      "id": "6d5eac59-42a7-47cc-ae56-c4cdad96b6bc",
+      "title": "alert",
+      "published": "Sat Oct 31 17:46:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6101 - Haguebar Rd",
+      "city": "New Mills",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.365418 -2.003736"
+    },
+    {
       "id": "d821ad3f-e422-4cc5-8a0a-01960b71e95a",
       "title": "alert",
       "published": "Sat Oct 31 17:48:52 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.365034 -2.001485"
-    },
-    {
-      "id": "6d5eac59-42a7-47cc-ae56-c4cdad96b6bc",
-      "title": "alert",
-      "published": "Sat Oct 31 17:46:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6101 - Haguebar Rd",
-      "city": "New Mills",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.365418 -2.003736"
     },
     {
       "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
@@ -102,6 +102,20 @@
       "point": "53.636709 -2.533667"
     },
     {
+      "id": "e5aa581d-2a47-481a-9bb5-e851d292e796",
+      "title": "alert",
+      "published": "Sat Oct 31 18:35:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (S & E) > Manchester Airport",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.484325 -2.375566"
+    },
+    {
       "id": "164612f9-f47e-407a-be39-2403fece6f7f",
       "title": "alert",
       "published": "Sat Oct 31 18:01:10 +0000 2026",
@@ -124,8 +138,8 @@
       "road": "A6188 - St. Mary's Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.412282 -2.146373"
     },
@@ -139,7 +153,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.365754 -2.519294"
     },
@@ -152,7 +166,7 @@
       "road": "A627 - King St",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.535726 -2.115707"
