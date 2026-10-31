@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-31T16:15:48.082338+00:00",
+  "updatedAt": "2026-10-31T16:20:48.133459+00:00",
   "source": "Waze GeoRSS",
   "count": 2,
   "incidents": [
-    {
-      "id": "adde8cf9-14c1-4899-9d8d-e2bffd3a49f6",
-      "title": "alert",
-      "published": "Sat Oct 31 14:12:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Arkle Rd",
-      "city": "Handforth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.351797 -2.206986"
-    },
     {
       "id": "94ff61e1-0e96-470c-8da0-6a1278cb4f83",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.425935 -2.129936"
+    },
+    {
+      "id": "59ec8ced-ebc1-4c08-af7a-0f1849dcb5bd",
+      "title": "alert",
+      "published": "Sat Oct 31 16:18:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A671 - Whitworth Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.621153 -2.154857"
     }
   ]
 }
