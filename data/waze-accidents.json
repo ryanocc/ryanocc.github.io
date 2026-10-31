@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-10-31T20:45:48.108786+00:00",
+  "updatedAt": "2026-10-31T20:50:47.978361+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
-    {
-      "id": "42b6b835-776a-403a-9169-89404db1a59e",
-      "title": "alert",
-      "published": "Sat Oct 31 20:21:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Queen Victoria St",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.60045 -2.150044"
-    },
     {
       "id": "818a66e7-bb15-4b46-b6fe-fdfb6f6c64b6",
       "title": "alert",
@@ -40,8 +26,8 @@
       "road": "",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.535517 -2.130955"
     },
@@ -60,20 +46,6 @@
       "point": "53.513758 -2.244281"
     },
     {
-      "id": "c8026419-4445-457f-8123-2801f97ed9ea",
-      "title": "alert",
-      "published": "Sat Oct 31 20:08:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6017 - Stockport Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.481763 -2.10665"
-    },
-    {
       "id": "341ea920-a4af-4394-b081-6e6c42ecf37a",
       "title": "alert",
       "published": "Sat Oct 31 20:25:00 +0000 2026",
@@ -88,6 +60,20 @@
       "point": "53.481152 -2.10705"
     },
     {
+      "id": "c8026419-4445-457f-8123-2801f97ed9ea",
+      "title": "alert",
+      "published": "Sat Oct 31 20:08:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6017 - Stockport Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.481763 -2.10665"
+    },
+    {
       "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
       "title": "alert",
       "published": "Sat Oct 31 20:37:02 +0000 2026",
@@ -96,8 +82,8 @@
       "road": "A635 - Wakefield Rd",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.485722 -2.057948"
     },
