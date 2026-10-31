@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T12:55:48.129616+00:00",
+  "updatedAt": "2026-10-31T13:00:48.215393+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
     {
       "id": "e4d289ec-a26d-4cfa-b84f-6b1303eb4a72",
@@ -26,7 +26,7 @@
       "road": "B5358 - Wilmslow Rd",
       "city": "Heald Green",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.368722 -2.216466"
@@ -54,8 +54,8 @@
       "road": "New Bridge Ln",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.414893 -2.140805"
     },
@@ -72,6 +72,20 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.416528 -2.150171"
+    },
+    {
+      "id": "2919a638-3eb9-4a9b-bb80-2529262211ac",
+      "title": "alert",
+      "published": "Sat Oct 31 13:00:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6104 - Carrington Rd",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.415986 -2.146811"
     },
     {
       "id": "c6283310-29b4-449f-92bb-1bc86c1931f8",
@@ -116,18 +130,18 @@
       "point": "53.415226 -2.147885"
     },
     {
-      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
+      "id": "a9d34833-649f-4c89-87fb-2a6ee0d5059c",
       "title": "alert",
-      "published": "Sat Oct 31 10:57:37 +0000 2026",
+      "published": "Sat Oct 31 12:58:19 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
+      "road": "",
+      "city": "Ordsall",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.412025 -2.146311"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.476392 -2.269168"
     },
     {
       "id": "fb4e4bb5-e46a-459d-8be2-78814b3ec1c6",
@@ -138,8 +152,8 @@
       "road": "",
       "city": "Golborne",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.469312 -2.599489"
     },
@@ -152,8 +166,8 @@
       "road": "A575 - Walkden Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.50291 -2.386103"
     },
