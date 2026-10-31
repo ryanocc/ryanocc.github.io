@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T22:05:47.987008+00:00",
+  "updatedAt": "2026-10-31T22:10:48.104529+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.512525 -2.236144"
     },
     {
+      "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
+      "title": "alert",
+      "published": "Sat Oct 31 20:37:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Wakefield Rd",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.485722 -2.057948"
+    },
+    {
       "id": "c8026419-4445-457f-8123-2801f97ed9ea",
       "title": "alert",
       "published": "Sat Oct 31 20:08:09 +0000 2026",
@@ -60,20 +74,6 @@
       "point": "53.481763 -2.10665"
     },
     {
-      "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
-      "title": "alert",
-      "published": "Sat Oct 31 20:37:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A635 - Wakefield Rd",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.485722 -2.057948"
-    },
-    {
       "id": "87bf5e49-34e6-4257-baeb-32097598ad59",
       "title": "alert",
       "published": "Sat Oct 31 22:05:15 +0000 2026",
@@ -82,8 +82,8 @@
       "road": "A49 - Warrington Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.513577 -2.652797"
     }
