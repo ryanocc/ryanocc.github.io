@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-31T02:05:48.042205+00:00",
+  "updatedAt": "2026-10-31T02:10:48.040066+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
+    {
+      "id": "eb8582b6-6fb4-4407-a739-50eae654fdae",
+      "title": "alert",
+      "published": "Sat Oct 31 02:10:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 > Manchester Centre",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.456984 -2.137743"
+    },
     {
       "id": "a175d943-bbae-4de5-8bc8-e956b4e07ddd",
       "title": "alert",
@@ -30,6 +44,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.455159 -2.205603"
+    },
+    {
+      "id": "32682b72-8307-4ded-bbba-5a502ded065f",
+      "title": "alert",
+      "published": "Sat Oct 31 02:08:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Manchester Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.457038 -2.137687"
     },
     {
       "id": "d6e63d46-6c2e-4dec-9ce6-3af31da1773c",
