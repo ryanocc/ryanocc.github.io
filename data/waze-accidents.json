@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-10-31T17:20:48.122393+00:00",
+  "updatedAt": "2026-10-31T17:25:48.265627+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
-      "id": "94ff61e1-0e96-470c-8da0-6a1278cb4f83",
+      "id": "6a1166b6-768f-43ff-8d06-da6c653a3c21",
       "title": "alert",
-      "published": "Sat Oct 31 15:21:54 +0000 2026",
+      "published": "Sat Oct 31 17:22:53 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Essex Rd",
-      "city": "Brinnington",
+      "subtype": "",
+      "road": "New Bridge Ln",
+      "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.425935 -2.129936"
+      "point": "53.415058 -2.139924"
     },
     {
       "id": "f8d5510b-112d-45be-8b8a-b73acdf1f3fd",
@@ -44,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.52524 -2.261825"
+    },
+    {
+      "id": "d3b1d7e6-f768-432a-bcc1-01d3168e005f",
+      "title": "alert",
+      "published": "Sat Oct 31 17:25:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.471306 -2.239299"
     }
   ]
 }
