@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T11:55:48.127295+00:00",
+  "updatedAt": "2026-10-31T12:00:48.109606+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -13,23 +13,9 @@
       "city": "Heald Green",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.368722 -2.216466"
-    },
-    {
-      "id": "d17b978b-e033-4770-b374-f3526c89bef1",
-      "title": "alert",
-      "published": "Sat Oct 31 10:42:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Dialstone Ln",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.401097 -2.136633"
     },
     {
       "id": "b8d87442-a5eb-49fc-b75f-65bbb5267a73",
@@ -88,6 +74,20 @@
       "point": "53.415226 -2.147885"
     },
     {
+      "id": "c3fe2c19-1623-4556-97a5-a8af9545405d",
+      "title": "alert",
+      "published": "Sat Oct 31 11:59:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A560 - Crookilley Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.416796 -2.146661"
+    },
+    {
       "id": "1773f120-73fc-4b14-9668-e3650b793420",
       "title": "alert",
       "published": "Sat Oct 31 11:55:26 +0000 2026",
@@ -96,8 +96,8 @@
       "road": "A673 - Chorley New Rd",
       "city": "Lostock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.583169 -2.51971"
     }
