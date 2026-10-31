@@ -1,35 +1,21 @@
 {
-  "updatedAt": "2026-10-31T07:35:47.717983+00:00",
+  "updatedAt": "2026-10-31T07:45:48.042347+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 1,
   "incidents": [
     {
-      "id": "c0cae1b8-7a9e-4bbf-a898-d9fdae86fdc1",
+      "id": "c95db822-b778-41f6-beab-c92b4b65b8e8",
       "title": "alert",
-      "published": "Sat Oct 31 07:35:05 +0000 2026",
+      "published": "Sat Oct 31 07:42:28 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A555 (W)",
-      "city": "",
+      "subtype": "",
+      "road": "A574 - Warrington Rd",
+      "city": "Leigh",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
-      "point": "53.350942 -2.152088"
-    },
-    {
-      "id": "f06265b0-4350-42d6-b358-6c1471bb3c82",
-      "title": "alert",
-      "published": "Sat Oct 31 07:32:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 4.0,
-      "point": "53.575136 -2.546491"
+      "point": "53.490326 -2.499303"
     }
   ]
 }
