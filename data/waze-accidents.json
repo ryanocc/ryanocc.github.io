@@ -1,8 +1,50 @@
 {
-  "updatedAt": "2026-10-31T21:10:48.116220+00:00",
+  "updatedAt": "2026-10-31T21:15:48.144905+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
+    {
+      "id": "1fc3a428-4461-4f01-a0e6-88670d568ad2",
+      "title": "alert",
+      "published": "Sat Oct 31 21:11:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - Bolton Rd",
+      "city": "Pendlebury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.502991 -2.310345"
+    },
+    {
+      "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
+      "title": "alert",
+      "published": "Sat Oct 31 20:37:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Wakefield Rd",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.485722 -2.057948"
+    },
+    {
+      "id": "341ea920-a4af-4394-b081-6e6c42ecf37a",
+      "title": "alert",
+      "published": "Sat Oct 31 20:25:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A6017 - Stockport Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.481152 -2.10705"
+    },
     {
       "id": "c8026419-4445-457f-8123-2801f97ed9ea",
       "title": "alert",
@@ -16,34 +58,6 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.481763 -2.10665"
-    },
-    {
-      "id": "341ea920-a4af-4394-b081-6e6c42ecf37a",
-      "title": "alert",
-      "published": "Sat Oct 31 20:25:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "A6017 - Stockport Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.481152 -2.10705"
-    },
-    {
-      "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
-      "title": "alert",
-      "published": "Sat Oct 31 20:37:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A635 - Wakefield Rd",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.485722 -2.057948"
     },
     {
       "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
