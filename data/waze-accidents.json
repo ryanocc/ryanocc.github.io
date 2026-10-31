@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T14:00:48.133045+00:00",
+  "updatedAt": "2026-10-31T14:05:48.120086+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "f69390dc-a93f-41cd-bb80-03ffb0c5a07f",
@@ -12,8 +12,8 @@
       "road": "Belmont St",
       "city": "Heaton Norris",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.417409 -2.165437"
     },
@@ -97,7 +97,7 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.411889 -2.146286"
     },
@@ -124,10 +124,24 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.369548 -2.508991"
+    },
+    {
+      "id": "d096051c-07a2-406c-bc7a-12f693faebe0",
+      "title": "alert",
+      "published": "Sat Oct 31 14:01:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.3844 -2.504645"
     }
   ]
 }
