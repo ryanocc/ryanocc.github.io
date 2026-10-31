@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T11:35:48.075313+00:00",
+  "updatedAt": "2026-10-31T11:40:48.205484+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "d17b978b-e033-4770-b374-f3526c89bef1",
@@ -18,6 +18,20 @@
       "point": "53.401097 -2.136633"
     },
     {
+      "id": "b8d87442-a5eb-49fc-b75f-65bbb5267a73",
+      "title": "alert",
+      "published": "Sat Oct 31 11:40:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "New Bridge Ln",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.412507 -2.146923"
+    },
+    {
       "id": "4fddc274-5d16-443f-bc5c-789e52c54aa0",
       "title": "alert",
       "published": "Sat Oct 31 10:01:40 +0000 2026",
@@ -30,20 +44,6 @@
       "reliability": 5.0,
       "reportRating": 4.0,
       "point": "53.474468 -2.334734"
-    },
-    {
-      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
-      "title": "alert",
-      "published": "Sat Oct 31 10:57:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.412025 -2.146311"
     },
     {
       "id": "f9fd1f65-3ac4-40cd-8ff0-d60b12ea0e36",
@@ -60,6 +60,20 @@
       "point": "53.415226 -2.147885"
     },
     {
+      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
+      "title": "alert",
+      "published": "Sat Oct 31 10:57:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.412025 -2.146311"
+    },
+    {
       "id": "4b1f004a-5db6-455f-bb37-e2fe663c8e37",
       "title": "alert",
       "published": "Sat Oct 31 11:22:46 +0000 2026",
@@ -69,7 +83,7 @@
       "city": "Leigh",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.490555 -2.4993"
     }
