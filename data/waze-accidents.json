@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T14:25:48.269627+00:00",
+  "updatedAt": "2026-10-31T14:30:48.174877+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "adde8cf9-14c1-4899-9d8d-e2bffd3a49f6",
@@ -74,6 +74,20 @@
       "point": "53.413891 -2.14718"
     },
     {
+      "id": "010fe30f-2e51-4d5b-b992-d40ab2029ee5",
+      "title": "alert",
+      "published": "Sat Oct 31 14:26:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.499258 -2.236447"
+    },
+    {
       "id": "1b51e42e-6310-44c3-9d56-c7602ee35cfa",
       "title": "alert",
       "published": "Sat Oct 31 12:45:13 +0000 2026",
@@ -96,8 +110,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.38051 -2.50533"
     },
