@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T21:50:48.080757+00:00",
+  "updatedAt": "2026-10-31T21:55:48.123503+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -27,7 +27,7 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.538675 -2.108899"
     },
@@ -46,6 +46,20 @@
       "point": "53.512525 -2.236144"
     },
     {
+      "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
+      "title": "alert",
+      "published": "Sat Oct 31 20:37:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Wakefield Rd",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.485722 -2.057948"
+    },
+    {
       "id": "341ea920-a4af-4394-b081-6e6c42ecf37a",
       "title": "alert",
       "published": "Sat Oct 31 20:25:00 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.481152 -2.10705"
-    },
-    {
-      "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
-      "title": "alert",
-      "published": "Sat Oct 31 20:37:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A635 - Wakefield Rd",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.485722 -2.057948"
     },
     {
       "id": "c8026419-4445-457f-8123-2801f97ed9ea",
