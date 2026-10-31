@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T13:55:48.163157+00:00",
+  "updatedAt": "2026-10-31T14:00:48.133045+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "f69390dc-a93f-41cd-bb80-03ffb0c5a07f",
@@ -13,7 +13,7 @@
       "city": "Heaton Norris",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.417409 -2.165437"
     },
@@ -60,18 +60,18 @@
       "point": "53.414893 -2.140805"
     },
     {
-      "id": "2919a638-3eb9-4a9b-bb80-2529262211ac",
+      "id": "e8985485-a921-42d8-8556-057d2c7a3581",
       "title": "alert",
-      "published": "Sat Oct 31 13:00:06 +0000 2026",
+      "published": "Sat Oct 31 13:56:44 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6104 - Carrington Rd",
-      "city": "Stockport",
+      "subtype": "",
+      "road": "A5145 - Barlow Moor Rd",
+      "city": "Chorlton-cum-Hardy",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.415986 -2.146811"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.433285 -2.27143"
     },
     {
       "id": "93078850-ded8-475b-89cc-d3625a12f365",
@@ -88,6 +88,20 @@
       "point": "53.413891 -2.14718"
     },
     {
+      "id": "8dcf81ad-d99d-4859-b1cd-27b0b5e7f595",
+      "title": "alert",
+      "published": "Sat Oct 31 13:57:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.411889 -2.146286"
+    },
+    {
       "id": "1b51e42e-6310-44c3-9d56-c7602ee35cfa",
       "title": "alert",
       "published": "Sat Oct 31 12:45:13 +0000 2026",
@@ -100,6 +114,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.528196 -2.158289"
+    },
+    {
+      "id": "15076487-ace3-4748-b090-37534e9431cc",
+      "title": "alert",
+      "published": "Sat Oct 31 13:57:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.369548 -2.508991"
     }
   ]
 }
