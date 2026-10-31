@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T16:40:48.075815+00:00",
+  "updatedAt": "2026-10-31T16:45:48.227887+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "94ff61e1-0e96-470c-8da0-6a1278cb4f83",
@@ -16,6 +16,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.425935 -2.129936"
+    },
+    {
+      "id": "a7c03d38-abd5-4706-a5b7-1f233fae3eee",
+      "title": "alert",
+      "published": "Sat Oct 31 16:45:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Manchester Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.611368 -2.163761"
     }
   ]
 }
