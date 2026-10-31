@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T18:50:47.979730+00:00",
+  "updatedAt": "2026-10-31T18:55:48.087020+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 13,
   "incidents": [
     {
       "id": "1c52e292-f73e-415b-bb0e-079087b432db",
@@ -88,20 +88,6 @@
       "point": "53.365418 -2.003736"
     },
     {
-      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
-      "title": "alert",
-      "published": "Sat Oct 31 17:52:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Rivington Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.636695 -2.53379"
-    },
-    {
       "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
       "title": "alert",
       "published": "Sat Oct 31 17:35:28 +0000 2026",
@@ -116,6 +102,20 @@
       "point": "53.636709 -2.533667"
     },
     {
+      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
+      "title": "alert",
+      "published": "Sat Oct 31 17:52:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Rivington Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.636695 -2.53379"
+    },
+    {
       "id": "e5aa581d-2a47-481a-9bb5-e851d292e796",
       "title": "alert",
       "published": "Sat Oct 31 18:35:47 +0000 2026",
@@ -124,7 +124,7 @@
       "road": "M60 (S & E) > Manchester Airport",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.484325 -2.375566"
@@ -153,23 +153,9 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.412282 -2.146373"
-    },
-    {
-      "id": "e1f71f29-4c40-4896-8c3b-586f7aa17092",
-      "title": "alert",
-      "published": "Sat Oct 31 18:43:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.468434 -2.327205"
     },
     {
       "id": "b0d00be9-c561-4b33-a94d-840c56c30a3b",
@@ -180,8 +166,8 @@
       "road": "A6044 - Sheepfoot Ln",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.524873 -2.263041"
     },
