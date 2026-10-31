@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T14:20:48.221486+00:00",
+  "updatedAt": "2026-10-31T14:25:48.269627+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.433285 -2.27143"
     },
     {
+      "id": "8dcf81ad-d99d-4859-b1cd-27b0b5e7f595",
+      "title": "alert",
+      "published": "Sat Oct 31 13:57:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.411889 -2.146286"
+    },
+    {
       "id": "93078850-ded8-475b-89cc-d3625a12f365",
       "title": "alert",
       "published": "Sat Oct 31 13:08:57 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.413891 -2.14718"
-    },
-    {
-      "id": "8dcf81ad-d99d-4859-b1cd-27b0b5e7f595",
-      "title": "alert",
-      "published": "Sat Oct 31 13:57:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.411889 -2.146286"
     },
     {
       "id": "1b51e42e-6310-44c3-9d56-c7602ee35cfa",
@@ -88,6 +88,20 @@
       "point": "53.528196 -2.158289"
     },
     {
+      "id": "53f7d390-c1b8-42b1-b0ba-1b385c81d177",
+      "title": "alert",
+      "published": "Sat Oct 31 14:24:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.38051 -2.50533"
+    },
+    {
       "id": "15076487-ace3-4748-b090-37534e9431cc",
       "title": "alert",
       "published": "Sat Oct 31 13:57:01 +0000 2026",
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.369548 -2.508991"
-    },
-    {
-      "id": "7fcc7811-522a-4079-8ba8-c247bce3e1ae",
-      "title": "alert",
-      "published": "Sat Oct 31 14:15:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 - Airport Spur",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.367296 -2.27363"
     }
   ]
 }
