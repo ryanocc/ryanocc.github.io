@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T15:20:47.950355+00:00",
+  "updatedAt": "2026-10-31T15:25:48.061733+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "adde8cf9-14c1-4899-9d8d-e2bffd3a49f6",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.351797 -2.206986"
+    },
+    {
+      "id": "94ff61e1-0e96-470c-8da0-6a1278cb4f83",
+      "title": "alert",
+      "published": "Sat Oct 31 15:21:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Essex Rd",
+      "city": "Brinnington",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.425935 -2.129936"
     },
     {
       "id": "e7ccff01-838f-43b2-8e27-e79dc3903e20",
@@ -40,7 +54,7 @@
       "road": "B5238 - Scot Ln",
       "city": "Aspull",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.570994 -2.58216"
