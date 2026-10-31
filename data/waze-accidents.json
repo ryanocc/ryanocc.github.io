@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T17:40:48.227894+00:00",
+  "updatedAt": "2026-10-31T17:45:48.283805+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "6a1166b6-768f-43ff-8d06-da6c653a3c21",
@@ -46,6 +46,20 @@
       "point": "53.636709 -2.533667"
     },
     {
+      "id": "0de8afcf-3002-4896-9266-9510e8313a85",
+      "title": "alert",
+      "published": "Sat Oct 31 17:41:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Liverpool Rd",
+      "city": "Barton Upon Irwell",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.476591 -2.372278"
+    },
+    {
       "id": "aa58a841-5fdd-469c-b49e-e23f350b4b0b",
       "title": "alert",
       "published": "Sat Oct 31 17:39:03 +0000 2026",
@@ -54,8 +68,8 @@
       "road": "A6044 - Sheepfoot Ln",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.525333 -2.261559"
     }
