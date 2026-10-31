@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T19:45:48.111396+00:00",
+  "updatedAt": "2026-10-31T19:50:48.077788+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -44,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.365034 -2.001485"
-    },
-    {
-      "id": "6d5eac59-42a7-47cc-ae56-c4cdad96b6bc",
-      "title": "alert",
-      "published": "Sat Oct 31 17:46:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6101 - Haguebar Rd",
-      "city": "New Mills",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.365418 -2.003736"
     },
     {
       "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
@@ -130,18 +116,18 @@
       "point": "53.412362 -2.14649"
     },
     {
-      "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
+      "id": "36719f9e-cbc6-43a8-a3e6-9407942f6fd5",
       "title": "alert",
-      "published": "Sat Oct 31 19:40:46 +0000 2026",
+      "published": "Sat Oct 31 19:49:41 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6018 - Stamford St",
-      "city": "Stalybridge",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57 - Liverpool Rd",
+      "city": "Barton Upon Irwell",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.485115 -2.057569"
+      "reportRating": 3.0,
+      "point": "53.480783 -2.359486"
     },
     {
       "id": "38099745-ab05-4e91-b6e4-bf8c285b821c",
@@ -152,10 +138,24 @@
       "road": "A635 - Stamford St",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.485718 -2.058758"
+    },
+    {
+      "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
+      "title": "alert",
+      "published": "Sat Oct 31 19:40:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6018 - Stamford St",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.485115 -2.057569"
     }
   ]
 }
