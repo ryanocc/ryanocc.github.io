@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T18:40:48.105242+00:00",
+  "updatedAt": "2026-10-31T18:45:48.207414+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -12,7 +12,7 @@
       "road": "",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.535869 -2.115835"
@@ -74,20 +74,6 @@
       "point": "53.365034 -2.001485"
     },
     {
-      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
-      "title": "alert",
-      "published": "Sat Oct 31 17:52:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Rivington Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.636695 -2.53379"
-    },
-    {
       "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
       "title": "alert",
       "published": "Sat Oct 31 17:35:28 +0000 2026",
@@ -102,6 +88,20 @@
       "point": "53.636709 -2.533667"
     },
     {
+      "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
+      "title": "alert",
+      "published": "Sat Oct 31 17:52:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Rivington Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.636695 -2.53379"
+    },
+    {
       "id": "e5aa581d-2a47-481a-9bb5-e851d292e796",
       "title": "alert",
       "published": "Sat Oct 31 18:35:47 +0000 2026",
@@ -111,7 +111,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.484325 -2.375566"
     },
@@ -144,18 +144,18 @@
       "point": "53.412282 -2.146373"
     },
     {
-      "id": "3d7081af-0c5b-4ea4-954b-55ae9e6f990e",
+      "id": "e1f71f29-4c40-4896-8c3b-586f7aa17092",
       "title": "alert",
-      "published": "Sat Oct 31 18:11:28 +0000 2026",
+      "published": "Sat Oct 31 18:43:43 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "A50 - Warrington Rd",
-      "city": "",
+      "subtype": "",
+      "road": "",
+      "city": "Trafford Park",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.365754 -2.519294"
+      "point": "53.468434 -2.327205"
     },
     {
       "id": "8c9e204a-4a24-47aa-bd3f-1cd4ff4f303a",
@@ -166,7 +166,7 @@
       "road": "A627 - King St",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.535726 -2.115707"
