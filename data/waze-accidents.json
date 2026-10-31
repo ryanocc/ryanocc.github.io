@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T11:15:48.143404+00:00",
+  "updatedAt": "2026-10-31T11:20:48.045907+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -32,18 +32,18 @@
       "point": "53.474468 -2.334734"
     },
     {
-      "id": "f9fd1f65-3ac4-40cd-8ff0-d60b12ea0e36",
+      "id": "181c1f19-31a1-40f9-a09f-400c5f9581cb",
       "title": "alert",
-      "published": "Sat Oct 31 11:01:28 +0000 2026",
+      "published": "Sat Oct 31 10:59:58 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - St. Marys Way",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6188 - St. Mary's Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.415226 -2.147885"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.41335 -2.14687"
     },
     {
       "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
@@ -60,18 +60,18 @@
       "point": "53.412025 -2.146311"
     },
     {
-      "id": "181c1f19-31a1-40f9-a09f-400c5f9581cb",
+      "id": "f9fd1f65-3ac4-40cd-8ff0-d60b12ea0e36",
       "title": "alert",
-      "published": "Sat Oct 31 10:59:58 +0000 2026",
+      "published": "Sat Oct 31 11:01:28 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6188 - St. Mary's Way",
+      "subtype": "",
+      "road": "A6188 - St. Marys Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.41335 -2.14687"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.415226 -2.147885"
     },
     {
       "id": "31fdeb99-53ed-4338-b9c6-719471a3744b",
@@ -83,7 +83,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.541778 -2.630539"
     }
