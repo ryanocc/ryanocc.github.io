@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-31T13:40:48.230128+00:00",
+  "updatedAt": "2026-10-31T13:45:48.207106+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
+    {
+      "id": "f69390dc-a93f-41cd-bb80-03ffb0c5a07f",
+      "title": "alert",
+      "published": "Sat Oct 31 13:43:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Belmont St",
+      "city": "Heaton Norris",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.417409 -2.165437"
+    },
     {
       "id": "e7ccff01-838f-43b2-8e27-e79dc3903e20",
       "title": "alert",
@@ -27,7 +41,7 @@
       "city": "Ordsall",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.474128 -2.273829"
     },
@@ -60,20 +74,6 @@
       "point": "53.368722 -2.216466"
     },
     {
-      "id": "b8d87442-a5eb-49fc-b75f-65bbb5267a73",
-      "title": "alert",
-      "published": "Sat Oct 31 11:40:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "New Bridge Ln",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.412507 -2.146923"
-    },
-    {
       "id": "48488da0-6b01-4202-b6c2-355eaee2b66c",
       "title": "alert",
       "published": "Sat Oct 31 12:14:30 +0000 2026",
@@ -96,7 +96,7 @@
       "road": "B6104 - Carrington Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.415986 -2.146811"
@@ -125,7 +125,7 @@
       "city": "Stretford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.445942 -2.313771"
     },
@@ -138,8 +138,8 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.472439 -2.257084"
     },
@@ -153,9 +153,23 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.528196 -2.158289"
+    },
+    {
+      "id": "70f11eb9-99ae-48b1-8213-a29adcfae586",
+      "title": "alert",
+      "published": "Sat Oct 31 13:41:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.369133 -2.509125"
     }
   ]
 }
