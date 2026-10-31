@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-10-31T13:20:48.074439+00:00",
+  "updatedAt": "2026-10-31T13:25:48.185298+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
+    {
+      "id": "e7ccff01-838f-43b2-8e27-e79dc3903e20",
+      "title": "alert",
+      "published": "Sat Oct 31 13:25:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.570098 -2.628146"
+    },
+    {
+      "id": "3eb5fb08-f1b6-4dbe-8cdb-3de48e0f9100",
+      "title": "alert",
+      "published": "Sat Oct 31 13:24:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Robert Hall St",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.474128 -2.273829"
+    },
     {
       "id": "e4d289ec-a26d-4cfa-b84f-6b1303eb4a72",
       "title": "alert",
@@ -68,7 +96,7 @@
       "road": "B6104 - Carrington Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.415986 -2.146811"
@@ -102,6 +130,20 @@
       "point": "53.413891 -2.14718"
     },
     {
+      "id": "afe54641-e1ef-473b-8f14-3cc6df7b22ed",
+      "title": "alert",
+      "published": "Sat Oct 31 13:25:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5181 - Barton Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.445942 -2.313771"
+    },
+    {
       "id": "1b51e42e-6310-44c3-9d56-c7602ee35cfa",
       "title": "alert",
       "published": "Sat Oct 31 12:45:13 +0000 2026",
@@ -114,20 +156,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.528196 -2.158289"
-    },
-    {
-      "id": "8d11d3b2-aade-42f7-b3f2-ee99a399b77a",
-      "title": "alert",
-      "published": "Sat Oct 31 13:20:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.499427 -2.126216"
     }
   ]
 }
