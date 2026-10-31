@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T20:35:48.035973+00:00",
+  "updatedAt": "2026-10-31T20:40:48.039370+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -69,9 +69,23 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.481152 -2.10705"
+    },
+    {
+      "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
+      "title": "alert",
+      "published": "Sat Oct 31 20:37:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Wakefield Rd",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.485722 -2.057948"
     },
     {
       "id": "c8026419-4445-457f-8123-2801f97ed9ea",
@@ -86,20 +100,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.481763 -2.10665"
-    },
-    {
-      "id": "38099745-ab05-4e91-b6e4-bf8c285b821c",
-      "title": "alert",
-      "published": "Sat Oct 31 19:28:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Stamford St",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.485718 -2.058758"
     },
     {
       "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
