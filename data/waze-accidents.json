@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T12:45:48.305797+00:00",
+  "updatedAt": "2026-10-31T12:50:48.146303+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "e4d289ec-a26d-4cfa-b84f-6b1303eb4a72",
@@ -60,6 +60,34 @@
       "point": "53.414893 -2.140805"
     },
     {
+      "id": "4a10f823-2815-4585-af0a-818689d09507",
+      "title": "alert",
+      "published": "Sat Oct 31 12:48:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A626 > Manchester",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.416528 -2.150171"
+    },
+    {
+      "id": "c6283310-29b4-449f-92bb-1bc86c1931f8",
+      "title": "alert",
+      "published": "Sat Oct 31 12:47:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (E & S)",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.527519 -2.159059"
+    },
+    {
       "id": "ceb236d6-3c98-4bb6-9c8e-72dc8d4df632",
       "title": "alert",
       "published": "Sat Oct 31 12:35:21 +0000 2026",
@@ -102,18 +130,18 @@
       "point": "53.412025 -2.146311"
     },
     {
-      "id": "c3fe2c19-1623-4556-97a5-a8af9545405d",
+      "id": "fb4e4bb5-e46a-459d-8be2-78814b3ec1c6",
       "title": "alert",
-      "published": "Sat Oct 31 11:59:33 +0000 2026",
+      "published": "Sat Oct 31 12:46:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A560 - Crookilley Way",
-      "city": "Stockport",
+      "road": "",
+      "city": "Golborne",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.416851 -2.146538"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.469312 -2.599489"
     },
     {
       "id": "1b51e42e-6310-44c3-9d56-c7602ee35cfa",
