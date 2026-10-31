@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-31T18:10:48.118697+00:00",
+  "updatedAt": "2026-10-31T18:15:48.162285+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 12,
   "incidents": [
+    {
+      "id": "1c52e292-f73e-415b-bb0e-079087b432db",
+      "title": "alert",
+      "published": "Sat Oct 31 18:14:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.535869 -2.115835"
+    },
     {
       "id": "6a1166b6-768f-43ff-8d06-da6c653a3c21",
       "title": "alert",
@@ -16,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.415058 -2.139924"
+    },
+    {
+      "id": "e3b26654-12c7-4899-bf01-9b8b8b7f6e51",
+      "title": "alert",
+      "published": "Sat Oct 31 18:13:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "New Bridge Ln",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.412508 -2.14692"
     },
     {
       "id": "d821ad3f-e422-4cc5-8a0a-01960b71e95a",
@@ -46,20 +74,6 @@
       "point": "53.365418 -2.003736"
     },
     {
-      "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
-      "title": "alert",
-      "published": "Sat Oct 31 17:35:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Rivington Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.636709 -2.533667"
-    },
-    {
       "id": "b22296b6-963a-4c55-b462-ca7841a64a0f",
       "title": "alert",
       "published": "Sat Oct 31 17:52:32 +0000 2026",
@@ -72,6 +86,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.636695 -2.53379"
+    },
+    {
+      "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
+      "title": "alert",
+      "published": "Sat Oct 31 17:35:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Rivington Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.636709 -2.533667"
     },
     {
       "id": "164612f9-f47e-407a-be39-2403fece6f7f",
@@ -88,6 +116,20 @@
       "point": "53.412362 -2.14649"
     },
     {
+      "id": "2abc5318-0a44-4c86-a54f-5fd22dbd0b78",
+      "title": "alert",
+      "published": "Sat Oct 31 18:12:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.412282 -2.146373"
+    },
+    {
       "id": "e28a4940-e019-45bf-a3b5-f554ca7b28a9",
       "title": "alert",
       "published": "Sat Oct 31 17:58:19 +0000 2026",
@@ -100,6 +142,34 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.525021 -2.262478"
+    },
+    {
+      "id": "3d7081af-0c5b-4ea4-954b-55ae9e6f990e",
+      "title": "alert",
+      "published": "Sat Oct 31 18:11:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A50 - Warrington Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.365754 -2.519294"
+    },
+    {
+      "id": "8c9e204a-4a24-47aa-bd3f-1cd4ff4f303a",
+      "title": "alert",
+      "published": "Sat Oct 31 18:14:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A627 - King St",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.535726 -2.115707"
     }
   ]
 }
