@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T13:15:48.213161+00:00",
+  "updatedAt": "2026-10-31T13:20:48.074439+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -88,20 +88,6 @@
       "point": "53.413842 -2.151879"
     },
     {
-      "id": "f9fd1f65-3ac4-40cd-8ff0-d60b12ea0e36",
-      "title": "alert",
-      "published": "Sat Oct 31 11:01:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - St. Marys Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.415226 -2.147885"
-    },
-    {
       "id": "93078850-ded8-475b-89cc-d3625a12f365",
       "title": "alert",
       "published": "Sat Oct 31 13:08:57 +0000 2026",
@@ -128,6 +114,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.528196 -2.158289"
+    },
+    {
+      "id": "8d11d3b2-aade-42f7-b3f2-ee99a399b77a",
+      "title": "alert",
+      "published": "Sat Oct 31 13:20:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.499427 -2.126216"
     }
   ]
 }
