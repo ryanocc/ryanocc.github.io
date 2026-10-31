@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T13:05:48.055980+00:00",
+  "updatedAt": "2026-10-31T13:10:48.180050+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "e4d289ec-a26d-4cfa-b84f-6b1303eb4a72",
@@ -32,20 +32,6 @@
       "point": "53.368722 -2.216466"
     },
     {
-      "id": "b8d87442-a5eb-49fc-b75f-65bbb5267a73",
-      "title": "alert",
-      "published": "Sat Oct 31 11:40:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "New Bridge Ln",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.412507 -2.146923"
-    },
-    {
       "id": "48488da0-6b01-4202-b6c2-355eaee2b66c",
       "title": "alert",
       "published": "Sat Oct 31 12:14:30 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.414893 -2.140805"
+    },
+    {
+      "id": "b8d87442-a5eb-49fc-b75f-65bbb5267a73",
+      "title": "alert",
+      "published": "Sat Oct 31 11:40:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "New Bridge Ln",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.412507 -2.146923"
     },
     {
       "id": "4a10f823-2815-4585-af0a-818689d09507",
@@ -82,8 +82,8 @@
       "road": "B6104 - Carrington Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.415986 -2.146811"
     },
@@ -97,7 +97,7 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.527519 -2.159059"
     },
@@ -111,7 +111,7 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.413842 -2.151879"
     },
@@ -128,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.415226 -2.147885"
+    },
+    {
+      "id": "93078850-ded8-475b-89cc-d3625a12f365",
+      "title": "alert",
+      "published": "Sat Oct 31 13:08:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.413891 -2.14718"
     },
     {
       "id": "a9d34833-649f-4c89-87fb-2a6ee0d5059c",
@@ -153,7 +167,7 @@
       "city": "Ordsall",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.48373 -2.253916"
     },
@@ -166,8 +180,8 @@
       "road": "A575 - Walkden Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50291 -2.386103"
     },
