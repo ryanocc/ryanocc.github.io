@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T12:30:48.215047+00:00",
+  "updatedAt": "2026-10-31T12:35:48.141281+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "e4d289ec-a26d-4cfa-b84f-6b1303eb4a72",
@@ -26,7 +26,7 @@
       "road": "B5358 - Wilmslow Rd",
       "city": "Heald Green",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.368722 -2.216466"
@@ -55,9 +55,23 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.414893 -2.140805"
+    },
+    {
+      "id": "ceb236d6-3c98-4bb6-9c8e-72dc8d4df632",
+      "title": "alert",
+      "published": "Sat Oct 31 12:35:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.413842 -2.151879"
     },
     {
       "id": "f9fd1f65-3ac4-40cd-8ff0-d60b12ea0e36",
@@ -96,7 +110,7 @@
       "road": "A560 - Crookilley Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.416851 -2.146538"
