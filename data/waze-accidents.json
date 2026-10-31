@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T21:45:48.200235+00:00",
+  "updatedAt": "2026-10-31T21:50:48.080757+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "4660d205-813a-4646-8af4-2d585741acca",
@@ -16,6 +16,48 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.481635 -2.243252"
+    },
+    {
+      "id": "c9cb6821-45d3-437b-b1c7-1a16f5878c70",
+      "title": "alert",
+      "published": "Sat Oct 31 21:49:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Wellington St",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.538675 -2.108899"
+    },
+    {
+      "id": "e49cddcd-9ecf-4b1b-aa30-bcd0bb7a79aa",
+      "title": "alert",
+      "published": "Sat Oct 31 21:47:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Crescent Rd",
+      "city": "Crumpsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.512525 -2.236144"
+    },
+    {
+      "id": "341ea920-a4af-4394-b081-6e6c42ecf37a",
+      "title": "alert",
+      "published": "Sat Oct 31 20:25:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A6017 - Stockport Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.481152 -2.10705"
     },
     {
       "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
@@ -40,24 +82,10 @@
       "road": "A6017 - Stockport Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.481763 -2.10665"
-    },
-    {
-      "id": "341ea920-a4af-4394-b081-6e6c42ecf37a",
-      "title": "alert",
-      "published": "Sat Oct 31 20:25:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "A6017 - Stockport Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.481152 -2.10705"
+      "point": "53.481763 -2.10665"
     },
     {
       "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
