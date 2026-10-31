@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T08:10:48.179792+00:00",
+  "updatedAt": "2026-10-31T08:15:48.027625+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "c95db822-b778-41f6-beab-c92b4b65b8e8",
@@ -16,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.490326 -2.499303"
+    },
+    {
+      "id": "a38e6198-27f0-4737-b242-3494648a2570",
+      "title": "alert",
+      "published": "Sat Oct 31 08:15:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A574 - Warrington Rd",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.491606 -2.499204"
     }
   ]
 }
