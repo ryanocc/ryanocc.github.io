@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T12:50:48.146303+00:00",
+  "updatedAt": "2026-10-31T12:55:48.129616+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "e4d289ec-a26d-4cfa-b84f-6b1303eb4a72",
@@ -82,8 +82,8 @@
       "road": "M60 (E & S)",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.527519 -2.159059"
     },
@@ -96,8 +96,8 @@
       "road": "",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.413842 -2.151879"
     },
@@ -139,9 +139,23 @@
       "city": "Golborne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.469312 -2.599489"
+    },
+    {
+      "id": "3cf63e2d-d89c-474c-a207-4e24828115e2",
+      "title": "alert",
+      "published": "Sat Oct 31 12:52:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A575 - Walkden Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.50291 -2.386103"
     },
     {
       "id": "1b51e42e-6310-44c3-9d56-c7602ee35cfa",
