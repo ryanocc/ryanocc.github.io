@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T11:00:48.074645+00:00",
+  "updatedAt": "2026-10-31T11:05:48.116075+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "d17b978b-e033-4770-b374-f3526c89bef1",
@@ -32,20 +32,6 @@
       "point": "53.474468 -2.334734"
     },
     {
-      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
-      "title": "alert",
-      "published": "Sat Oct 31 10:57:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.412038 -2.146314"
-    },
-    {
       "id": "181c1f19-31a1-40f9-a09f-400c5f9581cb",
       "title": "alert",
       "published": "Sat Oct 31 10:59:58 +0000 2026",
@@ -54,10 +40,38 @@
       "road": "A6188 - St. Mary's Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.41335 -2.14687"
+    },
+    {
+      "id": "3fa22d4c-bf64-4099-9b50-c0c1a0ef0112",
+      "title": "alert",
+      "published": "Sat Oct 31 10:57:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.412038 -2.146314"
+    },
+    {
+      "id": "f9fd1f65-3ac4-40cd-8ff0-d60b12ea0e36",
+      "title": "alert",
+      "published": "Sat Oct 31 11:01:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Marys Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.415226 -2.147885"
     }
   ]
 }
