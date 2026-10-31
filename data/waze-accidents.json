@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T22:35:47.960816+00:00",
+  "updatedAt": "2026-10-31T22:40:48.267573+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.512525 -2.236144"
     },
     {
+      "id": "3a83e6fd-856d-4a03-b36a-929bd7621263",
+      "title": "alert",
+      "published": "Sat Oct 31 22:38:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A669 - Oldham Rd",
+      "city": "Middleton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.550877 -2.183218"
+    },
+    {
       "id": "e802ca24-9d63-4f92-aafa-b5efa6cfcf88",
       "title": "alert",
       "published": "Sat Oct 31 20:37:02 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.485722 -2.057948"
-    },
-    {
-      "id": "87bf5e49-34e6-4257-baeb-32097598ad59",
-      "title": "alert",
-      "published": "Sat Oct 31 22:05:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Warrington Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.513577 -2.652797"
     }
   ]
 }
