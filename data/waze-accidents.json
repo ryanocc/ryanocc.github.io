@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-31T14:10:48.133622+00:00",
+  "updatedAt": "2026-10-31T14:15:48.207288+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
+    {
+      "id": "adde8cf9-14c1-4899-9d8d-e2bffd3a49f6",
+      "title": "alert",
+      "published": "Sat Oct 31 14:12:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Arkle Rd",
+      "city": "Handforth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.351797 -2.206986"
+    },
     {
       "id": "e7ccff01-838f-43b2-8e27-e79dc3903e20",
       "title": "alert",
@@ -16,20 +30,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.570098 -2.628146"
-    },
-    {
-      "id": "e4d289ec-a26d-4cfa-b84f-6b1303eb4a72",
-      "title": "alert",
-      "published": "Sat Oct 31 12:07:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Milton St",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.617049 -2.153035"
     },
     {
       "id": "48488da0-6b01-4202-b6c2-355eaee2b66c",
@@ -55,7 +55,7 @@
       "city": "Chorlton-cum-Hardy",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.433285 -2.27143"
     },
@@ -68,8 +68,8 @@
       "road": "A6188 - St. Mary's Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.411889 -2.146286"
     },
