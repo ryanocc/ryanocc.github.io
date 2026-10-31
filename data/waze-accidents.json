@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T20:00:48.103590+00:00",
+  "updatedAt": "2026-10-31T20:05:48.122008+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -74,20 +74,6 @@
       "point": "53.513758 -2.244281"
     },
     {
-      "id": "164612f9-f47e-407a-be39-2403fece6f7f",
-      "title": "alert",
-      "published": "Sat Oct 31 18:01:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.412362 -2.14649"
-    },
-    {
       "id": "36719f9e-cbc6-43a8-a3e6-9407942f6fd5",
       "title": "alert",
       "published": "Sat Oct 31 19:49:41 +0000 2026",
@@ -96,10 +82,24 @@
       "road": "A57 - Liverpool Rd",
       "city": "Barton Upon Irwell",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.480783 -2.359486"
+    },
+    {
+      "id": "c992b9c8-2ed1-4976-9d1d-33a2ea1d3c16",
+      "title": "alert",
+      "published": "Sat Oct 31 20:01:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Deansgate",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.475031 -2.251495"
     },
     {
       "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
