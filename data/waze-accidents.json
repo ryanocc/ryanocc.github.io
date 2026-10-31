@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T14:40:48.345019+00:00",
+  "updatedAt": "2026-10-31T14:45:48.011681+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 7,
   "incidents": [
     {
       "id": "adde8cf9-14c1-4899-9d8d-e2bffd3a49f6",
@@ -32,20 +32,6 @@
       "point": "53.570098 -2.628146"
     },
     {
-      "id": "05b35760-bfa2-48c2-a083-2ef8a578dd94",
-      "title": "alert",
-      "published": "Sat Oct 31 14:37:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Pilsworth Rd",
-      "city": "Pilsworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.578765 -2.272983"
-    },
-    {
       "id": "8dcf81ad-d99d-4859-b1cd-27b0b5e7f595",
       "title": "alert",
       "published": "Sat Oct 31 13:57:55 +0000 2026",
@@ -74,20 +60,6 @@
       "point": "53.413891 -2.14718"
     },
     {
-      "id": "96af209b-c112-4c79-89cb-4745c4676179",
-      "title": "alert",
-      "published": "Sat Oct 31 14:39:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (N) - Princess Rd",
-      "city": "Fallowfield",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.439986 -2.244195"
-    },
-    {
       "id": "010fe30f-2e51-4d5b-b992-d40ab2029ee5",
       "title": "alert",
       "published": "Sat Oct 31 14:26:39 +0000 2026",
@@ -96,8 +68,8 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 4.0,
       "point": "53.499258 -2.236447"
     },
@@ -127,21 +99,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.369548 -2.508991"
-    },
-    {
-      "id": "bdc318c4-678f-4b32-aa2a-b5fdc62d7592",
-      "title": "alert",
-      "published": "Sat Oct 31 14:36:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.414383 -2.273925"
+      "point": "53.370912 -2.508535"
     }
   ]
 }
