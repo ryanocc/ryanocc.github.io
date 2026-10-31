@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T19:20:48.091531+00:00",
+  "updatedAt": "2026-10-31T19:25:48.188409+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 13,
   "incidents": [
     {
       "id": "e06a7ade-6337-4935-b97c-724002922c31",
@@ -110,7 +110,7 @@
       "road": "M60 (S & E) > Manchester Airport",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.484325 -2.375566"
@@ -130,20 +130,6 @@
       "point": "53.445134 -2.157794"
     },
     {
-      "id": "7095db56-4cab-4f10-a9d0-c79f7347a1e2",
-      "title": "alert",
-      "published": "Sat Oct 31 19:15:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Crumpsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.513912 -2.24347"
-    },
-    {
       "id": "01f3dbd1-b4c7-4fe5-95d3-50f8edc14dd0",
       "title": "alert",
       "published": "Sat Oct 31 19:14:48 +0000 2026",
@@ -156,6 +142,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.513758 -2.244281"
+    },
+    {
+      "id": "7095db56-4cab-4f10-a9d0-c79f7347a1e2",
+      "title": "alert",
+      "published": "Sat Oct 31 19:15:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Crumpsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.513912 -2.24347"
     },
     {
       "id": "164612f9-f47e-407a-be39-2403fece6f7f",
@@ -172,20 +172,6 @@
       "point": "53.412362 -2.14649"
     },
     {
-      "id": "2abc5318-0a44-4c86-a54f-5fd22dbd0b78",
-      "title": "alert",
-      "published": "Sat Oct 31 18:12:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - St. Mary's Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.412282 -2.146373"
-    },
-    {
       "id": "962135de-da93-4230-95ca-55a13ba6e948",
       "title": "alert",
       "published": "Sat Oct 31 18:57:05 +0000 2026",
@@ -198,20 +184,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.51045 -2.252857"
-    },
-    {
-      "id": "6841a71f-1405-4f5b-b06f-bcc46a92d775",
-      "title": "alert",
-      "published": "Sat Oct 31 19:11:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Stockport Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.455819 -2.199127"
     }
   ]
 }
