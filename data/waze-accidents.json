@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T08:40:48.091775+00:00",
+  "updatedAt": "2026-10-31T08:45:48.177372+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "a38e6198-27f0-4737-b242-3494648a2570",
@@ -12,8 +12,8 @@
       "road": "A574 - Warrington Rd",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.491606 -2.499204"
     },
@@ -30,6 +30,34 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.490326 -2.499303"
+    },
+    {
+      "id": "d85b6309-2d24-43d6-950c-da7e2d30fd64",
+      "title": "alert",
+      "published": "Sat Oct 31 08:42:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Handforth Bypass",
+      "city": "Cheadle Hulme",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.365163 -2.206794"
+    },
+    {
+      "id": "8af1ed3f-b57d-4967-a4cb-705baf441c53",
+      "title": "alert",
+      "published": "Sat Oct 31 08:40:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Rd",
+      "city": "Hulme",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.467401 -2.245601"
     }
   ]
 }
