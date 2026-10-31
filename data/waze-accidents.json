@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-31T19:35:48.131050+00:00",
+  "updatedAt": "2026-10-31T19:40:48.142871+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 11,
   "incidents": [
     {
       "id": "e06a7ade-6337-4935-b97c-724002922c31",
@@ -68,24 +68,10 @@
       "road": "Rivington Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.636695 -2.53379"
-    },
-    {
-      "id": "f8713ef1-a56b-486d-bca7-5bd92487aed6",
-      "title": "alert",
-      "published": "Sat Oct 31 17:35:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Rivington Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.636709 -2.533667"
     },
     {
       "id": "e5aa581d-2a47-481a-9bb5-e851d292e796",
@@ -130,20 +116,6 @@
       "point": "53.513758 -2.244281"
     },
     {
-      "id": "7095db56-4cab-4f10-a9d0-c79f7347a1e2",
-      "title": "alert",
-      "published": "Sat Oct 31 19:15:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Crumpsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.513912 -2.24347"
-    },
-    {
       "id": "164612f9-f47e-407a-be39-2403fece6f7f",
       "title": "alert",
       "published": "Sat Oct 31 18:01:10 +0000 2026",
@@ -158,20 +130,6 @@
       "point": "53.412362 -2.14649"
     },
     {
-      "id": "962135de-da93-4230-95ca-55a13ba6e948",
-      "title": "alert",
-      "published": "Sat Oct 31 18:57:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Leicester Rd",
-      "city": "Broughton Park",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.51045 -2.252857"
-    },
-    {
       "id": "38099745-ab05-4e91-b6e4-bf8c285b821c",
       "title": "alert",
       "published": "Sat Oct 31 19:28:13 +0000 2026",
@@ -180,10 +138,24 @@
       "road": "A635 - Stamford St",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.485718 -2.058758"
+    },
+    {
+      "id": "2d7ae34d-42fb-4c69-abc5-e4ac9e6b218a",
+      "title": "alert",
+      "published": "Sat Oct 31 19:40:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6018 - Stamford St",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.485115 -2.057569"
     }
   ]
 }
