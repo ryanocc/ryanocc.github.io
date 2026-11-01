@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T20:45:47.700820+00:00",
+  "updatedAt": "2026-11-01T20:50:47.680621+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "d7e1c2c2-6ebc-4cc5-b0ce-d6c5ad5f4b78",
@@ -27,7 +27,7 @@
       "city": "Moston",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.50244 -2.193584"
     },
@@ -54,10 +54,24 @@
       "road": "A62 - Oldham Rd",
       "city": "Newton Heath",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.501397 -2.193218"
+    },
+    {
+      "id": "056e5ead-b7d8-4060-ad85-ed01b66ad095",
+      "title": "alert",
+      "published": "Sun Nov 1 20:50:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M602 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.483649 -2.309657"
     }
   ]
 }
