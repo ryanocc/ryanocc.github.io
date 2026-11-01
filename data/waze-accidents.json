@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T22:30:47.643459+00:00",
+  "updatedAt": "2026-11-01T22:35:47.778600+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -40,7 +40,7 @@
       "road": "A6010 - Dickenson Rd",
       "city": "Rusholme",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.4537 -2.212156"
@@ -54,24 +54,10 @@
       "road": "A34 - Anson Rd",
       "city": "Rusholme",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.45422 -2.212131"
-    },
-    {
-      "id": "898ee902-bc58-405c-8993-c6d0403058a4",
-      "title": "alert",
-      "published": "Sun Nov 1 21:07:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A62 - Oldham Rd",
-      "city": "Newton Heath",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.501447 -2.193428"
     },
     {
       "id": "df5af8c6-1a23-40eb-8ba8-54811a870545",
@@ -86,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.501514 -2.192988"
+    },
+    {
+      "id": "898ee902-bc58-405c-8993-c6d0403058a4",
+      "title": "alert",
+      "published": "Sun Nov 1 21:07:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.501447 -2.193428"
     }
   ]
 }
