@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-01T05:15:48.066498+00:00",
+  "updatedAt": "2026-11-01T05:20:48.058557+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
+    {
+      "id": "0c5859df-c535-47d7-808a-544547ff1231",
+      "title": "alert",
+      "published": "Sun Nov 1 05:20:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Minshull St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.479319 -2.236842"
+    },
     {
       "id": "984ba988-f5f0-42d2-94cf-c8efd59d97e5",
       "title": "alert",
@@ -27,7 +41,7 @@
       "city": "Belle Vue",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.463705 -2.1874"
     },
