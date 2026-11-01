@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T19:15:47.616228+00:00",
+  "updatedAt": "2026-11-01T19:20:47.659618+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "876d3e9a-25b8-4a17-840c-ea70096af4ce",
@@ -16,6 +16,20 @@
       "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.313036 -2.344841"
+    },
+    {
+      "id": "963e6c6f-b050-4178-88d1-d893db532494",
+      "title": "alert",
+      "published": "Sun Nov 1 19:19:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57 - Regent Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.477663 -2.274864"
     }
   ]
 }
