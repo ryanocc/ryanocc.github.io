@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T02:40:48.065672+00:00",
+  "updatedAt": "2026-11-01T02:45:48.161080+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -26,8 +26,8 @@
       "road": "B5093 - Wilmslow Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.417841 -2.231537"
     },
@@ -46,20 +46,6 @@
       "point": "53.502754 -2.313405"
     },
     {
-      "id": "791db8b0-fbcc-452b-9f75-92fffee12b1b",
-      "title": "alert",
-      "published": "Sun Nov 1 00:18:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470398 -2.243266"
-    },
-    {
       "id": "671f2d0f-1a27-4770-8620-5893d7ec8d64",
       "title": "alert",
       "published": "Sun Nov 1 02:13:43 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.473829 -2.227893"
+    },
+    {
+      "id": "76fc92d3-201f-4bcf-ac02-78fe6cfb9125",
+      "title": "alert",
+      "published": "Sun Nov 1 02:43:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.639782 -1.967457"
     }
   ]
 }
