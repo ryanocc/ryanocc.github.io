@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T23:05:47.629039+00:00",
+  "updatedAt": "2026-11-01T23:10:47.614852+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "78a74813-b9b6-4a78-baf0-38f506e1c87b",
@@ -18,20 +18,6 @@
       "point": "53.527628 -2.191184"
     },
     {
-      "id": "38ed0f58-5faf-4963-b5eb-6e03e23db086",
-      "title": "alert",
-      "published": "Sun Nov 1 21:03:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6393 - Thorpe Rd",
-      "city": "Moston",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.502562 -2.193686"
-    },
-    {
       "id": "a104ec47-1554-4366-8727-7258d69ab7da",
       "title": "alert",
       "published": "Sun Nov 1 22:19:48 +0000 2026",
@@ -46,20 +32,6 @@
       "point": "53.45422 -2.212131"
     },
     {
-      "id": "df5af8c6-1a23-40eb-8ba8-54811a870545",
-      "title": "alert",
-      "published": "Sun Nov 1 20:57:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A62 - Oldham Rd",
-      "city": "Newton Heath",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.501514 -2.192988"
-    },
-    {
       "id": "898ee902-bc58-405c-8993-c6d0403058a4",
       "title": "alert",
       "published": "Sun Nov 1 21:07:59 +0000 2026",
@@ -72,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.501447 -2.193428"
+    },
+    {
+      "id": "df5af8c6-1a23-40eb-8ba8-54811a870545",
+      "title": "alert",
+      "published": "Sun Nov 1 20:57:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A62 - Oldham Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.501514 -2.192988"
     }
   ]
 }
