@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T02:15:48.155741+00:00",
+  "updatedAt": "2026-11-01T02:20:47.915008+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "eb13c8bc-f95a-401d-bdfb-c735d949acb9",
@@ -46,20 +46,6 @@
       "point": "53.473867 -2.229932"
     },
     {
-      "id": "821e8bf5-034f-4f12-bed3-12bfc1f88a11",
-      "title": "alert",
-      "published": "Sun Nov 1 01:52:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - London Rd",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.474257 -2.229865"
-    },
-    {
       "id": "2fef35a5-d4ae-4306-87ec-f257622e9aa2",
       "title": "alert",
       "published": "Sun Nov 1 01:53:55 +0000 2026",
@@ -69,9 +55,23 @@
       "city": "Egerton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.629906 -2.441271"
+    },
+    {
+      "id": "671f2d0f-1a27-4770-8620-5893d7ec8d64",
+      "title": "alert",
+      "published": "Sun Nov 1 02:13:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.473829 -2.227893"
     },
     {
       "id": "aa9a71ba-1691-4598-8d13-cd3edfc825be",
@@ -100,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470398 -2.243266"
-    },
-    {
-      "id": "671f2d0f-1a27-4770-8620-5893d7ec8d64",
-      "title": "alert",
-      "published": "Sun Nov 1 02:13:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 4.0,
-      "point": "53.473829 -2.227893"
     }
   ]
 }
