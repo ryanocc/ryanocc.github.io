@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-01T03:25:47.906866+00:00",
+  "updatedAt": "2026-11-01T03:30:47.979417+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
+    {
+      "id": "76e3d23a-8e3d-41c8-a63a-dc1815c6a8a3",
+      "title": "alert",
+      "published": "Sun Nov 1 03:30:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Lloyd St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.479334 -2.248162"
+    },
     {
       "id": "984ba988-f5f0-42d2-94cf-c8efd59d97e5",
       "title": "alert",
@@ -16,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.417841 -2.231537"
+    },
+    {
+      "id": "444ce9aa-10fd-4d3e-96d8-d589cf1dc051",
+      "title": "alert",
+      "published": "Sun Nov 1 03:25:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.471633 -2.23782"
     },
     {
       "id": "76fc92d3-201f-4bcf-ac02-78fe6cfb9125",
