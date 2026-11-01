@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T21:30:47.650273+00:00",
+  "updatedAt": "2026-11-01T21:35:47.623106+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -12,8 +12,8 @@
       "road": "M56 > Warrington",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.361097 -2.294668"
     },
@@ -46,20 +46,6 @@
       "point": "53.502562 -2.193686"
     },
     {
-      "id": "898ee902-bc58-405c-8993-c6d0403058a4",
-      "title": "alert",
-      "published": "Sun Nov 1 21:07:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A62 - Oldham Rd",
-      "city": "Newton Heath",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.501447 -2.193428"
-    },
-    {
       "id": "df5af8c6-1a23-40eb-8ba8-54811a870545",
       "title": "alert",
       "published": "Sun Nov 1 20:57:58 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.501514 -2.192988"
+    },
+    {
+      "id": "898ee902-bc58-405c-8993-c6d0403058a4",
+      "title": "alert",
+      "published": "Sun Nov 1 21:07:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.501447 -2.193428"
     },
     {
       "id": "056e5ead-b7d8-4060-ad85-ed01b66ad095",
