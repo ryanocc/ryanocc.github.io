@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T01:50:47.912784+00:00",
+  "updatedAt": "2026-11-01T01:55:48.042243+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "eb13c8bc-f95a-401d-bdfb-c735d949acb9",
@@ -26,10 +26,38 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.473867 -2.229932"
+    },
+    {
+      "id": "821e8bf5-034f-4f12-bed3-12bfc1f88a11",
+      "title": "alert",
+      "published": "Sun Nov 1 01:52:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - London Rd",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.474257 -2.229865"
+    },
+    {
+      "id": "2fef35a5-d4ae-4306-87ec-f257622e9aa2",
+      "title": "alert",
+      "published": "Sun Nov 1 01:53:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - Blackburn Rd",
+      "city": "Egerton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.629906 -2.441271"
     },
     {
       "id": "aa9a71ba-1691-4598-8d13-cd3edfc825be",
