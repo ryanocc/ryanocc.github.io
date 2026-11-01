@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T00:55:48.101223+00:00",
+  "updatedAt": "2026-11-01T01:00:48.171653+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "eb13c8bc-f95a-401d-bdfb-c735d949acb9",
@@ -26,8 +26,8 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.471099 -2.25369"
     },
@@ -74,34 +74,6 @@
       "point": "53.408226 -2.218907"
     },
     {
-      "id": "bf8bba79-068e-4c1c-ab62-238d5ee569d3",
-      "title": "alert",
-      "published": "Sat Oct 31 23:47:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 - Grosvenor St",
-      "city": "Chorlton-on-Medlock",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.470537 -2.236073"
-    },
-    {
-      "id": "791db8b0-fbcc-452b-9f75-92fffee12b1b",
-      "title": "alert",
-      "published": "Sun Nov 1 00:18:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470398 -2.243266"
-    },
-    {
       "id": "aa9a71ba-1691-4598-8d13-cd3edfc825be",
       "title": "alert",
       "published": "Sun Nov 1 00:28:46 +0000 2026",
@@ -114,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.472098 -2.235471"
+    },
+    {
+      "id": "791db8b0-fbcc-452b-9f75-92fffee12b1b",
+      "title": "alert",
+      "published": "Sun Nov 1 00:18:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.470398 -2.243266"
     }
   ]
 }
