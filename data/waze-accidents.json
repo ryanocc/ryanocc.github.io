@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-01T00:40:48.082113+00:00",
+  "updatedAt": "2026-11-01T00:45:48.326794+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "eb13c8bc-f95a-401d-bdfb-c735d949acb9",
+      "title": "alert",
+      "published": "Sun Nov 1 00:44:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Mowbray Ave",
+      "city": "Sedgley Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.518495 -2.266826"
+    },
+    {
+      "id": "954a9cad-6f1f-4d22-9f2b-9b000ca7a9fa",
+      "title": "alert",
+      "published": "Sun Nov 1 00:41:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.471099 -2.25369"
+    },
     {
       "id": "a8c65e0f-68b0-4149-aee0-ae7142b06a32",
       "title": "alert",
@@ -54,24 +82,10 @@
       "road": "A34 - Grosvenor St",
       "city": "Chorlton-on-Medlock",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470537 -2.236073"
-    },
-    {
-      "id": "aa9a71ba-1691-4598-8d13-cd3edfc825be",
-      "title": "alert",
-      "published": "Sun Nov 1 00:28:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.472098 -2.235471"
     },
     {
       "id": "791db8b0-fbcc-452b-9f75-92fffee12b1b",
@@ -100,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.473659 -2.226647"
+    },
+    {
+      "id": "aa9a71ba-1691-4598-8d13-cd3edfc825be",
+      "title": "alert",
+      "published": "Sun Nov 1 00:28:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.472098 -2.235471"
     }
   ]
 }
