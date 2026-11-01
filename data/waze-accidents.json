@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T18:15:47.669980+00:00",
+  "updatedAt": "2026-11-01T18:20:47.628749+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "876d3e9a-25b8-4a17-840c-ea70096af4ce",
@@ -13,9 +13,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.313036 -2.344841"
+    },
+    {
+      "id": "aee8ec77-e637-490f-afe9-7dbe3c34a4e2",
+      "title": "alert",
+      "published": "Sun Nov 1 18:18:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Harpurhey Rd",
+      "city": "Harpurhey",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.508464 -2.218807"
     }
   ]
 }
