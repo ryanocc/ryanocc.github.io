@@ -1,35 +1,21 @@
 {
-  "updatedAt": "2026-11-01T17:45:47.655662+00:00",
+  "updatedAt": "2026-11-01T17:50:47.664038+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 1,
   "incidents": [
     {
-      "id": "48217f0e-723a-4ef8-a268-ec02c1a89116",
+      "id": "95a519ca-9348-443a-8ea9-8ea229f0a685",
       "title": "alert",
-      "published": "Sun Nov 1 17:12:22 +0000 2026",
+      "published": "Sun Nov 1 17:46:38 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5167 - Palatine Rd",
-      "city": "Northenden",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M66 (S)",
+      "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.406729 -2.266327"
-    },
-    {
-      "id": "ff5b2d8a-8195-437b-9ae1-31f86517063d",
-      "title": "alert",
-      "published": "Sun Nov 1 17:22:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Devonshire St",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.467285 -2.216838"
+      "point": "53.56093 -2.26857"
     }
   ]
 }
