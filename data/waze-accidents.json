@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T14:20:48.109254+00:00",
+  "updatedAt": "2026-11-01T14:25:48.021817+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "da0aac4f-3158-4fd0-a0ef-6e5d4a6ec581",
@@ -41,7 +41,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.476244 -2.228738"
     },
@@ -54,8 +54,8 @@
       "road": "J19 to A6046",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.574095 -2.212541"
     },
@@ -74,32 +74,18 @@
       "point": "53.466673 -2.353955"
     },
     {
-      "id": "11e24351-5c01-4ad9-a7ed-17d409bf8257",
+      "id": "065bd50c-afb0-48fa-a5f0-bc2f49c6dd64",
       "title": "alert",
-      "published": "Sun Nov 1 14:19:40 +0000 2026",
+      "published": "Sun Nov 1 14:25:25 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
+      "subtype": "ACCIDENT_MAJOR",
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.38739 -2.505409"
-    },
-    {
-      "id": "60904d0a-e424-47cb-8c81-c6cb95e5909c",
-      "title": "alert",
-      "published": "Sun Nov 1 14:13:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.378263 -2.282081"
+      "point": "53.393624 -2.507407"
     }
   ]
 }
