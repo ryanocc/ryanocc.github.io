@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T19:45:47.563619+00:00",
+  "updatedAt": "2026-11-01T19:50:47.617188+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.313036 -2.344841"
+    },
+    {
+      "id": "d7e1c2c2-6ebc-4cc5-b0ce-d6c5ad5f4b78",
+      "title": "alert",
+      "published": "Sun Nov 1 19:47:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 > Warrington",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.361097 -2.294668"
     },
     {
       "id": "99fe59a0-0df4-4afe-a02b-06fe4cfa2bfb",
@@ -41,23 +55,9 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.574816 -2.418795"
-    },
-    {
-      "id": "3897a64b-4508-470f-bd75-9e9d083b2fa7",
-      "title": "alert",
-      "published": "Sun Nov 1 19:45:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Regent Rd",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.478073 -2.277197"
     }
   ]
 }
