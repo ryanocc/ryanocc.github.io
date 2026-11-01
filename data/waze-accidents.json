@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T14:10:48.134164+00:00",
+  "updatedAt": "2026-11-01T14:15:47.986969+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "da0aac4f-3158-4fd0-a0ef-6e5d4a6ec581",
@@ -46,6 +46,20 @@
       "point": "53.476244 -2.228738"
     },
     {
+      "id": "60661710-d8e8-4128-a063-bf67229f200d",
+      "title": "alert",
+      "published": "Sun Nov 1 14:14:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J19 to A6046",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.574095 -2.212541"
+    },
+    {
       "id": "b43aabe5-1db0-4b27-b145-d6314ab0ee83",
       "title": "alert",
       "published": "Sun Nov 1 12:49:42 +0000 2026",
@@ -58,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.466673 -2.353955"
+    },
+    {
+      "id": "60904d0a-e424-47cb-8c81-c6cb95e5909c",
+      "title": "alert",
+      "published": "Sun Nov 1 14:13:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.378263 -2.282081"
     }
   ]
 }
