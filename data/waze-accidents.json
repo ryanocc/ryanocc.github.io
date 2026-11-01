@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-01T12:20:48.021330+00:00",
+  "updatedAt": "2026-11-01T12:25:48.112740+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
+    {
+      "id": "da0aac4f-3158-4fd0-a0ef-6e5d4a6ec581",
+      "title": "alert",
+      "published": "Sun Nov 1 12:22:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Trackside Approach",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.557356 -2.52319"
+    },
     {
       "id": "b72503da-02ff-4617-9ce9-f69cf986d882",
       "title": "alert",
@@ -26,7 +40,7 @@
       "road": "Greenbrow Rd",
       "city": "Baguley",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.387486 -2.283651"
@@ -54,7 +68,7 @@
       "road": "A5102 - Bramhall Ln S",
       "city": "Bramhall",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.381189 -2.156862"
@@ -68,8 +82,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.439417 -2.582803"
     }
