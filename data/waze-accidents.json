@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T13:40:48.070901+00:00",
+  "updatedAt": "2026-11-01T13:45:47.978961+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "da0aac4f-3158-4fd0-a0ef-6e5d4a6ec581",
@@ -58,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.466673 -2.353955"
+    },
+    {
+      "id": "883c3183-1a20-4113-80ba-d032092f97c3",
+      "title": "alert",
+      "published": "Sun Nov 1 13:43:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.350464 -2.153659"
     }
   ]
 }
