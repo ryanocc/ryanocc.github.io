@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-01T09:15:47.931309+00:00",
+  "updatedAt": "2026-11-01T09:20:47.951270+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
+    {
+      "id": "6829536e-c455-4b1a-9ced-2b54e3cba80c",
+      "title": "alert",
+      "published": "Sun Nov 1 09:16:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Rye Bank Rd",
+      "city": "Chorlton-cum-Hardy",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.444617 -2.289467"
+    },
     {
       "id": "bceb757b-4b35-4443-b3bb-c38ff4a48d71",
       "title": "alert",
@@ -44,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.331836 -2.134265"
-    },
-    {
-      "id": "493d72eb-f7e1-4e28-b64f-94f261519f87",
-      "title": "alert",
-      "published": "Sun Nov 1 09:13:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 5.0,
-      "point": "53.415311 -2.54087"
     }
   ]
 }
