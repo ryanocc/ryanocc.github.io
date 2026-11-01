@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T16:10:47.620211+00:00",
+  "updatedAt": "2026-11-01T16:15:47.663961+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "c70fbc0b-0c83-4087-8475-6666122ddd0e",
@@ -26,24 +26,38 @@
       "road": "A6053 - Hall Ln",
       "city": "Little Lever",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.560255 -2.388605"
     },
     {
-      "id": "6086845e-9f6b-4cc3-aec5-3092e621d7dc",
+      "id": "05951864-d884-400a-ae28-8e7ef4a3bca3",
       "title": "alert",
-      "published": "Sun Nov 1 16:04:55 +0000 2026",
+      "published": "Sun Nov 1 16:14:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Rochdale Rd",
+      "city": "Harpurhey",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 5.0,
+      "point": "53.511603 -2.214769"
+    },
+    {
+      "id": "331e01d3-269d-44a5-a8d7-24b329627512",
+      "title": "alert",
+      "published": "Sun Nov 1 16:15:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.529728 -2.372268"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.529263 -2.370106"
     }
   ]
 }
