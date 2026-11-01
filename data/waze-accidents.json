@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T00:30:48.155660+00:00",
+  "updatedAt": "2026-11-01T00:35:48.055605+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -60,6 +60,20 @@
       "point": "53.470537 -2.236073"
     },
     {
+      "id": "aa9a71ba-1691-4598-8d13-cd3edfc825be",
+      "title": "alert",
+      "published": "Sun Nov 1 00:28:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.472098 -2.235471"
+    },
+    {
       "id": "791db8b0-fbcc-452b-9f75-92fffee12b1b",
       "title": "alert",
       "published": "Sun Nov 1 00:18:54 +0000 2026",
@@ -74,20 +88,6 @@
       "point": "53.470398 -2.243266"
     },
     {
-      "id": "aa9a71ba-1691-4598-8d13-cd3edfc825be",
-      "title": "alert",
-      "published": "Sun Nov 1 00:28:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.472098 -2.235471"
-    },
-    {
       "id": "a55c8cf3-a253-4a57-b616-2bcbb9be4d9b",
       "title": "alert",
       "published": "Sun Nov 1 00:30:40 +0000 2026",
@@ -96,8 +96,8 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.473659 -2.226647"
     }
