@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-01T11:15:48.057186+00:00",
+  "updatedAt": "2026-11-01T11:20:47.958253+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
+    {
+      "id": "b72503da-02ff-4617-9ce9-f69cf986d882",
+      "title": "alert",
+      "published": "Sun Nov 1 11:16:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Meadow Rd",
+      "city": "Lower Broughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.487262 -2.266694"
+    },
+    {
+      "id": "380b1105-1b54-4e9a-8f2a-54c7d410549f",
+      "title": "alert",
+      "published": "Sun Nov 1 11:20:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Greenbrow Rd",
+      "city": "Baguley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.387486 -2.283651"
+    },
     {
       "id": "07a0fbe4-c902-47f9-b0de-e0d801a320c3",
       "title": "alert",
