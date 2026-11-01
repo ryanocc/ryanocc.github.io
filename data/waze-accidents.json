@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T11:20:47.958253+00:00",
+  "updatedAt": "2026-11-01T11:25:48.078615+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "b72503da-02ff-4617-9ce9-f69cf986d882",
@@ -27,7 +27,7 @@
       "city": "Baguley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.387486 -2.283651"
     },
@@ -44,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.504094 -2.175341"
+    },
+    {
+      "id": "7d767ff3-1882-483f-a6e8-a5ad1cf321d5",
+      "title": "alert",
+      "published": "Sun Nov 1 11:23:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Park Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.547515 -2.509608"
     }
   ]
 }
