@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T20:20:47.602282+00:00",
+  "updatedAt": "2026-11-01T20:25:47.672195+00:00",
   "source": "Waze GeoRSS",
   "count": 3,
   "incidents": [
@@ -18,6 +18,20 @@
       "point": "53.361097 -2.294668"
     },
     {
+      "id": "9a29c373-485c-459a-93c6-a4125a7c5ba2",
+      "title": "alert",
+      "published": "Sun Nov 1 20:25:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6393 - Thorpe Rd",
+      "city": "Moston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.50244 -2.193584"
+    },
+    {
       "id": "99fe59a0-0df4-4afe-a02b-06fe4cfa2bfb",
       "title": "alert",
       "published": "Sun Nov 1 19:25:05 +0000 2026",
@@ -27,23 +41,9 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.623009 -2.155924"
-    },
-    {
-      "id": "451ee3ff-7207-4d9e-9e74-874e8e5cdb44",
-      "title": "alert",
-      "published": "Sun Nov 1 20:19:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.59653 -2.12375"
     }
   ]
 }
