@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T12:45:48.062399+00:00",
+  "updatedAt": "2026-11-01T12:50:48.035160+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "da0aac4f-3158-4fd0-a0ef-6e5d4a6ec581",
@@ -46,6 +46,20 @@
       "point": "53.387486 -2.283651"
     },
     {
+      "id": "b43aabe5-1db0-4b27-b145-d6314ab0ee83",
+      "title": "alert",
+      "published": "Sun Nov 1 12:49:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.466673 -2.353955"
+    },
+    {
       "id": "940faab2-eb33-4688-b9c1-6768ce68d19a",
       "title": "alert",
       "published": "Sun Nov 1 11:39:29 +0000 2026",
@@ -58,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.381189 -2.156862"
+    },
+    {
+      "id": "009beb6c-392a-4b7d-a39e-f588f5a34f56",
+      "title": "alert",
+      "published": "Sun Nov 1 12:47:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Rd",
+      "city": "Hulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.469864 -2.246303"
     }
   ]
 }
