@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T23:45:47.629087+00:00",
+  "updatedAt": "2026-11-01T23:50:47.591783+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "78a74813-b9b6-4a78-baf0-38f506e1c87b",
@@ -40,8 +40,8 @@
       "road": "A6 - Chapel St",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.484411 -2.25152"
     },
@@ -58,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.45422 -2.212131"
-    },
-    {
-      "id": "c2069bb5-fa21-4ca7-a207-9de173792e76",
-      "title": "alert",
-      "published": "Sun Nov 1 23:21:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A663 - Broadway",
-      "city": "Failsworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.510386 -2.169792"
     }
   ]
 }
