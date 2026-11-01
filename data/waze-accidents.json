@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-10-31T23:55:48.051580+00:00",
+  "updatedAt": "2026-11-01T00:00:49.859306+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
+    {
+      "id": "d516ba5e-59b0-47d6-ae03-6c0ce367b87a",
+      "title": "alert",
+      "published": "Sun Nov 1 00:00:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) > Ring Road",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.472855 -2.232652"
+    },
     {
       "id": "552760a1-bbc6-4cd7-a870-9364320b20c5",
       "title": "alert",
@@ -40,8 +54,8 @@
       "road": "A34 - Grosvenor St",
       "city": "Chorlton-on-Medlock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.470537 -2.236073"
     }
