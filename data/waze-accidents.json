@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T11:00:48.007025+00:00",
+  "updatedAt": "2026-11-01T11:05:47.934189+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "07a0fbe4-c902-47f9-b0de-e0d801a320c3",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.504094 -2.175341"
+    },
+    {
+      "id": "d9a4dc93-674b-4e71-9b4e-5cfba1ce94ee",
+      "title": "alert",
+      "published": "Sun Nov 1 11:05:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.326687 -2.421919"
     }
   ]
 }
