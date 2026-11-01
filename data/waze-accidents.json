@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T17:30:47.681858+00:00",
+  "updatedAt": "2026-11-01T17:35:47.681606+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "954afc6b-5932-44d7-a4a1-7b1a23ccc124",
@@ -27,7 +27,7 @@
       "city": "Northenden",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.406729 -2.266327"
     },
@@ -54,24 +54,10 @@
       "road": "A665 - Devonshire St",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.467285 -2.216838"
-    },
-    {
-      "id": "f81a9bce-2563-4022-a49d-136a9b61b013",
-      "title": "alert",
-      "published": "Sun Nov 1 17:29:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.435695 -2.128524"
     }
   ]
 }
