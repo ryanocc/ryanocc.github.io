@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T11:55:48.126060+00:00",
+  "updatedAt": "2026-11-01T12:00:48.122394+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "b72503da-02ff-4617-9ce9-f69cf986d882",
@@ -27,7 +27,7 @@
       "city": "Baguley",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.387486 -2.283651"
     },
@@ -72,6 +72,34 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.547515 -2.509608"
+    },
+    {
+      "id": "e9f31f7d-14ff-4ade-8dfe-43a831a34746",
+      "title": "alert",
+      "published": "Sun Nov 1 11:59:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Mancunian Way",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.475238 -2.219766"
+    },
+    {
+      "id": "d8c0fb3c-2dd4-45ef-a482-43aaa21480b2",
+      "title": "alert",
+      "published": "Sun Nov 1 11:56:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Mancunian Way",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.475118 -2.219891"
     }
   ]
 }
