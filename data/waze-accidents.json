@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01T12:10:48.089364+00:00",
+  "updatedAt": "2026-11-01T12:15:48.027432+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 4,
   "incidents": [
     {
       "id": "b72503da-02ff-4617-9ce9-f69cf986d882",
@@ -26,8 +26,8 @@
       "road": "Greenbrow Rd",
       "city": "Baguley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.387486 -2.283651"
     },
@@ -58,34 +58,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.381189 -2.156862"
-    },
-    {
-      "id": "7d767ff3-1882-483f-a6e8-a5ad1cf321d5",
-      "title": "alert",
-      "published": "Sun Nov 1 11:23:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Park Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.547515 -2.509608"
-    },
-    {
-      "id": "e9f31f7d-14ff-4ade-8dfe-43a831a34746",
-      "title": "alert",
-      "published": "Sun Nov 1 11:59:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Mancunian Way",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.475238 -2.219766"
     }
   ]
 }
