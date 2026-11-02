@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T17:15:48.296202+00:00",
+  "updatedAt": "2026-11-02T17:20:48.248817+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "d1ce8954-0c88-44cb-859d-e1f86734761f",
@@ -26,8 +26,8 @@
       "road": "A57 - Liverpool Rd",
       "city": "Irlam",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.46897 -2.386437"
     },
@@ -46,6 +46,20 @@
       "point": "53.468428 -2.38827"
     },
     {
+      "id": "9355cba1-6384-42c7-90cf-cd50619db20b",
+      "title": "alert",
+      "published": "Mon Nov 2 17:19:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Albert Royds St",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.621199 -2.13147"
+    },
+    {
       "id": "a981a18c-a443-4bf3-97ba-411024fa2441",
       "title": "alert",
       "published": "Mon Nov 2 17:14:18 +0000 2026",
@@ -54,8 +68,8 @@
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.556146 -2.266235"
     }
