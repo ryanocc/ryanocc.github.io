@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T07:55:48.250564+00:00",
+  "updatedAt": "2026-11-02T08:00:48.320897+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 2,
   "incidents": [
     {
       "id": "33a33f5c-94b3-4225-81b0-f22bd54b28d6",
@@ -18,32 +18,18 @@
       "point": "53.47857 -2.245999"
     },
     {
-      "id": "af1e65c6-b8ab-4abc-8bc8-552b45fc1b2d",
+      "id": "0230a8bb-108b-4ccf-82b7-1605f1ce1cfa",
       "title": "alert",
-      "published": "Mon Nov 2 07:49:41 +0000 2026",
+      "published": "Mon Nov 2 07:56:25 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A556 (N)",
-      "city": "",
+      "road": "B5093 - Moseley Rd",
+      "city": "Fallowfield",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
-      "point": "53.313851 -2.418807"
-    },
-    {
-      "id": "d99406cd-10f6-4022-b4d7-bf7091da66d3",
-      "title": "alert",
-      "published": "Mon Nov 2 07:53:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.434039 -2.570903"
+      "point": "53.441992 -2.205577"
     }
   ]
 }
