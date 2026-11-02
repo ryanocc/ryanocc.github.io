@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T20:45:48.021343+00:00",
+  "updatedAt": "2026-11-02T20:50:51.078649+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -18,6 +18,20 @@
       "point": "53.475755 -2.350126"
     },
     {
+      "id": "4b35ac15-841e-41fa-a0d0-e8b418bbdf4c",
+      "title": "alert",
+      "published": "Mon Nov 2 20:49:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Winwick Link Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.43117 -2.587352"
+    },
+    {
       "id": "a5f84bab-25f1-4bd6-b3ff-8d086f5407d1",
       "title": "alert",
       "published": "Mon Nov 2 20:18:41 +0000 2026",
@@ -26,8 +40,8 @@
       "road": "A575 - Walkden Rd",
       "city": "Walkden",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.51213 -2.392332"
     },
@@ -58,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.562135 -1.885206"
-    },
-    {
-      "id": "28e528c2-39fe-4abd-b3b8-dfa58b5e5fb7",
-      "title": "alert",
-      "published": "Mon Nov 2 19:02:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.511917 -2.391612"
     }
   ]
 }
