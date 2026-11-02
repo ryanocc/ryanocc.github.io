@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T18:40:48.095351+00:00",
+  "updatedAt": "2026-11-02T18:45:47.977765+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "d0d6b0de-8cac-4bc9-89df-2cb0fe01a3e1",
@@ -12,8 +12,8 @@
       "road": "",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.468754 -2.353204"
     },
@@ -60,46 +60,18 @@
       "point": "53.560661 -2.121424"
     },
     {
-      "id": "83fc7665-537f-4b7c-a192-594d2420ce9e",
+      "id": "70d71865-e06d-4f6c-8592-13c2a400e2a9",
       "title": "alert",
-      "published": "Mon Nov 2 18:38:36 +0000 2026",
+      "published": "Mon Nov 2 18:45:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 (N) - Princess Rd",
-      "city": "Didsbury",
+      "road": "A663 - Broadway",
+      "city": "Royton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.430623 -2.250947"
-    },
-    {
-      "id": "2ff8b098-f3c0-4e70-84de-fe654edc65b3",
-      "title": "alert",
-      "published": "Mon Nov 2 18:37:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.431019 -2.250263"
-    },
-    {
-      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
-      "title": "alert",
-      "published": "Mon Nov 2 17:06:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Liverpool Rd",
-      "city": "Irlam",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.468428 -2.38827"
+      "point": "53.56072 -2.121011"
     },
     {
       "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
@@ -114,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.46897 -2.386437"
+    },
+    {
+      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
+      "title": "alert",
+      "published": "Mon Nov 2 17:06:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Liverpool Rd",
+      "city": "Irlam",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.468428 -2.38827"
     }
   ]
 }
