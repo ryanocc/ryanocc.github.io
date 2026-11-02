@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T08:45:47.925332+00:00",
+  "updatedAt": "2026-11-02T08:50:48.008524+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.499099 -2.2599"
     },
     {
-      "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
-      "title": "alert",
-      "published": "Mon Nov 2 08:15:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6221 - Wash Ln",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.59523 -2.283412"
-    },
-    {
       "id": "31fe51eb-36e4-4127-909c-158317781f42",
       "title": "alert",
       "published": "Mon Nov 2 08:16:01 +0000 2026",
@@ -60,6 +46,20 @@
       "point": "53.589758 -2.25173"
     },
     {
+      "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
+      "title": "alert",
+      "published": "Mon Nov 2 08:15:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6221 - Wash Ln",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.59523 -2.283412"
+    },
+    {
       "id": "af98f585-0b85-439e-b76b-3fbbc26891bf",
       "title": "alert",
       "published": "Mon Nov 2 08:43:49 +0000 2026",
@@ -69,7 +69,7 @@
       "city": "Eccles",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.486895 -2.330649"
     },
@@ -88,18 +88,18 @@
       "point": "53.458483 -2.160902"
     },
     {
-      "id": "46b2a4ba-eaba-4f2f-abc2-6a55845ac4b8",
+      "id": "abdae166-c355-41dc-b8c2-8915a748d938",
       "title": "alert",
-      "published": "Mon Nov 2 08:41:32 +0000 2026",
+      "published": "Mon Nov 2 08:46:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.460613 -2.61165"
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.454255 -2.60186"
     }
   ]
 }
