@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T08:10:48.188686+00:00",
+  "updatedAt": "2026-11-02T08:15:48.354027+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -27,7 +27,7 @@
       "city": "Clayton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.485665 -2.184349"
     },
@@ -46,6 +46,20 @@
       "point": "53.441992 -2.205577"
     },
     {
+      "id": "c8c796f7-e1fd-407f-bcee-35f83ff855ef",
+      "title": "alert",
+      "published": "Mon Nov 2 08:15:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.482672 -2.648085"
+    },
+    {
       "id": "424bf3df-b4d1-4c77-be1f-a9406131f8a4",
       "title": "alert",
       "published": "Mon Nov 2 08:01:05 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.454319 -2.601913"
-    },
-    {
-      "id": "0f47f0f0-b6d9-4aa4-bc8c-e9cbfd9557d4",
-      "title": "alert",
-      "published": "Mon Nov 2 08:03:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S) - Kearsley Spur",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.533549 -2.388572"
     }
   ]
 }
