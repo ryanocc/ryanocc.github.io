@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T17:10:48.241876+00:00",
+  "updatedAt": "2026-11-02T17:15:48.296202+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "d1ce8954-0c88-44cb-859d-e1f86734761f",
@@ -18,18 +18,18 @@
       "point": "53.555254 -2.153692"
     },
     {
-      "id": "0c6d953f-5820-4a64-8bbd-1411c309bbc4",
+      "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
       "title": "alert",
-      "published": "Mon Nov 2 17:01:42 +0000 2026",
+      "published": "Mon Nov 2 17:05:35 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Stapleton Ave",
-      "city": "Bolton",
+      "road": "A57 - Liverpool Rd",
+      "city": "Irlam",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.586087 -2.483315"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.46897 -2.386437"
     },
     {
       "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
@@ -46,32 +46,18 @@
       "point": "53.468428 -2.38827"
     },
     {
-      "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
+      "id": "a981a18c-a443-4bf3-97ba-411024fa2441",
       "title": "alert",
-      "published": "Mon Nov 2 17:05:35 +0000 2026",
+      "published": "Mon Nov 2 17:14:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Liverpool Rd",
-      "city": "Irlam",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.46897 -2.386437"
-    },
-    {
-      "id": "c1952444-0770-4157-88ff-aa452d121d03",
-      "title": "alert",
-      "published": "Mon Nov 2 17:08:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
+      "road": "M66 (S)",
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
-      "point": "53.443738 -2.132817"
+      "point": "53.556146 -2.266235"
     }
   ]
 }
