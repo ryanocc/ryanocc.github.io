@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T08:15:48.354027+00:00",
+  "updatedAt": "2026-11-02T08:20:48.311641+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "33a33f5c-94b3-4225-81b0-f22bd54b28d6",
@@ -27,7 +27,7 @@
       "city": "Clayton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.485665 -2.184349"
     },
@@ -46,18 +46,32 @@
       "point": "53.441992 -2.205577"
     },
     {
-      "id": "c8c796f7-e1fd-407f-bcee-35f83ff855ef",
+      "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
       "title": "alert",
-      "published": "Mon Nov 2 08:15:31 +0000 2026",
+      "published": "Mon Nov 2 08:15:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
+      "road": "B6221 - Wash Ln",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 4.0,
+      "point": "53.59523 -2.283412"
+    },
+    {
+      "id": "31fe51eb-36e4-4127-909c-158317781f42",
+      "title": "alert",
+      "published": "Mon Nov 2 08:16:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Sutherland Rd",
+      "city": "Heywood",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.482672 -2.648085"
+      "reportRating": 1.0,
+      "point": "53.589758 -2.25173"
     },
     {
       "id": "424bf3df-b4d1-4c77-be1f-a9406131f8a4",
