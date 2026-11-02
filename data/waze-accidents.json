@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-02T18:15:48.091430+00:00",
+  "updatedAt": "2026-11-02T18:20:48.042449+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "60a0fbbe-c31d-42b8-ad11-b5ecac38c22d",
+      "title": "alert",
+      "published": "Mon Nov 2 18:18:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.468441 -2.3542"
+    },
     {
       "id": "7e84b95a-b92a-472c-bb36-b76519fafac3",
       "title": "alert",
@@ -32,18 +46,18 @@
       "point": "53.484152 -2.33847"
     },
     {
-      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
+      "id": "c0f6433f-8b27-4e5e-8162-c801194e46d2",
       "title": "alert",
-      "published": "Mon Nov 2 17:06:12 +0000 2026",
+      "published": "Mon Nov 2 18:18:04 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Liverpool Rd",
-      "city": "Irlam",
+      "road": "A663 - Broadway",
+      "city": "Royton",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.468428 -2.38827"
+      "point": "53.560682 -2.121225"
     },
     {
       "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
@@ -58,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.46897 -2.386437"
+    },
+    {
+      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
+      "title": "alert",
+      "published": "Mon Nov 2 17:06:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Liverpool Rd",
+      "city": "Irlam",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.468428 -2.38827"
     }
   ]
 }
