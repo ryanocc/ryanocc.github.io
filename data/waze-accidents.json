@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-02T23:45:48.006741+00:00",
+  "updatedAt": "2026-11-02T23:50:48.007672+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
-      "id": "8aa0a42a-cef7-4ff3-a5f5-f9f26721c9e2",
+      "id": "df2e0982-9aa4-4547-9e09-c47da5103e63",
       "title": "alert",
-      "published": "Mon Nov 2 23:14:58 +0000 2026",
+      "published": "Mon Nov 2 23:46:05 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Rochdale Rd",
+      "road": "Wingates Ln",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.659333 -2.036922"
+      "reportRating": 2.0,
+      "point": "53.569401 -2.526237"
     },
     {
       "id": "b802508b-224b-4a34-af8d-572a7c313758",
@@ -30,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.664258 -2.002087"
+    },
+    {
+      "id": "8aa0a42a-cef7-4ff3-a5f5-f9f26721c9e2",
+      "title": "alert",
+      "published": "Mon Nov 2 23:14:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.659333 -2.036922"
     }
   ]
 }
