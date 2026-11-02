@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-02T19:00:48.004217+00:00",
+  "updatedAt": "2026-11-02T19:05:47.958266+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "7fce6be6-bcb0-446c-825d-94de02c551eb",
+      "title": "alert",
+      "published": "Mon Nov 2 19:01:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Caldon Cl",
+      "city": "Barton Upon Irwell",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.475755 -2.350126"
+    },
     {
       "id": "7e84b95a-b92a-472c-bb36-b76519fafac3",
       "title": "alert",
@@ -46,20 +60,6 @@
       "point": "53.51205 -2.392153"
     },
     {
-      "id": "70d71865-e06d-4f6c-8592-13c2a400e2a9",
-      "title": "alert",
-      "published": "Mon Nov 2 18:45:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A663 - Broadway",
-      "city": "Royton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.56072 -2.121011"
-    },
-    {
       "id": "c0f6433f-8b27-4e5e-8162-c801194e46d2",
       "title": "alert",
       "published": "Mon Nov 2 18:18:04 +0000 2026",
@@ -74,18 +74,18 @@
       "point": "53.560661 -2.121424"
     },
     {
-      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
+      "id": "70d71865-e06d-4f6c-8592-13c2a400e2a9",
       "title": "alert",
-      "published": "Mon Nov 2 17:06:12 +0000 2026",
+      "published": "Mon Nov 2 18:45:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Liverpool Rd",
-      "city": "Irlam",
+      "road": "A663 - Broadway",
+      "city": "Royton",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.468428 -2.38827"
+      "point": "53.56072 -2.121011"
     },
     {
       "id": "4af4dd9c-d15d-4253-8c21-47278a48d849",
@@ -96,10 +96,38 @@
       "road": "A575 - Walkden Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.511907 -2.392099"
+    },
+    {
+      "id": "28e528c2-39fe-4abd-b3b8-dfa58b5e5fb7",
+      "title": "alert",
+      "published": "Mon Nov 2 19:02:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.511917 -2.391612"
+    },
+    {
+      "id": "ca817345-5058-40fe-a18b-491309277fd9",
+      "title": "alert",
+      "published": "Mon Nov 2 19:01:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.512811 -2.387914"
     }
   ]
 }
