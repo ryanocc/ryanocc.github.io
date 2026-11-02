@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T12:00:48.070230+00:00",
+  "updatedAt": "2026-11-02T12:05:48.124045+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 5,
   "incidents": [
     {
       "id": "91e7402e-cf7c-4854-afef-c308818fc9c6",
@@ -18,34 +18,6 @@
       "point": "53.355084 -2.198628"
     },
     {
-      "id": "2fe1ed4d-0654-4208-875e-a3f8c932bd5c",
-      "title": "alert",
-      "published": "Mon Nov 2 11:41:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5237 - Bickershaw Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.515191 -2.578228"
-    },
-    {
-      "id": "4bbed5bc-775f-44bd-afd8-4081af98db58",
-      "title": "alert",
-      "published": "Mon Nov 2 11:37:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.482383 -2.228573"
-    },
-    {
       "id": "265adf90-ac9e-4fb6-830f-c82deb747b4e",
       "title": "alert",
       "published": "Mon Nov 2 11:33:57 +0000 2026",
@@ -58,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.61441 -2.164916"
+    },
+    {
+      "id": "6b7a5f79-5e93-494b-aa11-d493f21aed15",
+      "title": "alert",
+      "published": "Mon Nov 2 11:49:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.559008 -2.403263"
     },
     {
       "id": "69738137-b570-401b-acf8-a4bd867d043b",
@@ -74,20 +60,6 @@
       "point": "53.557699 -2.400563"
     },
     {
-      "id": "6b7a5f79-5e93-494b-aa11-d493f21aed15",
-      "title": "alert",
-      "published": "Mon Nov 2 11:49:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - St. Peter's Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.559008 -2.403263"
-    },
-    {
       "id": "f716960b-622a-47dc-9267-a0f42cb84cc2",
       "title": "alert",
       "published": "Mon Nov 2 10:39:50 +0000 2026",
@@ -100,20 +72,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.545082 -2.275607"
-    },
-    {
-      "id": "288a17af-44c1-4e77-bddb-cea8cebf07dc",
-      "title": "alert",
-      "published": "Mon Nov 2 11:49:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.625045 -2.049154"
     }
   ]
 }
