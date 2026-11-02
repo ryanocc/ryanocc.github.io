@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-02T21:05:47.957998+00:00",
+  "updatedAt": "2026-11-02T21:10:48.001852+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
+    {
+      "id": "99b23e6d-2f1a-455e-9337-36c225a7b080",
+      "title": "alert",
+      "published": "Mon Nov 2 21:06:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6194 - Rochdale Rd",
+      "city": "Shaw",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.582125 -2.110666"
+    },
     {
       "id": "4b35ac15-841e-41fa-a0d0-e8b418bbdf4c",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "A49 - Winwick Link Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.43117 -2.587352"
     },
@@ -44,20 +58,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.562135 -1.885206"
-    },
-    {
-      "id": "56c18f1e-2044-4a1b-99db-102cb05a601f",
-      "title": "alert",
-      "published": "Mon Nov 2 21:00:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.567124 -2.23328"
     }
   ]
 }
