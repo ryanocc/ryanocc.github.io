@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-02T23:35:47.936143+00:00",
+  "updatedAt": "2026-11-02T23:40:48.008712+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 2,
   "incidents": [
     {
-      "id": "5d867863-a46e-483e-8e51-5caff56906bf",
+      "id": "8aa0a42a-cef7-4ff3-a5f5-f9f26721c9e2",
       "title": "alert",
-      "published": "Mon Nov 2 21:31:39 +0000 2026",
+      "published": "Mon Nov 2 23:14:58 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Longsight",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.457025 -2.201549"
+      "point": "53.659333 -2.036922"
     },
     {
       "id": "b802508b-224b-4a34-af8d-572a7c313758",
@@ -30,20 +30,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.664258 -2.002087"
-    },
-    {
-      "id": "8aa0a42a-cef7-4ff3-a5f5-f9f26721c9e2",
-      "title": "alert",
-      "published": "Mon Nov 2 23:14:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.659333 -2.036922"
     }
   ]
 }
