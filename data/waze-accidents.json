@@ -1,36 +1,8 @@
 {
-  "updatedAt": "2026-11-02T17:05:48.148356+00:00",
+  "updatedAt": "2026-11-02T17:10:48.241876+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
-    {
-      "id": "a3013a7c-748c-4473-ac85-1b2fe06fd7c2",
-      "title": "alert",
-      "published": "Mon Nov 2 16:39:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Trafford Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.469773 -2.362897"
-    },
-    {
-      "id": "2e87c17e-f056-4ce7-9b0e-3d2400c2fc43",
-      "title": "alert",
-      "published": "Mon Nov 2 15:09:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5228 - Claremont Rd",
-      "city": "Weaste",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.494516 -2.311491"
-    },
     {
       "id": "d1ce8954-0c88-44cb-859d-e1f86734761f",
       "title": "alert",
@@ -54,10 +26,24 @@
       "road": "A58 - Stapleton Ave",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.586087 -2.483315"
+    },
+    {
+      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
+      "title": "alert",
+      "published": "Mon Nov 2 17:06:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Liverpool Rd",
+      "city": "Irlam",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.468428 -2.38827"
     },
     {
       "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
@@ -69,9 +55,23 @@
       "city": "Irlam",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.46897 -2.386437"
+    },
+    {
+      "id": "c1952444-0770-4157-88ff-aa452d121d03",
+      "title": "alert",
+      "published": "Mon Nov 2 17:08:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.443738 -2.132817"
     }
   ]
 }
