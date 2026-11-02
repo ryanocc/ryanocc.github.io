@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T20:00:47.977001+00:00",
+  "updatedAt": "2026-11-02T20:05:48.117225+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -41,23 +41,9 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.544824 -2.140104"
-    },
-    {
-      "id": "c0f6433f-8b27-4e5e-8162-c801194e46d2",
-      "title": "alert",
-      "published": "Mon Nov 2 18:18:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A663 - Broadway",
-      "city": "Royton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.560661 -2.121424"
     },
     {
       "id": "28e528c2-39fe-4abd-b3b8-dfa58b5e5fb7",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.511917 -2.391612"
+    },
+    {
+      "id": "7c7b8b38-9bdb-4bf6-becd-90a0fa15f612",
+      "title": "alert",
+      "published": "Mon Nov 2 20:04:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.549233 -2.261574"
     }
   ]
 }
