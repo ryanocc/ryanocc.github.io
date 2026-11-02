@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T19:50:47.977218+00:00",
+  "updatedAt": "2026-11-02T19:55:48.008849+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "7fce6be6-bcb0-446c-825d-94de02c551eb",
@@ -18,20 +18,6 @@
       "point": "53.475755 -2.350126"
     },
     {
-      "id": "8b083250-6c81-4892-bc8e-541c48a2d04f",
-      "title": "alert",
-      "published": "Mon Nov 2 18:57:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A575 - Walkden Rd",
-      "city": "Walkden",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.51205 -2.392153"
-    },
-    {
       "id": "5c8648d2-b81d-4aa4-96b2-963c07e76b30",
       "title": "alert",
       "published": "Mon Nov 2 19:11:51 +0000 2026",
@@ -44,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.59697 -2.290421"
+    },
+    {
+      "id": "bf8b921b-d5c6-40d3-b577-07938a96981a",
+      "title": "alert",
+      "published": "Mon Nov 2 19:54:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A669 - Middleton Rd",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.544824 -2.140104"
     },
     {
       "id": "c0f6433f-8b27-4e5e-8162-c801194e46d2",
@@ -60,18 +60,18 @@
       "point": "53.560661 -2.121424"
     },
     {
-      "id": "4af4dd9c-d15d-4253-8c21-47278a48d849",
+      "id": "28e528c2-39fe-4abd-b3b8-dfa58b5e5fb7",
       "title": "alert",
-      "published": "Mon Nov 2 18:57:02 +0000 2026",
+      "published": "Mon Nov 2 19:02:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A575 - Walkden Rd",
-      "city": "Worsley",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.511907 -2.392099"
+      "reportRating": 3.0,
+      "point": "53.511917 -2.391612"
     },
     {
       "id": "9172b9aa-de07-41e2-8d91-b0ce76582f48",
@@ -86,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.511624 -2.39167"
-    },
-    {
-      "id": "28e528c2-39fe-4abd-b3b8-dfa58b5e5fb7",
-      "title": "alert",
-      "published": "Mon Nov 2 19:02:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.511917 -2.391612"
     }
   ]
 }
