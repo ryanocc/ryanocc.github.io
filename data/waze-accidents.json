@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T08:35:47.810534+00:00",
+  "updatedAt": "2026-11-02T08:40:47.811728+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "33a33f5c-94b3-4225-81b0-f22bd54b28d6",
@@ -27,9 +27,23 @@
       "city": "Higher Broughton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.499099 -2.2599"
+    },
+    {
+      "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
+      "title": "alert",
+      "published": "Mon Nov 2 08:15:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6221 - Wash Ln",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.59523 -2.283412"
     },
     {
       "id": "31fe51eb-36e4-4127-909c-158317781f42",
@@ -44,34 +58,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.589758 -2.25173"
-    },
-    {
-      "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
-      "title": "alert",
-      "published": "Mon Nov 2 08:15:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6221 - Wash Ln",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.59523 -2.283412"
-    },
-    {
-      "id": "244b98cd-257c-471e-bdec-106fe80b7734",
-      "title": "alert",
-      "published": "Mon Nov 2 08:21:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Eccles",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.486788 -2.330569"
     },
     {
       "id": "b46e1e7b-54c2-4174-a7e1-bbc1389fffcf",
