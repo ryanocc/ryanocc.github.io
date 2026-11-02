@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-02T16:20:48.019705+00:00",
+  "updatedAt": "2026-11-02T16:25:48.123027+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
-      "id": "3fea76c7-e18f-4acc-9ab0-8c42afc3349c",
+      "id": "a312b1f6-df10-44fe-86f4-fd14dfa053db",
       "title": "alert",
-      "published": "Mon Nov 2 15:10:19 +0000 2026",
+      "published": "Mon Nov 2 16:25:44 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B5158 - Cherry Ln",
-      "city": "Lymm",
+      "road": "J3 to M56 > Stockport & M60 (E)",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.374566 -2.490147"
+      "point": "53.396463 -2.268725"
     },
     {
       "id": "2e87c17e-f056-4ce7-9b0e-3d2400c2fc43",
@@ -41,7 +41,7 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.542013 -2.138127"
     },
@@ -60,6 +60,20 @@
       "point": "53.555254 -2.153692"
     },
     {
+      "id": "bc52e0a7-0388-4448-a2aa-c701dc0ac58b",
+      "title": "alert",
+      "published": "Mon Nov 2 16:23:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6042 - Trinity Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.484103 -2.256874"
+    },
+    {
       "id": "7b4a400c-9af3-4467-8127-330f1e34c746",
       "title": "alert",
       "published": "Mon Nov 2 16:11:23 +0000 2026",
@@ -69,7 +83,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.606861 -2.166199"
     }
