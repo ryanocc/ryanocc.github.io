@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T08:55:47.772346+00:00",
+  "updatedAt": "2026-11-02T09:00:48.207757+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -13,7 +13,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.47857 -2.245999"
     },
@@ -26,24 +26,10 @@
       "road": "B6186 - Camp St",
       "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.499099 -2.2599"
-    },
-    {
-      "id": "31fe51eb-36e4-4127-909c-158317781f42",
-      "title": "alert",
-      "published": "Mon Nov 2 08:16:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Sutherland Rd",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.589758 -2.25173"
     },
     {
       "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
@@ -60,6 +46,20 @@
       "point": "53.59523 -2.283412"
     },
     {
+      "id": "31fe51eb-36e4-4127-909c-158317781f42",
+      "title": "alert",
+      "published": "Mon Nov 2 08:16:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Sutherland Rd",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.589758 -2.25173"
+    },
+    {
       "id": "5b24d2df-7f9c-4f88-b709-d3fd7e6ff910",
       "title": "alert",
       "published": "Mon Nov 2 08:55:29 +0000 2026",
@@ -69,23 +69,9 @@
       "city": "Eccles",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.486788 -2.330578"
-    },
-    {
-      "id": "af98f585-0b85-439e-b76b-3fbbc26891bf",
-      "title": "alert",
-      "published": "Mon Nov 2 08:43:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Gilda Brook Rd",
-      "city": "Eccles",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.486895 -2.330649"
     },
     {
       "id": "722fad9e-7cdb-4bd2-9f6f-8b471b2bad97",
@@ -97,7 +83,7 @@
       "city": "Lower Broughton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.498886 -2.259484"
     },
@@ -128,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.454255 -2.60186"
+    },
+    {
+      "id": "a5b5435f-06af-401f-a792-5fe29ca77397",
+      "title": "alert",
+      "published": "Mon Nov 2 09:00:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.585287 -2.556981"
     }
   ]
 }
