@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T08:20:48.311641+00:00",
+  "updatedAt": "2026-11-02T08:25:48.181829+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "33a33f5c-94b3-4225-81b0-f22bd54b28d6",
@@ -18,32 +18,18 @@
       "point": "53.47857 -2.245999"
     },
     {
-      "id": "adb874bf-69f4-44fa-ae6a-a21713bae19c",
+      "id": "28084a5e-b75a-4da6-bef9-a6ae3137678f",
       "title": "alert",
-      "published": "Mon Nov 2 08:06:15 +0000 2026",
+      "published": "Mon Nov 2 08:23:24 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "John Heywood St",
-      "city": "Clayton",
+      "road": "B6186 - Camp St",
+      "city": "Higher Broughton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.485665 -2.184349"
-    },
-    {
-      "id": "0230a8bb-108b-4ccf-82b7-1605f1ce1cfa",
-      "title": "alert",
-      "published": "Mon Nov 2 07:56:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5093 - Moseley Rd",
-      "city": "Fallowfield",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.441992 -2.205577"
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.499099 -2.2599"
     },
     {
       "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
@@ -55,7 +41,7 @@
       "city": "Bury",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.59523 -2.283412"
     },
@@ -72,6 +58,34 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.589758 -2.25173"
+    },
+    {
+      "id": "244b98cd-257c-471e-bdec-106fe80b7734",
+      "title": "alert",
+      "published": "Mon Nov 2 08:21:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Eccles",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.486721 -2.33007"
+    },
+    {
+      "id": "e0cb8963-0f3d-4b1f-acac-d47fdc02687b",
+      "title": "alert",
+      "published": "Mon Nov 2 08:22:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Eccles",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.486727 -2.330929"
     },
     {
       "id": "424bf3df-b4d1-4c77-be1f-a9406131f8a4",
