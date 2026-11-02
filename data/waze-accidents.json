@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T23:10:48.019574+00:00",
+  "updatedAt": "2026-11-02T23:15:47.987646+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "5d867863-a46e-483e-8e51-5caff56906bf",
@@ -30,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.664258 -2.002087"
+    },
+    {
+      "id": "8aa0a42a-cef7-4ff3-a5f5-f9f26721c9e2",
+      "title": "alert",
+      "published": "Mon Nov 2 23:14:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.659333 -2.036922"
     }
   ]
 }
