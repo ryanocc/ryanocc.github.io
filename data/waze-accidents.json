@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T20:55:48.097716+00:00",
+  "updatedAt": "2026-11-02T21:00:47.987149+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.43117 -2.587352"
     },
     {
-      "id": "a5f84bab-25f1-4bd6-b3ff-8d086f5407d1",
-      "title": "alert",
-      "published": "Mon Nov 2 20:18:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A575 - Walkden Rd",
-      "city": "Walkden",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.51213 -2.392332"
-    },
-    {
       "id": "5c8648d2-b81d-4aa4-96b2-963c07e76b30",
       "title": "alert",
       "published": "Mon Nov 2 19:11:51 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.562135 -1.885206"
+    },
+    {
+      "id": "56c18f1e-2044-4a1b-99db-102cb05a601f",
+      "title": "alert",
+      "published": "Mon Nov 2 21:00:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.567124 -2.23328"
     }
   ]
 }
