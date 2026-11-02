@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-02T17:30:48.283252+00:00",
+  "updatedAt": "2026-11-02T17:35:48.170327+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
+    {
+      "id": "c97effaa-8037-4e10-9dc3-cb12b5874940",
+      "title": "alert",
+      "published": "Mon Nov 2 17:30:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Eccles",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.484152 -2.33847"
+    },
     {
       "id": "d1ce8954-0c88-44cb-859d-e1f86734761f",
       "title": "alert",
@@ -26,7 +40,7 @@
       "road": "A57 - Liverpool Rd",
       "city": "Irlam",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.46897 -2.386437"
@@ -55,23 +69,9 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.621199 -2.13147"
-    },
-    {
-      "id": "a981a18c-a443-4bf3-97ba-411024fa2441",
-      "title": "alert",
-      "published": "Mon Nov 2 17:14:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.556146 -2.266235"
     }
   ]
 }
