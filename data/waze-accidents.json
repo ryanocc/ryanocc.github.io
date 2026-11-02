@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T18:35:47.971368+00:00",
+  "updatedAt": "2026-11-02T18:40:48.095351+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -12,8 +12,8 @@
       "road": "",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.468754 -2.353204"
     },
@@ -60,18 +60,32 @@
       "point": "53.560661 -2.121424"
     },
     {
-      "id": "8ea4cb35-5010-4f67-86c8-af6aa387575e",
+      "id": "83fc7665-537f-4b7c-a192-594d2420ce9e",
       "title": "alert",
-      "published": "Mon Nov 2 18:20:56 +0000 2026",
+      "published": "Mon Nov 2 18:38:36 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "A5103 (N) - Princess Rd",
-      "city": "Withington",
+      "city": "Didsbury",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.433762 -2.247521"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.430623 -2.250947"
+    },
+    {
+      "id": "2ff8b098-f3c0-4e70-84de-fe654edc65b3",
+      "title": "alert",
+      "published": "Mon Nov 2 18:37:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.431019 -2.250263"
     },
     {
       "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
@@ -82,7 +96,7 @@
       "road": "A57 - Liverpool Rd",
       "city": "Irlam",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.468428 -2.38827"
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.46897 -2.386437"
-    },
-    {
-      "id": "98de94c5-eb1f-4067-8f6b-701d7befcf42",
-      "title": "alert",
-      "published": "Mon Nov 2 18:34:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "Birchwood",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.435082 -2.500102"
     }
   ]
 }
