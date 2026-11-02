@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T19:10:48.014894+00:00",
+  "updatedAt": "2026-11-02T19:15:48.057506+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 12,
   "incidents": [
     {
       "id": "7fce6be6-bcb0-446c-825d-94de02c551eb",
@@ -54,24 +54,38 @@
       "road": "A575 - Walkden Rd",
       "city": "Walkden",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.51205 -2.392153"
     },
     {
-      "id": "70d71865-e06d-4f6c-8592-13c2a400e2a9",
+      "id": "5c8648d2-b81d-4aa4-96b2-963c07e76b30",
       "title": "alert",
-      "published": "Mon Nov 2 18:45:06 +0000 2026",
+      "published": "Mon Nov 2 19:11:51 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A663 - Broadway",
-      "city": "Royton",
+      "road": "",
+      "city": "Bury",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.56072 -2.121011"
+      "point": "53.59697 -2.290421"
+    },
+    {
+      "id": "8cb5b6b1-6363-4c74-a0f4-f5337489a83a",
+      "title": "alert",
+      "published": "Mon Nov 2 19:14:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6053 - Hall Ln",
+      "city": "Little Lever",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.560137 -2.389035"
     },
     {
       "id": "c0f6433f-8b27-4e5e-8162-c801194e46d2",
@@ -88,18 +102,18 @@
       "point": "53.560661 -2.121424"
     },
     {
-      "id": "4af4dd9c-d15d-4253-8c21-47278a48d849",
+      "id": "70d71865-e06d-4f6c-8592-13c2a400e2a9",
       "title": "alert",
-      "published": "Mon Nov 2 18:57:02 +0000 2026",
+      "published": "Mon Nov 2 18:45:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A575 - Walkden Rd",
-      "city": "Worsley",
+      "road": "A663 - Broadway",
+      "city": "Royton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.511907 -2.392099"
+      "reportRating": 1.0,
+      "point": "53.56072 -2.121011"
     },
     {
       "id": "ca817345-5058-40fe-a18b-491309277fd9",
@@ -110,7 +124,7 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.512811 -2.387914"
@@ -125,9 +139,23 @@
       "city": "Worsley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.511624 -2.39167"
+    },
+    {
+      "id": "4af4dd9c-d15d-4253-8c21-47278a48d849",
+      "title": "alert",
+      "published": "Mon Nov 2 18:57:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A575 - Walkden Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.511907 -2.392099"
     },
     {
       "id": "28e528c2-39fe-4abd-b3b8-dfa58b5e5fb7",
@@ -138,8 +166,8 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.511917 -2.391612"
     }
