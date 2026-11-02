@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-02T18:30:48.074922+00:00",
+  "updatedAt": "2026-11-02T18:35:47.971368+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
-      "id": "60a0fbbe-c31d-42b8-ad11-b5ecac38c22d",
+      "id": "d0d6b0de-8cac-4bc9-89df-2cb0fe01a3e1",
       "title": "alert",
-      "published": "Mon Nov 2 18:18:25 +0000 2026",
+      "published": "Mon Nov 2 18:33:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
+      "confidence": 1.0,
       "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.468441 -2.3542"
+      "reportRating": 1.0,
+      "point": "53.468754 -2.353204"
     },
     {
       "id": "7e84b95a-b92a-472c-bb36-b76519fafac3",
@@ -54,7 +54,7 @@
       "road": "A663 - Broadway",
       "city": "Royton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.560661 -2.121424"
@@ -68,10 +68,24 @@
       "road": "A5103 (N) - Princess Rd",
       "city": "Withington",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.433762 -2.247521"
+    },
+    {
+      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
+      "title": "alert",
+      "published": "Mon Nov 2 17:06:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Liverpool Rd",
+      "city": "Irlam",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.468428 -2.38827"
     },
     {
       "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
@@ -88,18 +102,18 @@
       "point": "53.46897 -2.386437"
     },
     {
-      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
+      "id": "98de94c5-eb1f-4067-8f6b-701d7befcf42",
       "title": "alert",
-      "published": "Mon Nov 2 17:06:12 +0000 2026",
+      "published": "Mon Nov 2 18:34:36 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Liverpool Rd",
-      "city": "Irlam",
+      "road": "M62 (E)",
+      "city": "Birchwood",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.468428 -2.38827"
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.435082 -2.500102"
     }
   ]
 }
