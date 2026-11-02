@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T19:25:48.019740+00:00",
+  "updatedAt": "2026-11-02T19:30:47.987165+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -68,8 +68,8 @@
       "road": "A6053 - Hall Ln",
       "city": "Little Lever",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.560137 -2.389035"
     },
@@ -86,20 +86,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.59697 -2.290421"
-    },
-    {
-      "id": "70d71865-e06d-4f6c-8592-13c2a400e2a9",
-      "title": "alert",
-      "published": "Mon Nov 2 18:45:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A663 - Broadway",
-      "city": "Royton",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.56072 -2.121011"
     },
     {
       "id": "c0f6433f-8b27-4e5e-8162-c801194e46d2",
@@ -156,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.511917 -2.391612"
+    },
+    {
+      "id": "9cf4ff3c-b233-4773-8326-548dd098c6e6",
+      "title": "alert",
+      "published": "Mon Nov 2 19:27:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Kingsway",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.615988 -2.129579"
     }
   ]
 }
