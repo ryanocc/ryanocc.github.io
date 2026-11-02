@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T18:55:47.956196+00:00",
+  "updatedAt": "2026-11-02T19:00:48.004217+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "7e84b95a-b92a-472c-bb36-b76519fafac3",
@@ -12,7 +12,7 @@
       "road": "Ashton Rd W",
       "city": "Failsworth",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.508224 -2.163491"
@@ -32,6 +32,20 @@
       "point": "53.484152 -2.33847"
     },
     {
+      "id": "8b083250-6c81-4892-bc8e-541c48a2d04f",
+      "title": "alert",
+      "published": "Mon Nov 2 18:57:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A575 - Walkden Rd",
+      "city": "Walkden",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.51205 -2.392153"
+    },
+    {
       "id": "70d71865-e06d-4f6c-8592-13c2a400e2a9",
       "title": "alert",
       "published": "Mon Nov 2 18:45:06 +0000 2026",
@@ -40,8 +54,8 @@
       "road": "A663 - Broadway",
       "city": "Royton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.56072 -2.121011"
     },
@@ -72,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.468428 -2.38827"
+    },
+    {
+      "id": "4af4dd9c-d15d-4253-8c21-47278a48d849",
+      "title": "alert",
+      "published": "Mon Nov 2 18:57:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A575 - Walkden Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 5.0,
+      "point": "53.511907 -2.392099"
     }
   ]
 }
