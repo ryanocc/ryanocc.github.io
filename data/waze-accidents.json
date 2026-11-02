@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T09:55:48.028361+00:00",
+  "updatedAt": "2026-11-02T10:00:48.035722+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "6991cf5e-48e7-4b55-9f8e-90718c6d168e",
@@ -13,7 +13,7 @@
       "city": "Higher Broughton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.499386 -2.259225"
     },
@@ -86,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.585848 -2.172141"
-    },
-    {
-      "id": "fc1bea64-eea4-4b52-a86f-b7a0f3f10977",
-      "title": "alert",
-      "published": "Mon Nov 2 09:33:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.624407 -2.058749"
     }
   ]
 }
