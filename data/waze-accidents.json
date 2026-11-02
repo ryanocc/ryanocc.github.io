@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T09:00:48.207757+00:00",
+  "updatedAt": "2026-11-02T09:05:48.136796+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
     {
       "id": "33a33f5c-94b3-4225-81b0-f22bd54b28d6",
@@ -32,6 +32,20 @@
       "point": "53.499099 -2.2599"
     },
     {
+      "id": "31fe51eb-36e4-4127-909c-158317781f42",
+      "title": "alert",
+      "published": "Mon Nov 2 08:16:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Sutherland Rd",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.589758 -2.25173"
+    },
+    {
       "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
       "title": "alert",
       "published": "Mon Nov 2 08:15:57 +0000 2026",
@@ -44,34 +58,6 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.59523 -2.283412"
-    },
-    {
-      "id": "31fe51eb-36e4-4127-909c-158317781f42",
-      "title": "alert",
-      "published": "Mon Nov 2 08:16:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Sutherland Rd",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.589758 -2.25173"
-    },
-    {
-      "id": "5b24d2df-7f9c-4f88-b709-d3fd7e6ff910",
-      "title": "alert",
-      "published": "Mon Nov 2 08:55:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Eccles",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.486788 -2.330578"
     },
     {
       "id": "722fad9e-7cdb-4bd2-9f6f-8b471b2bad97",
@@ -88,6 +74,20 @@
       "point": "53.498886 -2.259484"
     },
     {
+      "id": "f89b4e63-6734-46f9-9553-9897c118c29b",
+      "title": "alert",
+      "published": "Mon Nov 2 09:02:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Birrell Way",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.328193 -2.223833"
+    },
+    {
       "id": "b46e1e7b-54c2-4174-a7e1-bbc1389fffcf",
       "title": "alert",
       "published": "Mon Nov 2 08:35:04 +0000 2026",
@@ -100,34 +100,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.458483 -2.160902"
-    },
-    {
-      "id": "abdae166-c355-41dc-b8c2-8915a748d938",
-      "title": "alert",
-      "published": "Mon Nov 2 08:46:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.454255 -2.60186"
-    },
-    {
-      "id": "a5b5435f-06af-401f-a792-5fe29ca77397",
-      "title": "alert",
-      "published": "Mon Nov 2 09:00:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.585287 -2.556981"
     }
   ]
 }
