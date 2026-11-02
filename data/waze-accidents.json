@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T19:30:47.987165+00:00",
+  "updatedAt": "2026-11-02T19:35:47.972346+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "7fce6be6-bcb0-446c-825d-94de02c551eb",
@@ -32,20 +32,6 @@
       "point": "53.508224 -2.163491"
     },
     {
-      "id": "c97effaa-8037-4e10-9dc3-cb12b5874940",
-      "title": "alert",
-      "published": "Mon Nov 2 17:30:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Eccles",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.484152 -2.33847"
-    },
-    {
       "id": "8b083250-6c81-4892-bc8e-541c48a2d04f",
       "title": "alert",
       "published": "Mon Nov 2 18:57:41 +0000 2026",
@@ -54,8 +40,8 @@
       "road": "A575 - Walkden Rd",
       "city": "Walkden",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.51205 -2.392153"
     },
@@ -116,20 +102,6 @@
       "point": "53.511624 -2.39167"
     },
     {
-      "id": "4af4dd9c-d15d-4253-8c21-47278a48d849",
-      "title": "alert",
-      "published": "Mon Nov 2 18:57:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A575 - Walkden Rd",
-      "city": "Worsley",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.511907 -2.392099"
-    },
-    {
       "id": "28e528c2-39fe-4abd-b3b8-dfa58b5e5fb7",
       "title": "alert",
       "published": "Mon Nov 2 19:02:31 +0000 2026",
@@ -144,6 +116,20 @@
       "point": "53.511917 -2.391612"
     },
     {
+      "id": "4af4dd9c-d15d-4253-8c21-47278a48d849",
+      "title": "alert",
+      "published": "Mon Nov 2 18:57:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A575 - Walkden Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.511907 -2.392099"
+    },
+    {
       "id": "9cf4ff3c-b233-4773-8326-548dd098c6e6",
       "title": "alert",
       "published": "Mon Nov 2 19:27:47 +0000 2026",
@@ -153,7 +139,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.615988 -2.129579"
     }
