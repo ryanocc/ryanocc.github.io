@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T08:00:48.320897+00:00",
+  "updatedAt": "2026-11-02T08:05:48.257628+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "33a33f5c-94b3-4225-81b0-f22bd54b28d6",
@@ -26,10 +26,38 @@
       "road": "B5093 - Moseley Rd",
       "city": "Fallowfield",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.441992 -2.205577"
+    },
+    {
+      "id": "424bf3df-b4d1-4c77-be1f-a9406131f8a4",
+      "title": "alert",
+      "published": "Mon Nov 2 08:01:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.454319 -2.601913"
+    },
+    {
+      "id": "0f47f0f0-b6d9-4aa4-bc8c-e9cbfd9557d4",
+      "title": "alert",
+      "published": "Mon Nov 2 08:03:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S) - Kearsley Spur",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.533549 -2.388572"
     }
   ]
 }
