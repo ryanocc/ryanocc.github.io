@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T08:40:47.811728+00:00",
+  "updatedAt": "2026-11-02T08:45:47.925332+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "33a33f5c-94b3-4225-81b0-f22bd54b28d6",
@@ -60,6 +60,20 @@
       "point": "53.589758 -2.25173"
     },
     {
+      "id": "af98f585-0b85-439e-b76b-3fbbc26891bf",
+      "title": "alert",
+      "published": "Mon Nov 2 08:43:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Gilda Brook Rd",
+      "city": "Eccles",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.486895 -2.330649"
+    },
+    {
       "id": "b46e1e7b-54c2-4174-a7e1-bbc1389fffcf",
       "title": "alert",
       "published": "Mon Nov 2 08:35:04 +0000 2026",
@@ -72,6 +86,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.458483 -2.160902"
+    },
+    {
+      "id": "46b2a4ba-eaba-4f2f-abc2-6a55845ac4b8",
+      "title": "alert",
+      "published": "Mon Nov 2 08:41:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.460613 -2.61165"
     }
   ]
 }
