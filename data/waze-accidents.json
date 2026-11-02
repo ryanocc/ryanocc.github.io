@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-02T17:35:48.170327+00:00",
+  "updatedAt": "2026-11-02T17:40:48.092178+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
+    {
+      "id": "d1ce8954-0c88-44cb-859d-e1f86734761f",
+      "title": "alert",
+      "published": "Mon Nov 2 15:54:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.555254 -2.153692"
+    },
     {
       "id": "c97effaa-8037-4e10-9dc3-cb12b5874940",
       "title": "alert",
@@ -18,18 +32,18 @@
       "point": "53.484152 -2.33847"
     },
     {
-      "id": "d1ce8954-0c88-44cb-859d-e1f86734761f",
+      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
       "title": "alert",
-      "published": "Mon Nov 2 15:54:59 +0000 2026",
+      "published": "Mon Nov 2 17:06:12 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "",
+      "road": "A57 - Liverpool Rd",
+      "city": "Irlam",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.555254 -2.153692"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.468428 -2.38827"
     },
     {
       "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
@@ -46,20 +60,6 @@
       "point": "53.46897 -2.386437"
     },
     {
-      "id": "c509b200-5bcb-42bd-b811-b4d61bbe18fa",
-      "title": "alert",
-      "published": "Mon Nov 2 17:06:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Liverpool Rd",
-      "city": "Irlam",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.468428 -2.38827"
-    },
-    {
       "id": "9355cba1-6384-42c7-90cf-cd50619db20b",
       "title": "alert",
       "published": "Mon Nov 2 17:19:32 +0000 2026",
@@ -69,7 +69,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.621199 -2.13147"
     }
