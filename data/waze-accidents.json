@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T19:55:48.008849+00:00",
+  "updatedAt": "2026-11-02T20:00:47.977001+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "7fce6be6-bcb0-446c-825d-94de02c551eb",
@@ -26,8 +26,8 @@
       "road": "",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.59697 -2.290421"
     },
@@ -41,7 +41,7 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.544824 -2.140104"
     },
@@ -72,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.511917 -2.391612"
-    },
-    {
-      "id": "9172b9aa-de07-41e2-8d91-b0ce76582f48",
-      "title": "alert",
-      "published": "Mon Nov 2 19:09:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A575 - Walkden Rd",
-      "city": "Worsley",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.511624 -2.39167"
     }
   ]
 }
