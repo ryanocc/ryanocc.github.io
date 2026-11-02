@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-02T16:25:48.123027+00:00",
+  "updatedAt": "2026-11-02T16:30:48.292230+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
+    {
+      "id": "6654ddc2-e03a-4308-a131-c3705ce8155c",
+      "title": "alert",
+      "published": "Mon Nov 2 16:29:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 > Preston",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.362557 -2.510288"
+    },
     {
       "id": "a312b1f6-df10-44fe-86f4-fd14dfa053db",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "J3 to M56 > Stockport & M60 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.396463 -2.268725"
     },
@@ -68,8 +82,8 @@
       "road": "A6042 - Trinity Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.484103 -2.256874"
     },
