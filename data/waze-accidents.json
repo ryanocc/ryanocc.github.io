@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T08:30:47.880799+00:00",
+  "updatedAt": "2026-11-02T08:35:47.810534+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -26,24 +26,10 @@
       "road": "B6186 - Camp St",
       "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.499099 -2.2599"
-    },
-    {
-      "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
-      "title": "alert",
-      "published": "Mon Nov 2 08:15:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6221 - Wash Ln",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.59523 -2.283412"
     },
     {
       "id": "31fe51eb-36e4-4127-909c-158317781f42",
@@ -60,6 +46,20 @@
       "point": "53.589758 -2.25173"
     },
     {
+      "id": "a16e3e15-8420-40e2-8c49-3a669f620e0c",
+      "title": "alert",
+      "published": "Mon Nov 2 08:15:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6221 - Wash Ln",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.59523 -2.283412"
+    },
+    {
       "id": "244b98cd-257c-471e-bdec-106fe80b7734",
       "title": "alert",
       "published": "Mon Nov 2 08:21:59 +0000 2026",
@@ -68,24 +68,24 @@
       "road": "",
       "city": "Eccles",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.486721 -2.33007"
+      "point": "53.486788 -2.330569"
     },
     {
-      "id": "424bf3df-b4d1-4c77-be1f-a9406131f8a4",
+      "id": "b46e1e7b-54c2-4174-a7e1-bbc1389fffcf",
       "title": "alert",
-      "published": "Mon Nov 2 08:01:05 +0000 2026",
+      "published": "Mon Nov 2 08:35:04 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.454319 -2.601913"
+      "point": "53.458483 -2.160902"
     }
   ]
 }
