@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T08:50:48.008524+00:00",
+  "updatedAt": "2026-11-02T08:55:47.772346+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "33a33f5c-94b3-4225-81b0-f22bd54b28d6",
@@ -60,6 +60,20 @@
       "point": "53.59523 -2.283412"
     },
     {
+      "id": "5b24d2df-7f9c-4f88-b709-d3fd7e6ff910",
+      "title": "alert",
+      "published": "Mon Nov 2 08:55:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Eccles",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.486788 -2.330578"
+    },
+    {
       "id": "af98f585-0b85-439e-b76b-3fbbc26891bf",
       "title": "alert",
       "published": "Mon Nov 2 08:43:49 +0000 2026",
@@ -68,10 +82,24 @@
       "road": "A576 - Gilda Brook Rd",
       "city": "Eccles",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.486895 -2.330649"
+    },
+    {
+      "id": "722fad9e-7cdb-4bd2-9f6f-8b471b2bad97",
+      "title": "alert",
+      "published": "Mon Nov 2 08:53:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6041 - Great Clowes St",
+      "city": "Lower Broughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.498886 -2.259484"
     },
     {
       "id": "b46e1e7b-54c2-4174-a7e1-bbc1389fffcf",
@@ -96,7 +124,7 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.454255 -2.60186"
