@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T17:00:48.244801+00:00",
+  "updatedAt": "2026-11-02T17:05:48.148356+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
     {
       "id": "a3013a7c-748c-4473-ac85-1b2fe06fd7c2",
@@ -44,6 +44,34 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.555254 -2.153692"
+    },
+    {
+      "id": "0c6d953f-5820-4a64-8bbd-1411c309bbc4",
+      "title": "alert",
+      "published": "Mon Nov 2 17:01:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Stapleton Ave",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.586087 -2.483315"
+    },
+    {
+      "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
+      "title": "alert",
+      "published": "Mon Nov 2 17:05:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Liverpool Rd",
+      "city": "Irlam",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.46897 -2.386437"
     }
   ]
 }
