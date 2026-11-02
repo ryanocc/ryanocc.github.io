@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-02T18:20:48.042449+00:00",
+  "updatedAt": "2026-11-02T18:25:48.136599+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "60a0fbbe-c31d-42b8-ad11-b5ecac38c22d",
@@ -13,7 +13,7 @@
       "city": "Trafford Park",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.468441 -2.3542"
     },
@@ -26,8 +26,8 @@
       "road": "Ashton Rd W",
       "city": "Failsworth",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.508224 -2.163491"
     },
@@ -54,10 +54,24 @@
       "road": "A663 - Broadway",
       "city": "Royton",
       "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.560661 -2.121424"
+    },
+    {
+      "id": "8ea4cb35-5010-4f67-86c8-af6aa387575e",
+      "title": "alert",
+      "published": "Mon Nov 2 18:20:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Withington",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.560682 -2.121225"
+      "point": "53.433762 -2.247521"
     },
     {
       "id": "b5156e90-a7ec-4de4-8154-e59768ec9f7c",
@@ -86,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.468428 -2.38827"
+    },
+    {
+      "id": "4b87dbfa-685b-41a1-8cc4-a8fcd8432a63",
+      "title": "alert",
+      "published": "Mon Nov 2 18:25:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.38083 -2.50524"
     }
   ]
 }
