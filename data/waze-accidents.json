@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T21:20:47.945292+00:00",
+  "updatedAt": "2026-11-03T21:25:47.964375+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -60,20 +60,6 @@
       "point": "53.477056 -2.377298"
     },
     {
-      "id": "839913f6-c13b-4e5e-81a7-8360300b13c0",
-      "title": "alert",
-      "published": "Tue Nov 3 21:04:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5066 - Adelphi St",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.483428 -2.264811"
-    },
-    {
       "id": "5c08a7e1-5b9e-43f4-8f2e-85cbaa9bf81d",
       "title": "alert",
       "published": "Tue Nov 3 21:19:56 +0000 2026",
@@ -83,7 +69,7 @@
       "city": "Droylsden",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.479943 -2.153895"
     },
@@ -97,9 +83,23 @@
       "city": "Salford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.483296 -2.264728"
+    },
+    {
+      "id": "839913f6-c13b-4e5e-81a7-8360300b13c0",
+      "title": "alert",
+      "published": "Tue Nov 3 21:04:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5066 - Adelphi St",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.483428 -2.264811"
     },
     {
       "id": "2f6c98f2-d9c2-4130-a988-8e0f076a2798",
@@ -110,8 +110,8 @@
       "road": "A6 - Crescent",
       "city": "Irwell Riverside",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.483302 -2.265168"
     }
