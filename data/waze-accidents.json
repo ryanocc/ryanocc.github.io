@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T09:00:48.364299+00:00",
+  "updatedAt": "2026-11-03T09:05:48.284184+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 12,
   "incidents": [
     {
       "id": "52b19232-c3c7-4bbe-9261-9b40a26ad9b0",
@@ -26,8 +26,8 @@
       "road": "Lowcross Rd",
       "city": "Newton Heath",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.500989 -2.19273"
     },
@@ -44,20 +44,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.561439 -2.208601"
-    },
-    {
-      "id": "d727a36d-f5aa-45c6-99bb-9c2bdcf83a7e",
-      "title": "alert",
-      "published": "Tue Nov 3 08:34:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Smethurst Ln",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 4.0,
-      "point": "53.557299 -2.457331"
     },
     {
       "id": "c872fed3-3568-4235-95da-6983a2a6d8b4",
@@ -83,7 +69,7 @@
       "city": "Royton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.558886 -2.103936"
     },
@@ -158,18 +144,18 @@
       "point": "53.496399 -2.384221"
     },
     {
-      "id": "f260d211-7754-4a25-ba09-5b55ec48a85e",
+      "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
       "title": "alert",
-      "published": "Tue Nov 3 08:56:07 +0000 2026",
+      "published": "Tue Nov 3 07:48:20 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (ACW)",
+      "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.546559 -2.256712"
+      "reportRating": 0.0,
+      "point": "53.592122 -2.271499"
     },
     {
       "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
@@ -184,20 +170,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.591431 -2.27198"
-    },
-    {
-      "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
-      "title": "alert",
-      "published": "Tue Nov 3 07:48:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.592122 -2.271499"
     }
   ]
 }
