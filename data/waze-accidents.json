@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T14:15:48.045791+00:00",
+  "updatedAt": "2026-11-03T14:20:48.096342+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 2,
   "incidents": [
     {
       "id": "f12349d7-a4b7-47f5-ac13-28f2baaf2542",
@@ -12,24 +12,10 @@
       "road": "J9 to A5081",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.459182 -2.339605"
-    },
-    {
-      "id": "d30fae89-689a-45d0-8076-2128667644af",
-      "title": "alert",
-      "published": "Tue Nov 3 13:04:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A665 - Bury Old Rd",
-      "city": "Sedgley Park",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.51872 -2.258648"
     },
     {
       "id": "ca8e9a2c-eb24-41d7-8523-e1b4b60cecdc",
@@ -44,20 +30,6 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.477055 -2.21786"
-    },
-    {
-      "id": "bc5fcbed-16a9-4bb8-8598-1abfaa48a65e",
-      "title": "alert",
-      "published": "Tue Nov 3 14:11:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A635 - Manchester Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.482637 -2.112574"
     }
   ]
 }
