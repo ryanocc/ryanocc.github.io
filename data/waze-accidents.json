@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T21:35:47.919758+00:00",
+  "updatedAt": "2026-11-03T21:40:47.901373+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.515212 -2.279821"
-    },
-    {
-      "id": "bb9b356c-435a-4bce-aefb-068e92736ef9",
-      "title": "alert",
-      "published": "Tue Nov 3 21:26:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.368076 -2.277019"
     },
     {
       "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
@@ -74,20 +60,6 @@
       "point": "53.477056 -2.377298"
     },
     {
-      "id": "839913f6-c13b-4e5e-81a7-8360300b13c0",
-      "title": "alert",
-      "published": "Tue Nov 3 21:04:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5066 - Adelphi St",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.483428 -2.264811"
-    },
-    {
       "id": "e95fbb01-6853-4ee9-9547-9f648847268e",
       "title": "alert",
       "published": "Tue Nov 3 21:00:00 +0000 2026",
@@ -100,6 +72,20 @@
       "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.483296 -2.264728"
+    },
+    {
+      "id": "839913f6-c13b-4e5e-81a7-8360300b13c0",
+      "title": "alert",
+      "published": "Tue Nov 3 21:04:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5066 - Adelphi St",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.483428 -2.264811"
     },
     {
       "id": "5c08a7e1-5b9e-43f4-8f2e-85cbaa9bf81d",
@@ -116,6 +102,20 @@
       "point": "53.479943 -2.153895"
     },
     {
+      "id": "00aeb541-5cf5-4a15-bcab-83aa4f1a8d41",
+      "title": "alert",
+      "published": "Tue Nov 3 21:39:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A662 - Manchester Rd",
+      "city": "Droylsden",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.479854 -2.152774"
+    },
+    {
       "id": "82e3b537-0589-420c-87a8-edfddb110247",
       "title": "alert",
       "published": "Tue Nov 3 21:30:27 +0000 2026",
@@ -124,7 +124,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.496939 -2.124031"
