@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T13:40:48.035892+00:00",
+  "updatedAt": "2026-11-03T13:45:48.088897+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -13,7 +13,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.458897 -2.339153"
     },
@@ -32,20 +32,6 @@
       "point": "53.518714 -2.258641"
     },
     {
-      "id": "d30fae89-689a-45d0-8076-2128667644af",
-      "title": "alert",
-      "published": "Tue Nov 3 13:04:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A665 - Bury Old Rd",
-      "city": "Sedgley Park",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.51872 -2.258648"
-    },
-    {
       "id": "2fd322b9-97a7-49fc-8e3d-52f254576695",
       "title": "alert",
       "published": "Tue Nov 3 13:10:27 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.52104 -2.261298"
+    },
+    {
+      "id": "d30fae89-689a-45d0-8076-2128667644af",
+      "title": "alert",
+      "published": "Tue Nov 3 13:04:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A665 - Bury Old Rd",
+      "city": "Sedgley Park",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.51872 -2.258648"
     },
     {
       "id": "ca8e9a2c-eb24-41d7-8523-e1b4b60cecdc",
