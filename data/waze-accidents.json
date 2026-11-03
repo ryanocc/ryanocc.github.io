@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T21:25:47.964375+00:00",
+  "updatedAt": "2026-11-03T21:30:47.986620+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "5daac618-7ff1-425e-9e2c-12fd52ee2433",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.515212 -2.279821"
+    },
+    {
+      "id": "bb9b356c-435a-4bce-aefb-068e92736ef9",
+      "title": "alert",
+      "published": "Tue Nov 3 21:26:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.368076 -2.277019"
     },
     {
       "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
@@ -55,7 +69,7 @@
       "city": "Peel Green",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.477056 -2.377298"
     },
@@ -68,24 +82,10 @@
       "road": "A662 - Manchester Rd",
       "city": "Droylsden",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.479943 -2.153895"
-    },
-    {
-      "id": "e95fbb01-6853-4ee9-9547-9f648847268e",
-      "title": "alert",
-      "published": "Tue Nov 3 21:00:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Salford",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.483296 -2.264728"
     },
     {
       "id": "839913f6-c13b-4e5e-81a7-8360300b13c0",
@@ -102,6 +102,20 @@
       "point": "53.483428 -2.264811"
     },
     {
+      "id": "e95fbb01-6853-4ee9-9547-9f648847268e",
+      "title": "alert",
+      "published": "Tue Nov 3 21:00:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Salford",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.483296 -2.264728"
+    },
+    {
       "id": "2f6c98f2-d9c2-4130-a988-8e0f076a2798",
       "title": "alert",
       "published": "Tue Nov 3 21:13:45 +0000 2026",
@@ -114,6 +128,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.483302 -2.265168"
+    },
+    {
+      "id": "82e3b537-0589-420c-87a8-edfddb110247",
+      "title": "alert",
+      "published": "Tue Nov 3 21:30:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.493638 -2.120252"
     }
   ]
 }
