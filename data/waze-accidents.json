@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-03T16:10:48.336976+00:00",
+  "updatedAt": "2026-11-03T16:15:48.394439+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 9,
   "incidents": [
+    {
+      "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
+      "title": "alert",
+      "published": "Tue Nov 3 16:13:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.647564 -2.325351"
+    },
     {
       "id": "846f02d5-6f74-4584-8dd5-763cc3aaf364",
       "title": "alert",
@@ -12,10 +26,24 @@
       "road": "Thicketford Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.589809 -2.405455"
+    },
+    {
+      "id": "341d9097-63df-4e67-ad79-b3718efb7644",
+      "title": "alert",
+      "published": "Tue Nov 3 16:11:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.589511 -2.407584"
     },
     {
       "id": "5e3c91b4-005e-4b0d-a34f-6430d8198d25",
@@ -26,8 +54,8 @@
       "road": "Greenhill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.508639 -2.241663"
     },
@@ -40,7 +68,7 @@
       "road": "A5082 - Mort Ln",
       "city": "Tyldesley",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.523801 -2.430012"
@@ -55,9 +83,51 @@
       "city": "Little Hulton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.525967 -2.42777"
+    },
+    {
+      "id": "7fa373fc-635d-4c76-bdb0-8768fcf31118",
+      "title": "alert",
+      "published": "Tue Nov 3 16:12:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.589113 -2.405276"
+    },
+    {
+      "id": "b8aee9cf-90ca-4c17-beb9-1758415b9483",
+      "title": "alert",
+      "published": "Tue Nov 3 16:15:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 (S) - Kay St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.585445 -2.427664"
+    },
+    {
+      "id": "35fc740c-6b83-4bc1-9f7e-a5d11731a73f",
+      "title": "alert",
+      "published": "Tue Nov 3 16:11:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Bradford St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.578559 -2.414417"
     }
   ]
 }
