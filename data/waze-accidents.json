@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T17:50:48.432170+00:00",
+  "updatedAt": "2026-11-03T17:55:48.428911+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 17,
   "incidents": [
     {
       "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
@@ -12,10 +12,24 @@
       "road": "Orton Rd",
       "city": "Northern Moor",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.41207 -2.280721"
+    },
+    {
+      "id": "19840d93-2d1b-4380-87b5-0734d83a0629",
+      "title": "alert",
+      "published": "Tue Nov 3 17:52:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bromley St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.490767 -2.232028"
     },
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -60,6 +74,20 @@
       "point": "53.412376 -2.280756"
     },
     {
+      "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
+      "title": "alert",
+      "published": "Tue Nov 3 17:21:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.589245 -2.409781"
+    },
+    {
       "id": "341d9097-63df-4e67-ad79-b3718efb7644",
       "title": "alert",
       "published": "Tue Nov 3 16:11:21 +0000 2026",
@@ -74,18 +102,18 @@
       "point": "53.589511 -2.407584"
     },
     {
-      "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
+      "id": "bfdae9ee-ba33-4d80-8ee2-3e9797a4a2df",
       "title": "alert",
-      "published": "Tue Nov 3 17:21:14 +0000 2026",
+      "published": "Tue Nov 3 17:55:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
+      "road": "B6222 - Bury And Rochdale Old Rd",
+      "city": "Heywood",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.589245 -2.409781"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.605286 -2.217078"
     },
     {
       "id": "4354b390-6e24-4c0b-ad8a-63b0af9a6bee",
@@ -125,7 +153,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.486932 -2.240782"
     },
@@ -152,8 +180,8 @@
       "road": "A62 - Huddersfield Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.548435 -2.08435"
     },
@@ -198,6 +226,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.592298 -2.407333"
+    },
+    {
+      "id": "7eaaa011-67dd-4cca-a968-c78e6ed87149",
+      "title": "alert",
+      "published": "Tue Nov 3 17:54:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.465264 -2.625518"
     }
   ]
 }
