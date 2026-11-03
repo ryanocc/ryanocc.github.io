@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T17:20:48.523586+00:00",
+  "updatedAt": "2026-11-03T17:25:48.503210+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -60,6 +60,20 @@
       "point": "53.589809 -2.405455"
     },
     {
+      "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
+      "title": "alert",
+      "published": "Tue Nov 3 17:21:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.589245 -2.409781"
+    },
+    {
       "id": "4354b390-6e24-4c0b-ad8a-63b0af9a6bee",
       "title": "alert",
       "published": "Tue Nov 3 17:09:19 +0000 2026",
@@ -68,8 +82,8 @@
       "road": "A572 - Worsley Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.503219 -2.359901"
     }
