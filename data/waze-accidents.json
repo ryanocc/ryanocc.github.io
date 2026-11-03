@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T16:25:48.583516+00:00",
+  "updatedAt": "2026-11-03T16:30:48.458859+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -55,7 +55,7 @@
       "city": "Cheetham",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.508639 -2.241663"
     },
@@ -74,32 +74,46 @@
       "point": "53.523801 -2.430012"
     },
     {
-      "id": "8fadd50e-2b76-4d8e-b214-68ee2bb95dc7",
+      "id": "b30620e9-db30-41dd-9cb9-96ddaf40feff",
       "title": "alert",
-      "published": "Tue Nov 3 16:05:50 +0000 2026",
+      "published": "Tue Nov 3 16:29:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A5082 - Peel Ln",
       "city": "Little Hulton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.525967 -2.42777"
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.525984 -2.427753"
     },
     {
-      "id": "7fa373fc-635d-4c76-bdb0-8768fcf31118",
+      "id": "17112185-576f-47ca-aed2-d7e42b3ecbc1",
       "title": "alert",
-      "published": "Tue Nov 3 16:12:13 +0000 2026",
+      "published": "Tue Nov 3 16:27:37 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
+      "road": "A6042 - Trinity Way",
+      "city": "Ordsall",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.482549 -2.257837"
+    },
+    {
+      "id": "7d4a9264-1dc6-4330-aaa2-af356fab3316",
+      "title": "alert",
+      "published": "Tue Nov 3 16:29:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5081 - Park Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.589113 -2.405276"
+      "point": "53.458945 -2.337912"
     },
     {
       "id": "b8aee9cf-90ca-4c17-beb9-1758415b9483",
@@ -114,6 +128,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.585445 -2.427664"
+    },
+    {
+      "id": "7fa373fc-635d-4c76-bdb0-8768fcf31118",
+      "title": "alert",
+      "published": "Tue Nov 3 16:12:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.589113 -2.405276"
     }
   ]
 }
