@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T08:35:48.024701+00:00",
+  "updatedAt": "2026-11-03T08:40:48.304340+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "d9f199a3-1cec-47e4-92eb-963ce52f105f",
@@ -68,8 +68,8 @@
       "road": "Smethurst Ln",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 4.0,
       "point": "53.557299 -2.457331"
     },
@@ -86,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.502282 -2.193463"
+    },
+    {
+      "id": "c4758871-50e8-4440-9b66-419ae7c56cd3",
+      "title": "alert",
+      "published": "Tue Nov 3 08:40:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Rochdale Rd",
+      "city": "Collyhurst",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.497629 -2.220794"
     },
     {
       "id": "6954d77c-f2d1-4287-a953-c0b7fa5ece26",
