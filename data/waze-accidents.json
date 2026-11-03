@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T06:55:47.921535+00:00",
+  "updatedAt": "2026-11-03T07:00:48.122464+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -32,18 +32,18 @@
       "point": "53.521941 -2.48918"
     },
     {
-      "id": "3e97b9e5-7ae8-4891-a35f-8b2f93299ce1",
+      "id": "3865e513-ca64-49ae-9a53-b31e38404128",
       "title": "alert",
-      "published": "Tue Nov 3 06:54:00 +0000 2026",
+      "published": "Tue Nov 3 06:59:59 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "A57 - Dawson St",
-      "city": "",
+      "subtype": "",
+      "road": "A62 - Manchester Rd",
+      "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.473913 -2.260594"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.520768 -2.142805"
     },
     {
       "id": "df4bed6b-2d89-4d12-9cb0-bab89102ec5f",
@@ -60,20 +60,6 @@
       "point": "53.474508 -2.261074"
     },
     {
-      "id": "11d2908b-c810-4603-b8c9-ab0c245afe5e",
-      "title": "alert",
-      "published": "Tue Nov 3 06:53:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Regent Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.4758 -2.264294"
-    },
-    {
       "id": "f94804e8-60bb-4336-8110-5ee0533e75d9",
       "title": "alert",
       "published": "Tue Nov 3 06:47:17 +0000 2026",
@@ -82,10 +68,24 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548418 -2.259084"
+    },
+    {
+      "id": "996003ea-cc52-43cd-8b83-85f6a77223f0",
+      "title": "alert",
+      "published": "Tue Nov 3 07:00:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.549375 -2.259967"
     }
   ]
 }
