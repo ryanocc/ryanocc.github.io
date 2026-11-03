@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T19:05:48.066976+00:00",
+  "updatedAt": "2026-11-03T19:10:48.062928+00:00",
   "source": "Waze GeoRSS",
-  "count": 16,
+  "count": 15,
   "incidents": [
     {
       "id": "aa4070a0-e9d8-4f55-802b-5b7f4b21d7fe",
@@ -13,7 +13,7 @@
       "city": "Partington",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.418149 -2.415321"
     },
@@ -88,6 +88,20 @@
       "point": "53.412376 -2.280756"
     },
     {
+      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
+      "title": "alert",
+      "published": "Tue Nov 3 18:05:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.589906 -2.405107"
+    },
+    {
       "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
       "title": "alert",
       "published": "Tue Nov 3 17:21:14 +0000 2026",
@@ -102,20 +116,6 @@
       "point": "53.589245 -2.409781"
     },
     {
-      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
-      "title": "alert",
-      "published": "Tue Nov 3 18:05:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.589906 -2.405107"
-    },
-    {
       "id": "c83ed704-09f0-4cf1-a9c6-a2289479f1f6",
       "title": "alert",
       "published": "Tue Nov 3 18:39:08 +0000 2026",
@@ -128,20 +128,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.470429 -2.223557"
-    },
-    {
-      "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
-      "title": "alert",
-      "published": "Tue Nov 3 17:32:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6140 - Lord Sheldon Way",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.49053 -2.106237"
     },
     {
       "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
@@ -211,21 +197,21 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.491731 -2.656046"
+      "point": "53.492125 -2.656177"
     },
     {
-      "id": "5f4b1874-f21d-4876-a2cb-f8ea5ae67c34",
+      "id": "00e817fb-fc78-45a9-8e2f-cf2d7d62f35d",
       "title": "alert",
-      "published": "Tue Nov 3 19:05:10 +0000 2026",
+      "published": "Tue Nov 3 19:07:56 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M602 (E)",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.480606 -2.284813"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.488769 -2.654434"
     }
   ]
 }
