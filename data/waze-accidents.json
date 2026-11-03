@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T17:05:48.464221+00:00",
+  "updatedAt": "2026-11-03T17:10:48.506575+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -32,20 +32,6 @@
       "point": "53.517189 -2.094013"
     },
     {
-      "id": "a0cd0a9a-51ab-46ab-a9f0-8eff243b76e1",
-      "title": "alert",
-      "published": "Tue Nov 3 17:02:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.541269 -2.38842"
-    },
-    {
       "id": "846f02d5-6f74-4584-8dd5-763cc3aaf364",
       "title": "alert",
       "published": "Tue Nov 3 15:32:50 +0000 2026",
@@ -74,6 +60,20 @@
       "point": "53.589511 -2.407584"
     },
     {
+      "id": "4354b390-6e24-4c0b-ad8a-63b0af9a6bee",
+      "title": "alert",
+      "published": "Tue Nov 3 17:09:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A572 - Worsley Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.503219 -2.359901"
+    },
+    {
       "id": "421242c8-7fb6-4486-ba09-d544624b9244",
       "title": "alert",
       "published": "Tue Nov 3 16:37:16 +0000 2026",
@@ -86,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50328 -2.360481"
-    },
-    {
-      "id": "1d9b8680-6473-43d8-80ce-b59ba5964092",
-      "title": "alert",
-      "published": "Tue Nov 3 16:53:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5081 - Park Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.460561 -2.336045"
     }
   ]
 }
