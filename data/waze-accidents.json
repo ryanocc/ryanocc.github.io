@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T10:25:48.052304+00:00",
+  "updatedAt": "2026-11-03T10:30:48.087732+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.561439 -2.208601"
     },
     {
-      "id": "6424084d-dc0f-4371-867e-9b1e08740ffa",
-      "title": "alert",
-      "published": "Tue Nov 3 10:17:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A626 - Stockport Rd",
-      "city": "Marple",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.396482 -2.087622"
-    },
-    {
       "id": "e8d035df-96ef-42cf-af4b-c5be94acf9b0",
       "title": "alert",
       "published": "Tue Nov 3 08:43:12 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.524431 -2.172737"
+    },
+    {
+      "id": "04275994-954e-44fb-b6b5-b158eb5eed57",
+      "title": "alert",
+      "published": "Tue Nov 3 10:29:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.479419 -2.283011"
     }
   ]
 }
