@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T23:05:47.940678+00:00",
+  "updatedAt": "2026-11-03T23:10:48.069582+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 4,
   "incidents": [
     {
       "id": "b0c0e452-4ce5-420c-bd0d-0e2eb39026ca",
@@ -13,7 +13,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.421506 -2.548306"
     },
@@ -58,34 +58,6 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.479854 -2.152774"
-    },
-    {
-      "id": "5e4ded71-dbe7-4bf9-a91e-d7872989584e",
-      "title": "alert",
-      "published": "Tue Nov 3 22:39:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.509886 -2.673621"
-    },
-    {
-      "id": "a9ff1aaf-ee1b-4cce-9ffa-62c03edf042d",
-      "title": "alert",
-      "published": "Tue Nov 3 22:26:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.532789 -2.38349"
     }
   ]
 }
