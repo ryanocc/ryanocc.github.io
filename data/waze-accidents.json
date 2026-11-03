@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-03T09:45:48.155914+00:00",
+  "updatedAt": "2026-11-03T09:50:48.129998+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 6,
   "incidents": [
-    {
-      "id": "d9f199a3-1cec-47e4-92eb-963ce52f105f",
-      "title": "alert",
-      "published": "Tue Nov 3 08:27:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Lowcross Rd",
-      "city": "Newton Heath",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.500989 -2.19273"
-    },
     {
       "id": "52b19232-c3c7-4bbe-9261-9b40a26ad9b0",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.500469 -2.194694"
+    },
+    {
+      "id": "d9f199a3-1cec-47e4-92eb-963ce52f105f",
+      "title": "alert",
+      "published": "Tue Nov 3 08:27:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Lowcross Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.500989 -2.19273"
     },
     {
       "id": "c44c3c91-c270-4a7a-9c09-5f6bc1d12b63",
@@ -86,34 +86,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.599565 -2.692079"
-    },
-    {
-      "id": "859c4eef-99f0-42aa-8319-bff49980a161",
-      "title": "alert",
-      "published": "Tue Nov 3 07:42:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.496399 -2.384221"
-    },
-    {
-      "id": "71d23957-1780-4700-ae79-689b65fb12ee",
-      "title": "alert",
-      "published": "Tue Nov 3 09:15:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.663388 -2.309757"
     }
   ]
 }
