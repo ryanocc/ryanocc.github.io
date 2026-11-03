@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-03T12:30:47.783828+00:00",
+  "updatedAt": "2026-11-03T12:35:47.632687+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
+    {
+      "id": "bf60a390-6035-41a5-9c37-567490c7a448",
+      "title": "alert",
+      "published": "Tue Nov 3 12:20:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "B5214 - Trafford Blvd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.466465 -2.355976"
+    },
     {
       "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
       "title": "alert",
@@ -16,20 +30,6 @@
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.465506 -2.356382"
-    },
-    {
-      "id": "bf60a390-6035-41a5-9c37-567490c7a448",
-      "title": "alert",
-      "published": "Tue Nov 3 12:20:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "B5214 - Trafford Blvd",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.466465 -2.355976"
     },
     {
       "id": "4745707d-286c-45ca-975a-1881642b27c0",
@@ -69,7 +69,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.384647 -2.101144"
     }
