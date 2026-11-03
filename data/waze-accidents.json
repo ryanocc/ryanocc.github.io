@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T13:10:48.078195+00:00",
+  "updatedAt": "2026-11-03T13:15:48.200358+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
@@ -46,20 +46,6 @@
       "point": "53.464782 -2.356188"
     },
     {
-      "id": "2415d63c-b2ed-4324-b998-ce8932b7a3cb",
-      "title": "alert",
-      "published": "Tue Nov 3 13:04:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Bury Old Rd",
-      "city": "Sedgley Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.518714 -2.258641"
-    },
-    {
       "id": "d30fae89-689a-45d0-8076-2128667644af",
       "title": "alert",
       "published": "Tue Nov 3 13:04:16 +0000 2026",
@@ -68,10 +54,24 @@
       "road": "A665 - Bury Old Rd",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.51872 -2.258648"
+    },
+    {
+      "id": "2415d63c-b2ed-4324-b998-ce8932b7a3cb",
+      "title": "alert",
+      "published": "Tue Nov 3 13:04:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Bury Old Rd",
+      "city": "Sedgley Park",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.518714 -2.258641"
     },
     {
       "id": "2fd322b9-97a7-49fc-8e3d-52f254576695",
@@ -83,7 +83,7 @@
       "city": "Sedgley Park",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.52104 -2.261298"
     },
@@ -96,10 +96,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.45846 -2.339068"
+    },
+    {
+      "id": "82617448-2b3c-411f-aeb5-8736995ab1f8",
+      "title": "alert",
+      "published": "Tue Nov 3 13:15:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5081 - Park Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.458449 -2.338062"
     },
     {
       "id": "ca8e9a2c-eb24-41d7-8523-e1b4b60cecdc",
@@ -114,6 +128,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.477055 -2.21786"
+    },
+    {
+      "id": "cb59b16e-18cf-44ce-adc9-2279a95805ec",
+      "title": "alert",
+      "published": "Tue Nov 3 13:13:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.399499 -2.221955"
     }
   ]
 }
