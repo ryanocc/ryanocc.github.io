@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-03T09:20:48.150254+00:00",
+  "updatedAt": "2026-11-03T09:25:48.207773+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 10,
   "incidents": [
-    {
-      "id": "d9f199a3-1cec-47e4-92eb-963ce52f105f",
-      "title": "alert",
-      "published": "Tue Nov 3 08:27:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Lowcross Rd",
-      "city": "Newton Heath",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.500989 -2.19273"
-    },
     {
       "id": "52b19232-c3c7-4bbe-9261-9b40a26ad9b0",
       "title": "alert",
@@ -32,6 +18,20 @@
       "point": "53.500469 -2.194694"
     },
     {
+      "id": "d9f199a3-1cec-47e4-92eb-963ce52f105f",
+      "title": "alert",
+      "published": "Tue Nov 3 08:27:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Lowcross Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.500989 -2.19273"
+    },
+    {
       "id": "c44c3c91-c270-4a7a-9c09-5f6bc1d12b63",
       "title": "alert",
       "published": "Tue Nov 3 08:26:44 +0000 2026",
@@ -44,20 +44,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.561439 -2.208601"
-    },
-    {
-      "id": "c872fed3-3568-4235-95da-6983a2a6d8b4",
-      "title": "alert",
-      "published": "Tue Nov 3 08:24:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6393 - Thorpe Rd",
-      "city": "Moston",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.502282 -2.193463"
     },
     {
       "id": "1fa0b2a8-82cb-4ca4-9469-d86b24dc1d5b",
@@ -116,20 +102,6 @@
       "point": "53.591861 -2.25886"
     },
     {
-      "id": "7650a044-816c-4aa9-96f7-b5e889077313",
-      "title": "alert",
-      "published": "Tue Nov 3 09:17:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Yorkshire St",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.620962 -2.151566"
-    },
-    {
       "id": "ccc574f9-499f-4b53-b50d-fdeee37a253a",
       "title": "alert",
       "published": "Tue Nov 3 09:19:52 +0000 2026",
@@ -138,8 +110,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.599565 -2.692079"
     },
@@ -166,7 +138,7 @@
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.663388 -2.309757"
