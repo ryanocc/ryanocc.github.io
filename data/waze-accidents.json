@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T07:45:48.332858+00:00",
+  "updatedAt": "2026-11-03T07:50:48.270419+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "6db918ee-47e4-4ed7-b1b4-1d69d183b4ad",
@@ -30,20 +30,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.521941 -2.48918"
-    },
-    {
-      "id": "3609bc27-5300-4dd5-897e-e3092827abd9",
-      "title": "alert",
-      "published": "Tue Nov 3 07:44:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.422256 -2.258485"
     },
     {
       "id": "4a3604ba-7997-415c-81f0-b9a691281da4",
@@ -86,6 +72,34 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.549375 -2.259967"
+    },
+    {
+      "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
+      "title": "alert",
+      "published": "Tue Nov 3 07:50:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.591361 -2.272012"
+    },
+    {
+      "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
+      "title": "alert",
+      "published": "Tue Nov 3 07:48:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.593177 -2.271029"
     }
   ]
 }
