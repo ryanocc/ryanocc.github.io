@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T09:15:48.250569+00:00",
+  "updatedAt": "2026-11-03T09:20:48.150254+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -88,20 +88,6 @@
       "point": "53.524431 -2.172737"
     },
     {
-      "id": "c4758871-50e8-4440-9b66-419ae7c56cd3",
-      "title": "alert",
-      "published": "Tue Nov 3 08:40:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Rochdale Rd",
-      "city": "Collyhurst",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.497629 -2.220794"
-    },
-    {
       "id": "6954d77c-f2d1-4287-a953-c0b7fa5ece26",
       "title": "alert",
       "published": "Tue Nov 3 08:20:12 +0000 2026",
@@ -130,6 +116,34 @@
       "point": "53.591861 -2.25886"
     },
     {
+      "id": "7650a044-816c-4aa9-96f7-b5e889077313",
+      "title": "alert",
+      "published": "Tue Nov 3 09:17:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Yorkshire St",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.620962 -2.151566"
+    },
+    {
+      "id": "ccc574f9-499f-4b53-b50d-fdeee37a253a",
+      "title": "alert",
+      "published": "Tue Nov 3 09:19:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.599565 -2.692079"
+    },
+    {
       "id": "859c4eef-99f0-42aa-8319-bff49980a161",
       "title": "alert",
       "published": "Tue Nov 3 07:42:37 +0000 2026",
@@ -144,20 +158,6 @@
       "point": "53.496399 -2.384221"
     },
     {
-      "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
-      "title": "alert",
-      "published": "Tue Nov 3 07:50:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.591431 -2.27198"
-    },
-    {
       "id": "71d23957-1780-4700-ae79-689b65fb12ee",
       "title": "alert",
       "published": "Tue Nov 3 09:15:26 +0000 2026",
@@ -166,8 +166,8 @@
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.663388 -2.309757"
     }
