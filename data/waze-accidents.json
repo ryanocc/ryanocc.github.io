@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T16:35:48.501559+00:00",
+  "updatedAt": "2026-11-03T16:40:48.380733+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 11,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -74,6 +74,20 @@
       "point": "53.523801 -2.430012"
     },
     {
+      "id": "421242c8-7fb6-4486-ba09-d544624b9244",
+      "title": "alert",
+      "published": "Tue Nov 3 16:37:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A572 - Worsley Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.50328 -2.360481"
+    },
+    {
       "id": "b30620e9-db30-41dd-9cb9-96ddaf40feff",
       "title": "alert",
       "published": "Tue Nov 3 16:29:43 +0000 2026",
@@ -88,6 +102,20 @@
       "point": "53.525984 -2.427753"
     },
     {
+      "id": "773f5513-6882-48c2-884f-98aa5d3adba2",
+      "title": "alert",
+      "published": "Tue Nov 3 16:38:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5081 - Park Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.459424 -2.33743"
+    },
+    {
       "id": "7fa373fc-635d-4c76-bdb0-8768fcf31118",
       "title": "alert",
       "published": "Tue Nov 3 16:12:13 +0000 2026",
@@ -96,10 +124,24 @@
       "road": "A58 - Crompton Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.589113 -2.405276"
+    },
+    {
+      "id": "ed5582dc-f8cc-4495-9e31-6ec1cec70383",
+      "title": "alert",
+      "published": "Tue Nov 3 16:38:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A676 - Moor Ln",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.578259 -2.434658"
     },
     {
       "id": "89a303c7-5d0d-4441-be85-e81e40c2f3a4",
@@ -110,8 +152,8 @@
       "road": "A635 - Manchester Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.480202 -2.121418"
     }
