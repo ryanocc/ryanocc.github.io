@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T08:55:48.358498+00:00",
+  "updatedAt": "2026-11-03T09:00:48.364299+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "52b19232-c3c7-4bbe-9261-9b40a26ad9b0",
@@ -12,8 +12,8 @@
       "road": "Eldrige Dr",
       "city": "Newton Heath",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.500469 -2.194694"
     },
@@ -46,20 +46,6 @@
       "point": "53.561439 -2.208601"
     },
     {
-      "id": "eee10d0b-f0a9-4db5-b728-f0842a292c70",
-      "title": "alert",
-      "published": "Tue Nov 3 06:53:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Hamilton St",
-      "city": "Atherton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.521941 -2.48918"
-    },
-    {
       "id": "d727a36d-f5aa-45c6-99bb-9c2bdcf83a7e",
       "title": "alert",
       "published": "Tue Nov 3 08:34:39 +0000 2026",
@@ -68,8 +54,8 @@
       "road": "Smethurst Ln",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 4.0,
       "point": "53.557299 -2.457331"
     },
@@ -96,8 +82,8 @@
       "road": "B6194 - Higginshaw Ln",
       "city": "Royton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.558886 -2.103936"
     },
@@ -125,7 +111,7 @@
       "city": "Collyhurst",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.497629 -2.220794"
     },
@@ -144,6 +130,20 @@
       "point": "53.50143 -2.193533"
     },
     {
+      "id": "09b8c216-9fd9-4723-bfc4-3f7ad4037502",
+      "title": "alert",
+      "published": "Tue Nov 3 08:59:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Bury New Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.591861 -2.25886"
+    },
+    {
       "id": "859c4eef-99f0-42aa-8319-bff49980a161",
       "title": "alert",
       "published": "Tue Nov 3 07:42:37 +0000 2026",
@@ -156,6 +156,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.496399 -2.384221"
+    },
+    {
+      "id": "f260d211-7754-4a25-ba09-5b55ec48a85e",
+      "title": "alert",
+      "published": "Tue Nov 3 08:56:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.546559 -2.256712"
     },
     {
       "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
