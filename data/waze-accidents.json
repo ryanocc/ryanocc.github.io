@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T18:35:48.174070+00:00",
+  "updatedAt": "2026-11-03T18:40:48.291630+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 16,
   "incidents": [
     {
       "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
@@ -60,20 +60,6 @@
       "point": "53.517189 -2.094013"
     },
     {
-      "id": "64e2d8c2-988f-4e4c-a3c4-c8f777b9ca66",
-      "title": "alert",
-      "published": "Tue Nov 3 18:09:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5166 - Sale Rd",
-      "city": "Northern Moor",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.411328 -2.278049"
-    },
-    {
       "id": "c3afd4bb-1285-4f6d-92db-eff97eca2af3",
       "title": "alert",
       "published": "Tue Nov 3 17:39:43 +0000 2026",
@@ -88,18 +74,32 @@
       "point": "53.412376 -2.280756"
     },
     {
-      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
+      "id": "a69f9f40-9b2d-49b3-b805-985f08bd0116",
       "title": "alert",
-      "published": "Tue Nov 3 18:05:26 +0000 2026",
+      "published": "Tue Nov 3 18:36:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
+      "road": "B5095 - Manchester Rd",
+      "city": "Cheadle",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.395533 -2.213067"
+    },
+    {
+      "id": "64e2d8c2-988f-4e4c-a3c4-c8f777b9ca66",
+      "title": "alert",
+      "published": "Tue Nov 3 18:09:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5166 - Sale Rd",
+      "city": "Northern Moor",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.589906 -2.405107"
+      "point": "53.411328 -2.278049"
     },
     {
       "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
@@ -116,6 +116,34 @@
       "point": "53.589245 -2.409781"
     },
     {
+      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
+      "title": "alert",
+      "published": "Tue Nov 3 18:05:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.589906 -2.405107"
+    },
+    {
+      "id": "c83ed704-09f0-4cf1-a9c6-a2289479f1f6",
+      "title": "alert",
+      "published": "Tue Nov 3 18:39:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ardwick",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.470429 -2.223557"
+    },
+    {
       "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
       "title": "alert",
       "published": "Tue Nov 3 17:32:25 +0000 2026",
@@ -130,20 +158,6 @@
       "point": "53.49053 -2.106237"
     },
     {
-      "id": "58027819-682d-4768-b368-b418e75c8553",
-      "title": "alert",
-      "published": "Tue Nov 3 17:31:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A62 - Huddersfield Rd",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.548435 -2.08435"
-    },
-    {
       "id": "803b2c14-a3c9-41ee-a987-13609111e7d5",
       "title": "alert",
       "published": "Tue Nov 3 18:33:48 +0000 2026",
@@ -152,10 +166,24 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.406112 -2.267759"
+    },
+    {
+      "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
+      "title": "alert",
+      "published": "Tue Nov 3 18:36:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.589243 -2.405396"
     },
     {
       "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
@@ -181,23 +209,23 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.357245 -2.50778"
     },
     {
-      "id": "ab3430cb-1d1a-4345-99b1-79aff9c111d4",
+      "id": "a0a4230d-21ff-4108-85d4-4d6d19bfa0b1",
       "title": "alert",
-      "published": "Tue Nov 3 18:29:31 +0000 2026",
+      "published": "Tue Nov 3 18:39:47 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (ACW)",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.537688 -2.293454"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.464926 -2.624671"
     }
   ]
 }
