@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T15:50:48.330562+00:00",
+  "updatedAt": "2026-11-03T15:55:48.392538+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "846f02d5-6f74-4584-8dd5-763cc3aaf364",
@@ -12,10 +12,24 @@
       "road": "Thicketford Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.589809 -2.405455"
+    },
+    {
+      "id": "9f671c25-521e-4e8a-915e-66e723427e49",
+      "title": "alert",
+      "published": "Tue Nov 3 15:54:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5082 - Mort Ln",
+      "city": "Tyldesley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.523801 -2.430012"
     }
   ]
 }
