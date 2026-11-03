@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T17:35:48.472982+00:00",
+  "updatedAt": "2026-11-03T17:40:48.449366+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 14,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -32,18 +32,18 @@
       "point": "53.517189 -2.094013"
     },
     {
-      "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
+      "id": "c3afd4bb-1285-4f6d-92db-eff97eca2af3",
       "title": "alert",
-      "published": "Tue Nov 3 17:21:14 +0000 2026",
+      "published": "Tue Nov 3 17:39:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
+      "road": "B5166 - Sale Rd",
+      "city": "Northern Moor",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.589245 -2.409781"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.412376 -2.280756"
     },
     {
       "id": "341d9097-63df-4e67-ad79-b3718efb7644",
@@ -54,10 +54,24 @@
       "road": "Thicketford Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.589511 -2.407584"
+    },
+    {
+      "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
+      "title": "alert",
+      "published": "Tue Nov 3 17:21:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.589245 -2.409781"
     },
     {
       "id": "4354b390-6e24-4c0b-ad8a-63b0af9a6bee",
@@ -96,8 +110,8 @@
       "road": "A6044 - Scholes Ln",
       "city": "Prestwich",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.524185 -2.275659"
     },
@@ -110,8 +124,8 @@
       "road": "A6140 - Lord Sheldon Way",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.490561 -2.105248"
     },
@@ -125,7 +139,7 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.548435 -2.08435"
     },
@@ -138,7 +152,7 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.403069 -2.267889"
@@ -152,8 +166,8 @@
       "road": "A572 - Worsley Brow",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.502254 -2.385762"
     },
@@ -166,10 +180,24 @@
       "road": "A58 - Crompton Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.589166 -2.405325"
+    },
+    {
+      "id": "ce888f4d-c9cd-4060-b013-9bb5ff04f86b",
+      "title": "alert",
+      "published": "Tue Nov 3 17:38:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - London Rd",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.473955 -2.229793"
     }
   ]
 }
