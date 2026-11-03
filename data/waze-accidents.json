@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T08:00:48.312413+00:00",
+  "updatedAt": "2026-11-03T08:05:48.382974+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -40,8 +40,8 @@
       "road": "A49 - Warrington Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.529524 -2.654738"
     },
@@ -74,6 +74,20 @@
       "point": "53.493917 -2.382843"
     },
     {
+      "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
+      "title": "alert",
+      "published": "Tue Nov 3 07:50:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.591361 -2.272012"
+    },
+    {
       "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
       "title": "alert",
       "published": "Tue Nov 3 07:48:20 +0000 2026",
@@ -86,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.592122 -2.271499"
-    },
-    {
-      "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
-      "title": "alert",
-      "published": "Tue Nov 3 07:50:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.591361 -2.272012"
     }
   ]
 }
