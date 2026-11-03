@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T23:25:47.973376+00:00",
+  "updatedAt": "2026-11-03T23:30:48.119821+00:00",
   "source": "Waze GeoRSS",
   "count": 3,
   "incidents": [
@@ -18,20 +18,6 @@
       "point": "53.421506 -2.548306"
     },
     {
-      "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
-      "title": "alert",
-      "published": "Tue Nov 3 19:35:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "B5095 - Wilmslow Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.408609 -2.220243"
-    },
-    {
       "id": "00aeb541-5cf5-4a15-bcab-83aa4f1a8d41",
       "title": "alert",
       "published": "Tue Nov 3 21:39:51 +0000 2026",
@@ -44,6 +30,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.479854 -2.152774"
+    },
+    {
+      "id": "993c9443-0933-445d-938f-634d159bbc07",
+      "title": "alert",
+      "published": "Tue Nov 3 23:30:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A6042 - Trinity Way",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.488643 -2.245229"
     }
   ]
 }
