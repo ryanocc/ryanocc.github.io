@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-03T18:50:48.147855+00:00",
+  "updatedAt": "2026-11-03T18:55:48.229943+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 13,
   "incidents": [
+    {
+      "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
+      "title": "alert",
+      "published": "Tue Nov 3 18:26:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Houseman Cr",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.427199 -2.2455"
+    },
     {
       "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
       "title": "alert",
@@ -18,20 +32,6 @@
       "point": "53.41207 -2.280721"
     },
     {
-      "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
-      "title": "alert",
-      "published": "Tue Nov 3 18:26:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Houseman Cr",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.427199 -2.2455"
-    },
-    {
       "id": "19840d93-2d1b-4380-87b5-0734d83a0629",
       "title": "alert",
       "published": "Tue Nov 3 17:52:55 +0000 2026",
@@ -44,20 +44,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.490767 -2.232028"
-    },
-    {
-      "id": "95d24818-c3bd-4150-b317-2a1ec9054bd2",
-      "title": "alert",
-      "published": "Tue Nov 3 16:47:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Waggon Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.517189 -2.094013"
     },
     {
       "id": "c3afd4bb-1285-4f6d-92db-eff97eca2af3",
@@ -184,20 +170,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.586854 -2.403509"
-    },
-    {
-      "id": "f6305d76-ebc1-4a01-84e9-0bcfe5c289a9",
-      "title": "alert",
-      "published": "Tue Nov 3 18:33:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 > Preston",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.357245 -2.50778"
     },
     {
       "id": "a0a4230d-21ff-4108-85d4-4d6d19bfa0b1",
