@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T07:00:48.122464+00:00",
+  "updatedAt": "2026-11-03T07:05:48.019429+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "6db918ee-47e4-4ed7-b1b4-1d69d183b4ad",
@@ -41,23 +41,9 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.520768 -2.142805"
-    },
-    {
-      "id": "df4bed6b-2d89-4d12-9cb0-bab89102ec5f",
-      "title": "alert",
-      "published": "Tue Nov 3 06:48:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Dawson St",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.474508 -2.261074"
     },
     {
       "id": "f94804e8-60bb-4336-8110-5ee0533e75d9",
@@ -68,7 +54,7 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548418 -2.259084"
@@ -82,8 +68,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.549375 -2.259967"
     }
