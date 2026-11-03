@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-11-03T12:50:47.687556+00:00",
+  "updatedAt": "2026-11-03T12:55:48.048503+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
-      "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
+      "id": "358c9d93-17e4-479a-bb76-798916d1fb82",
       "title": "alert",
-      "published": "Tue Nov 3 11:48:54 +0000 2026",
+      "published": "Tue Nov 3 12:51:11 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5214 - Trafford Blvd",
-      "city": "Trafford Park",
+      "subtype": "",
+      "road": "The Linkway",
+      "city": "Horwich",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.582247 -2.540977"
+    },
+    {
+      "id": "4745707d-286c-45ca-975a-1881642b27c0",
+      "title": "alert",
+      "published": "Tue Nov 3 11:44:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 > Stockport",
+      "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.465506 -2.356382"
+      "reportRating": 1.0,
+      "point": "53.464782 -2.356188"
     },
     {
       "id": "bf60a390-6035-41a5-9c37-567490c7a448",
@@ -32,18 +46,18 @@
       "point": "53.466465 -2.355976"
     },
     {
-      "id": "4745707d-286c-45ca-975a-1881642b27c0",
+      "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
       "title": "alert",
-      "published": "Tue Nov 3 11:44:02 +0000 2026",
+      "published": "Tue Nov 3 11:48:54 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 > Stockport",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5214 - Trafford Blvd",
+      "city": "Trafford Park",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.464782 -2.356188"
+      "reportRating": 5.0,
+      "point": "53.465506 -2.356382"
     },
     {
       "id": "ca8e9a2c-eb24-41d7-8523-e1b4b60cecdc",
