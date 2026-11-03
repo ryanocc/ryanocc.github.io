@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T20:00:47.971119+00:00",
+  "updatedAt": "2026-11-03T20:05:47.900956+00:00",
   "source": "Waze GeoRSS",
-  "count": 19,
+  "count": 20,
   "incidents": [
     {
       "id": "aa4070a0-e9d8-4f55-802b-5b7f4b21d7fe",
@@ -60,18 +60,18 @@
       "point": "53.368605 -2.27642"
     },
     {
-      "id": "2614e721-341a-4d04-bb99-b6b3f24ea2ba",
+      "id": "4b7d03ec-ea98-4123-8ab4-2f961d055cd5",
       "title": "alert",
-      "published": "Tue Nov 3 19:54:53 +0000 2026",
+      "published": "Tue Nov 3 19:41:25 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "B5095 - Wilmslow Rd",
+      "road": "",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.408039 -2.219939"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.408619 -2.220122"
     },
     {
       "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
@@ -88,18 +88,18 @@
       "point": "53.408609 -2.220243"
     },
     {
-      "id": "4b7d03ec-ea98-4123-8ab4-2f961d055cd5",
+      "id": "2614e721-341a-4d04-bb99-b6b3f24ea2ba",
       "title": "alert",
-      "published": "Tue Nov 3 19:41:25 +0000 2026",
+      "published": "Tue Nov 3 19:54:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "",
+      "road": "B5095 - Wilmslow Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.408619 -2.220122"
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.408039 -2.219939"
     },
     {
       "id": "64e2d8c2-988f-4e4c-a3c4-c8f777b9ca66",
@@ -172,18 +172,32 @@
       "point": "53.470429 -2.223557"
     },
     {
-      "id": "2626d48d-17ac-4534-9eda-b83f4edca1e7",
+      "id": "daf71eaf-d26e-4b74-af7b-302ad2abbf23",
       "title": "alert",
-      "published": "Tue Nov 3 19:57:17 +0000 2026",
+      "published": "Tue Nov 3 20:03:03 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6045 - Heywood Old Rd",
-      "city": "Bowlee",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.472318 -2.257125"
+    },
+    {
+      "id": "bda95de7-0427-4536-b0d8-c71cc8b856b6",
+      "title": "alert",
+      "published": "Tue Nov 3 20:04:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6140 - Lord Sheldon Way",
+      "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.553331 -2.237137"
+      "point": "53.490523 -2.106481"
     },
     {
       "id": "468e19ec-2fcb-4e46-8069-9d9ee88d9f2d",
@@ -198,20 +212,6 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.40885 -2.220575"
-    },
-    {
-      "id": "ec04617a-56dc-475e-9f89-783f31a6370f",
-      "title": "alert",
-      "published": "Tue Nov 3 18:50:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.586854 -2.403509"
     },
     {
       "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
@@ -256,6 +256,20 @@
       "point": "53.589429 -2.405569"
     },
     {
+      "id": "ec04617a-56dc-475e-9f89-783f31a6370f",
+      "title": "alert",
+      "published": "Tue Nov 3 18:50:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.586854 -2.403509"
+    },
+    {
       "id": "228a5c58-ebbb-450d-b615-b2641fd6e1b8",
       "title": "alert",
       "published": "Tue Nov 3 19:59:30 +0000 2026",
@@ -264,8 +278,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492212 -2.656205"
     }
