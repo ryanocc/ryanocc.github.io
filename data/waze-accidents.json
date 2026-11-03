@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T17:25:48.503210+00:00",
+  "updatedAt": "2026-11-03T17:30:48.455679+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 9,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -40,24 +40,10 @@
       "road": "Thicketford Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.589511 -2.407584"
-    },
-    {
-      "id": "846f02d5-6f74-4584-8dd5-763cc3aaf364",
-      "title": "alert",
-      "published": "Tue Nov 3 15:32:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.589809 -2.405455"
     },
     {
       "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
@@ -68,8 +54,8 @@
       "road": "Thicketford Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.589245 -2.409781"
     },
@@ -83,9 +69,65 @@
       "city": "Worsley",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.503219 -2.359901"
+    },
+    {
+      "id": "fab5facc-c20d-44ee-bc9f-5c47ca3ac790",
+      "title": "alert",
+      "published": "Tue Nov 3 17:29:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6042 - Corporation St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.486932 -2.240782"
+    },
+    {
+      "id": "cc1f0dc2-3bef-41f4-b249-17a47a8053c0",
+      "title": "alert",
+      "published": "Tue Nov 3 17:30:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6044 - Scholes Ln",
+      "city": "Prestwich",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.524185 -2.275659"
+    },
+    {
+      "id": "032b2af1-e100-4d39-91d5-c3da49eb40da",
+      "title": "alert",
+      "published": "Tue Nov 3 17:30:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.406204 -2.267754"
+    },
+    {
+      "id": "9b8deddd-6c34-414e-ad5c-bd85fdf514e1",
+      "title": "alert",
+      "published": "Tue Nov 3 17:29:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.589166 -2.405325"
     }
   ]
 }
