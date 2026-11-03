@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T10:30:48.087732+00:00",
+  "updatedAt": "2026-11-03T10:35:47.962218+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.500989 -2.19273"
-    },
-    {
-      "id": "c44c3c91-c270-4a7a-9c09-5f6bc1d12b63",
-      "title": "alert",
-      "published": "Tue Nov 3 08:26:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Crummock Dr",
-      "city": "Middleton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.561439 -2.208601"
     },
     {
       "id": "e8d035df-96ef-42cf-af4b-c5be94acf9b0",
@@ -54,10 +40,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.479419 -2.283011"
+    },
+    {
+      "id": "87174825-944b-4e1e-87ee-4b1d3ff7de00",
+      "title": "alert",
+      "published": "Tue Nov 3 10:30:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "M61 (N) - Kearsley Spur",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.534983 -2.390921"
     }
   ]
 }
