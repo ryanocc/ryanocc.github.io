@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T20:25:48.153012+00:00",
+  "updatedAt": "2026-11-03T20:30:48.023984+00:00",
   "source": "Waze GeoRSS",
-  "count": 19,
+  "count": 21,
   "incidents": [
     {
       "id": "aa4070a0-e9d8-4f55-802b-5b7f4b21d7fe",
@@ -18,20 +18,6 @@
       "point": "53.418149 -2.415321"
     },
     {
-      "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
-      "title": "alert",
-      "published": "Tue Nov 3 18:26:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Houseman Cr",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.427199 -2.2455"
-    },
-    {
       "id": "5daac618-7ff1-425e-9e2c-12fd52ee2433",
       "title": "alert",
       "published": "Tue Nov 3 19:43:48 +0000 2026",
@@ -44,6 +30,34 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.515212 -2.279821"
+    },
+    {
+      "id": "2614e721-341a-4d04-bb99-b6b3f24ea2ba",
+      "title": "alert",
+      "published": "Tue Nov 3 19:54:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5095 - Wilmslow Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.408039 -2.219939"
+    },
+    {
+      "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
+      "title": "alert",
+      "published": "Tue Nov 3 19:35:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "B5095 - Wilmslow Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.408609 -2.220243"
     },
     {
       "id": "4b7d03ec-ea98-4123-8ab4-2f961d055cd5",
@@ -68,38 +82,10 @@
       "road": "B5095 - Wilmslow Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.407564 -2.219719"
-    },
-    {
-      "id": "2614e721-341a-4d04-bb99-b6b3f24ea2ba",
-      "title": "alert",
-      "published": "Tue Nov 3 19:54:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5095 - Wilmslow Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.408039 -2.219939"
-    },
-    {
-      "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
-      "title": "alert",
-      "published": "Tue Nov 3 19:35:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "B5095 - Wilmslow Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.408609 -2.220243"
     },
     {
       "id": "64d78b1a-38ad-4a38-9b38-7d9e2f37737e",
@@ -172,18 +158,18 @@
       "point": "53.472318 -2.257125"
     },
     {
-      "id": "d43da1c0-c78d-4a07-98cc-0de878810422",
+      "id": "47843f99-b640-4bae-bc2b-c978fba8b792",
       "title": "alert",
-      "published": "Tue Nov 3 20:08:40 +0000 2026",
+      "published": "Tue Nov 3 20:28:53 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (S) - Kingsway",
-      "city": "Didsbury",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Chester Rd",
+      "city": "Hulme",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.409208 -2.220163"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.472261 -2.257017"
     },
     {
       "id": "468e19ec-2fcb-4e46-8069-9d9ee88d9f2d",
@@ -198,6 +184,48 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.40885 -2.220575"
+    },
+    {
+      "id": "d43da1c0-c78d-4a07-98cc-0de878810422",
+      "title": "alert",
+      "published": "Tue Nov 3 20:08:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Kingsway",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.409208 -2.220163"
+    },
+    {
+      "id": "24c9076b-24b9-46c2-96dc-010e2663fc0d",
+      "title": "alert",
+      "published": "Tue Nov 3 20:29:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (N) - Kingsway",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.408182 -2.220983"
+    },
+    {
+      "id": "ec04617a-56dc-475e-9f89-783f31a6370f",
+      "title": "alert",
+      "published": "Tue Nov 3 18:50:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.586854 -2.403509"
     },
     {
       "id": "98298d8d-444f-43c8-8c02-2ddc6e2f56de",
@@ -242,20 +270,6 @@
       "point": "53.590243 -2.406336"
     },
     {
-      "id": "ec04617a-56dc-475e-9f89-783f31a6370f",
-      "title": "alert",
-      "published": "Tue Nov 3 18:50:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.586854 -2.403509"
-    },
-    {
       "id": "228a5c58-ebbb-450d-b615-b2641fd6e1b8",
       "title": "alert",
       "published": "Tue Nov 3 19:59:30 +0000 2026",
@@ -268,6 +282,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492212 -2.656205"
+    },
+    {
+      "id": "f4183e9c-03d6-4292-be52-2430d6c545e7",
+      "title": "alert",
+      "published": "Tue Nov 3 20:27:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.524734 -2.351546"
     }
   ]
 }
