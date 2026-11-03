@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T19:15:48.075573+00:00",
+  "updatedAt": "2026-11-03T19:20:48.071548+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 17,
   "incidents": [
     {
       "id": "aa4070a0-e9d8-4f55-802b-5b7f4b21d7fe",
@@ -18,20 +18,6 @@
       "point": "53.418149 -2.415321"
     },
     {
-      "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
-      "title": "alert",
-      "published": "Tue Nov 3 17:43:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Orton Rd",
-      "city": "Northern Moor",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.41207 -2.280721"
-    },
-    {
       "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
       "title": "alert",
       "published": "Tue Nov 3 18:26:20 +0000 2026",
@@ -44,6 +30,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.427199 -2.2455"
+    },
+    {
+      "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
+      "title": "alert",
+      "published": "Tue Nov 3 17:43:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Orton Rd",
+      "city": "Northern Moor",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.41207 -2.280721"
     },
     {
       "id": "19840d93-2d1b-4380-87b5-0734d83a0629",
@@ -88,6 +88,34 @@
       "point": "53.411328 -2.278049"
     },
     {
+      "id": "64d78b1a-38ad-4a38-9b38-7d9e2f37737e",
+      "title": "alert",
+      "published": "Tue Nov 3 19:18:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 > Preston",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.487611 -2.654302"
+    },
+    {
+      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
+      "title": "alert",
+      "published": "Tue Nov 3 18:05:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.589906 -2.405107"
+    },
+    {
       "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
       "title": "alert",
       "published": "Tue Nov 3 17:21:14 +0000 2026",
@@ -102,20 +130,6 @@
       "point": "53.589245 -2.409781"
     },
     {
-      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
-      "title": "alert",
-      "published": "Tue Nov 3 18:05:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.589906 -2.405107"
-    },
-    {
       "id": "c83ed704-09f0-4cf1-a9c6-a2289479f1f6",
       "title": "alert",
       "published": "Tue Nov 3 18:39:08 +0000 2026",
@@ -128,6 +142,34 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.470429 -2.223557"
+    },
+    {
+      "id": "63991f2b-121b-42c5-bed8-8492d479c024",
+      "title": "alert",
+      "published": "Tue Nov 3 19:17:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6140 - Lord Sheldon Way",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.490486 -2.107743"
+    },
+    {
+      "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
+      "title": "alert",
+      "published": "Tue Nov 3 18:22:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.590243 -2.406336"
     },
     {
       "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
@@ -158,20 +200,6 @@
       "point": "53.589429 -2.405569"
     },
     {
-      "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
-      "title": "alert",
-      "published": "Tue Nov 3 18:22:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.590243 -2.406336"
-    },
-    {
       "id": "ec04617a-56dc-475e-9f89-783f31a6370f",
       "title": "alert",
       "published": "Tue Nov 3 18:50:02 +0000 2026",
@@ -184,6 +212,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.586854 -2.403509"
+    },
+    {
+      "id": "cec97f26-2839-4dc0-a0d9-e6852f24511c",
+      "title": "alert",
+      "published": "Tue Nov 3 19:20:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.489848 -2.655132"
     },
     {
       "id": "00e817fb-fc78-45a9-8e2f-cf2d7d62f35d",
