@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T16:55:48.466770+00:00",
+  "updatedAt": "2026-11-03T17:00:48.408023+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -60,20 +60,6 @@
       "point": "53.589511 -2.407584"
     },
     {
-      "id": "ad0ae76f-17f1-4e4d-ad78-136077ffb292",
-      "title": "alert",
-      "published": "Tue Nov 3 16:51:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Hale Rd",
-      "city": "Hale Barns",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.370458 -2.315879"
-    },
-    {
       "id": "421242c8-7fb6-4486-ba09-d544624b9244",
       "title": "alert",
       "published": "Tue Nov 3 16:37:16 +0000 2026",
@@ -96,24 +82,24 @@
       "road": "A5081 - Park Way",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.460561 -2.336045"
     },
     {
-      "id": "7fa373fc-635d-4c76-bdb0-8768fcf31118",
+      "id": "0fc6f5fc-9b3d-477b-91fc-8f777f0b5b15",
       "title": "alert",
-      "published": "Tue Nov 3 16:12:13 +0000 2026",
+      "published": "Tue Nov 3 16:56:07 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
+      "road": "A5081 - Park Way",
+      "city": "Trafford Park",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.589113 -2.405276"
+      "point": "53.459077 -2.337777"
     }
   ]
 }
