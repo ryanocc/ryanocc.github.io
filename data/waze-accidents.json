@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T17:55:48.428911+00:00",
+  "updatedAt": "2026-11-03T18:00:48.342668+00:00",
   "source": "Waze GeoRSS",
-  "count": 17,
+  "count": 12,
   "incidents": [
     {
       "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
@@ -74,6 +74,20 @@
       "point": "53.412376 -2.280756"
     },
     {
+      "id": "341d9097-63df-4e67-ad79-b3718efb7644",
+      "title": "alert",
+      "published": "Tue Nov 3 16:11:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.589511 -2.407584"
+    },
+    {
       "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
       "title": "alert",
       "published": "Tue Nov 3 17:21:14 +0000 2026",
@@ -88,34 +102,6 @@
       "point": "53.589245 -2.409781"
     },
     {
-      "id": "341d9097-63df-4e67-ad79-b3718efb7644",
-      "title": "alert",
-      "published": "Tue Nov 3 16:11:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.589511 -2.407584"
-    },
-    {
-      "id": "bfdae9ee-ba33-4d80-8ee2-3e9797a4a2df",
-      "title": "alert",
-      "published": "Tue Nov 3 17:55:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6222 - Bury And Rochdale Old Rd",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.605286 -2.217078"
-    },
-    {
       "id": "4354b390-6e24-4c0b-ad8a-63b0af9a6bee",
       "title": "alert",
       "published": "Tue Nov 3 17:09:19 +0000 2026",
@@ -124,38 +110,10 @@
       "road": "A572 - Worsley Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.503219 -2.359901"
-    },
-    {
-      "id": "cc1f0dc2-3bef-41f4-b249-17a47a8053c0",
-      "title": "alert",
-      "published": "Tue Nov 3 17:30:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6044 - Scholes Ln",
-      "city": "Prestwich",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.524185 -2.275659"
-    },
-    {
-      "id": "fab5facc-c20d-44ee-bc9f-5c47ca3ac790",
-      "title": "alert",
-      "published": "Tue Nov 3 17:29:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6042 - Corporation St",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.486932 -2.240782"
     },
     {
       "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
@@ -181,37 +139,9 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548435 -2.08435"
-    },
-    {
-      "id": "473a7118-bcb1-4a12-b944-1de694fa911a",
-      "title": "alert",
-      "published": "Tue Nov 3 17:46:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.404098 -2.267738"
-    },
-    {
-      "id": "5675a070-d4a0-4c1f-8555-77b27ea3d206",
-      "title": "alert",
-      "published": "Tue Nov 3 17:43:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.407378 -2.267259"
     },
     {
       "id": "3894a092-a868-4c61-9274-909c4b6049af",
@@ -223,7 +153,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.592298 -2.407333"
     },
@@ -236,8 +166,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.465264 -2.625518"
     }
