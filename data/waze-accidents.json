@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T16:30:48.458859+00:00",
+  "updatedAt": "2026-11-03T16:35:48.501559+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -83,51 +83,9 @@
       "city": "Little Hulton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.525984 -2.427753"
-    },
-    {
-      "id": "17112185-576f-47ca-aed2-d7e42b3ecbc1",
-      "title": "alert",
-      "published": "Tue Nov 3 16:27:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6042 - Trinity Way",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.482549 -2.257837"
-    },
-    {
-      "id": "7d4a9264-1dc6-4330-aaa2-af356fab3316",
-      "title": "alert",
-      "published": "Tue Nov 3 16:29:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5081 - Park Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.458945 -2.337912"
-    },
-    {
-      "id": "b8aee9cf-90ca-4c17-beb9-1758415b9483",
-      "title": "alert",
-      "published": "Tue Nov 3 16:15:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 (S) - Kay St",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.585445 -2.427664"
+      "point": "53.525984 -2.427753"
     },
     {
       "id": "7fa373fc-635d-4c76-bdb0-8768fcf31118",
@@ -138,10 +96,24 @@
       "road": "A58 - Crompton Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.589113 -2.405276"
+    },
+    {
+      "id": "89a303c7-5d0d-4441-be85-e81e40c2f3a4",
+      "title": "alert",
+      "published": "Tue Nov 3 16:33:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Manchester Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.480202 -2.121418"
     }
   ]
 }
