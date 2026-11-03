@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T12:35:47.632687+00:00",
+  "updatedAt": "2026-11-03T12:40:47.752349+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "bf60a390-6035-41a5-9c37-567490c7a448",
@@ -12,24 +12,10 @@
       "road": "B5214 - Trafford Blvd",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.466465 -2.355976"
-    },
-    {
-      "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
-      "title": "alert",
-      "published": "Tue Nov 3 11:48:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5214 - Trafford Blvd",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.465506 -2.356382"
     },
     {
       "id": "4745707d-286c-45ca-975a-1881642b27c0",
@@ -46,6 +32,20 @@
       "point": "53.464782 -2.356188"
     },
     {
+      "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
+      "title": "alert",
+      "published": "Tue Nov 3 11:48:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5214 - Trafford Blvd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.465506 -2.356382"
+    },
+    {
       "id": "f021985f-7213-44f1-9f80-c12a299a2088",
       "title": "alert",
       "published": "Tue Nov 3 10:46:19 +0000 2026",
@@ -58,20 +58,6 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.418776 -2.160516"
-    },
-    {
-      "id": "5d74fa83-3482-4f7a-b66a-232d269419e8",
-      "title": "alert",
-      "published": "Tue Nov 3 12:14:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627 - Offerton Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.384647 -2.101144"
     }
   ]
 }
