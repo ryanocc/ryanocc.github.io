@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T18:15:48.351212+00:00",
+  "updatedAt": "2026-11-03T18:20:48.335581+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 13,
   "incidents": [
     {
       "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
@@ -30,20 +30,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.490767 -2.232028"
-    },
-    {
-      "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
-      "title": "alert",
-      "published": "Tue Nov 3 16:13:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.647564 -2.325351"
     },
     {
       "id": "95d24818-c3bd-4150-b317-2a1ec9054bd2",
@@ -86,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.411328 -2.278049"
-    },
-    {
-      "id": "341d9097-63df-4e67-ad79-b3718efb7644",
-      "title": "alert",
-      "published": "Tue Nov 3 16:11:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.589511 -2.407584"
     },
     {
       "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
@@ -186,20 +158,6 @@
       "point": "53.592298 -2.407333"
     },
     {
-      "id": "db770f95-8327-4866-9cbc-d660efeff28e",
-      "title": "alert",
-      "published": "Tue Nov 3 18:13:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5063 - Trafford Rd",
-      "city": "Old Trafford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.464364 -2.283348"
-    },
-    {
       "id": "4fc177c3-dbb2-4310-a59e-adaaacd327cb",
       "title": "alert",
       "published": "Tue Nov 3 18:10:04 +0000 2026",
@@ -212,6 +170,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.466484 -2.628452"
+    },
+    {
+      "id": "8ba239fe-5faa-418e-bcf1-d377e88ce0b4",
+      "title": "alert",
+      "published": "Tue Nov 3 18:17:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.603452 -2.106381"
     }
   ]
 }
