@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T21:30:47.986620+00:00",
+  "updatedAt": "2026-11-03T21:35:47.919758+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "5daac618-7ff1-425e-9e2c-12fd52ee2433",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.368076 -2.277019"
     },
@@ -74,20 +74,6 @@
       "point": "53.477056 -2.377298"
     },
     {
-      "id": "5c08a7e1-5b9e-43f4-8f2e-85cbaa9bf81d",
-      "title": "alert",
-      "published": "Tue Nov 3 21:19:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A662 - Manchester Rd",
-      "city": "Droylsden",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.479943 -2.153895"
-    },
-    {
       "id": "839913f6-c13b-4e5e-81a7-8360300b13c0",
       "title": "alert",
       "published": "Tue Nov 3 21:04:54 +0000 2026",
@@ -116,18 +102,18 @@
       "point": "53.483296 -2.264728"
     },
     {
-      "id": "2f6c98f2-d9c2-4130-a988-8e0f076a2798",
+      "id": "5c08a7e1-5b9e-43f4-8f2e-85cbaa9bf81d",
       "title": "alert",
-      "published": "Tue Nov 3 21:13:45 +0000 2026",
+      "published": "Tue Nov 3 21:19:56 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Crescent",
-      "city": "Irwell Riverside",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A662 - Manchester Rd",
+      "city": "Droylsden",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.483302 -2.265168"
+      "point": "53.479943 -2.153895"
     },
     {
       "id": "82e3b537-0589-420c-87a8-edfddb110247",
@@ -138,10 +124,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.493638 -2.120252"
+      "point": "53.496939 -2.124031"
     }
   ]
 }
