@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T08:20:48.456485+00:00",
+  "updatedAt": "2026-11-03T08:25:48.256784+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "6db918ee-47e4-4ed7-b1b4-1d69d183b4ad",
@@ -32,6 +32,20 @@
       "point": "53.521941 -2.48918"
     },
     {
+      "id": "c872fed3-3568-4235-95da-6983a2a6d8b4",
+      "title": "alert",
+      "published": "Tue Nov 3 08:24:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6393 - Thorpe Rd",
+      "city": "Moston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.502282 -2.193463"
+    },
+    {
       "id": "049108dd-cf73-46a3-9531-803fb8f52b9a",
       "title": "alert",
       "published": "Tue Nov 3 07:54:58 +0000 2026",
@@ -46,6 +60,20 @@
       "point": "53.529524 -2.654738"
     },
     {
+      "id": "68e00cf5-701b-4822-b557-f3671eb6e461",
+      "title": "alert",
+      "published": "Tue Nov 3 08:24:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.502295 -2.324178"
+    },
+    {
       "id": "6954d77c-f2d1-4287-a953-c0b7fa5ece26",
       "title": "alert",
       "published": "Tue Nov 3 08:20:12 +0000 2026",
@@ -54,8 +82,8 @@
       "road": "A62 - Oldham Rd",
       "city": "Newton Heath",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.50143 -2.193533"
     },
