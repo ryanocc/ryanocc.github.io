@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T17:30:48.455679+00:00",
+  "updatedAt": "2026-11-03T17:35:48.472982+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 12,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -32,20 +32,6 @@
       "point": "53.517189 -2.094013"
     },
     {
-      "id": "341d9097-63df-4e67-ad79-b3718efb7644",
-      "title": "alert",
-      "published": "Tue Nov 3 16:11:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.589511 -2.407584"
-    },
-    {
       "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
       "title": "alert",
       "published": "Tue Nov 3 17:21:14 +0000 2026",
@@ -55,9 +41,23 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.589245 -2.409781"
+    },
+    {
+      "id": "341d9097-63df-4e67-ad79-b3718efb7644",
+      "title": "alert",
+      "published": "Tue Nov 3 16:11:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.589511 -2.407584"
     },
     {
       "id": "4354b390-6e24-4c0b-ad8a-63b0af9a6bee",
@@ -68,7 +68,7 @@
       "road": "A572 - Worsley Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.503219 -2.359901"
@@ -96,24 +96,66 @@
       "road": "A6044 - Scholes Ln",
       "city": "Prestwich",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.524185 -2.275659"
     },
     {
-      "id": "032b2af1-e100-4d39-91d5-c3da49eb40da",
+      "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
       "title": "alert",
-      "published": "Tue Nov 3 17:30:32 +0000 2026",
+      "published": "Tue Nov 3 17:32:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6140 - Lord Sheldon Way",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.490561 -2.105248"
+    },
+    {
+      "id": "58027819-682d-4768-b368-b418e75c8553",
+      "title": "alert",
+      "published": "Tue Nov 3 17:31:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Huddersfield Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.548435 -2.08435"
+    },
+    {
+      "id": "9d1255c1-94b5-4220-9ec9-7f658e7fd91b",
+      "title": "alert",
+      "published": "Tue Nov 3 17:33:01 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.403069 -2.267889"
+    },
+    {
+      "id": "d2acdcd9-926a-4b80-8598-241ef23017c1",
+      "title": "alert",
+      "published": "Tue Nov 3 17:33:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A572 - Worsley Brow",
+      "city": "",
+      "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.406204 -2.267754"
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.502254 -2.385762"
     },
     {
       "id": "9b8deddd-6c34-414e-ad5c-bd85fdf514e1",
@@ -124,8 +166,8 @@
       "road": "A58 - Crompton Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.589166 -2.405325"
     }
