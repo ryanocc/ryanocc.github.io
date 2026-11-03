@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-03T08:25:48.256784+00:00",
+  "updatedAt": "2026-11-03T08:30:48.170177+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
+    {
+      "id": "d9f199a3-1cec-47e4-92eb-963ce52f105f",
+      "title": "alert",
+      "published": "Tue Nov 3 08:27:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Lowcross Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.500989 -2.19273"
+    },
+    {
+      "id": "c44c3c91-c270-4a7a-9c09-5f6bc1d12b63",
+      "title": "alert",
+      "published": "Tue Nov 3 08:26:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Crummock Dr",
+      "city": "Middleton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.561439 -2.208601"
+    },
     {
       "id": "6db918ee-47e4-4ed7-b1b4-1d69d183b4ad",
       "title": "alert",
@@ -40,38 +68,10 @@
       "road": "B6393 - Thorpe Rd",
       "city": "Moston",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.502282 -2.193463"
-    },
-    {
-      "id": "049108dd-cf73-46a3-9531-803fb8f52b9a",
-      "title": "alert",
-      "published": "Tue Nov 3 07:54:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Warrington Rd",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.529524 -2.654738"
-    },
-    {
-      "id": "68e00cf5-701b-4822-b557-f3671eb6e461",
-      "title": "alert",
-      "published": "Tue Nov 3 08:24:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.502295 -2.324178"
     },
     {
       "id": "6954d77c-f2d1-4287-a953-c0b7fa5ece26",
@@ -82,8 +82,8 @@
       "road": "A62 - Oldham Rd",
       "city": "Newton Heath",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50143 -2.193533"
     },
@@ -102,20 +102,6 @@
       "point": "53.496399 -2.384221"
     },
     {
-      "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
-      "title": "alert",
-      "published": "Tue Nov 3 07:50:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.591431 -2.27198"
-    },
-    {
       "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
       "title": "alert",
       "published": "Tue Nov 3 07:48:20 +0000 2026",
@@ -128,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.592122 -2.271499"
+    },
+    {
+      "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
+      "title": "alert",
+      "published": "Tue Nov 3 07:50:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.591431 -2.27198"
     }
   ]
 }
