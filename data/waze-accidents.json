@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T18:25:48.263459+00:00",
+  "updatedAt": "2026-11-03T18:30:48.251909+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.41207 -2.280721"
+    },
+    {
+      "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
+      "title": "alert",
+      "published": "Tue Nov 3 18:26:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Houseman Cr",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.427199 -2.2455"
     },
     {
       "id": "19840d93-2d1b-4380-87b5-0734d83a0629",
@@ -102,20 +116,6 @@
       "point": "53.589906 -2.405107"
     },
     {
-      "id": "98273272-0911-43f4-afd0-eed529563e69",
-      "title": "alert",
-      "published": "Tue Nov 3 18:10:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5014 - Chester Rd",
-      "city": "Old Trafford",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.467465 -2.266444"
-    },
-    {
       "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
       "title": "alert",
       "published": "Tue Nov 3 17:32:25 +0000 2026",
@@ -144,20 +144,6 @@
       "point": "53.548435 -2.08435"
     },
     {
-      "id": "cb8a3205-8025-4e92-91f2-239c38ebebf0",
-      "title": "alert",
-      "published": "Tue Nov 3 18:22:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (N) - Handforth Bypass",
-      "city": "Handforth",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.354303 -2.20103"
-    },
-    {
       "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
       "title": "alert",
       "published": "Tue Nov 3 18:22:06 +0000 2026",
@@ -172,18 +158,32 @@
       "point": "53.590243 -2.406336"
     },
     {
-      "id": "4fc177c3-dbb2-4310-a59e-adaaacd327cb",
+      "id": "41cca5fe-cf16-46e5-82a9-3da3495adf6f",
       "title": "alert",
-      "published": "Tue Nov 3 18:10:04 +0000 2026",
+      "published": "Tue Nov 3 18:28:51 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 4.0,
+      "point": "53.400867 -2.512953"
+    },
+    {
+      "id": "ab3430cb-1d1a-4345-99b1-79aff9c111d4",
+      "title": "alert",
+      "published": "Tue Nov 3 18:29:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.466484 -2.628452"
+      "point": "53.537688 -2.293454"
     }
   ]
 }
