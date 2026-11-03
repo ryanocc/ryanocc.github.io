@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T18:10:48.408774+00:00",
+  "updatedAt": "2026-11-03T18:15:48.351212+00:00",
   "source": "Waze GeoRSS",
   "count": 15,
   "incidents": [
@@ -60,6 +60,20 @@
       "point": "53.517189 -2.094013"
     },
     {
+      "id": "c3afd4bb-1285-4f6d-92db-eff97eca2af3",
+      "title": "alert",
+      "published": "Tue Nov 3 17:39:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5166 - Sale Rd",
+      "city": "Northern Moor",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.412376 -2.280756"
+    },
+    {
       "id": "64e2d8c2-988f-4e4c-a3c4-c8f777b9ca66",
       "title": "alert",
       "published": "Tue Nov 3 18:09:45 +0000 2026",
@@ -72,20 +86,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.411328 -2.278049"
-    },
-    {
-      "id": "c3afd4bb-1285-4f6d-92db-eff97eca2af3",
-      "title": "alert",
-      "published": "Tue Nov 3 17:39:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5166 - Sale Rd",
-      "city": "Northern Moor",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.412376 -2.280756"
     },
     {
       "id": "341d9097-63df-4e67-ad79-b3718efb7644",
@@ -130,18 +130,18 @@
       "point": "53.589906 -2.405107"
     },
     {
-      "id": "a5e4d557-b642-4dad-9ab1-47ab815f3722",
+      "id": "98273272-0911-43f4-afd0-eed529563e69",
       "title": "alert",
-      "published": "Tue Nov 3 18:03:58 +0000 2026",
+      "published": "Tue Nov 3 18:10:51 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Manchester",
+      "road": "A5014 - Chester Rd",
+      "city": "Old Trafford",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.472716 -2.25546"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.467465 -2.266444"
     },
     {
       "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
@@ -166,7 +166,7 @@
       "road": "A62 - Huddersfield Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548435 -2.08435"
@@ -180,10 +180,24 @@
       "road": "A58 - Crompton Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.592298 -2.407333"
+    },
+    {
+      "id": "db770f95-8327-4866-9cbc-d660efeff28e",
+      "title": "alert",
+      "published": "Tue Nov 3 18:13:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5063 - Trafford Rd",
+      "city": "Old Trafford",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.464364 -2.283348"
     },
     {
       "id": "4fc177c3-dbb2-4310-a59e-adaaacd327cb",
@@ -194,24 +208,10 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.46533 -2.625685"
-    },
-    {
-      "id": "057e3d5d-9498-41b5-a621-5600f2367f7e",
-      "title": "alert",
-      "published": "Tue Nov 3 18:10:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.604006 -2.104977"
+      "point": "53.466484 -2.628452"
     }
   ]
 }
