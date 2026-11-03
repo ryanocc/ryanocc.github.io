@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T20:30:48.023984+00:00",
+  "updatedAt": "2026-11-03T20:35:47.966760+00:00",
   "source": "Waze GeoRSS",
-  "count": 21,
+  "count": 20,
   "incidents": [
     {
       "id": "aa4070a0-e9d8-4f55-802b-5b7f4b21d7fe",
@@ -32,6 +32,20 @@
       "point": "53.515212 -2.279821"
     },
     {
+      "id": "4b7d03ec-ea98-4123-8ab4-2f961d055cd5",
+      "title": "alert",
+      "published": "Tue Nov 3 19:41:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.408619 -2.220122"
+    },
+    {
       "id": "2614e721-341a-4d04-bb99-b6b3f24ea2ba",
       "title": "alert",
       "published": "Tue Nov 3 19:54:53 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.408609 -2.220243"
-    },
-    {
-      "id": "4b7d03ec-ea98-4123-8ab4-2f961d055cd5",
-      "title": "alert",
-      "published": "Tue Nov 3 19:41:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.408619 -2.220122"
     },
     {
       "id": "fc54d026-701c-419a-862f-f44acc585c89",
@@ -110,8 +110,8 @@
       "road": "Thicketford Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.589549 -2.406475"
     },
@@ -167,23 +167,23 @@
       "city": "Hulme",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 5.0,
       "point": "53.472261 -2.257017"
     },
     {
-      "id": "468e19ec-2fcb-4e46-8069-9d9ee88d9f2d",
+      "id": "32589062-2f1a-446c-9cfa-1b8bb579180d",
       "title": "alert",
-      "published": "Tue Nov 3 19:26:48 +0000 2026",
+      "published": "Tue Nov 3 20:31:20 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (N) - Kingsway",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A34 (S) - Kingsway",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.40885 -2.220575"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.406331 -2.221963"
     },
     {
       "id": "d43da1c0-c78d-4a07-98cc-0de878810422",
@@ -200,6 +200,20 @@
       "point": "53.409208 -2.220163"
     },
     {
+      "id": "468e19ec-2fcb-4e46-8069-9d9ee88d9f2d",
+      "title": "alert",
+      "published": "Tue Nov 3 19:26:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (N) - Kingsway",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.40885 -2.220575"
+    },
+    {
       "id": "24c9076b-24b9-46c2-96dc-010e2663fc0d",
       "title": "alert",
       "published": "Tue Nov 3 20:29:16 +0000 2026",
@@ -208,24 +222,10 @@
       "road": "A34 (N) - Kingsway",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.408182 -2.220983"
-    },
-    {
-      "id": "ec04617a-56dc-475e-9f89-783f31a6370f",
-      "title": "alert",
-      "published": "Tue Nov 3 18:50:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.586854 -2.403509"
     },
     {
       "id": "98298d8d-444f-43c8-8c02-2ddc6e2f56de",
@@ -242,20 +242,6 @@
       "point": "53.589429 -2.405569"
     },
     {
-      "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
-      "title": "alert",
-      "published": "Tue Nov 3 18:36:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.589243 -2.405396"
-    },
-    {
       "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
       "title": "alert",
       "published": "Tue Nov 3 18:22:06 +0000 2026",
@@ -270,6 +256,20 @@
       "point": "53.590243 -2.406336"
     },
     {
+      "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
+      "title": "alert",
+      "published": "Tue Nov 3 18:36:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.589243 -2.405396"
+    },
+    {
       "id": "228a5c58-ebbb-450d-b615-b2641fd6e1b8",
       "title": "alert",
       "published": "Tue Nov 3 19:59:30 +0000 2026",
@@ -282,20 +282,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492212 -2.656205"
-    },
-    {
-      "id": "f4183e9c-03d6-4292-be52-2430d6c545e7",
-      "title": "alert",
-      "published": "Tue Nov 3 20:27:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.524734 -2.351546"
     }
   ]
 }
