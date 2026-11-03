@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T12:10:47.823031+00:00",
+  "updatedAt": "2026-11-03T12:15:48.132316+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "4745707d-286c-45ca-975a-1881642b27c0",
@@ -12,7 +12,7 @@
       "road": "M60 > Stockport",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.464782 -2.356188"
@@ -44,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.418776 -2.160516"
+    },
+    {
+      "id": "5d74fa83-3482-4f7a-b66a-232d269419e8",
+      "title": "alert",
+      "published": "Tue Nov 3 12:14:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627 - Offerton Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.384647 -2.101144"
     }
   ]
 }
