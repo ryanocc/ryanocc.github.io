@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T01:25:48.268321+00:00",
+  "updatedAt": "2026-11-03T01:30:49.522016+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "df2e0982-9aa4-4547-9e09-c47da5103e63",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.569401 -2.526237"
+    },
+    {
+      "id": "9a0bd16e-c99d-4686-9d2c-328efea62a1f",
+      "title": "alert",
+      "published": "Tue Nov 3 01:28:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (N) - Kingsway",
+      "city": "Burnage",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.437132 -2.206439"
     }
   ]
 }
