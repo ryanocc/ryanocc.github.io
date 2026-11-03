@@ -1,36 +1,8 @@
 {
-  "updatedAt": "2026-11-03T12:20:47.997221+00:00",
+  "updatedAt": "2026-11-03T12:25:47.925827+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
-    {
-      "id": "4745707d-286c-45ca-975a-1881642b27c0",
-      "title": "alert",
-      "published": "Tue Nov 3 11:44:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 > Stockport",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.464782 -2.356188"
-    },
-    {
-      "id": "bf60a390-6035-41a5-9c37-567490c7a448",
-      "title": "alert",
-      "published": "Tue Nov 3 12:20:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "B5214 - Trafford Blvd",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.466465 -2.355976"
-    },
     {
       "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
       "title": "alert",
@@ -44,6 +16,34 @@
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.465506 -2.356382"
+    },
+    {
+      "id": "bf60a390-6035-41a5-9c37-567490c7a448",
+      "title": "alert",
+      "published": "Tue Nov 3 12:20:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "B5214 - Trafford Blvd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.466465 -2.355976"
+    },
+    {
+      "id": "4745707d-286c-45ca-975a-1881642b27c0",
+      "title": "alert",
+      "published": "Tue Nov 3 11:44:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 > Stockport",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.464782 -2.356188"
     },
     {
       "id": "f021985f-7213-44f1-9f80-c12a299a2088",
@@ -68,8 +68,8 @@
       "road": "A627 - Offerton Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.384647 -2.101144"
     }
