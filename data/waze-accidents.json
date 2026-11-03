@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T16:45:48.422571+00:00",
+  "updatedAt": "2026-11-03T16:50:48.429022+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
     {
       "id": "e7d33281-4386-4a0f-b91d-da25ccaed0dc",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.647564 -2.325351"
+    },
+    {
+      "id": "95d24818-c3bd-4150-b317-2a1ec9054bd2",
+      "title": "alert",
+      "published": "Tue Nov 3 16:47:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Waggon Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.517189 -2.094013"
     },
     {
       "id": "341d9097-63df-4e67-ad79-b3718efb7644",
@@ -60,20 +74,6 @@
       "point": "53.508639 -2.241663"
     },
     {
-      "id": "9f671c25-521e-4e8a-915e-66e723427e49",
-      "title": "alert",
-      "published": "Tue Nov 3 15:54:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5082 - Mort Ln",
-      "city": "Tyldesley",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.523801 -2.430012"
-    },
-    {
       "id": "421242c8-7fb6-4486-ba09-d544624b9244",
       "title": "alert",
       "published": "Tue Nov 3 16:37:16 +0000 2026",
@@ -82,8 +82,8 @@
       "road": "A572 - Worsley Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50328 -2.360481"
     },
@@ -96,24 +96,10 @@
       "road": "A5082 - Peel Ln",
       "city": "Little Hulton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.525984 -2.427753"
-    },
-    {
-      "id": "773f5513-6882-48c2-884f-98aa5d3adba2",
-      "title": "alert",
-      "published": "Tue Nov 3 16:38:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5081 - Park Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.459424 -2.33743"
     },
     {
       "id": "7fa373fc-635d-4c76-bdb0-8768fcf31118",
@@ -128,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.589113 -2.405276"
-    },
-    {
-      "id": "89a303c7-5d0d-4441-be85-e81e40c2f3a4",
-      "title": "alert",
-      "published": "Tue Nov 3 16:33:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Manchester Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.480202 -2.121418"
     }
   ]
 }
