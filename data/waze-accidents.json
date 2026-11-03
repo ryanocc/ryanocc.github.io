@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T22:30:47.949725+00:00",
+  "updatedAt": "2026-11-03T22:35:47.935160+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
@@ -32,20 +32,6 @@
       "point": "53.477056 -2.377298"
     },
     {
-      "id": "00aeb541-5cf5-4a15-bcab-83aa4f1a8d41",
-      "title": "alert",
-      "published": "Tue Nov 3 21:39:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A662 - Manchester Rd",
-      "city": "Droylsden",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.479854 -2.152774"
-    },
-    {
       "id": "5c08a7e1-5b9e-43f4-8f2e-85cbaa9bf81d",
       "title": "alert",
       "published": "Tue Nov 3 21:19:56 +0000 2026",
@@ -60,6 +46,20 @@
       "point": "53.479943 -2.153895"
     },
     {
+      "id": "00aeb541-5cf5-4a15-bcab-83aa4f1a8d41",
+      "title": "alert",
+      "published": "Tue Nov 3 21:39:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A662 - Manchester Rd",
+      "city": "Droylsden",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.479854 -2.152774"
+    },
+    {
       "id": "3b87a6b8-70f5-4bd0-8378-2fc992659e5e",
       "title": "alert",
       "published": "Tue Nov 3 22:29:45 +0000 2026",
@@ -69,7 +69,7 @@
       "city": "Ordsall",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.476782 -2.269741"
     },
@@ -88,20 +88,6 @@
       "point": "53.476731 -2.269436"
     },
     {
-      "id": "6f46f05a-f430-414a-8b14-3bf59caf0803",
-      "title": "alert",
-      "published": "Tue Nov 3 22:25:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Regent Rd",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.476254 -2.266541"
-    },
-    {
       "id": "a9ff1aaf-ee1b-4cce-9ffa-62c03edf042d",
       "title": "alert",
       "published": "Tue Nov 3 22:26:47 +0000 2026",
@@ -113,7 +99,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.532565 -2.382675"
+      "point": "53.532789 -2.38349"
     }
   ]
 }
