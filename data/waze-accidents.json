@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T17:00:48.408023+00:00",
+  "updatedAt": "2026-11-03T17:05:48.464221+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.517189 -2.094013"
+    },
+    {
+      "id": "a0cd0a9a-51ab-46ab-a9f0-8eff243b76e1",
+      "title": "alert",
+      "published": "Tue Nov 3 17:02:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.541269 -2.38842"
     },
     {
       "id": "846f02d5-6f74-4584-8dd5-763cc3aaf364",
@@ -82,24 +96,10 @@
       "road": "A5081 - Park Way",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460561 -2.336045"
-    },
-    {
-      "id": "0fc6f5fc-9b3d-477b-91fc-8f777f0b5b15",
-      "title": "alert",
-      "published": "Tue Nov 3 16:56:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5081 - Park Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.459077 -2.337777"
     }
   ]
 }
