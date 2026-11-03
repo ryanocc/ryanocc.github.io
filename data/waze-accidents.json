@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T09:05:48.284184+00:00",
+  "updatedAt": "2026-11-03T09:10:48.412693+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -54,7 +54,7 @@
       "road": "B6393 - Thorpe Rd",
       "city": "Moston",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.502282 -2.193463"
@@ -96,8 +96,8 @@
       "road": "A664 - Rochdale Rd",
       "city": "Collyhurst",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.497629 -2.220794"
     },
@@ -144,20 +144,6 @@
       "point": "53.496399 -2.384221"
     },
     {
-      "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
-      "title": "alert",
-      "published": "Tue Nov 3 07:48:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.592122 -2.271499"
-    },
-    {
       "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
       "title": "alert",
       "published": "Tue Nov 3 07:50:09 +0000 2026",
@@ -170,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.591431 -2.27198"
+    },
+    {
+      "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
+      "title": "alert",
+      "published": "Tue Nov 3 07:48:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.592122 -2.271499"
     }
   ]
 }
