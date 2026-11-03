@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T22:50:48.036940+00:00",
+  "updatedAt": "2026-11-03T22:55:48.022865+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
@@ -16,20 +16,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.408609 -2.220243"
-    },
-    {
-      "id": "2e9a0ae9-a4b3-4d74-9dc8-5e7f9a455d6d",
-      "title": "alert",
-      "published": "Tue Nov 3 20:49:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Peel Green",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.477056 -2.377298"
     },
     {
       "id": "5c08a7e1-5b9e-43f4-8f2e-85cbaa9bf81d",
@@ -54,8 +40,8 @@
       "road": "A662 - Manchester Rd",
       "city": "Droylsden",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.479854 -2.152774"
     },
@@ -68,7 +54,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.509923 -2.673744"
