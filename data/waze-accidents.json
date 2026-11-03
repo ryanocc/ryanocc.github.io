@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T07:05:48.019429+00:00",
+  "updatedAt": "2026-11-03T07:10:48.054260+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -40,10 +40,24 @@
       "road": "A62 - Manchester Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.520768 -2.142805"
+    },
+    {
+      "id": "996003ea-cc52-43cd-8b83-85f6a77223f0",
+      "title": "alert",
+      "published": "Tue Nov 3 07:00:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.549375 -2.259967"
     },
     {
       "id": "f94804e8-60bb-4336-8110-5ee0533e75d9",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548418 -2.259084"
-    },
-    {
-      "id": "996003ea-cc52-43cd-8b83-85f6a77223f0",
-      "title": "alert",
-      "published": "Tue Nov 3 07:00:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.549375 -2.259967"
     }
   ]
 }
