@@ -1,21 +1,49 @@
 {
-  "updatedAt": "2026-11-03T06:40:48.265352+00:00",
+  "updatedAt": "2026-11-03T06:50:47.956481+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
     {
-      "id": "7d856479-352f-40dd-bdf1-0973753de4e9",
+      "id": "6db918ee-47e4-4ed7-b1b4-1d69d183b4ad",
       "title": "alert",
-      "published": "Tue Nov 3 06:35:59 +0000 2026",
+      "published": "Tue Nov 3 06:49:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "Hawkshead Rd",
+      "city": "Glossop",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.451903 -1.935439"
+    },
+    {
+      "id": "df4bed6b-2d89-4d12-9cb0-bab89102ec5f",
+      "title": "alert",
+      "published": "Tue Nov 3 06:48:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Dawson St",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.489121 -2.654434"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.474508 -2.261074"
+    },
+    {
+      "id": "f94804e8-60bb-4336-8110-5ee0533e75d9",
+      "title": "alert",
+      "published": "Tue Nov 3 06:47:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.548418 -2.259084"
     }
   ]
 }
