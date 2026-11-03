@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-03T08:50:48.320328+00:00",
+  "updatedAt": "2026-11-03T08:55:48.358498+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
+    {
+      "id": "52b19232-c3c7-4bbe-9261-9b40a26ad9b0",
+      "title": "alert",
+      "published": "Tue Nov 3 08:51:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Eldrige Dr",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.500469 -2.194694"
+    },
     {
       "id": "d9f199a3-1cec-47e4-92eb-963ce52f105f",
       "title": "alert",
@@ -13,7 +27,7 @@
       "city": "Newton Heath",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.500989 -2.19273"
     },
@@ -30,20 +44,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.561439 -2.208601"
-    },
-    {
-      "id": "6db918ee-47e4-4ed7-b1b4-1d69d183b4ad",
-      "title": "alert",
-      "published": "Tue Nov 3 06:49:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Hawkshead Rd",
-      "city": "Glossop",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.451903 -1.935439"
     },
     {
       "id": "eee10d0b-f0a9-4db5-b728-f0842a292c70",
@@ -82,7 +82,7 @@
       "road": "B6393 - Thorpe Rd",
       "city": "Moston",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.502282 -2.193463"
@@ -97,7 +97,7 @@
       "city": "Royton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.558886 -2.103936"
     },
