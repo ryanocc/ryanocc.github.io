@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T17:45:48.379898+00:00",
+  "updatedAt": "2026-11-03T17:50:48.432170+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 14,
   "incidents": [
     {
       "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
@@ -13,7 +13,7 @@
       "city": "Northern Moor",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.41207 -2.280721"
     },
@@ -54,8 +54,8 @@
       "road": "B5166 - Sale Rd",
       "city": "Northern Moor",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.412376 -2.280756"
     },
@@ -83,7 +83,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.589245 -2.409781"
     },
@@ -96,10 +96,24 @@
       "road": "A572 - Worsley Rd",
       "city": "Worsley",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.503219 -2.359901"
+    },
+    {
+      "id": "cc1f0dc2-3bef-41f4-b249-17a47a8053c0",
+      "title": "alert",
+      "published": "Tue Nov 3 17:30:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6044 - Scholes Ln",
+      "city": "Prestwich",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.524185 -2.275659"
     },
     {
       "id": "fab5facc-c20d-44ee-bc9f-5c47ca3ac790",
@@ -116,20 +130,6 @@
       "point": "53.486932 -2.240782"
     },
     {
-      "id": "cc1f0dc2-3bef-41f4-b249-17a47a8053c0",
-      "title": "alert",
-      "published": "Tue Nov 3 17:30:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6044 - Scholes Ln",
-      "city": "Prestwich",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.524185 -2.275659"
-    },
-    {
       "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
       "title": "alert",
       "published": "Tue Nov 3 17:32:25 +0000 2026",
@@ -138,10 +138,10 @@
       "road": "A6140 - Lord Sheldon Way",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.490561 -2.105248"
+      "point": "53.49053 -2.106237"
     },
     {
       "id": "58027819-682d-4768-b368-b418e75c8553",
@@ -152,15 +152,15 @@
       "road": "A62 - Huddersfield Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.548435 -2.08435"
     },
     {
-      "id": "9d1255c1-94b5-4220-9ec9-7f658e7fd91b",
+      "id": "473a7118-bcb1-4a12-b944-1de694fa911a",
       "title": "alert",
-      "published": "Tue Nov 3 17:33:01 +0000 2026",
+      "published": "Tue Nov 3 17:46:44 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A5103 - Princess Parkway",
@@ -168,8 +168,8 @@
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.403069 -2.267889"
+      "reportRating": 2.0,
+      "point": "53.404098 -2.267738"
     },
     {
       "id": "5675a070-d4a0-4c1f-8555-77b27ea3d206",
@@ -180,24 +180,10 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.407378 -2.267259"
-    },
-    {
-      "id": "9b8deddd-6c34-414e-ad5c-bd85fdf514e1",
-      "title": "alert",
-      "published": "Tue Nov 3 17:29:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.589166 -2.405325"
     },
     {
       "id": "3894a092-a868-4c61-9274-909c4b6049af",
