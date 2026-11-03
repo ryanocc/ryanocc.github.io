@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T07:50:48.270419+00:00",
+  "updatedAt": "2026-11-03T07:55:48.353340+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -32,18 +32,18 @@
       "point": "53.521941 -2.48918"
     },
     {
-      "id": "4a3604ba-7997-415c-81f0-b9a691281da4",
+      "id": "049108dd-cf73-46a3-9531-803fb8f52b9a",
       "title": "alert",
-      "published": "Tue Nov 3 07:28:34 +0000 2026",
+      "published": "Tue Nov 3 07:54:58 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
+      "road": "A49 - Warrington Rd",
+      "city": "Wigan",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.493917 -2.382843"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.529524 -2.654738"
     },
     {
       "id": "859c4eef-99f0-42aa-8319-bff49980a161",
@@ -60,9 +60,9 @@
       "point": "53.496399 -2.384221"
     },
     {
-      "id": "996003ea-cc52-43cd-8b83-85f6a77223f0",
+      "id": "4a3604ba-7997-415c-81f0-b9a691281da4",
       "title": "alert",
-      "published": "Tue Nov 3 07:00:19 +0000 2026",
+      "published": "Tue Nov 3 07:28:34 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (CW)",
@@ -70,22 +70,8 @@
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.549375 -2.259967"
-    },
-    {
-      "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
-      "title": "alert",
-      "published": "Tue Nov 3 07:50:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.591361 -2.272012"
+      "reportRating": 2.0,
+      "point": "53.493917 -2.382843"
     },
     {
       "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
@@ -96,10 +82,24 @@
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.593177 -2.271029"
+      "point": "53.592122 -2.271499"
+    },
+    {
+      "id": "f1ec4c74-1d3f-41b2-901b-22e97e3fa553",
+      "title": "alert",
+      "published": "Tue Nov 3 07:50:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.591361 -2.272012"
     }
   ]
 }
