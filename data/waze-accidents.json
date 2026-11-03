@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-03T18:30:48.251909+00:00",
+  "updatedAt": "2026-11-03T18:35:48.174070+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
-    {
-      "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
-      "title": "alert",
-      "published": "Tue Nov 3 17:43:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Orton Rd",
-      "city": "Northern Moor",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.41207 -2.280721"
-    },
     {
       "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.427199 -2.2455"
+    },
+    {
+      "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
+      "title": "alert",
+      "published": "Tue Nov 3 17:43:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Orton Rd",
+      "city": "Northern Moor",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.41207 -2.280721"
     },
     {
       "id": "19840d93-2d1b-4380-87b5-0734d83a0629",
@@ -82,10 +82,24 @@
       "road": "B5166 - Sale Rd",
       "city": "Northern Moor",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.412376 -2.280756"
+    },
+    {
+      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
+      "title": "alert",
+      "published": "Tue Nov 3 18:05:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.589906 -2.405107"
     },
     {
       "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.589245 -2.409781"
-    },
-    {
-      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
-      "title": "alert",
-      "published": "Tue Nov 3 18:05:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.589906 -2.405107"
     },
     {
       "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
@@ -144,6 +144,20 @@
       "point": "53.548435 -2.08435"
     },
     {
+      "id": "803b2c14-a3c9-41ee-a987-13609111e7d5",
+      "title": "alert",
+      "published": "Tue Nov 3 18:33:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.406112 -2.267759"
+    },
+    {
       "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
       "title": "alert",
       "published": "Tue Nov 3 18:22:06 +0000 2026",
@@ -158,18 +172,18 @@
       "point": "53.590243 -2.406336"
     },
     {
-      "id": "41cca5fe-cf16-46e5-82a9-3da3495adf6f",
+      "id": "f6305d76-ebc1-4a01-84e9-0bcfe5c289a9",
       "title": "alert",
-      "published": "Tue Nov 3 18:28:51 +0000 2026",
+      "published": "Tue Nov 3 18:33:11 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
+      "road": "M6 > Preston",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 4.0,
-      "point": "53.400867 -2.512953"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.357245 -2.50778"
     },
     {
       "id": "ab3430cb-1d1a-4345-99b1-79aff9c111d4",
@@ -180,8 +194,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.537688 -2.293454"
     }
