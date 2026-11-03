@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-03T18:40:48.291630+00:00",
+  "updatedAt": "2026-11-03T18:45:48.146918+00:00",
   "source": "Waze GeoRSS",
   "count": 16,
   "incidents": [
-    {
-      "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
-      "title": "alert",
-      "published": "Tue Nov 3 18:26:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Houseman Cr",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.427199 -2.2455"
-    },
     {
       "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.41207 -2.280721"
+    },
+    {
+      "id": "36d79ada-8689-4fa6-9cb2-aa5277cdda23",
+      "title": "alert",
+      "published": "Tue Nov 3 18:26:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Houseman Cr",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.427199 -2.2455"
     },
     {
       "id": "19840d93-2d1b-4380-87b5-0734d83a0629",
@@ -74,20 +74,6 @@
       "point": "53.412376 -2.280756"
     },
     {
-      "id": "a69f9f40-9b2d-49b3-b805-985f08bd0116",
-      "title": "alert",
-      "published": "Tue Nov 3 18:36:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5095 - Manchester Rd",
-      "city": "Cheadle",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.395533 -2.213067"
-    },
-    {
       "id": "64e2d8c2-988f-4e4c-a3c4-c8f777b9ca66",
       "title": "alert",
       "published": "Tue Nov 3 18:09:45 +0000 2026",
@@ -100,20 +86,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.411328 -2.278049"
-    },
-    {
-      "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
-      "title": "alert",
-      "published": "Tue Nov 3 17:21:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.589245 -2.409781"
     },
     {
       "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
@@ -130,6 +102,20 @@
       "point": "53.589906 -2.405107"
     },
     {
+      "id": "79e73f22-1460-48e6-8e86-3f251b78634b",
+      "title": "alert",
+      "published": "Tue Nov 3 17:21:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.589245 -2.409781"
+    },
+    {
       "id": "c83ed704-09f0-4cf1-a9c6-a2289479f1f6",
       "title": "alert",
       "published": "Tue Nov 3 18:39:08 +0000 2026",
@@ -142,6 +128,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.470429 -2.223557"
+    },
+    {
+      "id": "2ce5f4e0-e837-4afd-9f53-9a3e2fe5bec9",
+      "title": "alert",
+      "published": "Tue Nov 3 18:41:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6140 - Lord Sheldon Way",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.490439 -2.109135"
     },
     {
       "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
@@ -158,34 +158,6 @@
       "point": "53.49053 -2.106237"
     },
     {
-      "id": "803b2c14-a3c9-41ee-a987-13609111e7d5",
-      "title": "alert",
-      "published": "Tue Nov 3 18:33:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.406112 -2.267759"
-    },
-    {
-      "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
-      "title": "alert",
-      "published": "Tue Nov 3 18:36:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.589243 -2.405396"
-    },
-    {
       "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
       "title": "alert",
       "published": "Tue Nov 3 18:22:06 +0000 2026",
@@ -198,6 +170,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.590243 -2.406336"
+    },
+    {
+      "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
+      "title": "alert",
+      "published": "Tue Nov 3 18:36:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.589243 -2.405396"
     },
     {
       "id": "f6305d76-ebc1-4a01-84e9-0bcfe5c289a9",
@@ -222,10 +208,24 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.464926 -2.624671"
+    },
+    {
+      "id": "75e63557-c2cd-4f72-83e0-63c1da1b4a05",
+      "title": "alert",
+      "published": "Tue Nov 3 18:45:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.532289 -2.314028"
     }
   ]
 }
