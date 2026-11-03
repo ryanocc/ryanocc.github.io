@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-03T13:00:48.066565+00:00",
+  "updatedAt": "2026-11-03T13:05:48.033098+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
-    {
-      "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
-      "title": "alert",
-      "published": "Tue Nov 3 11:48:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5214 - Trafford Blvd",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.465506 -2.356382"
-    },
     {
       "id": "bf60a390-6035-41a5-9c37-567490c7a448",
       "title": "alert",
@@ -44,6 +30,48 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.464782 -2.356188"
+    },
+    {
+      "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
+      "title": "alert",
+      "published": "Tue Nov 3 11:48:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5214 - Trafford Blvd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.465506 -2.356382"
+    },
+    {
+      "id": "2415d63c-b2ed-4324-b998-ce8932b7a3cb",
+      "title": "alert",
+      "published": "Tue Nov 3 13:04:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Bury Old Rd",
+      "city": "Sedgley Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.518714 -2.258641"
+    },
+    {
+      "id": "d30fae89-689a-45d0-8076-2128667644af",
+      "title": "alert",
+      "published": "Tue Nov 3 13:04:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A665 - Bury Old Rd",
+      "city": "Sedgley Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.51872 -2.258648"
     },
     {
       "id": "ca8e9a2c-eb24-41d7-8523-e1b4b60cecdc",
