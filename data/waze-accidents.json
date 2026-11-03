@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-03T13:25:48.058235+00:00",
+  "updatedAt": "2026-11-03T13:30:47.868515+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
-    {
-      "id": "4745707d-286c-45ca-975a-1881642b27c0",
-      "title": "alert",
-      "published": "Tue Nov 3 11:44:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 > Stockport",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.464782 -2.356188"
-    },
     {
       "id": "23c455a3-b432-4f6f-aeaf-f20a90ca1b3f",
       "title": "alert",
@@ -40,10 +26,24 @@
       "road": "A665 - Bury Old Rd",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.518714 -2.258641"
+    },
+    {
+      "id": "d30fae89-689a-45d0-8076-2128667644af",
+      "title": "alert",
+      "published": "Tue Nov 3 13:04:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A665 - Bury Old Rd",
+      "city": "Sedgley Park",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.51872 -2.258648"
     },
     {
       "id": "2fd322b9-97a7-49fc-8e3d-52f254576695",
@@ -55,23 +55,9 @@
       "city": "Sedgley Park",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.52104 -2.261298"
-    },
-    {
-      "id": "d30fae89-689a-45d0-8076-2128667644af",
-      "title": "alert",
-      "published": "Tue Nov 3 13:04:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A665 - Bury Old Rd",
-      "city": "Sedgley Park",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.51872 -2.258648"
     },
     {
       "id": "82617448-2b3c-411f-aeb5-8736995ab1f8",
