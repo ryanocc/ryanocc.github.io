@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T14:10:48.322539+00:00",
+  "updatedAt": "2026-11-03T14:15:48.045791+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "f12349d7-a4b7-47f5-ac13-28f2baaf2542",
@@ -13,7 +13,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.459182 -2.339605"
     },
@@ -44,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.477055 -2.21786"
+    },
+    {
+      "id": "bc5fcbed-16a9-4bb8-8598-1abfaa48a65e",
+      "title": "alert",
+      "published": "Tue Nov 3 14:11:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Manchester Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.482637 -2.112574"
     }
   ]
 }
