@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-03T09:10:48.412693+00:00",
+  "updatedAt": "2026-11-03T09:15:48.250569+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
-    {
-      "id": "52b19232-c3c7-4bbe-9261-9b40a26ad9b0",
-      "title": "alert",
-      "published": "Tue Nov 3 08:51:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Eldrige Dr",
-      "city": "Newton Heath",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.500469 -2.194694"
-    },
     {
       "id": "d9f199a3-1cec-47e4-92eb-963ce52f105f",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.500989 -2.19273"
+    },
+    {
+      "id": "52b19232-c3c7-4bbe-9261-9b40a26ad9b0",
+      "title": "alert",
+      "published": "Tue Nov 3 08:51:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Eldrige Dr",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.500469 -2.194694"
     },
     {
       "id": "c44c3c91-c270-4a7a-9c09-5f6bc1d12b63",
@@ -96,8 +96,8 @@
       "road": "A664 - Rochdale Rd",
       "city": "Collyhurst",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.497629 -2.220794"
     },
@@ -125,7 +125,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.591861 -2.25886"
     },
@@ -158,18 +158,18 @@
       "point": "53.591431 -2.27198"
     },
     {
-      "id": "1d8f6df1-9642-483a-b98d-e73fd8fb4553",
+      "id": "71d23957-1780-4700-ae79-689b65fb12ee",
       "title": "alert",
-      "published": "Tue Nov 3 07:48:20 +0000 2026",
+      "published": "Tue Nov 3 09:15:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.592122 -2.271499"
+      "point": "53.663388 -2.309757"
     }
   ]
 }
