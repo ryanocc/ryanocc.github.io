@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T18:00:48.342668+00:00",
+  "updatedAt": "2026-11-03T18:05:48.282627+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 15,
   "incidents": [
     {
       "id": "5b80a359-28c0-48fb-b83c-25153c4a9c9a",
@@ -13,7 +13,7 @@
       "city": "Northern Moor",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.41207 -2.280721"
     },
@@ -96,10 +96,24 @@
       "road": "Thicketford Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.589245 -2.409781"
+    },
+    {
+      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
+      "title": "alert",
+      "published": "Tue Nov 3 18:05:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thicketford Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.589906 -2.405107"
     },
     {
       "id": "4354b390-6e24-4c0b-ad8a-63b0af9a6bee",
@@ -114,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.503219 -2.359901"
+    },
+    {
+      "id": "a5e4d557-b642-4dad-9ab1-47ab815f3722",
+      "title": "alert",
+      "published": "Tue Nov 3 18:03:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.472716 -2.25546"
     },
     {
       "id": "8ae1d56d-3681-4cb8-b5b6-6d7a925038bb",
@@ -144,6 +172,20 @@
       "point": "53.548435 -2.08435"
     },
     {
+      "id": "86339118-7555-4acb-876f-02c7cd88bfd9",
+      "title": "alert",
+      "published": "Tue Nov 3 18:04:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.412741 -2.265561"
+    },
+    {
       "id": "3894a092-a868-4c61-9274-909c4b6049af",
       "title": "alert",
       "published": "Tue Nov 3 17:45:16 +0000 2026",
@@ -169,7 +211,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.465264 -2.625518"
+      "point": "53.465516 -2.626153"
     }
   ]
 }
