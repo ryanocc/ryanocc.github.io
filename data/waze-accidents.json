@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T19:50:47.957754+00:00",
+  "updatedAt": "2026-11-03T19:55:47.984125+00:00",
   "source": "Waze GeoRSS",
-  "count": 19,
+  "count": 18,
   "incidents": [
     {
       "id": "aa4070a0-e9d8-4f55-802b-5b7f4b21d7fe",
@@ -88,20 +88,6 @@
       "point": "53.411328 -2.278049"
     },
     {
-      "id": "4b7d03ec-ea98-4123-8ab4-2f961d055cd5",
-      "title": "alert",
-      "published": "Tue Nov 3 19:41:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.408619 -2.220122"
-    },
-    {
       "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
       "title": "alert",
       "published": "Tue Nov 3 19:35:00 +0000 2026",
@@ -110,10 +96,38 @@
       "road": "B5095 - Wilmslow Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.408609 -2.220243"
+    },
+    {
+      "id": "2614e721-341a-4d04-bb99-b6b3f24ea2ba",
+      "title": "alert",
+      "published": "Tue Nov 3 19:54:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5095 - Wilmslow Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.408039 -2.219939"
+    },
+    {
+      "id": "4b7d03ec-ea98-4123-8ab4-2f961d055cd5",
+      "title": "alert",
+      "published": "Tue Nov 3 19:41:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.408619 -2.220122"
     },
     {
       "id": "64d78b1a-38ad-4a38-9b38-7d9e2f37737e",
@@ -124,7 +138,7 @@
       "road": "M6 > Preston",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.487611 -2.654302"
@@ -186,6 +200,20 @@
       "point": "53.40885 -2.220575"
     },
     {
+      "id": "ec04617a-56dc-475e-9f89-783f31a6370f",
+      "title": "alert",
+      "published": "Tue Nov 3 18:50:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.586854 -2.403509"
+    },
+    {
       "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
       "title": "alert",
       "published": "Tue Nov 3 18:36:23 +0000 2026",
@@ -194,7 +222,7 @@
       "road": "A58 - Crompton Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.589243 -2.405396"
@@ -226,48 +254,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.589429 -2.405569"
-    },
-    {
-      "id": "ec04617a-56dc-475e-9f89-783f31a6370f",
-      "title": "alert",
-      "published": "Tue Nov 3 18:50:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.586854 -2.403509"
-    },
-    {
-      "id": "00e817fb-fc78-45a9-8e2f-cf2d7d62f35d",
-      "title": "alert",
-      "published": "Tue Nov 3 19:07:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.486538 -2.6527"
-    },
-    {
-      "id": "cec97f26-2839-4dc0-a0d9-e6852f24511c",
-      "title": "alert",
-      "published": "Tue Nov 3 19:20:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.489848 -2.655132"
     }
   ]
 }
