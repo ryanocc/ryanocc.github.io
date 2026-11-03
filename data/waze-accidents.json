@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T18:55:48.229943+00:00",
+  "updatedAt": "2026-11-03T19:00:48.217355+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
@@ -82,7 +82,7 @@
       "road": "Thicketford Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.589245 -2.409781"
@@ -130,20 +130,6 @@
       "point": "53.49053 -2.106237"
     },
     {
-      "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
-      "title": "alert",
-      "published": "Tue Nov 3 18:22:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Crompton Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.590243 -2.406336"
-    },
-    {
       "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
       "title": "alert",
       "published": "Tue Nov 3 18:36:23 +0000 2026",
@@ -172,18 +158,32 @@
       "point": "53.586854 -2.403509"
     },
     {
-      "id": "a0a4230d-21ff-4108-85d4-4d6d19bfa0b1",
+      "id": "0b7450d3-3ea1-4e94-a956-c03f65cbdbf2",
       "title": "alert",
-      "published": "Tue Nov 3 18:39:47 +0000 2026",
+      "published": "Tue Nov 3 18:22:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.590243 -2.406336"
+    },
+    {
+      "id": "2c14e437-a5ad-448b-a2e2-e77c6a695469",
+      "title": "alert",
+      "published": "Tue Nov 3 19:00:12 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.464926 -2.624671"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.491731 -2.656046"
     }
   ]
 }
