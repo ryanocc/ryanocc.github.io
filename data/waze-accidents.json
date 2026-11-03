@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T20:05:47.900956+00:00",
+  "updatedAt": "2026-11-03T20:10:48.033399+00:00",
   "source": "Waze GeoRSS",
-  "count": 20,
+  "count": 21,
   "incidents": [
     {
       "id": "aa4070a0-e9d8-4f55-802b-5b7f4b21d7fe",
@@ -46,18 +46,46 @@
       "point": "53.515212 -2.279821"
     },
     {
-      "id": "be572278-19cf-4c73-b163-e631793b420e",
+      "id": "64e2d8c2-988f-4e4c-a3c4-c8f777b9ca66",
       "title": "alert",
-      "published": "Tue Nov 3 19:42:21 +0000 2026",
+      "published": "Tue Nov 3 18:09:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "",
+      "road": "B5166 - Sale Rd",
+      "city": "Northern Moor",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.411328 -2.278049"
+    },
+    {
+      "id": "2614e721-341a-4d04-bb99-b6b3f24ea2ba",
+      "title": "alert",
+      "published": "Tue Nov 3 19:54:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5095 - Wilmslow Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 1.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.368605 -2.27642"
+      "reportRating": 1.0,
+      "point": "53.408039 -2.219939"
+    },
+    {
+      "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
+      "title": "alert",
+      "published": "Tue Nov 3 19:35:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "B5095 - Wilmslow Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.408609 -2.220243"
     },
     {
       "id": "4b7d03ec-ea98-4123-8ab4-2f961d055cd5",
@@ -74,46 +102,18 @@
       "point": "53.408619 -2.220122"
     },
     {
-      "id": "8e484e1f-a9c0-4c44-975a-165bb97f95e8",
+      "id": "fc54d026-701c-419a-862f-f44acc585c89",
       "title": "alert",
-      "published": "Tue Nov 3 19:35:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "B5095 - Wilmslow Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.408609 -2.220243"
-    },
-    {
-      "id": "2614e721-341a-4d04-bb99-b6b3f24ea2ba",
-      "title": "alert",
-      "published": "Tue Nov 3 19:54:53 +0000 2026",
+      "published": "Tue Nov 3 20:10:47 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
       "road": "B5095 - Wilmslow Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.408039 -2.219939"
-    },
-    {
-      "id": "64e2d8c2-988f-4e4c-a3c4-c8f777b9ca66",
-      "title": "alert",
-      "published": "Tue Nov 3 18:09:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5166 - Sale Rd",
-      "city": "Northern Moor",
-      "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.411328 -2.278049"
+      "reportRating": 2.0,
+      "point": "53.407564 -2.219719"
     },
     {
       "id": "64d78b1a-38ad-4a38-9b38-7d9e2f37737e",
@@ -139,23 +139,23 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.589549 -2.406475"
     },
     {
-      "id": "5fb851d1-bced-4059-ba01-9042e085dbe0",
+      "id": "dd158b45-4424-4677-bd4e-060ca67827a5",
       "title": "alert",
-      "published": "Tue Nov 3 18:05:26 +0000 2026",
+      "published": "Tue Nov 3 20:08:33 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thicketford Rd",
-      "city": "Bolton",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Didsbury",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.589906 -2.405107"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.410492 -2.219312"
     },
     {
       "id": "c83ed704-09f0-4cf1-a9c6-a2289479f1f6",
@@ -181,7 +181,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.472318 -2.257125"
     },
@@ -195,7 +195,7 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.490523 -2.106481"
     },
@@ -212,6 +212,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.40885 -2.220575"
+    },
+    {
+      "id": "d43da1c0-c78d-4a07-98cc-0de878810422",
+      "title": "alert",
+      "published": "Tue Nov 3 20:08:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Kingsway",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.409208 -2.220163"
     },
     {
       "id": "c3d1ab8f-79e0-41be-a887-d3a8948d803f",
@@ -278,7 +292,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492212 -2.656205"
