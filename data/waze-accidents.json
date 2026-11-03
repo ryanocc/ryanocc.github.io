@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-03T06:50:47.956481+00:00",
+  "updatedAt": "2026-11-03T06:55:47.921535+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 6,
   "incidents": [
     {
       "id": "6db918ee-47e4-4ed7-b1b4-1d69d183b4ad",
@@ -18,6 +18,34 @@
       "point": "53.451903 -1.935439"
     },
     {
+      "id": "eee10d0b-f0a9-4db5-b728-f0842a292c70",
+      "title": "alert",
+      "published": "Tue Nov 3 06:53:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hamilton St",
+      "city": "Atherton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.521941 -2.48918"
+    },
+    {
+      "id": "3e97b9e5-7ae8-4891-a35f-8b2f93299ce1",
+      "title": "alert",
+      "published": "Tue Nov 3 06:54:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A57 - Dawson St",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.473913 -2.260594"
+    },
+    {
       "id": "df4bed6b-2d89-4d12-9cb0-bab89102ec5f",
       "title": "alert",
       "published": "Tue Nov 3 06:48:30 +0000 2026",
@@ -26,10 +54,24 @@
       "road": "A57 - Dawson St",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.474508 -2.261074"
+    },
+    {
+      "id": "11d2908b-c810-4603-b8c9-ab0c245afe5e",
+      "title": "alert",
+      "published": "Tue Nov 3 06:53:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Regent Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.4758 -2.264294"
     },
     {
       "id": "f94804e8-60bb-4336-8110-5ee0533e75d9",
@@ -40,8 +82,8 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.548418 -2.259084"
     }
