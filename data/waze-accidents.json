@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T08:35:48.374114+00:00",
+  "updatedAt": "2026-11-04T08:40:48.379506+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "dbd8d279-0e04-447b-8095-2b56637fd355",
@@ -12,24 +12,24 @@
       "road": "Simonsway",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.3714 -2.240645"
     },
     {
-      "id": "120fead6-146f-43f4-9ec4-5647361296e6",
+      "id": "4616f04f-a193-43b8-b971-e30741be75e7",
       "title": "alert",
-      "published": "Wed Nov 4 07:05:10 +0000 2026",
+      "published": "Wed Nov 4 08:39:52 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A573 - Parkside Ave",
-      "city": "",
+      "road": "B6222 - Bury And Rochdale Old Rd",
+      "city": "Heywood",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.454595 -2.596813"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.60497 -2.218081"
     },
     {
       "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
@@ -46,32 +46,18 @@
       "point": "53.454465 -2.596647"
     },
     {
-      "id": "811eb533-f22e-4925-a554-9b18c6728a4e",
+      "id": "120fead6-146f-43f4-9ec4-5647361296e6",
       "title": "alert",
-      "published": "Wed Nov 4 08:13:14 +0000 2026",
+      "published": "Wed Nov 4 07:05:10 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.456606 -2.598653"
-    },
-    {
-      "id": "c8ecf02a-4d42-4ad5-92d1-69dfa3f53b10",
-      "title": "alert",
-      "published": "Wed Nov 4 08:19:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627 - Dukinfield Rd",
-      "city": "Hyde",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.458636 -2.088207"
+      "point": "53.454595 -2.596813"
     },
     {
       "id": "c4bf9dc8-9c9e-4539-9ce2-dab2264203ab",
