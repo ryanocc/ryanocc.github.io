@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-04T07:05:48.290740+00:00",
+  "updatedAt": "2026-11-04T07:10:48.041568+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
+    {
+      "id": "1c7383ce-67e9-4185-9575-d48d635c3da9",
+      "title": "alert",
+      "published": "Wed Nov 4 07:05:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Parkside Ave",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.456928 -2.598837"
+    },
     {
       "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
       "title": "alert",
@@ -26,24 +40,10 @@
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.454832 -2.597081"
-    },
-    {
-      "id": "1c7383ce-67e9-4185-9575-d48d635c3da9",
-      "title": "alert",
-      "published": "Wed Nov 4 07:05:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Parkside Ave",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.456928 -2.598837"
     },
     {
       "id": "120fead6-146f-43f4-9ec4-5647361296e6",
@@ -54,8 +54,8 @@
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.454595 -2.596813"
     }
