@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T08:50:48.273607+00:00",
+  "updatedAt": "2026-11-04T08:55:48.376426+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "dbd8d279-0e04-447b-8095-2b56637fd355",
@@ -26,8 +26,8 @@
       "road": "J25 to A49",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.505394 -2.664003"
     },
@@ -41,7 +41,7 @@
       "city": "Heywood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.605231 -2.217233"
     },
@@ -55,7 +55,7 @@
       "city": "Bowdon",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.382158 -2.352447"
     },
@@ -88,20 +88,6 @@
       "point": "53.454595 -2.596813"
     },
     {
-      "id": "be9bf979-5bee-41be-8bc1-e7fbe79ffbd8",
-      "title": "alert",
-      "published": "Wed Nov 4 08:41:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.468237 -2.327421"
-    },
-    {
       "id": "c4bf9dc8-9c9e-4539-9ce2-dab2264203ab",
       "title": "alert",
       "published": "Wed Nov 4 08:26:31 +0000 2026",
@@ -110,24 +96,24 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.570228 -2.69862"
     },
     {
-      "id": "959ad910-4437-4c0a-bfff-46729b99f561",
+      "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
       "title": "alert",
-      "published": "Wed Nov 4 08:47:46 +0000 2026",
+      "published": "Wed Nov 4 08:01:21 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.590649 -2.694199"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.55655 -2.702588"
     },
     {
       "id": "63010123-152b-474f-8195-95e83a2e6b4f",
@@ -144,18 +130,18 @@
       "point": "53.559966 -2.701633"
     },
     {
-      "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
+      "id": "959ad910-4437-4c0a-bfff-46729b99f561",
       "title": "alert",
-      "published": "Wed Nov 4 08:01:21 +0000 2026",
+      "published": "Wed Nov 4 08:47:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
+      "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.558461 -2.702346"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.590649 -2.694199"
     }
   ]
 }
