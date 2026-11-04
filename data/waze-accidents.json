@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-04T07:25:48.159282+00:00",
+  "updatedAt": "2026-11-04T07:30:48.265815+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
-      "id": "d4e4238d-ee12-4d8a-aa80-d9609b1c43c8",
+      "id": "120fead6-146f-43f4-9ec4-5647361296e6",
       "title": "alert",
-      "published": "Wed Nov 4 06:56:07 +0000 2026",
+      "published": "Wed Nov 4 07:05:10 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 4.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.454832 -2.597081"
+      "reportRating": 0.0,
+      "point": "53.454595 -2.596813"
     },
     {
       "id": "1c7383ce-67e9-4185-9575-d48d635c3da9",
@@ -32,18 +32,18 @@
       "point": "53.456928 -2.598837"
     },
     {
-      "id": "120fead6-146f-43f4-9ec4-5647361296e6",
+      "id": "d4e4238d-ee12-4d8a-aa80-d9609b1c43c8",
       "title": "alert",
-      "published": "Wed Nov 4 07:05:10 +0000 2026",
+      "published": "Wed Nov 4 06:56:07 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.454595 -2.596813"
+      "reportRating": 2.0,
+      "point": "53.454832 -2.597081"
     },
     {
       "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
@@ -58,6 +58,20 @@
       "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.454465 -2.596647"
+    },
+    {
+      "id": "6b6c7262-bdc3-42bd-b75d-46b3ae6ec197",
+      "title": "alert",
+      "published": "Wed Nov 4 07:29:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.590844 -2.272321"
     }
   ]
 }
