@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-04T08:00:48.414973+00:00",
+  "updatedAt": "2026-11-04T08:05:48.264450+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
+    {
+      "id": "a3e19bf8-f2c5-42b2-ab80-68ff70803459",
+      "title": "alert",
+      "published": "Wed Nov 4 08:02:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Threaphurst Ln",
+      "city": "Hazel Grove",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.368494 -2.087425"
+    },
+    {
+      "id": "d4e4238d-ee12-4d8a-aa80-d9609b1c43c8",
+      "title": "alert",
+      "published": "Wed Nov 4 06:56:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Parkside Ave",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.454832 -2.597081"
+    },
     {
       "id": "120fead6-146f-43f4-9ec4-5647361296e6",
       "title": "alert",
@@ -26,24 +54,10 @@
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.454465 -2.596647"
-    },
-    {
-      "id": "d4e4238d-ee12-4d8a-aa80-d9609b1c43c8",
-      "title": "alert",
-      "published": "Wed Nov 4 06:56:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Parkside Ave",
-      "city": "",
-      "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.454832 -2.597081"
+      "point": "53.454465 -2.596647"
     },
     {
       "id": "a9e5d19f-18d2-40c9-bf15-3e2b05fdb2fc",
@@ -55,23 +69,9 @@
       "city": "Ramsbottom",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.646915 -2.303476"
-    },
-    {
-      "id": "fcbe7129-0715-4c29-b2c4-3a101e7e2e47",
-      "title": "alert",
-      "published": "Wed Nov 4 07:58:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.424929 -2.56308"
     },
     {
       "id": "0ff911c6-32e7-46ca-a77d-d3eed43c2780",
@@ -82,7 +82,7 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.424309 -2.566337"
@@ -102,18 +102,18 @@
       "point": "53.430002 -2.540674"
     },
     {
-      "id": "e4eacd53-ab0e-46c8-8a93-6dc1b7fa9929",
+      "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
       "title": "alert",
-      "published": "Wed Nov 4 07:57:35 +0000 2026",
+      "published": "Wed Nov 4 08:01:21 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (W)",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.432132 -2.531704"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.558461 -2.702346"
     },
     {
       "id": "63010123-152b-474f-8195-95e83a2e6b4f",
@@ -124,7 +124,7 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.557859 -2.702194"
@@ -138,8 +138,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.539886 -2.237233"
     }
