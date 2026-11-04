@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T07:45:48.228883+00:00",
+  "updatedAt": "2026-11-04T07:50:48.261777+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
@@ -12,7 +12,7 @@
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.454465 -2.596647"
@@ -46,6 +46,20 @@
       "point": "53.454595 -2.596813"
     },
     {
+      "id": "a9e5d19f-18d2-40c9-bf15-3e2b05fdb2fc",
+      "title": "alert",
+      "published": "Wed Nov 4 07:50:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Manchester Rd",
+      "city": "Ramsbottom",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.646915 -2.303476"
+    },
+    {
       "id": "3e193b36-40e0-46c6-8756-c28ef4d099d0",
       "title": "alert",
       "published": "Wed Nov 4 07:42:40 +0000 2026",
@@ -54,7 +68,7 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.430002 -2.540674"
