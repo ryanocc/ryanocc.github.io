@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T08:55:48.376426+00:00",
+  "updatedAt": "2026-11-04T09:00:48.296602+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.505394 -2.664003"
     },
@@ -41,9 +41,23 @@
       "city": "Heywood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.605231 -2.217233"
+    },
+    {
+      "id": "140decd2-0d7a-4e76-9013-b2838a5f9f4b",
+      "title": "alert",
+      "published": "Wed Nov 4 08:57:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A574 - Birchwood Way",
+      "city": "Birchwood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.420969 -2.530244"
     },
     {
       "id": "975b66fe-04a9-4eda-9463-da51bb1b1deb",
@@ -54,24 +68,10 @@
       "road": "A538 - Ashley Rd",
       "city": "Bowdon",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.382158 -2.352447"
-    },
-    {
-      "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
-      "title": "alert",
-      "published": "Wed Nov 4 06:45:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Parkside Ave",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.454465 -2.596647"
     },
     {
       "id": "120fead6-146f-43f4-9ec4-5647361296e6",
@@ -88,6 +88,20 @@
       "point": "53.454595 -2.596813"
     },
     {
+      "id": "959ad910-4437-4c0a-bfff-46729b99f561",
+      "title": "alert",
+      "published": "Wed Nov 4 08:47:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.590649 -2.694199"
+    },
+    {
       "id": "c4bf9dc8-9c9e-4539-9ce2-dab2264203ab",
       "title": "alert",
       "published": "Wed Nov 4 08:26:31 +0000 2026",
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.570228 -2.69862"
-    },
-    {
-      "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
-      "title": "alert",
-      "published": "Wed Nov 4 08:01:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.55655 -2.702588"
     },
     {
       "id": "63010123-152b-474f-8195-95e83a2e6b4f",
@@ -130,18 +130,18 @@
       "point": "53.559966 -2.701633"
     },
     {
-      "id": "959ad910-4437-4c0a-bfff-46729b99f561",
+      "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
       "title": "alert",
-      "published": "Wed Nov 4 08:47:46 +0000 2026",
+      "published": "Wed Nov 4 08:01:21 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.590649 -2.694199"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.55655 -2.702588"
     }
   ]
 }
