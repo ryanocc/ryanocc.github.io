@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T08:45:48.353160+00:00",
+  "updatedAt": "2026-11-04T08:50:48.273607+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "dbd8d279-0e04-447b-8095-2b56637fd355",
@@ -12,24 +12,24 @@
       "road": "Simonsway",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.3714 -2.240645"
     },
     {
-      "id": "4616f04f-a193-43b8-b971-e30741be75e7",
+      "id": "d220da4d-25a4-4095-891c-ecad32bda906",
       "title": "alert",
-      "published": "Wed Nov 4 08:39:52 +0000 2026",
+      "published": "Wed Nov 4 08:49:28 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B6222 - Bury And Rochdale Old Rd",
-      "city": "Heywood",
+      "road": "J25 to A49",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.60497 -2.218081"
+      "point": "53.505394 -2.664003"
     },
     {
       "id": "cf196ebb-a00a-4732-b043-7eea38cb6b7b",
@@ -44,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.605231 -2.217233"
+    },
+    {
+      "id": "975b66fe-04a9-4eda-9463-da51bb1b1deb",
+      "title": "alert",
+      "published": "Wed Nov 4 08:49:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Ashley Rd",
+      "city": "Bowdon",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.382158 -2.352447"
     },
     {
       "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
@@ -82,8 +96,8 @@
       "road": "",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.468237 -2.327421"
     },
@@ -100,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.570228 -2.69862"
+    },
+    {
+      "id": "959ad910-4437-4c0a-bfff-46729b99f561",
+      "title": "alert",
+      "published": "Wed Nov 4 08:47:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.590649 -2.694199"
     },
     {
       "id": "63010123-152b-474f-8195-95e83a2e6b4f",
