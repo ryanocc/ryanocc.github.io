@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T09:30:48.274603+00:00",
+  "updatedAt": "2026-11-04T09:35:48.141166+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "dbd8d279-0e04-447b-8095-2b56637fd355",
@@ -54,24 +54,10 @@
       "road": "A49 - Warrington Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.520747 -2.652551"
-    },
-    {
-      "id": "5882491d-bad0-4a69-88d9-55d159b7b0fe",
-      "title": "alert",
-      "published": "Wed Nov 4 09:09:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.468453 -2.326826"
     },
     {
       "id": "69757edd-026d-488f-aa01-7d6975cda885",
@@ -88,32 +74,46 @@
       "point": "53.468245 -2.3274"
     },
     {
-      "id": "c4bf9dc8-9c9e-4539-9ce2-dab2264203ab",
+      "id": "5882491d-bad0-4a69-88d9-55d159b7b0fe",
       "title": "alert",
-      "published": "Wed Nov 4 08:26:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.570228 -2.69862"
-    },
-    {
-      "id": "133afbfc-13cd-4bfa-b3c4-53c45d955f09",
-      "title": "alert",
-      "published": "Wed Nov 4 09:01:38 +0000 2026",
+      "published": "Wed Nov 4 09:09:01 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.468453 -2.326826"
+    },
+    {
+      "id": "ee202571-92f2-4d7e-94d1-36e782e4ea4c",
+      "title": "alert",
+      "published": "Wed Nov 4 09:34:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Bolton St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.594829 -2.30732"
+    },
+    {
+      "id": "77043185-fe45-48eb-99a7-f85c0a70c96a",
+      "title": "alert",
+      "published": "Wed Nov 4 09:34:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.585576 -2.693559"
+      "point": "53.538052 -2.696411"
     },
     {
       "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
@@ -128,20 +128,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.55655 -2.702588"
-    },
-    {
-      "id": "959ad910-4437-4c0a-bfff-46729b99f561",
-      "title": "alert",
-      "published": "Wed Nov 4 08:47:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.590649 -2.694199"
     }
   ]
 }
