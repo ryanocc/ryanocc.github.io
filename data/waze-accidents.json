@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T08:10:48.293715+00:00",
+  "updatedAt": "2026-11-04T08:15:48.237022+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "a3e19bf8-f2c5-42b2-ab80-68ff70803459",
@@ -18,18 +18,18 @@
       "point": "53.368494 -2.087425"
     },
     {
-      "id": "3ba56a15-c58c-4e85-8a7d-b53f719babf7",
+      "id": "b1477397-b0ac-418a-a44b-5fc237e8134a",
       "title": "alert",
-      "published": "Wed Nov 4 08:10:26 +0000 2026",
+      "published": "Wed Nov 4 08:15:07 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A560 - Crookilley Way",
-      "city": "Stockport",
+      "road": "Heywood Rd",
+      "city": "Prestwich",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.420127 -2.138257"
+      "reportRating": 0.0,
+      "point": "53.538973 -2.272416"
     },
     {
       "id": "120fead6-146f-43f4-9ec4-5647361296e6",
@@ -44,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.454595 -2.596813"
+    },
+    {
+      "id": "811eb533-f22e-4925-a554-9b18c6728a4e",
+      "title": "alert",
+      "published": "Wed Nov 4 08:13:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Parkside Ave",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.456606 -2.598653"
     },
     {
       "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
@@ -71,21 +85,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.424309 -2.566337"
-    },
-    {
-      "id": "3e193b36-40e0-46c6-8756-c28ef4d099d0",
-      "title": "alert",
-      "published": "Wed Nov 4 07:42:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.430002 -2.540674"
+      "point": "53.423766 -2.571568"
     },
     {
       "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
@@ -96,8 +96,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.558461 -2.702346"
     },
@@ -113,21 +113,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.557859 -2.702194"
-    },
-    {
-      "id": "446689ef-4cf8-4c21-b1e4-e7a0eb1edeff",
-      "title": "alert",
-      "published": "Wed Nov 4 07:58:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.539886 -2.237233"
+      "point": "53.558955 -2.701953"
     }
   ]
 }
