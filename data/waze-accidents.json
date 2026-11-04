@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T08:40:48.379506+00:00",
+  "updatedAt": "2026-11-04T08:45:48.353160+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "dbd8d279-0e04-447b-8095-2b56637fd355",
@@ -12,8 +12,8 @@
       "road": "Simonsway",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.3714 -2.240645"
     },
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.60497 -2.218081"
+    },
+    {
+      "id": "cf196ebb-a00a-4732-b043-7eea38cb6b7b",
+      "title": "alert",
+      "published": "Wed Nov 4 08:41:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6222 - Bury And Rochdale Old Rd",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.605231 -2.217233"
     },
     {
       "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
@@ -58,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.454595 -2.596813"
+    },
+    {
+      "id": "be9bf979-5bee-41be-8bc1-e7fbe79ffbd8",
+      "title": "alert",
+      "published": "Wed Nov 4 08:41:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.468237 -2.327421"
     },
     {
       "id": "c4bf9dc8-9c9e-4539-9ce2-dab2264203ab",
