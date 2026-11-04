@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T09:15:48.194948+00:00",
+  "updatedAt": "2026-11-04T09:20:48.156363+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "dbd8d279-0e04-447b-8095-2b56637fd355",
@@ -18,20 +18,6 @@
       "point": "53.3714 -2.240645"
     },
     {
-      "id": "d220da4d-25a4-4095-891c-ecad32bda906",
-      "title": "alert",
-      "published": "Wed Nov 4 08:49:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J25 to A49",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.505394 -2.664003"
-    },
-    {
       "id": "975b66fe-04a9-4eda-9463-da51bb1b1deb",
       "title": "alert",
       "published": "Wed Nov 4 08:49:09 +0000 2026",
@@ -41,23 +27,23 @@
       "city": "Bowdon",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.382158 -2.352447"
     },
     {
-      "id": "a4ca45ac-8994-422f-97f8-2ab01ac6beeb",
+      "id": "e325fbfc-3130-47fb-87c1-fa4dab813990",
       "title": "alert",
-      "published": "Wed Nov 4 09:12:50 +0000 2026",
+      "published": "Wed Nov 4 09:16:36 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A560 - Crookilley Way",
-      "city": "Stockport",
+      "road": "A49 - Warrington Rd",
+      "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.416712 -2.147961"
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.520747 -2.652551"
     },
     {
       "id": "eaf0469b-ac0a-4710-af33-232f45c2601b",
@@ -68,8 +54,8 @@
       "road": "A49 - Warrington Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.521347 -2.652628"
     },
@@ -102,20 +88,6 @@
       "point": "53.55655 -2.702588"
     },
     {
-      "id": "133afbfc-13cd-4bfa-b3c4-53c45d955f09",
-      "title": "alert",
-      "published": "Wed Nov 4 09:01:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.585576 -2.693559"
-    },
-    {
       "id": "c4bf9dc8-9c9e-4539-9ce2-dab2264203ab",
       "title": "alert",
       "published": "Wed Nov 4 08:26:31 +0000 2026",
@@ -138,8 +110,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.590649 -2.694199"
     },
@@ -156,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.559966 -2.701633"
+    },
+    {
+      "id": "133afbfc-13cd-4bfa-b3c4-53c45d955f09",
+      "title": "alert",
+      "published": "Wed Nov 4 09:01:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.585576 -2.693559"
     }
   ]
 }
