@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T09:25:48.142065+00:00",
+  "updatedAt": "2026-11-04T09:30:48.274603+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "dbd8d279-0e04-447b-8095-2b56637fd355",
@@ -41,7 +41,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.521347 -2.652628"
     },
@@ -54,8 +54,8 @@
       "road": "A49 - Warrington Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.520747 -2.652551"
     },
@@ -82,24 +82,10 @@
       "road": "",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.468245 -2.3274"
-    },
-    {
-      "id": "959ad910-4437-4c0a-bfff-46729b99f561",
-      "title": "alert",
-      "published": "Wed Nov 4 08:47:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.590649 -2.694199"
     },
     {
       "id": "c4bf9dc8-9c9e-4539-9ce2-dab2264203ab",
@@ -114,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.570228 -2.69862"
-    },
-    {
-      "id": "63010123-152b-474f-8195-95e83a2e6b4f",
-      "title": "alert",
-      "published": "Wed Nov 4 07:57:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.559966 -2.701633"
     },
     {
       "id": "133afbfc-13cd-4bfa-b3c4-53c45d955f09",
@@ -156,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.55655 -2.702588"
+    },
+    {
+      "id": "959ad910-4437-4c0a-bfff-46729b99f561",
+      "title": "alert",
+      "published": "Wed Nov 4 08:47:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.590649 -2.694199"
     }
   ]
 }
