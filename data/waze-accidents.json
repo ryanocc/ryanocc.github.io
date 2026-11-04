@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T08:20:48.392407+00:00",
+  "updatedAt": "2026-11-04T08:25:48.249259+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "a3e19bf8-f2c5-42b2-ab80-68ff70803459",
@@ -13,37 +13,9 @@
       "city": "Hazel Grove",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.368494 -2.087425"
-    },
-    {
-      "id": "b1477397-b0ac-418a-a44b-5fc237e8134a",
-      "title": "alert",
-      "published": "Wed Nov 4 08:15:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Heywood Rd",
-      "city": "Prestwich",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.538973 -2.272416"
-    },
-    {
-      "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
-      "title": "alert",
-      "published": "Wed Nov 4 06:45:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Parkside Ave",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.454465 -2.596647"
     },
     {
       "id": "120fead6-146f-43f4-9ec4-5647361296e6",
@@ -60,6 +32,20 @@
       "point": "53.454595 -2.596813"
     },
     {
+      "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
+      "title": "alert",
+      "published": "Wed Nov 4 06:45:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Parkside Ave",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.454465 -2.596647"
+    },
+    {
       "id": "811eb533-f22e-4925-a554-9b18c6728a4e",
       "title": "alert",
       "published": "Wed Nov 4 08:13:14 +0000 2026",
@@ -68,7 +54,7 @@
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.456606 -2.598653"
@@ -83,7 +69,7 @@
       "city": "Hyde",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.458636 -2.088207"
     },
@@ -97,9 +83,23 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.485846 -2.097488"
+    },
+    {
+      "id": "63010123-152b-474f-8195-95e83a2e6b4f",
+      "title": "alert",
+      "published": "Wed Nov 4 07:57:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.559966 -2.701633"
     },
     {
       "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
@@ -114,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.558461 -2.702346"
-    },
-    {
-      "id": "63010123-152b-474f-8195-95e83a2e6b4f",
-      "title": "alert",
-      "published": "Wed Nov 4 07:57:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.558955 -2.701953"
     }
   ]
 }
