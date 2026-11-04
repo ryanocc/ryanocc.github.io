@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-04T08:15:48.237022+00:00",
+  "updatedAt": "2026-11-04T08:20:48.392407+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "a3e19bf8-f2c5-42b2-ab80-68ff70803459",
@@ -27,9 +27,23 @@
       "city": "Prestwich",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.538973 -2.272416"
+    },
+    {
+      "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
+      "title": "alert",
+      "published": "Wed Nov 4 06:45:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Parkside Ave",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.454465 -2.596647"
     },
     {
       "id": "120fead6-146f-43f4-9ec4-5647361296e6",
@@ -54,38 +68,38 @@
       "road": "A573 - Parkside Ave",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.456606 -2.598653"
     },
     {
-      "id": "d9db2c2d-436a-4b17-b0a1-bb664cc93e1b",
+      "id": "c8ecf02a-4d42-4ad5-92d1-69dfa3f53b10",
       "title": "alert",
-      "published": "Wed Nov 4 06:45:48 +0000 2026",
+      "published": "Wed Nov 4 08:19:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A573 - Parkside Ave",
-      "city": "",
+      "road": "A627 - Dukinfield Rd",
+      "city": "Hyde",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.454465 -2.596647"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.458636 -2.088207"
     },
     {
-      "id": "0ff911c6-32e7-46ca-a77d-d3eed43c2780",
+      "id": "8de8eb04-131f-4f20-9cc1-d48632599ee4",
       "title": "alert",
-      "published": "Wed Nov 4 07:57:02 +0000 2026",
+      "published": "Wed Nov 4 08:18:21 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (W)",
-      "city": "",
+      "subtype": "",
+      "road": "A627 - Oldham Rd",
+      "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.423766 -2.571568"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.485846 -2.097488"
     },
     {
       "id": "8c3aecc2-4864-4e2d-a318-418cbf9273b7",
