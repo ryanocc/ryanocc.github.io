@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T17:45:47.899277+00:00",
+  "updatedAt": "2026-11-05T17:50:48.022799+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "7ac08e51-d959-4404-ba5c-72141f4cb99e",
@@ -54,7 +54,7 @@
       "road": "M60 (W & N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.401545 -2.209773"
@@ -68,24 +68,66 @@
       "road": "A57 - Manchester Rd",
       "city": "Hollins Green",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 4.0,
-      "point": "53.410311 -2.464096"
+      "point": "53.410404 -2.463828"
     },
     {
-      "id": "036faee3-ba0b-4540-92f0-95aabc73fa7a",
+      "id": "75dea8af-b6ba-44f0-8311-fb7e7a2656f7",
       "title": "alert",
-      "published": "Thu Nov 5 17:45:44 +0000 2026",
+      "published": "Thu Nov 5 17:50:11 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A556 (N)",
-      "city": "",
+      "subtype": "",
+      "road": "A6010 - Alan Turing Way",
+      "city": "Clayton",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.486754 -2.198721"
+    },
+    {
+      "id": "14ef61bd-2d47-4d9e-a503-2d49c7f1a926",
+      "title": "alert",
+      "published": "Thu Nov 5 17:47:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.460214 -2.168693"
+    },
+    {
+      "id": "bc0355f4-9e7b-49aa-85a5-6af039338da0",
+      "title": "alert",
+      "published": "Thu Nov 5 17:48:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.460089 -2.168106"
+    },
+    {
+      "id": "989f7831-5e19-44f9-9d47-10611d12bdac",
+      "title": "alert",
+      "published": "Thu Nov 5 17:49:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 - Airport Spur",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.350957 -2.406527"
+      "point": "53.367376 -2.273921"
     },
     {
       "id": "91d090ea-05fe-48b3-9c3c-e7174fadaa77",
@@ -96,24 +138,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 4.0,
       "point": "53.400038 -2.219085"
-    },
-    {
-      "id": "b265b922-b078-4d4f-b027-6518d98194af",
-      "title": "alert",
-      "published": "Thu Nov 5 17:16:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.399795 -2.219374"
     }
   ]
 }
