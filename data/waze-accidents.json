@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T19:05:47.719789+00:00",
+  "updatedAt": "2026-11-05T19:10:47.752961+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "3ba296ce-88de-48c2-a706-e3d5d1394a99",
@@ -32,6 +32,20 @@
       "point": "53.549432 -2.199895"
     },
     {
+      "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
+      "title": "alert",
+      "published": "Thu Nov 5 17:52:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Windlehurst Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.376898 -2.071578"
+    },
+    {
       "id": "f3fa03e4-dfe5-4f25-8f51-275d0e770ff6",
       "title": "alert",
       "published": "Thu Nov 5 17:53:05 +0000 2026",
@@ -46,18 +60,18 @@
       "point": "53.376909 -2.071561"
     },
     {
-      "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
+      "id": "378da638-042e-411a-9343-777c099376d0",
       "title": "alert",
-      "published": "Thu Nov 5 17:52:14 +0000 2026",
+      "published": "Thu Nov 5 19:05:51 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Windlehurst Rd",
+      "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.376898 -2.071578"
+      "reportRating": 1.0,
+      "point": "53.497264 -2.384495"
     },
     {
       "id": "5270394a-1804-4346-9123-c8d34832d241",
@@ -86,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.489919 -2.365855"
+    },
+    {
+      "id": "82f6ca53-6342-406a-b44c-af9b1aed2ec0",
+      "title": "alert",
+      "published": "Thu Nov 5 19:06:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 4.0,
+      "point": "53.523372 -2.361442"
     },
     {
       "id": "33081af4-458c-4ff6-92e6-31ff9b66c7a8",
