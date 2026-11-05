@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-05T23:50:47.650206+00:00",
+  "updatedAt": "2026-11-05T23:55:47.678823+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
+    {
+      "id": "036bda50-884a-43e1-8961-b50b2f69a460",
+      "title": "alert",
+      "published": "Thu Nov 5 23:55:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A640 - Huddersfield Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.594419 -2.026742"
+    },
     {
       "id": "e06a944a-f3db-460b-8209-2fd9d4358206",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "A665 - Great Ancoats St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.478268 -2.219802"
     }
