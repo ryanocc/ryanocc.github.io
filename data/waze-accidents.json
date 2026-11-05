@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-05T20:30:47.620655+00:00",
+  "updatedAt": "2026-11-05T20:35:47.677519+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
+    {
+      "id": "f0f44219-04a4-461c-bb0c-cb890c4a8a76",
+      "title": "alert",
+      "published": "Thu Nov 5 20:31:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Mornington Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.585557 -2.454829"
+    },
     {
       "id": "07538499-fc62-445f-83d2-3be982f35de6",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "A576 - Centenary Way",
       "city": "Weaste",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.481291 -2.326368"
     },
