@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T22:00:47.644847+00:00",
+  "updatedAt": "2026-11-05T22:05:47.658840+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.504218 -2.522187"
     },
     {
-      "id": "d48ec9d2-721d-4542-9692-40e4f8ccdd28",
-      "title": "alert",
-      "published": "Thu Nov 5 21:21:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6214 - Crostons Rd",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.596472 -2.309068"
-    },
-    {
       "id": "e2b508fe-0f15-47ca-aeb2-a154d638fd68",
       "title": "alert",
       "published": "Thu Nov 5 20:45:08 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.585467 -2.453424"
+    },
+    {
+      "id": "85cc735f-cbf3-4918-872f-cdbf798332da",
+      "title": "alert",
+      "published": "Thu Nov 5 20:57:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A579 - Atherleigh Way",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.50469 -2.522358"
     },
     {
       "id": "8296e599-363b-459a-8797-3911954ffa7a",
@@ -74,18 +74,18 @@
       "point": "53.504038 -2.522862"
     },
     {
-      "id": "85cc735f-cbf3-4918-872f-cdbf798332da",
+      "id": "9fe10fe1-e5f7-4a1d-8656-f8f6dddda833",
       "title": "alert",
-      "published": "Thu Nov 5 20:57:22 +0000 2026",
+      "published": "Thu Nov 5 22:03:09 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "A579 - Atherleigh Way",
-      "city": "Leigh",
+      "road": "M60 (CW)",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.50469 -2.522358"
+      "reportRating": 3.0,
+      "point": "53.414401 -2.276334"
     }
   ]
 }
