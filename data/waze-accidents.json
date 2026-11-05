@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T17:15:47.976557+00:00",
+  "updatedAt": "2026-11-05T17:20:47.887343+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "b2d5b003-f731-4481-b55f-6e751b832ce0",
@@ -26,7 +26,7 @@
       "road": "B5214 - Ashburton Rd W",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470739 -2.348687"
@@ -41,37 +41,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.550356 -2.494903"
     },
     {
-      "id": "6a2a41a1-5ab9-4bca-88d9-3734a60398ff",
+      "id": "b265b922-b078-4d4f-b027-6518d98194af",
       "title": "alert",
-      "published": "Thu Nov 5 17:08:03 +0000 2026",
+      "published": "Thu Nov 5 17:16:49 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.449581 -2.302909"
-    },
-    {
-      "id": "6fa84394-517d-4850-a061-2e7b0cb7e845",
-      "title": "alert",
-      "published": "Thu Nov 5 17:09:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.400441 -2.217345"
+      "point": "53.399795 -2.219374"
     }
   ]
 }
