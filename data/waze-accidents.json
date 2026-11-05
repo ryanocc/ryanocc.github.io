@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T18:00:47.918996+00:00",
+  "updatedAt": "2026-11-05T18:05:47.862861+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "3ba296ce-88de-48c2-a706-e3d5d1394a99",
@@ -54,8 +54,8 @@
       "road": "Windlehurst Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.376898 -2.071578"
     },
@@ -68,8 +68,8 @@
       "road": "Windlehurst Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.376909 -2.071561"
     },
@@ -83,37 +83,23 @@
       "city": "Hollins Green",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.410404 -2.463828"
     },
     {
-      "id": "14ef61bd-2d47-4d9e-a503-2d49c7f1a926",
+      "id": "6353ac9f-f624-4fde-998c-9c5bace51dbd",
       "title": "alert",
-      "published": "Thu Nov 5 17:47:45 +0000 2026",
+      "published": "Thu Nov 5 18:03:27 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A34 - Birchfields Rd",
+      "city": "Rusholme",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.460214 -2.168693"
-    },
-    {
-      "id": "91d090ea-05fe-48b3-9c3c-e7174fadaa77",
-      "title": "alert",
-      "published": "Thu Nov 5 17:38:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.400038 -2.219085"
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.453341 -2.211019"
     }
   ]
 }
