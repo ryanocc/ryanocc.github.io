@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T21:50:47.633746+00:00",
+  "updatedAt": "2026-11-05T21:55:47.579902+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "7b767d22-da47-499f-bc48-2da31acab1eb",
@@ -60,20 +60,6 @@
       "point": "53.585467 -2.453424"
     },
     {
-      "id": "8296e599-363b-459a-8797-3911954ffa7a",
-      "title": "alert",
-      "published": "Thu Nov 5 21:15:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.504038 -2.522862"
-    },
-    {
       "id": "85cc735f-cbf3-4918-872f-cdbf798332da",
       "title": "alert",
       "published": "Thu Nov 5 20:57:22 +0000 2026",
@@ -88,18 +74,18 @@
       "point": "53.50469 -2.522358"
     },
     {
-      "id": "33b7ad8d-08ce-47f9-8fd3-5089abdbe0b9",
+      "id": "8296e599-363b-459a-8797-3911954ffa7a",
       "title": "alert",
-      "published": "Thu Nov 5 21:49:52 +0000 2026",
+      "published": "Thu Nov 5 21:15:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "A579 - Atherleigh Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.414473 -2.276941"
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.504038 -2.522862"
     }
   ]
 }
