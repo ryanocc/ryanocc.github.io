@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T18:15:47.816511+00:00",
+  "updatedAt": "2026-11-05T18:20:47.814456+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -26,10 +26,24 @@
       "road": "Factory St",
       "city": "Middleton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.549432 -2.199895"
+    },
+    {
+      "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
+      "title": "alert",
+      "published": "Thu Nov 5 17:52:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Windlehurst Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.376898 -2.071578"
     },
     {
       "id": "f3fa03e4-dfe5-4f25-8f51-275d0e770ff6",
@@ -44,20 +58,6 @@
       "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.376909 -2.071561"
-    },
-    {
-      "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
-      "title": "alert",
-      "published": "Thu Nov 5 17:52:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Windlehurst Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.376898 -2.071578"
     },
     {
       "id": "f709b10e-f2c9-4e34-a502-e6501d19a632",
