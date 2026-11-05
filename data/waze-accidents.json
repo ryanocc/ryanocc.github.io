@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T18:25:47.796319+00:00",
+  "updatedAt": "2026-11-05T18:30:47.824096+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "3ba296ce-88de-48c2-a706-e3d5d1394a99",
@@ -40,8 +40,8 @@
       "road": "Windlehurst Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.376898 -2.071578"
     },
@@ -60,18 +60,18 @@
       "point": "53.376909 -2.071561"
     },
     {
-      "id": "f709b10e-f2c9-4e34-a502-e6501d19a632",
+      "id": "381a4ccf-f916-4be5-87ec-a008e98ca47c",
       "title": "alert",
-      "published": "Thu Nov 5 17:40:57 +0000 2026",
+      "published": "Thu Nov 5 18:25:24 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Manchester Rd",
-      "city": "Hollins Green",
+      "road": "M60 (ACW)",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.410404 -2.463828"
+      "reportRating": 1.0,
+      "point": "53.492761 -2.381104"
     },
     {
       "id": "71eca926-472c-4cb2-a3d2-44b38d4d84b0",
@@ -82,24 +82,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.490361 -2.378393"
-    },
-    {
-      "id": "381a4ccf-f916-4be5-87ec-a008e98ca47c",
-      "title": "alert",
-      "published": "Thu Nov 5 18:25:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.492761 -2.381104"
     }
   ]
 }
