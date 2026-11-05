@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T22:35:47.815956+00:00",
+  "updatedAt": "2026-11-05T22:40:47.870413+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "7b767d22-da47-499f-bc48-2da31acab1eb",
@@ -44,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.585467 -2.453424"
+    },
+    {
+      "id": "fe28980e-8436-4e7c-ad54-0e5b70784aa0",
+      "title": "alert",
+      "published": "Thu Nov 5 22:40:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Pin Mill Brow",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.476054 -2.21769"
     }
   ]
 }
