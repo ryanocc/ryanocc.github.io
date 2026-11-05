@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T21:15:47.648039+00:00",
+  "updatedAt": "2026-11-05T21:20:47.643256+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.585467 -2.453424"
     },
     {
+      "id": "8296e599-363b-459a-8797-3911954ffa7a",
+      "title": "alert",
+      "published": "Thu Nov 5 21:15:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.504038 -2.522862"
+    },
+    {
       "id": "85cc735f-cbf3-4918-872f-cdbf798332da",
       "title": "alert",
       "published": "Thu Nov 5 20:57:22 +0000 2026",
@@ -55,7 +69,7 @@
       "city": "Leigh",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50469 -2.522358"
     },
@@ -72,20 +86,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.500024 -2.38276"
-    },
-    {
-      "id": "f96c840c-49f2-4e82-95fc-eeca8f60d283",
-      "title": "alert",
-      "published": "Thu Nov 5 21:11:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.471658 -2.256831"
     }
   ]
 }
