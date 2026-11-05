@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T18:20:47.814456+00:00",
+  "updatedAt": "2026-11-05T18:25:47.796319+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "3ba296ce-88de-48c2-a706-e3d5d1394a99",
@@ -72,6 +72,34 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.410404 -2.463828"
+    },
+    {
+      "id": "71eca926-472c-4cb2-a3d2-44b38d4d84b0",
+      "title": "alert",
+      "published": "Thu Nov 5 18:25:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.490361 -2.378393"
+    },
+    {
+      "id": "381a4ccf-f916-4be5-87ec-a008e98ca47c",
+      "title": "alert",
+      "published": "Thu Nov 5 18:25:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.492761 -2.381104"
     }
   ]
 }
