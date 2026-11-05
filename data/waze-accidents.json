@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T18:45:47.872512+00:00",
+  "updatedAt": "2026-11-05T18:50:47.724853+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "3ba296ce-88de-48c2-a706-e3d5d1394a99",
@@ -32,20 +32,6 @@
       "point": "53.549432 -2.199895"
     },
     {
-      "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
-      "title": "alert",
-      "published": "Thu Nov 5 17:52:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Windlehurst Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.376898 -2.071578"
-    },
-    {
       "id": "f3fa03e4-dfe5-4f25-8f51-275d0e770ff6",
       "title": "alert",
       "published": "Thu Nov 5 17:53:05 +0000 2026",
@@ -60,6 +46,20 @@
       "point": "53.376909 -2.071561"
     },
     {
+      "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
+      "title": "alert",
+      "published": "Thu Nov 5 17:52:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Windlehurst Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.376898 -2.071578"
+    },
+    {
       "id": "5270394a-1804-4346-9123-c8d34832d241",
       "title": "alert",
       "published": "Thu Nov 5 18:44:53 +0000 2026",
@@ -68,10 +68,24 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492518 -2.38114"
+    },
+    {
+      "id": "6dbf4aca-99dd-4b9d-a6e6-5fd7e9ec0b75",
+      "title": "alert",
+      "published": "Thu Nov 5 18:46:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M602 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.489919 -2.365855"
     },
     {
       "id": "2f709f6e-2501-483f-a12b-f2e674d8f547",
@@ -82,7 +96,7 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.527634 -2.364505"
