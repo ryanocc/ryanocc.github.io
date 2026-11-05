@@ -1,21 +1,63 @@
 {
-  "updatedAt": "2026-11-05T17:05:47.970991+00:00",
+  "updatedAt": "2026-11-05T17:10:48.168345+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 4,
   "incidents": [
     {
-      "id": "bba4b0ca-2d3f-43fb-9337-8f2fcd499ca5",
+      "id": "b2d5b003-f731-4481-b55f-6e751b832ce0",
       "title": "alert",
-      "published": "Thu Nov 5 17:01:11 +0000 2026",
+      "published": "Thu Nov 5 17:10:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Factory St",
+      "city": "Middleton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.549432 -2.199895"
+    },
+    {
+      "id": "4d144bce-9853-4143-93e0-22f886d3923e",
+      "title": "alert",
+      "published": "Thu Nov 5 17:08:58 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A555 (W)",
+      "road": "A6 - Manchester Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.350033 -2.160222"
+      "point": "53.550356 -2.494903"
+    },
+    {
+      "id": "6a2a41a1-5ab9-4bca-88d9-3734a60398ff",
+      "title": "alert",
+      "published": "Thu Nov 5 17:08:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.449581 -2.302909"
+    },
+    {
+      "id": "6fa84394-517d-4850-a061-2e7b0cb7e845",
+      "title": "alert",
+      "published": "Thu Nov 5 17:09:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.400441 -2.217345"
     }
   ]
 }
