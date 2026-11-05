@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T20:45:47.583204+00:00",
+  "updatedAt": "2026-11-05T20:50:47.613069+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "f0f44219-04a4-461c-bb0c-cb890c4a8a76",
@@ -13,9 +13,23 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.585557 -2.454829"
+    },
+    {
+      "id": "db4b89b7-5a01-4887-b83a-5238d3e2df19",
+      "title": "alert",
+      "published": "Thu Nov 5 20:50:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Kirkhall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.504218 -2.522187"
     },
     {
       "id": "e2b508fe-0f15-47ca-aeb2-a154d638fd68",
@@ -40,7 +54,7 @@
       "road": "A576 - Centenary Way",
       "city": "Weaste",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.481291 -2.326368"
