@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T20:40:47.625420+00:00",
+  "updatedAt": "2026-11-05T20:45:47.583204+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -18,6 +18,20 @@
       "point": "53.585557 -2.454829"
     },
     {
+      "id": "e2b508fe-0f15-47ca-aeb2-a154d638fd68",
+      "title": "alert",
+      "published": "Thu Nov 5 20:45:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.585467 -2.453424"
+    },
+    {
       "id": "07538499-fc62-445f-83d2-3be982f35de6",
       "title": "alert",
       "published": "Thu Nov 5 19:50:24 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "Weaste",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.481291 -2.326368"
     },
@@ -44,20 +58,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.500024 -2.38276"
-    },
-    {
-      "id": "f6fde4ba-44b5-4286-ba87-c50688a4ec08",
-      "title": "alert",
-      "published": "Thu Nov 5 20:17:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.49178 -2.380221"
     }
   ]
 }
