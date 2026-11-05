@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T19:10:47.752961+00:00",
+  "updatedAt": "2026-11-05T19:15:47.805497+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.549432 -2.199895"
     },
     {
-      "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
-      "title": "alert",
-      "published": "Thu Nov 5 17:52:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Windlehurst Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.376898 -2.071578"
-    },
-    {
       "id": "f3fa03e4-dfe5-4f25-8f51-275d0e770ff6",
       "title": "alert",
       "published": "Thu Nov 5 17:53:05 +0000 2026",
@@ -60,6 +46,20 @@
       "point": "53.376909 -2.071561"
     },
     {
+      "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
+      "title": "alert",
+      "published": "Thu Nov 5 17:52:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Windlehurst Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.376898 -2.071578"
+    },
+    {
       "id": "378da638-042e-411a-9343-777c099376d0",
       "title": "alert",
       "published": "Thu Nov 5 19:05:51 +0000 2026",
@@ -71,7 +71,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.497264 -2.384495"
+      "point": "53.495337 -2.383667"
     },
     {
       "id": "5270394a-1804-4346-9123-c8d34832d241",
@@ -88,6 +88,20 @@
       "point": "53.492518 -2.38114"
     },
     {
+      "id": "82f6ca53-6342-406a-b44c-af9b1aed2ec0",
+      "title": "alert",
+      "published": "Thu Nov 5 19:06:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.523372 -2.361442"
+    },
+    {
       "id": "6dbf4aca-99dd-4b9d-a6e6-5fd7e9ec0b75",
       "title": "alert",
       "published": "Thu Nov 5 18:46:50 +0000 2026",
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.489919 -2.365855"
-    },
-    {
-      "id": "82f6ca53-6342-406a-b44c-af9b1aed2ec0",
-      "title": "alert",
-      "published": "Thu Nov 5 19:06:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 4.0,
-      "point": "53.523372 -2.361442"
     },
     {
       "id": "33081af4-458c-4ff6-92e6-31ff9b66c7a8",
