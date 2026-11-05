@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-11-05T16:40:47.827478+00:00",
+  "updatedAt": "2026-11-05T16:50:47.918372+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
-      "id": "f555d091-6f50-4fe7-bec7-157da3e53fdd",
+      "id": "a4b1e1ea-03dd-4761-8760-42733f0e6a2d",
       "title": "alert",
-      "published": "Thu Nov 5 16:36:41 +0000 2026",
+      "published": "Thu Nov 5 16:47:52 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A574 - Birchwood Way",
+      "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.414145 -2.542677"
+      "point": "53.503376 -2.435639"
+    },
+    {
+      "id": "c59b1d3a-aaa3-4b5c-a77d-c9d9c9ccb410",
+      "title": "alert",
+      "published": "Thu Nov 5 16:48:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.409718 -2.170747"
     }
   ]
 }
