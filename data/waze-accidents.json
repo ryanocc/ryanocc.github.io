@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T18:40:47.976674+00:00",
+  "updatedAt": "2026-11-05T18:45:47.872512+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "3ba296ce-88de-48c2-a706-e3d5d1394a99",
@@ -54,24 +54,38 @@
       "road": "Windlehurst Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.376909 -2.071561"
     },
     {
-      "id": "381a4ccf-f916-4be5-87ec-a008e98ca47c",
+      "id": "5270394a-1804-4346-9123-c8d34832d241",
       "title": "alert",
-      "published": "Thu Nov 5 18:25:24 +0000 2026",
+      "published": "Thu Nov 5 18:44:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (ACW)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.492518 -2.38114"
+    },
+    {
+      "id": "2f709f6e-2501-483f-a12b-f2e674d8f547",
+      "title": "alert",
+      "published": "Thu Nov 5 18:42:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.492319 -2.380543"
+      "reportRating": 0.0,
+      "point": "53.527634 -2.364505"
     },
     {
       "id": "33081af4-458c-4ff6-92e6-31ff9b66c7a8",
