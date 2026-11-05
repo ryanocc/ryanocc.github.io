@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T21:20:47.643256+00:00",
+  "updatedAt": "2026-11-05T21:25:47.693925+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "f0f44219-04a4-461c-bb0c-cb890c4a8a76",
@@ -30,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.504218 -2.522187"
+    },
+    {
+      "id": "d48ec9d2-721d-4542-9692-40e4f8ccdd28",
+      "title": "alert",
+      "published": "Thu Nov 5 21:21:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6214 - Crostons Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.596472 -2.309068"
     },
     {
       "id": "e2b508fe-0f15-47ca-aeb2-a154d638fd68",
@@ -68,7 +82,7 @@
       "road": "A579 - Atherleigh Way",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50469 -2.522358"
