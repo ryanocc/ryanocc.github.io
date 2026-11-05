@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T21:10:47.651572+00:00",
+  "updatedAt": "2026-11-05T21:15:47.648039+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "f0f44219-04a4-461c-bb0c-cb890c4a8a76",
@@ -13,7 +13,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.585557 -2.454829"
     },
@@ -26,7 +26,7 @@
       "road": "Kirkhall Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.504218 -2.522187"
@@ -54,8 +54,8 @@
       "road": "A579 - Atherleigh Way",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.50469 -2.522358"
     },
@@ -72,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.500024 -2.38276"
+    },
+    {
+      "id": "f96c840c-49f2-4e82-95fc-eeca8f60d283",
+      "title": "alert",
+      "published": "Thu Nov 5 21:11:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.471658 -2.256831"
     }
   ]
 }
