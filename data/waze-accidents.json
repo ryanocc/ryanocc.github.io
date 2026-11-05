@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T21:40:47.677494+00:00",
+  "updatedAt": "2026-11-05T21:45:47.599940+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "f0f44219-04a4-461c-bb0c-cb890c4a8a76",
@@ -16,6 +16,20 @@
       "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.585557 -2.454829"
+    },
+    {
+      "id": "7b767d22-da47-499f-bc48-2da31acab1eb",
+      "title": "alert",
+      "published": "Thu Nov 5 21:44:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "John St",
+      "city": "Hyde",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.452018 -2.077982"
     },
     {
       "id": "db4b89b7-5a01-4887-b83a-5238d3e2df19",
@@ -82,7 +96,7 @@
       "road": "A579 - Atherleigh Way",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50469 -2.522358"
