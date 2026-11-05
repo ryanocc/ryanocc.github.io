@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-05T19:45:47.711881+00:00",
+  "updatedAt": "2026-11-05T19:50:47.686756+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
-    {
-      "id": "3ba296ce-88de-48c2-a706-e3d5d1394a99",
-      "title": "alert",
-      "published": "Thu Nov 5 17:42:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Gidlow Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.566144 -2.648118"
-    },
     {
       "id": "be687d0d-359b-4224-96b0-4f2f0de7c3c4",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.376898 -2.071578"
+    },
+    {
+      "id": "07538499-fc62-445f-83d2-3be982f35de6",
+      "title": "alert",
+      "published": "Thu Nov 5 19:50:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Centenary Way",
+      "city": "Weaste",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.481291 -2.326368"
     },
     {
       "id": "bbc18934-8e1e-49fd-8f81-867319679c1b",
@@ -68,7 +68,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.492652 -2.380965"
@@ -88,18 +88,18 @@
       "point": "53.523372 -2.361442"
     },
     {
-      "id": "f255ed0e-7f76-4e2f-83ed-cae1ffc323a3",
+      "id": "41dc42d1-ac61-4a1f-b1aa-37f22d4d1575",
       "title": "alert",
-      "published": "Thu Nov 5 19:33:41 +0000 2026",
+      "published": "Thu Nov 5 19:46:33 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M602 (W)",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 1.0,
       "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.489893 -2.365577"
+      "reportRating": 0.0,
+      "point": "53.529467 -2.370192"
     },
     {
       "id": "33081af4-458c-4ff6-92e6-31ff9b66c7a8",
