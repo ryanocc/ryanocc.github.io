@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-05T21:45:47.599940+00:00",
+  "updatedAt": "2026-11-05T21:50:47.633746+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
-    {
-      "id": "f0f44219-04a4-461c-bb0c-cb890c4a8a76",
-      "title": "alert",
-      "published": "Thu Nov 5 20:31:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Mornington Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.585557 -2.454829"
-    },
     {
       "id": "7b767d22-da47-499f-bc48-2da31acab1eb",
       "title": "alert",
@@ -40,7 +26,7 @@
       "road": "Kirkhall Ln",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.504218 -2.522187"
@@ -82,8 +68,8 @@
       "road": "A579 - Atherleigh Way",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.504038 -2.522862"
     },
@@ -100,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50469 -2.522358"
+    },
+    {
+      "id": "33b7ad8d-08ce-47f9-8fd3-5089abdbe0b9",
+      "title": "alert",
+      "published": "Thu Nov 5 21:49:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.414473 -2.276941"
     }
   ]
 }
