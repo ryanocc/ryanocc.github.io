@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T21:00:48.053833+00:00",
+  "updatedAt": "2026-11-06T21:05:47.942690+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -40,24 +40,10 @@
       "road": "A663 - Broadway",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.542967 -2.148529"
-    },
-    {
-      "id": "e10dc5f1-6245-48cc-b02b-c2027ec7b7a9",
-      "title": "alert",
-      "published": "Fri Nov 6 20:55:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.525712 -2.362526"
     },
     {
       "id": "bae91c35-28d3-4b2d-88e4-676b3e5b91f2",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.528218 -2.365697"
+    },
+    {
+      "id": "e10dc5f1-6245-48cc-b02b-c2027ec7b7a9",
+      "title": "alert",
+      "published": "Fri Nov 6 20:55:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.525545 -2.362376"
     }
   ]
 }
