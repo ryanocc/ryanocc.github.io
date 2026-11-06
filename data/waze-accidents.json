@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T18:25:48.023112+00:00",
+  "updatedAt": "2026-11-06T18:30:48.179757+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -41,23 +41,9 @@
       "city": "Atherton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.511968 -2.511319"
-    },
-    {
-      "id": "12f27151-492f-49a0-811f-8ba9b9b49c3d",
-      "title": "alert",
-      "published": "Fri Nov 6 18:17:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Ashton Old Rd",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.475255 -2.21582"
     },
     {
       "id": "b4d569bc-e413-4715-bcb0-82d04b7c4623",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.545838 -2.124841"
+    },
+    {
+      "id": "d812734a-60c9-4334-a53d-655f2380b5f3",
+      "title": "alert",
+      "published": "Fri Nov 6 18:29:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.614471 -2.088776"
     }
   ]
 }
