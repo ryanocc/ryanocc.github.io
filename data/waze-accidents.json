@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T14:15:48.176705+00:00",
+  "updatedAt": "2026-11-06T14:20:48.091966+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "18a0190a-69a6-4f07-9b8e-8359eb9e2441",
@@ -32,20 +32,6 @@
       "point": "53.548808 -2.284765"
     },
     {
-      "id": "e4817459-0d92-435b-aa53-6713876c3e74",
-      "title": "alert",
-      "published": "Fri Nov 6 14:02:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5239 - Rectory Ln",
-      "city": "Standish",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.588583 -2.646239"
-    },
-    {
       "id": "b629c11a-e8f1-4939-9a58-91483e19c132",
       "title": "alert",
       "published": "Fri Nov 6 13:14:33 +0000 2026",
@@ -74,20 +60,6 @@
       "point": "53.462682 -2.247052"
     },
     {
-      "id": "d38dcddc-4407-442f-b7ed-cc4ca9ee7cb2",
-      "title": "alert",
-      "published": "Fri Nov 6 13:28:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A574 - Birchwood Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.410109 -2.551249"
-    },
-    {
       "id": "81785b67-e387-4cff-b742-e9b25803ebc0",
       "title": "alert",
       "published": "Fri Nov 6 14:07:00 +0000 2026",
@@ -102,18 +74,18 @@
       "point": "53.511742 -2.214661"
     },
     {
-      "id": "6ffb441a-7d04-418a-a2f7-cd720a1fbcdb",
+      "id": "eef409bb-ba15-4de0-8481-d7f5f9e12b74",
       "title": "alert",
-      "published": "Fri Nov 6 14:06:24 +0000 2026",
+      "published": "Fri Nov 6 14:16:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Wigan Rd",
-      "city": "Bolton",
+      "road": "A560 - Altrincham Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 4.0,
-      "point": "53.561577 -2.476356"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.397097 -2.261612"
     },
     {
       "id": "69c33e37-a4c9-4c39-91df-acc6abe33898",
@@ -124,8 +96,8 @@
       "road": "A58 - Wigan Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.561976 -2.475139"
     },
@@ -142,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.459933 -2.220967"
+    },
+    {
+      "id": "bc0cbc11-2e1a-48b3-b9be-fc35aa294b57",
+      "title": "alert",
+      "published": "Fri Nov 6 14:19:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.43362 -2.51705"
     }
   ]
 }
