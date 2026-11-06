@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T11:05:47.937430+00:00",
+  "updatedAt": "2026-11-06T11:10:47.825910+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "9b93c612-59e0-4a51-a22e-f54ee2c2a1e2",
@@ -30,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.513234 -2.040683"
+    },
+    {
+      "id": "83044921-ad37-4caa-bbd2-0e270691f4ea",
+      "title": "alert",
+      "published": "Fri Nov 6 11:09:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A523 - London Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.300351 -2.140521"
     }
   ]
 }
