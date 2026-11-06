@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T15:00:48.209432+00:00",
+  "updatedAt": "2026-11-06T15:05:48.176726+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -32,32 +32,18 @@
       "point": "53.575498 -2.546311"
     },
     {
-      "id": "303e4211-334a-4382-be53-3984c6457f94",
+      "id": "10994930-d784-48d3-9025-19cd08ad6a8b",
       "title": "alert",
-      "published": "Fri Nov 6 15:00:14 +0000 2026",
+      "published": "Fri Nov 6 15:00:49 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (N) > Leeds",
+      "subtype": "",
+      "road": "J8 to A6144",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 4.0,
-      "point": "53.485415 -2.375619"
-    },
-    {
-      "id": "81785b67-e387-4cff-b742-e9b25803ebc0",
-      "title": "alert",
-      "published": "Fri Nov 6 14:07:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Rochdale Rd",
-      "city": "Harpurhey",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.511742 -2.214661"
+      "point": "53.443765 -2.338727"
     },
     {
       "id": "11b790e0-ffd5-4f95-8409-b68491106913",
@@ -68,10 +54,10 @@
       "road": "A58 - Wigan Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.561115 -2.477832"
+      "point": "53.561047 -2.478046"
     },
     {
       "id": "69c33e37-a4c9-4c39-91df-acc6abe33898",
@@ -86,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.561976 -2.475139"
+    },
+    {
+      "id": "a52fab90-1bb6-4d6c-b328-51fc72ad7092",
+      "title": "alert",
+      "published": "Fri Nov 6 15:02:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.370853 -2.508866"
     }
   ]
 }
