@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T12:45:48.181152+00:00",
+  "updatedAt": "2026-11-06T12:50:48.020848+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -18,6 +18,20 @@
       "point": "53.596269 -2.393891"
     },
     {
+      "id": "c7f7fc08-d031-4692-a912-bf0524fce285",
+      "title": "alert",
+      "published": "Fri Nov 6 12:22:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Trinity St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.574066 -2.43262"
+    },
+    {
       "id": "29c5e983-7867-4e90-8336-12283371c765",
       "title": "alert",
       "published": "Fri Nov 6 12:40:24 +0000 2026",
@@ -27,37 +41,23 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.574103 -2.432374"
     },
     {
-      "id": "c7f7fc08-d031-4692-a912-bf0524fce285",
+      "id": "aaf955b7-c8b8-4de6-a979-199103176234",
       "title": "alert",
-      "published": "Fri Nov 6 12:22:27 +0000 2026",
+      "published": "Fri Nov 6 12:50:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A579 - Trinity St",
-      "city": "Bolton",
+      "road": "M6 (N)",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.574066 -2.43262"
-    },
-    {
-      "id": "d23383f9-6801-4a18-9976-68c62d729980",
-      "title": "alert",
-      "published": "Fri Nov 6 12:36:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470547 -2.246283"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.358067 -2.508032"
     }
   ]
 }
