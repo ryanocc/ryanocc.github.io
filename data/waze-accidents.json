@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T00:20:48.076244+00:00",
+  "updatedAt": "2026-11-06T00:25:48.028438+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -18,6 +18,20 @@
       "point": "53.388494 -2.317275"
     },
     {
+      "id": "c8af5808-4660-420d-8453-67f28fe2f8c0",
+      "title": "alert",
+      "published": "Fri Nov 6 00:14:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A670 - Mossley Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.501702 -2.058951"
+    },
+    {
       "id": "036bda50-884a-43e1-8961-b50b2f69a460",
       "title": "alert",
       "published": "Thu Nov 5 23:55:26 +0000 2026",
@@ -32,18 +46,18 @@
       "point": "53.594419 -2.026742"
     },
     {
-      "id": "c8af5808-4660-420d-8453-67f28fe2f8c0",
+      "id": "e83dc338-22de-4a3f-841c-24b5718328d0",
       "title": "alert",
-      "published": "Fri Nov 6 00:14:42 +0000 2026",
+      "published": "Fri Nov 6 00:05:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "Ashton-under-Lyne",
+      "road": "A673 - Topp Way",
+      "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
       "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.501702 -2.058951"
+      "reportRating": 0.0,
+      "point": "53.583777 -2.428409"
     },
     {
       "id": "0aa397d8-934c-4d43-8afa-8afba1519e6f",
@@ -58,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.583571 -2.429705"
-    },
-    {
-      "id": "e83dc338-22de-4a3f-841c-24b5718328d0",
-      "title": "alert",
-      "published": "Fri Nov 6 00:05:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A673 - Topp Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.583777 -2.428409"
     },
     {
       "id": "e06a944a-f3db-460b-8209-2fd9d4358206",
