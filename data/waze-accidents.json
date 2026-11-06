@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-06T19:05:47.969140+00:00",
+  "updatedAt": "2026-11-06T19:10:48.147763+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 4,
   "incidents": [
+    {
+      "id": "fbba945f-3515-4ab1-82dd-e28dcc65b27e",
+      "title": "alert",
+      "published": "Fri Nov 6 19:07:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Fielding St",
+      "city": "Barton Upon Irwell",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.481335 -2.357333"
+    },
     {
       "id": "3fbc492c-9d2f-4162-9cac-89e6728493a2",
       "title": "alert",
@@ -41,51 +55,9 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.531361 -2.667897"
-    },
-    {
-      "id": "032bdb26-44e1-43b9-8b6c-dcfa0c75ba7d",
-      "title": "alert",
-      "published": "Fri Nov 6 18:54:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.479998 -2.223401"
-    },
-    {
-      "id": "1b3ac43d-7253-4d37-919a-c92d0e7aead0",
-      "title": "alert",
-      "published": "Fri Nov 6 18:53:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Fallowfield",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.440441 -2.243988"
-    },
-    {
-      "id": "378352cd-6dd8-41cc-a47a-36e5ed0260eb",
-      "title": "alert",
-      "published": "Fri Nov 6 19:03:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6042 - Trinity Way",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 4.0,
-      "point": "53.489233 -2.242745"
     }
   ]
 }
