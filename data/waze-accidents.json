@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-06T15:25:48.398237+00:00",
+  "updatedAt": "2026-11-06T15:30:49.439323+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 9,
   "incidents": [
+    {
+      "id": "7e1d0f14-dd89-419f-b287-bae425cc7ca1",
+      "title": "alert",
+      "published": "Fri Nov 6 15:27:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.541797 -2.526309"
+    },
+    {
+      "id": "a57067fe-5ed0-4588-918d-2a9ae3f26d88",
+      "title": "alert",
+      "published": "Fri Nov 6 15:27:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hilton Cr",
+      "city": "Boothstown",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.502014 -2.411274"
+    },
     {
       "id": "c06cd818-034c-4b47-8243-cffc012e7d95",
       "title": "alert",
@@ -18,18 +46,18 @@
       "point": "53.545599 -2.069789"
     },
     {
-      "id": "10994930-d784-48d3-9025-19cd08ad6a8b",
+      "id": "eb6ba281-b7ec-42f6-9f3c-1e0874d1f821",
       "title": "alert",
-      "published": "Fri Nov 6 15:00:49 +0000 2026",
+      "published": "Fri Nov 6 15:27:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "J8 to A6144",
-      "city": "",
+      "road": "B5215 - Leigh Rd",
+      "city": "Atherton",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.443765 -2.338727"
+      "point": "53.514151 -2.509673"
     },
     {
       "id": "3091776f-552d-4aa3-b6dd-f837cccc6cb3",
@@ -41,9 +69,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.440757 -2.333532"
+    },
+    {
+      "id": "10994930-d784-48d3-9025-19cd08ad6a8b",
+      "title": "alert",
+      "published": "Fri Nov 6 15:00:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J8 to A6144",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.443765 -2.338727"
     },
     {
       "id": "11b790e0-ffd5-4f95-8409-b68491106913",
@@ -72,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.561976 -2.475139"
+    },
+    {
+      "id": "30eb4afd-223f-4dc2-ae1b-a82635028d80",
+      "title": "alert",
+      "published": "Fri Nov 6 15:30:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.546231 -2.256057"
     }
   ]
 }
