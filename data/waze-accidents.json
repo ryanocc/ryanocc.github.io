@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T14:00:47.971695+00:00",
+  "updatedAt": "2026-11-06T14:05:47.966878+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "18a0190a-69a6-4f07-9b8e-8359eb9e2441",
@@ -40,10 +40,24 @@
       "road": "Enterprise Way",
       "city": "Manchester Airport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.369704 -2.275002"
+    },
+    {
+      "id": "e4817459-0d92-435b-aa53-6713876c3e74",
+      "title": "alert",
+      "published": "Fri Nov 6 14:02:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5239 - Rectory Ln",
+      "city": "Standish",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.588583 -2.646239"
     },
     {
       "id": "b629c11a-e8f1-4939-9a58-91483e19c132",
@@ -68,8 +82,8 @@
       "road": "M60 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.515546 -2.369955"
     },
@@ -83,7 +97,7 @@
       "city": "Hulme",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.462682 -2.247052"
     },
