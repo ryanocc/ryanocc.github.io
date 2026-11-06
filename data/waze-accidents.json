@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T13:45:48.192080+00:00",
+  "updatedAt": "2026-11-06T13:50:48.072022+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "18a0190a-69a6-4f07-9b8e-8359eb9e2441",
@@ -32,6 +32,20 @@
       "point": "53.548808 -2.284765"
     },
     {
+      "id": "1e2709e5-9557-47f6-b015-53dfc1a26a69",
+      "title": "alert",
+      "published": "Fri Nov 6 13:48:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 > Congleton, Manchester",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.355339 -2.199743"
+    },
+    {
       "id": "b629c11a-e8f1-4939-9a58-91483e19c132",
       "title": "alert",
       "published": "Fri Nov 6 13:14:33 +0000 2026",
@@ -44,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.575498 -2.546311"
+    },
+    {
+      "id": "047872c3-c598-47c7-9ab2-f65d09aa7e6e",
+      "title": "alert",
+      "published": "Fri Nov 6 13:49:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.515546 -2.369955"
     },
     {
       "id": "d38dcddc-4407-442f-b7ed-cc4ca9ee7cb2",
@@ -60,20 +88,6 @@
       "point": "53.410109 -2.551249"
     },
     {
-      "id": "ebc1a8ae-8560-4149-a2c0-d2f4c86afc3f",
-      "title": "alert",
-      "published": "Fri Nov 6 13:00:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 - Upper Brook St",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.459933 -2.220967"
-    },
-    {
       "id": "0c44810f-530b-4ea7-8152-3ee0e5812692",
       "title": "alert",
       "published": "Fri Nov 6 13:38:37 +0000 2026",
@@ -83,7 +97,7 @@
       "city": "Old Trafford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.465004 -2.283903"
     },
@@ -100,6 +114,20 @@
       "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.459621 -2.220599"
+    },
+    {
+      "id": "ebc1a8ae-8560-4149-a2c0-d2f4c86afc3f",
+      "title": "alert",
+      "published": "Fri Nov 6 13:00:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 - Upper Brook St",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.459933 -2.220967"
     }
   ]
 }
