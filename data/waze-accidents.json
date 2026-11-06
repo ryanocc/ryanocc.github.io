@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T17:15:48.290601+00:00",
+  "updatedAt": "2026-11-06T17:20:48.228012+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 9,
   "incidents": [
     {
       "id": "a57067fe-5ed0-4588-918d-2a9ae3f26d88",
@@ -32,34 +32,6 @@
       "point": "53.507992 -2.298868"
     },
     {
-      "id": "cdc1e4e8-d8e8-4dc4-9b6e-7d2216966f36",
-      "title": "alert",
-      "published": "Fri Nov 6 16:34:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Carruthers St",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.483376 -2.218394"
-    },
-    {
-      "id": "c06cd818-034c-4b47-8243-cffc012e7d95",
-      "title": "alert",
-      "published": "Fri Nov 6 15:15:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Redwood Ln",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.545599 -2.069789"
-    },
-    {
       "id": "1943ea6f-da6e-4a2a-9442-2104e7e3d89c",
       "title": "alert",
       "published": "Fri Nov 6 16:51:28 +0000 2026",
@@ -69,7 +41,7 @@
       "city": "Standish",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.587442 -2.661179"
     },
@@ -82,7 +54,7 @@
       "road": "B5215 - Leigh Rd",
       "city": "Atherton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.514151 -2.509673"
@@ -124,8 +96,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.399803 -2.219336"
     },
@@ -138,38 +110,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.400057 -2.219002"
-    },
-    {
-      "id": "0ededb09-2433-45df-b0a4-59a4666a3f9f",
-      "title": "alert",
-      "published": "Fri Nov 6 17:10:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.407195 -2.187147"
-    },
-    {
-      "id": "24857f05-9bee-4e06-b89e-e298668f34db",
-      "title": "alert",
-      "published": "Fri Nov 6 16:58:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.541092 -2.219732"
     },
     {
       "id": "c6b791e8-057b-4665-bd57-5eb2bae141b7",
@@ -180,10 +124,10 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.6397 -1.962788"
+      "point": "53.639166 -1.968119"
     }
   ]
 }
