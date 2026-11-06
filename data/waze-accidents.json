@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T21:45:47.981356+00:00",
+  "updatedAt": "2026-11-06T21:50:48.046639+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -18,6 +18,20 @@
       "point": "53.575445 -2.29975"
     },
     {
+      "id": "a8262adb-e5df-4366-80ef-25ddeeb23815",
+      "title": "alert",
+      "published": "Fri Nov 6 21:46:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Joyce St",
+      "city": "Moston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.508812 -2.187281"
+    },
+    {
       "id": "5ff3bbe4-61d9-44a6-b893-51e6b204d161",
       "title": "alert",
       "published": "Fri Nov 6 21:37:18 +0000 2026",
@@ -27,37 +41,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 9.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.47602 -2.519003"
-    },
-    {
-      "id": "ce57494f-f2ac-40c7-a2da-c45bcba8c8c5",
-      "title": "alert",
-      "published": "Fri Nov 6 21:29:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.518578 -2.368059"
-    },
-    {
-      "id": "bae91c35-28d3-4b2d-88e4-676b3e5b91f2",
-      "title": "alert",
-      "published": "Fri Nov 6 20:42:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.528218 -2.365697"
     },
     {
       "id": "4cfe5c4c-5715-4a01-a4ae-20afc44a6e56",
@@ -72,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 5.0,
       "point": "53.526828 -2.361743"
+    },
+    {
+      "id": "bae91c35-28d3-4b2d-88e4-676b3e5b91f2",
+      "title": "alert",
+      "published": "Fri Nov 6 20:42:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.527582 -2.364422"
     }
   ]
 }
