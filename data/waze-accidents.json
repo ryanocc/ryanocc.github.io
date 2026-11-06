@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T14:10:47.965933+00:00",
+  "updatedAt": "2026-11-06T14:15:48.176705+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "18a0190a-69a6-4f07-9b8e-8359eb9e2441",
@@ -32,20 +32,6 @@
       "point": "53.548808 -2.284765"
     },
     {
-      "id": "7e98a2e1-8433-4352-a74f-2b7e171b75e7",
-      "title": "alert",
-      "published": "Fri Nov 6 14:00:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Enterprise Way",
-      "city": "Manchester Airport",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.369704 -2.275002"
-    },
-    {
       "id": "e4817459-0d92-435b-aa53-6713876c3e74",
       "title": "alert",
       "published": "Fri Nov 6 14:02:35 +0000 2026",
@@ -55,7 +41,7 @@
       "city": "Standish",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.588583 -2.646239"
     },
@@ -74,20 +60,6 @@
       "point": "53.575498 -2.546311"
     },
     {
-      "id": "047872c3-c598-47c7-9ab2-f65d09aa7e6e",
-      "title": "alert",
-      "published": "Fri Nov 6 13:49:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.515546 -2.369955"
-    },
-    {
       "id": "560c314f-0a8e-4a07-8242-43ed4b499e07",
       "title": "alert",
       "published": "Fri Nov 6 13:55:56 +0000 2026",
@@ -96,8 +68,8 @@
       "road": "Greenheys Ln W",
       "city": "Hulme",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 0.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.462682 -2.247052"
     },
@@ -124,8 +96,8 @@
       "road": "A664 - Rochdale Rd",
       "city": "Harpurhey",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.511742 -2.214661"
     },
@@ -138,10 +110,24 @@
       "road": "A58 - Wigan Rd",
       "city": "Bolton",
       "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 4.0,
+      "point": "53.561577 -2.476356"
+    },
+    {
+      "id": "69c33e37-a4c9-4c39-91df-acc6abe33898",
+      "title": "alert",
+      "published": "Fri Nov 6 14:13:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Wigan Rd",
+      "city": "Bolton",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 4.0,
-      "point": "53.561554 -2.476428"
+      "reportRating": 0.0,
+      "point": "53.561976 -2.475139"
     },
     {
       "id": "ebc1a8ae-8560-4149-a2c0-d2f4c86afc3f",
