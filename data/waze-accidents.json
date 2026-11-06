@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T22:35:49.034185+00:00",
+  "updatedAt": "2026-11-06T22:40:47.597822+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "70b3752e-410c-4134-8bae-2e4dab37a45f",
@@ -27,7 +27,7 @@
       "city": "Chorlton-cum-Hardy",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.437617 -2.276678"
     },
@@ -82,10 +82,24 @@
       "road": "A58 - Moss Bank Way",
       "city": "Bolton",
       "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.593821 -2.463225"
+    },
+    {
+      "id": "9228165b-3748-4da3-b27d-93270b7a9c3a",
+      "title": "alert",
+      "published": "Fri Nov 6 22:35:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Moss Side",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.593821 -2.463225"
+      "point": "53.45625 -2.245247"
     },
     {
       "id": "3bba4cc1-75b5-4045-b080-f727f41fa0d9",
