@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T00:25:48.028438+00:00",
+  "updatedAt": "2026-11-06T00:30:48.060744+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.594419 -2.026742"
     },
     {
-      "id": "e83dc338-22de-4a3f-841c-24b5718328d0",
-      "title": "alert",
-      "published": "Fri Nov 6 00:05:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A673 - Topp Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.583777 -2.428409"
-    },
-    {
       "id": "0aa397d8-934c-4d43-8afa-8afba1519e6f",
       "title": "alert",
       "published": "Fri Nov 6 00:15:24 +0000 2026",
@@ -74,18 +60,18 @@
       "point": "53.583571 -2.429705"
     },
     {
-      "id": "e06a944a-f3db-460b-8209-2fd9d4358206",
+      "id": "e83dc338-22de-4a3f-841c-24b5718328d0",
       "title": "alert",
-      "published": "Thu Nov 5 23:35:40 +0000 2026",
+      "published": "Fri Nov 6 00:05:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
+      "road": "A673 - Topp Way",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.478268 -2.219802"
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.583777 -2.428409"
     },
     {
       "id": "113713e2-c5df-452c-946f-e9510edf26b9",
@@ -100,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.477953 -2.218589"
+    },
+    {
+      "id": "e06a944a-f3db-460b-8209-2fd9d4358206",
+      "title": "alert",
+      "published": "Thu Nov 5 23:35:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.478268 -2.219802"
     }
   ]
 }
