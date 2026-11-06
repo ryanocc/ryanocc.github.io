@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-06T16:45:48.394562+00:00",
+  "updatedAt": "2026-11-06T16:50:48.264029+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
+    {
+      "id": "cb875caf-a7f0-4c1b-9506-060b87aaf684",
+      "title": "alert",
+      "published": "Fri Nov 6 16:46:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Victoria Rd",
+      "city": "Withington",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.437274 -2.22374"
+    },
     {
       "id": "a57067fe-5ed0-4588-918d-2a9ae3f26d88",
       "title": "alert",
@@ -69,7 +83,7 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.545599 -2.069789"
     },
@@ -100,20 +114,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.573666 -2.546439"
-    },
-    {
-      "id": "11b790e0-ffd5-4f95-8409-b68491106913",
-      "title": "alert",
-      "published": "Fri Nov 6 14:51:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Wigan Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.561115 -2.477832"
     }
   ]
 }
