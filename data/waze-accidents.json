@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T15:45:48.410232+00:00",
+  "updatedAt": "2026-11-06T15:50:48.344264+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -55,7 +55,7 @@
       "city": "Atherton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.514151 -2.509673"
     },
@@ -68,24 +68,10 @@
       "road": "A6027 > Chorley",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.573594 -2.546689"
-    },
-    {
-      "id": "0bf0e532-bbf0-49c4-b6df-32e74a58afb7",
-      "title": "alert",
-      "published": "Fri Nov 6 15:43:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5066 - Silk St",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.4894 -2.259548"
     },
     {
       "id": "9f584f47-9fb1-412d-aee3-02cc66d9bcbe",
@@ -97,9 +83,23 @@
       "city": "Irwell Riverside",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.489505 -2.259305"
+    },
+    {
+      "id": "0bf0e532-bbf0-49c4-b6df-32e74a58afb7",
+      "title": "alert",
+      "published": "Fri Nov 6 15:43:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5066 - Silk St",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.4894 -2.259548"
     },
     {
       "id": "11b790e0-ffd5-4f95-8409-b68491106913",
@@ -130,18 +130,18 @@
       "point": "53.561976 -2.475139"
     },
     {
-      "id": "30eb4afd-223f-4dc2-ae1b-a82635028d80",
+      "id": "dea709af-c6ff-46cb-8141-2388f3f538f2",
       "title": "alert",
-      "published": "Fri Nov 6 15:30:33 +0000 2026",
+      "published": "Fri Nov 6 15:47:47 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.546231 -2.256057"
+      "point": "53.459102 -2.16248"
     }
   ]
 }
