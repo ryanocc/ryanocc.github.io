@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-06T12:30:47.912404+00:00",
+  "updatedAt": "2026-11-06T12:35:48.067890+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 2,
   "incidents": [
-    {
-      "id": "fb986a01-fe87-494f-a31b-8e514880a783",
-      "title": "alert",
-      "published": "Fri Nov 6 12:20:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.370073 -2.338185"
-    },
     {
       "id": "dc5f6a86-abcc-42cb-a764-4177ff2e8f31",
       "title": "alert",
@@ -40,24 +26,10 @@
       "road": "A579 - Trinity St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.574066 -2.43262"
-    },
-    {
-      "id": "f693d895-25b0-4c49-96e4-2e4967859e43",
-      "title": "alert",
-      "published": "Fri Nov 6 12:15:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.470634 -2.247143"
     }
   ]
 }
