@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T17:25:48.430364+00:00",
+  "updatedAt": "2026-11-06T17:30:48.397313+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "a57067fe-5ed0-4588-918d-2a9ae3f26d88",
@@ -32,6 +32,20 @@
       "point": "53.507992 -2.298868"
     },
     {
+      "id": "94bcdcec-5202-4821-90e3-c1e9583f07ea",
+      "title": "alert",
+      "published": "Fri Nov 6 17:29:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J1 to A5145",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.40888 -2.173009"
+    },
+    {
       "id": "1943ea6f-da6e-4a2a-9442-2104e7e3d89c",
       "title": "alert",
       "published": "Fri Nov 6 16:51:28 +0000 2026",
@@ -40,8 +54,8 @@
       "road": "B5239 - Rectory Ln",
       "city": "Standish",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.587442 -2.661179"
     },
@@ -110,24 +124,24 @@
       "road": "A56 - Chester Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.447657 -2.304997"
     },
     {
-      "id": "9a4fc5a4-5225-4043-a02c-e11e06e28fd0",
+      "id": "d7303f2d-a351-4437-b8e3-3eeb4c9f97c1",
       "title": "alert",
-      "published": "Fri Nov 6 17:22:18 +0000 2026",
+      "published": "Fri Nov 6 17:28:44 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.404579 -2.193485"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.40975 -2.169681"
     },
     {
       "id": "d91c9881-7248-4ee1-90b3-b6c97c093be1",
@@ -141,7 +155,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.639225 -1.967602"
+      "point": "53.639043 -1.969059"
     }
   ]
 }
