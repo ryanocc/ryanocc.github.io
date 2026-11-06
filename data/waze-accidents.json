@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T17:50:48.275142+00:00",
+  "updatedAt": "2026-11-06T17:55:48.114365+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "a0a6ecc3-b549-4ae7-b999-27415fb57bcf",
@@ -27,23 +27,37 @@
       "city": "Atherton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.511968 -2.511319"
     },
     {
-      "id": "54f9c3b6-132c-4078-9fba-7b10682d559c",
+      "id": "7f22f4a2-7afd-4d20-8ce4-c60bd683af0f",
       "title": "alert",
-      "published": "Fri Nov 6 15:50:54 +0000 2026",
+      "published": "Fri Nov 6 17:51:47 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6027 - De Havilland Way",
-      "city": "Westhoughton",
+      "road": "M60 (CW)",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.573666 -2.546439"
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.483731 -2.37607"
+    },
+    {
+      "id": "b43b7b52-3025-4c45-a6bf-0e8a4cb44180",
+      "title": "alert",
+      "published": "Fri Nov 6 17:50:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.444414 -2.339294"
     }
   ]
 }
