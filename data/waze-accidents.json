@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T10:15:47.605536+00:00",
+  "updatedAt": "2026-11-06T10:20:47.697431+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "ff8e0032-dde2-44e3-8649-2951f2083832",
@@ -18,6 +18,34 @@
       "point": "53.546813 -2.534995"
     },
     {
+      "id": "b7a6f4d0-aa44-42dd-9dd6-432cd83cf041",
+      "title": "alert",
+      "published": "Fri Nov 6 10:16:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.462523 -2.369537"
+    },
+    {
+      "id": "16d52936-14e6-4a01-9cf1-9b55704c6c38",
+      "title": "alert",
+      "published": "Fri Nov 6 10:18:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A680 - Edenfield Rd",
+      "city": "Norden",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.630514 -2.230292"
+    },
+    {
       "id": "e114dfcf-3ab5-4849-8de0-ffb84fa7755e",
       "title": "alert",
       "published": "Fri Nov 6 09:26:37 +0000 2026",
@@ -30,20 +58,6 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.513234 -2.040683"
-    },
-    {
-      "id": "576af166-f076-414e-96b4-b9946997d0e5",
-      "title": "alert",
-      "published": "Fri Nov 6 08:15:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.552361 -2.480896"
     }
   ]
 }
