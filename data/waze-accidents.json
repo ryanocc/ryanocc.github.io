@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-06T17:10:48.236659+00:00",
+  "updatedAt": "2026-11-06T17:15:48.290601+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
-    {
-      "id": "cb875caf-a7f0-4c1b-9506-060b87aaf684",
-      "title": "alert",
-      "published": "Fri Nov 6 16:46:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Victoria Rd",
-      "city": "Withington",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.437274 -2.22374"
-    },
     {
       "id": "a57067fe-5ed0-4588-918d-2a9ae3f26d88",
       "title": "alert",
@@ -46,20 +32,6 @@
       "point": "53.507992 -2.298868"
     },
     {
-      "id": "3f307f9f-8e58-4917-92f2-c8f91a322ff9",
-      "title": "alert",
-      "published": "Fri Nov 6 16:43:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.445199 -2.2549"
-    },
-    {
       "id": "cdc1e4e8-d8e8-4dc4-9b6e-7d2216966f36",
       "title": "alert",
       "published": "Fri Nov 6 16:34:44 +0000 2026",
@@ -68,7 +40,7 @@
       "road": "Carruthers St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.483376 -2.218394"
@@ -144,18 +116,32 @@
       "point": "53.491764 -2.259467"
     },
     {
-      "id": "acab075e-46a7-4126-ac5d-0898fabf856e",
+      "id": "4dce521a-6739-4971-ab5c-f0e8c22ee049",
       "title": "alert",
-      "published": "Fri Nov 6 17:09:53 +0000 2026",
+      "published": "Fri Nov 6 17:13:30 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 4.0,
-      "point": "53.408593 -2.178498"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.399803 -2.219336"
+    },
+    {
+      "id": "770bf161-b414-4033-9e47-e180458feada",
+      "title": "alert",
+      "published": "Fri Nov 6 17:11:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.400057 -2.219002"
     },
     {
       "id": "0ededb09-2433-45df-b0a4-59a4666a3f9f",
@@ -166,8 +152,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.407195 -2.187147"
     },
@@ -184,6 +170,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.541092 -2.219732"
+    },
+    {
+      "id": "c6b791e8-057b-4665-bd57-5eb2bae141b7",
+      "title": "alert",
+      "published": "Fri Nov 6 17:14:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.6397 -1.962788"
     }
   ]
 }
