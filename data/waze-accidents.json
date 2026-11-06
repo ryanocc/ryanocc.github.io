@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T15:50:48.344264+00:00",
+  "updatedAt": "2026-11-06T15:55:48.535576+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -60,32 +60,32 @@
       "point": "53.514151 -2.509673"
     },
     {
-      "id": "dd0eff71-f10e-45a3-b336-bd21fc673dc8",
+      "id": "039f5039-1187-419d-a94f-7ec92ac5b640",
       "title": "alert",
-      "published": "Fri Nov 6 15:36:57 +0000 2026",
+      "published": "Fri Nov 6 15:51:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6027 > Chorley",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.573594 -2.546689"
-    },
-    {
-      "id": "9f584f47-9fb1-412d-aee3-02cc66d9bcbe",
-      "title": "alert",
-      "published": "Fri Nov 6 15:40:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5066 - Silk St",
-      "city": "Irwell Riverside",
+      "road": "B5239 - Bolton Rd",
+      "city": "Aspull",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.563199 -2.573039"
+    },
+    {
+      "id": "54f9c3b6-132c-4078-9fba-7b10682d559c",
+      "title": "alert",
+      "published": "Fri Nov 6 15:50:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6027 - De Havilland Way",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.489505 -2.259305"
+      "point": "53.573666 -2.546439"
     },
     {
       "id": "0bf0e532-bbf0-49c4-b6df-32e74a58afb7",
@@ -96,24 +96,10 @@
       "road": "A5066 - Silk St",
       "city": "Irwell Riverside",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.4894 -2.259548"
-    },
-    {
-      "id": "11b790e0-ffd5-4f95-8409-b68491106913",
-      "title": "alert",
-      "published": "Fri Nov 6 14:51:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Wigan Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 5.0,
+      "confidence": 1.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.561115 -2.477832"
+      "point": "53.4894 -2.259548"
     },
     {
       "id": "69c33e37-a4c9-4c39-91df-acc6abe33898",
@@ -130,6 +116,20 @@
       "point": "53.561976 -2.475139"
     },
     {
+      "id": "11b790e0-ffd5-4f95-8409-b68491106913",
+      "title": "alert",
+      "published": "Fri Nov 6 14:51:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Wigan Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.561115 -2.477832"
+    },
+    {
       "id": "dea709af-c6ff-46cb-8141-2388f3f538f2",
       "title": "alert",
       "published": "Fri Nov 6 15:47:47 +0000 2026",
@@ -138,8 +138,8 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.459102 -2.16248"
     }
