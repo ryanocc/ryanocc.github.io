@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T09:00:48.315290+00:00",
+  "updatedAt": "2026-11-06T09:05:48.107122+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -13,7 +13,7 @@
       "city": "Burnage",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.427799 -2.198382"
     },
@@ -26,7 +26,7 @@
       "road": "M61 > Manchester",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.544785 -2.447326"
@@ -55,23 +55,9 @@
       "city": "Mottram in Longdendale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.451366 -2.023262"
-    },
-    {
-      "id": "82850d26-62f2-414e-93a1-6c886a7171f6",
-      "title": "alert",
-      "published": "Fri Nov 6 08:14:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Winwick Link Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.436792 -2.586914"
     },
     {
       "id": "576af166-f076-414e-96b4-b9946997d0e5",
@@ -86,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.552361 -2.480896"
+    },
+    {
+      "id": "09743263-8aaa-4a04-9630-ab880caddb2a",
+      "title": "alert",
+      "published": "Fri Nov 6 09:05:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M602 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.486019 -2.327449"
     }
   ]
 }
