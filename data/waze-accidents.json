@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T12:25:48.063233+00:00",
+  "updatedAt": "2026-11-06T12:30:47.912404+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 4,
   "incidents": [
     {
       "id": "fb986a01-fe87-494f-a31b-8e514880a783",
@@ -32,20 +32,6 @@
       "point": "53.596269 -2.393891"
     },
     {
-      "id": "ccc7f5ac-be58-4933-bebe-d992ef24c781",
-      "title": "alert",
-      "published": "Fri Nov 6 12:19:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5081 - Park Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.462804 -2.333895"
-    },
-    {
       "id": "c7f7fc08-d031-4692-a912-bf0524fce285",
       "title": "alert",
       "published": "Fri Nov 6 12:22:27 +0000 2026",
@@ -68,24 +54,10 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.470634 -2.247143"
-    },
-    {
-      "id": "7b704b95-3fc6-41f5-9026-d7d2df72aeb8",
-      "title": "alert",
-      "published": "Fri Nov 6 12:01:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.544502 -2.249076"
     }
   ]
 }
