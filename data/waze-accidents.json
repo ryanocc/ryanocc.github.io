@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T01:30:50.192346+00:00",
+  "updatedAt": "2026-11-06T01:35:47.970758+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "abc40bf0-c889-4b75-8246-9452179595f4",
@@ -30,6 +30,20 @@
       "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.388494 -2.317275"
+    },
+    {
+      "id": "a5136df4-8c18-4f53-9349-a12bccae7bff",
+      "title": "alert",
+      "published": "Fri Nov 6 01:32:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.448798 -2.595033"
     }
   ]
 }
