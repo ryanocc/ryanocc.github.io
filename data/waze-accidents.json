@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T15:55:48.535576+00:00",
+  "updatedAt": "2026-11-06T16:00:48.355583+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "7e1d0f14-dd89-419f-b287-bae425cc7ca1",
@@ -46,6 +46,20 @@
       "point": "53.545599 -2.069789"
     },
     {
+      "id": "2bbce6ee-419c-4be5-abf1-1c521f0f2f58",
+      "title": "alert",
+      "published": "Fri Nov 6 15:57:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "J20 to A50",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.353101 -2.505199"
+    },
+    {
       "id": "eb6ba281-b7ec-42f6-9f3c-1e0874d1f821",
       "title": "alert",
       "published": "Fri Nov 6 15:27:42 +0000 2026",
@@ -68,10 +82,24 @@
       "road": "B5239 - Bolton Rd",
       "city": "Aspull",
       "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.563199 -2.573039"
+    },
+    {
+      "id": "3b827a7e-daa7-4680-b3b6-ab560ca11300",
+      "title": "alert",
+      "published": "Fri Nov 6 16:00:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Broadgate",
+      "city": "Chadderton",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.563199 -2.573039"
+      "point": "53.534606 -2.169386"
     },
     {
       "id": "54f9c3b6-132c-4078-9fba-7b10682d559c",
@@ -102,20 +130,6 @@
       "point": "53.4894 -2.259548"
     },
     {
-      "id": "69c33e37-a4c9-4c39-91df-acc6abe33898",
-      "title": "alert",
-      "published": "Fri Nov 6 14:13:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Wigan Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.561976 -2.475139"
-    },
-    {
       "id": "11b790e0-ffd5-4f95-8409-b68491106913",
       "title": "alert",
       "published": "Fri Nov 6 14:51:01 +0000 2026",
@@ -130,18 +144,18 @@
       "point": "53.561115 -2.477832"
     },
     {
-      "id": "dea709af-c6ff-46cb-8141-2388f3f538f2",
+      "id": "69c33e37-a4c9-4c39-91df-acc6abe33898",
       "title": "alert",
-      "published": "Fri Nov 6 15:47:47 +0000 2026",
+      "published": "Fri Nov 6 14:13:21 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
+      "subtype": "",
+      "road": "A58 - Wigan Rd",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.459102 -2.16248"
+      "point": "53.561976 -2.475139"
     }
   ]
 }
