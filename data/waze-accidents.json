@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T17:20:48.228012+00:00",
+  "updatedAt": "2026-11-06T17:25:48.430364+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "a57067fe-5ed0-4588-918d-2a9ae3f26d88",
@@ -60,6 +60,20 @@
       "point": "53.514151 -2.509673"
     },
     {
+      "id": "27fe420e-52d7-47de-ba0e-03fad26ce9dc",
+      "title": "alert",
+      "published": "Fri Nov 6 17:22:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5215 - Leigh Rd",
+      "city": "Atherton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.511968 -2.511319"
+    },
+    {
       "id": "54f9c3b6-132c-4078-9fba-7b10682d559c",
       "title": "alert",
       "published": "Fri Nov 6 15:50:54 +0000 2026",
@@ -88,46 +102,46 @@
       "point": "53.491764 -2.259467"
     },
     {
-      "id": "4dce521a-6739-4971-ab5c-f0e8c22ee049",
+      "id": "e91fb02e-6a38-44c9-a18b-f87c15027289",
       "title": "alert",
-      "published": "Fri Nov 6 17:13:30 +0000 2026",
+      "published": "Fri Nov 6 17:25:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.447657 -2.304997"
+    },
+    {
+      "id": "9a4fc5a4-5225-4043-a02c-e11e06e28fd0",
+      "title": "alert",
+      "published": "Fri Nov 6 17:22:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.399803 -2.219336"
+      "reportRating": 1.0,
+      "point": "53.404579 -2.193485"
     },
     {
-      "id": "770bf161-b414-4033-9e47-e180458feada",
+      "id": "d91c9881-7248-4ee1-90b3-b6c97c093be1",
       "title": "alert",
-      "published": "Fri Nov 6 17:11:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.400057 -2.219002"
-    },
-    {
-      "id": "c6b791e8-057b-4665-bd57-5eb2bae141b7",
-      "title": "alert",
-      "published": "Fri Nov 6 17:14:53 +0000 2026",
+      "published": "Fri Nov 6 17:21:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.639166 -1.968119"
+      "reportRating": 1.0,
+      "point": "53.639225 -1.967602"
     }
   ]
 }
