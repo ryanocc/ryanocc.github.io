@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-11-06T23:25:47.935129+00:00",
+  "updatedAt": "2026-11-06T23:45:47.664746+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
-      "id": "3bba4cc1-75b5-4045-b080-f727f41fa0d9",
+      "id": "b09a9d22-9c8a-455b-9a5f-c39cf39af54b",
       "title": "alert",
-      "published": "Fri Nov 6 21:58:46 +0000 2026",
+      "published": "Fri Nov 6 23:45:36 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Rochdale",
+      "road": "M62 (W)",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.438271 -2.472088"
+    },
+    {
+      "id": "de131a78-4759-4376-8822-bdfdb2c42559",
+      "title": "alert",
+      "published": "Fri Nov 6 23:43:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.628653 -2.140569"
+      "point": "53.4408 -2.458536"
     }
   ]
 }
