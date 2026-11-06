@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-06T17:30:48.397313+00:00",
+  "updatedAt": "2026-11-06T17:35:48.254916+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 6,
   "incidents": [
-    {
-      "id": "a57067fe-5ed0-4588-918d-2a9ae3f26d88",
-      "title": "alert",
-      "published": "Fri Nov 6 15:27:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Hilton Cr",
-      "city": "Boothstown",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.502014 -2.411274"
-    },
     {
       "id": "a0a6ecc3-b549-4ae7-b999-27415fb57bcf",
       "title": "alert",
@@ -40,24 +26,10 @@
       "road": "J1 to A5145",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.40888 -2.173009"
-    },
-    {
-      "id": "1943ea6f-da6e-4a2a-9442-2104e7e3d89c",
-      "title": "alert",
-      "published": "Fri Nov 6 16:51:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5239 - Rectory Ln",
-      "city": "Standish",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.587442 -2.661179"
     },
     {
       "id": "eb6ba281-b7ec-42f6-9f3c-1e0874d1f821",
@@ -114,48 +86,6 @@
       "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.491764 -2.259467"
-    },
-    {
-      "id": "e91fb02e-6a38-44c9-a18b-f87c15027289",
-      "title": "alert",
-      "published": "Fri Nov 6 17:25:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.447657 -2.304997"
-    },
-    {
-      "id": "d7303f2d-a351-4437-b8e3-3eeb4c9f97c1",
-      "title": "alert",
-      "published": "Fri Nov 6 17:28:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.40975 -2.169681"
-    },
-    {
-      "id": "d91c9881-7248-4ee1-90b3-b6c97c093be1",
-      "title": "alert",
-      "published": "Fri Nov 6 17:21:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.639043 -1.969059"
     }
   ]
 }
