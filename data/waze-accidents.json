@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T18:00:48.117658+00:00",
+  "updatedAt": "2026-11-06T18:05:48.127963+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "5943eb70-db37-4e41-b13c-7a7482de943a",
@@ -46,6 +46,20 @@
       "point": "53.511968 -2.511319"
     },
     {
+      "id": "b4d569bc-e413-4715-bcb0-82d04b7c4623",
+      "title": "alert",
+      "published": "Fri Nov 6 18:04:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627 - Oldham Way",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.545838 -2.124841"
+    },
+    {
       "id": "7c5f6f94-8ca7-4401-a843-3865ff7dc3d9",
       "title": "alert",
       "published": "Fri Nov 6 17:56:17 +0000 2026",
@@ -54,8 +68,8 @@
       "road": "A628",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.48442 -1.912287"
     },
@@ -72,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.444414 -2.339294"
+    },
+    {
+      "id": "56f772da-0710-48d9-b041-42d1cdf102dd",
+      "title": "alert",
+      "published": "Fri Nov 6 18:04:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "Urmston",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.443772 -2.338907"
     }
   ]
 }
