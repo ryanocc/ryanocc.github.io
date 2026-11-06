@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-06T09:15:48.101621+00:00",
+  "updatedAt": "2026-11-06T09:20:48.036990+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
+    {
+      "id": "be0d794d-f67d-49ea-8386-952705478847",
+      "title": "alert",
+      "published": "Fri Nov 6 09:18:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.447322 -2.347892"
+    },
     {
       "id": "594551e5-e2a6-47ec-9d38-bbdd2879af4c",
       "title": "alert",
@@ -32,20 +46,6 @@
       "point": "53.544785 -2.447326"
     },
     {
-      "id": "8abe5976-09f0-4ec9-b4c8-f3b6802910f6",
-      "title": "alert",
-      "published": "Fri Nov 6 08:50:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6174 - Ashworth Ln",
-      "city": "Mottram in Longdendale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.451366 -2.023262"
-    },
-    {
       "id": "576af166-f076-414e-96b4-b9946997d0e5",
       "title": "alert",
       "published": "Fri Nov 6 08:15:39 +0000 2026",
@@ -58,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.552361 -2.480896"
-    },
-    {
-      "id": "09743263-8aaa-4a04-9630-ab880caddb2a",
-      "title": "alert",
-      "published": "Fri Nov 6 09:05:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M602 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.486019 -2.327449"
     }
   ]
 }
