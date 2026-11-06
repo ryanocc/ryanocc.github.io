@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T19:00:48.009747+00:00",
+  "updatedAt": "2026-11-06T19:05:47.969140+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.531361 -2.667897"
     },
     {
+      "id": "032bdb26-44e1-43b9-8b6c-dcfa0c75ba7d",
+      "title": "alert",
+      "published": "Fri Nov 6 18:54:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.479998 -2.223401"
+    },
+    {
       "id": "1b3ac43d-7253-4d37-919a-c92d0e7aead0",
       "title": "alert",
       "published": "Fri Nov 6 18:53:41 +0000 2026",
@@ -60,32 +74,18 @@
       "point": "53.440441 -2.243988"
     },
     {
-      "id": "032bdb26-44e1-43b9-8b6c-dcfa0c75ba7d",
+      "id": "378352cd-6dd8-41cc-a47a-36e5ed0260eb",
       "title": "alert",
-      "published": "Fri Nov 6 18:54:30 +0000 2026",
+      "published": "Fri Nov 6 19:03:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
+      "road": "A6042 - Trinity Way",
+      "city": "Cheetham",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.479998 -2.223401"
-    },
-    {
-      "id": "afac5223-5db4-499b-bf33-d5a96546e738",
-      "title": "alert",
-      "published": "Fri Nov 6 19:00:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.646532 -2.30628"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 4.0,
+      "point": "53.489233 -2.242745"
     }
   ]
 }
