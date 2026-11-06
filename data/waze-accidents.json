@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T18:55:48.145090+00:00",
+  "updatedAt": "2026-11-06T19:00:48.009747+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "3fbc492c-9d2f-4162-9cac-89e6728493a2",
@@ -18,6 +18,20 @@
       "point": "53.531327 -2.121697"
     },
     {
+      "id": "75039efe-7f1a-4417-a90b-e141da6dd83f",
+      "title": "alert",
+      "published": "Fri Nov 6 18:58:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "The Hoskers",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.541563 -2.537944"
+    },
+    {
       "id": "62c53721-3b45-49f7-bc3e-067b01236792",
       "title": "alert",
       "published": "Fri Nov 6 18:32:18 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.531361 -2.667897"
     },
@@ -40,8 +54,8 @@
       "road": "A5103 (S) - Princess Rd",
       "city": "Fallowfield",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.440441 -2.243988"
     },
@@ -54,10 +68,24 @@
       "road": "A665 - Great Ancoats St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.479998 -2.223401"
+    },
+    {
+      "id": "afac5223-5db4-499b-bf33-d5a96546e738",
+      "title": "alert",
+      "published": "Fri Nov 6 19:00:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.646532 -2.30628"
     }
   ]
 }
