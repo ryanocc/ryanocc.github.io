@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-06T07:40:47.744124+00:00",
+  "updatedAt": "2026-11-06T07:45:47.644403+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
+    {
+      "id": "1e840499-4e65-40cf-b1ab-2c5b3de79883",
+      "title": "alert",
+      "published": "Fri Nov 6 07:41:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5145 - Didsbury Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.412634 -2.190451"
+    },
+    {
+      "id": "bf6c881d-35e1-4cb8-98dd-e5d81b09b52e",
+      "title": "alert",
+      "published": "Fri Nov 6 07:43:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Bridge St",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.593406 -2.228608"
+    },
     {
       "id": "7eea1160-31c1-44cc-8da2-2d97e6c9d7ee",
       "title": "alert",
@@ -12,7 +40,7 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.582865 -2.191368"
