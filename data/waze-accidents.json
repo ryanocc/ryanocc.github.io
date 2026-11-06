@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T08:45:48.157022+00:00",
+  "updatedAt": "2026-11-06T08:50:48.131439+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "594551e5-e2a6-47ec-9d38-bbdd2879af4c",
@@ -18,20 +18,6 @@
       "point": "53.427799 -2.198382"
     },
     {
-      "id": "253c78d5-6c6b-4572-b288-9898d1690bf1",
-      "title": "alert",
-      "published": "Fri Nov 6 08:08:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 > Manchester",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.544746 -2.447172"
-    },
-    {
       "id": "e8069d8e-fbb9-44f4-8aff-6484d871eb47",
       "title": "alert",
       "published": "Fri Nov 6 08:34:54 +0000 2026",
@@ -40,10 +26,38 @@
       "road": "M61 > Manchester",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.544785 -2.447326"
+    },
+    {
+      "id": "253c78d5-6c6b-4572-b288-9898d1690bf1",
+      "title": "alert",
+      "published": "Fri Nov 6 08:08:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 > Manchester",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.544746 -2.447172"
+    },
+    {
+      "id": "8abe5976-09f0-4ec9-b4c8-f3b6802910f6",
+      "title": "alert",
+      "published": "Fri Nov 6 08:50:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6174 - Ashworth Ln",
+      "city": "Mottram in Longdendale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.451366 -2.023262"
     },
     {
       "id": "82850d26-62f2-414e-93a1-6c886a7171f6",
@@ -58,6 +72,20 @@
       "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.436792 -2.586914"
+    },
+    {
+      "id": "844dc90c-f6ee-493d-b95a-05aa6b93f31e",
+      "title": "alert",
+      "published": "Fri Nov 6 08:46:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.34497 -2.413856"
     },
     {
       "id": "576af166-f076-414e-96b4-b9946997d0e5",
