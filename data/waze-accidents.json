@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T00:00:49.158278+00:00",
+  "updatedAt": "2026-11-06T00:05:48.030997+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "036bda50-884a-43e1-8961-b50b2f69a460",
@@ -18,18 +18,18 @@
       "point": "53.594419 -2.026742"
     },
     {
-      "id": "113713e2-c5df-452c-946f-e9510edf26b9",
+      "id": "e83dc338-22de-4a3f-841c-24b5718328d0",
       "title": "alert",
-      "published": "Thu Nov 5 23:58:46 +0000 2026",
+      "published": "Fri Nov 6 00:05:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
+      "road": "A673 - Topp Way",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.477953 -2.218589"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.583777 -2.428409"
     },
     {
       "id": "e06a944a-f3db-460b-8209-2fd9d4358206",
@@ -44,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.478268 -2.219802"
+    },
+    {
+      "id": "113713e2-c5df-452c-946f-e9510edf26b9",
+      "title": "alert",
+      "published": "Thu Nov 5 23:58:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.477953 -2.218589"
     }
   ]
 }
