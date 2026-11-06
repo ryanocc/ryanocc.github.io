@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T18:30:48.179757+00:00",
+  "updatedAt": "2026-11-06T18:35:48.061229+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -32,6 +32,20 @@
       "point": "53.587182 -2.409913"
     },
     {
+      "id": "3fbc492c-9d2f-4162-9cac-89e6728493a2",
+      "title": "alert",
+      "published": "Fri Nov 6 18:32:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Gainsborough Ave",
+      "city": "Coppice",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.531327 -2.121697"
+    },
+    {
       "id": "27fe420e-52d7-47de-ba0e-03fad26ce9dc",
       "title": "alert",
       "published": "Fri Nov 6 17:22:31 +0000 2026",
@@ -46,32 +60,18 @@
       "point": "53.511968 -2.511319"
     },
     {
-      "id": "b4d569bc-e413-4715-bcb0-82d04b7c4623",
+      "id": "62c53721-3b45-49f7-bc3e-067b01236792",
       "title": "alert",
-      "published": "Fri Nov 6 18:04:08 +0000 2026",
+      "published": "Fri Nov 6 18:32:18 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627 - Oldham Way",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.545838 -2.124841"
-    },
-    {
-      "id": "d812734a-60c9-4334-a53d-655f2380b5f3",
-      "title": "alert",
-      "published": "Fri Nov 6 18:29:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A571 - Billinge Rd",
+      "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.614471 -2.088776"
+      "point": "53.531361 -2.667897"
     }
   ]
 }
