@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T18:10:48.195825+00:00",
+  "updatedAt": "2026-11-06T18:15:48.151658+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "5943eb70-db37-4e41-b13c-7a7482de943a",
@@ -32,6 +32,20 @@
       "point": "53.507992 -2.298868"
     },
     {
+      "id": "5817820f-78d8-4a4a-aa42-3526315d8c59",
+      "title": "alert",
+      "published": "Fri Nov 6 18:14:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.587182 -2.409913"
+    },
+    {
       "id": "27fe420e-52d7-47de-ba0e-03fad26ce9dc",
       "title": "alert",
       "published": "Fri Nov 6 17:22:31 +0000 2026",
@@ -54,7 +68,7 @@
       "road": "A627 - Oldham Way",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.545838 -2.124841"
@@ -68,24 +82,10 @@
       "road": "A628",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.48442 -1.912287"
-    },
-    {
-      "id": "c5be4252-5791-4566-8b19-4c1493029b8e",
-      "title": "alert",
-      "published": "Fri Nov 6 18:06:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.400723 -2.512393"
     },
     {
       "id": "56f772da-0710-48d9-b041-42d1cdf102dd",
@@ -96,7 +96,7 @@
       "road": "M60 (ACW)",
       "city": "Urmston",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.443772 -2.338907"
@@ -114,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.444414 -2.339294"
-    },
-    {
-      "id": "3cf2d850-ac2c-470e-9e66-7698e06094c8",
-      "title": "alert",
-      "published": "Fri Nov 6 18:07:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.644485 -1.945153"
     }
   ]
 }
