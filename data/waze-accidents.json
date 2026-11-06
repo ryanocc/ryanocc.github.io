@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T18:50:47.995001+00:00",
+  "updatedAt": "2026-11-06T18:55:48.145090+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "3fbc492c-9d2f-4162-9cac-89e6728493a2",
@@ -30,6 +30,34 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.531361 -2.667897"
+    },
+    {
+      "id": "1b3ac43d-7253-4d37-919a-c92d0e7aead0",
+      "title": "alert",
+      "published": "Fri Nov 6 18:53:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Fallowfield",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.440441 -2.243988"
+    },
+    {
+      "id": "032bdb26-44e1-43b9-8b6c-dcfa0c75ba7d",
+      "title": "alert",
+      "published": "Fri Nov 6 18:54:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.479998 -2.223401"
     }
   ]
 }
