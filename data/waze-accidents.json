@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T14:40:48.518626+00:00",
+  "updatedAt": "2026-11-06T14:45:48.092658+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "b629c11a-e8f1-4939-9a58-91483e19c132",
@@ -54,10 +54,24 @@
       "road": "A62 - Manchester St",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.535511 -2.130913"
+    },
+    {
+      "id": "74695aa5-7b0e-4fed-bdbc-45e45505137f",
+      "title": "alert",
+      "published": "Fri Nov 6 14:45:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.396872 -2.259452"
     }
   ]
 }
