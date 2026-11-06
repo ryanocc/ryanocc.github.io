@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-06T08:20:48.178691+00:00",
+  "updatedAt": "2026-11-06T08:25:48.261015+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
+    {
+      "id": "c780d170-ff77-488a-bcb1-235f81da69df",
+      "title": "alert",
+      "published": "Fri Nov 6 08:22:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.468231 -2.155868"
+    },
     {
       "id": "253c78d5-6c6b-4572-b288-9898d1690bf1",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "M61 > Manchester",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 10.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.544746 -2.447172"
     },
@@ -27,7 +41,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.436792 -2.586914"
     },
@@ -46,18 +60,18 @@
       "point": "53.564585 -2.448548"
     },
     {
-      "id": "576af166-f076-414e-96b4-b9946997d0e5",
+      "id": "e57df8a1-5075-4d9e-a5e0-8964aa1e4d57",
       "title": "alert",
-      "published": "Fri Nov 6 08:15:39 +0000 2026",
+      "published": "Fri Nov 6 08:20:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M61 (S)",
+      "road": "",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
-      "point": "53.552361 -2.480896"
+      "point": "53.57703 -2.206374"
     },
     {
       "id": "74b03541-a081-4ff4-aad6-3b870a756fd6",
@@ -69,9 +83,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.549434 -2.471898"
+    },
+    {
+      "id": "576af166-f076-414e-96b4-b9946997d0e5",
+      "title": "alert",
+      "published": "Fri Nov 6 08:15:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.552361 -2.480896"
     }
   ]
 }
