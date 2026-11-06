@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T16:10:48.264267+00:00",
+  "updatedAt": "2026-11-06T16:15:48.287182+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "7e1d0f14-dd89-419f-b287-bae425cc7ca1",
@@ -46,20 +46,6 @@
       "point": "53.545599 -2.069789"
     },
     {
-      "id": "2bbce6ee-419c-4be5-abf1-1c521f0f2f58",
-      "title": "alert",
-      "published": "Fri Nov 6 15:57:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "J20 to A50",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.353101 -2.505199"
-    },
-    {
       "id": "eb6ba281-b7ec-42f6-9f3c-1e0874d1f821",
       "title": "alert",
       "published": "Fri Nov 6 15:27:42 +0000 2026",
@@ -72,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.514151 -2.509673"
-    },
-    {
-      "id": "039f5039-1187-419d-a94f-7ec92ac5b640",
-      "title": "alert",
-      "published": "Fri Nov 6 15:51:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5239 - Bolton Rd",
-      "city": "Aspull",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.563199 -2.573039"
     },
     {
       "id": "a472a0ad-c924-47df-b5e2-452a83d94eef",
@@ -128,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.561115 -2.477832"
+    },
+    {
+      "id": "a0f6e134-a0da-41b1-9541-51e7d72b851f",
+      "title": "alert",
+      "published": "Fri Nov 6 16:12:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.361843 -2.509722"
     }
   ]
 }
