@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T16:55:48.257308+00:00",
+  "updatedAt": "2026-11-06T17:00:48.257282+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "cb875caf-a7f0-4c1b-9506-060b87aaf684",
@@ -68,7 +68,7 @@
       "road": "Carruthers St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.483376 -2.218394"
@@ -88,6 +88,20 @@
       "point": "53.545599 -2.069789"
     },
     {
+      "id": "cfa14df3-812f-4b60-be81-24f94be6ece7",
+      "title": "alert",
+      "published": "Fri Nov 6 16:59:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J5 to A5103",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.414351 -2.269044"
+    },
+    {
       "id": "1943ea6f-da6e-4a2a-9442-2104e7e3d89c",
       "title": "alert",
       "published": "Fri Nov 6 16:51:28 +0000 2026",
@@ -97,7 +111,7 @@
       "city": "Standish",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.587442 -2.661179"
     },
@@ -128,6 +142,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.573666 -2.546439"
+    },
+    {
+      "id": "24857f05-9bee-4e06-b89e-e298668f34db",
+      "title": "alert",
+      "published": "Fri Nov 6 16:58:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.541092 -2.219732"
     }
   ]
 }
