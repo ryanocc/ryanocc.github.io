@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T13:00:48.237018+00:00",
+  "updatedAt": "2026-11-06T13:05:48.070020+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
     {
       "id": "0c8b939f-b253-4096-9b21-80d5184ef3b7",
@@ -16,6 +16,34 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.437469 -2.212453"
+    },
+    {
+      "id": "afd7c4f7-31a3-4924-a49c-36a8c8d38127",
+      "title": "alert",
+      "published": "Fri Nov 6 13:00:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "St. Brides Way",
+      "city": "Old Trafford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.46154 -2.261269"
+    },
+    {
+      "id": "ebc1a8ae-8560-4149-a2c0-d2f4c86afc3f",
+      "title": "alert",
+      "published": "Fri Nov 6 13:00:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 - Upper Brook St",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.459933 -2.220967"
     }
   ]
 }
