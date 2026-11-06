@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-06T00:05:48.030997+00:00",
+  "updatedAt": "2026-11-06T00:10:48.146687+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
+    {
+      "id": "a13d0eb0-a8fb-4790-88b2-276c0697fd8e",
+      "title": "alert",
+      "published": "Fri Nov 6 00:08:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5144 - Thorley Ln",
+      "city": "Timperley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.388494 -2.317275"
+    },
     {
       "id": "036bda50-884a-43e1-8961-b50b2f69a460",
       "title": "alert",
@@ -32,20 +46,6 @@
       "point": "53.583777 -2.428409"
     },
     {
-      "id": "e06a944a-f3db-460b-8209-2fd9d4358206",
-      "title": "alert",
-      "published": "Thu Nov 5 23:35:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.478268 -2.219802"
-    },
-    {
       "id": "113713e2-c5df-452c-946f-e9510edf26b9",
       "title": "alert",
       "published": "Thu Nov 5 23:58:46 +0000 2026",
@@ -54,10 +54,24 @@
       "road": "A665 - Great Ancoats St",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.477953 -2.218589"
+    },
+    {
+      "id": "e06a944a-f3db-460b-8209-2fd9d4358206",
+      "title": "alert",
+      "published": "Thu Nov 5 23:35:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Great Ancoats St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.478268 -2.219802"
     }
   ]
 }
