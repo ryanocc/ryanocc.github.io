@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T08:30:48.121092+00:00",
+  "updatedAt": "2026-11-06T08:35:48.147996+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 5,
   "incidents": [
     {
       "id": "c780d170-ff77-488a-bcb1-235f81da69df",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.468231 -2.155868"
+    },
+    {
+      "id": "594551e5-e2a6-47ec-9d38-bbdd2879af4c",
+      "title": "alert",
+      "published": "Fri Nov 6 08:33:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Errwood Rd",
+      "city": "Burnage",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.427799 -2.198382"
     },
     {
       "id": "253c78d5-6c6b-4572-b288-9898d1690bf1",
@@ -46,48 +60,6 @@
       "point": "53.436792 -2.586914"
     },
     {
-      "id": "eb94fd02-73d2-4938-a813-d0fbec48c795",
-      "title": "alert",
-      "published": "Fri Nov 6 08:04:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - St. Helens Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.564585 -2.448548"
-    },
-    {
-      "id": "e57df8a1-5075-4d9e-a5e0-8964aa1e4d57",
-      "title": "alert",
-      "published": "Fri Nov 6 08:20:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.57703 -2.206374"
-    },
-    {
-      "id": "fdc54cee-6b32-4706-ab75-a081b75aa8cf",
-      "title": "alert",
-      "published": "Fri Nov 6 08:26:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.557378 -2.494794"
-    },
-    {
       "id": "576af166-f076-414e-96b4-b9946997d0e5",
       "title": "alert",
       "published": "Fri Nov 6 08:15:39 +0000 2026",
@@ -96,8 +68,8 @@
       "road": "M61 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.552361 -2.480896"
     }
