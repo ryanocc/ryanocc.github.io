@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T15:10:48.214843+00:00",
+  "updatedAt": "2026-11-06T15:15:48.235428+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 10,
   "incidents": [
     {
       "id": "50116a2e-e89c-4437-8cbb-ba6f3d06d859",
@@ -16,6 +16,20 @@
       "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.567541 -2.402139"
+    },
+    {
+      "id": "c06cd818-034c-4b47-8243-cffc012e7d95",
+      "title": "alert",
+      "published": "Fri Nov 6 15:15:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Redwood Ln",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.545599 -2.069789"
     },
     {
       "id": "b629c11a-e8f1-4939-9a58-91483e19c132",
@@ -40,10 +54,24 @@
       "road": "J8 to A6144",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.443765 -2.338727"
+    },
+    {
+      "id": "424213bc-7562-4a37-bf9b-d486aef78114",
+      "title": "alert",
+      "published": "Fri Nov 6 15:14:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6393 - Lightbowne Rd",
+      "city": "Moston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.50826 -2.192304"
     },
     {
       "id": "11b790e0-ffd5-4f95-8409-b68491106913",
@@ -74,6 +102,20 @@
       "point": "53.561976 -2.475139"
     },
     {
+      "id": "20d7260b-33fc-4aeb-9ca8-e3702dfcb958",
+      "title": "alert",
+      "published": "Fri Nov 6 15:12:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.470936 -2.242504"
+    },
+    {
       "id": "a52fab90-1bb6-4d6c-b328-51fc72ad7092",
       "title": "alert",
       "published": "Fri Nov 6 15:02:30 +0000 2026",
@@ -86,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.370853 -2.508866"
+    },
+    {
+      "id": "485816e2-c392-41db-bada-0b47f980683e",
+      "title": "alert",
+      "published": "Fri Nov 6 15:14:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "Urmston",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.443383 -2.338613"
     }
   ]
 }
