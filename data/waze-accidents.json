@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T17:05:48.235930+00:00",
+  "updatedAt": "2026-11-06T17:10:48.236659+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 13,
   "incidents": [
     {
       "id": "cb875caf-a7f0-4c1b-9506-060b87aaf684",
@@ -88,20 +88,6 @@
       "point": "53.545599 -2.069789"
     },
     {
-      "id": "5395a6d3-7a79-43cd-bb2d-9997ce44e890",
-      "title": "alert",
-      "published": "Fri Nov 6 17:02:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J3 to A34 (S)",
-      "city": "Gatley",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.395073 -2.226229"
-    },
-    {
       "id": "1943ea6f-da6e-4a2a-9442-2104e7e3d89c",
       "title": "alert",
       "published": "Fri Nov 6 16:51:28 +0000 2026",
@@ -142,6 +128,48 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.573666 -2.546439"
+    },
+    {
+      "id": "dabe2078-f6ea-40ff-b519-707ca9e64560",
+      "title": "alert",
+      "published": "Fri Nov 6 17:05:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6041 - Great Clowes St",
+      "city": "Lower Broughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.491764 -2.259467"
+    },
+    {
+      "id": "acab075e-46a7-4126-ac5d-0898fabf856e",
+      "title": "alert",
+      "published": "Fri Nov 6 17:09:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.408593 -2.178498"
+    },
+    {
+      "id": "0ededb09-2433-45df-b0a4-59a4666a3f9f",
+      "title": "alert",
+      "published": "Fri Nov 6 17:10:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.407195 -2.187147"
     },
     {
       "id": "24857f05-9bee-4e06-b89e-e298668f34db",
