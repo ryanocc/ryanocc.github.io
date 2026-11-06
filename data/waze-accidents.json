@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T15:40:48.222731+00:00",
+  "updatedAt": "2026-11-06T15:45:48.410232+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "7e1d0f14-dd89-419f-b287-bae425cc7ca1",
@@ -68,24 +68,38 @@
       "road": "A6027 > Chorley",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.573594 -2.546689"
     },
     {
-      "id": "10994930-d784-48d3-9025-19cd08ad6a8b",
+      "id": "0bf0e532-bbf0-49c4-b6df-32e74a58afb7",
       "title": "alert",
-      "published": "Fri Nov 6 15:00:49 +0000 2026",
+      "published": "Fri Nov 6 15:43:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "J8 to A6144",
-      "city": "",
+      "road": "A5066 - Silk St",
+      "city": "Irwell Riverside",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.443765 -2.338727"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.4894 -2.259548"
+    },
+    {
+      "id": "9f584f47-9fb1-412d-aee3-02cc66d9bcbe",
+      "title": "alert",
+      "published": "Fri Nov 6 15:40:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5066 - Silk St",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.489505 -2.259305"
     },
     {
       "id": "11b790e0-ffd5-4f95-8409-b68491106913",
