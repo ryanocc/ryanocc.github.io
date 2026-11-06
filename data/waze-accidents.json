@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T14:25:48.010320+00:00",
+  "updatedAt": "2026-11-06T14:30:48.005781+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 6,
   "incidents": [
     {
       "id": "b629c11a-e8f1-4939-9a58-91483e19c132",
@@ -32,18 +32,18 @@
       "point": "53.511742 -2.214661"
     },
     {
-      "id": "eef409bb-ba15-4de0-8481-d7f5f9e12b74",
+      "id": "e7a61391-3ee8-4a97-9930-5cb5c4dc800f",
       "title": "alert",
-      "published": "Fri Nov 6 14:16:18 +0000 2026",
+      "published": "Fri Nov 6 14:22:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A560 - Altrincham Rd",
-      "city": "",
+      "road": "A58 - Wigan Rd",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.397097 -2.261612"
+      "reportRating": 1.0,
+      "point": "53.560888 -2.478555"
     },
     {
       "id": "69c33e37-a4c9-4c39-91df-acc6abe33898",
@@ -54,24 +54,10 @@
       "road": "A58 - Wigan Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.561976 -2.475139"
-    },
-    {
-      "id": "e7a61391-3ee8-4a97-9930-5cb5c4dc800f",
-      "title": "alert",
-      "published": "Fri Nov 6 14:22:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Wigan Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.560888 -2.478555"
     },
     {
       "id": "ebc1a8ae-8560-4149-a2c0-d2f4c86afc3f",
@@ -97,23 +83,9 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.535511 -2.130913"
-    },
-    {
-      "id": "5e5f03d9-7d6d-4913-a1b1-4d0996156d37",
-      "title": "alert",
-      "published": "Fri Nov 6 14:24:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (W)",
-      "city": "Birchwood",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.434766 -2.501847"
     }
   ]
 }
