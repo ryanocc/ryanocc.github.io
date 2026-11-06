@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T21:50:48.046639+00:00",
+  "updatedAt": "2026-11-06T21:55:48.026579+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -32,32 +32,18 @@
       "point": "53.508812 -2.187281"
     },
     {
-      "id": "5ff3bbe4-61d9-44a6-b893-51e6b204d161",
+      "id": "843ac72a-8548-4723-a403-46ce7a8fdd0c",
       "title": "alert",
-      "published": "Fri Nov 6 21:37:18 +0000 2026",
+      "published": "Fri Nov 6 21:51:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A580 - East Lancashire Rd",
+      "road": "M60 (W & N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.47602 -2.519003"
-    },
-    {
-      "id": "4cfe5c4c-5715-4a01-a4ae-20afc44a6e56",
-      "title": "alert",
-      "published": "Fri Nov 6 21:13:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.526828 -2.361743"
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.414037 -2.27225"
     },
     {
       "id": "bae91c35-28d3-4b2d-88e4-676b3e5b91f2",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.527582 -2.364422"
+    },
+    {
+      "id": "4cfe5c4c-5715-4a01-a4ae-20afc44a6e56",
+      "title": "alert",
+      "published": "Fri Nov 6 21:13:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.526828 -2.361743"
     }
   ]
 }
