@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T22:40:47.597822+00:00",
+  "updatedAt": "2026-11-06T22:45:47.650289+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.575445 -2.29975"
-    },
-    {
-      "id": "1ce46c4b-e090-41fd-b5bd-04935608c9f4",
-      "title": "alert",
-      "published": "Fri Nov 6 22:23:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Beech Rd",
-      "city": "Chorlton-cum-Hardy",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.437617 -2.276678"
     },
     {
       "id": "a8262adb-e5df-4366-80ef-25ddeeb23815",
@@ -58,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.414037 -2.27225"
+    },
+    {
+      "id": "b69253c8-6054-4c88-8ce0-218506b63a25",
+      "title": "alert",
+      "published": "Fri Nov 6 22:41:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 > Altrincham",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.470826 -2.253585"
     },
     {
       "id": "7b5b8745-fff9-4578-b71e-5897accb754c",
@@ -97,7 +97,7 @@
       "city": "Moss Side",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.45625 -2.245247"
     },
