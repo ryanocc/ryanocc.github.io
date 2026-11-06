@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-06T13:10:48.150530+00:00",
+  "updatedAt": "2026-11-06T13:15:48.093172+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "0c8b939f-b253-4096-9b21-80d5184ef3b7",
@@ -32,6 +32,20 @@
       "point": "53.46154 -2.261269"
     },
     {
+      "id": "b629c11a-e8f1-4939-9a58-91483e19c132",
+      "title": "alert",
+      "published": "Fri Nov 6 13:14:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J6 to A6027",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.575498 -2.546311"
+    },
+    {
       "id": "ebc1a8ae-8560-4149-a2c0-d2f4c86afc3f",
       "title": "alert",
       "published": "Fri Nov 6 13:00:58 +0000 2026",
@@ -40,8 +54,8 @@
       "road": "A34 - Upper Brook St",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.459933 -2.220967"
     }
