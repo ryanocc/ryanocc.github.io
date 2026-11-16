@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T15:50:48.101793+00:00",
+  "updatedAt": "2026-11-16T15:55:49.496279+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -46,18 +46,18 @@
       "point": "53.529774 -2.278018"
     },
     {
-      "id": "067ddb8f-2c21-44cc-9b25-cc5d0a11155e",
+      "id": "3db61bec-1697-4b68-9f8b-4ac7acfde86b",
       "title": "alert",
-      "published": "Mon Nov 16 15:45:27 +0000 2026",
+      "published": "Mon Nov 16 15:51:41 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Davyhulme",
+      "road": "Brooklands Rd",
+      "city": "Sale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.457618 -2.357739"
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.413646 -2.321741"
     },
     {
       "id": "5286adcc-69c7-4a11-b407-55d612cb2945",
@@ -74,6 +74,20 @@
       "point": "53.575113 -2.394"
     },
     {
+      "id": "32cee1bf-3223-41aa-a359-28f413b5fb4e",
+      "title": "alert",
+      "published": "Mon Nov 16 15:45:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.539044 -2.289116"
+    },
+    {
       "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
       "title": "alert",
       "published": "Mon Nov 16 13:58:47 +0000 2026",
@@ -88,20 +102,6 @@
       "point": "53.538526 -2.289936"
     },
     {
-      "id": "32cee1bf-3223-41aa-a359-28f413b5fb4e",
-      "title": "alert",
-      "published": "Mon Nov 16 15:45:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.539044 -2.289116"
-    },
-    {
       "id": "8efc25c2-d73e-419f-956b-e0d8b250a4c1",
       "title": "alert",
       "published": "Mon Nov 16 15:47:56 +0000 2026",
@@ -110,8 +110,8 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.627322 -2.041847"
     }
