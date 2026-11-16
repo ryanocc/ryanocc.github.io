@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T13:45:48.011767+00:00",
+  "updatedAt": "2026-11-16T13:50:47.956528+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
+    {
+      "id": "c676b8bf-9e81-4faa-8778-d266065513bd",
+      "title": "alert",
+      "published": "Mon Nov 16 13:49:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.458357 -2.153586"
+    },
     {
       "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
       "title": "alert",
@@ -41,7 +55,7 @@
       "city": "Whalley Range",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.441843 -2.267213"
     },
@@ -68,7 +82,7 @@
       "road": "A556 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.349539 -2.408652"
