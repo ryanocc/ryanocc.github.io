@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T14:55:47.995326+00:00",
+  "updatedAt": "2026-11-16T15:00:47.986949+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "382a005f-5efa-4b6e-8c53-46e649841a37",
@@ -18,6 +18,20 @@
       "point": "53.377035 -2.358065"
     },
     {
+      "id": "c70e0e82-b6bf-49c8-95d8-c0b8634cc7ae",
+      "title": "alert",
+      "published": "Mon Nov 16 14:18:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.549851 -2.203859"
+    },
+    {
       "id": "c3acd71a-8b9b-4ecc-bf38-fb1f7c786cc3",
       "title": "alert",
       "published": "Mon Nov 16 14:49:53 +0000 2026",
@@ -32,9 +46,9 @@
       "point": "53.529774 -2.278018"
     },
     {
-      "id": "c70e0e82-b6bf-49c8-95d8-c0b8634cc7ae",
+      "id": "5cef6e08-ef49-470f-b228-a662b9f653e8",
       "title": "alert",
-      "published": "Mon Nov 16 14:18:33 +0000 2026",
+      "published": "Mon Nov 16 14:56:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
@@ -43,7 +57,7 @@
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.549851 -2.203859"
+      "point": "53.534045 -2.268478"
     },
     {
       "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
@@ -83,7 +97,7 @@
       "city": "Irlam",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.428935 -2.434457"
     },
@@ -97,7 +111,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.538526 -2.289936"
     }
