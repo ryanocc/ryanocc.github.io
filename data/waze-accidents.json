@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T11:55:47.603902+00:00",
+  "updatedAt": "2026-11-16T12:00:48.031190+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -46,18 +46,18 @@
       "point": "53.399907 -2.309921"
     },
     {
-      "id": "7f50b8b6-931c-481e-b4c2-994aa52b8d75",
+      "id": "c63e7b54-a95c-4128-ad3c-c841df708113",
       "title": "alert",
-      "published": "Mon Nov 16 11:45:52 +0000 2026",
+      "published": "Mon Nov 16 11:55:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B6194 - Glodwick Rd",
-      "city": "Oldham",
+      "road": "A6015 - Church Rd",
+      "city": "New Mills",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.541511 -2.096939"
+      "reportRating": 3.0,
+      "point": "53.363799 -1.998209"
     },
     {
       "id": "62a0e22c-f78b-42d7-b77c-3f12a18bc73d",
@@ -72,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.506686 -2.651463"
+    },
+    {
+      "id": "d19bd0c3-c30a-46a4-be4d-81067d7684aa",
+      "title": "alert",
+      "published": "Mon Nov 16 11:56:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A555 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.365135 -2.255384"
     },
     {
       "id": "043c83d9-9cc4-4e1b-95f9-9e1263fe398d",
@@ -96,38 +110,10 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.502283 -2.324344"
-    },
-    {
-      "id": "d35de583-6352-4a7e-8273-51654691c8ee",
-      "title": "alert",
-      "published": "Mon Nov 16 11:52:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.51093 -2.676981"
-    },
-    {
-      "id": "e4c1d9d1-eeca-48c0-92fa-0a855290698b",
-      "title": "alert",
-      "published": "Mon Nov 16 11:54:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.563516 -2.269737"
     },
     {
       "id": "a4b61116-8e7d-4efe-be72-a82e3f7b10ff",
@@ -142,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.564003 -2.269908"
+    },
+    {
+      "id": "5eca38df-433e-4b97-884d-af33c2be5571",
+      "title": "alert",
+      "published": "Mon Nov 16 11:56:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.639706 -1.96273"
     },
     {
       "id": "01a0e583-524a-465c-bc25-a9113162905d",
