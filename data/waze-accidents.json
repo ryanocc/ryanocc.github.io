@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T11:50:47.610798+00:00",
+  "updatedAt": "2026-11-16T11:55:47.603902+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 11,
   "incidents": [
     {
       "id": "fadbe997-6f68-4411-b8f6-4fb981452e12",
@@ -40,7 +40,7 @@
       "road": "B5165 - Stockport Rd",
       "city": "Timperley",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.399907 -2.309921"
@@ -88,6 +88,48 @@
       "point": "53.364914 -2.2549"
     },
     {
+      "id": "eeee3511-e8d8-426f-abd2-506a8b2e2188",
+      "title": "alert",
+      "published": "Mon Nov 16 11:50:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.502283 -2.324344"
+    },
+    {
+      "id": "d35de583-6352-4a7e-8273-51654691c8ee",
+      "title": "alert",
+      "published": "Mon Nov 16 11:52:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.51093 -2.676981"
+    },
+    {
+      "id": "e4c1d9d1-eeca-48c0-92fa-0a855290698b",
+      "title": "alert",
+      "published": "Mon Nov 16 11:54:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.563516 -2.269737"
+    },
+    {
       "id": "a4b61116-8e7d-4efe-be72-a82e3f7b10ff",
       "title": "alert",
       "published": "Mon Nov 16 11:01:21 +0000 2026",
@@ -100,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.564003 -2.269908"
+    },
+    {
+      "id": "01a0e583-524a-465c-bc25-a9113162905d",
+      "title": "alert",
+      "published": "Mon Nov 16 11:55:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.640027 -1.96621"
     }
   ]
 }
