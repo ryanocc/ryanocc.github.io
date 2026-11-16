@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-16T11:15:47.569600+00:00",
+  "updatedAt": "2026-11-16T11:20:47.598800+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
-    {
-      "id": "ffce5d49-8370-49a9-9ec9-604149b839a6",
-      "title": "alert",
-      "published": "Mon Nov 16 10:40:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.403138 -2.345582"
-    },
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.406978 -2.328652"
+    },
+    {
+      "id": "ffce5d49-8370-49a9-9ec9-604149b839a6",
+      "title": "alert",
+      "published": "Mon Nov 16 10:40:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.403138 -2.345582"
     },
     {
       "id": "5d1539a9-62fc-4dba-aee6-b3690891124b",
@@ -60,18 +60,18 @@
       "point": "53.53001 -2.287716"
     },
     {
-      "id": "5ec025c4-5618-4965-9e5c-3a3885aa06e7",
+      "id": "287ed14b-fd75-4af9-a980-4f0c9ab05ec2",
       "title": "alert",
-      "published": "Mon Nov 16 10:19:20 +0000 2026",
+      "published": "Mon Nov 16 11:17:56 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B5219 - Moss Ln E",
-      "city": "Moss Side",
+      "road": "B5165 - Stockport Rd",
+      "city": "Timperley",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.458914 -2.243764"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.399907 -2.309921"
     },
     {
       "id": "62a0e22c-f78b-42d7-b77c-3f12a18bc73d",
@@ -83,9 +83,23 @@
       "city": "Ashton-in-Makerfield",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.506686 -2.651463"
+    },
+    {
+      "id": "5f36b779-c2bb-45db-be6d-17ec3336d533",
+      "title": "alert",
+      "published": "Mon Nov 16 11:20:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6041 - Great Clowes St",
+      "city": "Lower Broughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.496418 -2.259375"
     },
     {
       "id": "d1d67339-ede6-463e-98b3-63e995a13ae1",
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.364702 -2.2536"
-    },
-    {
-      "id": "5c89f3d5-2a90-4f33-96d2-a287e948917b",
-      "title": "alert",
-      "published": "Mon Nov 16 10:56:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Rochdale Rd",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.487714 -2.233156"
     },
     {
       "id": "82bdb3d2-0159-49ca-90ce-6dbf1215d290",
