@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T14:05:47.945254+00:00",
+  "updatedAt": "2026-11-16T14:10:47.943862+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
+    {
+      "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
+      "title": "alert",
+      "published": "Mon Nov 16 13:55:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thorley Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.374428 -2.295197"
+    },
     {
       "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
       "title": "alert",
@@ -16,20 +30,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.375458 -2.295692"
-    },
-    {
-      "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
-      "title": "alert",
-      "published": "Mon Nov 16 13:55:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thorley Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.374428 -2.295197"
     },
     {
       "id": "463d514b-8d2b-4c26-b701-aada5d1b0bdd",
@@ -58,20 +58,6 @@
       "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.441843 -2.267213"
-    },
-    {
-      "id": "8b1be1d9-b210-46e2-91d3-495dc09e0ffe",
-      "title": "alert",
-      "published": "Mon Nov 16 13:43:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Manchester Rd",
-      "city": "Altrincham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.396161 -2.352209"
     },
     {
       "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
