@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T15:15:48.073361+00:00",
+  "updatedAt": "2026-11-16T15:20:48.036715+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "382a005f-5efa-4b6e-8c53-46e649841a37",
@@ -32,20 +32,6 @@
       "point": "53.544447 -2.633127"
     },
     {
-      "id": "c3acd71a-8b9b-4ecc-bf38-fb1f7c786cc3",
-      "title": "alert",
-      "published": "Mon Nov 16 14:49:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Rectory Ln",
-      "city": "Prestwich",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.529774 -2.278018"
-    },
-    {
       "id": "5cef6e08-ef49-470f-b228-a662b9f653e8",
       "title": "alert",
       "published": "Mon Nov 16 14:56:50 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.534045 -2.268478"
+    },
+    {
+      "id": "c3acd71a-8b9b-4ecc-bf38-fb1f7c786cc3",
+      "title": "alert",
+      "published": "Mon Nov 16 14:49:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Rectory Ln",
+      "city": "Prestwich",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.529774 -2.278018"
     },
     {
       "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
@@ -74,6 +74,20 @@
       "point": "53.374428 -2.295197"
     },
     {
+      "id": "674c0ee9-cccc-4384-a23d-17bda68f593c",
+      "title": "alert",
+      "published": "Mon Nov 16 15:16:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Runger Ln",
+      "city": "Wythenshawe",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.371289 -2.288624"
+    },
+    {
       "id": "5286adcc-69c7-4a11-b407-55d612cb2945",
       "title": "alert",
       "published": "Mon Nov 16 15:12:17 +0000 2026",
@@ -83,9 +97,23 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.575113 -2.394"
+    },
+    {
+      "id": "da41bbf9-56f1-44c6-88fb-fc82c4ae695f",
+      "title": "alert",
+      "published": "Mon Nov 16 15:19:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6044 - Sheepfoot Ln",
+      "city": "Sedgley Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.52495 -2.262731"
     },
     {
       "id": "13d87f2d-2d14-4aa4-976a-827b98379ac8",
@@ -96,24 +124,10 @@
       "road": "A663 - Broadgate",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.527817 -2.160933"
-    },
-    {
-      "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
-      "title": "alert",
-      "published": "Mon Nov 16 13:58:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.538526 -2.289936"
     },
     {
       "id": "d0ba736b-128b-44c8-945d-ae3fedd49003",
@@ -128,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.538596 -2.290344"
+    },
+    {
+      "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
+      "title": "alert",
+      "published": "Mon Nov 16 13:58:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.538526 -2.289936"
     }
   ]
 }
