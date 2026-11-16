@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T12:20:47.933585+00:00",
+  "updatedAt": "2026-11-16T12:25:47.981577+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
+    {
+      "id": "6011a9e1-f9e8-41ee-9c79-ceb28cd7d949",
+      "title": "alert",
+      "published": "Mon Nov 16 12:21:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.482201 -2.259674"
+    },
     {
       "id": "287ed14b-fd75-4af9-a980-4f0c9ab05ec2",
       "title": "alert",
@@ -12,7 +26,7 @@
       "road": "B5165 - Stockport Rd",
       "city": "Timperley",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.399907 -2.309921"
@@ -32,18 +46,18 @@
       "point": "53.363799 -1.998209"
     },
     {
-      "id": "62a0e22c-f78b-42d7-b77c-3f12a18bc73d",
+      "id": "043c83d9-9cc4-4e1b-95f9-9e1263fe398d",
       "title": "alert",
-      "published": "Mon Nov 16 10:32:35 +0000 2026",
+      "published": "Mon Nov 16 11:28:25 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A49 - Wigan Rd",
-      "city": "Ashton-in-Makerfield",
+      "road": "A555 (W)",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.506686 -2.651463"
+      "reportRating": 0.0,
+      "point": "53.364914 -2.2549"
     },
     {
       "id": "d19bd0c3-c30a-46a4-be4d-81067d7684aa",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.365135 -2.255384"
-    },
-    {
-      "id": "043c83d9-9cc4-4e1b-95f9-9e1263fe398d",
-      "title": "alert",
-      "published": "Mon Nov 16 11:28:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.364914 -2.2549"
     },
     {
       "id": "277889b7-81a7-4842-8b24-1f1abd04a431",
@@ -114,20 +114,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.640027 -1.96621"
-    },
-    {
-      "id": "5eca38df-433e-4b97-884d-af33c2be5571",
-      "title": "alert",
-      "published": "Mon Nov 16 11:56:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.639136 -1.968356"
     }
   ]
 }
