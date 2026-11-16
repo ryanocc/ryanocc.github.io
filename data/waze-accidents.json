@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T09:40:47.708591+00:00",
+  "updatedAt": "2026-11-16T09:45:47.886058+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 10,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -40,8 +40,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.45701 -2.134741"
     },
@@ -54,7 +54,7 @@
       "road": "A576 - Middleton Rd",
       "city": "Middleton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.540647 -2.236734"
@@ -74,18 +74,18 @@
       "point": "53.66222 -2.311576"
     },
     {
-      "id": "c20b3dd8-27e9-4224-a5d9-60404605832f",
+      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
       "title": "alert",
-      "published": "Mon Nov 16 08:52:28 +0000 2026",
+      "published": "Mon Nov 16 09:00:10 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A664 - Albert Royds St",
-      "city": "Rochdale",
+      "road": "M6 (N)",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.624603 -2.135531"
+      "point": "53.478525 -2.641328"
     },
     {
       "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
@@ -99,35 +99,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
-      "point": "53.476313 -2.638123"
-    },
-    {
-      "id": "7fd83303-b28b-4b63-b52c-958b125e5029",
-      "title": "alert",
-      "published": "Mon Nov 16 09:25:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.495417 -2.656595"
-    },
-    {
-      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
-      "title": "alert",
-      "published": "Mon Nov 16 09:00:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.478525 -2.641328"
+      "point": "53.478555 -2.641083"
     },
     {
       "id": "d207556a-12e2-45b7-8a8c-3279e3458eea",
