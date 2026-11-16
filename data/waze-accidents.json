@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T13:20:47.932480+00:00",
+  "updatedAt": "2026-11-16T13:25:48.011068+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "874c3bf7-ac4f-4171-8f51-1b4e84c2f198",
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.439547 -2.426871"
-    },
-    {
-      "id": "bea1f0bc-d632-470c-84f0-1cfee3bfbbcc",
-      "title": "alert",
-      "published": "Mon Nov 16 12:42:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.464914 -2.340739"
     },
     {
       "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
@@ -83,7 +69,7 @@
       "city": "New Mills",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.363799 -1.998209"
     },
@@ -116,6 +102,20 @@
       "point": "53.399896 -2.308817"
     },
     {
+      "id": "9615bb6c-1002-459c-89b8-a955b3f6f1cc",
+      "title": "alert",
+      "published": "Mon Nov 16 13:24:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 5.0,
+      "point": "53.539114 -2.28894"
+    },
+    {
       "id": "b84e1a64-b91d-4bda-97bf-121987a73600",
       "title": "alert",
       "published": "Mon Nov 16 13:15:03 +0000 2026",
@@ -124,10 +124,24 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.566713 -2.270607"
+    },
+    {
+      "id": "de212499-0a0a-4678-b4e3-efea9df3d5a9",
+      "title": "alert",
+      "published": "Mon Nov 16 13:24:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.607292 -2.097048"
     },
     {
       "id": "01a0e583-524a-465c-bc25-a9113162905d",
