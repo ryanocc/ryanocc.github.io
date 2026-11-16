@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T10:00:47.628730+00:00",
+  "updatedAt": "2026-11-16T10:05:47.669892+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -60,20 +60,6 @@
       "point": "53.66222 -2.311576"
     },
     {
-      "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
-      "title": "alert",
-      "published": "Mon Nov 16 08:52:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.478555 -2.641083"
-    },
-    {
       "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
       "title": "alert",
       "published": "Mon Nov 16 09:00:10 +0000 2026",
@@ -86,6 +72,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.478525 -2.641328"
+    },
+    {
+      "id": "e4682caa-52cf-433a-ada6-f0e433f4c6e1",
+      "title": "alert",
+      "published": "Mon Nov 16 10:05:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.511755 -2.681042"
+    },
+    {
+      "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
+      "title": "alert",
+      "published": "Mon Nov 16 08:52:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.478555 -2.641083"
     },
     {
       "id": "d207556a-12e2-45b7-8a8c-3279e3458eea",
@@ -102,20 +116,6 @@
       "point": "53.475878 -2.373461"
     },
     {
-      "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
-      "title": "alert",
-      "published": "Mon Nov 16 09:20:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.456712 -2.131514"
-    },
-    {
       "id": "82bdb3d2-0159-49ca-90ce-6dbf1215d290",
       "title": "alert",
       "published": "Mon Nov 16 09:21:48 +0000 2026",
@@ -128,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.456656 -2.121746"
+    },
+    {
+      "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
+      "title": "alert",
+      "published": "Mon Nov 16 09:20:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.456712 -2.131514"
     },
     {
       "id": "44d15bd2-88fa-4f4a-8281-d543d2200259",
