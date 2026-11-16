@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T09:25:47.834389+00:00",
+  "updatedAt": "2026-11-16T09:30:47.828524+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -18,6 +18,20 @@
       "point": "53.406978 -2.328652"
     },
     {
+      "id": "886e4a61-21a1-47d8-a216-245454e18637",
+      "title": "alert",
+      "published": "Mon Nov 16 09:28:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Dialstone Ln",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.39957 -2.135511"
+    },
+    {
       "id": "556de14e-89aa-4df3-b71b-feb7b17677b8",
       "title": "alert",
       "published": "Mon Nov 16 09:24:33 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "Middleton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.540647 -2.236734"
     },
@@ -60,6 +74,34 @@
       "point": "53.624603 -2.135531"
     },
     {
+      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
+      "title": "alert",
+      "published": "Mon Nov 16 09:00:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.478525 -2.641328"
+    },
+    {
+      "id": "7fd83303-b28b-4b63-b52c-958b125e5029",
+      "title": "alert",
+      "published": "Mon Nov 16 09:25:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.495417 -2.656595"
+    },
+    {
       "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
       "title": "alert",
       "published": "Mon Nov 16 08:52:06 +0000 2026",
@@ -72,34 +114,6 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.476313 -2.638123"
-    },
-    {
-      "id": "7fd83303-b28b-4b63-b52c-958b125e5029",
-      "title": "alert",
-      "published": "Mon Nov 16 09:25:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.495417 -2.656595"
-    },
-    {
-      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
-      "title": "alert",
-      "published": "Mon Nov 16 09:00:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.478525 -2.641328"
     },
     {
       "id": "d207556a-12e2-45b7-8a8c-3279e3458eea",
@@ -116,20 +130,6 @@
       "point": "53.475878 -2.373461"
     },
     {
-      "id": "82bdb3d2-0159-49ca-90ce-6dbf1215d290",
-      "title": "alert",
-      "published": "Mon Nov 16 09:21:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.456563 -2.123943"
-    },
-    {
       "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
       "title": "alert",
       "published": "Mon Nov 16 09:20:29 +0000 2026",
@@ -138,10 +138,24 @@
       "road": "M67 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.456511 -2.127764"
+    },
+    {
+      "id": "82bdb3d2-0159-49ca-90ce-6dbf1215d290",
+      "title": "alert",
+      "published": "Mon Nov 16 09:21:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.456563 -2.123943"
     }
   ]
 }
