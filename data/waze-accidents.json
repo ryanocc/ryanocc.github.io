@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T19:25:47.957234+00:00",
+  "updatedAt": "2026-11-16T19:30:48.703838+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -26,24 +26,10 @@
       "road": "Back Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.589539 -2.69705"
-    },
-    {
-      "id": "16aafe17-3b76-4725-8ef3-9c13e3c4f044",
-      "title": "alert",
-      "published": "Mon Nov 16 18:25:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Warrington Rd",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.540346 -2.622294"
     },
     {
       "id": "d3c33a25-2e59-4c34-a95d-133a7344e04b",
@@ -58,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.539197 -2.621256"
+    },
+    {
+      "id": "16aafe17-3b76-4725-8ef3-9c13e3c4f044",
+      "title": "alert",
+      "published": "Mon Nov 16 18:25:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Warrington Rd",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.540346 -2.622294"
     },
     {
       "id": "24a7c75b-bbc1-4154-9aa7-0a3d99f27b0c",
