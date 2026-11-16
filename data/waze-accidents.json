@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T10:35:47.628719+00:00",
+  "updatedAt": "2026-11-16T10:40:47.654288+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -32,20 +32,6 @@
       "point": "53.547532 -2.398971"
     },
     {
-      "id": "debb0bd2-f2c8-4bd2-9ba8-964d69245502",
-      "title": "alert",
-      "published": "Mon Nov 16 10:10:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Hall Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.563081 -2.574225"
-    },
-    {
       "id": "5ec025c4-5618-4965-9e5c-3a3885aa06e7",
       "title": "alert",
       "published": "Mon Nov 16 10:19:20 +0000 2026",
@@ -54,8 +40,8 @@
       "road": "B5219 - Moss Ln E",
       "city": "Moss Side",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.458914 -2.243764"
     },
@@ -68,24 +54,10 @@
       "road": "A49 - Wigan Rd",
       "city": "Ashton-in-Makerfield",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.506686 -2.651463"
-    },
-    {
-      "id": "a9a00909-314b-434c-b751-a16700d29550",
-      "title": "alert",
-      "published": "Mon Nov 16 08:44:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A676 - Bolton Rd N",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.66222 -2.311576"
     },
     {
       "id": "d1d67339-ede6-463e-98b3-63e995a13ae1",
@@ -138,8 +110,8 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.565899 -2.270421"
     },
