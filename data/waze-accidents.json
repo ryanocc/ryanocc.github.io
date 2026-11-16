@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-16T15:20:48.036715+00:00",
+  "updatedAt": "2026-11-16T15:25:47.884182+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
-    {
-      "id": "382a005f-5efa-4b6e-8c53-46e649841a37",
-      "title": "alert",
-      "published": "Mon Nov 16 14:47:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.377035 -2.358065"
-    },
     {
       "id": "552d0589-d414-447c-91a5-d6d8a19a3836",
       "title": "alert",
@@ -30,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 5.0,
       "point": "53.544447 -2.633127"
-    },
-    {
-      "id": "5cef6e08-ef49-470f-b228-a662b9f653e8",
-      "title": "alert",
-      "published": "Mon Nov 16 14:56:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.534045 -2.268478"
     },
     {
       "id": "c3acd71a-8b9b-4ecc-bf38-fb1f7c786cc3",
@@ -74,20 +46,6 @@
       "point": "53.374428 -2.295197"
     },
     {
-      "id": "674c0ee9-cccc-4384-a23d-17bda68f593c",
-      "title": "alert",
-      "published": "Mon Nov 16 15:16:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Runger Ln",
-      "city": "Wythenshawe",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.371289 -2.288624"
-    },
-    {
       "id": "5286adcc-69c7-4a11-b407-55d612cb2945",
       "title": "alert",
       "published": "Mon Nov 16 15:12:17 +0000 2026",
@@ -96,8 +54,8 @@
       "road": "Long Ln",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.575113 -2.394"
     },
@@ -110,8 +68,8 @@
       "road": "A6044 - Sheepfoot Ln",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.52495 -2.262731"
     },
@@ -130,18 +88,18 @@
       "point": "53.527817 -2.160933"
     },
     {
-      "id": "d0ba736b-128b-44c8-945d-ae3fedd49003",
+      "id": "7e473cff-7f9e-4a99-aff9-7db9b6a0cab9",
       "title": "alert",
-      "published": "Mon Nov 16 15:09:01 +0000 2026",
+      "published": "Mon Nov 16 15:25:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "A57 - Dawson St",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.538596 -2.290344"
+      "point": "53.475045 -2.261122"
     },
     {
       "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
@@ -156,6 +114,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.538526 -2.289936"
+    },
+    {
+      "id": "d0ba736b-128b-44c8-945d-ae3fedd49003",
+      "title": "alert",
+      "published": "Mon Nov 16 15:09:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.538596 -2.290344"
     }
   ]
 }
