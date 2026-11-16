@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T11:00:47.642916+00:00",
+  "updatedAt": "2026-11-16T11:05:47.593229+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -32,6 +32,20 @@
       "point": "53.403138 -2.345582"
     },
     {
+      "id": "9ced776d-5af2-4681-8223-4ae0bae843ab",
+      "title": "alert",
+      "published": "Mon Nov 16 11:00:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.53001 -2.287716"
+    },
+    {
       "id": "5ec025c4-5618-4965-9e5c-3a3885aa06e7",
       "title": "alert",
       "published": "Mon Nov 16 10:19:20 +0000 2026",
@@ -40,7 +54,7 @@
       "road": "B5219 - Moss Ln E",
       "city": "Moss Side",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.458914 -2.243764"
@@ -83,7 +97,7 @@
       "city": "Ancoats",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.487714 -2.233156"
     },
@@ -102,18 +116,18 @@
       "point": "53.456656 -2.121746"
     },
     {
-      "id": "d3fd1f87-7ca9-48fd-8b6a-fae58f0ffd37",
+      "id": "a4b61116-8e7d-4efe-be72-a82e3f7b10ff",
       "title": "alert",
-      "published": "Mon Nov 16 10:20:45 +0000 2026",
+      "published": "Mon Nov 16 11:01:21 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M66 (S)",
+      "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.577206 -2.271351"
+      "point": "53.564003 -2.269908"
     }
   ]
 }
