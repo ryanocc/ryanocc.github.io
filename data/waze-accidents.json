@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T18:30:48.121880+00:00",
+  "updatedAt": "2026-11-16T18:35:48.012590+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -74,18 +74,18 @@
       "point": "53.539197 -2.621256"
     },
     {
-      "id": "34c74c7d-0804-45ed-aa0e-8378715a0988",
+      "id": "24a7c75b-bbc1-4154-9aa7-0a3d99f27b0c",
       "title": "alert",
-      "published": "Mon Nov 16 17:44:30 +0000 2026",
+      "published": "Mon Nov 16 18:30:49 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
-      "city": "",
+      "subtype": "",
+      "road": "A676 - Wigan Rd",
+      "city": "Bolton",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.596925 -2.571588"
+      "point": "53.571231 -2.451265"
     },
     {
       "id": "28baa1aa-214d-4273-90b7-c271bf3a40e4",
@@ -96,24 +96,24 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.607521 -2.57923"
     },
     {
-      "id": "33a420f8-cc39-4da6-9919-faa71c082e35",
+      "id": "34c74c7d-0804-45ed-aa0e-8378715a0988",
       "title": "alert",
-      "published": "Mon Nov 16 18:14:17 +0000 2026",
+      "published": "Mon Nov 16 17:44:30 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.637733 -2.306597"
+      "reportRating": 1.0,
+      "point": "53.596925 -2.571588"
     }
   ]
 }
