@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T10:45:47.615354+00:00",
+  "updatedAt": "2026-11-16T10:50:47.667065+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -111,7 +111,7 @@
       "city": "Stretford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.451718 -2.301131"
     },
@@ -144,20 +144,6 @@
       "point": "53.456656 -2.121746"
     },
     {
-      "id": "27da19e6-67bb-40ec-b1aa-524725732ea1",
-      "title": "alert",
-      "published": "Mon Nov 16 10:34:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.565899 -2.270421"
-    },
-    {
       "id": "d3fd1f87-7ca9-48fd-8b6a-fae58f0ffd37",
       "title": "alert",
       "published": "Mon Nov 16 10:20:45 +0000 2026",
@@ -170,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.577206 -2.271351"
+    },
+    {
+      "id": "27da19e6-67bb-40ec-b1aa-524725732ea1",
+      "title": "alert",
+      "published": "Mon Nov 16 10:34:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.565899 -2.270421"
     }
   ]
 }
