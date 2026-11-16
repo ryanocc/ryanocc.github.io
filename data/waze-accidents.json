@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T22:10:48.001980+00:00",
+  "updatedAt": "2026-11-16T22:15:47.979440+00:00",
   "source": "Waze GeoRSS",
   "count": 3,
   "incidents": [
+    {
+      "id": "1bff590c-74b3-47ee-a9af-160380ad07f9",
+      "title": "alert",
+      "published": "Mon Nov 16 22:11:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Village St",
+      "city": "Higher Broughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.500396 -2.268746"
+    },
     {
       "id": "a93b9884-7599-4d18-b44b-c80a81dc0137",
       "title": "alert",
@@ -13,23 +27,9 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.538519 -2.126014"
-    },
-    {
-      "id": "5ee95588-e15b-409f-be75-72a68de80f4d",
-      "title": "alert",
-      "published": "Mon Nov 16 21:54:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Warrington Rd",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.529716 -2.654885"
     },
     {
       "id": "7ed86592-c435-4d1d-b853-313ad7be2fa4",
