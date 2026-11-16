@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T12:40:47.956775+00:00",
+  "updatedAt": "2026-11-16T12:45:47.880114+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
+    {
+      "id": "bea1f0bc-d632-470c-84f0-1cfee3bfbbcc",
+      "title": "alert",
+      "published": "Mon Nov 16 12:42:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.464914 -2.340739"
+    },
     {
       "id": "6011a9e1-f9e8-41ee-9c79-ceb28cd7d949",
       "title": "alert",
@@ -40,7 +54,7 @@
       "road": "B5211 - Barton Dock Rd",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.464198 -2.338533"
@@ -83,7 +97,7 @@
       "city": "Lower Broughton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 4.0,
       "point": "53.496292 -2.259369"
     },
@@ -102,18 +116,18 @@
       "point": "53.511669 -2.68161"
     },
     {
-      "id": "a4b61116-8e7d-4efe-be72-a82e3f7b10ff",
+      "id": "56d245ec-2d81-4309-99be-553e6743eae1",
       "title": "alert",
-      "published": "Mon Nov 16 11:01:21 +0000 2026",
+      "published": "Mon Nov 16 12:45:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.564003 -2.269908"
+      "point": "53.564575 -2.270087"
     },
     {
       "id": "01a0e583-524a-465c-bc25-a9113162905d",
