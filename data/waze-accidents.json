@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T14:50:47.973210+00:00",
+  "updatedAt": "2026-11-16T14:55:47.995326+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 7,
   "incidents": [
     {
       "id": "382a005f-5efa-4b6e-8c53-46e649841a37",
@@ -18,6 +18,20 @@
       "point": "53.377035 -2.358065"
     },
     {
+      "id": "c3acd71a-8b9b-4ecc-bf38-fb1f7c786cc3",
+      "title": "alert",
+      "published": "Mon Nov 16 14:49:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Rectory Ln",
+      "city": "Prestwich",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.529774 -2.278018"
+    },
+    {
       "id": "c70e0e82-b6bf-49c8-95d8-c0b8634cc7ae",
       "title": "alert",
       "published": "Mon Nov 16 14:18:33 +0000 2026",
@@ -32,20 +46,6 @@
       "point": "53.549851 -2.203859"
     },
     {
-      "id": "c3acd71a-8b9b-4ecc-bf38-fb1f7c786cc3",
-      "title": "alert",
-      "published": "Mon Nov 16 14:49:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Rectory Ln",
-      "city": "Prestwich",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.529774 -2.278018"
-    },
-    {
       "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
       "title": "alert",
       "published": "Mon Nov 16 13:55:30 +0000 2026",
@@ -54,24 +54,10 @@
       "road": "Thorley Ln",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.374428 -2.295197"
-    },
-    {
-      "id": "530a26cc-83f3-42a8-bacb-fc4f25f23310",
-      "title": "alert",
-      "published": "Mon Nov 16 14:19:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5471 - Brinell Dr",
-      "city": "Irlam",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.428935 -2.434457"
     },
     {
       "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
@@ -88,32 +74,18 @@
       "point": "53.375458 -2.295692"
     },
     {
-      "id": "11dafd63-0ce3-4a58-8038-27b480dfe49e",
+      "id": "530a26cc-83f3-42a8-bacb-fc4f25f23310",
       "title": "alert",
-      "published": "Mon Nov 16 14:49:54 +0000 2026",
+      "published": "Mon Nov 16 14:19:20 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A555 (E)",
-      "city": "",
+      "road": "B5471 - Brinell Dr",
+      "city": "Irlam",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.351706 -2.180486"
-    },
-    {
-      "id": "f8d128cf-8160-4d7a-84f6-658745c9dfa7",
-      "title": "alert",
-      "published": "Mon Nov 16 14:16:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
-      "point": "53.45581 -2.338766"
+      "point": "53.428935 -2.434457"
     },
     {
       "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
@@ -128,20 +100,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.538526 -2.289936"
-    },
-    {
-      "id": "b9e5d6fb-c668-45c6-9678-9ad88810ccb2",
-      "title": "alert",
-      "published": "Mon Nov 16 14:29:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.56414 -2.269637"
     }
   ]
 }
