@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T17:35:48.104858+00:00",
+  "updatedAt": "2026-11-16T17:40:48.202512+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -18,6 +18,20 @@
       "point": "53.426708 -2.215282"
     },
     {
+      "id": "9b23c9b5-bd52-4771-88ae-62472c1e1b8d",
+      "title": "alert",
+      "published": "Mon Nov 16 17:37:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Hawthorn Rd",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.518894 -2.159029"
+    },
+    {
       "id": "3454bc69-f853-4687-8a8a-1e8c2cf65b89",
       "title": "alert",
       "published": "Mon Nov 16 17:35:46 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "Urmston",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.440233 -2.335724"
     },
@@ -46,6 +60,20 @@
       "point": "53.556809 -2.134886"
     },
     {
+      "id": "e1bea649-ba05-48e2-813d-9384605ee54a",
+      "title": "alert",
+      "published": "Mon Nov 16 17:36:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Snydale Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.554515 -2.491375"
+    },
+    {
       "id": "b2fa0332-a77c-4583-8fc1-848073929adf",
       "title": "alert",
       "published": "Mon Nov 16 17:15:26 +0000 2026",
@@ -60,6 +88,20 @@
       "point": "53.577724 -2.537937"
     },
     {
+      "id": "82d11a87-9a4c-447c-99db-959afaa661d7",
+      "title": "alert",
+      "published": "Mon Nov 16 17:38:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.550738 -2.497095"
+    },
+    {
       "id": "6c81bb60-4cf9-4f00-ac62-0e9b839b2b94",
       "title": "alert",
       "published": "Mon Nov 16 17:31:53 +0000 2026",
@@ -68,24 +110,10 @@
       "road": "A579 - Bradford St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.575559 -2.420047"
-    },
-    {
-      "id": "90866ba5-628d-4ae9-89fc-718f61c8bc63",
-      "title": "alert",
-      "published": "Mon Nov 16 17:24:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Broad St",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.487627 -2.279143"
     },
     {
       "id": "c61539f1-4661-4db1-b978-04105e881bc7",
@@ -102,18 +130,18 @@
       "point": "53.630201 -2.139065"
     },
     {
-      "id": "0f00dd5c-bea5-4e42-bf65-311ae22ad80a",
+      "id": "0ee25d62-e8b5-47a0-a0f7-1d89b5545471",
       "title": "alert",
-      "published": "Mon Nov 16 17:33:57 +0000 2026",
+      "published": "Mon Nov 16 17:39:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.388502 -2.505668"
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.352929 -2.503519"
     },
     {
       "id": "8b0f4d34-146e-4aab-8c21-d192b1e80e35",
