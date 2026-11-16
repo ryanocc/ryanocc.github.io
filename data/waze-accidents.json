@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T18:20:48.067793+00:00",
+  "updatedAt": "2026-11-16T18:25:48.161045+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "19aa4a10-d9d3-4905-88cc-7630c30e3bda",
@@ -27,7 +27,7 @@
       "city": "New Moston",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.518894 -2.159029"
     },
@@ -41,23 +41,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.589539 -2.69705"
     },
     {
-      "id": "28baa1aa-214d-4273-90b7-c271bf3a40e4",
+      "id": "16aafe17-3b76-4725-8ef3-9c13e3c4f044",
       "title": "alert",
-      "published": "Mon Nov 16 18:15:32 +0000 2026",
+      "published": "Mon Nov 16 18:25:25 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
-      "city": "",
+      "subtype": "",
+      "road": "A573 - Warrington Rd",
+      "city": "Wigan",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.607521 -2.57923"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.540346 -2.622294"
     },
     {
       "id": "34c74c7d-0804-45ed-aa0e-8378715a0988",
@@ -72,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.596925 -2.571588"
+    },
+    {
+      "id": "28baa1aa-214d-4273-90b7-c271bf3a40e4",
+      "title": "alert",
+      "published": "Mon Nov 16 18:15:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.607521 -2.57923"
     },
     {
       "id": "8b0f4d34-146e-4aab-8c21-d192b1e80e35",
@@ -96,8 +110,8 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.637733 -2.306597"
     }
