@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T17:10:48.327787+00:00",
+  "updatedAt": "2026-11-16T17:15:48.195595+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 11,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.426708 -2.215282"
-    },
-    {
-      "id": "552d0589-d414-447c-91a5-d6d8a19a3836",
-      "title": "alert",
-      "published": "Mon Nov 16 15:08:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Wallgate",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.544447 -2.633127"
     },
     {
       "id": "3a2396c3-b9da-4923-9cca-e05ff7d0ca67",
@@ -88,6 +74,20 @@
       "point": "53.556809 -2.134886"
     },
     {
+      "id": "b2fa0332-a77c-4583-8fc1-848073929adf",
+      "title": "alert",
+      "published": "Mon Nov 16 17:15:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6027 - De Havilland Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.577724 -2.537937"
+    },
+    {
       "id": "c61539f1-4661-4db1-b978-04105e881bc7",
       "title": "alert",
       "published": "Mon Nov 16 17:04:04 +0000 2026",
@@ -116,20 +116,6 @@
       "point": "53.320652 -2.436878"
     },
     {
-      "id": "4f5a1d4f-a51e-4438-933a-937161def157",
-      "title": "alert",
-      "published": "Mon Nov 16 17:04:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.537692 -2.697096"
-    },
-    {
       "id": "8b0f4d34-146e-4aab-8c21-d192b1e80e35",
       "title": "alert",
       "published": "Mon Nov 16 16:41:02 +0000 2026",
@@ -138,24 +124,10 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.622266 -2.585142"
-    },
-    {
-      "id": "8fa22415-088d-4f30-93f6-602aee3bdf8e",
-      "title": "alert",
-      "published": "Mon Nov 16 16:15:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.455075 -2.035669"
     },
     {
       "id": "9c9fa27c-eff7-4df6-8a42-8f41378639bd",
@@ -170,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.45746 -2.051081"
+    },
+    {
+      "id": "8fa22415-088d-4f30-93f6-602aee3bdf8e",
+      "title": "alert",
+      "published": "Mon Nov 16 16:15:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.455075 -2.035669"
     }
   ]
 }
