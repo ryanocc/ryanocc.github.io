@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T11:05:47.593229+00:00",
+  "updatedAt": "2026-11-16T11:10:47.605695+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
+    {
+      "id": "ffce5d49-8370-49a9-9ec9-604149b839a6",
+      "title": "alert",
+      "published": "Mon Nov 16 10:40:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.403138 -2.345582"
+    },
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
       "title": "alert",
@@ -18,9 +32,9 @@
       "point": "53.406978 -2.328652"
     },
     {
-      "id": "ffce5d49-8370-49a9-9ec9-604149b839a6",
+      "id": "5d1539a9-62fc-4dba-aee6-b3690891124b",
       "title": "alert",
-      "published": "Mon Nov 16 10:40:52 +0000 2026",
+      "published": "Mon Nov 16 11:06:56 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
@@ -29,7 +43,7 @@
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.403138 -2.345582"
+      "point": "53.362521 -2.247696"
     },
     {
       "id": "9ced776d-5af2-4681-8223-4ae0bae843ab",
@@ -124,7 +138,7 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.564003 -2.269908"
