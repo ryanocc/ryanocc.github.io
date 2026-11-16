@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T16:40:48.146745+00:00",
+  "updatedAt": "2026-11-16T16:45:48.213751+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -18,20 +18,6 @@
       "point": "53.426708 -2.215282"
     },
     {
-      "id": "552d0589-d414-447c-91a5-d6d8a19a3836",
-      "title": "alert",
-      "published": "Mon Nov 16 15:08:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Wallgate",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.544447 -2.633127"
-    },
-    {
       "id": "ae6d057e-abff-4526-9670-2a35bb3b0f66",
       "title": "alert",
       "published": "Mon Nov 16 16:23:04 +0000 2026",
@@ -46,18 +32,18 @@
       "point": "53.526882 -2.567912"
     },
     {
-      "id": "fa1fbfc6-bbfd-46ad-8666-ef02f09f248b",
+      "id": "552d0589-d414-447c-91a5-d6d8a19a3836",
       "title": "alert",
-      "published": "Mon Nov 16 15:49:37 +0000 2026",
+      "published": "Mon Nov 16 15:08:20 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
+      "road": "Wallgate",
+      "city": "Wigan",
+      "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.543284 -2.292863"
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.544447 -2.633127"
     },
     {
       "id": "78bfbc88-0d9e-48a5-b35e-94c790a5573d",
@@ -68,8 +54,8 @@
       "road": "Coronet Way",
       "city": "Weaste",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.481678 -2.324352"
     },
@@ -83,9 +69,23 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.619958 -2.129955"
+    },
+    {
+      "id": "8b0f4d34-146e-4aab-8c21-d192b1e80e35",
+      "title": "alert",
+      "published": "Mon Nov 16 16:41:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.622266 -2.585142"
     },
     {
       "id": "f81e169c-c478-467c-bedc-e345a46ee6da",
@@ -100,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.489971 -2.366431"
+    },
+    {
+      "id": "d2507388-bed4-40b2-9367-988589e180fe",
+      "title": "alert",
+      "published": "Mon Nov 16 16:43:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.634261 -2.30298"
     },
     {
       "id": "8fa22415-088d-4f30-93f6-602aee3bdf8e",
