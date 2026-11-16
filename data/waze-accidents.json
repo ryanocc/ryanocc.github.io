@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T13:50:47.956528+00:00",
+  "updatedAt": "2026-11-16T13:55:48.025848+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "c676b8bf-9e81-4faa-8778-d266065513bd",
@@ -30,6 +30,20 @@
       "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.375458 -2.295692"
+    },
+    {
+      "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
+      "title": "alert",
+      "published": "Mon Nov 16 13:55:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thorley Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.374428 -2.295197"
     },
     {
       "id": "463d514b-8d2b-4c26-b701-aada5d1b0bdd",
@@ -74,20 +88,6 @@
       "point": "53.363799 -1.998209"
     },
     {
-      "id": "f978a003-b762-4648-b351-07cbec813b68",
-      "title": "alert",
-      "published": "Mon Nov 16 13:39:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A556 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.349539 -2.408652"
-    },
-    {
       "id": "8b1be1d9-b210-46e2-91d3-495dc09e0ffe",
       "title": "alert",
       "published": "Mon Nov 16 13:43:44 +0000 2026",
@@ -97,23 +97,9 @@
       "city": "Altrincham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.396161 -2.352209"
-    },
-    {
-      "id": "9615bb6c-1002-459c-89b8-a955b3f6f1cc",
-      "title": "alert",
-      "published": "Mon Nov 16 13:24:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.539114 -2.28894"
     },
     {
       "id": "6298ea32-fa74-4a52-ab0f-117ea32ba924",
