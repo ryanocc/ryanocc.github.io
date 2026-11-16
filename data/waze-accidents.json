@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T16:05:48.042507+00:00",
+  "updatedAt": "2026-11-16T16:10:48.191272+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -88,6 +88,20 @@
       "point": "53.598793 -2.541735"
     },
     {
+      "id": "bcd314fe-77d1-4b7b-ae34-b8a93d389843",
+      "title": "alert",
+      "published": "Mon Nov 16 16:07:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J5 to A58",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.554935 -2.489055"
+    },
+    {
       "id": "5286adcc-69c7-4a11-b407-55d612cb2945",
       "title": "alert",
       "published": "Mon Nov 16 15:12:17 +0000 2026",
@@ -102,18 +116,18 @@
       "point": "53.575113 -2.394"
     },
     {
-      "id": "32cee1bf-3223-41aa-a359-28f413b5fb4e",
+      "id": "87c02f8a-f0db-4b0b-81db-cf53fa0e5e13",
       "title": "alert",
-      "published": "Mon Nov 16 15:45:27 +0000 2026",
+      "published": "Mon Nov 16 16:10:32 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.539044 -2.289116"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.637548 -1.976109"
     }
   ]
 }
