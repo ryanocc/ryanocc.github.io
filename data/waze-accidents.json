@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T18:25:48.161045+00:00",
+  "updatedAt": "2026-11-16T18:30:48.121880+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -54,10 +54,24 @@
       "road": "A573 - Warrington Rd",
       "city": "Wigan",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.540346 -2.622294"
+    },
+    {
+      "id": "d3c33a25-2e59-4c34-a95d-133a7344e04b",
+      "title": "alert",
+      "published": "Mon Nov 16 18:29:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Warrington Rd",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.539197 -2.621256"
     },
     {
       "id": "34c74c7d-0804-45ed-aa0e-8378715a0988",
@@ -68,7 +82,7 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.596925 -2.571588"
@@ -82,24 +96,10 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.607521 -2.57923"
-    },
-    {
-      "id": "8b0f4d34-146e-4aab-8c21-d192b1e80e35",
-      "title": "alert",
-      "published": "Mon Nov 16 16:41:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.622266 -2.585142"
     },
     {
       "id": "33a420f8-cc39-4da6-9919-faa71c082e35",
@@ -110,7 +110,7 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.637733 -2.306597"
