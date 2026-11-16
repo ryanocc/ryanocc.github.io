@@ -1,49 +1,21 @@
 {
-  "updatedAt": "2026-11-16T08:15:47.796435+00:00",
+  "updatedAt": "2026-11-16T08:20:47.854935+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
-      "id": "62282194-c30b-465c-a065-169f70301091",
+      "id": "00c782c8-b3cd-4b7c-bffa-a34f710d0deb",
       "title": "alert",
-      "published": "Mon Nov 16 07:53:59 +0000 2026",
+      "published": "Mon Nov 16 08:19:55 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.467984 -2.588447"
-    },
-    {
-      "id": "95aa2e96-b7fb-46a9-bb2b-36f4d16b7793",
-      "title": "alert",
-      "published": "Mon Nov 16 08:06:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - Blackburn Rd",
-      "city": "Astley Bridge",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A575 - Walkden Rd",
+      "city": "Walkden",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.602717 -2.432543"
-    },
-    {
-      "id": "599a4368-7d3e-4f34-8e46-9be2cde0c9f1",
-      "title": "alert",
-      "published": "Mon Nov 16 08:09:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.46573 -2.198374"
+      "point": "53.512045 -2.392243"
     },
     {
       "id": "ce941ff3-c5c1-4d20-abce-02b51e5b5aab",
@@ -55,7 +27,7 @@
       "city": "Failsworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.518482 -2.145778"
     },
@@ -86,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.475878 -2.373461"
+    },
+    {
+      "id": "e75d9f89-4efd-4708-a710-2f6d8b800ec5",
+      "title": "alert",
+      "published": "Mon Nov 16 08:18:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.575941 -2.207424"
     }
   ]
 }
