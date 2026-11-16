@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T14:35:48.016057+00:00",
+  "updatedAt": "2026-11-16T14:40:48.196485+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
     {
       "id": "c70e0e82-b6bf-49c8-95d8-c0b8634cc7ae",
@@ -32,6 +32,20 @@
       "point": "53.428935 -2.434457"
     },
     {
+      "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
+      "title": "alert",
+      "published": "Mon Nov 16 13:55:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thorley Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.374428 -2.295197"
+    },
+    {
       "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
       "title": "alert",
       "published": "Mon Nov 16 12:57:22 +0000 2026",
@@ -44,34 +58,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.375458 -2.295692"
-    },
-    {
-      "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
-      "title": "alert",
-      "published": "Mon Nov 16 13:55:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thorley Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.374428 -2.295197"
-    },
-    {
-      "id": "463d514b-8d2b-4c26-b701-aada5d1b0bdd",
-      "title": "alert",
-      "published": "Mon Nov 16 12:36:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6221 - Taylor St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.598542 -2.287349"
     },
     {
       "id": "f8d128cf-8160-4d7a-84f6-658745c9dfa7",
@@ -102,20 +88,6 @@
       "point": "53.538526 -2.289936"
     },
     {
-      "id": "9a1a3324-99b4-41ad-b82c-2e84e5fefdd2",
-      "title": "alert",
-      "published": "Mon Nov 16 14:20:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.539022 -2.28917"
-    },
-    {
       "id": "b9e5d6fb-c668-45c6-9678-9ad88810ccb2",
       "title": "alert",
       "published": "Mon Nov 16 14:29:09 +0000 2026",
@@ -124,8 +96,8 @@
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.56414 -2.269637"
     }
