@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-16T09:20:48.100134+00:00",
+  "updatedAt": "2026-11-16T09:25:47.834389+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 10,
   "incidents": [
+    {
+      "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
+      "title": "alert",
+      "published": "Mon Nov 16 09:24:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Burton Ave",
+      "city": "Timperley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.406978 -2.328652"
+    },
+    {
+      "id": "556de14e-89aa-4df3-b71b-feb7b17677b8",
+      "title": "alert",
+      "published": "Mon Nov 16 09:24:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Middleton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.540647 -2.236734"
+    },
     {
       "id": "a9a00909-314b-434c-b751-a16700d29550",
       "title": "alert",
@@ -26,7 +54,7 @@
       "road": "A664 - Albert Royds St",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.624603 -2.135531"
@@ -46,18 +74,18 @@
       "point": "53.476313 -2.638123"
     },
     {
-      "id": "11722042-5f68-4bae-908f-b0f24b80a9d7",
+      "id": "7fd83303-b28b-4b63-b52c-958b125e5029",
       "title": "alert",
-      "published": "Mon Nov 16 09:11:09 +0000 2026",
+      "published": "Mon Nov 16 09:25:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.489175 -2.65447"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.495417 -2.656595"
     },
     {
       "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
@@ -69,7 +97,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.478525 -2.641328"
     },
@@ -88,6 +116,20 @@
       "point": "53.475878 -2.373461"
     },
     {
+      "id": "82bdb3d2-0159-49ca-90ce-6dbf1215d290",
+      "title": "alert",
+      "published": "Mon Nov 16 09:21:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.456563 -2.123943"
+    },
+    {
       "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
       "title": "alert",
       "published": "Mon Nov 16 09:20:29 +0000 2026",
@@ -96,8 +138,8 @@
       "road": "M67 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.456511 -2.127764"
     }
