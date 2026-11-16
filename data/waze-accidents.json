@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T12:15:47.890020+00:00",
+  "updatedAt": "2026-11-16T12:20:47.933585+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "287ed14b-fd75-4af9-a980-4f0c9ab05ec2",
@@ -46,18 +46,18 @@
       "point": "53.506686 -2.651463"
     },
     {
-      "id": "6006cc9a-d3b8-4cb2-83b5-231ca2ee62db",
+      "id": "d19bd0c3-c30a-46a4-be4d-81067d7684aa",
       "title": "alert",
-      "published": "Mon Nov 16 12:13:45 +0000 2026",
+      "published": "Mon Nov 16 11:56:19 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Watergate Ln",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A555 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.543846 -2.449971"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.365135 -2.255384"
     },
     {
       "id": "043c83d9-9cc4-4e1b-95f9-9e1263fe398d",
@@ -74,20 +74,6 @@
       "point": "53.364914 -2.2549"
     },
     {
-      "id": "d19bd0c3-c30a-46a4-be4d-81067d7684aa",
-      "title": "alert",
-      "published": "Mon Nov 16 11:56:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A555 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.365135 -2.255384"
-    },
-    {
       "id": "277889b7-81a7-4842-8b24-1f1abd04a431",
       "title": "alert",
       "published": "Mon Nov 16 12:07:37 +0000 2026",
@@ -96,7 +82,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.511669 -2.68161"
@@ -116,20 +102,6 @@
       "point": "53.564003 -2.269908"
     },
     {
-      "id": "5eca38df-433e-4b97-884d-af33c2be5571",
-      "title": "alert",
-      "published": "Mon Nov 16 11:56:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.639136 -1.968356"
-    },
-    {
       "id": "01a0e583-524a-465c-bc25-a9113162905d",
       "title": "alert",
       "published": "Mon Nov 16 11:55:23 +0000 2026",
@@ -142,6 +114,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.640027 -1.96621"
+    },
+    {
+      "id": "5eca38df-433e-4b97-884d-af33c2be5571",
+      "title": "alert",
+      "published": "Mon Nov 16 11:56:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.639136 -1.968356"
     }
   ]
 }
