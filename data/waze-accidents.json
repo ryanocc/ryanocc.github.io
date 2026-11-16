@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T13:10:47.913852+00:00",
+  "updatedAt": "2026-11-16T13:15:47.960023+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "874c3bf7-ac4f-4171-8f51-1b4e84c2f198",
@@ -55,7 +55,7 @@
       "city": "Bury",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.598542 -2.287349"
     },
@@ -100,6 +100,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.399896 -2.308817"
+    },
+    {
+      "id": "b84e1a64-b91d-4bda-97bf-121987a73600",
+      "title": "alert",
+      "published": "Mon Nov 16 13:15:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.566713 -2.270607"
     },
     {
       "id": "01a0e583-524a-465c-bc25-a9113162905d",
