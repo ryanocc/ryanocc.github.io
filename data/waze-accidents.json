@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T12:35:47.890342+00:00",
+  "updatedAt": "2026-11-16T12:40:47.956775+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -40,10 +40,24 @@
       "road": "B5211 - Barton Dock Rd",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.464198 -2.338533"
+    },
+    {
+      "id": "463d514b-8d2b-4c26-b701-aada5d1b0bdd",
+      "title": "alert",
+      "published": "Mon Nov 16 12:36:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6221 - Taylor St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.598542 -2.287349"
     },
     {
       "id": "c63e7b54-a95c-4128-ad3c-c841df708113",
@@ -72,20 +86,6 @@
       "reliability": 7.0,
       "reportRating": 4.0,
       "point": "53.496292 -2.259369"
-    },
-    {
-      "id": "d19bd0c3-c30a-46a4-be4d-81067d7684aa",
-      "title": "alert",
-      "published": "Mon Nov 16 11:56:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A555 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.365135 -2.255384"
     },
     {
       "id": "277889b7-81a7-4842-8b24-1f1abd04a431",
