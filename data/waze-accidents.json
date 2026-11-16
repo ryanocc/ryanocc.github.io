@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T15:10:48.130022+00:00",
+  "updatedAt": "2026-11-16T15:15:48.073361+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "382a005f-5efa-4b6e-8c53-46e649841a37",
@@ -32,20 +32,6 @@
       "point": "53.544447 -2.633127"
     },
     {
-      "id": "c70e0e82-b6bf-49c8-95d8-c0b8634cc7ae",
-      "title": "alert",
-      "published": "Mon Nov 16 14:18:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.549851 -2.203859"
-    },
-    {
       "id": "c3acd71a-8b9b-4ecc-bf38-fb1f7c786cc3",
       "title": "alert",
       "published": "Mon Nov 16 14:49:53 +0000 2026",
@@ -74,34 +60,6 @@
       "point": "53.534045 -2.268478"
     },
     {
-      "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
-      "title": "alert",
-      "published": "Mon Nov 16 12:57:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Roaring Gate Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.375458 -2.295692"
-    },
-    {
-      "id": "530a26cc-83f3-42a8-bacb-fc4f25f23310",
-      "title": "alert",
-      "published": "Mon Nov 16 14:19:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5471 - Brinell Dr",
-      "city": "Irlam",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.428935 -2.434457"
-    },
-    {
       "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
       "title": "alert",
       "published": "Mon Nov 16 13:55:30 +0000 2026",
@@ -116,6 +74,20 @@
       "point": "53.374428 -2.295197"
     },
     {
+      "id": "5286adcc-69c7-4a11-b407-55d612cb2945",
+      "title": "alert",
+      "published": "Mon Nov 16 15:12:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Long Ln",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.575113 -2.394"
+    },
+    {
       "id": "13d87f2d-2d14-4aa4-976a-827b98379ac8",
       "title": "alert",
       "published": "Mon Nov 16 15:08:57 +0000 2026",
@@ -124,8 +96,8 @@
       "road": "A663 - Broadgate",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.527817 -2.160933"
     },
@@ -152,8 +124,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.538596 -2.290344"
     }
