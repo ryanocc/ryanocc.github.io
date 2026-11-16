@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T10:10:47.638893+00:00",
+  "updatedAt": "2026-11-16T10:15:47.658981+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.406978 -2.328652"
+    },
+    {
+      "id": "debb0bd2-f2c8-4bd2-9ba8-964d69245502",
+      "title": "alert",
+      "published": "Mon Nov 16 10:10:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.563081 -2.574225"
     },
     {
       "id": "754dd2ee-608f-48de-9433-3835467db4ec",
@@ -54,38 +68,10 @@
       "road": "A5103 (S) - Princess Rd",
       "city": "Moss Side",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.459663 -2.244965"
-    },
-    {
-      "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
-      "title": "alert",
-      "published": "Mon Nov 16 08:52:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.478555 -2.641083"
-    },
-    {
-      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
-      "title": "alert",
-      "published": "Mon Nov 16 09:00:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.478525 -2.641328"
     },
     {
       "id": "7e37eb0f-95f4-4d54-be5d-539020e86aa7",
@@ -96,8 +82,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.488579 -2.654071"
     },
