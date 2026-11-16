@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-16T14:00:47.786341+00:00",
+  "updatedAt": "2026-11-16T14:05:47.945254+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
-      "id": "c676b8bf-9e81-4faa-8778-d266065513bd",
+      "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
       "title": "alert",
-      "published": "Mon Nov 16 13:49:38 +0000 2026",
+      "published": "Mon Nov 16 12:57:22 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
+      "road": "Roaring Gate Ln",
       "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.458357 -2.153586"
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.375458 -2.295692"
     },
     {
       "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
@@ -30,20 +30,6 @@
       "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.374428 -2.295197"
-    },
-    {
-      "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
-      "title": "alert",
-      "published": "Mon Nov 16 12:57:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Roaring Gate Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.375458 -2.295692"
     },
     {
       "id": "463d514b-8d2b-4c26-b701-aada5d1b0bdd",
@@ -68,8 +54,8 @@
       "road": "St. Werburgh's Rd",
       "city": "Whalley Range",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.441843 -2.267213"
     },
