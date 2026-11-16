@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T10:05:47.669892+00:00",
+  "updatedAt": "2026-11-16T10:10:47.638893+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.406978 -2.328652"
-    },
-    {
-      "id": "c3c6d345-2b97-4d8d-837e-c498e3490f85",
-      "title": "alert",
-      "published": "Mon Nov 16 09:36:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.547963 -2.516967"
     },
     {
       "id": "754dd2ee-608f-48de-9433-3835467db4ec",
@@ -60,32 +46,18 @@
       "point": "53.66222 -2.311576"
     },
     {
-      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
+      "id": "86398e4c-e225-40a5-b49c-f761841a0816",
       "title": "alert",
-      "published": "Mon Nov 16 09:00:10 +0000 2026",
+      "published": "Mon Nov 16 10:09:42 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.478525 -2.641328"
-    },
-    {
-      "id": "e4682caa-52cf-433a-ada6-f0e433f4c6e1",
-      "title": "alert",
-      "published": "Mon Nov 16 10:05:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Moss Side",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.511755 -2.681042"
+      "reportRating": 5.0,
+      "point": "53.459663 -2.244965"
     },
     {
       "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
@@ -102,6 +74,34 @@
       "point": "53.478555 -2.641083"
     },
     {
+      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
+      "title": "alert",
+      "published": "Mon Nov 16 09:00:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.478525 -2.641328"
+    },
+    {
+      "id": "7e37eb0f-95f4-4d54-be5d-539020e86aa7",
+      "title": "alert",
+      "published": "Mon Nov 16 10:10:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.488579 -2.654071"
+    },
+    {
       "id": "d207556a-12e2-45b7-8a8c-3279e3458eea",
       "title": "alert",
       "published": "Mon Nov 16 08:13:15 +0000 2026",
@@ -116,20 +116,6 @@
       "point": "53.475878 -2.373461"
     },
     {
-      "id": "82bdb3d2-0159-49ca-90ce-6dbf1215d290",
-      "title": "alert",
-      "published": "Mon Nov 16 09:21:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.456656 -2.121746"
-    },
-    {
       "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
       "title": "alert",
       "published": "Mon Nov 16 09:20:29 +0000 2026",
@@ -142,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.456712 -2.131514"
+    },
+    {
+      "id": "82bdb3d2-0159-49ca-90ce-6dbf1215d290",
+      "title": "alert",
+      "published": "Mon Nov 16 09:21:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.456656 -2.121746"
     },
     {
       "id": "44d15bd2-88fa-4f4a-8281-d543d2200259",
