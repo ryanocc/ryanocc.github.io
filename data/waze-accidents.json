@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T09:50:47.854410+00:00",
+  "updatedAt": "2026-11-16T09:55:48.982050+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.45701 -2.134741"
     },
     {
-      "id": "556de14e-89aa-4df3-b71b-feb7b17677b8",
-      "title": "alert",
-      "published": "Mon Nov 16 09:24:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Middleton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.540647 -2.236734"
-    },
-    {
       "id": "a9a00909-314b-434c-b751-a16700d29550",
       "title": "alert",
       "published": "Mon Nov 16 08:44:56 +0000 2026",
@@ -74,20 +60,6 @@
       "point": "53.66222 -2.311576"
     },
     {
-      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
-      "title": "alert",
-      "published": "Mon Nov 16 09:00:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.478525 -2.641328"
-    },
-    {
       "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
       "title": "alert",
       "published": "Mon Nov 16 08:52:06 +0000 2026",
@@ -100,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.478555 -2.641083"
+    },
+    {
+      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
+      "title": "alert",
+      "published": "Mon Nov 16 09:00:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.478525 -2.641328"
     },
     {
       "id": "d207556a-12e2-45b7-8a8c-3279e3458eea",
@@ -125,7 +111,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.456656 -2.121746"
     },
@@ -142,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.456712 -2.131514"
+    },
+    {
+      "id": "44d15bd2-88fa-4f4a-8281-d543d2200259",
+      "title": "alert",
+      "published": "Mon Nov 16 09:52:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.579429 -2.271712"
     }
   ]
 }
