@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T21:20:47.963746+00:00",
+  "updatedAt": "2026-11-16T21:25:47.756241+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "9b929721-a579-4e52-943c-ad238c446a51",
@@ -12,8 +12,8 @@
       "road": "A560 - Crookilley Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.417548 -2.145103"
     },
@@ -30,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.521816 -2.372916"
+    },
+    {
+      "id": "7ecc9b84-8d71-4dc5-bb63-e3c0f2dc9b80",
+      "title": "alert",
+      "published": "Mon Nov 16 21:22:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A555 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.364506 -2.252656"
     }
   ]
 }
