@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T08:45:48.246228+00:00",
+  "updatedAt": "2026-11-16T08:50:48.212688+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "2dc13267-c910-49b1-80a3-3b1364cca069",
+      "title": "alert",
+      "published": "Mon Nov 16 08:50:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.384928 -2.338791"
+    },
     {
       "id": "7fc16321-56b9-41aa-81b0-97e53c49bf43",
       "title": "alert",
@@ -18,6 +32,20 @@
       "point": "53.572016 -2.336954"
     },
     {
+      "id": "526c0968-6f20-4ba7-8629-b357fb7b84c8",
+      "title": "alert",
+      "published": "Mon Nov 16 08:49:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 > Chester",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.372965 -2.287517"
+    },
+    {
       "id": "a9a00909-314b-434c-b751-a16700d29550",
       "title": "alert",
       "published": "Mon Nov 16 08:44:56 +0000 2026",
@@ -27,7 +55,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.66222 -2.311576"
     },
