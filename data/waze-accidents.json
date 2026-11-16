@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T10:25:47.660390+00:00",
+  "updatedAt": "2026-11-16T10:30:47.650302+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.563081 -2.574225"
     },
@@ -40,24 +40,10 @@
       "road": "B5219 - Moss Ln E",
       "city": "Moss Side",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.458914 -2.243764"
-    },
-    {
-      "id": "754dd2ee-608f-48de-9433-3835467db4ec",
-      "title": "alert",
-      "published": "Mon Nov 16 09:36:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.45701 -2.134741"
     },
     {
       "id": "a9a00909-314b-434c-b751-a16700d29550",
@@ -82,7 +68,7 @@
       "road": "A555 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.364702 -2.2536"
@@ -96,8 +82,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.520738 -2.696072"
     },
@@ -130,20 +116,6 @@
       "point": "53.456656 -2.121746"
     },
     {
-      "id": "44d15bd2-88fa-4f4a-8281-d543d2200259",
-      "title": "alert",
-      "published": "Mon Nov 16 09:52:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.579429 -2.271712"
-    },
-    {
       "id": "d3fd1f87-7ca9-48fd-8b6a-fae58f0ffd37",
       "title": "alert",
       "published": "Mon Nov 16 10:20:45 +0000 2026",
@@ -152,7 +124,7 @@
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.577206 -2.271351"
