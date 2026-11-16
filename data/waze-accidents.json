@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T08:20:47.854935+00:00",
+  "updatedAt": "2026-11-16T08:25:47.806574+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
+    {
+      "id": "7fc16321-56b9-41aa-81b0-97e53c49bf43",
+      "title": "alert",
+      "published": "Mon Nov 16 08:23:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.572016 -2.336954"
+    },
     {
       "id": "00c782c8-b3cd-4b7c-bffa-a34f710d0deb",
       "title": "alert",
@@ -13,23 +27,9 @@
       "city": "Walkden",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.512045 -2.392243"
-    },
-    {
-      "id": "ce941ff3-c5c1-4d20-abce-02b51e5b5aab",
-      "title": "alert",
-      "published": "Mon Nov 16 08:13:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A62 - Manchester Rd",
-      "city": "Failsworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.518482 -2.145778"
     },
     {
       "id": "b1423d38-4709-4237-81a4-fe4ae28a930f",
@@ -60,18 +60,18 @@
       "point": "53.475878 -2.373461"
     },
     {
-      "id": "e75d9f89-4efd-4708-a710-2f6d8b800ec5",
+      "id": "b2772b1e-0e28-45bc-bf48-7702bc83071c",
       "title": "alert",
-      "published": "Mon Nov 16 08:18:42 +0000 2026",
+      "published": "Mon Nov 16 08:25:23 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
+      "subtype": "ACCIDENT_MAJOR",
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.575941 -2.207424"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.636252 -1.981258"
     }
   ]
 }
