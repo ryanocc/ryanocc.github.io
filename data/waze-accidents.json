@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T14:40:48.196485+00:00",
+  "updatedAt": "2026-11-16T14:45:47.722832+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.549851 -2.203859"
+    },
+    {
+      "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
+      "title": "alert",
+      "published": "Mon Nov 16 12:57:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Roaring Gate Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.375458 -2.295692"
     },
     {
       "id": "530a26cc-83f3-42a8-bacb-fc4f25f23310",
@@ -46,20 +60,6 @@
       "point": "53.374428 -2.295197"
     },
     {
-      "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
-      "title": "alert",
-      "published": "Mon Nov 16 12:57:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Roaring Gate Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.375458 -2.295692"
-    },
-    {
       "id": "f8d128cf-8160-4d7a-84f6-658745c9dfa7",
       "title": "alert",
       "published": "Mon Nov 16 14:16:27 +0000 2026",
@@ -68,8 +68,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.45581 -2.338766"
     },
@@ -96,7 +96,7 @@
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.56414 -2.269637"
