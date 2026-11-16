@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T22:40:47.997084+00:00",
+  "updatedAt": "2026-11-16T22:45:47.923882+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "1bff590c-74b3-47ee-a9af-160380ad07f9",
@@ -26,10 +26,24 @@
       "road": "Railway Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.538519 -2.126014"
+    },
+    {
+      "id": "b9533408-1e80-40b5-9690-ebc95aa43413",
+      "title": "alert",
+      "published": "Mon Nov 16 22:43:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Manchester St",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.536499 -2.129455"
     },
     {
       "id": "7ed86592-c435-4d1d-b853-313ad7be2fa4",
