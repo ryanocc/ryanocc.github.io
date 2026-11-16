@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T17:00:48.278878+00:00",
+  "updatedAt": "2026-11-16T17:05:48.110488+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 15,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -83,9 +83,23 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.59807 -2.124557"
+    },
+    {
+      "id": "c61539f1-4661-4db1-b978-04105e881bc7",
+      "title": "alert",
+      "published": "Mon Nov 16 17:04:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Halifax Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.630201 -2.139065"
     },
     {
       "id": "530b091c-fb7d-4da2-9d60-2406e9ecb2fc",
@@ -96,7 +110,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.320652 -2.436878"
@@ -116,6 +130,20 @@
       "point": "53.524492 -2.697373"
     },
     {
+      "id": "4f5a1d4f-a51e-4438-933a-937161def157",
+      "title": "alert",
+      "published": "Mon Nov 16 17:04:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.543836 -2.697424"
+    },
+    {
       "id": "8b0f4d34-146e-4aab-8c21-d192b1e80e35",
       "title": "alert",
       "published": "Mon Nov 16 16:41:02 +0000 2026",
@@ -130,6 +158,34 @@
       "point": "53.622266 -2.585142"
     },
     {
+      "id": "e2a42b01-1668-4b61-80ed-d3ad6f75fafc",
+      "title": "alert",
+      "published": "Mon Nov 16 17:03:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M602 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.488957 -2.356665"
+    },
+    {
+      "id": "bde58036-7ae4-4f6b-809c-a3b5a76d0dd8",
+      "title": "alert",
+      "published": "Mon Nov 16 17:02:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M602 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.489748 -2.364649"
+    },
+    {
       "id": "9c9fa27c-eff7-4df6-8a42-8f41378639bd",
       "title": "alert",
       "published": "Mon Nov 16 16:51:13 +0000 2026",
@@ -138,7 +194,7 @@
       "road": "M67 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.45746 -2.051081"
