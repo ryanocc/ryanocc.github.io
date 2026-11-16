@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T15:30:48.146952+00:00",
+  "updatedAt": "2026-11-16T15:35:48.159979+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -55,7 +55,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.575113 -2.394"
     },
@@ -68,10 +68,24 @@
       "road": "A6044 - Sheepfoot Ln",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.52495 -2.262731"
+    },
+    {
+      "id": "4a4e09ff-2446-4940-9a96-24f435e5cfe6",
+      "title": "alert",
+      "published": "Mon Nov 16 15:32:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A671 - Oldham Rd",
+      "city": "Royton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.561539 -2.120004"
     },
     {
       "id": "13d87f2d-2d14-4aa4-976a-827b98379ac8",
@@ -86,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.527817 -2.160933"
-    },
-    {
-      "id": "7e473cff-7f9e-4a99-aff9-7db9b6a0cab9",
-      "title": "alert",
-      "published": "Mon Nov 16 15:25:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Dawson St",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.475045 -2.261122"
     },
     {
       "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
