@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T17:45:48.208312+00:00",
+  "updatedAt": "2026-11-16T17:50:48.198103+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 11,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -32,6 +32,20 @@
       "point": "53.518894 -2.159029"
     },
     {
+      "id": "9cc8e0ac-b573-4298-b1b7-f16215ec3b5c",
+      "title": "alert",
+      "published": "Mon Nov 16 17:50:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5149 - Station Rd",
+      "city": "Cheadle Hulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.37511 -2.187501"
+    },
+    {
       "id": "3454bc69-f853-4687-8a8a-1e8c2cf65b89",
       "title": "alert",
       "published": "Mon Nov 16 17:35:46 +0000 2026",
@@ -54,7 +68,7 @@
       "road": "A663 - Broadway",
       "city": "Royton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.556809 -2.134886"
@@ -68,24 +82,10 @@
       "road": "A58 - Snydale Way",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.554515 -2.491375"
-    },
-    {
-      "id": "b2fa0332-a77c-4583-8fc1-848073929adf",
-      "title": "alert",
-      "published": "Mon Nov 16 17:15:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6027 - De Havilland Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.577724 -2.537937"
     },
     {
       "id": "6c81bb60-4cf9-4f00-ac62-0e9b839b2b94",
@@ -96,24 +96,10 @@
       "road": "A579 - Bradford St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.575559 -2.420047"
-    },
-    {
-      "id": "3bac5a8e-5677-4ab9-bda2-1ed71f67153f",
-      "title": "alert",
-      "published": "Mon Nov 16 17:42:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.381683 -2.50503"
     },
     {
       "id": "0ee25d62-e8b5-47a0-a0f7-1d89b5545471",
@@ -124,24 +110,24 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.352929 -2.503519"
     },
     {
-      "id": "b80a74eb-3b77-4794-b1bf-d363b4d501d5",
+      "id": "31bc09f5-ece5-4324-9a15-6f387798279f",
       "title": "alert",
-      "published": "Mon Nov 16 17:43:19 +0000 2026",
+      "published": "Mon Nov 16 17:47:35 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.382505 -2.505436"
+      "point": "53.370293 -2.292205"
     },
     {
       "id": "34c74c7d-0804-45ed-aa0e-8378715a0988",
@@ -152,8 +138,8 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.596925 -2.571588"
     },
