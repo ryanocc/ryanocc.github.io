@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T10:55:47.577600+00:00",
+  "updatedAt": "2026-11-16T11:00:47.642916+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -74,18 +74,18 @@
       "point": "53.364702 -2.2536"
     },
     {
-      "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
+      "id": "5c89f3d5-2a90-4f33-96d2-a287e948917b",
       "title": "alert",
-      "published": "Mon Nov 16 09:20:29 +0000 2026",
+      "published": "Mon Nov 16 10:56:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
+      "road": "A664 - Rochdale Rd",
+      "city": "Ancoats",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
-      "point": "53.456712 -2.131514"
+      "point": "53.487714 -2.233156"
     },
     {
       "id": "82bdb3d2-0159-49ca-90ce-6dbf1215d290",
@@ -114,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.577206 -2.271351"
-    },
-    {
-      "id": "27da19e6-67bb-40ec-b1aa-524725732ea1",
-      "title": "alert",
-      "published": "Mon Nov 16 10:34:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.565899 -2.270421"
     }
   ]
 }
