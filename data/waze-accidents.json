@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-16T14:15:47.769923+00:00",
+  "updatedAt": "2026-11-16T14:20:48.041716+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
-      "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
+      "id": "c70e0e82-b6bf-49c8-95d8-c0b8634cc7ae",
       "title": "alert",
-      "published": "Mon Nov 16 13:55:30 +0000 2026",
+      "published": "Mon Nov 16 14:18:33 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Thorley Ln",
+      "road": "",
       "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.374428 -2.295197"
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.549851 -2.203859"
     },
     {
       "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
@@ -30,6 +30,34 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.375458 -2.295692"
+    },
+    {
+      "id": "ebbbd2d7-e547-4374-aba7-299f5a8c7fbf",
+      "title": "alert",
+      "published": "Mon Nov 16 13:55:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thorley Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.374428 -2.295197"
+    },
+    {
+      "id": "530a26cc-83f3-42a8-bacb-fc4f25f23310",
+      "title": "alert",
+      "published": "Mon Nov 16 14:19:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5471 - Brinell Dr",
+      "city": "Irlam",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.428935 -2.434457"
     },
     {
       "id": "463d514b-8d2b-4c26-b701-aada5d1b0bdd",
@@ -60,6 +88,20 @@
       "point": "53.441843 -2.267213"
     },
     {
+      "id": "f8d128cf-8160-4d7a-84f6-658745c9dfa7",
+      "title": "alert",
+      "published": "Mon Nov 16 14:16:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.45581 -2.338766"
+    },
+    {
       "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
       "title": "alert",
       "published": "Mon Nov 16 13:58:47 +0000 2026",
@@ -72,20 +114,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.538526 -2.289936"
-    },
-    {
-      "id": "6298ea32-fa74-4a52-ab0f-117ea32ba924",
-      "title": "alert",
-      "published": "Mon Nov 16 13:40:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M66 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.564588 -2.270091"
     }
   ]
 }
