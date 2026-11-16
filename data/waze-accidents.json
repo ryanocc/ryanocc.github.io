@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T16:50:48.184897+00:00",
+  "updatedAt": "2026-11-16T16:55:48.260558+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 11,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -32,20 +32,6 @@
       "point": "53.544447 -2.633127"
     },
     {
-      "id": "ae6d057e-abff-4526-9670-2a35bb3b0f66",
-      "title": "alert",
-      "published": "Mon Nov 16 16:23:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.526882 -2.567912"
-    },
-    {
       "id": "997ae332-5ace-4388-b20f-24d080a107bd",
       "title": "alert",
       "published": "Mon Nov 16 16:46:11 +0000 2026",
@@ -54,8 +40,8 @@
       "road": "Tempest Rd",
       "city": "Lostock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.570309 -2.494879"
     },
@@ -68,24 +54,10 @@
       "road": "Coronet Way",
       "city": "Weaste",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.481678 -2.324352"
-    },
-    {
-      "id": "b614c3b3-2aef-421c-8fb4-11977def2660",
-      "title": "alert",
-      "published": "Mon Nov 16 16:50:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5079 - Moseley Rd",
-      "city": "Levenshulme",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.442254 -2.203448"
     },
     {
       "id": "530b091c-fb7d-4da2-9d60-2406e9ecb2fc",
@@ -96,24 +68,24 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.320652 -2.436878"
     },
     {
-      "id": "d6f5a4e7-6f6f-4f97-94a7-19fc542f2a29",
+      "id": "a81cc30b-c188-48bd-9726-1ef527cebee3",
       "title": "alert",
-      "published": "Mon Nov 16 16:49:35 +0000 2026",
+      "published": "Mon Nov 16 16:53:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.368151 -2.293603"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.368689 -2.293304"
     },
     {
       "id": "6ecae3a0-8883-4fc5-9ff8-b2a09ab4188e",
@@ -124,7 +96,7 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.524492 -2.697373"
@@ -138,7 +110,7 @@
       "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.622266 -2.585142"
@@ -158,18 +130,18 @@
       "point": "53.489971 -2.366431"
     },
     {
-      "id": "d2507388-bed4-40b2-9367-988589e180fe",
+      "id": "9c9fa27c-eff7-4df6-8a42-8f41378639bd",
       "title": "alert",
-      "published": "Mon Nov 16 16:43:28 +0000 2026",
+      "published": "Mon Nov 16 16:51:13 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M66 (N)",
+      "road": "M67 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.634261 -2.30298"
+      "point": "53.45746 -2.051081"
     },
     {
       "id": "8fa22415-088d-4f30-93f6-602aee3bdf8e",
