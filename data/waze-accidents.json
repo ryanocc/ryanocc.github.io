@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T10:30:47.650302+00:00",
+  "updatedAt": "2026-11-16T10:35:47.628719+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.406978 -2.328652"
+    },
+    {
+      "id": "c482173e-78c1-4cfa-8b32-9c1af093ea92",
+      "title": "alert",
+      "published": "Mon Nov 16 10:31:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.547532 -2.398971"
     },
     {
       "id": "debb0bd2-f2c8-4bd2-9ba8-964d69245502",
@@ -41,9 +55,23 @@
       "city": "Moss Side",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.458914 -2.243764"
+    },
+    {
+      "id": "62a0e22c-f78b-42d7-b77c-3f12a18bc73d",
+      "title": "alert",
+      "published": "Mon Nov 16 10:32:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Wigan Rd",
+      "city": "Ashton-in-Makerfield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.506686 -2.651463"
     },
     {
       "id": "a9a00909-314b-434c-b751-a16700d29550",
@@ -74,20 +102,6 @@
       "point": "53.364702 -2.2536"
     },
     {
-      "id": "84592e19-e753-4468-b4bb-444f5d14a73a",
-      "title": "alert",
-      "published": "Mon Nov 16 10:23:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.520738 -2.696072"
-    },
-    {
       "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
       "title": "alert",
       "published": "Mon Nov 16 09:20:29 +0000 2026",
@@ -110,10 +124,24 @@
       "road": "M67 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.456656 -2.121746"
+    },
+    {
+      "id": "27da19e6-67bb-40ec-b1aa-524725732ea1",
+      "title": "alert",
+      "published": "Mon Nov 16 10:34:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.565899 -2.270421"
     },
     {
       "id": "d3fd1f87-7ca9-48fd-8b6a-fae58f0ffd37",
