@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T09:15:47.818849+00:00",
+  "updatedAt": "2026-11-16T09:20:48.100134+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "a9a00909-314b-434c-b751-a16700d29550",
@@ -26,24 +26,10 @@
       "road": "A664 - Albert Royds St",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.624603 -2.135531"
-    },
-    {
-      "id": "11722042-5f68-4bae-908f-b0f24b80a9d7",
-      "title": "alert",
-      "published": "Mon Nov 16 09:11:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.489175 -2.65447"
     },
     {
       "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
@@ -60,6 +46,20 @@
       "point": "53.476313 -2.638123"
     },
     {
+      "id": "11722042-5f68-4bae-908f-b0f24b80a9d7",
+      "title": "alert",
+      "published": "Mon Nov 16 09:11:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.489175 -2.65447"
+    },
+    {
       "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
       "title": "alert",
       "published": "Mon Nov 16 09:00:10 +0000 2026",
@@ -68,8 +68,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.478525 -2.641328"
     },
@@ -86,6 +86,20 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.475878 -2.373461"
+    },
+    {
+      "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
+      "title": "alert",
+      "published": "Mon Nov 16 09:20:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.456511 -2.127764"
     }
   ]
 }
