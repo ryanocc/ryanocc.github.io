@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-16T12:45:47.880114+00:00",
+  "updatedAt": "2026-11-16T12:50:47.908193+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
+    {
+      "id": "874c3bf7-ac4f-4171-8f51-1b4e84c2f198",
+      "title": "alert",
+      "published": "Mon Nov 16 12:48:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.439547 -2.426871"
+    },
     {
       "id": "bea1f0bc-d632-470c-84f0-1cfee3bfbbcc",
       "title": "alert",
@@ -96,24 +110,10 @@
       "road": "A6041 - Great Clowes St",
       "city": "Lower Broughton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.496292 -2.259369"
-    },
-    {
-      "id": "277889b7-81a7-4842-8b24-1f1abd04a431",
-      "title": "alert",
-      "published": "Mon Nov 16 12:07:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.511669 -2.68161"
     },
     {
       "id": "56d245ec-2d81-4309-99be-553e6743eae1",
@@ -124,10 +124,24 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.564575 -2.270087"
+    },
+    {
+      "id": "1423f512-0bd6-44af-80f8-1da715e462ea",
+      "title": "alert",
+      "published": "Mon Nov 16 12:47:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.567561 -2.2708"
     },
     {
       "id": "01a0e583-524a-465c-bc25-a9113162905d",
