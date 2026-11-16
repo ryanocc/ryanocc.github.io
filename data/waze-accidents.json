@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T16:30:48.186110+00:00",
+  "updatedAt": "2026-11-16T16:35:48.123231+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -18,20 +18,6 @@
       "point": "53.426708 -2.215282"
     },
     {
-      "id": "ae6d057e-abff-4526-9670-2a35bb3b0f66",
-      "title": "alert",
-      "published": "Mon Nov 16 16:23:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.526882 -2.567912"
-    },
-    {
       "id": "552d0589-d414-447c-91a5-d6d8a19a3836",
       "title": "alert",
       "published": "Mon Nov 16 15:08:20 +0000 2026",
@@ -44,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 5.0,
       "point": "53.544447 -2.633127"
+    },
+    {
+      "id": "ae6d057e-abff-4526-9670-2a35bb3b0f66",
+      "title": "alert",
+      "published": "Mon Nov 16 16:23:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.526882 -2.567912"
     },
     {
       "id": "fa1fbfc6-bbfd-46ad-8666-ef02f09f248b",
@@ -60,20 +60,6 @@
       "point": "53.543284 -2.292863"
     },
     {
-      "id": "c3acd71a-8b9b-4ecc-bf38-fb1f7c786cc3",
-      "title": "alert",
-      "published": "Mon Nov 16 14:49:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Rectory Ln",
-      "city": "Prestwich",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.529774 -2.278018"
-    },
-    {
       "id": "3db61bec-1697-4b68-9f8b-4ac7acfde86b",
       "title": "alert",
       "published": "Mon Nov 16 15:51:41 +0000 2026",
@@ -83,7 +69,7 @@
       "city": "Sale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.413646 -2.321741"
     },
@@ -125,9 +111,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.502832 -2.404148"
+    },
+    {
+      "id": "83eb5591-3b56-4c7f-b0e2-d9094db4a850",
+      "title": "alert",
+      "published": "Mon Nov 16 16:31:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Stockport Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.458336 -2.20217"
     },
     {
       "id": "b359130b-3428-41d9-8b13-031dd2bca1a3",
