@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T12:55:47.929551+00:00",
+  "updatedAt": "2026-11-16T13:00:47.927404+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 12,
   "incidents": [
     {
       "id": "874c3bf7-ac4f-4171-8f51-1b4e84c2f198",
@@ -46,6 +46,20 @@
       "point": "53.482201 -2.259674"
     },
     {
+      "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
+      "title": "alert",
+      "published": "Mon Nov 16 12:57:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Roaring Gate Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.375458 -2.295692"
+    },
+    {
       "id": "7dfe6ab7-7285-41a7-ae15-687f0db203fb",
       "title": "alert",
       "published": "Mon Nov 16 12:34:59 +0000 2026",
@@ -58,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.464198 -2.338533"
+    },
+    {
+      "id": "3e2ba8c5-6133-4dc9-a102-048d40a1d696",
+      "title": "alert",
+      "published": "Mon Nov 16 13:00:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5214 - Trafford Blvd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.468368 -2.352895"
     },
     {
       "id": "463d514b-8d2b-4c26-b701-aada5d1b0bdd",
@@ -110,10 +138,24 @@
       "road": "A560 - Altrincham Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.399896 -2.308817"
+    },
+    {
+      "id": "e30db433-1745-489e-843f-782daf226abe",
+      "title": "alert",
+      "published": "Mon Nov 16 12:59:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.562353 -2.269329"
     },
     {
       "id": "01a0e583-524a-465c-bc25-a9113162905d",
