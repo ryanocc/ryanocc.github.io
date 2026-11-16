@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T17:05:48.110488+00:00",
+  "updatedAt": "2026-11-16T17:10:48.327787+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 12,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -60,20 +60,6 @@
       "point": "53.570309 -2.494879"
     },
     {
-      "id": "78bfbc88-0d9e-48a5-b35e-94c790a5573d",
-      "title": "alert",
-      "published": "Mon Nov 16 16:37:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Coronet Way",
-      "city": "Weaste",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.481678 -2.324352"
-    },
-    {
       "id": "2e70ccd7-ca22-4006-a40b-2a39fc3bd8ec",
       "title": "alert",
       "published": "Mon Nov 16 16:59:21 +0000 2026",
@@ -88,6 +74,20 @@
       "point": "53.59807 -2.124557"
     },
     {
+      "id": "fea94c6a-1857-4bbc-9b63-31a3bb8475dc",
+      "title": "alert",
+      "published": "Mon Nov 16 17:06:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A663 - Broadway",
+      "city": "Royton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.556809 -2.134886"
+    },
+    {
       "id": "c61539f1-4661-4db1-b978-04105e881bc7",
       "title": "alert",
       "published": "Mon Nov 16 17:04:04 +0000 2026",
@@ -97,7 +97,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.630201 -2.139065"
     },
@@ -110,24 +110,10 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.320652 -2.436878"
-    },
-    {
-      "id": "6ecae3a0-8883-4fc5-9ff8-b2a09ab4188e",
-      "title": "alert",
-      "published": "Mon Nov 16 16:48:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.524492 -2.697373"
     },
     {
       "id": "4f5a1d4f-a51e-4438-933a-937161def157",
@@ -138,10 +124,10 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.543836 -2.697424"
+      "point": "53.537692 -2.697096"
     },
     {
       "id": "8b0f4d34-146e-4aab-8c21-d192b1e80e35",
@@ -158,32 +144,18 @@
       "point": "53.622266 -2.585142"
     },
     {
-      "id": "e2a42b01-1668-4b61-80ed-d3ad6f75fafc",
+      "id": "8fa22415-088d-4f30-93f6-602aee3bdf8e",
       "title": "alert",
-      "published": "Mon Nov 16 17:03:37 +0000 2026",
+      "published": "Mon Nov 16 16:15:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M602 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.488957 -2.356665"
-    },
-    {
-      "id": "bde58036-7ae4-4f6b-809c-a3b5a76d0dd8",
-      "title": "alert",
-      "published": "Mon Nov 16 17:02:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M602 (W)",
+      "road": "M67 (E)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.489748 -2.364649"
+      "reportRating": 0.0,
+      "point": "53.455075 -2.035669"
     },
     {
       "id": "9c9fa27c-eff7-4df6-8a42-8f41378639bd",
@@ -198,20 +170,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.45746 -2.051081"
-    },
-    {
-      "id": "8fa22415-088d-4f30-93f6-602aee3bdf8e",
-      "title": "alert",
-      "published": "Mon Nov 16 16:15:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.455075 -2.035669"
     }
   ]
 }
