@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T18:35:48.012590+00:00",
+  "updatedAt": "2026-11-16T18:40:48.082084+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "19aa4a10-d9d3-4905-88cc-7630c30e3bda",
@@ -46,20 +46,6 @@
       "point": "53.589539 -2.69705"
     },
     {
-      "id": "16aafe17-3b76-4725-8ef3-9c13e3c4f044",
-      "title": "alert",
-      "published": "Mon Nov 16 18:25:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Warrington Rd",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.540346 -2.622294"
-    },
-    {
       "id": "d3c33a25-2e59-4c34-a95d-133a7344e04b",
       "title": "alert",
       "published": "Mon Nov 16 18:29:38 +0000 2026",
@@ -72,6 +58,34 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.539197 -2.621256"
+    },
+    {
+      "id": "16aafe17-3b76-4725-8ef3-9c13e3c4f044",
+      "title": "alert",
+      "published": "Mon Nov 16 18:25:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Warrington Rd",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.540346 -2.622294"
+    },
+    {
+      "id": "87cee435-d9d2-4221-b8b2-42dfe6890e99",
+      "title": "alert",
+      "published": "Mon Nov 16 18:38:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A627 - Dowson Rd",
+      "city": "Hyde",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.444167 -2.076277"
     },
     {
       "id": "24a7c75b-bbc1-4154-9aa7-0a3d99f27b0c",
