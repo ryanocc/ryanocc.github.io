@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T10:40:47.654288+00:00",
+  "updatedAt": "2026-11-16T10:45:47.615354+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 12,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.406978 -2.328652"
+    },
+    {
+      "id": "ffce5d49-8370-49a9-9ec9-604149b839a6",
+      "title": "alert",
+      "published": "Mon Nov 16 10:40:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.403138 -2.345582"
     },
     {
       "id": "c482173e-78c1-4cfa-8b32-9c1af093ea92",
@@ -40,7 +54,7 @@
       "road": "B5219 - Moss Ln E",
       "city": "Moss Side",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.458914 -2.243764"
@@ -72,6 +86,34 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.364702 -2.2536"
+    },
+    {
+      "id": "69837d0e-6f12-449e-94d5-158b98422e3c",
+      "title": "alert",
+      "published": "Mon Nov 16 10:44:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.450304 -2.302427"
+    },
+    {
+      "id": "d1925aec-7a73-4964-9ac8-936bcde02013",
+      "title": "alert",
+      "published": "Mon Nov 16 10:45:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.451718 -2.301131"
     },
     {
       "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
@@ -110,7 +152,7 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.565899 -2.270421"
