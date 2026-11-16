@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T12:25:47.981577+00:00",
+  "updatedAt": "2026-11-16T12:30:47.729573+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -26,7 +26,7 @@
       "road": "B5165 - Stockport Rd",
       "city": "Timperley",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.399907 -2.309921"
@@ -44,20 +44,6 @@
       "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.363799 -1.998209"
-    },
-    {
-      "id": "043c83d9-9cc4-4e1b-95f9-9e1263fe398d",
-      "title": "alert",
-      "published": "Mon Nov 16 11:28:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.364914 -2.2549"
     },
     {
       "id": "d19bd0c3-c30a-46a4-be4d-81067d7684aa",
@@ -114,6 +100,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.640027 -1.96621"
+    },
+    {
+      "id": "6f9c0378-010a-4070-a2b3-a726f1ca1d58",
+      "title": "alert",
+      "published": "Mon Nov 16 12:29:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.629328 -2.031172"
     }
   ]
 }
