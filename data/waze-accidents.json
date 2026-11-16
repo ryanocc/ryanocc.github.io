@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T12:30:47.729573+00:00",
+  "updatedAt": "2026-11-16T12:35:47.890342+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "6011a9e1-f9e8-41ee-9c79-ceb28cd7d949",
@@ -26,10 +26,24 @@
       "road": "B5165 - Stockport Rd",
       "city": "Timperley",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.399907 -2.309921"
+    },
+    {
+      "id": "7dfe6ab7-7285-41a7-ae15-687f0db203fb",
+      "title": "alert",
+      "published": "Mon Nov 16 12:34:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5211 - Barton Dock Rd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.464198 -2.338533"
     },
     {
       "id": "c63e7b54-a95c-4128-ad3c-c841df708113",
@@ -44,6 +58,20 @@
       "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.363799 -1.998209"
+    },
+    {
+      "id": "c644f6a7-7f60-4342-8330-a4417143d842",
+      "title": "alert",
+      "published": "Mon Nov 16 12:32:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6041 - Great Clowes St",
+      "city": "Lower Broughton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 4.0,
+      "point": "53.496292 -2.259369"
     },
     {
       "id": "d19bd0c3-c30a-46a4-be4d-81067d7684aa",
@@ -100,20 +128,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.640027 -1.96621"
-    },
-    {
-      "id": "6f9c0378-010a-4070-a2b3-a726f1ca1d58",
-      "title": "alert",
-      "published": "Mon Nov 16 12:29:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.629328 -2.031172"
     }
   ]
 }
