@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T15:40:47.788774+00:00",
+  "updatedAt": "2026-11-16T15:45:48.166335+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "552d0589-d414-447c-91a5-d6d8a19a3836",
@@ -46,6 +46,20 @@
       "point": "53.374428 -2.295197"
     },
     {
+      "id": "067ddb8f-2c21-44cc-9b25-cc5d0a11155e",
+      "title": "alert",
+      "published": "Mon Nov 16 15:45:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Davyhulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.457618 -2.357739"
+    },
+    {
       "id": "5286adcc-69c7-4a11-b407-55d612cb2945",
       "title": "alert",
       "published": "Mon Nov 16 15:12:17 +0000 2026",
@@ -68,7 +82,7 @@
       "road": "A6044 - Sheepfoot Ln",
       "city": "Sedgley Park",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.52495 -2.262731"
@@ -97,23 +111,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.484385 -2.376073"
     },
     {
-      "id": "ae79f94b-f1c8-42fc-85aa-80586e6bd749",
+      "id": "32cee1bf-3223-41aa-a359-28f413b5fb4e",
       "title": "alert",
-      "published": "Mon Nov 16 15:35:58 +0000 2026",
+      "published": "Mon Nov 16 15:45:27 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.483813 -2.376069"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.539044 -2.289116"
     },
     {
       "id": "59d841b6-086a-4afe-ace7-68d5d35230d3",
