@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T13:15:47.960023+00:00",
+  "updatedAt": "2026-11-16T13:20:47.932480+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "874c3bf7-ac4f-4171-8f51-1b4e84c2f198",
@@ -60,6 +60,20 @@
       "point": "53.598542 -2.287349"
     },
     {
+      "id": "5c6653cb-cace-408e-b4ce-8b953e2d0df4",
+      "title": "alert",
+      "published": "Mon Nov 16 13:20:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "St. Werburgh's Rd",
+      "city": "Whalley Range",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.441843 -2.267213"
+    },
+    {
       "id": "c63e7b54-a95c-4128-ad3c-c841df708113",
       "title": "alert",
       "published": "Mon Nov 16 11:55:55 +0000 2026",
@@ -96,8 +110,8 @@
       "road": "A560 - Altrincham Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.399896 -2.308817"
     },
@@ -110,8 +124,8 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.566713 -2.270607"
     },
