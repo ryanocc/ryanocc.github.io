@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T10:20:47.653612+00:00",
+  "updatedAt": "2026-11-16T10:25:47.660390+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -74,18 +74,32 @@
       "point": "53.66222 -2.311576"
     },
     {
-      "id": "86398e4c-e225-40a5-b49c-f761841a0816",
+      "id": "d1d67339-ede6-463e-98b3-63e995a13ae1",
       "title": "alert",
-      "published": "Mon Nov 16 10:09:42 +0000 2026",
+      "published": "Mon Nov 16 10:22:46 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Moss Side",
+      "subtype": "",
+      "road": "A555 (W)",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 4.0,
       "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.459663 -2.244965"
+      "reportRating": 3.0,
+      "point": "53.364702 -2.2536"
+    },
+    {
+      "id": "84592e19-e753-4468-b4bb-444f5d14a73a",
+      "title": "alert",
+      "published": "Mon Nov 16 10:23:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.520738 -2.696072"
     },
     {
       "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
@@ -138,8 +152,8 @@
       "road": "M66 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.577206 -2.271351"
     }
