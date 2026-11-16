@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T09:35:47.941576+00:00",
+  "updatedAt": "2026-11-16T09:40:47.708591+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 12,
   "incidents": [
     {
       "id": "ba9bcd33-23c4-49b7-86f0-3a242a9da308",
@@ -18,6 +18,34 @@
       "point": "53.406978 -2.328652"
     },
     {
+      "id": "c3c6d345-2b97-4d8d-837e-c498e3490f85",
+      "title": "alert",
+      "published": "Mon Nov 16 09:36:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.547963 -2.516967"
+    },
+    {
+      "id": "754dd2ee-608f-48de-9433-3835467db4ec",
+      "title": "alert",
+      "published": "Mon Nov 16 09:36:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.45701 -2.134741"
+    },
+    {
       "id": "556de14e-89aa-4df3-b71b-feb7b17677b8",
       "title": "alert",
       "published": "Mon Nov 16 09:24:33 +0000 2026",
@@ -26,7 +54,7 @@
       "road": "A576 - Middleton Rd",
       "city": "Middleton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.540647 -2.236734"
@@ -40,7 +68,7 @@
       "road": "A676 - Bolton Rd N",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.66222 -2.311576"
@@ -60,18 +88,18 @@
       "point": "53.624603 -2.135531"
     },
     {
-      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
+      "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
       "title": "alert",
-      "published": "Mon Nov 16 09:00:10 +0000 2026",
+      "published": "Mon Nov 16 08:52:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
+      "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.478525 -2.641328"
+      "reportRating": 4.0,
+      "point": "53.476313 -2.638123"
     },
     {
       "id": "7fd83303-b28b-4b63-b52c-958b125e5029",
@@ -88,18 +116,18 @@
       "point": "53.495417 -2.656595"
     },
     {
-      "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
+      "id": "68a8b05b-368a-4007-99dd-42a0c9409048",
       "title": "alert",
-      "published": "Mon Nov 16 08:52:06 +0000 2026",
+      "published": "Mon Nov 16 09:00:10 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "M6 (N)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.476313 -2.638123"
+      "reportRating": 1.0,
+      "point": "53.478525 -2.641328"
     },
     {
       "id": "d207556a-12e2-45b7-8a8c-3279e3458eea",
@@ -124,10 +152,10 @@
       "road": "M67 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
-      "point": "53.456563 -2.123943"
+      "point": "53.456656 -2.121746"
     },
     {
       "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
