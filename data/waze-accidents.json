@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T18:55:48.006070+00:00",
+  "updatedAt": "2026-11-16T19:00:47.799726+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "9b23c9b5-bd52-4771-88ae-62472c1e1b8d",
@@ -55,7 +55,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.539197 -2.621256"
     },
@@ -72,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.571231 -2.451265"
-    },
-    {
-      "id": "34c74c7d-0804-45ed-aa0e-8378715a0988",
-      "title": "alert",
-      "published": "Mon Nov 16 17:44:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.596925 -2.571588"
     }
   ]
 }
