@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T13:40:48.088917+00:00",
+  "updatedAt": "2026-11-16T13:45:48.011767+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "fbbcf07d-37b8-4530-b890-bc3f7c50c066",
@@ -12,8 +12,8 @@
       "road": "Roaring Gate Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.375458 -2.295692"
     },
@@ -68,10 +68,24 @@
       "road": "A556 (S)",
       "city": "",
       "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.349539 -2.408652"
+    },
+    {
+      "id": "8b1be1d9-b210-46e2-91d3-495dc09e0ffe",
+      "title": "alert",
+      "published": "Mon Nov 16 13:43:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Manchester Rd",
+      "city": "Altrincham",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.349539 -2.408652"
+      "point": "53.396161 -2.352209"
     },
     {
       "id": "9615bb6c-1002-459c-89b8-a955b3f6f1cc",
@@ -96,8 +110,8 @@
       "road": "M66 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.564588 -2.270091"
     },
