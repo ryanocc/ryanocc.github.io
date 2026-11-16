@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T08:50:48.212688+00:00",
+  "updatedAt": "2026-11-16T08:55:48.263221+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 9,
   "incidents": [
     {
       "id": "2dc13267-c910-49b1-80a3-3b1364cca069",
@@ -40,8 +40,8 @@
       "road": "M56 > Chester",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.372965 -2.287517"
     },
@@ -60,18 +60,60 @@
       "point": "53.66222 -2.311576"
     },
     {
-      "id": "20f27338-af5a-4d12-b6c9-de1742acc364",
+      "id": "a46dabd9-a6c8-4903-bd54-f362aea90af7",
       "title": "alert",
-      "published": "Mon Nov 16 08:30:25 +0000 2026",
+      "published": "Mon Nov 16 08:51:58 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A560 - Altrincham Rd",
-      "city": "",
+      "road": "A56 - Cross St",
+      "city": "Sale",
       "country": "UK",
       "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.427529 -2.323117"
+    },
+    {
+      "id": "c20b3dd8-27e9-4224-a5d9-60404605832f",
+      "title": "alert",
+      "published": "Mon Nov 16 08:52:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Albert Royds St",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 1.0,
       "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.400826 -2.301217"
+      "reportRating": 1.0,
+      "point": "53.624603 -2.135531"
+    },
+    {
+      "id": "7ecfcd36-b25a-4b0a-bfa3-cabfad8d4cd5",
+      "title": "alert",
+      "published": "Mon Nov 16 08:53:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.439347 -2.466283"
+    },
+    {
+      "id": "92582a0c-82d8-4f9b-bec6-e4de88c4375f",
+      "title": "alert",
+      "published": "Mon Nov 16 08:52:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.476313 -2.638123"
     },
     {
       "id": "d207556a-12e2-45b7-8a8c-3279e3458eea",
