@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T17:25:48.279564+00:00",
+  "updatedAt": "2026-11-16T17:30:48.193027+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 8,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -18,32 +18,18 @@
       "point": "53.426708 -2.215282"
     },
     {
-      "id": "3a2396c3-b9da-4923-9cca-e05ff7d0ca67",
+      "id": "4acc689d-b464-4bab-a38e-0f35089a49ff",
       "title": "alert",
-      "published": "Mon Nov 16 17:00:11 +0000 2026",
+      "published": "Mon Nov 16 17:26:06 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Stoney Brow",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Scout Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.554933 -2.727401"
-    },
-    {
-      "id": "997ae332-5ace-4388-b20f-24d080a107bd",
-      "title": "alert",
-      "published": "Mon Nov 16 16:46:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Tempest Rd",
-      "city": "Lostock",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.570309 -2.494879"
+      "point": "53.621658 -2.462641"
     },
     {
       "id": "2e70ccd7-ca22-4006-a40b-2a39fc3bd8ec",
@@ -60,20 +46,6 @@
       "point": "53.59807 -2.124557"
     },
     {
-      "id": "2d037d0b-aa87-42c5-aab3-630a37bc6784",
-      "title": "alert",
-      "published": "Mon Nov 16 17:23:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - Tiviot Way",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.417521 -2.150193"
-    },
-    {
       "id": "fea94c6a-1857-4bbc-9b63-31a3bb8475dc",
       "title": "alert",
       "published": "Mon Nov 16 17:06:18 +0000 2026",
@@ -83,7 +55,7 @@
       "city": "Royton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.556809 -2.134886"
     },
@@ -96,7 +68,7 @@
       "road": "A6027 - De Havilland Way",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.577724 -2.537937"
@@ -110,8 +82,8 @@
       "road": "A6 - Broad St",
       "city": "Irwell Riverside",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.487627 -2.279143"
     },
@@ -130,20 +102,6 @@
       "point": "53.630201 -2.139065"
     },
     {
-      "id": "530b091c-fb7d-4da2-9d60-2406e9ecb2fc",
-      "title": "alert",
-      "published": "Mon Nov 16 16:49:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.320652 -2.436878"
-    },
-    {
       "id": "8b0f4d34-146e-4aab-8c21-d192b1e80e35",
       "title": "alert",
       "published": "Mon Nov 16 16:41:02 +0000 2026",
@@ -156,34 +114,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.622266 -2.585142"
-    },
-    {
-      "id": "f88238c7-2c52-444f-afa7-b60054dc814d",
-      "title": "alert",
-      "published": "Mon Nov 16 17:16:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.586437 -2.15991"
-    },
-    {
-      "id": "87a9560d-f977-4689-8c19-aac6236a9072",
-      "title": "alert",
-      "published": "Mon Nov 16 17:23:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.636676 -1.980222"
     }
   ]
 }
