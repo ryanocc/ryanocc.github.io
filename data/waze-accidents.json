@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-16T17:15:48.195595+00:00",
+  "updatedAt": "2026-11-16T17:20:48.264044+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "31f8996e-a907-4629-91bb-d7173ede6cfe",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.554933 -2.727401"
     },
@@ -69,7 +69,7 @@
       "city": "Royton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.556809 -2.134886"
     },
@@ -82,8 +82,8 @@
       "road": "A6027 - De Havilland Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.577724 -2.537937"
     },
@@ -130,32 +130,18 @@
       "point": "53.622266 -2.585142"
     },
     {
-      "id": "9c9fa27c-eff7-4df6-8a42-8f41378639bd",
+      "id": "f88238c7-2c52-444f-afa7-b60054dc814d",
       "title": "alert",
-      "published": "Mon Nov 16 16:51:13 +0000 2026",
+      "published": "Mon Nov 16 17:16:21 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M67 (E)",
+      "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.45746 -2.051081"
-    },
-    {
-      "id": "8fa22415-088d-4f30-93f6-602aee3bdf8e",
-      "title": "alert",
-      "published": "Mon Nov 16 16:15:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.455075 -2.035669"
+      "point": "53.586437 -2.15991"
     }
   ]
 }
