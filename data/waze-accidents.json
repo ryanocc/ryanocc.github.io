@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T10:15:47.658981+00:00",
+  "updatedAt": "2026-11-16T10:20:47.653612+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.563081 -2.574225"
+    },
+    {
+      "id": "5ec025c4-5618-4965-9e5c-3a3885aa06e7",
+      "title": "alert",
+      "published": "Mon Nov 16 10:19:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5219 - Moss Ln E",
+      "city": "Moss Side",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.458914 -2.243764"
     },
     {
       "id": "754dd2ee-608f-48de-9433-3835467db4ec",
@@ -68,38 +82,10 @@
       "road": "A5103 (S) - Princess Rd",
       "city": "Moss Side",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.459663 -2.244965"
-    },
-    {
-      "id": "7e37eb0f-95f4-4d54-be5d-539020e86aa7",
-      "title": "alert",
-      "published": "Mon Nov 16 10:10:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.488579 -2.654071"
-    },
-    {
-      "id": "d207556a-12e2-45b7-8a8c-3279e3458eea",
-      "title": "alert",
-      "published": "Mon Nov 16 08:13:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.475878 -2.373461"
     },
     {
       "id": "1b48f3e0-3617-4e42-b87b-4acee1509f7d",
@@ -142,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.579429 -2.271712"
+    },
+    {
+      "id": "d3fd1f87-7ca9-48fd-8b6a-fae58f0ffd37",
+      "title": "alert",
+      "published": "Mon Nov 16 10:20:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.577206 -2.271351"
     }
   ]
 }
