@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T16:35:49.372053+00:00",
+  "updatedAt": "2026-11-17T16:40:49.412653+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -26,7 +26,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.412693 -2.265165"
@@ -46,34 +46,6 @@
       "point": "53.609614 -2.2019"
     },
     {
-      "id": "51eaa63e-cb88-4be1-9b59-d3d3f2dbf58b",
-      "title": "alert",
-      "published": "Tue Nov 17 16:24:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5082 - Clegg's Ln",
-      "city": "Little Hulton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.532158 -2.422865"
-    },
-    {
-      "id": "3046b268-55a4-446c-ad1a-a8f22707a51a",
-      "title": "alert",
-      "published": "Tue Nov 17 16:31:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.356193 -2.200471"
-    },
-    {
       "id": "4cb767fd-aed8-49b7-ba28-202df63b2cff",
       "title": "alert",
       "published": "Tue Nov 17 15:59:25 +0000 2026",
@@ -88,6 +60,20 @@
       "point": "53.334928 -2.481596"
     },
     {
+      "id": "dfb70d1a-5f22-4186-8d91-b2d3828a9b70",
+      "title": "alert",
+      "published": "Tue Nov 17 16:36:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.423566 -2.574094"
+    },
+    {
       "id": "4fceb01e-b949-469f-9465-650e58fbb488",
       "title": "alert",
       "published": "Tue Nov 17 16:32:41 +0000 2026",
@@ -100,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.357263 -2.317813"
+    },
+    {
+      "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
+      "title": "alert",
+      "published": "Tue Nov 17 16:38:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.456785 -2.04802"
     }
   ]
 }
