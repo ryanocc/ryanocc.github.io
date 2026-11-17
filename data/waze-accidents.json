@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T11:50:48.988217+00:00",
+  "updatedAt": "2026-11-17T11:55:48.904006+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "bd208e05-9f6e-41c3-8c82-cf6100eab640",
@@ -18,18 +18,32 @@
       "point": "53.369656 -2.238531"
     },
     {
-      "id": "76416d84-b881-4d05-b7fe-86d42fcf5cfe",
+      "id": "2ecd98ae-d087-4237-9429-3ffde74329df",
       "title": "alert",
-      "published": "Tue Nov 17 10:01:19 +0000 2026",
+      "published": "Tue Nov 17 11:52:20 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A635 - Stamford St E",
-      "city": "Ashton-under-Lyne",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.568274 -2.283049"
+    },
+    {
+      "id": "8fb44171-b622-467e-83b0-a29ba8368a38",
+      "title": "alert",
+      "published": "Tue Nov 17 11:54:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A577 - Orrell Rd",
+      "city": "Orrell",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.487107 -2.080286"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.539942 -2.70367"
     }
   ]
 }
