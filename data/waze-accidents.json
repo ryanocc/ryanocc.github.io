@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T10:00:49.017497+00:00",
+  "updatedAt": "2026-11-17T10:05:49.386750+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 12,
   "incidents": [
     {
       "id": "c50c3843-c92b-4488-b216-79ccd2c9c75b",
@@ -54,10 +54,24 @@
       "road": "Wardle Rd",
       "city": "Wardle",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.644578 -2.134912"
+    },
+    {
+      "id": "9a026d5f-2e17-4cb4-b8e1-cb8857a35efb",
+      "title": "alert",
+      "published": "Tue Nov 17 10:03:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6377 - Falinge Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.623258 -2.166794"
     },
     {
       "id": "d09b5eea-e6a4-470f-a85e-dc5864aeea42",
@@ -88,20 +102,6 @@
       "point": "53.593618 -2.228085"
     },
     {
-      "id": "b7f4ffa6-1dc7-4464-a230-b585758796c1",
-      "title": "alert",
-      "published": "Tue Nov 17 08:48:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.46208 -2.172956"
-    },
-    {
       "id": "12911698-b76c-4798-802a-5106fad0065c",
       "title": "alert",
       "published": "Tue Nov 17 09:17:44 +0000 2026",
@@ -128,6 +128,34 @@
       "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.442497 -2.275926"
+    },
+    {
+      "id": "a591853f-75c5-4b9e-9f57-8a819c9f65b1",
+      "title": "alert",
+      "published": "Tue Nov 17 10:03:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Stamford St E",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.487105 -2.080274"
+    },
+    {
+      "id": "76416d84-b881-4d05-b7fe-86d42fcf5cfe",
+      "title": "alert",
+      "published": "Tue Nov 17 10:01:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Stamford St E",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.487107 -2.080286"
     },
     {
       "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
