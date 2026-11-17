@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T13:55:49.062247+00:00",
+  "updatedAt": "2026-11-17T14:00:49.097254+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "83c367ed-7731-4f81-bca3-6ec5fe827307",
@@ -12,7 +12,7 @@
       "road": "J24 to M67, A57",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.454331 -2.136371"
@@ -30,20 +30,6 @@
       "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.540463 -2.239817"
-    },
-    {
-      "id": "2991901b-af54-46d1-8d82-fa262753ed21",
-      "title": "alert",
-      "published": "Tue Nov 17 13:49:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.547996 -2.264786"
     },
     {
       "id": "fb7bffb6-63db-4583-bddd-309bf895d2cc",
@@ -74,20 +60,6 @@
       "point": "53.446792 -2.075613"
     },
     {
-      "id": "1b956696-61ac-469d-8096-046ed4257ee7",
-      "title": "alert",
-      "published": "Tue Nov 17 13:36:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A671 - Oldham Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.609923 -2.148982"
-    },
-    {
       "id": "255e8bba-099d-409c-a3fb-c86345955568",
       "title": "alert",
       "published": "Tue Nov 17 12:18:36 +0000 2026",
@@ -96,10 +68,24 @@
       "road": "A672 - Ripponden Rd",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.60275 -2.035797"
+    },
+    {
+      "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
+      "title": "alert",
+      "published": "Tue Nov 17 14:00:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A672 - Ripponden Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.602246 -2.036079"
     }
   ]
 }
