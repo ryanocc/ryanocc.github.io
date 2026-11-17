@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-17T10:35:48.944255+00:00",
+  "updatedAt": "2026-11-17T10:40:49.035641+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 9,
   "incidents": [
     {
-      "id": "c50c3843-c92b-4488-b216-79ccd2c9c75b",
+      "id": "b4f430ed-489c-412a-8aad-1c31be9af09b",
       "title": "alert",
-      "published": "Tue Nov 17 08:33:30 +0000 2026",
+      "published": "Tue Nov 17 10:28:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Wordsworth Ave",
-      "city": "Bury",
-      "country": "UK",
+      "road": "",
+      "city": "",
+      "country": "",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.575774 -2.294637"
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.438973 -2.270722"
     },
     {
       "id": "7dff1d4a-58df-4f30-8818-94b515afacdf",
@@ -32,20 +32,6 @@
       "point": "53.449489 -2.280117"
     },
     {
-      "id": "b4f430ed-489c-412a-8aad-1c31be9af09b",
-      "title": "alert",
-      "published": "Tue Nov 17 10:28:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.438973 -2.270722"
-    },
-    {
       "id": "5759cca1-26a7-431e-a21c-3c0d89063ce0",
       "title": "alert",
       "published": "Tue Nov 17 08:45:23 +0000 2026",
@@ -58,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.547288 -2.165117"
-    },
-    {
-      "id": "9a026d5f-2e17-4cb4-b8e1-cb8857a35efb",
-      "title": "alert",
-      "published": "Tue Nov 17 10:03:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6377 - Falinge Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.623258 -2.166794"
     },
     {
       "id": "d09b5eea-e6a4-470f-a85e-dc5864aeea42",
@@ -116,20 +88,6 @@
       "point": "53.371683 -2.401552"
     },
     {
-      "id": "45f01f7b-8109-4076-b566-875b1284d632",
-      "title": "alert",
-      "published": "Tue Nov 17 10:09:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.408482 -2.174298"
-    },
-    {
       "id": "12911698-b76c-4798-802a-5106fad0065c",
       "title": "alert",
       "published": "Tue Nov 17 09:17:44 +0000 2026",
@@ -152,8 +110,8 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.49934 -2.449013"
     },
