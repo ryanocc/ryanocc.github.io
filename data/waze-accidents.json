@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T14:40:50.100918+00:00",
+  "updatedAt": "2026-11-17T14:45:49.123459+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 6,
   "incidents": [
     {
       "id": "3bb52616-3229-4cbd-b0a7-3e0db549c9bb",
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.533409 -2.488314"
-    },
-    {
-      "id": "09e99265-8ad2-4f19-97e2-c396da9e34cd",
-      "title": "alert",
-      "published": "Tue Nov 17 12:35:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.540463 -2.239817"
     },
     {
       "id": "152cb322-03d1-40ec-b907-c9fd0840f604",
@@ -54,7 +40,7 @@
       "road": "A664 - Rochdale Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.526562 -2.212625"
@@ -74,18 +60,18 @@
       "point": "53.602246 -2.036079"
     },
     {
-      "id": "74f5b26e-6736-440d-ade0-6e83859dea34",
+      "id": "b1fec797-6fc4-4f2a-bb3d-592074d0933f",
       "title": "alert",
-      "published": "Tue Nov 17 14:15:50 +0000 2026",
+      "published": "Tue Nov 17 14:06:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6 - Wellington Rd N",
-      "city": "Stockport",
+      "road": "A579 - Atherleigh Way",
+      "city": "Leigh",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 4.0,
-      "point": "53.411495 -2.165685"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.499467 -2.526074"
     },
     {
       "id": "04ab8579-23f3-4af7-bb7f-592732193a2e",
@@ -100,20 +86,6 @@
       "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.499147 -2.52629"
-    },
-    {
-      "id": "b1fec797-6fc4-4f2a-bb3d-592074d0933f",
-      "title": "alert",
-      "published": "Tue Nov 17 14:06:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.499467 -2.526074"
     }
   ]
 }
