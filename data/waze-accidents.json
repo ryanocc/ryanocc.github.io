@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T13:35:49.137625+00:00",
+  "updatedAt": "2026-11-17T13:40:49.209576+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "09e99265-8ad2-4f19-97e2-c396da9e34cd",
@@ -46,6 +46,20 @@
       "point": "53.446792 -2.075613"
     },
     {
+      "id": "1b956696-61ac-469d-8096-046ed4257ee7",
+      "title": "alert",
+      "published": "Tue Nov 17 13:36:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A671 - Oldham Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.609923 -2.148982"
+    },
+    {
       "id": "255e8bba-099d-409c-a3fb-c86345955568",
       "title": "alert",
       "published": "Tue Nov 17 12:18:36 +0000 2026",
@@ -58,6 +72,20 @@
       "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.60275 -2.035797"
+    },
+    {
+      "id": "90bd4656-8285-4c9f-8c60-136e6c3661ad",
+      "title": "alert",
+      "published": "Tue Nov 17 13:39:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M602 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.486963 -2.347083"
     }
   ]
 }
