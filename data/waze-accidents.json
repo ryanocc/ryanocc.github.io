@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T16:55:49.566450+00:00",
+  "updatedAt": "2026-11-17T17:00:49.608913+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 14,
   "incidents": [
     {
       "id": "ae717215-153e-4fb1-b17b-610023f9e673",
@@ -46,6 +46,20 @@
       "point": "53.412693 -2.265165"
     },
     {
+      "id": "1974a625-51d0-42b4-8577-b7f0ce74e8a4",
+      "title": "alert",
+      "published": "Tue Nov 17 16:57:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Birch Hall Ln",
+      "city": "Rusholme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.455143 -2.205305"
+    },
+    {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
       "published": "Tue Nov 17 16:45:15 +0000 2026",
@@ -74,6 +88,20 @@
       "point": "53.609614 -2.2019"
     },
     {
+      "id": "aaf09000-2b2b-4b9a-b17b-33a2d28bec1e",
+      "title": "alert",
+      "published": "Tue Nov 17 16:55:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5014 - Stretford Rd",
+      "city": "Old Trafford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.462473 -2.274816"
+    },
+    {
       "id": "45cdd917-7054-420e-a64f-045844043c0a",
       "title": "alert",
       "published": "Tue Nov 17 16:55:46 +0000 2026",
@@ -82,8 +110,8 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.477319 -2.268801"
     },
@@ -96,38 +124,38 @@
       "road": "A57 - Manchester Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.397763 -2.510906"
     },
     {
-      "id": "0afdb079-a595-478b-b670-ba34cc657230",
+      "id": "2a5e2cdf-ee74-4041-a09a-f54b821f0368",
       "title": "alert",
-      "published": "Tue Nov 17 16:44:57 +0000 2026",
+      "published": "Tue Nov 17 16:56:27 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A664 - Edinburgh Way",
-      "city": "Rochdale",
+      "road": "A6010 - Hulme Hall Ln",
+      "city": "Miles Platting",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.602094 -2.169462"
+      "point": "53.494698 -2.209541"
     },
     {
-      "id": "4fceb01e-b949-469f-9465-650e58fbb488",
+      "id": "2b583509-f2ff-4028-b419-570cb242910c",
       "title": "alert",
-      "published": "Tue Nov 17 16:32:41 +0000 2026",
+      "published": "Tue Nov 17 17:00:36 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.357279 -2.319056"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.358683 -2.368577"
     },
     {
       "id": "b04c7237-ddd8-461b-a77b-a4ca9db260b4",
@@ -138,8 +166,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.542686 -2.244068"
     },
@@ -152,10 +180,10 @@
       "road": "A627(M) (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.560827 -2.147791"
+      "point": "53.560529 -2.146665"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
