@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T19:25:49.246787+00:00",
+  "updatedAt": "2026-11-17T19:30:48.976253+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
@@ -44,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.578799 -2.43571"
+    },
+    {
+      "id": "66d879af-d3da-4420-b95d-b817f8c10149",
+      "title": "alert",
+      "published": "Tue Nov 17 19:30:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Blackley New Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.525737 -2.24753"
     },
     {
       "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
@@ -124,10 +138,24 @@
       "road": "A6010 - Great Cheetham St E",
       "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.503736 -2.252653"
+    },
+    {
+      "id": "b50587e9-c22f-4364-9aba-4575401c4656",
+      "title": "alert",
+      "published": "Tue Nov 17 19:15:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.527676 -2.247126"
     },
     {
       "id": "5e6b23e9-16c0-4bf6-90f8-756d7ddb5cb4",
@@ -144,20 +172,6 @@
       "point": "53.529669 -2.246129"
     },
     {
-      "id": "b50587e9-c22f-4364-9aba-4575401c4656",
-      "title": "alert",
-      "published": "Tue Nov 17 19:15:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.527676 -2.247126"
-    },
-    {
       "id": "285ddc7b-e3f9-4569-bec0-b48aedc6b3b8",
       "title": "alert",
       "published": "Tue Nov 17 19:23:09 +0000 2026",
@@ -166,24 +180,10 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.398662 -2.226794"
-    },
-    {
-      "id": "c15d487c-6f3e-4575-a68f-7733ea921d33",
-      "title": "alert",
-      "published": "Tue Nov 17 18:54:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627(M) (S)",
-      "city": "",
-      "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.561317 -2.149005"
+      "point": "53.398662 -2.226794"
     }
   ]
 }
