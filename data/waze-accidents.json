@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T16:25:49.482186+00:00",
+  "updatedAt": "2026-11-17T16:30:49.587555+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -40,8 +40,8 @@
       "road": "A57 > Irlam",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.476985 -2.373546"
     },
@@ -54,8 +54,8 @@
       "road": "A627 > Oldham",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.557315 -2.139399"
     },
@@ -69,7 +69,7 @@
       "city": "Little Hulton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.532158 -2.422865"
     },
@@ -86,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.334928 -2.481596"
-    },
-    {
-      "id": "c5a70d8e-02a7-4167-a730-dddc5ffcff92",
-      "title": "alert",
-      "published": "Tue Nov 17 16:21:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.357276 -2.318815"
     }
   ]
 }
