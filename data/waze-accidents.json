@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T07:55:49.382180+00:00",
+  "updatedAt": "2026-11-17T08:00:49.394919+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -60,18 +60,32 @@
       "point": "53.484857 -2.384501"
     },
     {
-      "id": "6b54198b-bd6c-484d-90ac-f98353132325",
+      "id": "ff501300-b48a-4806-a52e-067a10a1b928",
       "title": "alert",
-      "published": "Tue Nov 17 07:47:26 +0000 2026",
+      "published": "Tue Nov 17 07:59:57 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A662 - Merrill St",
+      "subtype": "",
+      "road": "Beswick St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.482167 -2.216682"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.482691 -2.21351"
+    },
+    {
+      "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
+      "title": "alert",
+      "published": "Tue Nov 17 07:56:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.477492 -2.535503"
     },
     {
       "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
@@ -88,18 +102,18 @@
       "point": "53.477444 -2.53551"
     },
     {
-      "id": "6655c47d-3556-45e7-9a04-c8ba86dc55e7",
+      "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
       "title": "alert",
-      "published": "Tue Nov 17 07:45:26 +0000 2026",
+      "published": "Tue Nov 17 07:56:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.359336 -2.372175"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.357309 -2.315187"
     },
     {
       "id": "264a6153-b311-4b80-9509-37e466ce706b",
@@ -116,6 +130,20 @@
       "point": "53.357232 -2.313476"
     },
     {
+      "id": "6655c47d-3556-45e7-9a04-c8ba86dc55e7",
+      "title": "alert",
+      "published": "Tue Nov 17 07:45:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.359336 -2.372175"
+    },
+    {
       "id": "d80b1abb-8e9c-4563-b161-0a0f3568f728",
       "title": "alert",
       "published": "Tue Nov 17 07:28:05 +0000 2026",
@@ -130,18 +158,18 @@
       "point": "53.358005 -2.307566"
     },
     {
-      "id": "b86abfea-459f-4a04-8918-c929719a1aa1",
+      "id": "c26f0b30-e65d-4ef5-8a55-05639056ec97",
       "title": "alert",
-      "published": "Tue Nov 17 07:49:17 +0000 2026",
+      "published": "Tue Nov 17 07:58:38 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S)",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.581446 -2.554121"
+      "point": "53.487834 -2.375803"
     },
     {
       "id": "50fca089-a1fc-4d20-bc18-4ea74159c1c8",
@@ -170,20 +198,6 @@
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.543302 -2.441776"
-    },
-    {
-      "id": "bf58c486-b068-4c80-8fe6-ba41726bf385",
-      "title": "alert",
-      "published": "Tue Nov 17 07:50:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.544318 -2.446848"
     }
   ]
 }
