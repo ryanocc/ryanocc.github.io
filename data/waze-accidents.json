@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-17T17:35:48.953117+00:00",
+  "updatedAt": "2026-11-17T17:40:49.465337+00:00",
   "source": "Waze GeoRSS",
-  "count": 18,
+  "count": 23,
   "incidents": [
+    {
+      "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
+      "title": "alert",
+      "published": "Tue Nov 17 17:36:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Forest Gdns",
+      "city": "Partington",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.414987 -2.444608"
+    },
+    {
+      "id": "5e1acefc-ab8e-4eff-a0d0-272c4dc5a899",
+      "title": "alert",
+      "published": "Tue Nov 17 17:38:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.406875 -2.303851"
+    },
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
       "title": "alert",
@@ -44,6 +72,34 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.413061 -2.251683"
+    },
+    {
+      "id": "cc6f24d6-f8cd-4876-9499-87d13474ba78",
+      "title": "alert",
+      "published": "Tue Nov 17 17:36:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J5 to A5103 > Manchester (Ctr)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.41772 -2.262265"
+    },
+    {
+      "id": "3427b1c3-7ac5-4297-b7ab-c956d5c67571",
+      "title": "alert",
+      "published": "Tue Nov 17 17:36:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5207 - Downall Green Rd",
+      "city": "Garswood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.498542 -2.664468"
     },
     {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
@@ -116,6 +172,20 @@
       "point": "53.509624 -2.309328"
     },
     {
+      "id": "a4b8eed4-ba65-4b82-88d0-b805d62afd73",
+      "title": "alert",
+      "published": "Tue Nov 17 17:06:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5066 - Oldfield Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.478108 -2.268404"
+    },
+    {
       "id": "aaf09000-2b2b-4b9a-b17b-33a2d28bec1e",
       "title": "alert",
       "published": "Tue Nov 17 16:55:50 +0000 2026",
@@ -130,20 +200,6 @@
       "point": "53.462473 -2.274816"
     },
     {
-      "id": "a4b8eed4-ba65-4b82-88d0-b805d62afd73",
-      "title": "alert",
-      "published": "Tue Nov 17 17:06:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5066 - Oldfield Rd",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.478108 -2.268404"
-    },
-    {
       "id": "7e4985b6-0487-44ce-a45c-32a443ef61c9",
       "title": "alert",
       "published": "Tue Nov 17 17:27:43 +0000 2026",
@@ -153,23 +209,9 @@
       "city": "New Moston",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.522943 -2.167123"
-    },
-    {
-      "id": "6db03066-2aff-4d08-a124-a41b5cf9e338",
-      "title": "alert",
-      "published": "Tue Nov 17 17:21:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.522971 -2.167514"
     },
     {
       "id": "260803bd-b12f-4b10-afeb-c1d426398854",
@@ -180,10 +222,24 @@
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.523373 -2.168925"
+    },
+    {
+      "id": "6db03066-2aff-4d08-a124-a41b5cf9e338",
+      "title": "alert",
+      "published": "Tue Nov 17 17:21:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.522971 -2.167514"
     },
     {
       "id": "2722c288-c363-4add-8309-675f0466d51d",
@@ -200,32 +256,46 @@
       "point": "53.405716 -2.267519"
     },
     {
-      "id": "533de210-c27f-4024-9e9e-0f1e157e4025",
+      "id": "df1dd36f-5588-4a3f-bbc0-0610a36b26d5",
       "title": "alert",
-      "published": "Tue Nov 17 17:18:54 +0000 2026",
+      "published": "Tue Nov 17 17:36:35 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 - Princess Rd",
+      "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.417791 -2.262171"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 4.0,
+      "point": "53.416965 -2.262875"
     },
     {
-      "id": "af5c1810-9a3d-4329-bfae-7bc07e31c0be",
+      "id": "b7cbf7de-c79e-40c3-9ca9-ce037c3034e6",
       "title": "alert",
-      "published": "Tue Nov 17 17:35:31 +0000 2026",
+      "published": "Tue Nov 17 17:39:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
+      "road": "A58 - Bolton St",
+      "city": "Bury",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.372344 -2.290075"
+      "reportRating": 1.0,
+      "point": "53.59484 -2.307208"
+    },
+    {
+      "id": "2912ed3a-41ba-4131-8928-347dc4e1c122",
+      "title": "alert",
+      "published": "Tue Nov 17 17:40:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Ardwick",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.469231 -2.217809"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
@@ -250,8 +320,8 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.622843 -2.078641"
     }
