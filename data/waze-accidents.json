@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T10:05:49.386750+00:00",
+  "updatedAt": "2026-11-17T10:10:49.348049+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.575774 -2.294637"
+    },
+    {
+      "id": "7dff1d4a-58df-4f30-8818-94b515afacdf",
+      "title": "alert",
+      "published": "Tue Nov 17 10:06:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.449489 -2.280117"
     },
     {
       "id": "73de94ae-673d-4a98-b65e-84ca3ed89183",
@@ -44,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.547288 -2.165117"
-    },
-    {
-      "id": "6dd15277-9b65-42b8-8bdc-454cf6ca9bee",
-      "title": "alert",
-      "published": "Tue Nov 17 08:40:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Wardle Rd",
-      "city": "Wardle",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.644578 -2.134912"
     },
     {
       "id": "9a026d5f-2e17-4cb4-b8e1-cb8857a35efb",
@@ -102,6 +102,20 @@
       "point": "53.593618 -2.228085"
     },
     {
+      "id": "45f01f7b-8109-4076-b566-875b1284d632",
+      "title": "alert",
+      "published": "Tue Nov 17 10:09:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.408482 -2.174298"
+    },
+    {
       "id": "12911698-b76c-4798-802a-5106fad0065c",
       "title": "alert",
       "published": "Tue Nov 17 09:17:44 +0000 2026",
@@ -124,24 +138,10 @@
       "road": "A6010 - Wilbraham Rd",
       "city": "Chorlton-cum-Hardy",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.442497 -2.275926"
-    },
-    {
-      "id": "a591853f-75c5-4b9e-9f57-8a819c9f65b1",
-      "title": "alert",
-      "published": "Tue Nov 17 10:03:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Stamford St E",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.487105 -2.080274"
     },
     {
       "id": "76416d84-b881-4d05-b7fe-86d42fcf5cfe",
@@ -153,23 +153,23 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.487107 -2.080286"
     },
     {
-      "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
+      "id": "a591853f-75c5-4b9e-9f57-8a819c9f65b1",
       "title": "alert",
-      "published": "Tue Nov 17 08:51:32 +0000 2026",
+      "published": "Tue Nov 17 10:03:56 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
+      "road": "A635 - Stamford St E",
+      "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.357784 -2.307961"
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.487105 -2.080274"
     }
   ]
 }
