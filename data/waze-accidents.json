@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T12:15:48.948960+00:00",
+  "updatedAt": "2026-11-17T12:20:49.026917+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "8ba8f532-88a0-4d20-b43b-48a1875b16ef",
@@ -27,7 +27,7 @@
       "city": "Wilmslow",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.325951 -2.238815"
     },
@@ -72,6 +72,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.539942 -2.70367"
+    },
+    {
+      "id": "255e8bba-099d-409c-a3fb-c86345955568",
+      "title": "alert",
+      "published": "Tue Nov 17 12:18:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A672 - Ripponden Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.60275 -2.035797"
     }
   ]
 }
