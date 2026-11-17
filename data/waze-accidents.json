@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T16:10:49.351356+00:00",
+  "updatedAt": "2026-11-17T16:15:49.338494+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.625135 -2.188877"
-    },
-    {
-      "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
-      "title": "alert",
-      "published": "Tue Nov 17 15:12:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6046 - Hollin Ln",
-      "city": "Middleton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.563942 -2.204629"
     },
     {
       "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
@@ -68,24 +54,24 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.417519 -2.262164"
     },
     {
-      "id": "7d3bff76-4c8d-466b-9faf-1ac44e82827a",
+      "id": "ce65b69b-3d03-4ca7-9ad4-0bde318f46ba",
       "title": "alert",
-      "published": "Tue Nov 17 15:31:42 +0000 2026",
+      "published": "Tue Nov 17 16:11:38 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 - Princess Rd",
+      "city": "Hulme",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
-      "point": "53.549112 -2.294561"
+      "point": "53.466265 -2.245057"
     },
     {
       "id": "4cb767fd-aed8-49b7-ba28-202df63b2cff",
@@ -110,8 +96,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.409444 -2.172356"
     }
