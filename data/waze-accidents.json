@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T07:40:48.840625+00:00",
+  "updatedAt": "2026-11-17T07:45:48.944997+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -26,10 +26,10 @@
       "road": "J12 to M62 (W) > Liverpool",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
-      "point": "53.485312 -2.38282"
+      "point": "53.484857 -2.384501"
     },
     {
       "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
@@ -74,6 +74,20 @@
       "point": "53.624738 -2.436935"
     },
     {
+      "id": "6655c47d-3556-45e7-9a04-c8ba86dc55e7",
+      "title": "alert",
+      "published": "Tue Nov 17 07:45:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.359336 -2.372175"
+    },
+    {
       "id": "d80b1abb-8e9c-4563-b161-0a0f3568f728",
       "title": "alert",
       "published": "Tue Nov 17 07:28:05 +0000 2026",
@@ -96,10 +110,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.485276 -2.383896"
+    },
+    {
+      "id": "862889ca-2619-43d7-85a0-76e877c7a24f",
+      "title": "alert",
+      "published": "Tue Nov 17 07:44:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.484607 -2.385476"
     }
   ]
 }
