@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T15:10:49.095280+00:00",
+  "updatedAt": "2026-11-17T15:15:49.241763+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "476ca05e-cfcd-417d-8cd9-6064f3166ab3",
@@ -13,23 +13,9 @@
       "city": "",
       "country": "",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.547724 -2.19146"
-    },
-    {
-      "id": "a878430b-2efb-4310-b957-c57e8a4341db",
-      "title": "alert",
-      "published": "Tue Nov 17 15:08:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6186 - Frederick Rd",
-      "city": "Irwell Riverside",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.492994 -2.273733"
     },
     {
       "id": "152cb322-03d1-40ec-b907-c9fd0840f604",
@@ -60,6 +46,20 @@
       "point": "53.526562 -2.212625"
     },
     {
+      "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
+      "title": "alert",
+      "published": "Tue Nov 17 15:12:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6046 - Hollin Ln",
+      "city": "Middleton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.563942 -2.204629"
+    },
+    {
       "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
       "title": "alert",
       "published": "Tue Nov 17 14:00:01 +0000 2026",
@@ -68,24 +68,10 @@
       "road": "A672 - Ripponden Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.602246 -2.036079"
-    },
-    {
-      "id": "b1fec797-6fc4-4f2a-bb3d-592074d0933f",
-      "title": "alert",
-      "published": "Tue Nov 17 14:06:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.499467 -2.526074"
     },
     {
       "id": "04ab8579-23f3-4af7-bb7f-592732193a2e",
