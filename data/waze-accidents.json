@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T09:15:49.364134+00:00",
+  "updatedAt": "2026-11-17T09:20:49.222697+00:00",
   "source": "Waze GeoRSS",
-  "count": 18,
+  "count": 16,
   "incidents": [
     {
       "id": "b0b3a853-7e34-4602-81e6-ec1520860a30",
@@ -55,23 +55,9 @@
       "city": "Pilsworth",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.578524 -2.269704"
-    },
-    {
-      "id": "a35a6119-76bf-4307-b16f-c5ecade56202",
-      "title": "alert",
-      "published": "Tue Nov 17 08:45:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Pilsworth Rd",
-      "city": "Pilsworth",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.578724 -2.27133"
     },
     {
       "id": "5759cca1-26a7-431e-a21c-3c0d89063ce0",
@@ -130,20 +116,6 @@
       "point": "53.595185 -2.339516"
     },
     {
-      "id": "b7f4ffa6-1dc7-4464-a230-b585758796c1",
-      "title": "alert",
-      "published": "Tue Nov 17 08:48:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.46208 -2.172956"
-    },
-    {
       "id": "431197a3-8d4c-4c1d-9be1-fdfe75491748",
       "title": "alert",
       "published": "Tue Nov 17 09:04:33 +0000 2026",
@@ -158,6 +130,20 @@
       "point": "53.593618 -2.228085"
     },
     {
+      "id": "b7f4ffa6-1dc7-4464-a230-b585758796c1",
+      "title": "alert",
+      "published": "Tue Nov 17 08:48:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.46208 -2.172956"
+    },
+    {
       "id": "1dcc792b-bdf1-4601-a386-c146c3814654",
       "title": "alert",
       "published": "Tue Nov 17 08:29:47 +0000 2026",
@@ -166,24 +152,24 @@
       "road": "A56 - Stockport Rd",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.379338 -2.532275"
     },
     {
-      "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
+      "id": "12911698-b76c-4798-802a-5106fad0065c",
       "title": "alert",
-      "published": "Tue Nov 17 07:56:38 +0000 2026",
+      "published": "Tue Nov 17 09:17:44 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "",
+      "road": "A6 - Wellington Rd N",
+      "city": "Heaton Norris",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.47786 -2.535445"
+      "point": "53.418014 -2.170657"
     },
     {
       "id": "c31ac50c-4363-49d0-9e16-be7248589a55",
@@ -195,7 +181,7 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.532827 -2.152887"
     },
@@ -240,20 +226,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.542986 -2.44022"
-    },
-    {
-      "id": "4e78e2ec-c79a-4bc8-af6f-ae422596bf15",
-      "title": "alert",
-      "published": "Tue Nov 17 09:13:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.474077 -2.128321"
     }
   ]
 }
