@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T20:25:48.994905+00:00",
+  "updatedAt": "2026-11-17T20:30:48.836938+00:00",
   "source": "Waze GeoRSS",
   "count": 19,
   "incidents": [
@@ -44,20 +44,6 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.419549 -2.160436"
-    },
-    {
-      "id": "66d879af-d3da-4420-b95d-b817f8c10149",
-      "title": "alert",
-      "published": "Tue Nov 17 19:30:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Blackley New Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.525737 -2.24753"
     },
     {
       "id": "08c8fc15-0afd-4e90-a8ff-c451f50624dd",
@@ -116,6 +102,20 @@
       "point": "53.369239 -2.313701"
     },
     {
+      "id": "132f5ad1-1474-48f6-bb0b-955885eb2baa",
+      "title": "alert",
+      "published": "Tue Nov 17 19:50:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - St. James Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.50394 -2.252036"
+    },
+    {
       "id": "5faf7950-4ff7-4c52-b9a2-97306ea39d43",
       "title": "alert",
       "published": "Tue Nov 17 19:11:00 +0000 2026",
@@ -138,52 +138,38 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.488438 -2.240698"
     },
     {
-      "id": "132f5ad1-1474-48f6-bb0b-955885eb2baa",
+      "id": "f0d7122b-5eb2-4f77-a21f-150427603e55",
       "title": "alert",
-      "published": "Tue Nov 17 19:50:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - St. James Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.50394 -2.252036"
-    },
-    {
-      "id": "73881ffc-1f88-415f-b7c2-3bfbf883e68a",
-      "title": "alert",
-      "published": "Tue Nov 17 20:21:59 +0000 2026",
+      "published": "Tue Nov 17 20:29:12 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.528107 -2.246932"
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.538432 -2.239613"
     },
     {
-      "id": "b50587e9-c22f-4364-9aba-4575401c4656",
+      "id": "206e9b9c-157b-4671-aa80-1f4c697c2cd0",
       "title": "alert",
-      "published": "Tue Nov 17 19:15:31 +0000 2026",
+      "published": "Tue Nov 17 20:24:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
+      "road": "A664 - Edinburgh Way",
+      "city": "Rochdale",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.527676 -2.247126"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.599672 -2.164865"
     },
     {
       "id": "f85fc6d2-55bd-4aa1-b363-adb27c72b108",
@@ -214,6 +200,20 @@
       "point": "53.538979 -2.238884"
     },
     {
+      "id": "73881ffc-1f88-415f-b7c2-3bfbf883e68a",
+      "title": "alert",
+      "published": "Tue Nov 17 20:21:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.528107 -2.246932"
+    },
+    {
       "id": "5e6b23e9-16c0-4bf6-90f8-756d7ddb5cb4",
       "title": "alert",
       "published": "Tue Nov 17 18:54:02 +0000 2026",
@@ -228,18 +228,18 @@
       "point": "53.529669 -2.246129"
     },
     {
-      "id": "206e9b9c-157b-4671-aa80-1f4c697c2cd0",
+      "id": "b50587e9-c22f-4364-9aba-4575401c4656",
       "title": "alert",
-      "published": "Tue Nov 17 20:24:53 +0000 2026",
+      "published": "Tue Nov 17 19:15:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A664 - Edinburgh Way",
-      "city": "Rochdale",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.599672 -2.164865"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.527676 -2.247126"
     },
     {
       "id": "2ba1cbdb-f120-4290-8413-8a284a291a4d",
@@ -251,7 +251,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.623401 -2.144771"
     },
