@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T19:00:49.062169+00:00",
+  "updatedAt": "2026-11-17T19:05:49.037600+00:00",
   "source": "Waze GeoRSS",
-  "count": 18,
+  "count": 12,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -41,7 +41,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.578799 -2.43571"
     },
@@ -58,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.607828 -2.20703"
-    },
-    {
-      "id": "58168873-983b-4853-9875-f390c79e69db",
-      "title": "alert",
-      "published": "Tue Nov 17 17:01:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.457186 -2.336791"
     },
     {
       "id": "722da26d-af35-449d-a9af-1e17562b8908",
@@ -116,20 +102,6 @@
       "point": "53.417933 -2.261806"
     },
     {
-      "id": "2722c288-c363-4add-8309-675f0466d51d",
-      "title": "alert",
-      "published": "Tue Nov 17 17:07:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.405716 -2.267519"
-    },
-    {
       "id": "8d222ded-d770-4d11-ba7d-72af5f9f8aa7",
       "title": "alert",
       "published": "Tue Nov 17 18:30:26 +0000 2026",
@@ -138,8 +110,8 @@
       "road": "A58 - Victoria Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.580511 -2.487265"
     },
@@ -172,34 +144,6 @@
       "point": "53.443227 -2.226032"
     },
     {
-      "id": "8d86efe7-574f-44c0-907b-3fc94532e1b3",
-      "title": "alert",
-      "published": "Tue Nov 17 18:56:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5063 - Albion Way",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.482845 -2.277093"
-    },
-    {
-      "id": "afe98996-fcc1-4a12-bc03-e6aa558e2fd1",
-      "title": "alert",
-      "published": "Tue Nov 17 18:44:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.538324 -2.239971"
-    },
-    {
       "id": "5e6b23e9-16c0-4bf6-90f8-756d7ddb5cb4",
       "title": "alert",
       "published": "Tue Nov 17 18:54:02 +0000 2026",
@@ -214,34 +158,6 @@
       "point": "53.529669 -2.246129"
     },
     {
-      "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
-      "title": "alert",
-      "published": "Tue Nov 17 18:00:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.538497 -2.239698"
-    },
-    {
-      "id": "b565a692-aa97-4539-bdfe-5bfb9ef750f1",
-      "title": "alert",
-      "published": "Tue Nov 17 18:53:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.496148 -2.384114"
-    },
-    {
       "id": "c15d487c-6f3e-4575-a68f-7733ea921d33",
       "title": "alert",
       "published": "Tue Nov 17 18:54:35 +0000 2026",
@@ -250,8 +166,8 @@
       "road": "A627(M) (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.561317 -2.149005"
     }
