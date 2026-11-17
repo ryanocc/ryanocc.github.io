@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-17T15:40:49.254745+00:00",
+  "updatedAt": "2026-11-17T15:45:49.299928+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
-    {
-      "id": "a283bc8d-4f30-4382-a02b-d567e4046b25",
-      "title": "alert",
-      "published": "Tue Nov 17 15:30:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.471637 -2.493113"
-    },
     {
       "id": "6e285abb-dc9f-4ec8-8ed0-2f0a33261581",
       "title": "alert",
@@ -32,20 +18,6 @@
       "point": "53.543423 -2.360505"
     },
     {
-      "id": "936888f5-b417-4a9a-9007-6da0a74ad5af",
-      "title": "alert",
-      "published": "Tue Nov 17 15:38:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Rochdale Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.526348 -2.212698"
-    },
-    {
       "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
       "title": "alert",
       "published": "Tue Nov 17 15:12:42 +0000 2026",
@@ -54,7 +26,7 @@
       "road": "A6046 - Hollin Ln",
       "city": "Middleton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.563942 -2.204629"
@@ -68,10 +40,24 @@
       "road": "A6046 - Hollin Ln",
       "city": "Middleton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.564105 -2.20468"
+    },
+    {
+      "id": "936888f5-b417-4a9a-9007-6da0a74ad5af",
+      "title": "alert",
+      "published": "Tue Nov 17 15:38:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Rochdale Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.525798 -2.213172"
     },
     {
       "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
@@ -96,7 +82,7 @@
       "road": "A56 - Bury New Rd",
       "city": "Whitefield",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.549112 -2.294561"
