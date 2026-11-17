@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T18:00:49.257495+00:00",
+  "updatedAt": "2026-11-17T18:05:49.419543+00:00",
   "source": "Waze GeoRSS",
-  "count": 23,
+  "count": 24,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -26,8 +26,8 @@
       "road": "Werneth Low Rd",
       "city": "Romiley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.423912 -2.079381"
     },
@@ -74,20 +74,6 @@
       "point": "53.41772 -2.262265"
     },
     {
-      "id": "3427b1c3-7ac5-4297-b7ab-c956d5c67571",
-      "title": "alert",
-      "published": "Tue Nov 17 17:36:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5207 - Downall Green Rd",
-      "city": "Garswood",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.498542 -2.664468"
-    },
-    {
       "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
       "title": "alert",
       "published": "Tue Nov 17 17:40:50 +0000 2026",
@@ -96,10 +82,24 @@
       "road": "B6222 - Bury Rd",
       "city": "Bamford",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.607828 -2.20703"
+    },
+    {
+      "id": "3115a2ba-98b2-412f-b78c-05381048d351",
+      "title": "alert",
+      "published": "Tue Nov 17 16:45:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.610981 -2.197403"
     },
     {
       "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
@@ -116,18 +116,18 @@
       "point": "53.609614 -2.2019"
     },
     {
-      "id": "3115a2ba-98b2-412f-b78c-05381048d351",
+      "id": "ae31d970-5439-4c8b-8bd4-a388feaf836e",
       "title": "alert",
-      "published": "Tue Nov 17 16:45:15 +0000 2026",
+      "published": "Tue Nov 17 18:03:48 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6222 - Bury Rd",
-      "city": "Bamford",
+      "subtype": "",
+      "road": "A627 > Oldham",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.610981 -2.197403"
+      "point": "53.559579 -2.142298"
     },
     {
       "id": "58168873-983b-4853-9875-f390c79e69db",
@@ -152,7 +152,7 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.478108 -2.268404"
@@ -222,8 +222,8 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "Cheadle",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.366457 -2.209003"
     },
@@ -242,6 +242,20 @@
       "point": "53.405716 -2.267519"
     },
     {
+      "id": "a8b995b7-5d0b-44c8-8e8c-30903ff054a9",
+      "title": "alert",
+      "published": "Tue Nov 17 17:47:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.417933 -2.261806"
+    },
+    {
       "id": "94a565b6-32a2-44a2-8bc2-7846aae8b4b7",
       "title": "alert",
       "published": "Tue Nov 17 17:47:37 +0000 2026",
@@ -256,18 +270,18 @@
       "point": "53.418605 -2.261213"
     },
     {
-      "id": "a8b995b7-5d0b-44c8-8e8c-30903ff054a9",
+      "id": "a7693aac-5af5-4469-971a-3d8ea1df73c3",
       "title": "alert",
-      "published": "Tue Nov 17 17:47:56 +0000 2026",
+      "published": "Tue Nov 17 18:04:23 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
+      "road": "A676 - Marsden Rd",
+      "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.417933 -2.261806"
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.578949 -2.434647"
     },
     {
       "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
@@ -278,8 +292,8 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.538497 -2.239698"
     },
@@ -309,7 +323,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.560414 -2.145775"
+      "point": "53.561062 -2.148203"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
