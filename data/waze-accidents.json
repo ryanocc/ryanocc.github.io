@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-17T16:40:49.412653+00:00",
+  "updatedAt": "2026-11-17T16:45:49.344023+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "ae717215-153e-4fb1-b17b-610023f9e673",
+      "title": "alert",
+      "published": "Tue Nov 17 16:45:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.505949 -2.359189"
+    },
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
       "title": "alert",
@@ -26,7 +40,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.412693 -2.265165"
@@ -46,32 +60,32 @@
       "point": "53.609614 -2.2019"
     },
     {
-      "id": "4cb767fd-aed8-49b7-ba28-202df63b2cff",
+      "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
-      "published": "Tue Nov 17 15:59:25 +0000 2026",
+      "published": "Tue Nov 17 16:45:15 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.334928 -2.481596"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.610981 -2.197403"
     },
     {
-      "id": "dfb70d1a-5f22-4186-8d91-b2d3828a9b70",
+      "id": "0afdb079-a595-478b-b670-ba34cc657230",
       "title": "alert",
-      "published": "Tue Nov 17 16:36:06 +0000 2026",
+      "published": "Tue Nov 17 16:44:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
+      "road": "A664 - Edinburgh Way",
+      "city": "Rochdale",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.423566 -2.574094"
+      "point": "53.602094 -2.169462"
     },
     {
       "id": "4fceb01e-b949-469f-9465-650e58fbb488",
@@ -88,6 +102,20 @@
       "point": "53.357263 -2.317813"
     },
     {
+      "id": "360d5f67-bc94-4772-aefb-f3573704b8be",
+      "title": "alert",
+      "published": "Tue Nov 17 16:45:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.550426 -2.261398"
+    },
+    {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
       "title": "alert",
       "published": "Tue Nov 17 16:38:00 +0000 2026",
@@ -96,8 +124,8 @@
       "road": "M67 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.456785 -2.04802"
     }
