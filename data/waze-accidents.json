@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T21:05:48.884517+00:00",
+  "updatedAt": "2026-11-17T21:10:48.987119+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "0f6606f3-ba42-4bbb-b3ff-7fe3301d18d1",
@@ -54,7 +54,7 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.488207 -2.240481"
@@ -72,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.527676 -2.247126"
-    },
-    {
-      "id": "650cb2b5-fa67-4332-bbf2-6b30f41d63fd",
-      "title": "alert",
-      "published": "Tue Nov 17 19:36:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.612351 -2.090037"
     }
   ]
 }
