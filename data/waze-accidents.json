@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T08:25:49.505918+00:00",
+  "updatedAt": "2026-11-17T08:30:49.445298+00:00",
   "source": "Waze GeoRSS",
-  "count": 18,
+  "count": 16,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -32,20 +32,6 @@
       "point": "53.597737 -2.41714"
     },
     {
-      "id": "09320fb5-6f7b-43cf-b73d-d81d8591cc65",
-      "title": "alert",
-      "published": "Tue Nov 17 07:47:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Carruthers St",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.482305 -2.216988"
-    },
-    {
       "id": "22ebe755-18f6-4b0a-a097-928b59945a55",
       "title": "alert",
       "published": "Tue Nov 17 08:04:26 +0000 2026",
@@ -54,7 +40,7 @@
       "road": "A56 > Altrincham",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.365478 -2.389843"
@@ -74,32 +60,32 @@
       "point": "53.482691 -2.21351"
     },
     {
-      "id": "48be5f50-f8a7-459f-8cbe-9a5ea733403e",
+      "id": "1dcc792b-bdf1-4601-a386-c146c3814654",
       "title": "alert",
-      "published": "Tue Nov 17 08:13:43 +0000 2026",
+      "published": "Tue Nov 17 08:29:47 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6144 - Carrington Spur",
+      "road": "A56 - Stockport Rd",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.432701 -2.349432"
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.379338 -2.532275"
     },
     {
-      "id": "07fdb0d5-b3a9-4a86-b138-5a0e4ba25e54",
+      "id": "b4ca0aee-957d-4aeb-a66f-da0fb6cd6a28",
       "title": "alert",
-      "published": "Tue Nov 17 08:04:49 +0000 2026",
+      "published": "Tue Nov 17 08:29:09 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
-      "point": "53.36349 -2.391521"
+      "point": "53.350379 -2.407433"
     },
     {
       "id": "5e864c97-6fa8-45e0-9c8d-26f62446d8ec",
@@ -110,24 +96,10 @@
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.364277 -2.390747"
-    },
-    {
-      "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
-      "title": "alert",
-      "published": "Tue Nov 17 07:20:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.477444 -2.53551"
     },
     {
       "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
@@ -142,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.47786 -2.535445"
+    },
+    {
+      "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
+      "title": "alert",
+      "published": "Tue Nov 17 07:20:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.477444 -2.53551"
     },
     {
       "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
@@ -172,18 +158,18 @@
       "point": "53.359336 -2.372175"
     },
     {
-      "id": "11a6d9d1-e049-4e85-9471-6c226b6dcaff",
+      "id": "9e8f6430-dd9f-4b62-a811-09eebdf60048",
       "title": "alert",
-      "published": "Tue Nov 17 08:09:46 +0000 2026",
+      "published": "Tue Nov 17 08:23:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M61 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.543472 -2.441792"
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 5.0,
+      "point": "53.543905 -2.443954"
     },
     {
       "id": "bf9a1e12-07a9-42ff-aaf3-d6446436f4bb",
@@ -200,34 +186,6 @@
       "point": "53.543212 -2.441331"
     },
     {
-      "id": "401c6e96-2116-4376-851a-7e9f63ec7948",
-      "title": "alert",
-      "published": "Tue Nov 17 08:06:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.544509 -2.44782"
-    },
-    {
-      "id": "9e8f6430-dd9f-4b62-a811-09eebdf60048",
-      "title": "alert",
-      "published": "Tue Nov 17 08:23:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.543905 -2.443954"
-    },
-    {
       "id": "95830f8e-e2d5-4ee9-8c58-f1a6b8bb870d",
       "title": "alert",
       "published": "Tue Nov 17 08:17:03 +0000 2026",
@@ -242,6 +200,20 @@
       "point": "53.537091 -2.391599"
     },
     {
+      "id": "11a6d9d1-e049-4e85-9471-6c226b6dcaff",
+      "title": "alert",
+      "published": "Tue Nov 17 08:09:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.543472 -2.441792"
+    },
+    {
       "id": "9cb980c8-44a9-4b28-a93f-a7f4d6798e61",
       "title": "alert",
       "published": "Tue Nov 17 08:23:51 +0000 2026",
@@ -250,8 +222,8 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.557316 -2.247375"
     }
