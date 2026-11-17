@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T17:30:48.990135+00:00",
+  "updatedAt": "2026-11-17T17:35:48.953117+00:00",
   "source": "Waze GeoRSS",
-  "count": 22,
+  "count": 18,
   "incidents": [
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -46,20 +46,6 @@
       "point": "53.413061 -2.251683"
     },
     {
-      "id": "bdbd51fc-55d8-4033-920b-18263e3ff2db",
-      "title": "alert",
-      "published": "Tue Nov 17 17:30:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.483227 -2.116063"
-    },
-    {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
       "published": "Tue Nov 17 16:45:15 +0000 2026",
@@ -83,7 +69,7 @@
       "city": "Bamford",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.609614 -2.2019"
     },
@@ -110,8 +96,8 @@
       "road": "A6017 - Ashton Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.435581 -2.115612"
     },
@@ -130,18 +116,18 @@
       "point": "53.509624 -2.309328"
     },
     {
-      "id": "45cdd917-7054-420e-a64f-045844043c0a",
+      "id": "aaf09000-2b2b-4b9a-b17b-33a2d28bec1e",
       "title": "alert",
-      "published": "Tue Nov 17 16:55:46 +0000 2026",
+      "published": "Tue Nov 17 16:55:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5066 - Oldfield Rd",
-      "city": "Ordsall",
+      "road": "A5014 - Stretford Rd",
+      "city": "Old Trafford",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.477319 -2.268801"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.462473 -2.274816"
     },
     {
       "id": "a4b8eed4-ba65-4b82-88d0-b805d62afd73",
@@ -156,20 +142,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.478108 -2.268404"
-    },
-    {
-      "id": "aaf09000-2b2b-4b9a-b17b-33a2d28bec1e",
-      "title": "alert",
-      "published": "Tue Nov 17 16:55:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5014 - Stretford Rd",
-      "city": "Old Trafford",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.462473 -2.274816"
     },
     {
       "id": "7e4985b6-0487-44ce-a45c-32a443ef61c9",
@@ -208,52 +180,10 @@
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.523373 -2.168925"
-    },
-    {
-      "id": "f20ec412-d4f5-4890-8cfb-37297723dd93",
-      "title": "alert",
-      "published": "Tue Nov 17 17:17:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.593073 -2.180804"
-    },
-    {
-      "id": "a01bc35a-82a8-4f7c-93fc-c02770d1ba44",
-      "title": "alert",
-      "published": "Tue Nov 17 17:18:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A671 - Oldham Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.609905 -2.148967"
-    },
-    {
-      "id": "1cdab4fb-d677-4b38-b02e-6633d6fe1a64",
-      "title": "alert",
-      "published": "Tue Nov 17 17:16:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.41638 -2.263369"
     },
     {
       "id": "2722c288-c363-4add-8309-675f0466d51d",
@@ -264,7 +194,7 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.405716 -2.267519"
@@ -284,18 +214,18 @@
       "point": "53.417791 -2.262171"
     },
     {
-      "id": "77092231-72bf-4012-ba86-f02712cf5df0",
+      "id": "af5c1810-9a3d-4329-bfae-7bc07e31c0be",
       "title": "alert",
-      "published": "Tue Nov 17 17:15:51 +0000 2026",
+      "published": "Tue Nov 17 17:35:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6 - Wellington Rd S",
-      "city": "Stockport",
+      "road": "M56 (W)",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.402455 -2.156925"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.372344 -2.290075"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
@@ -310,6 +240,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.456785 -2.04802"
+    },
+    {
+      "id": "e061524e-6e7d-4fe5-b4b3-127edd1cb9b4",
+      "title": "alert",
+      "published": "Tue Nov 17 17:33:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.622843 -2.078641"
     }
   ]
 }
