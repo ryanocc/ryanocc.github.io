@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T17:40:49.465337+00:00",
+  "updatedAt": "2026-11-17T17:45:49.357667+00:00",
   "source": "Waze GeoRSS",
-  "count": 23,
+  "count": 27,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.414987 -2.444608"
-    },
-    {
-      "id": "5e1acefc-ab8e-4eff-a0d0-272c4dc5a899",
-      "title": "alert",
-      "published": "Tue Nov 17 17:38:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.406875 -2.303851"
     },
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -82,10 +68,38 @@
       "road": "J5 to A5103 > Manchester (Ctr)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.41772 -2.262265"
+    },
+    {
+      "id": "85cd6e8b-2ef4-4862-885c-b7c6e56abd74",
+      "title": "alert",
+      "published": "Tue Nov 17 17:44:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J3 to A34 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.397326 -2.221395"
+    },
+    {
+      "id": "48266ead-e8b9-43df-96fd-2e9a240aba7a",
+      "title": "alert",
+      "published": "Tue Nov 17 17:43:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J3 to A34 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.396829 -2.221764"
     },
     {
       "id": "3427b1c3-7ac5-4297-b7ab-c956d5c67571",
@@ -102,6 +116,34 @@
       "point": "53.498542 -2.664468"
     },
     {
+      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
+      "title": "alert",
+      "published": "Tue Nov 17 16:33:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.609614 -2.2019"
+    },
+    {
+      "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
+      "title": "alert",
+      "published": "Tue Nov 17 17:40:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.607828 -2.20703"
+    },
+    {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
       "published": "Tue Nov 17 16:45:15 +0000 2026",
@@ -114,20 +156,6 @@
       "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.610981 -2.197403"
-    },
-    {
-      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
-      "title": "alert",
-      "published": "Tue Nov 17 16:33:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6222 - Bury Rd",
-      "city": "Bamford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.609614 -2.2019"
     },
     {
       "id": "58168873-983b-4853-9875-f390c79e69db",
@@ -144,6 +172,20 @@
       "point": "53.457186 -2.336791"
     },
     {
+      "id": "5c1d8123-9ace-42ba-8d3a-a63f72f1653d",
+      "title": "alert",
+      "published": "Tue Nov 17 17:41:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.461542 -2.338537"
+    },
+    {
       "id": "284b2a19-2b9c-4a78-ae88-572fcc0c6922",
       "title": "alert",
       "published": "Tue Nov 17 17:19:04 +0000 2026",
@@ -153,7 +195,7 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.435581 -2.115612"
     },
@@ -180,8 +222,8 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.478108 -2.268404"
     },
@@ -198,20 +240,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.462473 -2.274816"
-    },
-    {
-      "id": "7e4985b6-0487-44ce-a45c-32a443ef61c9",
-      "title": "alert",
-      "published": "Tue Nov 17 17:27:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.522943 -2.167123"
     },
     {
       "id": "260803bd-b12f-4b10-afeb-c1d426398854",
@@ -242,6 +270,34 @@
       "point": "53.522971 -2.167514"
     },
     {
+      "id": "7e4985b6-0487-44ce-a45c-32a443ef61c9",
+      "title": "alert",
+      "published": "Tue Nov 17 17:27:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.522943 -2.167123"
+    },
+    {
+      "id": "79e6c2f9-b1b2-4cf3-9f92-a8f73fa3cba7",
+      "title": "alert",
+      "published": "Tue Nov 17 17:42:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.417818 -2.262148"
+    },
+    {
       "id": "2722c288-c363-4add-8309-675f0466d51d",
       "title": "alert",
       "published": "Tue Nov 17 17:07:57 +0000 2026",
@@ -264,8 +320,8 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.416965 -2.262875"
     },
@@ -278,8 +334,8 @@
       "road": "A58 - Bolton St",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.59484 -2.307208"
     },
@@ -293,7 +349,7 @@
       "city": "Ardwick",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.469231 -2.217809"
     },
