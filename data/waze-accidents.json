@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T08:40:49.615007+00:00",
+  "updatedAt": "2026-11-17T08:45:49.502271+00:00",
   "source": "Waze GeoRSS",
-  "count": 16,
+  "count": 17,
   "incidents": [
     {
       "id": "b0b3a853-7e34-4602-81e6-ec1520860a30",
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.575774 -2.294637"
+    },
+    {
+      "id": "d50b1c0e-47df-4739-88c2-fd94c98f0eee",
+      "title": "alert",
+      "published": "Tue Nov 17 08:45:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Carruthers St",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.482356 -2.217056"
     },
     {
       "id": "22ebe755-18f6-4b0a-a097-928b59945a55",
@@ -68,10 +82,38 @@
       "road": "Pilsworth Rd",
       "city": "Pilsworth",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.578524 -2.269704"
+    },
+    {
+      "id": "a35a6119-76bf-4307-b16f-c5ecade56202",
+      "title": "alert",
+      "published": "Tue Nov 17 08:45:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Pilsworth Rd",
+      "city": "Pilsworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.578724 -2.27133"
+    },
+    {
+      "id": "5759cca1-26a7-431e-a21c-3c0d89063ce0",
+      "title": "alert",
+      "published": "Tue Nov 17 08:45:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Baytree Ave",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.547288 -2.165117"
     },
     {
       "id": "6dd15277-9b65-42b8-8bdc-454cf6ca9bee",
@@ -83,9 +125,23 @@
       "city": "Wardle",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.644578 -2.134912"
+    },
+    {
+      "id": "d09b5eea-e6a4-470f-a85e-dc5864aeea42",
+      "title": "alert",
+      "published": "Tue Nov 17 08:44:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.595185 -2.339516"
     },
     {
       "id": "1dcc792b-bdf1-4601-a386-c146c3814654",
@@ -96,8 +152,8 @@
       "road": "A56 - Stockport Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.379338 -2.532275"
     },
@@ -114,20 +170,6 @@
       "reliability": 5.0,
       "reportRating": 4.0,
       "point": "53.572041 -2.550741"
-    },
-    {
-      "id": "5e864c97-6fa8-45e0-9c8d-26f62446d8ec",
-      "title": "alert",
-      "published": "Tue Nov 17 08:06:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A556 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.364277 -2.390747"
     },
     {
       "id": "b4ca0aee-957d-4aeb-a66f-da0fb6cd6a28",
@@ -184,34 +226,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.357309 -2.315187"
-    },
-    {
-      "id": "11a6d9d1-e049-4e85-9471-6c226b6dcaff",
-      "title": "alert",
-      "published": "Tue Nov 17 08:09:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.543412 -2.441493"
-    },
-    {
-      "id": "9e8f6430-dd9f-4b62-a811-09eebdf60048",
-      "title": "alert",
-      "published": "Tue Nov 17 08:23:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.543905 -2.443954"
     },
     {
       "id": "bf9a1e12-07a9-42ff-aaf3-d6446436f4bb",
