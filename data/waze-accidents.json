@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T18:45:49.295290+00:00",
+  "updatedAt": "2026-11-17T18:50:49.094355+00:00",
   "source": "Waze GeoRSS",
-  "count": 20,
+  "count": 19,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -26,8 +26,8 @@
       "road": "Werneth Low Rd",
       "city": "Romiley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.423912 -2.079381"
     },
@@ -41,7 +41,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.578799 -2.43571"
     },
@@ -130,20 +130,6 @@
       "point": "53.522943 -2.167123"
     },
     {
-      "id": "cf965112-311e-4820-8c75-a7fdc0235700",
-      "title": "alert",
-      "published": "Tue Nov 17 18:24:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A538 - Water Ln",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.3259 -2.233018"
-    },
-    {
       "id": "5f6e7022-77ef-4305-a80f-86f276f13b2e",
       "title": "alert",
       "published": "Tue Nov 17 17:58:47 +0000 2026",
@@ -166,8 +152,8 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "Cheadle",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.37466 -2.211466"
     },
@@ -209,7 +195,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.580511 -2.487265"
     },
@@ -226,6 +212,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.578949 -2.434647"
+    },
+    {
+      "id": "ad95dd39-51a7-4b95-8243-d3a5b9d73f26",
+      "title": "alert",
+      "published": "Tue Nov 17 18:45:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Wilbraham Rd",
+      "city": "Fallowfield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.443227 -2.226032"
     },
     {
       "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
@@ -250,8 +250,8 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.538324 -2.239971"
     },
@@ -268,20 +268,6 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.577126 -2.160415"
-    },
-    {
-      "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
-      "title": "alert",
-      "published": "Tue Nov 17 16:38:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.456785 -2.04802"
     }
   ]
 }
