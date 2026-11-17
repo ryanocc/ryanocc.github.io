@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-17T15:50:49.218310+00:00",
+  "updatedAt": "2026-11-17T15:55:49.350541+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
+      "title": "alert",
+      "published": "Tue Nov 17 15:54:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Martin Ln",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.625135 -2.188877"
+    },
     {
       "id": "6e285abb-dc9f-4ec8-8ed0-2f0a33261581",
       "title": "alert",
@@ -30,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.563942 -2.204629"
-    },
-    {
-      "id": "936888f5-b417-4a9a-9007-6da0a74ad5af",
-      "title": "alert",
-      "published": "Tue Nov 17 15:38:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Rochdale Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.525798 -2.213172"
     },
     {
       "id": "2dc39a3f-872a-4221-97b7-262dda6fa5a7",
@@ -74,6 +74,20 @@
       "point": "53.602246 -2.036079"
     },
     {
+      "id": "c48b3f46-6b7f-4361-a930-6c6a88ce5be7",
+      "title": "alert",
+      "published": "Tue Nov 17 15:51:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Handforth Bypass",
+      "city": "Cheadle",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.366859 -2.209355"
+    },
+    {
       "id": "7d3bff76-4c8d-466b-9faf-1ac44e82827a",
       "title": "alert",
       "published": "Tue Nov 17 15:31:42 +0000 2026",
@@ -88,6 +102,20 @@
       "point": "53.549112 -2.294561"
     },
     {
+      "id": "9aa7c10a-fc59-4e79-af49-bfe402326ee4",
+      "title": "alert",
+      "published": "Tue Nov 17 15:52:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.500778 -2.195419"
+    },
+    {
       "id": "a472219c-cd2d-47c5-bb92-acb35f1eed61",
       "title": "alert",
       "published": "Tue Nov 17 15:46:10 +0000 2026",
@@ -96,10 +124,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
-      "point": "53.409138 -2.174436"
+      "point": "53.408953 -2.176287"
     }
   ]
 }
