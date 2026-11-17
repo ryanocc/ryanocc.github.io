@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T08:30:49.445298+00:00",
+  "updatedAt": "2026-11-17T08:35:49.595150+00:00",
   "source": "Waze GeoRSS",
-  "count": 16,
+  "count": 17,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -32,6 +32,20 @@
       "point": "53.597737 -2.41714"
     },
     {
+      "id": "c50c3843-c92b-4488-b216-79ccd2c9c75b",
+      "title": "alert",
+      "published": "Tue Nov 17 08:33:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Wordsworth Ave",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.575774 -2.294637"
+    },
+    {
       "id": "22ebe755-18f6-4b0a-a097-928b59945a55",
       "title": "alert",
       "published": "Tue Nov 17 08:04:26 +0000 2026",
@@ -60,6 +74,20 @@
       "point": "53.482691 -2.21351"
     },
     {
+      "id": "73de94ae-673d-4a98-b65e-84ca3ed89183",
+      "title": "alert",
+      "published": "Tue Nov 17 08:31:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Pilsworth Rd",
+      "city": "Pilsworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.578524 -2.269704"
+    },
+    {
       "id": "1dcc792b-bdf1-4601-a386-c146c3814654",
       "title": "alert",
       "published": "Tue Nov 17 08:29:47 +0000 2026",
@@ -68,24 +96,24 @@
       "road": "A56 - Stockport Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.379338 -2.532275"
     },
     {
-      "id": "b4ca0aee-957d-4aeb-a66f-da0fb6cd6a28",
+      "id": "aadd8424-4eaf-4de8-b9ae-c6dbda88fbc9",
       "title": "alert",
-      "published": "Tue Nov 17 08:29:09 +0000 2026",
+      "published": "Tue Nov 17 08:32:28 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A556 (N)",
+      "road": "A6 - Chorley Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.350379 -2.407433"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.572041 -2.550741"
     },
     {
       "id": "5e864c97-6fa8-45e0-9c8d-26f62446d8ec",
@@ -96,10 +124,24 @@
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.364277 -2.390747"
+    },
+    {
+      "id": "b4ca0aee-957d-4aeb-a66f-da0fb6cd6a28",
+      "title": "alert",
+      "published": "Tue Nov 17 08:29:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.350379 -2.407433"
     },
     {
       "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
@@ -144,18 +186,18 @@
       "point": "53.357309 -2.315187"
     },
     {
-      "id": "6655c47d-3556-45e7-9a04-c8ba86dc55e7",
+      "id": "11a6d9d1-e049-4e85-9471-6c226b6dcaff",
       "title": "alert",
-      "published": "Tue Nov 17 07:45:26 +0000 2026",
+      "published": "Tue Nov 17 08:09:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (E)",
+      "road": "M61 (S)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.359336 -2.372175"
+      "reportRating": 3.0,
+      "point": "53.543472 -2.441792"
     },
     {
       "id": "9e8f6430-dd9f-4b62-a811-09eebdf60048",
@@ -166,8 +208,8 @@
       "road": "M61 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.543905 -2.443954"
     },
@@ -183,49 +225,21 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.543212 -2.441331"
+      "point": "53.542716 -2.438808"
     },
     {
-      "id": "95830f8e-e2d5-4ee9-8c58-f1a6b8bb870d",
+      "id": "cf239ca0-e285-40e7-9fef-031811ac4211",
       "title": "alert",
-      "published": "Tue Nov 17 08:17:03 +0000 2026",
+      "published": "Tue Nov 17 08:33:00 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M61 (S) - Kearsley Spur",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.537091 -2.391599"
-    },
-    {
-      "id": "11a6d9d1-e049-4e85-9471-6c226b6dcaff",
-      "title": "alert",
-      "published": "Tue Nov 17 08:09:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.543472 -2.441792"
-    },
-    {
-      "id": "9cb980c8-44a9-4b28-a93f-a7f4d6798e61",
-      "title": "alert",
-      "published": "Tue Nov 17 08:23:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.557316 -2.247375"
+      "reportRating": 5.0,
+      "point": "53.4742 -2.12807"
     }
   ]
 }
