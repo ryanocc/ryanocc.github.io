@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T18:15:49.308124+00:00",
+  "updatedAt": "2026-11-17T18:20:49.380676+00:00",
   "source": "Waze GeoRSS",
-  "count": 23,
+  "count": 20,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -26,38 +26,10 @@
       "road": "Werneth Low Rd",
       "city": "Romiley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.423912 -2.079381"
-    },
-    {
-      "id": "4f2dedef-19db-4146-9f5b-75cd742a099d",
-      "title": "alert",
-      "published": "Tue Nov 17 17:14:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Gambrel Bank Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.502697 -2.094731"
-    },
-    {
-      "id": "3115a2ba-98b2-412f-b78c-05381048d351",
-      "title": "alert",
-      "published": "Tue Nov 17 16:45:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6222 - Bury Rd",
-      "city": "Bamford",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.610981 -2.197403"
     },
     {
       "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
@@ -72,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.607828 -2.20703"
+    },
+    {
+      "id": "3115a2ba-98b2-412f-b78c-05381048d351",
+      "title": "alert",
+      "published": "Tue Nov 17 16:45:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.610981 -2.197403"
     },
     {
       "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
@@ -116,20 +102,6 @@
       "point": "53.457186 -2.336791"
     },
     {
-      "id": "a4b8eed4-ba65-4b82-88d0-b805d62afd73",
-      "title": "alert",
-      "published": "Tue Nov 17 17:06:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5066 - Oldfield Rd",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.478108 -2.268404"
-    },
-    {
       "id": "aaf09000-2b2b-4b9a-b17b-33a2d28bec1e",
       "title": "alert",
       "published": "Tue Nov 17 16:55:50 +0000 2026",
@@ -142,20 +114,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.462473 -2.274816"
-    },
-    {
-      "id": "6db03066-2aff-4d08-a124-a41b5cf9e338",
-      "title": "alert",
-      "published": "Tue Nov 17 17:21:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.522971 -2.167514"
     },
     {
       "id": "7e4985b6-0487-44ce-a45c-32a443ef61c9",
@@ -184,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.523373 -2.168925"
+    },
+    {
+      "id": "6db03066-2aff-4d08-a124-a41b5cf9e338",
+      "title": "alert",
+      "published": "Tue Nov 17 17:21:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.522971 -2.167514"
     },
     {
       "id": "5f6e7022-77ef-4305-a80f-86f276f13b2e",
@@ -222,24 +194,10 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.417933 -2.261806"
-    },
-    {
-      "id": "94a565b6-32a2-44a2-8bc2-7846aae8b4b7",
-      "title": "alert",
-      "published": "Tue Nov 17 17:47:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.418605 -2.261213"
     },
     {
       "id": "a7693aac-5af5-4469-971a-3d8ea1df73c3",
@@ -250,7 +208,7 @@
       "road": "A676 - Marsden Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.578949 -2.434647"
@@ -264,24 +222,10 @@
       "road": "A56 - Bury New Rd",
       "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.50179 -2.257755"
-    },
-    {
-      "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
-      "title": "alert",
-      "published": "Tue Nov 17 18:00:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.538497 -2.239698"
     },
     {
       "id": "189c7d4d-7c2e-4cd7-9a89-557e2e70204f",
@@ -296,6 +240,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.539412 -2.237144"
+    },
+    {
+      "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
+      "title": "alert",
+      "published": "Tue Nov 17 18:00:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.538497 -2.239698"
     },
     {
       "id": "25fd4e16-470d-4eb2-831f-4975aaec21a6",
