@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T15:35:49.297128+00:00",
+  "updatedAt": "2026-11-17T15:40:49.254745+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
     {
       "id": "a283bc8d-4f30-4382-a02b-d567e4046b25",
@@ -32,32 +32,18 @@
       "point": "53.543423 -2.360505"
     },
     {
-      "id": "997ad4d9-bc56-48d8-90f1-5838d2812a97",
+      "id": "936888f5-b417-4a9a-9007-6da0a74ad5af",
       "title": "alert",
-      "published": "Tue Nov 17 15:30:23 +0000 2026",
+      "published": "Tue Nov 17 15:38:07 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A664 - Rochdale Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.525253 -2.214002"
-    },
-    {
-      "id": "2dc39a3f-872a-4221-97b7-262dda6fa5a7",
-      "title": "alert",
-      "published": "Tue Nov 17 15:29:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6046 - Hollin Ln",
-      "city": "Middleton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.564105 -2.20468"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.526348 -2.212698"
     },
     {
       "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
@@ -68,10 +54,24 @@
       "road": "A6046 - Hollin Ln",
       "city": "Middleton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.563942 -2.204629"
+    },
+    {
+      "id": "2dc39a3f-872a-4221-97b7-262dda6fa5a7",
+      "title": "alert",
+      "published": "Tue Nov 17 15:29:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6046 - Hollin Ln",
+      "city": "Middleton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.564105 -2.20468"
     },
     {
       "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
@@ -88,20 +88,6 @@
       "point": "53.602246 -2.036079"
     },
     {
-      "id": "04ab8579-23f3-4af7-bb7f-592732193a2e",
-      "title": "alert",
-      "published": "Tue Nov 17 14:06:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.499039 -2.526363"
-    },
-    {
       "id": "7d3bff76-4c8d-466b-9faf-1ac44e82827a",
       "title": "alert",
       "published": "Tue Nov 17 15:31:42 +0000 2026",
@@ -110,24 +96,10 @@
       "road": "A56 - Bury New Rd",
       "city": "Whitefield",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.549112 -2.294561"
-    },
-    {
-      "id": "3db0adbd-978b-456c-a1a6-49f78a48a48b",
-      "title": "alert",
-      "published": "Tue Nov 17 15:32:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M67 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.456278 -2.099094"
     }
   ]
 }
