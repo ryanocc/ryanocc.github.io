@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T19:45:48.916566+00:00",
+  "updatedAt": "2026-11-17T19:50:48.920982+00:00",
   "source": "Waze GeoRSS",
   "count": 14,
   "incidents": [
@@ -40,7 +40,7 @@
       "road": "Blackley New Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.525737 -2.24753"
@@ -54,8 +54,8 @@
       "road": "Blackley New Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.525757 -2.247692"
     },
@@ -102,20 +102,6 @@
       "point": "53.40467 -2.267467"
     },
     {
-      "id": "8d222ded-d770-4d11-ba7d-72af5f9f8aa7",
-      "title": "alert",
-      "published": "Tue Nov 17 18:30:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Victoria Rd",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.580511 -2.487265"
-    },
-    {
       "id": "a7693aac-5af5-4469-971a-3d8ea1df73c3",
       "title": "alert",
       "published": "Tue Nov 17 18:04:23 +0000 2026",
@@ -128,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.578949 -2.434647"
+    },
+    {
+      "id": "132f5ad1-1474-48f6-bb0b-955885eb2baa",
+      "title": "alert",
+      "published": "Tue Nov 17 19:50:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - St. James Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.50394 -2.252036"
     },
     {
       "id": "5faf7950-4ff7-4c52-b9a2-97306ea39d43",
@@ -166,7 +166,7 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.527676 -2.247126"
@@ -181,7 +181,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.601064 -2.273129"
     },
