@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T08:45:49.502271+00:00",
+  "updatedAt": "2026-11-17T08:50:49.551260+00:00",
   "source": "Waze GeoRSS",
   "count": 17,
   "incidents": [
@@ -41,7 +41,7 @@
       "city": "Ancoats",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.482356 -2.217056"
     },
@@ -54,7 +54,7 @@
       "road": "A56 > Altrincham",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.365478 -2.389843"
@@ -111,7 +111,7 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.547288 -2.165117"
     },
@@ -144,6 +144,20 @@
       "point": "53.595185 -2.339516"
     },
     {
+      "id": "b7f4ffa6-1dc7-4464-a230-b585758796c1",
+      "title": "alert",
+      "published": "Tue Nov 17 08:48:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.46208 -2.172956"
+    },
+    {
       "id": "1dcc792b-bdf1-4601-a386-c146c3814654",
       "title": "alert",
       "published": "Tue Nov 17 08:29:47 +0000 2026",
@@ -153,7 +167,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.379338 -2.532275"
     },
@@ -170,20 +184,6 @@
       "reliability": 5.0,
       "reportRating": 4.0,
       "point": "53.572041 -2.550741"
-    },
-    {
-      "id": "b4ca0aee-957d-4aeb-a66f-da0fb6cd6a28",
-      "title": "alert",
-      "published": "Tue Nov 17 08:29:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A556 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.350379 -2.407433"
     },
     {
       "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
@@ -239,7 +239,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.542716 -2.438808"
+      "point": "53.543212 -2.441331"
     }
   ]
 }
