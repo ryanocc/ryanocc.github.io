@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T18:30:49.208980+00:00",
+  "updatedAt": "2026-11-17T18:35:48.801642+00:00",
   "source": "Waze GeoRSS",
-  "count": 22,
+  "count": 24,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -30,6 +30,20 @@
       "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.423912 -2.079381"
+    },
+    {
+      "id": "fe313b2d-422c-46e1-9e02-3d19b82f1daf",
+      "title": "alert",
+      "published": "Tue Nov 17 18:34:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "White Lion Brow",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.578799 -2.43571"
     },
     {
       "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
@@ -102,6 +116,20 @@
       "point": "53.457186 -2.336791"
     },
     {
+      "id": "09d08178-dad8-4237-b790-b31ccb8a157a",
+      "title": "alert",
+      "published": "Tue Nov 17 18:33:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6144 - Carrington Spur",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.436204 -2.345792"
+    },
+    {
       "id": "aaf09000-2b2b-4b9a-b17b-33a2d28bec1e",
       "title": "alert",
       "published": "Tue Nov 17 16:55:50 +0000 2026",
@@ -139,7 +167,7 @@
       "city": "Wilmslow",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.3259 -2.233018"
     },
@@ -194,10 +222,10 @@
       "road": "A58 - Victoria Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
-      "point": "53.579754 -2.487397"
+      "point": "53.580511 -2.487265"
     },
     {
       "id": "a7693aac-5af5-4469-971a-3d8ea1df73c3",
@@ -214,32 +242,18 @@
       "point": "53.578949 -2.434647"
     },
     {
-      "id": "1aec8502-f742-45f7-817e-dc4198eb755a",
+      "id": "0a7acf53-706e-4e58-a264-ecd6ce33d366",
       "title": "alert",
-      "published": "Tue Nov 17 18:27:32 +0000 2026",
+      "published": "Tue Nov 17 18:30:49 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Crumpsall",
+      "road": "A665 - Swan St",
+      "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.524028 -2.248978"
-    },
-    {
-      "id": "25769be6-0fab-4aff-af1f-68a2626f1d4f",
-      "title": "alert",
-      "published": "Tue Nov 17 18:26:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Manchester Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.457181 -2.140024"
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.485687 -2.234739"
     },
     {
       "id": "1f6457cd-d0a1-4b3e-aa61-1e94ff853ed1",
@@ -250,8 +264,8 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.526824 -2.247554"
     },
@@ -278,8 +292,8 @@
       "road": "A628 - Market St",
       "city": "Hollingworth",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.463134 -1.991475"
     },
@@ -296,6 +310,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.561062 -2.148203"
+    },
+    {
+      "id": "dfb5436a-c30b-4efd-85dc-a15f7a93f286",
+      "title": "alert",
+      "published": "Tue Nov 17 18:33:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A627(M) (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.577126 -2.160415"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
