@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T16:50:49.419178+00:00",
+  "updatedAt": "2026-11-17T16:55:49.566450+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 12,
   "incidents": [
     {
       "id": "ae717215-153e-4fb1-b17b-610023f9e673",
@@ -74,6 +74,34 @@
       "point": "53.609614 -2.2019"
     },
     {
+      "id": "45cdd917-7054-420e-a64f-045844043c0a",
+      "title": "alert",
+      "published": "Tue Nov 17 16:55:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5066 - Oldfield Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.477319 -2.268801"
+    },
+    {
+      "id": "fda1e79b-d4f9-4e9c-bb4b-1f41299839e8",
+      "title": "alert",
+      "published": "Tue Nov 17 16:51:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Manchester Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.397763 -2.510906"
+    },
+    {
       "id": "0afdb079-a595-478b-b670-ba34cc657230",
       "title": "alert",
       "published": "Tue Nov 17 16:44:57 +0000 2026",
@@ -99,21 +127,35 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.357263 -2.317813"
+      "point": "53.357279 -2.319056"
     },
     {
-      "id": "360d5f67-bc94-4772-aefb-f3573704b8be",
+      "id": "b04c7237-ddd8-461b-a77b-a4ca9db260b4",
       "title": "alert",
-      "published": "Tue Nov 17 16:45:47 +0000 2026",
+      "published": "Tue Nov 17 16:53:17 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.542686 -2.244068"
+    },
+    {
+      "id": "12f872f1-63db-4a7b-aea9-89df4dcf9ee5",
+      "title": "alert",
+      "published": "Tue Nov 17 16:55:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627(M) (N)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.550426 -2.261398"
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.560827 -2.147791"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
