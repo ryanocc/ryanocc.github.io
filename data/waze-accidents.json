@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T08:05:49.295808+00:00",
+  "updatedAt": "2026-11-17T08:10:49.093939+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 18,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -40,7 +40,7 @@
       "road": "Carruthers St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.482305 -2.216988"
@@ -54,7 +54,7 @@
       "road": "",
       "city": "Grange",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.409438 -2.531121"
@@ -68,8 +68,8 @@
       "road": "A56 > Altrincham",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.365478 -2.389843"
     },
@@ -82,8 +82,8 @@
       "road": "Beswick St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.482691 -2.21351"
     },
@@ -96,10 +96,24 @@
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.36349 -2.391521"
+    },
+    {
+      "id": "5e864c97-6fa8-45e0-9c8d-26f62446d8ec",
+      "title": "alert",
+      "published": "Tue Nov 17 08:06:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.364277 -2.390747"
     },
     {
       "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
@@ -138,24 +152,10 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.357309 -2.315187"
-    },
-    {
-      "id": "264a6153-b311-4b80-9509-37e466ce706b",
-      "title": "alert",
-      "published": "Tue Nov 17 07:46:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.357232 -2.313476"
     },
     {
       "id": "6655c47d-3556-45e7-9a04-c8ba86dc55e7",
@@ -186,6 +186,20 @@
       "point": "53.358005 -2.307566"
     },
     {
+      "id": "264a6153-b311-4b80-9509-37e466ce706b",
+      "title": "alert",
+      "published": "Tue Nov 17 07:46:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.357232 -2.313476"
+    },
+    {
       "id": "50fca089-a1fc-4d20-bc18-4ea74159c1c8",
       "title": "alert",
       "published": "Tue Nov 17 07:30:37 +0000 2026",
@@ -200,18 +214,46 @@
       "point": "53.485276 -2.383896"
     },
     {
-      "id": "c26f0b30-e65d-4ef5-8a55-05639056ec97",
+      "id": "bf9a1e12-07a9-42ff-aaf3-d6446436f4bb",
       "title": "alert",
-      "published": "Tue Nov 17 07:58:38 +0000 2026",
+      "published": "Tue Nov 17 08:07:13 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (W)",
+      "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 1.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.487834 -2.375803"
+      "reportRating": 2.0,
+      "point": "53.543803 -2.444242"
+    },
+    {
+      "id": "401c6e96-2116-4376-851a-7e9f63ec7948",
+      "title": "alert",
+      "published": "Tue Nov 17 08:06:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.544509 -2.44782"
+    },
+    {
+      "id": "11a6d9d1-e049-4e85-9471-6c226b6dcaff",
+      "title": "alert",
+      "published": "Tue Nov 17 08:09:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.543472 -2.441792"
     }
   ]
 }
