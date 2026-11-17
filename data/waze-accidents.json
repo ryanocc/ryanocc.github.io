@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T17:20:49.459096+00:00",
+  "updatedAt": "2026-11-17T17:25:49.513041+00:00",
   "source": "Waze GeoRSS",
-  "count": 19,
+  "count": 21,
   "incidents": [
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -27,9 +27,23 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.502697 -2.094731"
+    },
+    {
+      "id": "55762026-d84e-4498-b5a7-5d944b89ef5b",
+      "title": "alert",
+      "published": "Tue Nov 17 17:22:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5167 - Palatine Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.413061 -2.251683"
     },
     {
       "id": "1904d21d-c4a1-4de8-9403-8d1d8de59bd9",
@@ -40,7 +54,7 @@
       "road": "Kirkmanshulme Ln",
       "city": "Belle Vue",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.459674 -2.196134"
@@ -102,6 +116,20 @@
       "point": "53.435581 -2.115612"
     },
     {
+      "id": "c4ec4e26-a699-45b1-8497-7d579236ea5d",
+      "title": "alert",
+      "published": "Tue Nov 17 17:22:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6044 - Agecroft Rd",
+      "city": "Pendlebury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.509624 -2.309328"
+    },
+    {
       "id": "45cdd917-7054-420e-a64f-045844043c0a",
       "title": "alert",
       "published": "Tue Nov 17 16:55:46 +0000 2026",
@@ -144,18 +172,32 @@
       "point": "53.462473 -2.274816"
     },
     {
-      "id": "f20ec412-d4f5-4890-8cfb-37297723dd93",
+      "id": "260803bd-b12f-4b10-afeb-c1d426398854",
       "title": "alert",
-      "published": "Tue Nov 17 17:17:34 +0000 2026",
+      "published": "Tue Nov 17 17:22:01 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.523373 -2.168925"
+    },
+    {
+      "id": "6db03066-2aff-4d08-a124-a41b5cf9e338",
+      "title": "alert",
+      "published": "Tue Nov 17 17:21:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
-      "point": "53.593073 -2.180804"
+      "point": "53.523052 -2.1678"
     },
     {
       "id": "a01bc35a-82a8-4f7c-93fc-c02770d1ba44",
@@ -166,38 +208,24 @@
       "road": "A671 - Oldham Rd",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.609905 -2.148967"
     },
     {
-      "id": "2722c288-c363-4add-8309-675f0466d51d",
+      "id": "f20ec412-d4f5-4890-8cfb-37297723dd93",
       "title": "alert",
-      "published": "Tue Nov 17 17:07:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.405716 -2.267519"
-    },
-    {
-      "id": "1cdab4fb-d677-4b38-b02e-6633d6fe1a64",
-      "title": "alert",
-      "published": "Tue Nov 17 17:16:43 +0000 2026",
+      "published": "Tue Nov 17 17:17:34 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
+      "road": "A664 - Manchester Rd",
+      "city": "Rochdale",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 0.0,
       "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.41638 -2.263369"
+      "reportRating": 1.0,
+      "point": "53.593073 -2.180804"
     },
     {
       "id": "533de210-c27f-4024-9e9e-0f1e157e4025",
@@ -208,10 +236,38 @@
       "road": "A5103 - Princess Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.417791 -2.262171"
+    },
+    {
+      "id": "1cdab4fb-d677-4b38-b02e-6633d6fe1a64",
+      "title": "alert",
+      "published": "Tue Nov 17 17:16:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.41638 -2.263369"
+    },
+    {
+      "id": "2722c288-c363-4add-8309-675f0466d51d",
+      "title": "alert",
+      "published": "Tue Nov 17 17:07:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.405716 -2.267519"
     },
     {
       "id": "77092231-72bf-4012-ba86-f02712cf5df0",
@@ -223,37 +279,9 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.402455 -2.156925"
-    },
-    {
-      "id": "2a5e2cdf-ee74-4041-a09a-f54b821f0368",
-      "title": "alert",
-      "published": "Tue Nov 17 16:56:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - Hulme Hall Ln",
-      "city": "Miles Platting",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.494698 -2.209541"
-    },
-    {
-      "id": "b04c7237-ddd8-461b-a77b-a4ca9db260b4",
-      "title": "alert",
-      "published": "Tue Nov 17 16:53:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.542686 -2.244068"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
