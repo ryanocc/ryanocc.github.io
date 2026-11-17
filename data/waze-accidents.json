@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T14:10:49.059051+00:00",
+  "updatedAt": "2026-11-17T14:15:49.136694+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -41,7 +41,7 @@
       "city": "Barton Upon Irwell",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.480876 -2.358459"
     },
@@ -88,20 +88,6 @@
       "point": "53.602246 -2.036079"
     },
     {
-      "id": "b1fec797-6fc4-4f2a-bb3d-592074d0933f",
-      "title": "alert",
-      "published": "Tue Nov 17 14:06:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.499467 -2.526074"
-    },
-    {
       "id": "04ab8579-23f3-4af7-bb7f-592732193a2e",
       "title": "alert",
       "published": "Tue Nov 17 14:06:24 +0000 2026",
@@ -114,6 +100,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.499147 -2.52629"
+    },
+    {
+      "id": "b1fec797-6fc4-4f2a-bb3d-592074d0933f",
+      "title": "alert",
+      "published": "Tue Nov 17 14:06:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.499467 -2.526074"
     }
   ]
 }
