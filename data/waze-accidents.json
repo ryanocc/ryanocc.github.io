@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-17T08:35:49.595150+00:00",
+  "updatedAt": "2026-11-17T08:40:49.615007+00:00",
   "source": "Waze GeoRSS",
-  "count": 17,
+  "count": 16,
   "incidents": [
-    {
-      "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
-      "title": "alert",
-      "published": "Tue Nov 17 06:35:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Tyldesley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.516666 -2.438352"
-    },
     {
       "id": "b0b3a853-7e34-4602-81e6-ec1520860a30",
       "title": "alert",
@@ -68,7 +54,7 @@
       "road": "Beswick St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.482691 -2.21351"
@@ -83,9 +69,23 @@
       "city": "Pilsworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.578524 -2.269704"
+    },
+    {
+      "id": "6dd15277-9b65-42b8-8bdc-454cf6ca9bee",
+      "title": "alert",
+      "published": "Tue Nov 17 08:40:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Wardle Rd",
+      "city": "Wardle",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.644578 -2.134912"
     },
     {
       "id": "1dcc792b-bdf1-4601-a386-c146c3814654",
@@ -124,7 +124,7 @@
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.364277 -2.390747"
@@ -138,24 +138,10 @@
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.350379 -2.407433"
-    },
-    {
-      "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
-      "title": "alert",
-      "published": "Tue Nov 17 07:56:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "",
-      "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.47786 -2.535445"
+      "point": "53.350379 -2.407433"
     },
     {
       "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
@@ -170,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.477444 -2.53551"
+    },
+    {
+      "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
+      "title": "alert",
+      "published": "Tue Nov 17 07:56:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.47786 -2.535445"
     },
     {
       "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
@@ -197,7 +197,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.543472 -2.441792"
+      "point": "53.543412 -2.441493"
     },
     {
       "id": "9e8f6430-dd9f-4b62-a811-09eebdf60048",
@@ -208,7 +208,7 @@
       "road": "M61 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.543905 -2.443954"
@@ -226,20 +226,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.542716 -2.438808"
-    },
-    {
-      "id": "cf239ca0-e285-40e7-9fef-031811ac4211",
-      "title": "alert",
-      "published": "Tue Nov 17 08:33:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.4742 -2.12807"
     }
   ]
 }
