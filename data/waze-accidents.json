@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T08:55:49.497739+00:00",
+  "updatedAt": "2026-11-17T09:00:49.495962+00:00",
   "source": "Waze GeoRSS",
   "count": 17,
   "incidents": [
@@ -40,8 +40,8 @@
       "road": "Carruthers St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.482356 -2.217056"
     },
@@ -60,6 +60,20 @@
       "point": "53.482691 -2.21351"
     },
     {
+      "id": "a35a6119-76bf-4307-b16f-c5ecade56202",
+      "title": "alert",
+      "published": "Tue Nov 17 08:45:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Pilsworth Rd",
+      "city": "Pilsworth",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.578724 -2.27133"
+    },
+    {
       "id": "73de94ae-673d-4a98-b65e-84ca3ed89183",
       "title": "alert",
       "published": "Tue Nov 17 08:31:47 +0000 2026",
@@ -74,20 +88,6 @@
       "point": "53.578524 -2.269704"
     },
     {
-      "id": "a35a6119-76bf-4307-b16f-c5ecade56202",
-      "title": "alert",
-      "published": "Tue Nov 17 08:45:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Pilsworth Rd",
-      "city": "Pilsworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.578724 -2.27133"
-    },
-    {
       "id": "5759cca1-26a7-431e-a21c-3c0d89063ce0",
       "title": "alert",
       "published": "Tue Nov 17 08:45:23 +0000 2026",
@@ -96,10 +96,24 @@
       "road": "Baytree Ave",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.547288 -2.165117"
+    },
+    {
+      "id": "36c040ad-e176-4699-9b88-e6c6c19c5b21",
+      "title": "alert",
+      "published": "Tue Nov 17 09:00:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Park Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.537346 -2.114766"
     },
     {
       "id": "6dd15277-9b65-42b8-8bdc-454cf6ca9bee",
@@ -194,7 +208,7 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.357784 -2.307961"
@@ -226,20 +240,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.543212 -2.441331"
-    },
-    {
-      "id": "17b34f88-579d-4527-8591-e86a6112b30d",
-      "title": "alert",
-      "published": "Tue Nov 17 08:51:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.556435 -2.248389"
     }
   ]
 }
