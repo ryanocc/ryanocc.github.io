@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T09:35:49.139042+00:00",
+  "updatedAt": "2026-11-17T09:40:49.124324+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "f5bd5792-9002-435f-be57-6458ac2ac9bd",
@@ -96,8 +96,8 @@
       "road": "Wardle Rd",
       "city": "Wardle",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.644578 -2.134912"
     },
@@ -144,6 +144,20 @@
       "point": "53.46208 -2.172956"
     },
     {
+      "id": "9ec07087-076b-4db7-beea-c0cd752ccd47",
+      "title": "alert",
+      "published": "Tue Nov 17 09:40:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A626 - Hall St",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.404798 -2.138424"
+    },
+    {
       "id": "12911698-b76c-4798-802a-5106fad0065c",
       "title": "alert",
       "published": "Tue Nov 17 09:17:44 +0000 2026",
@@ -152,24 +166,10 @@
       "road": "A6 - Wellington Rd N",
       "city": "Heaton Norris",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.418014 -2.170657"
-    },
-    {
-      "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
-      "title": "alert",
-      "published": "Tue Nov 17 08:51:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.357784 -2.307961"
     },
     {
       "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
@@ -184,6 +184,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.357309 -2.315187"
+    },
+    {
+      "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
+      "title": "alert",
+      "published": "Tue Nov 17 08:51:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.357784 -2.307961"
     }
   ]
 }
