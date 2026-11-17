@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T06:50:48.829781+00:00",
+  "updatedAt": "2026-11-17T06:55:48.860060+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 3,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -26,24 +26,10 @@
       "road": "A58 - Liverpool Rd",
       "city": "Ashton-in-Makerfield",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.486249 -2.640043"
-    },
-    {
-      "id": "121ff570-8261-47f7-afbb-7c22499912c0",
-      "title": "alert",
-      "published": "Tue Nov 17 05:08:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A626 - Glossop Rd",
-      "city": "Gamesley",
-      "country": "UK",
       "confidence": 1.0,
       "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.445115 -1.982444"
+      "reportRating": 3.0,
+      "point": "53.486249 -2.640043"
     },
     {
       "id": "69bc001a-2c46-4eaa-bf84-853a666672c2",
@@ -54,24 +40,10 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.50727 -2.414683"
-    },
-    {
-      "id": "50fee536-22ad-4489-8b92-edbe0a42fde0",
-      "title": "alert",
-      "published": "Tue Nov 17 06:35:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.50738 -2.413487"
     }
   ]
 }
