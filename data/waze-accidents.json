@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-17T09:20:49.222697+00:00",
+  "updatedAt": "2026-11-17T09:25:49.165458+00:00",
   "source": "Waze GeoRSS",
-  "count": 16,
+  "count": 15,
   "incidents": [
+    {
+      "id": "f5bd5792-9002-435f-be57-6458ac2ac9bd",
+      "title": "alert",
+      "published": "Tue Nov 17 09:23:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.430994 -2.317961"
+    },
     {
       "id": "b0b3a853-7e34-4602-81e6-ec1520860a30",
       "title": "alert",
@@ -54,7 +68,7 @@
       "road": "Pilsworth Rd",
       "city": "Pilsworth",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.578524 -2.269704"
@@ -69,23 +83,9 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.547288 -2.165117"
-    },
-    {
-      "id": "36c040ad-e176-4699-9b88-e6c6c19c5b21",
-      "title": "alert",
-      "published": "Tue Nov 17 09:00:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Park Rd",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.537346 -2.114766"
     },
     {
       "id": "6dd15277-9b65-42b8-8bdc-454cf6ca9bee",
@@ -166,38 +166,10 @@
       "road": "A6 - Wellington Rd N",
       "city": "Heaton Norris",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.418014 -2.170657"
-    },
-    {
-      "id": "c31ac50c-4363-49d0-9e16-be7248589a55",
-      "title": "alert",
-      "published": "Tue Nov 17 09:05:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A663 - Broadway",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.532827 -2.152887"
-    },
-    {
-      "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
-      "title": "alert",
-      "published": "Tue Nov 17 07:56:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.357309 -2.315187"
     },
     {
       "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
@@ -212,6 +184,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.357784 -2.307961"
+    },
+    {
+      "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
+      "title": "alert",
+      "published": "Tue Nov 17 07:56:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.357309 -2.315187"
     },
     {
       "id": "bf9a1e12-07a9-42ff-aaf3-d6446436f4bb",
