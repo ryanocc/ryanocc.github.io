@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-17T13:10:48.993782+00:00",
+  "updatedAt": "2026-11-17T13:15:49.091995+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
-    {
-      "id": "73a0b0ac-e0c2-42c4-88b2-eb77cf2e031b",
-      "title": "alert",
-      "published": "Tue Nov 17 12:41:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.578351 -2.469171"
-    },
     {
       "id": "b72b4e70-235e-409e-b680-d9b65f3e1f18",
       "title": "alert",
@@ -27,7 +13,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.575001 -2.419177"
     },
@@ -60,6 +46,20 @@
       "point": "53.480876 -2.358459"
     },
     {
+      "id": "152cb322-03d1-40ec-b907-c9fd0840f604",
+      "title": "alert",
+      "published": "Tue Nov 17 13:15:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Hyde",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.446792 -2.075613"
+    },
+    {
       "id": "255e8bba-099d-409c-a3fb-c86345955568",
       "title": "alert",
       "published": "Tue Nov 17 12:18:36 +0000 2026",
@@ -72,20 +72,6 @@
       "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.60275 -2.035797"
-    },
-    {
-      "id": "81bac8d2-5773-455a-8877-66e4ee6678d1",
-      "title": "alert",
-      "published": "Tue Nov 17 13:06:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (N) - Princess Rd",
-      "city": "Moss Side",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.458368 -2.245203"
     }
   ]
 }
