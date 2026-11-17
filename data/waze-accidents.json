@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T18:50:49.094355+00:00",
+  "updatedAt": "2026-11-17T18:55:49.114786+00:00",
   "source": "Waze GeoRSS",
-  "count": 19,
+  "count": 20,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -40,8 +40,8 @@
       "road": "White Lion Brow",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.578799 -2.43571"
     },
@@ -130,20 +130,6 @@
       "point": "53.522943 -2.167123"
     },
     {
-      "id": "5f6e7022-77ef-4305-a80f-86f276f13b2e",
-      "title": "alert",
-      "published": "Tue Nov 17 17:58:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (S) - Handforth Bypass",
-      "city": "Cheadle",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.366457 -2.209003"
-    },
-    {
       "id": "165bd197-25aa-4993-92c3-60029dab8a02",
       "title": "alert",
       "published": "Tue Nov 17 18:43:24 +0000 2026",
@@ -152,7 +138,7 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "Cheadle",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.37466 -2.211466"
@@ -228,6 +214,34 @@
       "point": "53.443227 -2.226032"
     },
     {
+      "id": "afe98996-fcc1-4a12-bc03-e6aa558e2fd1",
+      "title": "alert",
+      "published": "Tue Nov 17 18:44:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.538324 -2.239971"
+    },
+    {
+      "id": "5e6b23e9-16c0-4bf6-90f8-756d7ddb5cb4",
+      "title": "alert",
+      "published": "Tue Nov 17 18:54:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.529669 -2.246129"
+    },
+    {
       "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
       "title": "alert",
       "published": "Tue Nov 17 18:00:15 +0000 2026",
@@ -242,32 +256,32 @@
       "point": "53.538497 -2.239698"
     },
     {
-      "id": "afe98996-fcc1-4a12-bc03-e6aa558e2fd1",
+      "id": "b565a692-aa97-4539-bdfe-5bfb9ef750f1",
       "title": "alert",
-      "published": "Tue Nov 17 18:44:45 +0000 2026",
+      "published": "Tue Nov 17 18:53:34 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.538324 -2.239971"
+      "reportRating": 4.0,
+      "point": "53.496148 -2.384114"
     },
     {
-      "id": "dfb5436a-c30b-4efd-85dc-a15f7a93f286",
+      "id": "c15d487c-6f3e-4575-a68f-7733ea921d33",
       "title": "alert",
-      "published": "Tue Nov 17 18:33:39 +0000 2026",
+      "published": "Tue Nov 17 18:54:35 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "A627(M) (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.577126 -2.160415"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.561317 -2.149005"
     }
   ]
 }
