@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T18:40:49.240198+00:00",
+  "updatedAt": "2026-11-17T18:45:49.295290+00:00",
   "source": "Waze GeoRSS",
-  "count": 22,
+  "count": 20,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -46,34 +46,6 @@
       "point": "53.578799 -2.43571"
     },
     {
-      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
-      "title": "alert",
-      "published": "Tue Nov 17 16:33:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6222 - Bury Rd",
-      "city": "Bamford",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.609614 -2.2019"
-    },
-    {
-      "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
-      "title": "alert",
-      "published": "Tue Nov 17 17:40:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6222 - Bury Rd",
-      "city": "Bamford",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.607828 -2.20703"
-    },
-    {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
       "published": "Tue Nov 17 16:45:15 +0000 2026",
@@ -88,18 +60,18 @@
       "point": "53.610981 -2.197403"
     },
     {
-      "id": "ae31d970-5439-4c8b-8bd4-a388feaf836e",
+      "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
       "title": "alert",
-      "published": "Tue Nov 17 18:03:48 +0000 2026",
+      "published": "Tue Nov 17 17:40:50 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627 > Oldham",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 4.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.559579 -2.142298"
+      "reportRating": 0.0,
+      "point": "53.607828 -2.20703"
     },
     {
       "id": "58168873-983b-4853-9875-f390c79e69db",
@@ -167,7 +139,7 @@
       "city": "Wilmslow",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.3259 -2.233018"
     },
@@ -186,18 +158,18 @@
       "point": "53.366457 -2.209003"
     },
     {
-      "id": "a8b995b7-5d0b-44c8-8e8c-30903ff054a9",
+      "id": "165bd197-25aa-4993-92c3-60029dab8a02",
       "title": "alert",
-      "published": "Tue Nov 17 17:47:56 +0000 2026",
+      "published": "Tue Nov 17 18:43:24 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A34 (S) - Handforth Bypass",
+      "city": "Cheadle",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.417933 -2.261806"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.37466 -2.211466"
     },
     {
       "id": "2722c288-c363-4add-8309-675f0466d51d",
@@ -212,6 +184,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.405716 -2.267519"
+    },
+    {
+      "id": "a8b995b7-5d0b-44c8-8e8c-30903ff054a9",
+      "title": "alert",
+      "published": "Tue Nov 17 17:47:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.417933 -2.261806"
     },
     {
       "id": "8d222ded-d770-4d11-ba7d-72af5f9f8aa7",
@@ -242,20 +228,6 @@
       "point": "53.578949 -2.434647"
     },
     {
-      "id": "1f6457cd-d0a1-4b3e-aa61-1e94ff853ed1",
-      "title": "alert",
-      "published": "Tue Nov 17 18:27:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.526824 -2.247554"
-    },
-    {
       "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
       "title": "alert",
       "published": "Tue Nov 17 18:00:15 +0000 2026",
@@ -270,18 +242,18 @@
       "point": "53.538497 -2.239698"
     },
     {
-      "id": "25fd4e16-470d-4eb2-831f-4975aaec21a6",
+      "id": "afe98996-fcc1-4a12-bc03-e6aa558e2fd1",
       "title": "alert",
-      "published": "Tue Nov 17 17:51:28 +0000 2026",
+      "published": "Tue Nov 17 18:44:45 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627(M) (S)",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.561062 -2.148203"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.538324 -2.239971"
     },
     {
       "id": "dfb5436a-c30b-4efd-85dc-a15f7a93f286",
