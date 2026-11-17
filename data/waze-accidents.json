@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T09:25:49.165458+00:00",
+  "updatedAt": "2026-11-17T09:30:49.131335+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 13,
   "incidents": [
     {
       "id": "f5bd5792-9002-435f-be57-6458ac2ac9bd",
@@ -144,20 +144,6 @@
       "point": "53.46208 -2.172956"
     },
     {
-      "id": "1dcc792b-bdf1-4601-a386-c146c3814654",
-      "title": "alert",
-      "published": "Tue Nov 17 08:29:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Stockport Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.379338 -2.532275"
-    },
-    {
       "id": "12911698-b76c-4798-802a-5106fad0065c",
       "title": "alert",
       "published": "Tue Nov 17 09:17:44 +0000 2026",
@@ -166,24 +152,10 @@
       "road": "A6 - Wellington Rd N",
       "city": "Heaton Norris",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.418014 -2.170657"
-    },
-    {
-      "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
-      "title": "alert",
-      "published": "Tue Nov 17 08:51:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.357784 -2.307961"
     },
     {
       "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
@@ -200,18 +172,18 @@
       "point": "53.357309 -2.315187"
     },
     {
-      "id": "bf9a1e12-07a9-42ff-aaf3-d6446436f4bb",
+      "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
       "title": "alert",
-      "published": "Tue Nov 17 08:07:13 +0000 2026",
+      "published": "Tue Nov 17 08:51:32 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
+      "subtype": "",
+      "road": "M56 (W)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.542986 -2.44022"
+      "reportRating": 3.0,
+      "point": "53.357784 -2.307961"
     }
   ]
 }
