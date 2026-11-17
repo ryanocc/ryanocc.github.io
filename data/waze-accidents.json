@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T14:50:49.222974+00:00",
+  "updatedAt": "2026-11-17T14:55:49.174076+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "3bb52616-3229-4cbd-b0a7-3e0db549c9bb",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.533409 -2.488314"
+    },
+    {
+      "id": "476ca05e-cfcd-417d-8cd9-6064f3166ab3",
+      "title": "alert",
+      "published": "Tue Nov 17 14:52:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.547724 -2.19146"
     },
     {
       "id": "152cb322-03d1-40ec-b907-c9fd0840f604",
@@ -55,9 +69,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.602246 -2.036079"
+    },
+    {
+      "id": "814a6ab2-a216-4b38-b9b6-05f848b57400",
+      "title": "alert",
+      "published": "Tue Nov 17 14:51:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 5.0,
+      "point": "53.407484 -2.267236"
     },
     {
       "id": "b1fec797-6fc4-4f2a-bb3d-592074d0933f",
@@ -82,7 +110,7 @@
       "road": "A579 - Atherleigh Way",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.499039 -2.526363"
