@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T19:30:48.976253+00:00",
+  "updatedAt": "2026-11-17T19:35:49.200442+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 12,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.414987 -2.444608"
-    },
-    {
-      "id": "dcc9d2d7-9bd4-40bf-983d-e309306c6ed3",
-      "title": "alert",
-      "published": "Tue Nov 17 17:46:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Werneth Low Rd",
-      "city": "Romiley",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.423912 -2.079381"
     },
     {
       "id": "fe313b2d-422c-46e1-9e02-3d19b82f1daf",
@@ -58,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.525737 -2.24753"
+    },
+    {
+      "id": "0ae746d8-cc85-4eb2-a6db-92e78a28a8a5",
+      "title": "alert",
+      "published": "Tue Nov 17 19:33:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Blackley New Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.525757 -2.247692"
     },
     {
       "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
@@ -110,7 +110,7 @@
       "road": "A58 - Victoria Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.580511 -2.487265"
@@ -170,20 +170,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.529669 -2.246129"
-    },
-    {
-      "id": "285ddc7b-e3f9-4569-bec0-b48aedc6b3b8",
-      "title": "alert",
-      "published": "Tue Nov 17 19:23:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.398662 -2.226794"
     }
   ]
 }
