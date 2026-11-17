@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T20:00:48.953619+00:00",
+  "updatedAt": "2026-11-17T20:05:48.948635+00:00",
   "source": "Waze GeoRSS",
-  "count": 16,
+  "count": 19,
   "incidents": [
     {
       "id": "fe313b2d-422c-46e1-9e02-3d19b82f1daf",
@@ -18,18 +18,18 @@
       "point": "53.578799 -2.43571"
     },
     {
-      "id": "b3b3becf-ed93-4e8c-b020-60ce8bf96f3f",
+      "id": "0f6606f3-ba42-4bbb-b3ff-7fe3301d18d1",
       "title": "alert",
-      "published": "Tue Nov 17 19:44:27 +0000 2026",
+      "published": "Tue Nov 17 20:05:14 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B6169 - Shepley Rd",
-      "city": "Audenshaw",
+      "road": "Eustace St",
+      "city": "Chadderton",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.467324 -2.114068"
+      "point": "53.550781 -2.138672"
     },
     {
       "id": "66d879af-d3da-4420-b95d-b817f8c10149",
@@ -54,7 +54,7 @@
       "road": "Blackley New Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.525757 -2.247692"
@@ -88,6 +88,20 @@
       "point": "53.369239 -2.313701"
     },
     {
+      "id": "5b461219-87f0-4c1b-821c-429718731f67",
+      "title": "alert",
+      "published": "Tue Nov 17 19:54:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.406834 -2.267379"
+    },
+    {
       "id": "863b4eaa-37c1-4780-8de5-ab2c9e2e7f93",
       "title": "alert",
       "published": "Tue Nov 17 19:06:16 +0000 2026",
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.40467 -2.267467"
-    },
-    {
-      "id": "5b461219-87f0-4c1b-821c-429718731f67",
-      "title": "alert",
-      "published": "Tue Nov 17 19:54:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.406834 -2.267379"
     },
     {
       "id": "132f5ad1-1474-48f6-bb0b-955885eb2baa",
@@ -139,9 +139,23 @@
       "city": "Blackley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.525366 -2.248302"
+    },
+    {
+      "id": "7d53903d-edd4-48e3-987d-1dd9cc676905",
+      "title": "alert",
+      "published": "Tue Nov 17 20:02:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.488354 -2.240619"
     },
     {
       "id": "5faf7950-4ff7-4c52-b9a2-97306ea39d43",
@@ -158,6 +172,20 @@
       "point": "53.503736 -2.252653"
     },
     {
+      "id": "1e3a679e-1cf7-472c-aa97-6cf2a16c73bc",
+      "title": "alert",
+      "published": "Tue Nov 17 19:56:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.538125 -2.24026"
+    },
+    {
       "id": "f85fc6d2-55bd-4aa1-b363-adb27c72b108",
       "title": "alert",
       "published": "Tue Nov 17 19:57:18 +0000 2026",
@@ -166,10 +194,24 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.539241 -2.238477"
+    },
+    {
+      "id": "cb37d657-6cc3-4612-a6e8-e7021c31c7ca",
+      "title": "alert",
+      "published": "Tue Nov 17 20:03:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.538979 -2.238884"
     },
     {
       "id": "5e6b23e9-16c0-4bf6-90f8-756d7ddb5cb4",
@@ -200,20 +242,6 @@
       "point": "53.527676 -2.247126"
     },
     {
-      "id": "1e3a679e-1cf7-472c-aa97-6cf2a16c73bc",
-      "title": "alert",
-      "published": "Tue Nov 17 19:56:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.538125 -2.24026"
-    },
-    {
       "id": "650cb2b5-fa67-4332-bbf2-6b30f41d63fd",
       "title": "alert",
       "published": "Tue Nov 17 19:36:13 +0000 2026",
@@ -226,6 +254,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.612351 -2.090037"
+    },
+    {
+      "id": "55fc883b-99ba-4ba1-9cc1-f8e0fb76d03c",
+      "title": "alert",
+      "published": "Tue Nov 17 20:00:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.62455 -2.071368"
     }
   ]
 }
