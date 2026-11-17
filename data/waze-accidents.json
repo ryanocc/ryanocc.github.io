@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T09:00:49.495962+00:00",
+  "updatedAt": "2026-11-17T09:05:49.354213+00:00",
   "source": "Waze GeoRSS",
   "count": 17,
   "incidents": [
@@ -41,37 +41,9 @@
       "city": "Ancoats",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.482356 -2.217056"
-    },
-    {
-      "id": "ff501300-b48a-4806-a52e-067a10a1b928",
-      "title": "alert",
-      "published": "Tue Nov 17 07:59:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Beswick St",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.482691 -2.21351"
-    },
-    {
-      "id": "a35a6119-76bf-4307-b16f-c5ecade56202",
-      "title": "alert",
-      "published": "Tue Nov 17 08:45:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Pilsworth Rd",
-      "city": "Pilsworth",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.578724 -2.27133"
+      "point": "53.482356 -2.217056"
     },
     {
       "id": "73de94ae-673d-4a98-b65e-84ca3ed89183",
@@ -88,6 +60,20 @@
       "point": "53.578524 -2.269704"
     },
     {
+      "id": "a35a6119-76bf-4307-b16f-c5ecade56202",
+      "title": "alert",
+      "published": "Tue Nov 17 08:45:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Pilsworth Rd",
+      "city": "Pilsworth",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.578724 -2.27133"
+    },
+    {
       "id": "5759cca1-26a7-431e-a21c-3c0d89063ce0",
       "title": "alert",
       "published": "Tue Nov 17 08:45:23 +0000 2026",
@@ -96,8 +82,8 @@
       "road": "Baytree Ave",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.547288 -2.165117"
     },
@@ -110,8 +96,8 @@
       "road": "Park Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.537346 -2.114766"
     },
@@ -158,6 +144,20 @@
       "point": "53.46208 -2.172956"
     },
     {
+      "id": "431197a3-8d4c-4c1d-9be1-fdfe75491748",
+      "title": "alert",
+      "published": "Tue Nov 17 09:04:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.593618 -2.228085"
+    },
+    {
       "id": "1dcc792b-bdf1-4601-a386-c146c3814654",
       "title": "alert",
       "published": "Tue Nov 17 08:29:47 +0000 2026",
@@ -166,7 +166,7 @@
       "road": "A56 - Stockport Rd",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.379338 -2.532275"
@@ -200,20 +200,6 @@
       "point": "53.477444 -2.53551"
     },
     {
-      "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
-      "title": "alert",
-      "published": "Tue Nov 17 08:51:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.357784 -2.307961"
-    },
-    {
       "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
       "title": "alert",
       "published": "Tue Nov 17 07:56:46 +0000 2026",
@@ -228,6 +214,20 @@
       "point": "53.357309 -2.315187"
     },
     {
+      "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
+      "title": "alert",
+      "published": "Tue Nov 17 08:51:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.357784 -2.307961"
+    },
+    {
       "id": "bf9a1e12-07a9-42ff-aaf3-d6446436f4bb",
       "title": "alert",
       "published": "Tue Nov 17 08:07:13 +0000 2026",
@@ -239,7 +239,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.543212 -2.441331"
+      "point": "53.542986 -2.44022"
     }
   ]
 }
