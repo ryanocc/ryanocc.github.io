@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-17T20:35:48.944624+00:00",
+  "updatedAt": "2026-11-17T20:40:48.903077+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 14,
   "incidents": [
-    {
-      "id": "fe313b2d-422c-46e1-9e02-3d19b82f1daf",
-      "title": "alert",
-      "published": "Tue Nov 17 18:34:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "White Lion Brow",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.578799 -2.43571"
-    },
     {
       "id": "0f6606f3-ba42-4bbb-b3ff-7fe3301d18d1",
       "title": "alert",
@@ -41,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.539593 -2.238493"
     },
@@ -83,7 +69,7 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.493822 -2.077312"
     },
@@ -102,18 +88,18 @@
       "point": "53.369239 -2.313701"
     },
     {
-      "id": "132f5ad1-1474-48f6-bb0b-955885eb2baa",
+      "id": "9d96c0dc-3eb7-489f-b87a-8a26c0a51a2d",
       "title": "alert",
-      "published": "Tue Nov 17 19:50:15 +0000 2026",
+      "published": "Tue Nov 17 20:38:16 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - St. James Rd",
-      "city": "Cheetham",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.50394 -2.252036"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.404232 -2.267451"
     },
     {
       "id": "5faf7950-4ff7-4c52-b9a2-97306ea39d43",
@@ -130,32 +116,18 @@
       "point": "53.503736 -2.252653"
     },
     {
-      "id": "73881ffc-1f88-415f-b7c2-3bfbf883e68a",
+      "id": "132f5ad1-1474-48f6-bb0b-955885eb2baa",
       "title": "alert",
-      "published": "Tue Nov 17 20:21:59 +0000 2026",
+      "published": "Tue Nov 17 19:50:15 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
+      "road": "A6010 - St. James Rd",
+      "city": "Cheetham",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 4.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.528107 -2.246932"
-    },
-    {
-      "id": "f85fc6d2-55bd-4aa1-b363-adb27c72b108",
-      "title": "alert",
-      "published": "Tue Nov 17 19:57:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.539241 -2.238477"
+      "reportRating": 0.0,
+      "point": "53.50394 -2.252036"
     },
     {
       "id": "b50587e9-c22f-4364-9aba-4575401c4656",
@@ -172,18 +144,32 @@
       "point": "53.527676 -2.247126"
     },
     {
-      "id": "206e9b9c-157b-4671-aa80-1f4c697c2cd0",
+      "id": "f85fc6d2-55bd-4aa1-b363-adb27c72b108",
       "title": "alert",
-      "published": "Tue Nov 17 20:24:53 +0000 2026",
+      "published": "Tue Nov 17 19:57:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.539241 -2.238477"
+    },
+    {
+      "id": "73881ffc-1f88-415f-b7c2-3bfbf883e68a",
+      "title": "alert",
+      "published": "Tue Nov 17 20:21:59 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A664 - Edinburgh Way",
-      "city": "Rochdale",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.599672 -2.164865"
+      "reportRating": 1.0,
+      "point": "53.528107 -2.246932"
     },
     {
       "id": "2ba1cbdb-f120-4290-8413-8a284a291a4d",
