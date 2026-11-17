@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T07:30:49.032210+00:00",
+  "updatedAt": "2026-11-17T07:35:48.935491+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -40,7 +40,7 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.499281 -2.449161"
@@ -60,20 +60,6 @@
       "point": "53.358005 -2.307566"
     },
     {
-      "id": "53b504b3-082c-49c2-87ff-5c7842559cf4",
-      "title": "alert",
-      "published": "Tue Nov 17 07:25:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.503327 -2.66078"
-    },
-    {
       "id": "50fca089-a1fc-4d20-bc18-4ea74159c1c8",
       "title": "alert",
       "published": "Tue Nov 17 07:30:37 +0000 2026",
@@ -82,24 +68,38 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.485276 -2.383896"
     },
     {
-      "id": "3e4205a4-df79-467b-94f1-84896cc60c3a",
+      "id": "8b0a2c01-7e31-483f-b992-68b9664caca7",
       "title": "alert",
-      "published": "Tue Nov 17 07:24:17 +0000 2026",
+      "published": "Tue Nov 17 07:32:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M61 (S) - Kearsley Spur",
+      "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.536945 -2.391594"
+      "reportRating": 0.0,
+      "point": "53.484349 -2.386222"
+    },
+    {
+      "id": "721170af-6e18-404d-be01-69b68ac50f97",
+      "title": "alert",
+      "published": "Tue Nov 17 07:35:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.597755 -2.121253"
     }
   ]
 }
