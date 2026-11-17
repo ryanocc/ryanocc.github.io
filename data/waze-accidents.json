@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T14:00:49.097254+00:00",
+  "updatedAt": "2026-11-17T14:05:49.123210+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -60,20 +60,6 @@
       "point": "53.446792 -2.075613"
     },
     {
-      "id": "255e8bba-099d-409c-a3fb-c86345955568",
-      "title": "alert",
-      "published": "Tue Nov 17 12:18:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A672 - Ripponden Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.60275 -2.035797"
-    },
-    {
       "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
       "title": "alert",
       "published": "Tue Nov 17 14:00:01 +0000 2026",
@@ -86,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.602246 -2.036079"
+    },
+    {
+      "id": "255e8bba-099d-409c-a3fb-c86345955568",
+      "title": "alert",
+      "published": "Tue Nov 17 12:18:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A672 - Ripponden Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.60275 -2.035797"
     }
   ]
 }
