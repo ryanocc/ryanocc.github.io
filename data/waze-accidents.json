@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T08:15:49.312586+00:00",
+  "updatedAt": "2026-11-17T08:20:49.539160+00:00",
   "source": "Waze GeoRSS",
-  "count": 18,
+  "count": 16,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -27,7 +27,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.597737 -2.41714"
     },
@@ -40,7 +40,7 @@
       "road": "Carruthers St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.482305 -2.216988"
@@ -83,7 +83,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.432701 -2.349432"
     },
@@ -110,7 +110,7 @@
       "road": "A556 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.36349 -2.391521"
@@ -144,48 +144,6 @@
       "point": "53.477492 -2.535503"
     },
     {
-      "id": "78b43344-13b4-4516-b3c3-44e4bb3161ad",
-      "title": "alert",
-      "published": "Tue Nov 17 08:12:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.602143 -2.113146"
-    },
-    {
-      "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
-      "title": "alert",
-      "published": "Tue Nov 17 07:56:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.357309 -2.315187"
-    },
-    {
-      "id": "d80b1abb-8e9c-4563-b161-0a0f3568f728",
-      "title": "alert",
-      "published": "Tue Nov 17 07:28:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.358005 -2.307566"
-    },
-    {
       "id": "6655c47d-3556-45e7-9a04-c8ba86dc55e7",
       "title": "alert",
       "published": "Tue Nov 17 07:45:26 +0000 2026",
@@ -200,18 +158,32 @@
       "point": "53.359336 -2.372175"
     },
     {
-      "id": "50fca089-a1fc-4d20-bc18-4ea74159c1c8",
+      "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
       "title": "alert",
-      "published": "Tue Nov 17 07:30:37 +0000 2026",
+      "published": "Tue Nov 17 07:56:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.485276 -2.383896"
+      "reportRating": 2.0,
+      "point": "53.357309 -2.315187"
+    },
+    {
+      "id": "bf9a1e12-07a9-42ff-aaf3-d6446436f4bb",
+      "title": "alert",
+      "published": "Tue Nov 17 08:07:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.543212 -2.441331"
     },
     {
       "id": "11a6d9d1-e049-4e85-9471-6c226b6dcaff",
@@ -228,18 +200,18 @@
       "point": "53.543472 -2.441792"
     },
     {
-      "id": "bf9a1e12-07a9-42ff-aaf3-d6446436f4bb",
+      "id": "95830f8e-e2d5-4ee9-8c58-f1a6b8bb870d",
       "title": "alert",
-      "published": "Tue Nov 17 08:07:13 +0000 2026",
+      "published": "Tue Nov 17 08:17:03 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
+      "subtype": "",
+      "road": "M61 (S) - Kearsley Spur",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.543803 -2.444242"
+      "reportRating": 1.0,
+      "point": "53.537091 -2.391599"
     },
     {
       "id": "401c6e96-2116-4376-851a-7e9f63ec7948",
