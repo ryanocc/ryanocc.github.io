@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T17:00:49.608913+00:00",
+  "updatedAt": "2026-11-17T17:05:49.418147+00:00",
   "source": "Waze GeoRSS",
   "count": 14,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.412693 -2.265165"
     },
     {
-      "id": "1974a625-51d0-42b4-8577-b7f0ce74e8a4",
-      "title": "alert",
-      "published": "Tue Nov 17 16:57:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Birch Hall Ln",
-      "city": "Rusholme",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.455143 -2.205305"
-    },
-    {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
       "published": "Tue Nov 17 16:45:15 +0000 2026",
@@ -68,8 +54,8 @@
       "road": "B6222 - Bury Rd",
       "city": "Bamford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.610981 -2.197403"
     },
@@ -86,6 +72,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.609614 -2.2019"
+    },
+    {
+      "id": "58168873-983b-4853-9875-f390c79e69db",
+      "title": "alert",
+      "published": "Tue Nov 17 17:01:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.457186 -2.336791"
     },
     {
       "id": "aaf09000-2b2b-4b9a-b17b-33a2d28bec1e",
@@ -110,8 +110,8 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.477319 -2.268801"
     },
@@ -125,9 +125,23 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.397763 -2.510906"
+    },
+    {
+      "id": "8e78bef0-b515-46d3-8882-399c495cf8b3",
+      "title": "alert",
+      "published": "Tue Nov 17 17:01:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.549183 -2.294608"
     },
     {
       "id": "2a5e2cdf-ee74-4041-a09a-f54b821f0368",
@@ -138,24 +152,24 @@
       "road": "A6010 - Hulme Hall Ln",
       "city": "Miles Platting",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.494698 -2.209541"
     },
     {
-      "id": "2b583509-f2ff-4028-b419-570cb242910c",
+      "id": "7c47145c-f57f-4804-b8e5-9bf5a78933ac",
       "title": "alert",
-      "published": "Tue Nov 17 17:00:36 +0000 2026",
+      "published": "Tue Nov 17 17:03:35 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.358683 -2.368577"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.362498 -2.377261"
     },
     {
       "id": "b04c7237-ddd8-461b-a77b-a4ca9db260b4",
@@ -169,21 +183,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.542686 -2.244068"
-    },
-    {
-      "id": "12f872f1-63db-4a7b-aea9-89df4dcf9ee5",
-      "title": "alert",
-      "published": "Tue Nov 17 16:55:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627(M) (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.560529 -2.146665"
+      "point": "53.54319 -2.24516"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
