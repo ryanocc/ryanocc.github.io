@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T15:45:49.299928+00:00",
+  "updatedAt": "2026-11-17T15:50:49.218310+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "6e285abb-dc9f-4ec8-8ed0-2f0a33261581",
@@ -32,6 +32,20 @@
       "point": "53.563942 -2.204629"
     },
     {
+      "id": "936888f5-b417-4a9a-9007-6da0a74ad5af",
+      "title": "alert",
+      "published": "Tue Nov 17 15:38:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Rochdale Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.525798 -2.213172"
+    },
+    {
       "id": "2dc39a3f-872a-4221-97b7-262dda6fa5a7",
       "title": "alert",
       "published": "Tue Nov 17 15:29:29 +0000 2026",
@@ -44,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.564105 -2.20468"
-    },
-    {
-      "id": "936888f5-b417-4a9a-9007-6da0a74ad5af",
-      "title": "alert",
-      "published": "Tue Nov 17 15:38:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Rochdale Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.525798 -2.213172"
     },
     {
       "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
@@ -82,10 +82,24 @@
       "road": "A56 - Bury New Rd",
       "city": "Whitefield",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.549112 -2.294561"
+    },
+    {
+      "id": "a472219c-cd2d-47c5-bb92-acb35f1eed61",
+      "title": "alert",
+      "published": "Tue Nov 17 15:46:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.409138 -2.174436"
     }
   ]
 }
