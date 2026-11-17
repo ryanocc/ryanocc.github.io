@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T12:10:49.107664+00:00",
+  "updatedAt": "2026-11-17T12:15:48.948960+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
     {
       "id": "8ba8f532-88a0-4d20-b43b-48a1875b16ef",
@@ -18,6 +18,20 @@
       "point": "53.393621 -2.354001"
     },
     {
+      "id": "ad955de5-3564-42b4-8fcb-89852220f12e",
+      "title": "alert",
+      "published": "Tue Nov 17 12:14:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Beech Ln",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.325951 -2.238815"
+    },
+    {
       "id": "2ecd98ae-d087-4237-9429-3ffde74329df",
       "title": "alert",
       "published": "Tue Nov 17 11:52:20 +0000 2026",
@@ -30,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.568274 -2.283049"
+    },
+    {
+      "id": "fb7bffb6-63db-4583-bddd-309bf895d2cc",
+      "title": "alert",
+      "published": "Tue Nov 17 12:13:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Barton Upon Irwell",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.480876 -2.358459"
     },
     {
       "id": "8fb44171-b622-467e-83b0-a29ba8368a38",
