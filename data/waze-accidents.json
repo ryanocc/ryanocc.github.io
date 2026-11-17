@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T13:05:49.018816+00:00",
+  "updatedAt": "2026-11-17T13:10:48.993782+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "73a0b0ac-e0c2-42c4-88b2-eb77cf2e031b",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.578351 -2.469171"
+    },
+    {
+      "id": "b72b4e70-235e-409e-b680-d9b65f3e1f18",
+      "title": "alert",
+      "published": "Tue Nov 17 13:10:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.575001 -2.419177"
     },
     {
       "id": "09e99265-8ad2-4f19-97e2-c396da9e34cd",
@@ -58,6 +72,20 @@
       "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.60275 -2.035797"
+    },
+    {
+      "id": "81bac8d2-5773-455a-8877-66e4ee6678d1",
+      "title": "alert",
+      "published": "Tue Nov 17 13:06:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Moss Side",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.458368 -2.245203"
     }
   ]
 }
