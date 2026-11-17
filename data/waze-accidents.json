@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T14:35:48.940202+00:00",
+  "updatedAt": "2026-11-17T14:40:50.100918+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "3bb52616-3229-4cbd-b0a7-3e0db549c9bb",
@@ -54,7 +54,7 @@
       "road": "A664 - Rochdale Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.526562 -2.212625"
@@ -96,8 +96,8 @@
       "road": "A579 - Atherleigh Way",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.499147 -2.52629"
     },
@@ -110,24 +110,10 @@
       "road": "A579 - Atherleigh Way",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.499467 -2.526074"
-    },
-    {
-      "id": "a149d5a4-78ce-4221-af33-ab705d026f07",
-      "title": "alert",
-      "published": "Tue Nov 17 14:35:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.39145 -2.272463"
     }
   ]
 }
