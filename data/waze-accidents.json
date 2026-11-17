@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-17T17:15:49.609279+00:00",
+  "updatedAt": "2026-11-17T17:20:49.459096+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 19,
   "incidents": [
-    {
-      "id": "ae717215-153e-4fb1-b17b-610023f9e673",
-      "title": "alert",
-      "published": "Tue Nov 17 16:45:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.505949 -2.359189"
-    },
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
       "title": "alert",
@@ -46,20 +32,6 @@
       "point": "53.502697 -2.094731"
     },
     {
-      "id": "1b9e5fa3-c6bc-4389-a29c-845b37613e76",
-      "title": "alert",
-      "published": "Tue Nov 17 16:22:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.412693 -2.265165"
-    },
-    {
       "id": "1904d21d-c4a1-4de8-9403-8d1d8de59bd9",
       "title": "alert",
       "published": "Tue Nov 17 17:12:43 +0000 2026",
@@ -68,8 +40,8 @@
       "road": "Kirkmanshulme Ln",
       "city": "Belle Vue",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.459674 -2.196134"
     },
@@ -96,8 +68,8 @@
       "road": "B6222 - Bury Rd",
       "city": "Bamford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.609614 -2.2019"
     },
@@ -116,6 +88,20 @@
       "point": "53.457186 -2.336791"
     },
     {
+      "id": "284b2a19-2b9c-4a78-ae88-572fcc0c6922",
+      "title": "alert",
+      "published": "Tue Nov 17 17:19:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6017 - Ashton Rd",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.435581 -2.115612"
+    },
+    {
       "id": "45cdd917-7054-420e-a64f-045844043c0a",
       "title": "alert",
       "published": "Tue Nov 17 16:55:46 +0000 2026",
@@ -124,7 +110,7 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.477319 -2.268801"
@@ -158,6 +144,34 @@
       "point": "53.462473 -2.274816"
     },
     {
+      "id": "f20ec412-d4f5-4890-8cfb-37297723dd93",
+      "title": "alert",
+      "published": "Tue Nov 17 17:17:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Manchester Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.593073 -2.180804"
+    },
+    {
+      "id": "a01bc35a-82a8-4f7c-93fc-c02770d1ba44",
+      "title": "alert",
+      "published": "Tue Nov 17 17:18:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A671 - Oldham Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.609905 -2.148967"
+    },
+    {
       "id": "2722c288-c363-4add-8309-675f0466d51d",
       "title": "alert",
       "published": "Tue Nov 17 17:07:57 +0000 2026",
@@ -167,9 +181,51 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.405716 -2.267519"
+    },
+    {
+      "id": "1cdab4fb-d677-4b38-b02e-6633d6fe1a64",
+      "title": "alert",
+      "published": "Tue Nov 17 17:16:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.41638 -2.263369"
+    },
+    {
+      "id": "533de210-c27f-4024-9e9e-0f1e157e4025",
+      "title": "alert",
+      "published": "Tue Nov 17 17:18:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.417791 -2.262171"
+    },
+    {
+      "id": "77092231-72bf-4012-ba86-f02712cf5df0",
+      "title": "alert",
+      "published": "Tue Nov 17 17:15:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Wellington Rd S",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.402455 -2.156925"
     },
     {
       "id": "2a5e2cdf-ee74-4041-a09a-f54b821f0368",
@@ -197,7 +253,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.54319 -2.24516"
+      "point": "53.542686 -2.244068"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
