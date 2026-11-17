@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-17T14:55:49.174076+00:00",
+  "updatedAt": "2026-11-17T15:00:49.149833+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 6,
   "incidents": [
-    {
-      "id": "3bb52616-3229-4cbd-b0a7-3e0db549c9bb",
-      "title": "alert",
-      "published": "Tue Nov 17 14:28:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.533409 -2.488314"
-    },
     {
       "id": "476ca05e-cfcd-417d-8cd9-6064f3166ab3",
       "title": "alert",
@@ -27,7 +13,7 @@
       "city": "",
       "country": "",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.547724 -2.19146"
     },
@@ -74,18 +60,18 @@
       "point": "53.602246 -2.036079"
     },
     {
-      "id": "814a6ab2-a216-4b38-b9b6-05f848b57400",
+      "id": "04ab8579-23f3-4af7-bb7f-592732193a2e",
       "title": "alert",
-      "published": "Tue Nov 17 14:51:52 +0000 2026",
+      "published": "Tue Nov 17 14:06:24 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "Leigh",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 5.0,
-      "point": "53.407484 -2.267236"
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.499039 -2.526363"
     },
     {
       "id": "b1fec797-6fc4-4f2a-bb3d-592074d0933f",
@@ -100,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.499467 -2.526074"
-    },
-    {
-      "id": "04ab8579-23f3-4af7-bb7f-592732193a2e",
-      "title": "alert",
-      "published": "Tue Nov 17 14:06:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.499039 -2.526363"
     }
   ]
 }
