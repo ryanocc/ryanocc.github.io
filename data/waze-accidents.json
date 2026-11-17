@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T07:45:48.944997+00:00",
+  "updatedAt": "2026-11-17T07:50:49.099591+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -18,6 +18,20 @@
       "point": "53.516666 -2.438352"
     },
     {
+      "id": "09320fb5-6f7b-43cf-b73d-d81d8591cc65",
+      "title": "alert",
+      "published": "Tue Nov 17 07:47:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Carruthers St",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.482305 -2.216988"
+    },
+    {
       "id": "a22c5fc8-ea07-455c-a707-2fd3193f1212",
       "title": "alert",
       "published": "Tue Nov 17 07:38:41 +0000 2026",
@@ -26,10 +40,24 @@
       "road": "J12 to M62 (W) > Liverpool",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.484857 -2.384501"
+    },
+    {
+      "id": "6b54198b-bd6c-484d-90ac-f98353132325",
+      "title": "alert",
+      "published": "Tue Nov 17 07:47:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A662 - Merrill St",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.482167 -2.216682"
     },
     {
       "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
@@ -46,46 +74,18 @@
       "point": "53.477444 -2.53551"
     },
     {
-      "id": "3bc1a68c-9fe1-4dab-9d9e-8f93deaaa501",
+      "id": "264a6153-b311-4b80-9509-37e466ce706b",
       "title": "alert",
-      "published": "Tue Nov 17 07:25:47 +0000 2026",
+      "published": "Tue Nov 17 07:46:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A580 - East Lancashire Rd",
+      "road": "M56 (W)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.499281 -2.449161"
-    },
-    {
-      "id": "6a46a1e9-f1b4-41f0-9f52-8e34ad2f129c",
-      "title": "alert",
-      "published": "Tue Nov 17 07:36:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - Blackburn Rd",
-      "city": "Egerton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.624738 -2.436935"
-    },
-    {
-      "id": "6655c47d-3556-45e7-9a04-c8ba86dc55e7",
-      "title": "alert",
-      "published": "Tue Nov 17 07:45:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.359336 -2.372175"
+      "reportRating": 5.0,
+      "point": "53.357232 -2.313476"
     },
     {
       "id": "d80b1abb-8e9c-4563-b161-0a0f3568f728",
@@ -102,6 +102,34 @@
       "point": "53.358005 -2.307566"
     },
     {
+      "id": "6655c47d-3556-45e7-9a04-c8ba86dc55e7",
+      "title": "alert",
+      "published": "Tue Nov 17 07:45:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.359336 -2.372175"
+    },
+    {
+      "id": "b86abfea-459f-4a04-8918-c929719a1aa1",
+      "title": "alert",
+      "published": "Tue Nov 17 07:49:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.581446 -2.554121"
+    },
+    {
       "id": "50fca089-a1fc-4d20-bc18-4ea74159c1c8",
       "title": "alert",
       "published": "Tue Nov 17 07:30:37 +0000 2026",
@@ -116,18 +144,18 @@
       "point": "53.485276 -2.383896"
     },
     {
-      "id": "862889ca-2619-43d7-85a0-76e877c7a24f",
+      "id": "bf58c486-b068-4c80-8fe6-ba41726bf385",
       "title": "alert",
-      "published": "Tue Nov 17 07:44:20 +0000 2026",
+      "published": "Tue Nov 17 07:50:36 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.484607 -2.385476"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.544318 -2.446848"
     }
   ]
 }
