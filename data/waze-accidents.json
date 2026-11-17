@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-17T15:25:49.260910+00:00",
+  "updatedAt": "2026-11-17T15:30:49.246557+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
+    {
+      "id": "a283bc8d-4f30-4382-a02b-d567e4046b25",
+      "title": "alert",
+      "published": "Tue Nov 17 15:30:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.471637 -2.493113"
+    },
     {
       "id": "6e285abb-dc9f-4ec8-8ed0-2f0a33261581",
       "title": "alert",
@@ -13,23 +27,37 @@
       "city": "Kearsley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.543423 -2.360505"
     },
     {
-      "id": "1f9b58ba-4b17-468f-8853-8b90e3969043",
+      "id": "997ad4d9-bc56-48d8-90f1-5838d2812a97",
       "title": "alert",
-      "published": "Tue Nov 17 14:19:30 +0000 2026",
+      "published": "Tue Nov 17 15:30:23 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A664 - Rochdale Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.526562 -2.212625"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.525253 -2.214002"
+    },
+    {
+      "id": "2dc39a3f-872a-4221-97b7-262dda6fa5a7",
+      "title": "alert",
+      "published": "Tue Nov 17 15:29:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6046 - Hollin Ln",
+      "city": "Middleton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.564105 -2.20468"
     },
     {
       "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
