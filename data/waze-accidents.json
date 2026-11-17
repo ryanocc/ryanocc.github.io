@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T20:40:48.903077+00:00",
+  "updatedAt": "2026-11-17T20:45:48.911782+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 11,
   "incidents": [
     {
       "id": "0f6606f3-ba42-4bbb-b3ff-7fe3301d18d1",
@@ -41,7 +41,7 @@
       "city": "Bamford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.612524 -2.189881"
     },
@@ -55,51 +55,23 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.623199 -2.144058"
     },
     {
-      "id": "91a3c919-39b7-44c5-b2a7-b23497f0471b",
+      "id": "5876f55b-4acf-4b07-94ee-a9630eaede86",
       "title": "alert",
-      "published": "Tue Nov 17 20:33:57 +0000 2026",
+      "published": "Tue Nov 17 20:42:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B6194 - Queens Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.493822 -2.077312"
-    },
-    {
-      "id": "722da26d-af35-449d-a9af-1e17562b8908",
-      "title": "alert",
-      "published": "Tue Nov 17 18:39:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A538 - Hale Rd",
-      "city": "Hale Barns",
+      "road": "Lodge Ln",
+      "city": "Hyde",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.369239 -2.313701"
-    },
-    {
-      "id": "9d96c0dc-3eb7-489f-b87a-8a26c0a51a2d",
-      "title": "alert",
-      "published": "Tue Nov 17 20:38:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.404232 -2.267451"
+      "reportRating": 0.0,
+      "point": "53.460799 -2.076107"
     },
     {
       "id": "5faf7950-4ff7-4c52-b9a2-97306ea39d43",
@@ -116,18 +88,18 @@
       "point": "53.503736 -2.252653"
     },
     {
-      "id": "132f5ad1-1474-48f6-bb0b-955885eb2baa",
+      "id": "f85fc6d2-55bd-4aa1-b363-adb27c72b108",
       "title": "alert",
-      "published": "Tue Nov 17 19:50:15 +0000 2026",
+      "published": "Tue Nov 17 19:57:18 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - St. James Rd",
-      "city": "Cheetham",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.50394 -2.252036"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.539241 -2.238477"
     },
     {
       "id": "b50587e9-c22f-4364-9aba-4575401c4656",
@@ -144,20 +116,6 @@
       "point": "53.527676 -2.247126"
     },
     {
-      "id": "f85fc6d2-55bd-4aa1-b363-adb27c72b108",
-      "title": "alert",
-      "published": "Tue Nov 17 19:57:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.539241 -2.238477"
-    },
-    {
       "id": "73881ffc-1f88-415f-b7c2-3bfbf883e68a",
       "title": "alert",
       "published": "Tue Nov 17 20:21:59 +0000 2026",
@@ -166,7 +124,7 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.528107 -2.246932"
