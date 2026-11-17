@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T18:25:49.164062+00:00",
+  "updatedAt": "2026-11-17T18:30:49.208980+00:00",
   "source": "Waze GeoRSS",
-  "count": 21,
+  "count": 22,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -32,18 +32,18 @@
       "point": "53.423912 -2.079381"
     },
     {
-      "id": "3115a2ba-98b2-412f-b78c-05381048d351",
+      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
       "title": "alert",
-      "published": "Tue Nov 17 16:45:15 +0000 2026",
+      "published": "Tue Nov 17 16:33:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
       "road": "B6222 - Bury Rd",
       "city": "Bamford",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.610981 -2.197403"
+      "reportRating": 2.0,
+      "point": "53.609614 -2.2019"
     },
     {
       "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
@@ -60,18 +60,18 @@
       "point": "53.607828 -2.20703"
     },
     {
-      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
+      "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
-      "published": "Tue Nov 17 16:33:32 +0000 2026",
+      "published": "Tue Nov 17 16:45:15 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
       "road": "B6222 - Bury Rd",
       "city": "Bamford",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.609614 -2.2019"
+      "reportRating": 1.0,
+      "point": "53.610981 -2.197403"
     },
     {
       "id": "ae31d970-5439-4c8b-8bd4-a388feaf836e",
@@ -130,20 +130,6 @@
       "point": "53.522943 -2.167123"
     },
     {
-      "id": "260803bd-b12f-4b10-afeb-c1d426398854",
-      "title": "alert",
-      "published": "Tue Nov 17 17:22:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.523373 -2.168925"
-    },
-    {
       "id": "cf965112-311e-4820-8c75-a7fdc0235700",
       "title": "alert",
       "published": "Tue Nov 17 18:24:32 +0000 2026",
@@ -172,20 +158,6 @@
       "point": "53.366457 -2.209003"
     },
     {
-      "id": "2722c288-c363-4add-8309-675f0466d51d",
-      "title": "alert",
-      "published": "Tue Nov 17 17:07:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.405716 -2.267519"
-    },
-    {
       "id": "a8b995b7-5d0b-44c8-8e8c-30903ff054a9",
       "title": "alert",
       "published": "Tue Nov 17 17:47:56 +0000 2026",
@@ -200,6 +172,34 @@
       "point": "53.417933 -2.261806"
     },
     {
+      "id": "2722c288-c363-4add-8309-675f0466d51d",
+      "title": "alert",
+      "published": "Tue Nov 17 17:07:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.405716 -2.267519"
+    },
+    {
+      "id": "8d222ded-d770-4d11-ba7d-72af5f9f8aa7",
+      "title": "alert",
+      "published": "Tue Nov 17 18:30:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Victoria Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.579754 -2.487397"
+    },
+    {
       "id": "a7693aac-5af5-4469-971a-3d8ea1df73c3",
       "title": "alert",
       "published": "Tue Nov 17 18:04:23 +0000 2026",
@@ -208,38 +208,52 @@
       "road": "A676 - Marsden Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.578949 -2.434647"
     },
     {
-      "id": "dd7988ba-88f2-4b0b-b49b-e1a64f098bcd",
+      "id": "1aec8502-f742-45f7-817e-dc4198eb755a",
       "title": "alert",
-      "published": "Tue Nov 17 18:07:48 +0000 2026",
+      "published": "Tue Nov 17 18:27:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A56 - Bury New Rd",
-      "city": "Higher Broughton",
+      "road": "A576 - Middleton Rd",
+      "city": "Crumpsall",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.50179 -2.257755"
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.524028 -2.248978"
     },
     {
-      "id": "189c7d4d-7c2e-4cd7-9a89-557e2e70204f",
+      "id": "25769be6-0fab-4aff-af1f-68a2626f1d4f",
       "title": "alert",
-      "published": "Tue Nov 17 17:51:51 +0000 2026",
+      "published": "Tue Nov 17 18:26:39 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
+      "road": "A57 - Manchester Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.457181 -2.140024"
+    },
+    {
+      "id": "1f6457cd-d0a1-4b3e-aa61-1e94ff853ed1",
+      "title": "alert",
+      "published": "Tue Nov 17 18:27:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.539412 -2.237144"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.526824 -2.247554"
     },
     {
       "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
@@ -265,7 +279,7 @@
       "city": "Hollingworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.463134 -1.991475"
     },
