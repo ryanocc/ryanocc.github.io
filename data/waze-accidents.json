@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T18:20:49.380676+00:00",
+  "updatedAt": "2026-11-17T18:25:49.164062+00:00",
   "source": "Waze GeoRSS",
-  "count": 20,
+  "count": 21,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -32,20 +32,6 @@
       "point": "53.423912 -2.079381"
     },
     {
-      "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
-      "title": "alert",
-      "published": "Tue Nov 17 17:40:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6222 - Bury Rd",
-      "city": "Bamford",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.607828 -2.20703"
-    },
-    {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
       "published": "Tue Nov 17 16:45:15 +0000 2026",
@@ -60,6 +46,20 @@
       "point": "53.610981 -2.197403"
     },
     {
+      "id": "9287a24a-a531-4a0e-ba62-6c8eb79424c3",
+      "title": "alert",
+      "published": "Tue Nov 17 17:40:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.607828 -2.20703"
+    },
+    {
       "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
       "title": "alert",
       "published": "Tue Nov 17 16:33:32 +0000 2026",
@@ -68,7 +68,7 @@
       "road": "B6222 - Bury Rd",
       "city": "Bamford",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.609614 -2.2019"
@@ -82,7 +82,7 @@
       "road": "A627 > Oldham",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.559579 -2.142298"
@@ -144,18 +144,18 @@
       "point": "53.523373 -2.168925"
     },
     {
-      "id": "6db03066-2aff-4d08-a124-a41b5cf9e338",
+      "id": "cf965112-311e-4820-8c75-a7fdc0235700",
       "title": "alert",
-      "published": "Tue Nov 17 17:21:30 +0000 2026",
+      "published": "Tue Nov 17 18:24:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
+      "road": "A538 - Water Ln",
+      "city": "Wilmslow",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.522971 -2.167514"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.3259 -2.233018"
     },
     {
       "id": "5f6e7022-77ef-4305-a80f-86f276f13b2e",
@@ -254,6 +254,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.538497 -2.239698"
+    },
+    {
+      "id": "9193ff5f-0c19-4dc7-b352-3b42beded6bc",
+      "title": "alert",
+      "published": "Tue Nov 17 18:25:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A628 - Market St",
+      "city": "Hollingworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.463134 -1.991475"
     },
     {
       "id": "25fd4e16-470d-4eb2-831f-4975aaec21a6",
