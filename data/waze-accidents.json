@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T17:55:49.394321+00:00",
+  "updatedAt": "2026-11-17T18:00:49.257495+00:00",
   "source": "Waze GeoRSS",
-  "count": 25,
+  "count": 23,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -30,20 +30,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.423912 -2.079381"
-    },
-    {
-      "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
-      "title": "alert",
-      "published": "Tue Nov 17 15:54:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Martin Ln",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.625135 -2.188877"
     },
     {
       "id": "4f2dedef-19db-4146-9f5b-75cd742a099d",
@@ -96,8 +82,8 @@
       "road": "B5207 - Downall Green Rd",
       "city": "Garswood",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.498542 -2.664468"
     },
@@ -186,20 +172,6 @@
       "point": "53.462473 -2.274816"
     },
     {
-      "id": "260803bd-b12f-4b10-afeb-c1d426398854",
-      "title": "alert",
-      "published": "Tue Nov 17 17:22:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.523373 -2.168925"
-    },
-    {
       "id": "6db03066-2aff-4d08-a124-a41b5cf9e338",
       "title": "alert",
       "published": "Tue Nov 17 17:21:30 +0000 2026",
@@ -208,10 +180,24 @@
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.522971 -2.167514"
+    },
+    {
+      "id": "260803bd-b12f-4b10-afeb-c1d426398854",
+      "title": "alert",
+      "published": "Tue Nov 17 17:22:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.523373 -2.168925"
     },
     {
       "id": "7e4985b6-0487-44ce-a45c-32a443ef61c9",
@@ -228,6 +214,20 @@
       "point": "53.522943 -2.167123"
     },
     {
+      "id": "5f6e7022-77ef-4305-a80f-86f276f13b2e",
+      "title": "alert",
+      "published": "Tue Nov 17 17:58:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Handforth Bypass",
+      "city": "Cheadle",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.366457 -2.209003"
+    },
+    {
       "id": "2722c288-c363-4add-8309-675f0466d51d",
       "title": "alert",
       "published": "Tue Nov 17 17:07:57 +0000 2026",
@@ -240,6 +240,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.405716 -2.267519"
+    },
+    {
+      "id": "94a565b6-32a2-44a2-8bc2-7846aae8b4b7",
+      "title": "alert",
+      "published": "Tue Nov 17 17:47:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.418605 -2.261213"
     },
     {
       "id": "a8b995b7-5d0b-44c8-8e8c-30903ff054a9",
@@ -256,46 +270,18 @@
       "point": "53.417933 -2.261806"
     },
     {
-      "id": "79e6c2f9-b1b2-4cf3-9f92-a8f73fa3cba7",
+      "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
       "title": "alert",
-      "published": "Tue Nov 17 17:42:15 +0000 2026",
+      "published": "Tue Nov 17 18:00:15 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Rd",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.417818 -2.262148"
-    },
-    {
-      "id": "94a565b6-32a2-44a2-8bc2-7846aae8b4b7",
-      "title": "alert",
-      "published": "Tue Nov 17 17:47:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.418605 -2.261213"
-    },
-    {
-      "id": "b7cbf7de-c79e-40c3-9ca9-ce037c3034e6",
-      "title": "alert",
-      "published": "Tue Nov 17 17:39:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Bolton St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.59484 -2.307208"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.538497 -2.239698"
     },
     {
       "id": "189c7d4d-7c2e-4cd7-9a89-557e2e70204f",
@@ -306,8 +292,8 @@
       "road": "",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.539412 -2.237144"
     },
@@ -320,7 +306,7 @@
       "road": "A627(M) (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.560414 -2.145775"
@@ -338,20 +324,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.456785 -2.04802"
-    },
-    {
-      "id": "e061524e-6e7d-4fe5-b4b3-127edd1cb9b4",
-      "title": "alert",
-      "published": "Tue Nov 17 17:33:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.622843 -2.078641"
     }
   ]
 }
