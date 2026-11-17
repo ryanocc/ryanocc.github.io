@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T16:20:49.356104+00:00",
+  "updatedAt": "2026-11-17T16:25:49.482186+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 7,
   "incidents": [
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -18,32 +18,60 @@
       "point": "53.625135 -2.188877"
     },
     {
-      "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
+      "id": "1b9e5fa3-c6bc-4389-a29c-845b37613e76",
       "title": "alert",
-      "published": "Tue Nov 17 14:00:01 +0000 2026",
+      "published": "Tue Nov 17 16:22:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "A672 - Ripponden Rd",
+      "road": "",
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 10.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
-      "point": "53.602246 -2.036079"
+      "point": "53.412693 -2.265165"
     },
     {
-      "id": "c48b3f46-6b7f-4361-a930-6c6a88ce5be7",
+      "id": "4421ebd7-ad6f-42f3-a8ae-20dc24220099",
       "title": "alert",
-      "published": "Tue Nov 17 15:51:34 +0000 2026",
+      "published": "Tue Nov 17 16:23:00 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A34 (S) - Handforth Bypass",
-      "city": "Cheadle",
+      "road": "A57 > Irlam",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.476985 -2.373546"
+    },
+    {
+      "id": "d62d9865-af7a-4bd4-8d40-08226d4c23c8",
+      "title": "alert",
+      "published": "Tue Nov 17 16:22:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627 > Oldham",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
-      "point": "53.366859 -2.209355"
+      "point": "53.557315 -2.139399"
+    },
+    {
+      "id": "51eaa63e-cb88-4be1-9b59-d3d3f2dbf58b",
+      "title": "alert",
+      "published": "Tue Nov 17 16:24:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5082 - Clegg's Ln",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.532158 -2.422865"
     },
     {
       "id": "4cb767fd-aed8-49b7-ba28-202df63b2cff",
@@ -58,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.334928 -2.481596"
+    },
+    {
+      "id": "c5a70d8e-02a7-4167-a730-dddc5ffcff92",
+      "title": "alert",
+      "published": "Tue Nov 17 16:21:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.357276 -2.318815"
     }
   ]
 }
