@@ -1,35 +1,21 @@
 {
-  "updatedAt": "2026-11-17T15:20:49.152582+00:00",
+  "updatedAt": "2026-11-17T15:25:49.260910+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
     {
-      "id": "476ca05e-cfcd-417d-8cd9-6064f3166ab3",
+      "id": "6e285abb-dc9f-4ec8-8ed0-2f0a33261581",
       "title": "alert",
-      "published": "Tue Nov 17 14:52:48 +0000 2026",
+      "published": "Tue Nov 17 15:24:04 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.547724 -2.19146"
-    },
-    {
-      "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
-      "title": "alert",
-      "published": "Tue Nov 17 15:12:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6046 - Hollin Ln",
-      "city": "Middleton",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Hulme Rd",
+      "city": "Kearsley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.563942 -2.204629"
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.543423 -2.360505"
     },
     {
       "id": "1f9b58ba-4b17-468f-8853-8b90e3969043",
@@ -44,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.526562 -2.212625"
+    },
+    {
+      "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
+      "title": "alert",
+      "published": "Tue Nov 17 15:12:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6046 - Hollin Ln",
+      "city": "Middleton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.563942 -2.204629"
     },
     {
       "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
