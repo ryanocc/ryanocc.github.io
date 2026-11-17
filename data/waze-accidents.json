@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-17T06:35:48.872955+00:00",
+  "updatedAt": "2026-11-17T06:40:49.233349+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
+    {
+      "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
+      "title": "alert",
+      "published": "Tue Nov 17 06:35:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Tyldesley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.516666 -2.438352"
+    },
     {
       "id": "121ff570-8261-47f7-afbb-7c22499912c0",
       "title": "alert",
@@ -27,7 +41,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.50727 -2.414683"
     },
@@ -40,8 +54,8 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.50738 -2.413487"
     }
