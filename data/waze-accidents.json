@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T15:55:49.350541+00:00",
+  "updatedAt": "2026-11-17T16:00:49.388859+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -18,18 +18,18 @@
       "point": "53.625135 -2.188877"
     },
     {
-      "id": "6e285abb-dc9f-4ec8-8ed0-2f0a33261581",
+      "id": "2dc39a3f-872a-4221-97b7-262dda6fa5a7",
       "title": "alert",
-      "published": "Tue Nov 17 15:24:04 +0000 2026",
+      "published": "Tue Nov 17 15:29:29 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "Hulme Rd",
-      "city": "Kearsley",
+      "road": "A6046 - Hollin Ln",
+      "city": "Middleton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.543423 -2.360505"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.564105 -2.20468"
     },
     {
       "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
@@ -46,20 +46,6 @@
       "point": "53.563942 -2.204629"
     },
     {
-      "id": "2dc39a3f-872a-4221-97b7-262dda6fa5a7",
-      "title": "alert",
-      "published": "Tue Nov 17 15:29:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6046 - Hollin Ln",
-      "city": "Middleton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.564105 -2.20468"
-    },
-    {
       "id": "731c7dfd-b2cf-49f9-94de-dfc59f31f86f",
       "title": "alert",
       "published": "Tue Nov 17 14:00:01 +0000 2026",
@@ -69,7 +55,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.602246 -2.036079"
     },
@@ -82,10 +68,24 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "Cheadle",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.366859 -2.209355"
+    },
+    {
+      "id": "d9554c6c-ef78-4074-927f-d8000cf2aed7",
+      "title": "alert",
+      "published": "Tue Nov 17 15:57:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.417519 -2.262164"
     },
     {
       "id": "7d3bff76-4c8d-466b-9faf-1ac44e82827a",
@@ -110,10 +110,38 @@
       "road": "A62 - Oldham Rd",
       "city": "Newton Heath",
       "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.500778 -2.195419"
+    },
+    {
+      "id": "4cb767fd-aed8-49b7-ba28-202df63b2cff",
+      "title": "alert",
+      "published": "Tue Nov 17 15:59:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 2.0,
-      "point": "53.500778 -2.195419"
+      "point": "53.334928 -2.481596"
+    },
+    {
+      "id": "5c84aeb2-ec2a-46f9-8f9b-33e78ff23718",
+      "title": "alert",
+      "published": "Tue Nov 17 16:00:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.414815 -2.277845"
     },
     {
       "id": "a472219c-cd2d-47c5-bb92-acb35f1eed61",
