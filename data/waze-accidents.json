@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T18:05:49.419543+00:00",
+  "updatedAt": "2026-11-17T18:10:49.474584+00:00",
   "source": "Waze GeoRSS",
   "count": 24,
   "incidents": [
@@ -44,20 +44,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.502697 -2.094731"
-    },
-    {
-      "id": "55762026-d84e-4498-b5a7-5d944b89ef5b",
-      "title": "alert",
-      "published": "Tue Nov 17 17:22:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5167 - Palatine Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.413061 -2.251683"
     },
     {
       "id": "cc6f24d6-f8cd-4876-9499-87d13474ba78",
@@ -124,8 +110,8 @@
       "road": "A627 > Oldham",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.559579 -2.142298"
     },
@@ -152,7 +138,7 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.478108 -2.268404"
@@ -208,7 +194,7 @@
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.522943 -2.167123"
@@ -222,8 +208,8 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "Cheadle",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.366457 -2.209003"
     },
@@ -250,8 +236,8 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.417933 -2.261806"
     },
@@ -278,24 +264,24 @@
       "road": "A676 - Marsden Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.578949 -2.434647"
     },
     {
-      "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
+      "id": "dd7988ba-88f2-4b0b-b49b-e1a64f098bcd",
       "title": "alert",
-      "published": "Tue Nov 17 18:00:15 +0000 2026",
+      "published": "Tue Nov 17 18:07:48 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
+      "subtype": "",
+      "road": "A56 - Bury New Rd",
+      "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.538497 -2.239698"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.50179 -2.257755"
     },
     {
       "id": "189c7d4d-7c2e-4cd7-9a89-557e2e70204f",
@@ -310,6 +296,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.539412 -2.237144"
+    },
+    {
+      "id": "cef34454-3b1c-4f59-b5f5-5368b83d3b17",
+      "title": "alert",
+      "published": "Tue Nov 17 18:00:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.538497 -2.239698"
     },
     {
       "id": "25fd4e16-470d-4eb2-831f-4975aaec21a6",
