@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-17T19:40:49.130496+00:00",
+  "updatedAt": "2026-11-17T19:45:48.916566+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
-    {
-      "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
-      "title": "alert",
-      "published": "Tue Nov 17 17:36:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Forest Gdns",
-      "city": "Partington",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.414987 -2.444608"
-    },
     {
       "id": "fe313b2d-422c-46e1-9e02-3d19b82f1daf",
       "title": "alert",
@@ -32,6 +18,20 @@
       "point": "53.578799 -2.43571"
     },
     {
+      "id": "b3b3becf-ed93-4e8c-b020-60ce8bf96f3f",
+      "title": "alert",
+      "published": "Tue Nov 17 19:44:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6169 - Shepley Rd",
+      "city": "Audenshaw",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.467324 -2.114068"
+    },
+    {
       "id": "66d879af-d3da-4420-b95d-b817f8c10149",
       "title": "alert",
       "published": "Tue Nov 17 19:30:05 +0000 2026",
@@ -40,8 +40,8 @@
       "road": "Blackley New Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.525737 -2.24753"
     },
@@ -54,8 +54,8 @@
       "road": "Blackley New Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.525757 -2.247692"
     },
@@ -166,10 +166,24 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.527676 -2.247126"
+    },
+    {
+      "id": "07463346-1489-47b4-80f4-3cd94d160e53",
+      "title": "alert",
+      "published": "Tue Nov 17 19:45:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.601064 -2.273129"
     },
     {
       "id": "650cb2b5-fa67-4332-bbf2-6b30f41d63fd",
@@ -180,10 +194,10 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.614377 -2.08882"
+      "point": "53.612351 -2.090037"
     }
   ]
 }
