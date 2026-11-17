@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T08:50:49.551260+00:00",
+  "updatedAt": "2026-11-17T08:55:49.497739+00:00",
   "source": "Waze GeoRSS",
   "count": 17,
   "incidents": [
@@ -40,24 +40,10 @@
       "road": "Carruthers St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.482356 -2.217056"
-    },
-    {
-      "id": "22ebe755-18f6-4b0a-a097-928b59945a55",
-      "title": "alert",
-      "published": "Tue Nov 17 08:04:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 > Altrincham",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.365478 -2.389843"
     },
     {
       "id": "ff501300-b48a-4806-a52e-067a10a1b928",
@@ -82,8 +68,8 @@
       "road": "Pilsworth Rd",
       "city": "Pilsworth",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.578524 -2.269704"
     },
@@ -97,7 +83,7 @@
       "city": "Pilsworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.578724 -2.27133"
     },
@@ -110,8 +96,8 @@
       "road": "Baytree Ave",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.547288 -2.165117"
     },
@@ -124,8 +110,8 @@
       "road": "Wardle Rd",
       "city": "Wardle",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.644578 -2.134912"
     },
@@ -166,24 +152,24 @@
       "road": "A56 - Stockport Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.379338 -2.532275"
     },
     {
-      "id": "aadd8424-4eaf-4de8-b9ae-c6dbda88fbc9",
+      "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
       "title": "alert",
-      "published": "Tue Nov 17 08:32:28 +0000 2026",
+      "published": "Tue Nov 17 07:56:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6 - Chorley Rd",
+      "road": "A579 - Atherleigh Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 4.0,
-      "point": "53.572041 -2.550741"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.47786 -2.535445"
     },
     {
       "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
@@ -200,18 +186,18 @@
       "point": "53.477444 -2.53551"
     },
     {
-      "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
+      "id": "19ffd4ad-cd5f-4709-b4a9-937d088bbc90",
       "title": "alert",
-      "published": "Tue Nov 17 07:56:38 +0000 2026",
+      "published": "Tue Nov 17 08:51:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A579 - Atherleigh Way",
+      "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.47786 -2.535445"
+      "reportRating": 3.0,
+      "point": "53.357784 -2.307961"
     },
     {
       "id": "1b8e5e82-7381-4699-8fe1-b6ff7b4fd205",
@@ -240,6 +226,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.543212 -2.441331"
+    },
+    {
+      "id": "17b34f88-579d-4527-8591-e86a6112b30d",
+      "title": "alert",
+      "published": "Tue Nov 17 08:51:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.556435 -2.248389"
     }
   ]
 }
