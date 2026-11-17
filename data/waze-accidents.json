@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T19:35:49.200442+00:00",
+  "updatedAt": "2026-11-17T19:40:49.130496+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -110,7 +110,7 @@
       "road": "A58 - Victoria Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.580511 -2.487265"
@@ -144,20 +144,6 @@
       "point": "53.503736 -2.252653"
     },
     {
-      "id": "b50587e9-c22f-4364-9aba-4575401c4656",
-      "title": "alert",
-      "published": "Tue Nov 17 19:15:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.527676 -2.247126"
-    },
-    {
       "id": "5e6b23e9-16c0-4bf6-90f8-756d7ddb5cb4",
       "title": "alert",
       "published": "Tue Nov 17 18:54:02 +0000 2026",
@@ -170,6 +156,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.529669 -2.246129"
+    },
+    {
+      "id": "b50587e9-c22f-4364-9aba-4575401c4656",
+      "title": "alert",
+      "published": "Tue Nov 17 19:15:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.527676 -2.247126"
+    },
+    {
+      "id": "650cb2b5-fa67-4332-bbf2-6b30f41d63fd",
+      "title": "alert",
+      "published": "Tue Nov 17 19:36:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.614377 -2.08882"
     }
   ]
 }
