@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T17:50:49.227369+00:00",
+  "updatedAt": "2026-11-17T17:55:49.394321+00:00",
   "source": "Waze GeoRSS",
-  "count": 24,
+  "count": 25,
   "incidents": [
     {
       "id": "55210923-8b0e-4c85-b473-4481bbf92ca2",
@@ -88,20 +88,6 @@
       "point": "53.41772 -2.262265"
     },
     {
-      "id": "85cd6e8b-2ef4-4862-885c-b7c6e56abd74",
-      "title": "alert",
-      "published": "Tue Nov 17 17:44:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J3 to A34 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.397326 -2.221395"
-    },
-    {
       "id": "3427b1c3-7ac5-4297-b7ab-c956d5c67571",
       "title": "alert",
       "published": "Tue Nov 17 17:36:06 +0000 2026",
@@ -110,8 +96,8 @@
       "road": "B5207 - Downall Green Rd",
       "city": "Garswood",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.498542 -2.664468"
     },
@@ -130,6 +116,20 @@
       "point": "53.607828 -2.20703"
     },
     {
+      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
+      "title": "alert",
+      "published": "Tue Nov 17 16:33:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.609614 -2.2019"
+    },
+    {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
       "published": "Tue Nov 17 16:45:15 +0000 2026",
@@ -142,20 +142,6 @@
       "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.610981 -2.197403"
-    },
-    {
-      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
-      "title": "alert",
-      "published": "Tue Nov 17 16:33:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6222 - Bury Rd",
-      "city": "Bamford",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.609614 -2.2019"
     },
     {
       "id": "58168873-983b-4853-9875-f390c79e69db",
@@ -180,7 +166,7 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.478108 -2.268404"
@@ -222,7 +208,7 @@
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.522971 -2.167514"
@@ -236,7 +222,7 @@
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.522943 -2.167123"
@@ -265,7 +251,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.417933 -2.261806"
     },
@@ -292,8 +278,8 @@
       "road": "A5103 - Princess Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.418605 -2.261213"
     },
@@ -306,10 +292,38 @@
       "road": "A58 - Bolton St",
       "city": "Bury",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.59484 -2.307208"
+    },
+    {
+      "id": "189c7d4d-7c2e-4cd7-9a89-557e2e70204f",
+      "title": "alert",
+      "published": "Tue Nov 17 17:51:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.539412 -2.237144"
+    },
+    {
+      "id": "25fd4e16-470d-4eb2-831f-4975aaec21a6",
+      "title": "alert",
+      "published": "Tue Nov 17 17:51:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627(M) (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.560414 -2.145775"
     },
     {
       "id": "a57b301e-c399-403d-b2d6-b3c3d953d120",
