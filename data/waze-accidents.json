@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T16:45:49.344023+00:00",
+  "updatedAt": "2026-11-17T16:50:49.419178+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -13,7 +13,7 @@
       "city": "",
       "country": "",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.505949 -2.359189"
     },
@@ -46,20 +46,6 @@
       "point": "53.412693 -2.265165"
     },
     {
-      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
-      "title": "alert",
-      "published": "Tue Nov 17 16:33:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6222 - Bury Rd",
-      "city": "Bamford",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.609614 -2.2019"
-    },
-    {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
       "title": "alert",
       "published": "Tue Nov 17 16:45:15 +0000 2026",
@@ -69,9 +55,23 @@
       "city": "Bamford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.610981 -2.197403"
+    },
+    {
+      "id": "840cbcd7-c675-448c-8a08-f74e555c8e96",
+      "title": "alert",
+      "published": "Tue Nov 17 16:33:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6222 - Bury Rd",
+      "city": "Bamford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.609614 -2.2019"
     },
     {
       "id": "0afdb079-a595-478b-b670-ba34cc657230",
@@ -83,7 +83,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.602094 -2.169462"
     },
@@ -111,7 +111,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.550426 -2.261398"
     },
@@ -124,8 +124,8 @@
       "road": "M67 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.456785 -2.04802"
     }
