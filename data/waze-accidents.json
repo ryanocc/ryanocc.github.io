@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T07:20:49.063330+00:00",
+  "updatedAt": "2026-11-17T07:25:48.755489+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -26,10 +26,38 @@
       "road": "A579 - Atherleigh Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.475781 -2.535772"
+    },
+    {
+      "id": "3bc1a68c-9fe1-4dab-9d9e-8f93deaaa501",
+      "title": "alert",
+      "published": "Tue Nov 17 07:25:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.499217 -2.449322"
+    },
+    {
+      "id": "3e4205a4-df79-467b-94f1-84896cc60c3a",
+      "title": "alert",
+      "published": "Tue Nov 17 07:24:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M61 (S) - Kearsley Spur",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.536945 -2.391594"
     }
   ]
 }
