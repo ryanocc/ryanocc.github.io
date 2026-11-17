@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T19:15:48.973547+00:00",
+  "updatedAt": "2026-11-17T19:20:48.976553+00:00",
   "source": "Waze GeoRSS",
   "count": 14,
   "incidents": [
@@ -110,7 +110,7 @@
       "road": "A58 - Victoria Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.580511 -2.487265"
@@ -152,24 +152,10 @@
       "road": "A6010 - Great Cheetham St E",
       "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.503736 -2.252653"
-    },
-    {
-      "id": "5e6b23e9-16c0-4bf6-90f8-756d7ddb5cb4",
-      "title": "alert",
-      "published": "Tue Nov 17 18:54:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
       "confidence": 4.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.529669 -2.246129"
+      "reportRating": 0.0,
+      "point": "53.503736 -2.252653"
     },
     {
       "id": "b50587e9-c22f-4364-9aba-4575401c4656",
@@ -181,9 +167,23 @@
       "city": "Blackley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.527676 -2.247126"
+    },
+    {
+      "id": "5e6b23e9-16c0-4bf6-90f8-756d7ddb5cb4",
+      "title": "alert",
+      "published": "Tue Nov 17 18:54:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.529669 -2.246129"
     },
     {
       "id": "c15d487c-6f3e-4575-a68f-7733ea921d33",
