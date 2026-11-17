@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T16:05:49.206291+00:00",
+  "updatedAt": "2026-11-17T16:10:49.351356+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.625135 -2.188877"
-    },
-    {
-      "id": "2dc39a3f-872a-4221-97b7-262dda6fa5a7",
-      "title": "alert",
-      "published": "Tue Nov 17 15:29:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6046 - Hollin Ln",
-      "city": "Middleton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.564105 -2.20468"
     },
     {
       "id": "42824a18-8aa3-4a41-b40a-b094a6d46761",
@@ -55,7 +41,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.602246 -2.036079"
     },
@@ -83,7 +69,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.417519 -2.262164"
     },
@@ -110,38 +96,24 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.334928 -2.481596"
     },
     {
-      "id": "5c84aeb2-ec2a-46f9-8f9b-33e78ff23718",
+      "id": "cc152959-f7d2-4cbc-b66c-b8acccee9c2c",
       "title": "alert",
-      "published": "Tue Nov 17 16:00:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.414815 -2.277845"
-    },
-    {
-      "id": "a472219c-cd2d-47c5-bb92-acb35f1eed61",
-      "title": "alert",
-      "published": "Tue Nov 17 15:46:10 +0000 2026",
+      "published": "Tue Nov 17 16:09:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.408953 -2.176287"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.409444 -2.172356"
     }
   ]
 }
