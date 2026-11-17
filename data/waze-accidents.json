@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T07:35:48.935491+00:00",
+  "updatedAt": "2026-11-17T07:40:48.840625+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.516666 -2.438352"
+    },
+    {
+      "id": "a22c5fc8-ea07-455c-a707-2fd3193f1212",
+      "title": "alert",
+      "published": "Tue Nov 17 07:38:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J12 to M62 (W) > Liverpool",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.485312 -2.38282"
     },
     {
       "id": "cfcdc322-e552-4e57-a7d5-9e7721dc564b",
@@ -40,10 +54,24 @@
       "road": "A580 - East Lancashire Rd",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.499281 -2.449161"
+    },
+    {
+      "id": "6a46a1e9-f1b4-41f0-9f52-8e34ad2f129c",
+      "title": "alert",
+      "published": "Tue Nov 17 07:36:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - Blackburn Rd",
+      "city": "Egerton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.624738 -2.436935"
     },
     {
       "id": "d80b1abb-8e9c-4563-b161-0a0f3568f728",
@@ -68,38 +96,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.485276 -2.383896"
-    },
-    {
-      "id": "8b0a2c01-7e31-483f-b992-68b9664caca7",
-      "title": "alert",
-      "published": "Tue Nov 17 07:32:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
       "confidence": 3.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.484349 -2.386222"
-    },
-    {
-      "id": "721170af-6e18-404d-be01-69b68ac50f97",
-      "title": "alert",
-      "published": "Tue Nov 17 07:35:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.597755 -2.121253"
+      "reportRating": 3.0,
+      "point": "53.485276 -2.383896"
     }
   ]
 }
