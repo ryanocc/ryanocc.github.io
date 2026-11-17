@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T17:25:49.513041+00:00",
+  "updatedAt": "2026-11-17T17:30:48.990135+00:00",
   "source": "Waze GeoRSS",
-  "count": 21,
+  "count": 22,
   "incidents": [
     {
       "id": "22d9ef53-8b46-4ef5-8a25-33d1652f13a6",
@@ -40,24 +40,24 @@
       "road": "B5167 - Palatine Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.413061 -2.251683"
     },
     {
-      "id": "1904d21d-c4a1-4de8-9403-8d1d8de59bd9",
+      "id": "bdbd51fc-55d8-4033-920b-18263e3ff2db",
       "title": "alert",
-      "published": "Tue Nov 17 17:12:43 +0000 2026",
+      "published": "Tue Nov 17 17:30:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Kirkmanshulme Ln",
-      "city": "Belle Vue",
+      "road": "M60 (N)",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.459674 -2.196134"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.483227 -2.116063"
     },
     {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
@@ -111,7 +111,7 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.435581 -2.115612"
     },
@@ -124,8 +124,8 @@
       "road": "A6044 - Agecroft Rd",
       "city": "Pendlebury",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.509624 -2.309328"
     },
@@ -172,18 +172,18 @@
       "point": "53.462473 -2.274816"
     },
     {
-      "id": "260803bd-b12f-4b10-afeb-c1d426398854",
+      "id": "7e4985b6-0487-44ce-a45c-32a443ef61c9",
       "title": "alert",
-      "published": "Tue Nov 17 17:22:01 +0000 2026",
+      "published": "Tue Nov 17 17:27:43 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.523373 -2.168925"
+      "reportRating": 0.0,
+      "point": "53.522943 -2.167123"
     },
     {
       "id": "6db03066-2aff-4d08-a124-a41b5cf9e338",
@@ -194,10 +194,38 @@
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.522971 -2.167514"
+    },
+    {
+      "id": "260803bd-b12f-4b10-afeb-c1d426398854",
+      "title": "alert",
+      "published": "Tue Nov 17 17:22:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
       "confidence": 1.0,
       "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.523373 -2.168925"
+    },
+    {
+      "id": "f20ec412-d4f5-4890-8cfb-37297723dd93",
+      "title": "alert",
+      "published": "Tue Nov 17 17:17:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Manchester Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
-      "point": "53.523052 -2.1678"
+      "point": "53.593073 -2.180804"
     },
     {
       "id": "a01bc35a-82a8-4f7c-93fc-c02770d1ba44",
@@ -214,18 +242,32 @@
       "point": "53.609905 -2.148967"
     },
     {
-      "id": "f20ec412-d4f5-4890-8cfb-37297723dd93",
+      "id": "1cdab4fb-d677-4b38-b02e-6633d6fe1a64",
       "title": "alert",
-      "published": "Tue Nov 17 17:17:34 +0000 2026",
+      "published": "Tue Nov 17 17:16:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.593073 -2.180804"
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.41638 -2.263369"
+    },
+    {
+      "id": "2722c288-c363-4add-8309-675f0466d51d",
+      "title": "alert",
+      "published": "Tue Nov 17 17:07:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.405716 -2.267519"
     },
     {
       "id": "533de210-c27f-4024-9e9e-0f1e157e4025",
@@ -242,34 +284,6 @@
       "point": "53.417791 -2.262171"
     },
     {
-      "id": "1cdab4fb-d677-4b38-b02e-6633d6fe1a64",
-      "title": "alert",
-      "published": "Tue Nov 17 17:16:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.41638 -2.263369"
-    },
-    {
-      "id": "2722c288-c363-4add-8309-675f0466d51d",
-      "title": "alert",
-      "published": "Tue Nov 17 17:07:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.405716 -2.267519"
-    },
-    {
       "id": "77092231-72bf-4012-ba86-f02712cf5df0",
       "title": "alert",
       "published": "Tue Nov 17 17:15:51 +0000 2026",
@@ -278,8 +292,8 @@
       "road": "A6 - Wellington Rd S",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.402455 -2.156925"
     },
