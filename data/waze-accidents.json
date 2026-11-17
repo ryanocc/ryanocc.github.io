@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-17T10:15:49.124545+00:00",
+  "updatedAt": "2026-11-17T10:20:49.317606+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -102,6 +102,20 @@
       "point": "53.593618 -2.228085"
     },
     {
+      "id": "6dec2a1e-af19-4747-b402-d4325dc07769",
+      "title": "alert",
+      "published": "Tue Nov 17 10:17:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Lymm Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.371683 -2.401552"
+    },
+    {
       "id": "45f01f7b-8109-4076-b566-875b1284d632",
       "title": "alert",
       "published": "Tue Nov 17 10:09:35 +0000 2026",
@@ -110,7 +124,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.408482 -2.174298"
@@ -130,20 +144,6 @@
       "point": "53.417678 -2.170441"
     },
     {
-      "id": "a31bbc9f-aaba-4881-8743-1e86617442fe",
-      "title": "alert",
-      "published": "Tue Nov 17 09:50:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - Wilbraham Rd",
-      "city": "Chorlton-cum-Hardy",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.442497 -2.275926"
-    },
-    {
       "id": "76416d84-b881-4d05-b7fe-86d42fcf5cfe",
       "title": "alert",
       "published": "Tue Nov 17 10:01:19 +0000 2026",
@@ -152,7 +152,7 @@
       "road": "A635 - Stamford St E",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.487107 -2.080286"
@@ -166,8 +166,8 @@
       "road": "A635 - Stamford St E",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.487105 -2.080274"
     }
