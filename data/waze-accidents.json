@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T17:10:49.419358+00:00",
+  "updatedAt": "2026-11-17T17:15:49.609279+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 15,
   "incidents": [
     {
       "id": "ae717215-153e-4fb1-b17b-610023f9e673",
@@ -32,6 +32,20 @@
       "point": "53.625135 -2.188877"
     },
     {
+      "id": "4f2dedef-19db-4146-9f5b-75cd742a099d",
+      "title": "alert",
+      "published": "Tue Nov 17 17:14:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Gambrel Bank Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.502697 -2.094731"
+    },
+    {
       "id": "1b9e5fa3-c6bc-4389-a29c-845b37613e76",
       "title": "alert",
       "published": "Tue Nov 17 16:22:38 +0000 2026",
@@ -44,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.412693 -2.265165"
+    },
+    {
+      "id": "1904d21d-c4a1-4de8-9403-8d1d8de59bd9",
+      "title": "alert",
+      "published": "Tue Nov 17 17:12:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Kirkmanshulme Ln",
+      "city": "Belle Vue",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.459674 -2.196134"
     },
     {
       "id": "3115a2ba-98b2-412f-b78c-05381048d351",
@@ -138,8 +166,8 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.405716 -2.267519"
     },
@@ -152,24 +180,10 @@
       "road": "A6010 - Hulme Hall Ln",
       "city": "Miles Platting",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.494698 -2.209541"
-    },
-    {
-      "id": "7c47145c-f57f-4804-b8e5-9bf5a78933ac",
-      "title": "alert",
-      "published": "Tue Nov 17 17:03:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.362498 -2.377261"
     },
     {
       "id": "b04c7237-ddd8-461b-a77b-a4ca9db260b4",
