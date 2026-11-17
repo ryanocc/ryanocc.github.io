@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T08:00:49.394919+00:00",
+  "updatedAt": "2026-11-17T08:05:49.295808+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 15,
   "incidents": [
     {
       "id": "9c451ed3-eeea-4d87-8c28-65fc73d2d073",
@@ -40,24 +40,38 @@
       "road": "Carruthers St",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.482305 -2.216988"
     },
     {
-      "id": "a22c5fc8-ea07-455c-a707-2fd3193f1212",
+      "id": "5dbc316d-8840-4a69-ac13-103bb17111bd",
       "title": "alert",
-      "published": "Tue Nov 17 07:38:41 +0000 2026",
+      "published": "Tue Nov 17 08:00:58 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "J12 to M62 (W) > Liverpool",
+      "road": "",
+      "city": "Grange",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.409438 -2.531121"
+    },
+    {
+      "id": "22ebe755-18f6-4b0a-a097-928b59945a55",
+      "title": "alert",
+      "published": "Tue Nov 17 08:04:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 > Altrincham",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
-      "point": "53.484857 -2.384501"
+      "point": "53.365478 -2.389843"
     },
     {
       "id": "ff501300-b48a-4806-a52e-067a10a1b928",
@@ -69,9 +83,23 @@
       "city": "Ancoats",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.482691 -2.21351"
+    },
+    {
+      "id": "07fdb0d5-b3a9-4a86-b138-5a0e4ba25e54",
+      "title": "alert",
+      "published": "Tue Nov 17 08:04:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.36349 -2.391521"
     },
     {
       "id": "16011e7f-ab7c-4551-a1da-be907d6d6485",
@@ -82,8 +110,8 @@
       "road": "A579 - Atherleigh Way",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.477492 -2.535503"
     },
@@ -110,8 +138,8 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.357309 -2.315187"
     },
@@ -158,20 +186,6 @@
       "point": "53.358005 -2.307566"
     },
     {
-      "id": "c26f0b30-e65d-4ef5-8a55-05639056ec97",
-      "title": "alert",
-      "published": "Tue Nov 17 07:58:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.487834 -2.375803"
-    },
-    {
       "id": "50fca089-a1fc-4d20-bc18-4ea74159c1c8",
       "title": "alert",
       "published": "Tue Nov 17 07:30:37 +0000 2026",
@@ -186,18 +200,18 @@
       "point": "53.485276 -2.383896"
     },
     {
-      "id": "2fccdeae-a29f-4f0b-9fe6-fbd00f5f5244",
+      "id": "c26f0b30-e65d-4ef5-8a55-05639056ec97",
       "title": "alert",
-      "published": "Tue Nov 17 07:51:10 +0000 2026",
+      "published": "Tue Nov 17 07:58:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "M61 (N)",
+      "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 4.0,
       "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.543302 -2.441776"
+      "reportRating": 0.0,
+      "point": "53.487834 -2.375803"
     }
   ]
 }
