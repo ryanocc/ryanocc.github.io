@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-17T15:30:49.246557+00:00",
+  "updatedAt": "2026-11-17T15:35:49.297128+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "a283bc8d-4f30-4382-a02b-d567e4046b25",
@@ -27,7 +27,7 @@
       "city": "Kearsley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.543423 -2.360505"
     },
@@ -40,8 +40,8 @@
       "road": "A664 - Rochdale Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.525253 -2.214002"
     },
@@ -55,7 +55,7 @@
       "city": "Middleton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.564105 -2.20468"
     },
@@ -69,7 +69,7 @@
       "city": "Middleton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.563942 -2.204629"
     },
@@ -100,6 +100,34 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.499039 -2.526363"
+    },
+    {
+      "id": "7d3bff76-4c8d-466b-9faf-1ac44e82827a",
+      "title": "alert",
+      "published": "Tue Nov 17 15:31:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.549112 -2.294561"
+    },
+    {
+      "id": "3db0adbd-978b-456c-a1a6-49f78a48a48b",
+      "title": "alert",
+      "published": "Tue Nov 17 15:32:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.456278 -2.099094"
     }
   ]
 }
