@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T14:25:48.948680+00:00",
+  "updatedAt": "2026-11-18T14:30:48.846866+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -68,10 +68,24 @@
       "road": "A627 - Rochdale Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.543669 -2.119208"
+    },
+    {
+      "id": "a9ce37fa-a796-4058-8f0a-87b811cedf8b",
+      "title": "alert",
+      "published": "Wed Nov 18 14:29:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A670 - Mossley Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.504048 -2.057764"
     }
   ]
 }
