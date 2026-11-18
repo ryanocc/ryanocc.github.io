@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T14:10:48.932118+00:00",
+  "updatedAt": "2026-11-18T14:15:48.836730+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -60,18 +60,18 @@
       "point": "53.549123 -2.257611"
     },
     {
-      "id": "89306b9e-f044-4fbd-8f0c-b05d2eb279e8",
+      "id": "c803c795-6f91-4234-9ed2-8c4a9f7f770f",
       "title": "alert",
-      "published": "Wed Nov 18 13:19:21 +0000 2026",
+      "published": "Wed Nov 18 14:11:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "J2 to A58",
-      "city": "",
+      "road": "St. Mary's Way",
+      "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.592198 -2.270933"
+      "point": "53.543933 -2.118957"
     },
     {
       "id": "420fe923-75f7-45d7-b468-82935a8cae88",
@@ -86,6 +86,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.543669 -2.119208"
+    },
+    {
+      "id": "767e1b9d-a848-4995-9f2c-fd72aacbc3b5",
+      "title": "alert",
+      "published": "Wed Nov 18 14:14:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Crumpsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.516254 -2.24914"
     }
   ]
 }
