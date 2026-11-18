@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T16:35:49.208413+00:00",
+  "updatedAt": "2026-11-18T16:40:49.327068+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
-    {
-      "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
-      "title": "alert",
-      "published": "Wed Nov 18 16:05:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Highfield Rd",
-      "city": "Little Hulton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.533387 -2.431166"
-    },
     {
       "id": "f0e77942-0996-4c78-81b1-48913e2f1c3e",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.533464 -2.431114"
+    },
+    {
+      "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
+      "title": "alert",
+      "published": "Wed Nov 18 16:05:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Highfield Rd",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.533387 -2.431166"
     },
     {
       "id": "27072a45-6e3c-46ea-92cd-ed7f8cadbf74",
@@ -46,20 +46,6 @@
       "point": "53.356492 -2.199243"
     },
     {
-      "id": "c06dc178-de0f-47b7-9a43-aed9347aa378",
-      "title": "alert",
-      "published": "Wed Nov 18 15:50:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Manchester Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.533262 -2.431441"
-    },
-    {
       "id": "63613542-37d3-4e8f-af0b-6ddf409c6f0a",
       "title": "alert",
       "published": "Wed Nov 18 15:35:16 +0000 2026",
@@ -74,18 +60,18 @@
       "point": "53.533407 -2.431898"
     },
     {
-      "id": "3c7e0f7c-7a85-4cf7-aaa8-f296a5e630b6",
+      "id": "c06dc178-de0f-47b7-9a43-aed9347aa378",
       "title": "alert",
-      "published": "Wed Nov 18 16:35:20 +0000 2026",
+      "published": "Wed Nov 18 15:50:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A635 - Fairfield St",
-      "city": "Manchester",
+      "road": "A6 - Manchester Rd W",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.475315 -2.218444"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.533262 -2.431441"
     },
     {
       "id": "e46b0d3c-ea4e-4daa-8658-60465818efd5",
@@ -100,6 +86,34 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.475274 -2.216209"
+    },
+    {
+      "id": "3c7e0f7c-7a85-4cf7-aaa8-f296a5e630b6",
+      "title": "alert",
+      "published": "Wed Nov 18 16:35:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Fairfield St",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.475315 -2.218444"
+    },
+    {
+      "id": "3d05f791-ef2a-4d18-ab67-675aaeea3d25",
+      "title": "alert",
+      "published": "Wed Nov 18 16:39:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A665 - Chancellor Ln",
+      "city": "Ardwick",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.47511 -2.216719"
     },
     {
       "id": "b7dda3f4-588d-424e-8d35-e469f80e6c49",
@@ -128,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50883 -2.242429"
+    },
+    {
+      "id": "c8a31350-77b7-4d50-80f0-17397e53691b",
+      "title": "alert",
+      "published": "Wed Nov 18 16:36:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.496148 -2.384114"
     }
   ]
 }
