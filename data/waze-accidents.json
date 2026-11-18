@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T10:15:48.973527+00:00",
+  "updatedAt": "2026-11-18T10:20:48.881914+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.512468 -2.392831"
+    },
+    {
+      "id": "8a8e10d7-5b46-4883-a681-531ea1a66e45",
+      "title": "alert",
+      "published": "Wed Nov 18 10:17:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.519299 -2.239111"
     },
     {
       "id": "8db89075-3353-4b13-b551-70ae4499fa3c",
@@ -68,24 +82,10 @@
       "road": "A635 - Stamford St",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.485514 -2.06662"
-    },
-    {
-      "id": "e5c09829-ee53-43c6-af9b-bf53689132eb",
-      "title": "alert",
-      "published": "Wed Nov 18 10:13:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 5.0,
-      "point": "53.470488 -2.247163"
     },
     {
       "id": "e9c8c15f-597f-4d3e-89e2-46dcb77daf41",
@@ -96,8 +96,8 @@
       "road": "M67 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.45656 -2.133895"
     }
