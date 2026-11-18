@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T12:15:48.906599+00:00",
+  "updatedAt": "2026-11-18T12:20:48.845525+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "6ca1d5f8-42d5-42f9-ac28-355d84fa3939",
@@ -69,7 +69,7 @@
       "city": "Chorlton-on-Medlock",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.466026 -2.23757"
     },
@@ -116,18 +116,32 @@
       "point": "53.505052 -2.056917"
     },
     {
-      "id": "ae36ff54-6903-4b3b-afee-86a356cf2e81",
+      "id": "5db502e8-125e-488a-b137-79cec10dca02",
       "title": "alert",
-      "published": "Wed Nov 18 12:07:07 +0000 2026",
+      "published": "Wed Nov 18 12:18:37 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Rochdale Rd",
-      "city": "Bury",
+      "road": "A670 - Mossley Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.591821 -2.27373"
+      "point": "53.505921 -2.056254"
+    },
+    {
+      "id": "7bcc86c8-db4a-48dc-8536-c57d23b3fb0a",
+      "title": "alert",
+      "published": "Wed Nov 18 12:20:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Fallowfield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.442212 -2.244303"
     }
   ]
 }
