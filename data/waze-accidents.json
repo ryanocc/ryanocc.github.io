@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T17:00:49.165831+00:00",
+  "updatedAt": "2026-11-18T17:05:49.245983+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 11,
   "incidents": [
-    {
-      "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
-      "title": "alert",
-      "published": "Wed Nov 18 16:05:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Highfield Rd",
-      "city": "Little Hulton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.533387 -2.431166"
-    },
     {
       "id": "f0e77942-0996-4c78-81b1-48913e2f1c3e",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.533464 -2.431114"
+    },
+    {
+      "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
+      "title": "alert",
+      "published": "Wed Nov 18 16:05:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Highfield Rd",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.533387 -2.431166"
     },
     {
       "id": "dd1cae6d-ec5e-4471-b67c-9c2e158c8142",
@@ -74,60 +74,18 @@
       "point": "53.492164 -2.092239"
     },
     {
-      "id": "63613542-37d3-4e8f-af0b-6ddf409c6f0a",
+      "id": "dc959697-d1f3-43b8-bd0b-895ffa08de28",
       "title": "alert",
-      "published": "Wed Nov 18 15:35:16 +0000 2026",
+      "published": "Wed Nov 18 17:05:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6 - Manchester Rd W",
-      "city": "",
+      "road": "A5103 - Princess Rd",
+      "city": "Hulme",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.533407 -2.431898"
-    },
-    {
-      "id": "c06dc178-de0f-47b7-9a43-aed9347aa378",
-      "title": "alert",
-      "published": "Wed Nov 18 15:50:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Manchester Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.533262 -2.431441"
-    },
-    {
-      "id": "b9dab742-0326-4bc7-8a92-c8f148037b10",
-      "title": "alert",
-      "published": "Wed Nov 18 16:52:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.417912 -2.261824"
-    },
-    {
-      "id": "51530fcb-2282-45e1-920f-d04af7c8319e",
-      "title": "alert",
-      "published": "Wed Nov 18 16:52:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Parkway",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.417704 -2.262003"
+      "point": "53.466475 -2.244861"
     },
     {
       "id": "e0602630-2cc8-4bfd-af24-2e2f82c8651e",
@@ -158,34 +116,6 @@
       "point": "53.475274 -2.216209"
     },
     {
-      "id": "937e967e-ca6e-491a-a477-637667fc485b",
-      "title": "alert",
-      "published": "Wed Nov 18 16:56:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Fairfield St",
-      "city": "Ardwick",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.475353 -2.217584"
-    },
-    {
-      "id": "3d05f791-ef2a-4d18-ab67-675aaeea3d25",
-      "title": "alert",
-      "published": "Wed Nov 18 16:39:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A665 - Chancellor Ln",
-      "city": "Ardwick",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.475035 -2.216679"
-    },
-    {
       "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
       "title": "alert",
       "published": "Wed Nov 18 15:11:53 +0000 2026",
@@ -198,6 +128,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50883 -2.242429"
+    },
+    {
+      "id": "ab26c607-4c37-40f5-bd35-da5fea1fa97c",
+      "title": "alert",
+      "published": "Wed Nov 18 17:01:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Stamford St",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.485386 -2.068439"
+    },
+    {
+      "id": "e45ca33e-4cec-4d11-97d9-01a077913c58",
+      "title": "alert",
+      "published": "Wed Nov 18 17:04:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.643033 -1.947403"
     }
   ]
 }
