@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T11:25:48.857783+00:00",
+  "updatedAt": "2026-11-18T11:30:48.803796+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 10,
   "incidents": [
+    {
+      "id": "6052436c-d65b-4167-8f9e-7ca898fd712a",
+      "title": "alert",
+      "published": "Wed Nov 18 11:27:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.417255 -2.312286"
+    },
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
       "title": "alert",
@@ -68,24 +82,10 @@
       "road": "Bridgeman St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.569933 -2.430896"
-    },
-    {
-      "id": "3dfad836-f2ca-4daf-9654-48df058b4c75",
-      "title": "alert",
-      "published": "Wed Nov 18 10:21:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 > Altrincham",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470811 -2.253299"
     },
     {
       "id": "26a4857a-4e9d-427b-a1be-c4266a056e7e",
@@ -130,20 +130,6 @@
       "point": "53.599075 -2.10857"
     },
     {
-      "id": "484056a1-0bfe-4c6a-b31a-fff4e2568961",
-      "title": "alert",
-      "published": "Wed Nov 18 11:05:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Eccles New Rd",
-      "city": "Weaste",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.482702 -2.310219"
-    },
-    {
       "id": "fd318202-60f3-46e8-a001-2a8b92a7b974",
       "title": "alert",
       "published": "Wed Nov 18 11:19:38 +0000 2026",
@@ -156,20 +142,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.505052 -2.056917"
-    },
-    {
-      "id": "5723a730-417d-4eda-b0ef-26f9d0274828",
-      "title": "alert",
-      "published": "Wed Nov 18 10:48:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 - Airport Spur",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.376482 -2.283689"
     }
   ]
 }
