@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T13:15:48.994494+00:00",
+  "updatedAt": "2026-11-18T13:20:48.862436+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "2d34fe8e-d0be-4961-816e-6b0077bfb9ac",
@@ -32,18 +32,18 @@
       "point": "53.549123 -2.257611"
     },
     {
-      "id": "5db502e8-125e-488a-b137-79cec10dca02",
+      "id": "89306b9e-f044-4fbd-8f0c-b05d2eb279e8",
       "title": "alert",
-      "published": "Wed Nov 18 12:18:37 +0000 2026",
+      "published": "Wed Nov 18 13:19:21 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A670 - Mossley Rd",
+      "road": "J2 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.505921 -2.056254"
+      "point": "53.592198 -2.270933"
     },
     {
       "id": "fd318202-60f3-46e8-a001-2a8b92a7b974",
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.505052 -2.056917"
+    },
+    {
+      "id": "5db502e8-125e-488a-b137-79cec10dca02",
+      "title": "alert",
+      "published": "Wed Nov 18 12:18:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A670 - Mossley Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.505921 -2.056254"
     },
     {
       "id": "e67f7193-465d-4318-9463-51dcb45f5edb",
