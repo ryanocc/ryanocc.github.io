@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T18:25:49.072482+00:00",
+  "updatedAt": "2026-11-18T18:30:49.021745+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 11,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -60,6 +60,20 @@
       "point": "53.609903 -2.149484"
     },
     {
+      "id": "3e643f3d-bf31-4842-b25e-355296241342",
+      "title": "alert",
+      "published": "Wed Nov 18 18:25:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.379786 -2.217762"
+    },
+    {
       "id": "fd8f3d35-f559-4406-ad94-55ef12cab1da",
       "title": "alert",
       "published": "Wed Nov 18 18:04:30 +0000 2026",
@@ -68,7 +82,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.380329 -2.218138"
@@ -82,24 +96,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.380327 -2.218312"
-    },
-    {
-      "id": "3e643f3d-bf31-4842-b25e-355296241342",
-      "title": "alert",
-      "published": "Wed Nov 18 18:25:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.379786 -2.217762"
     },
     {
       "id": "432b5e6a-6a1a-4efb-aae8-b3a49c2804e6",
@@ -124,52 +124,10 @@
       "road": "Henrietta St",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492164 -2.092239"
-    },
-    {
-      "id": "e5fe3293-26d2-4390-94ef-be7ce794727d",
-      "title": "alert",
-      "published": "Wed Nov 18 17:35:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6046 - Middleton Rd",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.577585 -2.207332"
-    },
-    {
-      "id": "5e2246d5-9169-4d77-b7d8-518126c8335b",
-      "title": "alert",
-      "published": "Wed Nov 18 17:52:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A671 - Oldham Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.612336 -2.150979"
-    },
-    {
-      "id": "72dd80d4-90a5-4105-98e8-a62d9a1af1d3",
-      "title": "alert",
-      "published": "Wed Nov 18 17:40:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A671 - Oldham Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.610176 -2.149192"
     },
     {
       "id": "ad5e34cf-f1d0-4e7e-ad00-d0231bb6c420",
@@ -180,24 +138,24 @@
       "road": "A6 - London Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.383442 -2.12602"
     },
     {
-      "id": "add7f4f3-a4ce-417f-b65c-a6a6715adf5d",
+      "id": "7ecf44e1-0f2c-43fe-9c78-0608ee593456",
       "title": "alert",
-      "published": "Wed Nov 18 18:02:15 +0000 2026",
+      "published": "Wed Nov 18 18:26:36 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Pin Mill Brow",
-      "city": "Ancoats",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (S)",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.475511 -2.217008"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.409088 -2.527045"
     }
   ]
 }
