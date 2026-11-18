@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T20:10:48.822427+00:00",
+  "updatedAt": "2026-11-18T20:15:49.284073+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.541339 -2.119986"
     },
     {
+      "id": "ffb7a030-e8e4-440b-9ed2-818e7a913487",
+      "title": "alert",
+      "published": "Wed Nov 18 19:49:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5014 - Talbot Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.45362 -2.297098"
+    },
+    {
       "id": "8f7c373e-31de-436f-ba69-7060b63cd4bf",
       "title": "alert",
       "published": "Wed Nov 18 19:42:47 +0000 2026",
@@ -55,23 +69,9 @@
       "city": "Stretford",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.453384 -2.297615"
-    },
-    {
-      "id": "ffb7a030-e8e4-440b-9ed2-818e7a913487",
-      "title": "alert",
-      "published": "Wed Nov 18 19:49:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5014 - Talbot Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.45362 -2.297098"
     },
     {
       "id": "5b110c8f-736a-47a9-85ef-b0bbf07fefcb",
@@ -96,7 +96,7 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.396276 -2.268734"
