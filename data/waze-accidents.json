@@ -1,36 +1,8 @@
 {
-  "updatedAt": "2026-11-18T12:45:48.804143+00:00",
+  "updatedAt": "2026-11-18T12:50:48.871682+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
-    {
-      "id": "23e2e19e-aaa2-4fa7-ba77-6b7eca265d9d",
-      "title": "alert",
-      "published": "Wed Nov 18 12:32:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.477219 -2.356359"
-    },
-    {
-      "id": "0d6ddece-55b7-41f9-a50b-cdc429bfed7b",
-      "title": "alert",
-      "published": "Wed Nov 18 11:34:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.604439 -2.40759"
-    },
     {
       "id": "bce4ae3d-b7a1-4ea3-ac96-858cab27ef78",
       "title": "alert",
@@ -41,7 +13,7 @@
       "city": "Hale Barns",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.375128 -2.324151"
     },
@@ -68,24 +40,10 @@
       "road": "A670 - Mossley Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.505921 -2.056254"
-    },
-    {
-      "id": "54bbec5b-6c5c-40d9-81d8-0676d94ec8b2",
-      "title": "alert",
-      "published": "Wed Nov 18 12:44:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Withington",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.43273 -2.248346"
     },
     {
       "id": "f739613a-0c6d-485c-bcf1-1bab94c73648",
@@ -96,10 +54,24 @@
       "road": "A5103 (N) - Princess Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.432301 -2.249066"
+    },
+    {
+      "id": "54bbec5b-6c5c-40d9-81d8-0676d94ec8b2",
+      "title": "alert",
+      "published": "Wed Nov 18 12:44:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Withington",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.43273 -2.248346"
     },
     {
       "id": "e67f7193-465d-4318-9463-51dcb45f5edb",
@@ -124,8 +96,8 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.471702 -2.237297"
     }
