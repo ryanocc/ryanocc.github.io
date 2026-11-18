@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T17:55:49.191533+00:00",
+  "updatedAt": "2026-11-18T18:00:49.177684+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 13,
   "incidents": [
     {
       "id": "aca36bcc-6485-4cec-a007-781887805ead",
@@ -69,7 +69,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.36142 -2.510141"
     },
@@ -82,8 +82,8 @@
       "road": "Crossley Rd",
       "city": "Heaton Chapel",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 5.0,
       "point": "53.435284 -2.186215"
     },
@@ -96,24 +96,10 @@
       "road": "B5237 - Bickershaw Ln",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.515128 -2.57796"
-    },
-    {
-      "id": "8812ca32-2664-4676-9fc9-12a7a5990def",
-      "title": "alert",
-      "published": "Wed Nov 18 17:49:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5214 - Trafford Blvd",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.469243 -2.351383"
     },
     {
       "id": "432b5e6a-6a1a-4efb-aae8-b3a49c2804e6",
@@ -152,7 +138,7 @@
       "road": "A6046 - Middleton Rd",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.577585 -2.207332"
@@ -180,24 +166,24 @@
       "road": "A671 - Oldham Rd",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.610176 -2.149192"
     },
     {
-      "id": "2d1bac34-4d9b-4b95-9f55-a75a830b97cd",
+      "id": "ba71e0b5-70de-4c00-ba9e-5d2ae866d80a",
       "title": "alert",
-      "published": "Wed Nov 18 17:50:11 +0000 2026",
+      "published": "Wed Nov 18 17:57:32 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.542351 -2.28266"
+      "reportRating": 1.0,
+      "point": "53.491358 -2.117956"
     }
   ]
 }
