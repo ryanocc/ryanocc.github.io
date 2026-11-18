@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T07:55:49.113038+00:00",
+  "updatedAt": "2026-11-18T08:00:49.406686+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
-    {
-      "id": "d9afaf5b-17dc-4bca-833f-161159a1464f",
-      "title": "alert",
-      "published": "Wed Nov 18 07:49:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Park Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.548318 -2.505066"
-    },
     {
       "id": "b1816774-49f3-48a7-b75d-8159a4a26902",
       "title": "alert",
@@ -30,6 +16,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548171 -2.505548"
+    },
+    {
+      "id": "d9afaf5b-17dc-4bca-833f-161159a1464f",
+      "title": "alert",
+      "published": "Wed Nov 18 07:49:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Park Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.548318 -2.505066"
+    },
+    {
+      "id": "b26e5d9e-e85e-4e2a-9435-e4d7dcac15f5",
+      "title": "alert",
+      "published": "Wed Nov 18 06:46:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6043 - Wellington Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.490569 -2.098297"
     },
     {
       "id": "a0031707-40f2-43d1-8c65-21f94a253c1d",
@@ -74,20 +88,6 @@
       "point": "53.489883 -2.09888"
     },
     {
-      "id": "b26e5d9e-e85e-4e2a-9435-e4d7dcac15f5",
-      "title": "alert",
-      "published": "Wed Nov 18 06:46:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6043 - Wellington Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.490569 -2.098297"
-    },
-    {
       "id": "9260be68-16e2-4d1d-adfe-5d03a8606ea3",
       "title": "alert",
       "published": "Wed Nov 18 07:44:21 +0000 2026",
@@ -100,34 +100,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.601365 -2.691152"
-    },
-    {
-      "id": "40ca2c6d-39af-4a0e-9c6f-9730285ca4fd",
-      "title": "alert",
-      "published": "Wed Nov 18 07:05:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.558907 -2.701967"
-    },
-    {
-      "id": "0fdd54df-c8f0-46a7-bf51-3592c5c44141",
-      "title": "alert",
-      "published": "Wed Nov 18 07:51:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.564695 -2.700212"
     }
   ]
 }
