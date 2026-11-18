@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-18T13:25:48.823106+00:00",
+  "updatedAt": "2026-11-18T13:30:48.889202+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
     {
-      "id": "2d34fe8e-d0be-4961-816e-6b0077bfb9ac",
+      "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
       "title": "alert",
-      "published": "Wed Nov 18 13:10:55 +0000 2026",
+      "published": "Wed Nov 18 13:29:37 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
+      "road": "Mottershead Rd",
+      "city": "Wythenshawe",
+      "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.556481 -2.203639"
+      "point": "53.383574 -2.26933"
     },
     {
       "id": "0a0ea7ae-dd8b-4a72-97d8-95a98064629d",
@@ -40,8 +40,8 @@
       "road": "B5235 - Schofield Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.522748 -2.515899"
     },
@@ -54,24 +54,10 @@
       "road": "J2 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.592198 -2.270933"
-    },
-    {
-      "id": "fd318202-60f3-46e8-a001-2a8b92a7b974",
-      "title": "alert",
-      "published": "Wed Nov 18 11:19:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.505052 -2.056917"
     },
     {
       "id": "5db502e8-125e-488a-b137-79cec10dca02",
@@ -88,6 +74,20 @@
       "point": "53.505921 -2.056254"
     },
     {
+      "id": "fd318202-60f3-46e8-a001-2a8b92a7b974",
+      "title": "alert",
+      "published": "Wed Nov 18 11:19:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A670 - Mossley Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.505052 -2.056917"
+    },
+    {
       "id": "e67f7193-465d-4318-9463-51dcb45f5edb",
       "title": "alert",
       "published": "Wed Nov 18 12:27:28 +0000 2026",
@@ -102,18 +102,18 @@
       "point": "53.432734 -2.248604"
     },
     {
-      "id": "b0296fa1-2df2-477b-bff2-a535d438dac4",
+      "id": "a1d182c9-4320-4877-a3c4-378e43117dc8",
       "title": "alert",
-      "published": "Wed Nov 18 12:57:31 +0000 2026",
+      "published": "Wed Nov 18 13:28:12 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Didsbury",
+      "road": "M60 (CW)",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.431002 -2.250283"
+      "point": "53.409486 -2.171157"
     }
   ]
 }
