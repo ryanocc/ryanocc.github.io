@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-18T16:00:49.034171+00:00",
+  "updatedAt": "2026-11-18T16:05:48.736130+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
+    {
+      "id": "f0e77942-0996-4c78-81b1-48913e2f1c3e",
+      "title": "alert",
+      "published": "Wed Nov 18 16:00:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Highfield Rd",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.533464 -2.431114"
+    },
+    {
+      "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
+      "title": "alert",
+      "published": "Wed Nov 18 16:05:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Highfield Rd",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.533387 -2.431166"
+    },
     {
       "id": "27072a45-6e3c-46ea-92cd-ed7f8cadbf74",
       "title": "alert",
@@ -26,7 +54,7 @@
       "road": "A6 - Manchester Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.533262 -2.431441"
@@ -68,7 +96,7 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.356629 -2.199463"
@@ -82,7 +110,7 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.509278 -2.242896"
@@ -96,7 +124,7 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50883 -2.242429"
