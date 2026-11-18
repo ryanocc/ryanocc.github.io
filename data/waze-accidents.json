@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T13:30:48.889202+00:00",
+  "updatedAt": "2026-11-18T13:35:48.846935+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -41,7 +41,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.522748 -2.515899"
     },
@@ -88,32 +88,46 @@
       "point": "53.505052 -2.056917"
     },
     {
-      "id": "e67f7193-465d-4318-9463-51dcb45f5edb",
+      "id": "1c5b275c-f347-4d5d-b229-38c64d4416c0",
       "title": "alert",
-      "published": "Wed Nov 18 12:27:28 +0000 2026",
+      "published": "Wed Nov 18 13:34:49 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A5103 (N) - Princess Rd",
       "city": "Withington",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.432734 -2.248604"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.432656 -2.248687"
     },
     {
-      "id": "a1d182c9-4320-4877-a3c4-378e43117dc8",
+      "id": "a46f4f67-d9f4-405c-a5f5-ec1102a621af",
       "title": "alert",
-      "published": "Wed Nov 18 13:28:12 +0000 2026",
+      "published": "Wed Nov 18 13:35:12 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.409486 -2.171157"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.410469 -2.16689"
+    },
+    {
+      "id": "9550a6ee-0bb1-4beb-b5f5-81f91253bf50",
+      "title": "alert",
+      "published": "Wed Nov 18 13:33:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.40913 -2.173389"
     }
   ]
 }
