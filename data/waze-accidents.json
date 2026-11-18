@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T22:50:48.906461+00:00",
+  "updatedAt": "2026-11-18T22:55:48.870775+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "b17c2bc8-1e9e-44ae-8d4e-25ea06b73652",
@@ -26,7 +26,7 @@
       "road": "A662 - Ashton New Rd",
       "city": "Clayton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.483011 -2.182149"
@@ -46,6 +46,20 @@
       "point": "53.60369 -2.432239"
     },
     {
+      "id": "798f73f5-a213-4b81-a230-e17de3744eb7",
+      "title": "alert",
+      "published": "Wed Nov 18 22:53:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.465529 -2.196614"
+    },
+    {
       "id": "83497e48-ff4c-43fe-81e3-209c8fb08e25",
       "title": "alert",
       "published": "Wed Nov 18 22:39:00 +0000 2026",
@@ -54,7 +68,7 @@
       "road": "A57 - Hyde Rd",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.465512 -2.197265"
