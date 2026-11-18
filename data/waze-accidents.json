@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T18:20:49.172268+00:00",
+  "updatedAt": "2026-11-18T18:25:49.072482+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 14,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -72,6 +72,34 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.380329 -2.218138"
+    },
+    {
+      "id": "b8554dfc-f34c-4e6b-acba-c3217a5232de",
+      "title": "alert",
+      "published": "Wed Nov 18 18:24:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.380327 -2.218312"
+    },
+    {
+      "id": "3e643f3d-bf31-4842-b25e-355296241342",
+      "title": "alert",
+      "published": "Wed Nov 18 18:25:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.379786 -2.217762"
     },
     {
       "id": "432b5e6a-6a1a-4efb-aae8-b3a49c2804e6",
@@ -152,8 +180,8 @@
       "road": "A6 - London Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.383442 -2.12602"
     },
@@ -166,8 +194,8 @@
       "road": "A665 - Pin Mill Brow",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.475511 -2.217008"
     }
