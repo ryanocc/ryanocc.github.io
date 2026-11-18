@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T14:20:48.914511+00:00",
+  "updatedAt": "2026-11-18T14:25:48.948680+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -54,8 +54,8 @@
       "road": "St. Mary's Way",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.543933 -2.118957"
     },
@@ -68,24 +68,10 @@
       "road": "A627 - Rochdale Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.543669 -2.119208"
-    },
-    {
-      "id": "767e1b9d-a848-4995-9f2c-fd72aacbc3b5",
-      "title": "alert",
-      "published": "Wed Nov 18 14:14:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Crumpsall",
-      "country": "UK",
-      "confidence": 0.0,
+      "confidence": 1.0,
       "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.516254 -2.24914"
+      "point": "53.543669 -2.119208"
     }
   ]
 }
