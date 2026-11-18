@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T12:25:48.881277+00:00",
+  "updatedAt": "2026-11-18T12:30:48.883932+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -60,20 +60,6 @@
       "point": "53.466026 -2.23757"
     },
     {
-      "id": "1db0212d-0e5b-45ce-9889-4125a05f29ea",
-      "title": "alert",
-      "published": "Wed Nov 18 10:26:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.599075 -2.10857"
-    },
-    {
       "id": "bce4ae3d-b7a1-4ea3-ac96-858cab27ef78",
       "title": "alert",
       "published": "Wed Nov 18 12:24:34 +0000 2026",
@@ -83,7 +69,7 @@
       "city": "Hale Barns",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.375128 -2.324151"
     },
@@ -128,6 +114,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.505921 -2.056254"
+    },
+    {
+      "id": "e67f7193-465d-4318-9463-51dcb45f5edb",
+      "title": "alert",
+      "published": "Wed Nov 18 12:27:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Withington",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.432734 -2.248604"
     }
   ]
 }
