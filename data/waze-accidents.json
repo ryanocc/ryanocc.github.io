@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T15:45:49.032320+00:00",
+  "updatedAt": "2026-11-18T15:50:49.019568+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 13,
   "incidents": [
     {
       "id": "f452eb88-78e4-440a-b842-7283b0387782",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.356522 -2.199253"
     },
@@ -54,10 +54,24 @@
       "road": "A6 - Manchester Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.533407 -2.431898"
+    },
+    {
+      "id": "c06dc178-de0f-47b7-9a43-aed9347aa378",
+      "title": "alert",
+      "published": "Wed Nov 18 15:50:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Manchester Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.533262 -2.431441"
     },
     {
       "id": "420fe923-75f7-45d7-b468-82935a8cae88",
@@ -82,10 +96,24 @@
       "road": "A34 (N) - Pendleton Way",
       "city": "Wilmslow",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.316308 -2.227687"
+    },
+    {
+      "id": "c894a75e-ea20-476a-9674-8df3ead9beb9",
+      "title": "alert",
+      "published": "Wed Nov 18 15:47:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A34 (S) - Handforth Bypass",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.356629 -2.199463"
     },
     {
       "id": "28208042-f40f-4bf1-ace7-3a56e596bb96",
@@ -96,24 +124,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.476781 -2.373775"
-    },
-    {
-      "id": "e594e9ef-3297-4d6f-828e-41f91dcc3e7c",
-      "title": "alert",
-      "published": "Wed Nov 18 15:23:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.509272 -2.24289"
     },
     {
       "id": "b7dda3f4-588d-424e-8d35-e469f80e6c49",
@@ -130,6 +144,20 @@
       "point": "53.509278 -2.242896"
     },
     {
+      "id": "e594e9ef-3297-4d6f-828e-41f91dcc3e7c",
+      "title": "alert",
+      "published": "Wed Nov 18 15:23:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.509272 -2.24289"
+    },
+    {
       "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
       "title": "alert",
       "published": "Wed Nov 18 15:11:53 +0000 2026",
@@ -139,7 +167,7 @@
       "city": "Cheetham",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50883 -2.242429"
     },
@@ -153,7 +181,7 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.483905 -2.054272"
     }
