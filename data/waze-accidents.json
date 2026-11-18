@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T07:45:49.090544+00:00",
+  "updatedAt": "2026-11-18T07:50:49.147543+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
+    {
+      "id": "d9afaf5b-17dc-4bca-833f-161159a1464f",
+      "title": "alert",
+      "published": "Wed Nov 18 07:49:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Park Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.548318 -2.505066"
+    },
     {
       "id": "b1816774-49f3-48a7-b75d-8159a4a26902",
       "title": "alert",
@@ -12,24 +26,10 @@
       "road": "A58 - Park Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548171 -2.505548"
-    },
-    {
-      "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
-      "title": "alert",
-      "published": "Wed Nov 18 06:39:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.490481 -2.098679"
     },
     {
       "id": "a0031707-40f2-43d1-8c65-21f94a253c1d",
@@ -40,7 +40,7 @@
       "road": "A6043 - Wellington Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.490507 -2.098703"
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.490569 -2.098297"
+    },
+    {
+      "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
+      "title": "alert",
+      "published": "Wed Nov 18 06:39:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.490481 -2.098679"
     },
     {
       "id": "cb835fa0-a2f5-4364-9151-3ad289312d13",
@@ -96,8 +110,8 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.601365 -2.691152"
     }
