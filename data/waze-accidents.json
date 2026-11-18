@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T20:00:49.045342+00:00",
+  "updatedAt": "2026-11-18T20:05:48.793156+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.369044 -2.277587"
     },
     {
+      "id": "19b4544a-4e8f-4492-8735-2e238e7d365d",
+      "title": "alert",
+      "published": "Wed Nov 18 20:03:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "St. Mary's Way",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.544016 -2.118213"
+    },
+    {
       "id": "8861c4b8-e86d-463a-9d33-d5dd1a1a0d9f",
       "title": "alert",
       "published": "Wed Nov 18 19:18:18 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.541339 -2.119986"
-    },
-    {
-      "id": "ffb7a030-e8e4-440b-9ed2-818e7a913487",
-      "title": "alert",
-      "published": "Wed Nov 18 19:49:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5014 - Talbot Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.45362 -2.297098"
     },
     {
       "id": "8f7c373e-31de-436f-ba69-7060b63cd4bf",
@@ -88,32 +88,32 @@
       "point": "53.453384 -2.297615"
     },
     {
-      "id": "f78c3191-ce5a-47e9-935e-d718fbde5b84",
+      "id": "ffb7a030-e8e4-440b-9ed2-818e7a913487",
       "title": "alert",
-      "published": "Wed Nov 18 19:51:29 +0000 2026",
+      "published": "Wed Nov 18 19:49:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5014 - Talbot Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.45362 -2.297098"
+    },
+    {
+      "id": "52d7f635-569c-4f79-9f3d-596e189fd839",
+      "title": "alert",
+      "published": "Wed Nov 18 20:02:47 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.391324 -2.272548"
-    },
-    {
-      "id": "ae2d7ad8-c78f-4384-b0db-c70ca72efb59",
-      "title": "alert",
-      "published": "Wed Nov 18 19:22:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.39623 -2.255858"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.396276 -2.268734"
     }
   ]
 }
