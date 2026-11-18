@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T15:30:49.165361+00:00",
+  "updatedAt": "2026-11-18T15:35:49.018425+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 11,
   "incidents": [
-    {
-      "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
-      "title": "alert",
-      "published": "Wed Nov 18 13:29:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Mottershead Rd",
-      "city": "Wythenshawe",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.383574 -2.26933"
-    },
     {
       "id": "f452eb88-78e4-440a-b842-7283b0387782",
       "title": "alert",
@@ -60,18 +46,18 @@
       "point": "53.543933 -2.118957"
     },
     {
-      "id": "a6b0ff20-efbe-47f9-b175-9c8069915dc5",
+      "id": "63613542-37d3-4e8f-af0b-6ddf409c6f0a",
       "title": "alert",
-      "published": "Wed Nov 18 15:14:15 +0000 2026",
+      "published": "Wed Nov 18 15:35:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A6 - Manchester Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.533269 -2.431464"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.533407 -2.431898"
     },
     {
       "id": "420fe923-75f7-45d7-b468-82935a8cae88",
@@ -96,52 +82,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.476781 -2.373775"
-    },
-    {
-      "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
-      "title": "alert",
-      "published": "Wed Nov 18 15:11:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.50883 -2.242429"
-    },
-    {
-      "id": "e594e9ef-3297-4d6f-828e-41f91dcc3e7c",
-      "title": "alert",
-      "published": "Wed Nov 18 15:23:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.509272 -2.24289"
-    },
-    {
-      "id": "0b3ccada-1cb1-4ed2-a058-0142c2e5fbb5",
-      "title": "alert",
-      "published": "Wed Nov 18 15:17:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.498015 -2.237054"
     },
     {
       "id": "b7dda3f4-588d-424e-8d35-e469f80e6c49",
@@ -156,6 +100,48 @@
       "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.509278 -2.242896"
+    },
+    {
+      "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
+      "title": "alert",
+      "published": "Wed Nov 18 15:11:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.50883 -2.242429"
+    },
+    {
+      "id": "e594e9ef-3297-4d6f-828e-41f91dcc3e7c",
+      "title": "alert",
+      "published": "Wed Nov 18 15:23:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.509272 -2.24289"
+    },
+    {
+      "id": "0b3ccada-1cb1-4ed2-a058-0142c2e5fbb5",
+      "title": "alert",
+      "published": "Wed Nov 18 15:17:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.498015 -2.237054"
     },
     {
       "id": "857da53a-fb64-44c0-9c88-0a50099bf6ba",
