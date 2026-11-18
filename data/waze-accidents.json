@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T11:40:48.852071+00:00",
+  "updatedAt": "2026-11-18T11:45:48.835083+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
-    {
-      "id": "6052436c-d65b-4167-8f9e-7ca898fd712a",
-      "title": "alert",
-      "published": "Wed Nov 18 11:27:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.417255 -2.312286"
-    },
     {
       "id": "22560993-7aae-44cd-bb09-8312941512db",
       "title": "alert",
@@ -58,34 +44,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.355215 -2.505163"
-    },
-    {
-      "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
-      "title": "alert",
-      "published": "Wed Nov 18 10:08:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Bridgeman St",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.570137 -2.430748"
-    },
-    {
-      "id": "2b1543dc-cb38-49c3-926d-5f80f5cbf81d",
-      "title": "alert",
-      "published": "Wed Nov 18 10:38:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Bridgeman St",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.569933 -2.430896"
     },
     {
       "id": "26a4857a-4e9d-427b-a1be-c4266a056e7e",
@@ -138,8 +96,8 @@
       "road": "",
       "city": "Audenshaw",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.479725 -2.122224"
     },
@@ -156,6 +114,20 @@
       "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.505052 -2.056917"
+    },
+    {
+      "id": "455dfadf-2f1a-45e7-9c9c-895295504f80",
+      "title": "alert",
+      "published": "Wed Nov 18 11:40:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.470811 -2.251968"
     }
   ]
 }
