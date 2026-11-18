@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T14:45:48.949213+00:00",
+  "updatedAt": "2026-11-18T14:50:48.849877+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -60,6 +60,20 @@
       "point": "53.543933 -2.118957"
     },
     {
+      "id": "d7c2c7a0-fab1-4838-b68f-78d7781971c3",
+      "title": "alert",
+      "published": "Wed Nov 18 14:50:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6144 - Harboro Way",
+      "city": "Sale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.421435 -2.335402"
+    },
+    {
       "id": "420fe923-75f7-45d7-b468-82935a8cae88",
       "title": "alert",
       "published": "Wed Nov 18 14:08:48 +0000 2026",
@@ -86,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.504048 -2.057764"
-    },
-    {
-      "id": "79685641-f200-4c16-a743-b89c4f747272",
-      "title": "alert",
-      "published": "Wed Nov 18 14:41:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A556 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.359802 -2.395135"
     }
   ]
 }
