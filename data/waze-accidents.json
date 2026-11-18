@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T11:15:48.833058+00:00",
+  "updatedAt": "2026-11-18T11:20:48.818064+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 13,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -54,7 +54,7 @@
       "road": "Bridgeman St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.570137 -2.430748"
@@ -68,24 +68,10 @@
       "road": "Bridgeman St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.569933 -2.430896"
-    },
-    {
-      "id": "517cffbc-c809-4676-a82d-21d1ba63bfab",
-      "title": "alert",
-      "published": "Wed Nov 18 11:03:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 > Manchester Airport",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.47074 -2.248733"
     },
     {
       "id": "3dfad836-f2ca-4daf-9654-48df058b4c75",
@@ -144,20 +130,6 @@
       "point": "53.599075 -2.10857"
     },
     {
-      "id": "f96437ce-ae84-41a9-a3e5-1222d53fd45c",
-      "title": "alert",
-      "published": "Wed Nov 18 10:58:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6017 - Berrycroft Ln",
-      "city": "Romiley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.415929 -2.103803"
-    },
-    {
       "id": "484056a1-0bfe-4c6a-b31a-fff4e2568961",
       "title": "alert",
       "published": "Wed Nov 18 11:05:39 +0000 2026",
@@ -170,6 +142,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.482702 -2.310219"
+    },
+    {
+      "id": "fd318202-60f3-46e8-a001-2a8b92a7b974",
+      "title": "alert",
+      "published": "Wed Nov 18 11:19:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A670 - Mossley Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.505052 -2.056917"
     },
     {
       "id": "5723a730-417d-4eda-b0ef-26f9d0274828",
