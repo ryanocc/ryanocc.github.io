@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T07:40:49.098761+00:00",
+  "updatedAt": "2026-11-18T07:45:49.090544+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
+    {
+      "id": "b1816774-49f3-48a7-b75d-8159a4a26902",
+      "title": "alert",
+      "published": "Wed Nov 18 07:42:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Park Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.548171 -2.505548"
+    },
     {
       "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
       "title": "alert",
@@ -40,7 +54,7 @@
       "road": "A6043 - Wellington Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.490569 -2.098297"
@@ -72,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.558907 -2.701967"
+    },
+    {
+      "id": "9260be68-16e2-4d1d-adfe-5d03a8606ea3",
+      "title": "alert",
+      "published": "Wed Nov 18 07:44:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.601365 -2.691152"
     }
   ]
 }
