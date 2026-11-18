@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T16:45:49.155840+00:00",
+  "updatedAt": "2026-11-18T16:50:49.291372+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
@@ -26,7 +26,7 @@
       "road": "Highfield Rd",
       "city": "Little Hulton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.533464 -2.431114"
@@ -74,18 +74,18 @@
       "point": "53.533262 -2.431441"
     },
     {
-      "id": "e46b0d3c-ea4e-4daa-8658-60465818efd5",
+      "id": "e0602630-2cc8-4bfd-af24-2e2f82c8651e",
       "title": "alert",
-      "published": "Wed Nov 18 16:26:18 +0000 2026",
+      "published": "Wed Nov 18 16:46:11 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A635 - Ashton Old Rd",
-      "city": "Manchester",
+      "road": "A665 - Pin Mill Brow",
+      "city": "Ancoats",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.475274 -2.216209"
+      "point": "53.475651 -2.217126"
     },
     {
       "id": "3d05f791-ef2a-4d18-ab67-675aaeea3d25",
@@ -102,18 +102,18 @@
       "point": "53.47511 -2.216719"
     },
     {
-      "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
+      "id": "e46b0d3c-ea4e-4daa-8658-60465818efd5",
       "title": "alert",
-      "published": "Wed Nov 18 15:11:53 +0000 2026",
+      "published": "Wed Nov 18 16:26:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
+      "road": "A635 - Ashton Old Rd",
+      "city": "Manchester",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.50883 -2.242429"
+      "point": "53.475274 -2.216209"
     },
     {
       "id": "b7dda3f4-588d-424e-8d35-e469f80e6c49",
@@ -130,9 +130,23 @@
       "point": "53.509278 -2.242896"
     },
     {
-      "id": "c8a31350-77b7-4d50-80f0-17397e53691b",
+      "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
       "title": "alert",
-      "published": "Wed Nov 18 16:36:58 +0000 2026",
+      "published": "Wed Nov 18 15:11:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.50883 -2.242429"
+    },
+    {
+      "id": "4af2684c-6fb3-43e8-93d9-a7e04b6bf516",
+      "title": "alert",
+      "published": "Wed Nov 18 16:47:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (ACW)",
@@ -140,8 +154,8 @@
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.496148 -2.384114"
+      "reportRating": 4.0,
+      "point": "53.398882 -2.226786"
     }
   ]
 }
