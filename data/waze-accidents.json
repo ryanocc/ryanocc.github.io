@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T19:15:48.865014+00:00",
+  "updatedAt": "2026-11-18T19:20:48.965232+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 10,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -32,20 +32,6 @@
       "point": "53.474919 -2.217047"
     },
     {
-      "id": "248a78ee-03a8-4ebc-a924-9f7d354b45f6",
-      "title": "alert",
-      "published": "Wed Nov 18 17:16:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Lincoln Cl",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.609903 -2.149484"
-    },
-    {
       "id": "d4e5a341-3f92-4132-a95e-42474f0f7ea3",
       "title": "alert",
       "published": "Wed Nov 18 18:49:35 +0000 2026",
@@ -60,20 +46,6 @@
       "point": "53.369044 -2.277587"
     },
     {
-      "id": "b8554dfc-f34c-4e6b-acba-c3217a5232de",
-      "title": "alert",
-      "published": "Wed Nov 18 18:24:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.380327 -2.218312"
-    },
-    {
       "id": "622782e5-ae99-44bf-9469-70546213d2c0",
       "title": "alert",
       "published": "Wed Nov 18 18:57:24 +0000 2026",
@@ -86,20 +58,6 @@
       "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.380552 -2.218056"
-    },
-    {
-      "id": "fd8f3d35-f559-4406-ad94-55ef12cab1da",
-      "title": "alert",
-      "published": "Wed Nov 18 18:04:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.380329 -2.218138"
     },
     {
       "id": "432b5e6a-6a1a-4efb-aae8-b3a49c2804e6",
@@ -130,6 +88,20 @@
       "point": "53.492164 -2.092239"
     },
     {
+      "id": "8861c4b8-e86d-463a-9d33-d5dd1a1a0d9f",
+      "title": "alert",
+      "published": "Wed Nov 18 19:18:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.541339 -2.119986"
+    },
+    {
       "id": "2cf8bc44-3a6c-4428-af02-dde60bbfc278",
       "title": "alert",
       "published": "Wed Nov 18 19:11:55 +0000 2026",
@@ -138,7 +110,7 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.390812 -2.272893"
@@ -152,24 +124,10 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.394051 -2.270065"
-    },
-    {
-      "id": "1ff3228c-3c84-4e31-a25a-bd6ed6bb227f",
-      "title": "alert",
-      "published": "Wed Nov 18 19:11:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.399082 -2.268708"
     },
     {
       "id": "7a719416-6074-4583-92f7-e3d078f3c143",
@@ -181,7 +139,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.394991 -2.268995"
     }
