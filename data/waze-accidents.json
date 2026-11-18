@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-11-18T08:30:49.087009+00:00",
+  "updatedAt": "2026-11-18T08:35:49.297096+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
     {
-      "id": "ec08e646-0c24-4dfa-b541-2749bb809090",
+      "id": "8db89075-3353-4b13-b551-70ae4499fa3c",
       "title": "alert",
-      "published": "Wed Nov 18 08:25:32 +0000 2026",
+      "published": "Wed Nov 18 08:30:48 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Brownley Rd",
-      "city": "Wythenshawe",
+      "road": "B6221 - Brook St",
+      "city": "Bury",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.393221 -2.256792"
+      "point": "53.597684 -2.287188"
+    },
+    {
+      "id": "61cd1578-558a-45fc-bc37-9378b5f6ee24",
+      "title": "alert",
+      "published": "Wed Nov 18 08:35:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.547431 -2.258041"
     },
     {
       "id": "0cf532d9-2d25-4f41-8b22-2b3b611a7dcc",
@@ -27,7 +41,7 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.485366 -2.065453"
     },
@@ -72,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.490481 -2.098679"
-    },
-    {
-      "id": "3ff3f7e1-9e22-49e4-8d3d-3e7804901ebf",
-      "title": "alert",
-      "published": "Wed Nov 18 08:18:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M602 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.485911 -2.326618"
     }
   ]
 }
