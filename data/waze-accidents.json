@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T10:10:48.959150+00:00",
+  "updatedAt": "2026-11-18T10:15:48.973527+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -69,23 +69,37 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.485514 -2.06662"
     },
     {
-      "id": "8d09e631-1ab0-40ae-b7f5-bca853edc4ab",
+      "id": "e5c09829-ee53-43c6-af9b-bf53689132eb",
       "title": "alert",
-      "published": "Wed Nov 18 10:07:54 +0000 2026",
+      "published": "Wed Nov 18 10:13:04 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A627(M) (S)",
+      "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.592113 -2.162963"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 5.0,
+      "point": "53.470488 -2.247163"
+    },
+    {
+      "id": "e9c8c15f-597f-4d3e-89e2-46dcb77daf41",
+      "title": "alert",
+      "published": "Wed Nov 18 10:15:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.45656 -2.133895"
     }
   ]
 }
