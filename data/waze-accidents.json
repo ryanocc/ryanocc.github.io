@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T13:50:48.851966+00:00",
+  "updatedAt": "2026-11-18T13:55:48.902916+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -18,6 +18,20 @@
       "point": "53.383574 -2.26933"
     },
     {
+      "id": "183116b3-3ade-4208-bd48-f92b3271310c",
+      "title": "alert",
+      "published": "Wed Nov 18 13:54:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.567168 -2.460046"
+    },
+    {
       "id": "0a0ea7ae-dd8b-4a72-97d8-95a98064629d",
       "title": "alert",
       "published": "Wed Nov 18 13:11:44 +0000 2026",
@@ -32,20 +46,6 @@
       "point": "53.549123 -2.257611"
     },
     {
-      "id": "9bf23103-0257-481d-ad5b-caa849a7e06c",
-      "title": "alert",
-      "published": "Wed Nov 18 13:23:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5235 - Schofield Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.522748 -2.515899"
-    },
-    {
       "id": "89306b9e-f044-4fbd-8f0c-b05d2eb279e8",
       "title": "alert",
       "published": "Wed Nov 18 13:19:21 +0000 2026",
@@ -54,8 +54,8 @@
       "road": "J2 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.592198 -2.270933"
     },
@@ -86,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.432656 -2.248687"
-    },
-    {
-      "id": "343f0cef-1fad-4a7f-80a4-ed1f98393c37",
-      "title": "alert",
-      "published": "Wed Nov 18 13:37:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.402155 -2.204922"
     }
   ]
 }
