@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T08:50:49.246454+00:00",
+  "updatedAt": "2026-11-18T08:55:49.559460+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 7,
   "incidents": [
     {
       "id": "7832f6e2-fd5f-4775-bed0-6cdb0f314db1",
@@ -13,7 +13,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.5424 -2.4519"
     },
@@ -30,20 +30,6 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.638855 -2.478426"
-    },
-    {
-      "id": "92e74155-ea32-4059-a985-d394c950bb00",
-      "title": "alert",
-      "published": "Wed Nov 18 08:46:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J2 to A576",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.486147 -2.335499"
     },
     {
       "id": "8db89075-3353-4b13-b551-70ae4499fa3c",
@@ -68,7 +54,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.547431 -2.258041"
@@ -83,7 +69,7 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.485366 -2.065453"
     },
@@ -102,20 +88,6 @@
       "point": "53.408741 -2.14924"
     },
     {
-      "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
-      "title": "alert",
-      "published": "Wed Nov 18 06:39:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.490481 -2.098679"
-    },
-    {
       "id": "7eeb3310-972a-42fa-86e5-5fd8bbcc1315",
       "title": "alert",
       "published": "Wed Nov 18 08:47:07 +0000 2026",
@@ -124,24 +96,10 @@
       "road": "A635 - Stamford St",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.485372 -2.06866"
-    },
-    {
-      "id": "33a94e79-7b69-4ff7-bbe9-bac67ebca373",
-      "title": "alert",
-      "published": "Wed Nov 18 08:46:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A627(M) (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.588193 -2.159526"
     }
   ]
 }
