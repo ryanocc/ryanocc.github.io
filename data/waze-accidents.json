@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T17:20:49.246517+00:00",
+  "updatedAt": "2026-11-18T17:25:49.273785+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
+    {
+      "id": "ce3fab06-ef4e-47ef-8169-9b3670c49eb4",
+      "title": "alert",
+      "published": "Wed Nov 18 17:22:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Manchester Airport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.370678 -2.285066"
+    },
     {
       "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
       "title": "alert",
@@ -13,7 +27,7 @@
       "city": "Little Hulton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.533387 -2.431166"
     },
@@ -68,8 +82,8 @@
       "road": "Henrietta St",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.492164 -2.092239"
     },
@@ -97,7 +111,7 @@
       "city": "Heywood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.577837 -2.207374"
     },
@@ -110,10 +124,24 @@
       "road": "A5103 - Princess Rd",
       "city": "Hulme",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.466475 -2.244861"
+    },
+    {
+      "id": "e46b0d3c-ea4e-4daa-8658-60465818efd5",
+      "title": "alert",
+      "published": "Wed Nov 18 16:26:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Ashton Old Rd",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.475278 -2.216304"
     },
     {
       "id": "7db400ab-bb43-4cf0-8c9c-e104145d3bbe",
@@ -125,7 +153,7 @@
       "city": "Ardwick",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.47538 -2.218074"
     },
@@ -138,24 +166,10 @@
       "road": "A635 - Ashton Old Rd",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.475264 -2.216006"
-    },
-    {
-      "id": "e46b0d3c-ea4e-4daa-8658-60465818efd5",
-      "title": "alert",
-      "published": "Wed Nov 18 16:26:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Ashton Old Rd",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.475274 -2.216209"
     },
     {
       "id": "d57064d1-c9e2-4675-98e7-d35691e92e5d",
@@ -166,24 +180,10 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.406587 -2.521777"
-    },
-    {
-      "id": "7e014401-e311-43f6-8683-5278bca1a98c",
-      "title": "alert",
-      "published": "Wed Nov 18 17:18:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.474426 -2.127604"
     }
   ]
 }
