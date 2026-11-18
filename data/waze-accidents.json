@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T14:05:48.934691+00:00",
+  "updatedAt": "2026-11-18T14:10:48.932118+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -72,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.592198 -2.270933"
+    },
+    {
+      "id": "420fe923-75f7-45d7-b468-82935a8cae88",
+      "title": "alert",
+      "published": "Wed Nov 18 14:08:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A627 - Rochdale Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.543669 -2.119208"
     }
   ]
 }
