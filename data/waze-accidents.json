@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T20:05:48.793156+00:00",
+  "updatedAt": "2026-11-18T20:10:48.822427+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
-    {
-      "id": "7397563a-840d-4668-b707-849e31f527c4",
-      "title": "alert",
-      "published": "Wed Nov 18 18:04:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Presto St",
-      "city": "Farnworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.550785 -2.392039"
-    },
     {
       "id": "bcd0b1d9-8d36-4664-97aa-6cc740dd2209",
       "title": "alert",
@@ -32,20 +18,6 @@
       "point": "53.474919 -2.217047"
     },
     {
-      "id": "d4e5a341-3f92-4132-a95e-42474f0f7ea3",
-      "title": "alert",
-      "published": "Wed Nov 18 18:49:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.369044 -2.277587"
-    },
-    {
       "id": "19b4544a-4e8f-4492-8735-2e238e7d365d",
       "title": "alert",
       "published": "Wed Nov 18 20:03:24 +0000 2026",
@@ -54,8 +26,8 @@
       "road": "St. Mary's Way",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.544016 -2.118213"
     },
@@ -97,9 +69,23 @@
       "city": "Stretford",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.45362 -2.297098"
+    },
+    {
+      "id": "5b110c8f-736a-47a9-85ef-b0bbf07fefcb",
+      "title": "alert",
+      "published": "Wed Nov 18 20:00:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A627 - Rochdale Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.543986 -2.119239"
     },
     {
       "id": "52d7f635-569c-4f79-9f3d-596e189fd839",
@@ -110,8 +96,8 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.396276 -2.268734"
     }
