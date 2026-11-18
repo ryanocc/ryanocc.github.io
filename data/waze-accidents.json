@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T18:10:49.192196+00:00",
+  "updatedAt": "2026-11-18T18:15:49.069278+00:00",
   "source": "Waze GeoRSS",
   "count": 13,
   "incidents": [
@@ -27,9 +27,23 @@
       "city": "Farnworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.550785 -2.392039"
+    },
+    {
+      "id": "bcd0b1d9-8d36-4664-97aa-6cc740dd2209",
+      "title": "alert",
+      "published": "Wed Nov 18 18:12:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "William St",
+      "city": "Ardwick",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.474919 -2.217047"
     },
     {
       "id": "dd1cae6d-ec5e-4471-b67c-9c2e158c8142",
@@ -68,24 +82,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.380329 -2.218138"
-    },
-    {
-      "id": "0a53e7df-e769-4009-830d-e12dc350efae",
-      "title": "alert",
-      "published": "Wed Nov 18 17:39:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5237 - Bickershaw Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.515128 -2.57796"
     },
     {
       "id": "432b5e6a-6a1a-4efb-aae8-b3a49c2804e6",
@@ -110,7 +110,7 @@
       "road": "Henrietta St",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492164 -2.092239"
@@ -138,8 +138,8 @@
       "road": "A671 - Oldham Rd",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.612336 -2.150979"
     },
@@ -152,10 +152,24 @@
       "road": "A671 - Oldham Rd",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.610176 -2.149192"
+    },
+    {
+      "id": "ad5e34cf-f1d0-4e7e-ad00-d0231bb6c420",
+      "title": "alert",
+      "published": "Wed Nov 18 18:15:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - London Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.383442 -2.12602"
     },
     {
       "id": "add7f4f3-a4ce-417f-b65c-a6a6715adf5d",
@@ -170,20 +184,6 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.475511 -2.217008"
-    },
-    {
-      "id": "ba71e0b5-70de-4c00-ba9e-5d2ae866d80a",
-      "title": "alert",
-      "published": "Wed Nov 18 17:57:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.491358 -2.117956"
     }
   ]
 }
