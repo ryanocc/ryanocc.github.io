@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T19:55:49.115349+00:00",
+  "updatedAt": "2026-11-18T20:00:49.045342+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -27,7 +27,7 @@
       "city": "Ardwick",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.474919 -2.217047"
     },
@@ -40,8 +40,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.369044 -2.277587"
     },
@@ -60,20 +60,6 @@
       "point": "53.541339 -2.119986"
     },
     {
-      "id": "8f7c373e-31de-436f-ba69-7060b63cd4bf",
-      "title": "alert",
-      "published": "Wed Nov 18 19:42:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5014 - Talbot Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.453384 -2.297615"
-    },
-    {
       "id": "ffb7a030-e8e4-440b-9ed2-818e7a913487",
       "title": "alert",
       "published": "Wed Nov 18 19:49:02 +0000 2026",
@@ -88,6 +74,20 @@
       "point": "53.45362 -2.297098"
     },
     {
+      "id": "8f7c373e-31de-436f-ba69-7060b63cd4bf",
+      "title": "alert",
+      "published": "Wed Nov 18 19:42:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5014 - Talbot Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.453384 -2.297615"
+    },
+    {
       "id": "f78c3191-ce5a-47e9-935e-d718fbde5b84",
       "title": "alert",
       "published": "Wed Nov 18 19:51:29 +0000 2026",
@@ -96,7 +96,7 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.391324 -2.272548"
@@ -114,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.39623 -2.255858"
-    },
-    {
-      "id": "3d7f0d3a-abef-4f04-9a0d-864d02d518c5",
-      "title": "alert",
-      "published": "Wed Nov 18 19:52:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.461398 -2.34532"
     }
   ]
 }
