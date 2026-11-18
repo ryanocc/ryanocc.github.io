@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T15:10:48.992765+00:00",
+  "updatedAt": "2026-11-18T15:15:49.108558+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 8,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -32,20 +32,6 @@
       "point": "53.498527 -2.344775"
     },
     {
-      "id": "0a0ea7ae-dd8b-4a72-97d8-95a98064629d",
-      "title": "alert",
-      "published": "Wed Nov 18 13:11:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.549123 -2.257611"
-    },
-    {
       "id": "c803c795-6f91-4234-9ed2-8c4a9f7f770f",
       "title": "alert",
       "published": "Wed Nov 18 14:11:50 +0000 2026",
@@ -60,6 +46,20 @@
       "point": "53.543933 -2.118957"
     },
     {
+      "id": "a6b0ff20-efbe-47f9-b175-9c8069915dc5",
+      "title": "alert",
+      "published": "Wed Nov 18 15:14:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Manchester Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.533269 -2.431464"
+    },
+    {
       "id": "420fe923-75f7-45d7-b468-82935a8cae88",
       "title": "alert",
       "published": "Wed Nov 18 14:08:48 +0000 2026",
@@ -72,6 +72,48 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.543669 -2.119208"
+    },
+    {
+      "id": "28208042-f40f-4bf1-ace7-3a56e596bb96",
+      "title": "alert",
+      "published": "Wed Nov 18 15:14:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.476781 -2.373775"
+    },
+    {
+      "id": "b7dda3f4-588d-424e-8d35-e469f80e6c49",
+      "title": "alert",
+      "published": "Wed Nov 18 15:12:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.509278 -2.242896"
+    },
+    {
+      "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
+      "title": "alert",
+      "published": "Wed Nov 18 15:11:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.50883 -2.242429"
     }
   ]
 }
