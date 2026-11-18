@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T15:40:49.227757+00:00",
+  "updatedAt": "2026-11-18T15:45:49.032320+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "f452eb88-78e4-440a-b842-7283b0387782",
@@ -16,6 +16,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.498527 -2.344775"
+    },
+    {
+      "id": "27072a45-6e3c-46ea-92cd-ed7f8cadbf74",
+      "title": "alert",
+      "published": "Wed Nov 18 15:44:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 > Buxton",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.356522 -2.199253"
     },
     {
       "id": "c803c795-6f91-4234-9ed2-8c4a9f7f770f",
@@ -60,6 +74,20 @@
       "point": "53.543669 -2.119208"
     },
     {
+      "id": "a99ac1b9-1f60-457f-bbdd-e9d5e2cdf462",
+      "title": "alert",
+      "published": "Wed Nov 18 15:41:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (N) - Pendleton Way",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.316308 -2.227687"
+    },
+    {
       "id": "28208042-f40f-4bf1-ace7-3a56e596bb96",
       "title": "alert",
       "published": "Wed Nov 18 15:14:12 +0000 2026",
@@ -68,7 +96,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.476781 -2.373775"
@@ -97,7 +125,7 @@
       "city": "Cheetham",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.509278 -2.242896"
     },
@@ -110,8 +138,8 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.50883 -2.242429"
     },
@@ -124,8 +152,8 @@
       "road": "A6018 - Stamford St",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.483905 -2.054272"
     }
