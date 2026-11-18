@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T12:00:48.929351+00:00",
+  "updatedAt": "2026-11-18T12:05:48.790215+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
+    {
+      "id": "6ca1d5f8-42d5-42f9-ac28-355d84fa3939",
+      "title": "alert",
+      "published": "Wed Nov 18 12:02:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.462214 -2.350941"
+    },
     {
       "id": "0d6ddece-55b7-41f9-a50b-cdc429bfed7b",
       "title": "alert",
@@ -82,8 +96,8 @@
       "road": "",
       "city": "Audenshaw",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.479725 -2.122224"
     },
@@ -96,24 +110,10 @@
       "road": "A670 - Mossley Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.505052 -2.056917"
-    },
-    {
-      "id": "455dfadf-2f1a-45e7-9c9c-895295504f80",
-      "title": "alert",
-      "published": "Wed Nov 18 11:40:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.470811 -2.251968"
     }
   ]
 }
