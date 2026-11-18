@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T17:50:49.213860+00:00",
+  "updatedAt": "2026-11-18T17:55:49.191533+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "aca36bcc-6485-4cec-a007-781887805ead",
@@ -69,23 +69,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.36142 -2.510141"
     },
     {
-      "id": "27072a45-6e3c-46ea-92cd-ed7f8cadbf74",
+      "id": "5b64e2ec-8158-4242-b85a-84065c3c0baf",
       "title": "alert",
-      "published": "Wed Nov 18 15:44:43 +0000 2026",
+      "published": "Wed Nov 18 17:50:50 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 > Buxton",
-      "city": "",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Crossley Rd",
+      "city": "Heaton Chapel",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.356492 -2.199243"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.435284 -2.186215"
     },
     {
       "id": "0a53e7df-e769-4009-830d-e12dc350efae",
@@ -110,8 +110,8 @@
       "road": "B5214 - Trafford Blvd",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.469243 -2.351383"
     },
@@ -125,7 +125,7 @@
       "city": "Heywood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.596093 -2.22064"
     },
@@ -152,10 +152,24 @@
       "road": "A6046 - Middleton Rd",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.577585 -2.207332"
+    },
+    {
+      "id": "5e2246d5-9169-4d77-b7d8-518126c8335b",
+      "title": "alert",
+      "published": "Wed Nov 18 17:52:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A671 - Oldham Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.612336 -2.150979"
     },
     {
       "id": "72dd80d4-90a5-4105-98e8-a62d9a1af1d3",
@@ -166,8 +180,8 @@
       "road": "A671 - Oldham Rd",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.610176 -2.149192"
     },
@@ -180,10 +194,10 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
-      "point": "53.542453 -2.28242"
+      "point": "53.542351 -2.28266"
     }
   ]
 }
