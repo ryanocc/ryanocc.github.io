@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T16:55:49.226546+00:00",
+  "updatedAt": "2026-11-18T17:00:49.165831+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 14,
   "incidents": [
     {
       "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
@@ -32,6 +32,20 @@
       "point": "53.533464 -2.431114"
     },
     {
+      "id": "dd1cae6d-ec5e-4471-b67c-9c2e158c8142",
+      "title": "alert",
+      "published": "Wed Nov 18 16:58:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Broome Gr",
+      "city": "Failsworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.504628 -2.155187"
+    },
+    {
       "id": "27072a45-6e3c-46ea-92cd-ed7f8cadbf74",
       "title": "alert",
       "published": "Wed Nov 18 15:44:43 +0000 2026",
@@ -46,18 +60,18 @@
       "point": "53.356492 -2.199243"
     },
     {
-      "id": "c06dc178-de0f-47b7-9a43-aed9347aa378",
+      "id": "d0948fd7-683d-4e64-b7f4-cb3114d3deef",
       "title": "alert",
-      "published": "Wed Nov 18 15:50:16 +0000 2026",
+      "published": "Wed Nov 18 16:55:48 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6 - Manchester Rd W",
-      "city": "",
+      "road": "Henrietta St",
+      "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.533262 -2.431441"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.492164 -2.092239"
     },
     {
       "id": "63613542-37d3-4e8f-af0b-6ddf409c6f0a",
@@ -74,18 +88,18 @@
       "point": "53.533407 -2.431898"
     },
     {
-      "id": "51530fcb-2282-45e1-920f-d04af7c8319e",
+      "id": "c06dc178-de0f-47b7-9a43-aed9347aa378",
       "title": "alert",
-      "published": "Wed Nov 18 16:52:13 +0000 2026",
+      "published": "Wed Nov 18 15:50:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 - Princess Parkway",
+      "road": "A6 - Manchester Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.417704 -2.262003"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.533262 -2.431441"
     },
     {
       "id": "b9dab742-0326-4bc7-8a92-c8f148037b10",
@@ -96,10 +110,24 @@
       "road": "A5103 - Princess Parkway",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.417912 -2.261824"
+    },
+    {
+      "id": "51530fcb-2282-45e1-920f-d04af7c8319e",
+      "title": "alert",
+      "published": "Wed Nov 18 16:52:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 - Princess Parkway",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.417704 -2.262003"
     },
     {
       "id": "e0602630-2cc8-4bfd-af24-2e2f82c8651e",
@@ -110,7 +138,7 @@
       "road": "A665 - Pin Mill Brow",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.475651 -2.217126"
@@ -130,6 +158,20 @@
       "point": "53.475274 -2.216209"
     },
     {
+      "id": "937e967e-ca6e-491a-a477-637667fc485b",
+      "title": "alert",
+      "published": "Wed Nov 18 16:56:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635 - Fairfield St",
+      "city": "Ardwick",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.475353 -2.217584"
+    },
+    {
       "id": "3d05f791-ef2a-4d18-ab67-675aaeea3d25",
       "title": "alert",
       "published": "Wed Nov 18 16:39:34 +0000 2026",
@@ -141,7 +183,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.47511 -2.216719"
+      "point": "53.475035 -2.216679"
     },
     {
       "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
@@ -156,20 +198,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50883 -2.242429"
-    },
-    {
-      "id": "4af2684c-6fb3-43e8-93d9-a7e04b6bf516",
-      "title": "alert",
-      "published": "Wed Nov 18 16:47:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.398882 -2.226786"
     }
   ]
 }
