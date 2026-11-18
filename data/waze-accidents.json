@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T18:00:49.177684+00:00",
+  "updatedAt": "2026-11-18T18:05:49.110155+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 15,
   "incidents": [
     {
       "id": "aca36bcc-6485-4cec-a007-781887805ead",
@@ -32,6 +32,20 @@
       "point": "53.533387 -2.431166"
     },
     {
+      "id": "7397563a-840d-4668-b707-849e31f527c4",
+      "title": "alert",
+      "published": "Wed Nov 18 18:04:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Presto St",
+      "city": "Farnworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.550785 -2.392039"
+    },
+    {
       "id": "dd1cae6d-ec5e-4471-b67c-9c2e158c8142",
       "title": "alert",
       "published": "Wed Nov 18 16:58:02 +0000 2026",
@@ -60,18 +74,18 @@
       "point": "53.609903 -2.149484"
     },
     {
-      "id": "a320793d-259d-4373-89cc-81b64db0ef15",
+      "id": "fd8f3d35-f559-4406-ad94-55ef12cab1da",
       "title": "alert",
-      "published": "Wed Nov 18 17:43:54 +0000 2026",
+      "published": "Wed Nov 18 18:04:30 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 > Preston",
+      "road": "",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
+      "reliability": 5.0,
       "reportRating": 3.0,
-      "point": "53.36142 -2.510141"
+      "point": "53.380329 -2.218138"
     },
     {
       "id": "5b64e2ec-8158-4242-b85a-84065c3c0baf",
@@ -83,7 +97,7 @@
       "city": "Heaton Chapel",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 5.0,
       "point": "53.435284 -2.186215"
     },
@@ -97,7 +111,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.515128 -2.57796"
     },
@@ -138,7 +152,7 @@
       "road": "A6046 - Middleton Rd",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.577585 -2.207332"
@@ -153,7 +167,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.612336 -2.150979"
     },
@@ -170,6 +184,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.610176 -2.149192"
+    },
+    {
+      "id": "add7f4f3-a4ce-417f-b65c-a6a6715adf5d",
+      "title": "alert",
+      "published": "Wed Nov 18 18:02:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Pin Mill Brow",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.475511 -2.217008"
     },
     {
       "id": "ba71e0b5-70de-4c00-ba9e-5d2ae866d80a",
