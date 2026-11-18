@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T12:05:48.790215+00:00",
+  "updatedAt": "2026-11-18T12:10:48.882157+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "6ca1d5f8-42d5-42f9-ac28-355d84fa3939",
@@ -96,7 +96,7 @@
       "road": "",
       "city": "Audenshaw",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.479725 -2.122224"
@@ -114,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.505052 -2.056917"
+    },
+    {
+      "id": "ae36ff54-6903-4b3b-afee-86a356cf2e81",
+      "title": "alert",
+      "published": "Wed Nov 18 12:07:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.591821 -2.27373"
     }
   ]
 }
