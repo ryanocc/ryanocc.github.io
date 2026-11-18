@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T22:45:48.842069+00:00",
+  "updatedAt": "2026-11-18T22:50:48.906461+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -41,23 +41,9 @@
       "city": "Astley Bridge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.60369 -2.432239"
-    },
-    {
-      "id": "bc085a18-08fe-4315-916e-9311c0bd8a34",
-      "title": "alert",
-      "published": "Wed Nov 18 22:35:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.465599 -2.196988"
     },
     {
       "id": "83497e48-ff4c-43fe-81e3-209c8fb08e25",
@@ -68,10 +54,24 @@
       "road": "A57 - Hyde Rd",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.465512 -2.197265"
+    },
+    {
+      "id": "bc085a18-08fe-4315-916e-9311c0bd8a34",
+      "title": "alert",
+      "published": "Wed Nov 18 22:35:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.465599 -2.196988"
     }
   ]
 }
