@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T19:00:48.827201+00:00",
+  "updatedAt": "2026-11-18T19:05:48.827259+00:00",
   "source": "Waze GeoRSS",
-  "count": 18,
+  "count": 16,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -30,20 +30,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.474919 -2.217047"
-    },
-    {
-      "id": "dd1cae6d-ec5e-4471-b67c-9c2e158c8142",
-      "title": "alert",
-      "published": "Wed Nov 18 16:58:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Broome Gr",
-      "city": "Failsworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.504628 -2.155187"
     },
     {
       "id": "248a78ee-03a8-4ebc-a924-9f7d354b45f6",
@@ -88,20 +74,6 @@
       "point": "53.369044 -2.277587"
     },
     {
-      "id": "622782e5-ae99-44bf-9469-70546213d2c0",
-      "title": "alert",
-      "published": "Wed Nov 18 18:57:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Schools Hill",
-      "city": "Cheadle",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.380552 -2.218056"
-    },
-    {
       "id": "b8554dfc-f34c-4e6b-acba-c3217a5232de",
       "title": "alert",
       "published": "Wed Nov 18 18:24:20 +0000 2026",
@@ -128,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.379786 -2.217762"
+    },
+    {
+      "id": "622782e5-ae99-44bf-9469-70546213d2c0",
+      "title": "alert",
+      "published": "Wed Nov 18 18:57:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Schools Hill",
+      "city": "Cheadle",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.380552 -2.218056"
     },
     {
       "id": "432b5e6a-6a1a-4efb-aae8-b3a49c2804e6",
@@ -158,20 +144,6 @@
       "point": "53.492164 -2.092239"
     },
     {
-      "id": "f6718d31-eee4-47c2-8c78-1a6add0ffba7",
-      "title": "alert",
-      "published": "Wed Nov 18 18:57:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6042 - Trinity Way",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.482446 -2.257481"
-    },
-    {
       "id": "ad5e34cf-f1d0-4e7e-ad00-d0231bb6c420",
       "title": "alert",
       "published": "Wed Nov 18 18:15:40 +0000 2026",
@@ -194,10 +166,24 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.408379 -2.525105"
+    },
+    {
+      "id": "566edb90-950f-483c-a80e-edd16f29d84e",
+      "title": "alert",
+      "published": "Wed Nov 18 19:04:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.394051 -2.270065"
     },
     {
       "id": "fbb1a0ce-69c1-4aaf-acd9-97f3d8b100bb",
@@ -222,38 +208,24 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.393276 -2.27082"
+      "point": "53.39237 -2.271671"
     },
     {
-      "id": "99fd49ea-033b-4c91-89fe-5481dac3aee5",
+      "id": "1a03fdf1-c356-47d5-b74e-6d79200a44b8",
       "title": "alert",
-      "published": "Wed Nov 18 19:00:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.458049 -2.606467"
-    },
-    {
-      "id": "304375cb-4d29-4bde-b560-a76d01110952",
-      "title": "alert",
-      "published": "Wed Nov 18 18:45:33 +0000 2026",
+      "published": "Wed Nov 18 19:04:39 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.50078 -2.383652"
+      "reportRating": 3.0,
+      "point": "53.502029 -2.382637"
     }
   ]
 }
