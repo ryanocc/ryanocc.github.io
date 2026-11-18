@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T13:55:48.902916+00:00",
+  "updatedAt": "2026-11-18T14:00:48.863275+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.383574 -2.26933"
+    },
+    {
+      "id": "f452eb88-78e4-440a-b842-7283b0387782",
+      "title": "alert",
+      "published": "Wed Nov 18 13:57:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.498527 -2.344775"
     },
     {
       "id": "183116b3-3ade-4208-bd48-f92b3271310c",
@@ -58,34 +72,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.592198 -2.270933"
-    },
-    {
-      "id": "5db502e8-125e-488a-b137-79cec10dca02",
-      "title": "alert",
-      "published": "Wed Nov 18 12:18:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.505921 -2.056254"
-    },
-    {
-      "id": "1c5b275c-f347-4d5d-b229-38c64d4416c0",
-      "title": "alert",
-      "published": "Wed Nov 18 13:34:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (N) - Princess Rd",
-      "city": "Withington",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.432656 -2.248687"
     }
   ]
 }
