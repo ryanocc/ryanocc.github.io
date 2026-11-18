@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T13:40:48.962073+00:00",
+  "updatedAt": "2026-11-18T13:45:48.891989+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -40,7 +40,7 @@
       "road": "B5235 - Schofield Ln",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.522748 -2.515899"
@@ -68,24 +68,10 @@
       "road": "A670 - Mossley Rd",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.505921 -2.056254"
-    },
-    {
-      "id": "fd318202-60f3-46e8-a001-2a8b92a7b974",
-      "title": "alert",
-      "published": "Wed Nov 18 11:19:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.505052 -2.056917"
     },
     {
       "id": "1c5b275c-f347-4d5d-b229-38c64d4416c0",
@@ -96,8 +82,8 @@
       "road": "A5103 (N) - Princess Rd",
       "city": "Withington",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.432656 -2.248687"
     },
@@ -114,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.402155 -2.204922"
-    },
-    {
-      "id": "9550a6ee-0bb1-4beb-b5f5-81f91253bf50",
-      "title": "alert",
-      "published": "Wed Nov 18 13:33:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.40913 -2.173389"
     }
   ]
 }
