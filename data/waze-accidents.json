@@ -1,35 +1,35 @@
 {
-  "updatedAt": "2026-11-18T08:05:49.101918+00:00",
+  "updatedAt": "2026-11-18T08:10:49.186318+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
     {
-      "id": "682a6af9-debd-46ff-b0f4-9d335e896a50",
+      "id": "cd176ac9-056c-4ed0-8468-232f402b852b",
       "title": "alert",
-      "published": "Wed Nov 18 08:01:25 +0000 2026",
+      "published": "Wed Nov 18 08:07:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (W)",
-      "city": "",
+      "road": "A57 - Eccles New Rd",
+      "city": "Weaste",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.415413 -2.151534"
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.482043 -2.305848"
     },
     {
-      "id": "8d8fe73e-b217-468a-85e6-efe5ead9b2ac",
+      "id": "d9afaf5b-17dc-4bca-833f-161159a1464f",
       "title": "alert",
-      "published": "Wed Nov 18 08:01:04 +0000 2026",
+      "published": "Wed Nov 18 07:49:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Snydale Way",
-      "city": "Bolton",
+      "road": "A58 - Park Rd",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.554744 -2.491306"
+      "point": "53.548318 -2.505066"
     },
     {
       "id": "b1816774-49f3-48a7-b75d-8159a4a26902",
@@ -44,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548171 -2.505548"
-    },
-    {
-      "id": "d9afaf5b-17dc-4bca-833f-161159a1464f",
-      "title": "alert",
-      "published": "Wed Nov 18 07:49:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Park Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.548318 -2.505066"
     },
     {
       "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
@@ -114,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.489883 -2.09888"
-    },
-    {
-      "id": "9260be68-16e2-4d1d-adfe-5d03a8606ea3",
-      "title": "alert",
-      "published": "Wed Nov 18 07:44:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.601365 -2.691152"
     }
   ]
 }
