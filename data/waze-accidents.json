@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T19:25:50.065925+00:00",
+  "updatedAt": "2026-11-18T19:30:49.935672+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -30,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.474919 -2.217047"
+    },
+    {
+      "id": "5cae1e65-9a1a-4526-b7ac-4a0083095bc0",
+      "title": "alert",
+      "published": "Wed Nov 18 19:26:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M56 > Chester",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.398058 -2.268362"
     },
     {
       "id": "d4e5a341-3f92-4132-a95e-42474f0f7ea3",
@@ -88,6 +102,20 @@
       "point": "53.541339 -2.119986"
     },
     {
+      "id": "425a19d1-365e-4b3c-afb8-32d91490fb8d",
+      "title": "alert",
+      "published": "Wed Nov 18 19:22:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 - Airport Spur",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.372837 -2.283441"
+    },
+    {
       "id": "2cf8bc44-3a6c-4428-af02-dde60bbfc278",
       "title": "alert",
       "published": "Wed Nov 18 19:11:55 +0000 2026",
@@ -102,20 +130,6 @@
       "point": "53.390812 -2.272893"
     },
     {
-      "id": "425a19d1-365e-4b3c-afb8-32d91490fb8d",
-      "title": "alert",
-      "published": "Wed Nov 18 19:22:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 - Airport Spur",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.372837 -2.283441"
-    },
-    {
       "id": "ae2d7ad8-c78f-4384-b0db-c70ca72efb59",
       "title": "alert",
       "published": "Wed Nov 18 19:22:07 +0000 2026",
@@ -124,24 +138,10 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.39623 -2.255858"
-    },
-    {
-      "id": "566edb90-950f-483c-a80e-edd16f29d84e",
-      "title": "alert",
-      "published": "Wed Nov 18 19:04:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.394051 -2.270065"
     },
     {
       "id": "7a719416-6074-4583-92f7-e3d078f3c143",
