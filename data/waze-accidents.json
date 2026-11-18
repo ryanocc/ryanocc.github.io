@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T10:30:48.703118+00:00",
+  "updatedAt": "2026-11-18T10:35:48.881031+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.483076 -2.144243"
     },
     {
-      "id": "8db89075-3353-4b13-b551-70ae4499fa3c",
-      "title": "alert",
-      "published": "Wed Nov 18 08:30:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6221 - Brook St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.597684 -2.287188"
-    },
-    {
       "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
       "title": "alert",
       "published": "Wed Nov 18 10:08:41 +0000 2026",
@@ -68,8 +54,8 @@
       "road": "Bridgeman St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.570137 -2.430748"
     },
@@ -82,8 +68,8 @@
       "road": "A56 > Altrincham",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470811 -2.253299"
     },
@@ -102,18 +88,32 @@
       "point": "53.599075 -2.10857"
     },
     {
-      "id": "81075ad7-07e9-4649-8382-07f2e6986870",
+      "id": "ec8b423d-22f7-4c01-928b-2d33705f31ef",
       "title": "alert",
-      "published": "Wed Nov 18 09:57:27 +0000 2026",
+      "published": "Wed Nov 18 10:31:24 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A635 - Stamford St",
-      "city": "Stalybridge",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.485514 -2.06662"
+      "point": "53.470659 -2.249923"
+    },
+    {
+      "id": "90021a33-908e-4be9-9580-78f965cff1ff",
+      "title": "alert",
+      "published": "Wed Nov 18 10:35:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.470788 -2.251685"
     }
   ]
 }
