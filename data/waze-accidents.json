@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T10:25:48.827405+00:00",
+  "updatedAt": "2026-11-18T10:30:48.703118+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -82,10 +82,24 @@
       "road": "A56 > Altrincham",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.470811 -2.253299"
+    },
+    {
+      "id": "1db0212d-0e5b-45ce-9889-4125a05f29ea",
+      "title": "alert",
+      "published": "Wed Nov 18 10:26:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.599075 -2.10857"
     },
     {
       "id": "81075ad7-07e9-4649-8382-07f2e6986870",
@@ -96,8 +110,8 @@
       "road": "A635 - Stamford St",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.485514 -2.06662"
     }
