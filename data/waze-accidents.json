@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T19:45:49.918626+00:00",
+  "updatedAt": "2026-11-18T19:50:49.044144+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -26,8 +26,8 @@
       "road": "William St",
       "city": "Ardwick",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.474919 -2.217047"
     },
@@ -68,38 +68,24 @@
       "road": "A5014 - Talbot Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.453384 -2.297615"
     },
     {
-      "id": "2cf8bc44-3a6c-4428-af02-dde60bbfc278",
+      "id": "ffb7a030-e8e4-440b-9ed2-818e7a913487",
       "title": "alert",
-      "published": "Wed Nov 18 19:11:55 +0000 2026",
+      "published": "Wed Nov 18 19:49:02 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 (W)",
-      "city": "",
+      "subtype": "",
+      "road": "A5014 - Talbot Rd",
+      "city": "Stretford",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.390812 -2.272893"
-    },
-    {
-      "id": "7a719416-6074-4583-92f7-e3d078f3c143",
-      "title": "alert",
-      "published": "Wed Nov 18 19:07:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.394991 -2.268995"
+      "point": "53.45362 -2.297098"
     },
     {
       "id": "ae2d7ad8-c78f-4384-b0db-c70ca72efb59",
