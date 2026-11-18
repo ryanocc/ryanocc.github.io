@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T12:55:48.952287+00:00",
+  "updatedAt": "2026-11-18T13:00:48.787677+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
-    {
-      "id": "5db502e8-125e-488a-b137-79cec10dca02",
-      "title": "alert",
-      "published": "Wed Nov 18 12:18:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.505921 -2.056254"
-    },
     {
       "id": "fd318202-60f3-46e8-a001-2a8b92a7b974",
       "title": "alert",
@@ -30,6 +16,48 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.505052 -2.056917"
+    },
+    {
+      "id": "5db502e8-125e-488a-b137-79cec10dca02",
+      "title": "alert",
+      "published": "Wed Nov 18 12:18:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A670 - Mossley Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.505921 -2.056254"
+    },
+    {
+      "id": "f739613a-0c6d-485c-bcf1-1bab94c73648",
+      "title": "alert",
+      "published": "Wed Nov 18 12:37:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.432391 -2.248969"
+    },
+    {
+      "id": "e67f7193-465d-4318-9463-51dcb45f5edb",
+      "title": "alert",
+      "published": "Wed Nov 18 12:27:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Withington",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.432734 -2.248604"
     },
     {
       "id": "54bbec5b-6c5c-40d9-81d8-0676d94ec8b2",
@@ -46,32 +74,18 @@
       "point": "53.43273 -2.248346"
     },
     {
-      "id": "f739613a-0c6d-485c-bcf1-1bab94c73648",
+      "id": "b0296fa1-2df2-477b-bff2-a535d438dac4",
       "title": "alert",
-      "published": "Wed Nov 18 12:37:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5103 (N) - Princess Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.432301 -2.249066"
-    },
-    {
-      "id": "e67f7193-465d-4318-9463-51dcb45f5edb",
-      "title": "alert",
-      "published": "Wed Nov 18 12:27:28 +0000 2026",
+      "published": "Wed Nov 18 12:57:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 (N) - Princess Rd",
-      "city": "Withington",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Didsbury",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.432734 -2.248604"
+      "reportRating": 0.0,
+      "point": "53.431002 -2.250283"
     },
     {
       "id": "adbe9026-13b2-4cdd-901f-72a657809d04",
