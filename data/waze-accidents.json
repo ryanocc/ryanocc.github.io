@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T06:45:48.841089+00:00",
+  "updatedAt": "2026-11-18T06:50:48.762753+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "a57f80a8-9012-4d56-be87-84cb99bada3e",
@@ -13,7 +13,7 @@
       "city": "Worsley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.500453 -2.381946"
     },
@@ -40,8 +40,8 @@
       "road": "A627 - Oldham Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.489883 -2.09888"
     },
@@ -54,10 +54,24 @@
       "road": "A6043 - Wellington Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.490507 -2.098703"
+    },
+    {
+      "id": "b26e5d9e-e85e-4e2a-9435-e4d7dcac15f5",
+      "title": "alert",
+      "published": "Wed Nov 18 06:46:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6043 - Wellington Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.490498 -2.098763"
+      "reportRating": 3.0,
+      "point": "53.490569 -2.098297"
     }
   ]
 }
