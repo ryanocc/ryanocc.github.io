@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T23:35:48.776472+00:00",
+  "updatedAt": "2026-11-18T23:40:48.789776+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -18,20 +18,6 @@
       "point": "53.465664 -2.196049"
     },
     {
-      "id": "28ca6e1b-7250-4530-8833-66bb4464c074",
-      "title": "alert",
-      "published": "Wed Nov 18 23:11:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.466332 -2.201628"
-    },
-    {
       "id": "bc085a18-08fe-4315-916e-9311c0bd8a34",
       "title": "alert",
       "published": "Wed Nov 18 22:35:05 +0000 2026",
@@ -46,6 +32,34 @@
       "point": "53.465599 -2.196988"
     },
     {
+      "id": "28ca6e1b-7250-4530-8833-66bb4464c074",
+      "title": "alert",
+      "published": "Wed Nov 18 23:11:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.466332 -2.201628"
+    },
+    {
+      "id": "798f73f5-a213-4b81-a230-e17de3744eb7",
+      "title": "alert",
+      "published": "Wed Nov 18 22:53:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.465542 -2.196686"
+    },
+    {
       "id": "83497e48-ff4c-43fe-81e3-209c8fb08e25",
       "title": "alert",
       "published": "Wed Nov 18 22:39:00 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.465512 -2.197265"
-    },
-    {
-      "id": "798f73f5-a213-4b81-a230-e17de3744eb7",
-      "title": "alert",
-      "published": "Wed Nov 18 22:53:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.465542 -2.196686"
     }
   ]
 }
