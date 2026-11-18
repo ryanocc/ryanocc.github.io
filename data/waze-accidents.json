@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T07:30:49.055364+00:00",
+  "updatedAt": "2026-11-18T07:35:49.045921+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
-    {
-      "id": "b26e5d9e-e85e-4e2a-9435-e4d7dcac15f5",
-      "title": "alert",
-      "published": "Wed Nov 18 06:46:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6043 - Wellington Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.490569 -2.098297"
-    },
     {
       "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
       "title": "alert",
@@ -32,20 +18,6 @@
       "point": "53.490481 -2.098679"
     },
     {
-      "id": "a0031707-40f2-43d1-8c65-21f94a253c1d",
-      "title": "alert",
-      "published": "Wed Nov 18 06:40:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6043 - Wellington Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.490507 -2.098703"
-    },
-    {
       "id": "cb835fa0-a2f5-4364-9151-3ad289312d13",
       "title": "alert",
       "published": "Wed Nov 18 06:41:42 +0000 2026",
@@ -55,9 +27,37 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.489883 -2.09888"
+    },
+    {
+      "id": "b26e5d9e-e85e-4e2a-9435-e4d7dcac15f5",
+      "title": "alert",
+      "published": "Wed Nov 18 06:46:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6043 - Wellington Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.490569 -2.098297"
+    },
+    {
+      "id": "a0031707-40f2-43d1-8c65-21f94a253c1d",
+      "title": "alert",
+      "published": "Wed Nov 18 06:40:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6043 - Wellington Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.490507 -2.098703"
     },
     {
       "id": "40ca2c6d-39af-4a0e-9c6f-9730285ca4fd",
