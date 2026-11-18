@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T15:20:49.042519+00:00",
+  "updatedAt": "2026-11-18T15:25:48.978176+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -54,8 +54,8 @@
       "road": "A6 - Manchester Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.533269 -2.431464"
     },
@@ -68,7 +68,7 @@
       "road": "A627 - Rochdale Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.543669 -2.119208"
@@ -82,8 +82,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.476781 -2.373775"
     },
@@ -96,10 +96,24 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.509278 -2.242896"
+    },
+    {
+      "id": "e594e9ef-3297-4d6f-828e-41f91dcc3e7c",
+      "title": "alert",
+      "published": "Wed Nov 18 15:23:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.509278 -2.242896"
+      "point": "53.509272 -2.24289"
     },
     {
       "id": "5da473b1-7c82-458c-97a2-47617ab2f9e2",
@@ -110,8 +124,8 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.50883 -2.242429"
     },
@@ -125,7 +139,7 @@
       "city": "Cheetham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.498015 -2.237054"
     },
@@ -139,7 +153,7 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.483905 -2.054272"
     }
