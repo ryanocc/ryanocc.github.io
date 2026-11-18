@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T12:30:48.883932+00:00",
+  "updatedAt": "2026-11-18T12:35:48.768274+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
+    {
+      "id": "23e2e19e-aaa2-4fa7-ba77-6b7eca265d9d",
+      "title": "alert",
+      "published": "Wed Nov 18 12:32:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.477219 -2.356359"
+    },
     {
       "id": "0d6ddece-55b7-41f9-a50b-cdc429bfed7b",
       "title": "alert",
@@ -74,20 +88,6 @@
       "point": "53.375128 -2.324151"
     },
     {
-      "id": "ef9d076f-d8d7-4e3e-8a39-4a4cee761550",
-      "title": "alert",
-      "published": "Wed Nov 18 11:34:28 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Audenshaw",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.479725 -2.122224"
-    },
-    {
       "id": "fd318202-60f3-46e8-a001-2a8b92a7b974",
       "title": "alert",
       "published": "Wed Nov 18 11:19:38 +0000 2026",
@@ -96,7 +96,7 @@
       "road": "A670 - Mossley Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.505052 -2.056917"
@@ -124,8 +124,8 @@
       "road": "A5103 (N) - Princess Rd",
       "city": "Withington",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.432734 -2.248604"
     }
