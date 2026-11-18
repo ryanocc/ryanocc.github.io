@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T12:20:48.845525+00:00",
+  "updatedAt": "2026-11-18T12:25:48.881277+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
-    {
-      "id": "6ca1d5f8-42d5-42f9-ac28-355d84fa3939",
-      "title": "alert",
-      "published": "Wed Nov 18 12:02:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.462214 -2.350941"
-    },
     {
       "id": "0d6ddece-55b7-41f9-a50b-cdc429bfed7b",
       "title": "alert",
@@ -88,6 +74,20 @@
       "point": "53.599075 -2.10857"
     },
     {
+      "id": "bce4ae3d-b7a1-4ea3-ac96-858cab27ef78",
+      "title": "alert",
+      "published": "Wed Nov 18 12:24:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Hale Rd",
+      "city": "Hale Barns",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.375128 -2.324151"
+    },
+    {
       "id": "ef9d076f-d8d7-4e3e-8a39-4a4cee761550",
       "title": "alert",
       "published": "Wed Nov 18 11:34:28 +0000 2026",
@@ -128,20 +128,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.505921 -2.056254"
-    },
-    {
-      "id": "7bcc86c8-db4a-48dc-8536-c57d23b3fb0a",
-      "title": "alert",
-      "published": "Wed Nov 18 12:20:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (N) - Princess Rd",
-      "city": "Fallowfield",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.442212 -2.244303"
     }
   ]
 }
