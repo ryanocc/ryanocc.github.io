@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T15:05:49.005247+00:00",
+  "updatedAt": "2026-11-18T15:10:48.992765+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 5,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -54,7 +54,7 @@
       "road": "St. Mary's Way",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.543933 -2.118957"
@@ -72,34 +72,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.543669 -2.119208"
-    },
-    {
-      "id": "a9ce37fa-a796-4058-8f0a-87b811cedf8b",
-      "title": "alert",
-      "published": "Wed Nov 18 14:29:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.504048 -2.057764"
-    },
-    {
-      "id": "7b31d5b1-915b-4866-8f75-3675e322d400",
-      "title": "alert",
-      "published": "Wed Nov 18 14:52:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A670 - Mossley Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.505557 -2.056466"
     }
   ]
 }
