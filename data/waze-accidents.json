@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T23:15:48.814265+00:00",
+  "updatedAt": "2026-11-18T23:20:48.784920+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -18,18 +18,18 @@
       "point": "53.483011 -2.182149"
     },
     {
-      "id": "6a555387-cf88-44f3-8613-d4e410ce8f75",
+      "id": "798f73f5-a213-4b81-a230-e17de3744eb7",
       "title": "alert",
-      "published": "Wed Nov 18 23:13:40 +0000 2026",
+      "published": "Wed Nov 18 22:53:23 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6010 - Pottery Ln",
-      "city": "West Gorton",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Longsight",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.465664 -2.196049"
+      "point": "53.465542 -2.196686"
     },
     {
       "id": "bc085a18-08fe-4315-916e-9311c0bd8a34",
@@ -44,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.465599 -2.196988"
-    },
-    {
-      "id": "798f73f5-a213-4b81-a230-e17de3744eb7",
-      "title": "alert",
-      "published": "Wed Nov 18 22:53:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.465542 -2.196686"
     },
     {
       "id": "83497e48-ff4c-43fe-81e3-209c8fb08e25",
@@ -83,9 +69,23 @@
       "city": "Longsight",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.466332 -2.201628"
+    },
+    {
+      "id": "6a555387-cf88-44f3-8613-d4e410ce8f75",
+      "title": "alert",
+      "published": "Wed Nov 18 23:13:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6010 - Pottery Ln",
+      "city": "West Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.465664 -2.196049"
     }
   ]
 }
