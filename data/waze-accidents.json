@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T19:40:49.974558+00:00",
+  "updatedAt": "2026-11-18T19:45:49.918626+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -46,20 +46,6 @@
       "point": "53.369044 -2.277587"
     },
     {
-      "id": "5cae1e65-9a1a-4526-b7ac-4a0083095bc0",
-      "title": "alert",
-      "published": "Wed Nov 18 19:26:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 > Chester",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.398058 -2.268362"
-    },
-    {
       "id": "8861c4b8-e86d-463a-9d33-d5dd1a1a0d9f",
       "title": "alert",
       "published": "Wed Nov 18 19:18:18 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.541339 -2.119986"
+    },
+    {
+      "id": "8f7c373e-31de-436f-ba69-7060b63cd4bf",
+      "title": "alert",
+      "published": "Wed Nov 18 19:42:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5014 - Talbot Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.453384 -2.297615"
     },
     {
       "id": "2cf8bc44-3a6c-4428-af02-dde60bbfc278",
@@ -88,20 +88,6 @@
       "point": "53.390812 -2.272893"
     },
     {
-      "id": "425a19d1-365e-4b3c-afb8-32d91490fb8d",
-      "title": "alert",
-      "published": "Wed Nov 18 19:22:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 - Airport Spur",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.372837 -2.283441"
-    },
-    {
       "id": "7a719416-6074-4583-92f7-e3d078f3c143",
       "title": "alert",
       "published": "Wed Nov 18 19:07:48 +0000 2026",
@@ -110,7 +96,7 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.394991 -2.268995"
