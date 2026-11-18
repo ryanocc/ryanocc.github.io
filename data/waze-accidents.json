@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T16:05:48.736130+00:00",
+  "updatedAt": "2026-11-18T16:10:49.016757+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "f0e77942-0996-4c78-81b1-48913e2f1c3e",
@@ -40,8 +40,8 @@
       "road": "A555 > Buxton",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.356522 -2.199253"
     },
@@ -54,7 +54,7 @@
       "road": "A6 - Manchester Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.533262 -2.431441"
@@ -96,7 +96,7 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.356629 -2.199463"
@@ -124,24 +124,10 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50883 -2.242429"
-    },
-    {
-      "id": "857da53a-fb64-44c0-9c88-0a50099bf6ba",
-      "title": "alert",
-      "published": "Wed Nov 18 15:17:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6018 - Stamford St",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.483905 -2.054272"
     }
   ]
 }
