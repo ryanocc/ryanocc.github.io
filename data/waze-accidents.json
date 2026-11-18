@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T22:35:48.784593+00:00",
+  "updatedAt": "2026-11-18T22:40:48.969903+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "b17c2bc8-1e9e-44ae-8d4e-25ea06b73652",
@@ -26,7 +26,7 @@
       "road": "A662 - Ashton New Rd",
       "city": "Clayton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.483011 -2.182149"
@@ -46,20 +46,6 @@
       "point": "53.60369 -2.432239"
     },
     {
-      "id": "21ea4756-1b97-4971-ae0d-676749167bea",
-      "title": "alert",
-      "published": "Wed Nov 18 22:33:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - Pottery Ln",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.46458 -2.196824"
-    },
-    {
       "id": "bc085a18-08fe-4315-916e-9311c0bd8a34",
       "title": "alert",
       "published": "Wed Nov 18 22:35:05 +0000 2026",
@@ -68,10 +54,38 @@
       "road": "A57 - Hyde Rd",
       "city": "Longsight",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.465599 -2.196988"
+    },
+    {
+      "id": "21ea4756-1b97-4971-ae0d-676749167bea",
+      "title": "alert",
+      "published": "Wed Nov 18 22:33:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Pottery Ln",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.46458 -2.196824"
+    },
+    {
+      "id": "83497e48-ff4c-43fe-81e3-209c8fb08e25",
+      "title": "alert",
+      "published": "Wed Nov 18 22:39:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A57 - Hyde Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.465512 -2.197265"
     }
   ]
 }
