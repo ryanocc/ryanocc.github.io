@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T19:20:48.965232+00:00",
+  "updatedAt": "2026-11-18T19:25:50.065925+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -46,20 +46,6 @@
       "point": "53.369044 -2.277587"
     },
     {
-      "id": "622782e5-ae99-44bf-9469-70546213d2c0",
-      "title": "alert",
-      "published": "Wed Nov 18 18:57:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Schools Hill",
-      "city": "Cheadle",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.380552 -2.218056"
-    },
-    {
       "id": "432b5e6a-6a1a-4efb-aae8-b3a49c2804e6",
       "title": "alert",
       "published": "Wed Nov 18 17:30:29 +0000 2026",
@@ -82,7 +68,7 @@
       "road": "Henrietta St",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492164 -2.092239"
@@ -114,6 +100,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.390812 -2.272893"
+    },
+    {
+      "id": "425a19d1-365e-4b3c-afb8-32d91490fb8d",
+      "title": "alert",
+      "published": "Wed Nov 18 19:22:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 - Airport Spur",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.372837 -2.283441"
+    },
+    {
+      "id": "ae2d7ad8-c78f-4384-b0db-c70ca72efb59",
+      "title": "alert",
+      "published": "Wed Nov 18 19:22:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.39623 -2.255858"
     },
     {
       "id": "566edb90-950f-483c-a80e-edd16f29d84e",
