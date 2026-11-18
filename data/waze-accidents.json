@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T19:35:50.145054+00:00",
+  "updatedAt": "2026-11-18T19:40:49.974558+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -60,20 +60,6 @@
       "point": "53.398058 -2.268362"
     },
     {
-      "id": "d0948fd7-683d-4e64-b7f4-cb3114d3deef",
-      "title": "alert",
-      "published": "Wed Nov 18 16:55:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Henrietta St",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.492164 -2.092239"
-    },
-    {
       "id": "8861c4b8-e86d-463a-9d33-d5dd1a1a0d9f",
       "title": "alert",
       "published": "Wed Nov 18 19:18:18 +0000 2026",
@@ -110,24 +96,10 @@
       "road": "M56 - Airport Spur",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.372837 -2.283441"
-    },
-    {
-      "id": "ae2d7ad8-c78f-4384-b0db-c70ca72efb59",
-      "title": "alert",
-      "published": "Wed Nov 18 19:22:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.39623 -2.255858"
     },
     {
       "id": "7a719416-6074-4583-92f7-e3d078f3c143",
@@ -138,10 +110,24 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.394991 -2.268995"
+    },
+    {
+      "id": "ae2d7ad8-c78f-4384-b0db-c70ca72efb59",
+      "title": "alert",
+      "published": "Wed Nov 18 19:22:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.39623 -2.255858"
     }
   ]
 }
