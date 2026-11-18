@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T06:40:48.821933+00:00",
+  "updatedAt": "2026-11-18T06:45:48.841089+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
+    {
+      "id": "a57f80a8-9012-4d56-be87-84cb99bada3e",
+      "title": "alert",
+      "published": "Wed Nov 18 06:41:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A572 - Worsley Rd",
+      "city": "Worsley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.500453 -2.381946"
+    },
     {
       "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
       "title": "alert",
@@ -18,6 +32,20 @@
       "point": "53.490481 -2.098679"
     },
     {
+      "id": "cb835fa0-a2f5-4364-9151-3ad289312d13",
+      "title": "alert",
+      "published": "Wed Nov 18 06:41:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A627 - Oldham Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.489883 -2.09888"
+    },
+    {
       "id": "a0031707-40f2-43d1-8c65-21f94a253c1d",
       "title": "alert",
       "published": "Wed Nov 18 06:40:09 +0000 2026",
@@ -27,7 +55,7 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.490498 -2.098763"
     }
