@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T17:15:49.183695+00:00",
+  "updatedAt": "2026-11-18T17:20:49.246517+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 13,
   "incidents": [
     {
       "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
@@ -18,20 +18,6 @@
       "point": "53.533387 -2.431166"
     },
     {
-      "id": "f0e77942-0996-4c78-81b1-48913e2f1c3e",
-      "title": "alert",
-      "published": "Wed Nov 18 16:00:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Highfield Rd",
-      "city": "Little Hulton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.533464 -2.431114"
-    },
-    {
       "id": "dd1cae6d-ec5e-4471-b67c-9c2e158c8142",
       "title": "alert",
       "published": "Wed Nov 18 16:58:02 +0000 2026",
@@ -46,9 +32,9 @@
       "point": "53.504628 -2.155187"
     },
     {
-      "id": "bc93cdd0-dd0c-45bc-8f30-ab19b64a9f3f",
+      "id": "248a78ee-03a8-4ebc-a924-9f7d354b45f6",
       "title": "alert",
-      "published": "Wed Nov 18 17:15:28 +0000 2026",
+      "published": "Wed Nov 18 17:16:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "Lincoln Cl",
@@ -57,7 +43,7 @@
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.609899 -2.149501"
+      "point": "53.609903 -2.149484"
     },
     {
       "id": "27072a45-6e3c-46ea-92cd-ed7f8cadbf74",
@@ -82,8 +68,8 @@
       "road": "Henrietta St",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.492164 -2.092239"
     },
@@ -97,23 +83,23 @@
       "city": "Shaw",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.579562 -2.101145"
     },
     {
-      "id": "1d0c4b9f-7f5b-4b82-ab98-32a6c4091222",
+      "id": "cc5db598-2054-46e1-afc9-6395e593f2cc",
       "title": "alert",
-      "published": "Wed Nov 18 17:15:00 +0000 2026",
+      "published": "Wed Nov 18 17:19:18 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "A5103 - Princess Rd",
-      "city": "",
+      "subtype": "",
+      "road": "A6046 - Middleton Rd",
+      "city": "Heywood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.418974 -2.260886"
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.577837 -2.207374"
     },
     {
       "id": "dc959697-d1f3-43b8-bd0b-895ffa08de28",
@@ -130,18 +116,32 @@
       "point": "53.466475 -2.244861"
     },
     {
-      "id": "e0602630-2cc8-4bfd-af24-2e2f82c8651e",
+      "id": "7db400ab-bb43-4cf0-8c9c-e104145d3bbe",
       "title": "alert",
-      "published": "Wed Nov 18 16:46:11 +0000 2026",
+      "published": "Wed Nov 18 17:20:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Fairfield St",
+      "city": "Ardwick",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.47538 -2.218074"
+    },
+    {
+      "id": "84f6bf34-65e0-481c-9f26-82e58356d873",
+      "title": "alert",
+      "published": "Wed Nov 18 17:15:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A665 - Pin Mill Brow",
-      "city": "Ancoats",
+      "road": "A635 - Ashton Old Rd",
+      "city": "Manchester",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.475651 -2.217126"
+      "reportRating": 2.0,
+      "point": "53.475264 -2.216006"
     },
     {
       "id": "e46b0d3c-ea4e-4daa-8658-60465818efd5",
@@ -153,9 +153,37 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.475274 -2.216209"
+    },
+    {
+      "id": "d57064d1-c9e2-4675-98e7-d35691e92e5d",
+      "title": "alert",
+      "published": "Wed Nov 18 17:19:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.406587 -2.521777"
+    },
+    {
+      "id": "7e014401-e311-43f6-8683-5278bca1a98c",
+      "title": "alert",
+      "published": "Wed Nov 18 17:18:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.474426 -2.127604"
     }
   ]
 }
