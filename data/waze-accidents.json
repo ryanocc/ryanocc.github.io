@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T12:35:48.768274+00:00",
+  "updatedAt": "2026-11-18T12:40:48.878591+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "23e2e19e-aaa2-4fa7-ba77-6b7eca265d9d",
@@ -60,20 +60,6 @@
       "point": "53.450881 -2.190104"
     },
     {
-      "id": "9a4cb2ad-417a-4d48-850f-5700f6924661",
-      "title": "alert",
-      "published": "Wed Nov 18 11:15:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Chorlton-on-Medlock",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.466026 -2.23757"
-    },
-    {
       "id": "bce4ae3d-b7a1-4ea3-ac96-858cab27ef78",
       "title": "alert",
       "published": "Wed Nov 18 12:24:34 +0000 2026",
@@ -82,8 +68,8 @@
       "road": "A538 - Hale Rd",
       "city": "Hale Barns",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.375128 -2.324151"
     },
@@ -111,7 +97,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.505921 -2.056254"
     },
@@ -124,10 +110,38 @@
       "road": "A5103 (N) - Princess Rd",
       "city": "Withington",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.432734 -2.248604"
+    },
+    {
+      "id": "f739613a-0c6d-485c-bcf1-1bab94c73648",
+      "title": "alert",
+      "published": "Wed Nov 18 12:37:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5103 (N) - Princess Rd",
+      "city": "Didsbury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.432301 -2.249066"
+    },
+    {
+      "id": "03f84371-4c5c-4b9a-b78b-ce93144010d9",
+      "title": "alert",
+      "published": "Wed Nov 18 12:37:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.565156 -2.237207"
     }
   ]
 }
