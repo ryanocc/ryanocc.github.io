@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T10:50:48.894636+00:00",
+  "updatedAt": "2026-11-18T10:55:48.840580+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -32,20 +32,6 @@
       "point": "53.519299 -2.239111"
     },
     {
-      "id": "cacfe04b-fd52-4ed1-b7be-786e8306aa61",
-      "title": "alert",
-      "published": "Wed Nov 18 10:21:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.483076 -2.144243"
-    },
-    {
       "id": "f2ab7491-7372-48ae-9e40-6f0c9de57ba5",
       "title": "alert",
       "published": "Wed Nov 18 10:40:34 +0000 2026",
@@ -55,23 +41,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.355215 -2.505163"
-    },
-    {
-      "id": "2b1543dc-cb38-49c3-926d-5f80f5cbf81d",
-      "title": "alert",
-      "published": "Wed Nov 18 10:38:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Bridgeman St",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.569933 -2.430896"
     },
     {
       "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
@@ -86,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.570137 -2.430748"
+    },
+    {
+      "id": "2b1543dc-cb38-49c3-926d-5f80f5cbf81d",
+      "title": "alert",
+      "published": "Wed Nov 18 10:38:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bridgeman St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.569933 -2.430896"
     },
     {
       "id": "3dfad836-f2ca-4daf-9654-48df058b4c75",
@@ -138,8 +124,8 @@
       "road": "M56 - Airport Spur",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.376482 -2.283689"
     }
