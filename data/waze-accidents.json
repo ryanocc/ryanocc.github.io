@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T11:00:48.887224+00:00",
+  "updatedAt": "2026-11-18T11:05:48.889244+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 12,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -32,20 +32,6 @@
       "point": "53.355215 -2.505163"
     },
     {
-      "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
-      "title": "alert",
-      "published": "Wed Nov 18 10:08:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Bridgeman St",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.570137 -2.430748"
-    },
-    {
       "id": "2b1543dc-cb38-49c3-926d-5f80f5cbf81d",
       "title": "alert",
       "published": "Wed Nov 18 10:38:52 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.569933 -2.430896"
+    },
+    {
+      "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
+      "title": "alert",
+      "published": "Wed Nov 18 10:08:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bridgeman St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.570137 -2.430748"
     },
     {
       "id": "3dfad836-f2ca-4daf-9654-48df058b4c75",
@@ -74,6 +74,20 @@
       "point": "53.470811 -2.253299"
     },
     {
+      "id": "517cffbc-c809-4676-a82d-21d1ba63bfab",
+      "title": "alert",
+      "published": "Wed Nov 18 11:03:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 > Manchester Airport",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.47074 -2.248733"
+    },
+    {
       "id": "26a4857a-4e9d-427b-a1be-c4266a056e7e",
       "title": "alert",
       "published": "Wed Nov 18 10:37:45 +0000 2026",
@@ -82,8 +96,8 @@
       "road": "Stovell Ave",
       "city": "Levenshulme",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 5.0,
       "point": "53.450881 -2.190104"
     },
@@ -116,6 +130,20 @@
       "point": "53.415929 -2.103803"
     },
     {
+      "id": "484056a1-0bfe-4c6a-b31a-fff4e2568961",
+      "title": "alert",
+      "published": "Wed Nov 18 11:05:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Eccles New Rd",
+      "city": "Weaste",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.482702 -2.310219"
+    },
+    {
       "id": "5723a730-417d-4eda-b0ef-26f9d0274828",
       "title": "alert",
       "published": "Wed Nov 18 10:48:16 +0000 2026",
@@ -128,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.376482 -2.283689"
+    },
+    {
+      "id": "8cdd6f21-ab14-4aba-9893-d69cf895d2d2",
+      "title": "alert",
+      "published": "Wed Nov 18 11:04:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.470445 -2.246708"
     }
   ]
 }
