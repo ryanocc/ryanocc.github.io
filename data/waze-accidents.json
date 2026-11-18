@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T09:25:49.041234+00:00",
+  "updatedAt": "2026-11-18T09:30:49.035514+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "3161cf33-2b30-4ca6-9b27-a914add312e9",
@@ -12,8 +12,8 @@
       "road": "",
       "city": "",
       "country": "",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.570719 -2.286598"
     },
@@ -46,18 +46,32 @@
       "point": "53.485366 -2.065453"
     },
     {
-      "id": "7eeb3310-972a-42fa-86e5-5fd8bbcc1315",
+      "id": "7f6bd376-3ccd-4cb5-b05e-7ff2c5bfa48c",
       "title": "alert",
-      "published": "Wed Nov 18 08:47:07 +0000 2026",
+      "published": "Wed Nov 18 09:30:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A635 - Stamford St",
-      "city": "Stalybridge",
+      "road": "M60 (ACW)",
+      "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.485372 -2.06866"
+      "point": "53.410643 -2.252644"
+    },
+    {
+      "id": "aa3ea476-3dec-424d-9fdc-ac6afeae6330",
+      "title": "alert",
+      "published": "Wed Nov 18 09:27:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.610219 -2.092137"
     }
   ]
 }
