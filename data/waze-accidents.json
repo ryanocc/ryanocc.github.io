@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T13:20:48.862436+00:00",
+  "updatedAt": "2026-11-18T13:25:48.823106+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -32,6 +32,20 @@
       "point": "53.549123 -2.257611"
     },
     {
+      "id": "9bf23103-0257-481d-ad5b-caa849a7e06c",
+      "title": "alert",
+      "published": "Wed Nov 18 13:23:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5235 - Schofield Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.522748 -2.515899"
+    },
+    {
       "id": "89306b9e-f044-4fbd-8f0c-b05d2eb279e8",
       "title": "alert",
       "published": "Wed Nov 18 13:19:21 +0000 2026",
@@ -40,8 +54,8 @@
       "road": "J2 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.592198 -2.270933"
     },
@@ -68,7 +82,7 @@
       "road": "A670 - Mossley Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.505921 -2.056254"
@@ -100,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.431002 -2.250283"
-    },
-    {
-      "id": "7538b991-d9d4-4c91-8656-eacf15a0c2de",
-      "title": "alert",
-      "published": "Wed Nov 18 13:05:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.471536 -2.238404"
     }
   ]
 }
