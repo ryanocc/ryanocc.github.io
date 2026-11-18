@@ -1,35 +1,21 @@
 {
-  "updatedAt": "2026-11-18T23:45:48.784214+00:00",
+  "updatedAt": "2026-11-18T23:50:48.810633+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 2,
   "incidents": [
     {
-      "id": "28ca6e1b-7250-4530-8833-66bb4464c074",
+      "id": "83497e48-ff4c-43fe-81e3-209c8fb08e25",
       "title": "alert",
-      "published": "Wed Nov 18 23:11:55 +0000 2026",
+      "published": "Wed Nov 18 22:39:00 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
+      "subtype": "ACCIDENT_MINOR",
       "road": "A57 - Hyde Rd",
       "city": "Longsight",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.466332 -2.201628"
-    },
-    {
-      "id": "6a555387-cf88-44f3-8613-d4e410ce8f75",
-      "title": "alert",
-      "published": "Wed Nov 18 23:13:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6010 - Pottery Ln",
-      "city": "West Gorton",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.465664 -2.196049"
+      "reportRating": 0.0,
+      "point": "53.465512 -2.197265"
     },
     {
       "id": "798f73f5-a213-4b81-a230-e17de3744eb7",
@@ -44,20 +30,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.465542 -2.196686"
-    },
-    {
-      "id": "83497e48-ff4c-43fe-81e3-209c8fb08e25",
-      "title": "alert",
-      "published": "Wed Nov 18 22:39:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "A57 - Hyde Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.465512 -2.197265"
     }
   ]
 }
