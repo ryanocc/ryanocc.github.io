@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T07:15:48.848717+00:00",
+  "updatedAt": "2026-11-18T07:20:48.901577+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 5,
   "incidents": [
+    {
+      "id": "b26e5d9e-e85e-4e2a-9435-e4d7dcac15f5",
+      "title": "alert",
+      "published": "Wed Nov 18 06:46:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6043 - Wellington Rd",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.490569 -2.098297"
+    },
     {
       "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
       "title": "alert",
@@ -46,48 +60,6 @@
       "point": "53.489883 -2.09888"
     },
     {
-      "id": "b26e5d9e-e85e-4e2a-9435-e4d7dcac15f5",
-      "title": "alert",
-      "published": "Wed Nov 18 06:46:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6043 - Wellington Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.490569 -2.098297"
-    },
-    {
-      "id": "8682edbd-3fd9-4a8d-b8ec-e8138e1374be",
-      "title": "alert",
-      "published": "Wed Nov 18 07:10:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.558418 -2.702354"
-    },
-    {
-      "id": "bb9b4cda-3259-4a42-b424-afd9ee8a7138",
-      "title": "alert",
-      "published": "Wed Nov 18 07:12:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.586913 -2.693658"
-    },
-    {
       "id": "40ca2c6d-39af-4a0e-9c6f-9730285ca4fd",
       "title": "alert",
       "published": "Wed Nov 18 07:05:32 +0000 2026",
@@ -99,7 +71,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
-      "point": "53.558527 -2.702055"
+      "point": "53.558907 -2.701967"
     }
   ]
 }
