@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T18:50:48.998349+00:00",
+  "updatedAt": "2026-11-18T18:55:48.861079+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "7397563a-840d-4668-b707-849e31f527c4",
@@ -60,18 +60,18 @@
       "point": "53.609903 -2.149484"
     },
     {
-      "id": "b8554dfc-f34c-4e6b-acba-c3217a5232de",
+      "id": "3e643f3d-bf31-4842-b25e-355296241342",
       "title": "alert",
-      "published": "Wed Nov 18 18:24:20 +0000 2026",
+      "published": "Wed Nov 18 18:25:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.380327 -2.218312"
+      "point": "53.379786 -2.217762"
     },
     {
       "id": "fd8f3d35-f559-4406-ad94-55ef12cab1da",
@@ -82,24 +82,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.380329 -2.218138"
     },
     {
-      "id": "3e643f3d-bf31-4842-b25e-355296241342",
+      "id": "b8554dfc-f34c-4e6b-acba-c3217a5232de",
       "title": "alert",
-      "published": "Wed Nov 18 18:25:45 +0000 2026",
+      "published": "Wed Nov 18 18:24:20 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.379786 -2.217762"
+      "point": "53.380327 -2.218312"
     },
     {
       "id": "d4e5a341-3f92-4132-a95e-42474f0f7ea3",
@@ -110,8 +110,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.369044 -2.277587"
     },
@@ -158,6 +158,20 @@
       "point": "53.383442 -2.12602"
     },
     {
+      "id": "863aa1ed-a3e4-4454-bc70-766bee86fc6c",
+      "title": "alert",
+      "published": "Wed Nov 18 18:54:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.408379 -2.525105"
+    },
+    {
       "id": "fbb1a0ce-69c1-4aaf-acd9-97f3d8b100bb",
       "title": "alert",
       "published": "Wed Nov 18 18:38:38 +0000 2026",
@@ -180,7 +194,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.50078 -2.383652"
