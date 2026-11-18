@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T14:40:50.173894+00:00",
+  "updatedAt": "2026-11-18T14:45:48.949213+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "d93e4fef-fa07-494c-893b-0ca297a9c023",
@@ -54,7 +54,7 @@
       "road": "St. Mary's Way",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.543933 -2.118957"
@@ -68,7 +68,7 @@
       "road": "A627 - Rochdale Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.543669 -2.119208"
@@ -82,38 +82,24 @@
       "road": "A670 - Mossley Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.504048 -2.057764"
     },
     {
-      "id": "e50a1736-a590-4cb8-accb-8ea6f864ef1f",
+      "id": "79685641-f200-4c16-a743-b89c4f747272",
       "title": "alert",
-      "published": "Wed Nov 18 14:36:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A58 - Rochdale Rd",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.591813 -2.273044"
-    },
-    {
-      "id": "efe07d42-b513-456b-b41e-df631c386755",
-      "title": "alert",
-      "published": "Wed Nov 18 14:36:52 +0000 2026",
+      "published": "Wed Nov 18 14:41:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
+      "road": "A556 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.591866 -2.272718"
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.359802 -2.395135"
     }
   ]
 }
