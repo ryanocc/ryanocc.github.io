@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T21:50:48.788789+00:00",
+  "updatedAt": "2026-11-18T21:55:48.886115+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "b17c2bc8-1e9e-44ae-8d4e-25ea06b73652",
@@ -26,10 +26,24 @@
       "road": "St. Mary's Way",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.544016 -2.118213"
+    },
+    {
+      "id": "d053a57d-f8b4-4358-9c06-12c43a771ca3",
+      "title": "alert",
+      "published": "Wed Nov 18 21:55:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A662 - Ashton New Rd",
+      "city": "Clayton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.483011 -2.182149"
     },
     {
       "id": "5b110c8f-736a-47a9-85ef-b0bbf07fefcb",
