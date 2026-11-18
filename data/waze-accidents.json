@@ -1,35 +1,49 @@
 {
-  "updatedAt": "2026-11-18T08:20:49.194294+00:00",
+  "updatedAt": "2026-11-18T08:25:49.284402+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
-      "id": "d9afaf5b-17dc-4bca-833f-161159a1464f",
+      "id": "ec08e646-0c24-4dfa-b541-2749bb809090",
       "title": "alert",
-      "published": "Wed Nov 18 07:49:16 +0000 2026",
+      "published": "Wed Nov 18 08:25:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Park Rd",
-      "city": "",
+      "road": "Brownley Rd",
+      "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.548318 -2.505066"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.393221 -2.256792"
     },
     {
-      "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
+      "id": "0cf532d9-2d25-4f41-8b22-2b3b611a7dcc",
       "title": "alert",
-      "published": "Wed Nov 18 06:39:47 +0000 2026",
+      "published": "Wed Nov 18 08:21:58 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Ashton-under-Lyne",
+      "road": "B6176 - Rassbottom St",
+      "city": "Stalybridge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.485366 -2.065453"
+    },
+    {
+      "id": "b3ee085f-fe79-4a53-ab67-2bedb3e0369f",
+      "title": "alert",
+      "published": "Wed Nov 18 08:21:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6188 - St. Mary's Way",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.490481 -2.098679"
+      "point": "53.408741 -2.14924"
     },
     {
       "id": "a0031707-40f2-43d1-8c65-21f94a253c1d",
@@ -46,6 +60,20 @@
       "point": "53.490507 -2.098703"
     },
     {
+      "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
+      "title": "alert",
+      "published": "Wed Nov 18 06:39:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.490481 -2.098679"
+    },
+    {
       "id": "cb835fa0-a2f5-4364-9151-3ad289312d13",
       "title": "alert",
       "published": "Wed Nov 18 06:41:42 +0000 2026",
@@ -60,20 +88,6 @@
       "point": "53.489883 -2.09888"
     },
     {
-      "id": "3e9c99a6-7d30-457b-af7c-af7cb5cb4ab2",
-      "title": "alert",
-      "published": "Wed Nov 18 08:15:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Stamford St",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.485619 -2.065427"
-    },
-    {
       "id": "3ff3f7e1-9e22-49e4-8d3d-3e7804901ebf",
       "title": "alert",
       "published": "Wed Nov 18 08:18:37 +0000 2026",
@@ -82,8 +96,8 @@
       "road": "M602 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.485911 -2.326618"
     }
