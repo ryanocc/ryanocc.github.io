@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T18:30:49.021745+00:00",
+  "updatedAt": "2026-11-18T18:35:49.009621+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -96,8 +96,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.380327 -2.218312"
     },
@@ -116,6 +116,20 @@
       "point": "53.596093 -2.22064"
     },
     {
+      "id": "cb003bf5-eed1-4e94-92b4-ff1dc60b291c",
+      "title": "alert",
+      "published": "Wed Nov 18 18:33:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.547812 -2.265486"
+    },
+    {
       "id": "d0948fd7-683d-4e64-b7f4-cb3114d3deef",
       "title": "alert",
       "published": "Wed Nov 18 16:55:48 +0000 2026",
@@ -124,7 +138,7 @@
       "road": "Henrietta St",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.492164 -2.092239"
@@ -138,24 +152,10 @@
       "road": "A6 - London Rd",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.383442 -2.12602"
-    },
-    {
-      "id": "7ecf44e1-0f2c-43fe-9c78-0608ee593456",
-      "title": "alert",
-      "published": "Wed Nov 18 18:26:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.409088 -2.527045"
     }
   ]
 }
