@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T10:45:48.997566+00:00",
+  "updatedAt": "2026-11-18T10:50:48.894636+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -60,20 +60,6 @@
       "point": "53.355215 -2.505163"
     },
     {
-      "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
-      "title": "alert",
-      "published": "Wed Nov 18 10:08:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Bridgeman St",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.570137 -2.430748"
-    },
-    {
       "id": "2b1543dc-cb38-49c3-926d-5f80f5cbf81d",
       "title": "alert",
       "published": "Wed Nov 18 10:38:52 +0000 2026",
@@ -86,6 +72,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.569933 -2.430896"
+    },
+    {
+      "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
+      "title": "alert",
+      "published": "Wed Nov 18 10:08:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bridgeman St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.570137 -2.430748"
     },
     {
       "id": "3dfad836-f2ca-4daf-9654-48df058b4c75",
@@ -111,7 +111,7 @@
       "city": "Levenshulme",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 5.0,
       "point": "53.450881 -2.190104"
     },
@@ -130,32 +130,18 @@
       "point": "53.599075 -2.10857"
     },
     {
-      "id": "ec8b423d-22f7-4c01-928b-2d33705f31ef",
+      "id": "5723a730-417d-4eda-b0ef-26f9d0274828",
       "title": "alert",
-      "published": "Wed Nov 18 10:31:24 +0000 2026",
+      "published": "Wed Nov 18 10:48:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57(M) - Mancunian Way",
+      "road": "M56 - Airport Spur",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470659 -2.249923"
-    },
-    {
-      "id": "90021a33-908e-4be9-9580-78f965cff1ff",
-      "title": "alert",
-      "published": "Wed Nov 18 10:35:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
-      "point": "53.470788 -2.251685"
+      "point": "53.376482 -2.283689"
     }
   ]
 }
