@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-18T17:25:49.273785+00:00",
+  "updatedAt": "2026-11-18T17:30:49.260298+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 12,
   "incidents": [
-    {
-      "id": "ce3fab06-ef4e-47ef-8169-9b3670c49eb4",
-      "title": "alert",
-      "published": "Wed Nov 18 17:22:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Manchester Airport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.370678 -2.285066"
-    },
     {
       "id": "465a0929-6a25-41d2-8c21-f82e4b048d3d",
       "title": "alert",
@@ -74,6 +60,20 @@
       "point": "53.356492 -2.199243"
     },
     {
+      "id": "432b5e6a-6a1a-4efb-aae8-b3a49c2804e6",
+      "title": "alert",
+      "published": "Wed Nov 18 17:30:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "West Starkey St",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.596093 -2.22064"
+    },
+    {
       "id": "d0948fd7-683d-4e64-b7f4-cb3114d3deef",
       "title": "alert",
       "published": "Wed Nov 18 16:55:48 +0000 2026",
@@ -97,37 +97,37 @@
       "city": "Shaw",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.579562 -2.101145"
     },
     {
-      "id": "cc5db598-2054-46e1-afc9-6395e593f2cc",
+      "id": "304c8bc8-681c-4323-b4f7-5da56c10d44c",
       "title": "alert",
-      "published": "Wed Nov 18 17:19:18 +0000 2026",
+      "published": "Wed Nov 18 17:27:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A6046 - Middleton Rd",
       "city": "Heywood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.577837 -2.207374"
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.57732 -2.207143"
     },
     {
-      "id": "dc959697-d1f3-43b8-bd0b-895ffa08de28",
+      "id": "7db400ab-bb43-4cf0-8c9c-e104145d3bbe",
       "title": "alert",
-      "published": "Wed Nov 18 17:05:31 +0000 2026",
+      "published": "Wed Nov 18 17:20:09 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 - Princess Rd",
-      "city": "Hulme",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Fairfield St",
+      "city": "Ardwick",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.466475 -2.244861"
+      "reportRating": 0.0,
+      "point": "53.47538 -2.218074"
     },
     {
       "id": "e46b0d3c-ea4e-4daa-8658-60465818efd5",
@@ -139,23 +139,9 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
-      "point": "53.475278 -2.216304"
-    },
-    {
-      "id": "7db400ab-bb43-4cf0-8c9c-e104145d3bbe",
-      "title": "alert",
-      "published": "Wed Nov 18 17:20:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A635 - Fairfield St",
-      "city": "Ardwick",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.47538 -2.218074"
+      "point": "53.475279 -2.216315"
     },
     {
       "id": "84f6bf34-65e0-481c-9f26-82e58356d873",
