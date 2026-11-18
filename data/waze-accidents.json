@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T10:35:48.881031+00:00",
+  "updatedAt": "2026-11-18T10:40:48.774488+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 11,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -46,6 +46,34 @@
       "point": "53.483076 -2.144243"
     },
     {
+      "id": "f2ab7491-7372-48ae-9e40-6f0c9de57ba5",
+      "title": "alert",
+      "published": "Wed Nov 18 10:40:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 > Birmingham",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.355215 -2.505163"
+    },
+    {
+      "id": "2b1543dc-cb38-49c3-926d-5f80f5cbf81d",
+      "title": "alert",
+      "published": "Wed Nov 18 10:38:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bridgeman St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.569933 -2.430896"
+    },
+    {
       "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
       "title": "alert",
       "published": "Wed Nov 18 10:08:41 +0000 2026",
@@ -55,7 +83,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.570137 -2.430748"
     },
@@ -74,6 +102,20 @@
       "point": "53.470811 -2.253299"
     },
     {
+      "id": "26a4857a-4e9d-427b-a1be-c4266a056e7e",
+      "title": "alert",
+      "published": "Wed Nov 18 10:37:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Stovell Ave",
+      "city": "Levenshulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.450881 -2.190104"
+    },
+    {
       "id": "1db0212d-0e5b-45ce-9889-4125a05f29ea",
       "title": "alert",
       "published": "Wed Nov 18 10:26:45 +0000 2026",
@@ -88,20 +130,6 @@
       "point": "53.599075 -2.10857"
     },
     {
-      "id": "ec8b423d-22f7-4c01-928b-2d33705f31ef",
-      "title": "alert",
-      "published": "Wed Nov 18 10:31:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.470659 -2.249923"
-    },
-    {
       "id": "90021a33-908e-4be9-9580-78f965cff1ff",
       "title": "alert",
       "published": "Wed Nov 18 10:35:37 +0000 2026",
@@ -110,10 +138,24 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.470788 -2.251685"
+    },
+    {
+      "id": "ec8b423d-22f7-4c01-928b-2d33705f31ef",
+      "title": "alert",
+      "published": "Wed Nov 18 10:31:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.470659 -2.249923"
     }
   ]
 }
