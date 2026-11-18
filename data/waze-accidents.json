@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-18T08:00:49.406686+00:00",
+  "updatedAt": "2026-11-18T08:05:49.101918+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "682a6af9-debd-46ff-b0f4-9d335e896a50",
+      "title": "alert",
+      "published": "Wed Nov 18 08:01:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.415413 -2.151534"
+    },
+    {
+      "id": "8d8fe73e-b217-468a-85e6-efe5ead9b2ac",
+      "title": "alert",
+      "published": "Wed Nov 18 08:01:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Snydale Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.554744 -2.491306"
+    },
     {
       "id": "b1816774-49f3-48a7-b75d-8159a4a26902",
       "title": "alert",
@@ -26,10 +54,24 @@
       "road": "A58 - Park Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.548318 -2.505066"
+    },
+    {
+      "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
+      "title": "alert",
+      "published": "Wed Nov 18 06:39:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.490481 -2.098679"
     },
     {
       "id": "b26e5d9e-e85e-4e2a-9435-e4d7dcac15f5",
@@ -58,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.490507 -2.098703"
-    },
-    {
-      "id": "fbb1e9f0-ade1-4e63-b83d-9def879c2ccf",
-      "title": "alert",
-      "published": "Wed Nov 18 06:39:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.490481 -2.098679"
     },
     {
       "id": "cb835fa0-a2f5-4364-9151-3ad289312d13",
