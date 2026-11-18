@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T10:05:48.873029+00:00",
+  "updatedAt": "2026-11-18T10:10:48.959150+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -32,6 +32,20 @@
       "point": "53.597684 -2.287188"
     },
     {
+      "id": "c0825d2a-eccc-47a0-bfb0-fad15137aa67",
+      "title": "alert",
+      "published": "Wed Nov 18 10:08:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bridgeman St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.570137 -2.430748"
+    },
+    {
       "id": "0cf532d9-2d25-4f41-8b22-2b3b611a7dcc",
       "title": "alert",
       "published": "Wed Nov 18 08:21:58 +0000 2026",
@@ -46,20 +60,6 @@
       "point": "53.485366 -2.065453"
     },
     {
-      "id": "98e93300-a946-454c-9766-9f52536c4a97",
-      "title": "alert",
-      "published": "Wed Nov 18 10:04:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.505096 -2.344344"
-    },
-    {
       "id": "81075ad7-07e9-4649-8382-07f2e6986870",
       "title": "alert",
       "published": "Wed Nov 18 09:57:27 +0000 2026",
@@ -72,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.485514 -2.06662"
+    },
+    {
+      "id": "8d09e631-1ab0-40ae-b7f5-bca853edc4ab",
+      "title": "alert",
+      "published": "Wed Nov 18 10:07:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627(M) (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.592113 -2.162963"
     }
   ]
 }
