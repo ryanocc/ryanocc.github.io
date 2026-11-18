@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T08:25:49.284402+00:00",
+  "updatedAt": "2026-11-18T08:30:49.087009+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "ec08e646-0c24-4dfa-b541-2749bb809090",
@@ -12,8 +12,8 @@
       "road": "Brownley Rd",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.393221 -2.256792"
     },
@@ -40,7 +40,7 @@
       "road": "A6188 - St. Mary's Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.408741 -2.14924"
@@ -69,23 +69,9 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.490481 -2.098679"
-    },
-    {
-      "id": "cb835fa0-a2f5-4364-9151-3ad289312d13",
-      "title": "alert",
-      "published": "Wed Nov 18 06:41:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A627 - Oldham Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.489883 -2.09888"
+      "point": "53.490481 -2.098679"
     },
     {
       "id": "3ff3f7e1-9e22-49e4-8d3d-3e7804901ebf",
@@ -96,8 +82,8 @@
       "road": "M602 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.485911 -2.326618"
     }
