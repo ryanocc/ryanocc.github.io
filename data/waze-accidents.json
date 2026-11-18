@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-18T11:10:48.906180+00:00",
+  "updatedAt": "2026-11-18T11:15:48.833058+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 14,
   "incidents": [
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
@@ -16,6 +16,20 @@
       "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.512468 -2.392831"
+    },
+    {
+      "id": "22560993-7aae-44cd-bb09-8312941512db",
+      "title": "alert",
+      "published": "Wed Nov 18 11:10:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.501595 -2.361774"
     },
     {
       "id": "f2ab7491-7372-48ae-9e40-6f0c9de57ba5",
@@ -54,10 +68,24 @@
       "road": "Bridgeman St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.569933 -2.430896"
+    },
+    {
+      "id": "517cffbc-c809-4676-a82d-21d1ba63bfab",
+      "title": "alert",
+      "published": "Wed Nov 18 11:03:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 > Manchester Airport",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.47074 -2.248733"
     },
     {
       "id": "3dfad836-f2ca-4daf-9654-48df058b4c75",
@@ -74,20 +102,6 @@
       "point": "53.470811 -2.253299"
     },
     {
-      "id": "517cffbc-c809-4676-a82d-21d1ba63bfab",
-      "title": "alert",
-      "published": "Wed Nov 18 11:03:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 > Manchester Airport",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.47074 -2.248733"
-    },
-    {
       "id": "26a4857a-4e9d-427b-a1be-c4266a056e7e",
       "title": "alert",
       "published": "Wed Nov 18 10:37:45 +0000 2026",
@@ -100,6 +114,20 @@
       "reliability": 7.0,
       "reportRating": 5.0,
       "point": "53.450881 -2.190104"
+    },
+    {
+      "id": "9a4cb2ad-417a-4d48-850f-5700f6924661",
+      "title": "alert",
+      "published": "Wed Nov 18 11:15:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Chorlton-on-Medlock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.466026 -2.23757"
     },
     {
       "id": "1db0212d-0e5b-45ce-9889-4125a05f29ea",
@@ -125,7 +153,7 @@
       "city": "Romiley",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.415929 -2.103803"
     },
@@ -139,7 +167,7 @@
       "city": "Weaste",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.482702 -2.310219"
     },
@@ -166,7 +194,7 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470824 -2.25093"
