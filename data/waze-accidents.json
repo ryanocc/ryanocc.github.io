@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-18T09:35:49.147513+00:00",
+  "updatedAt": "2026-11-18T09:40:49.005144+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
+    {
+      "id": "b34c76a4-87ca-4f95-b9a0-1b0d50b789d6",
+      "title": "alert",
+      "published": "Wed Nov 18 09:37:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Prescott St",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.545958 -2.641468"
+    },
     {
       "id": "411ea1c0-769a-4454-8349-3893119be6e6",
       "title": "alert",
@@ -26,7 +40,7 @@
       "road": "",
       "city": "",
       "country": "",
-      "confidence": 3.0,
+      "confidence": 1.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.570719 -2.286598"
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.485366 -2.065453"
-    },
-    {
-      "id": "aa3ea476-3dec-424d-9fdc-ac6afeae6330",
-      "title": "alert",
-      "published": "Wed Nov 18 09:27:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.610219 -2.092137"
     }
   ]
 }
