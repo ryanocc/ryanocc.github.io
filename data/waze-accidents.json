@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T16:10:49.159632+00:00",
+  "updatedAt": "2026-11-19T16:15:49.137033+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "5fc8003b-fefe-45ff-b7e4-d1bf7740abdd",
@@ -27,7 +27,7 @@
       "city": "Lower Broughton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.494509 -2.259783"
     },
@@ -82,8 +82,8 @@
       "road": "A626 - Hall St",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.408181 -2.147778"
     },
@@ -110,8 +110,8 @@
       "road": "A56 - Chester Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.437174 -2.31527"
     },
@@ -124,24 +124,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.409115 -2.174664"
-    },
-    {
-      "id": "f583e975-7cf0-45c6-ab99-026d6490a8b9",
-      "title": "alert",
-      "published": "Thu Nov 19 16:04:02 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470689 -2.250328"
     }
   ]
 }
