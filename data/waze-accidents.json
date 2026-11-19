@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T11:45:48.925219+00:00",
+  "updatedAt": "2026-11-19T11:50:48.909944+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -40,24 +40,10 @@
       "road": "A555 > Buxton",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.356431 -2.199222"
-    },
-    {
-      "id": "67086d65-0208-4bdf-aa29-e8473bd4d603",
-      "title": "alert",
-      "published": "Thu Nov 19 10:59:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6167 - Reddish Ln",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.457636 -2.160237"
     },
     {
       "id": "ea439459-88da-4d85-a59e-da87125f1529",
@@ -74,6 +60,20 @@
       "point": "53.457685 -2.160233"
     },
     {
+      "id": "67086d65-0208-4bdf-aa29-e8473bd4d603",
+      "title": "alert",
+      "published": "Thu Nov 19 10:59:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6167 - Reddish Ln",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.457636 -2.160237"
+    },
+    {
       "id": "e6e4ea82-09cf-4973-8614-06d37036bb06",
       "title": "alert",
       "published": "Thu Nov 19 11:30:56 +0000 2026",
@@ -82,24 +82,10 @@
       "road": "M60 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548647 -2.262459"
-    },
-    {
-      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
-      "title": "alert",
-      "published": "Thu Nov 19 11:45:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5102 - Chester Rd",
-      "city": "Woodford",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.342214 -2.161202"
     },
     {
       "id": "3ad1c5b4-13ac-471b-9f35-cc2b5270c37c",
@@ -111,9 +97,23 @@
       "city": "Woodford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.342066 -2.162415"
+    },
+    {
+      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
+      "title": "alert",
+      "published": "Thu Nov 19 11:45:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5102 - Chester Rd",
+      "city": "Woodford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.342214 -2.161202"
     },
     {
       "id": "2e44d96c-2111-4c5a-ae6d-45f4150cf060",
