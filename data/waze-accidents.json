@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-19T16:35:49.305430+00:00",
+  "updatedAt": "2026-11-19T16:40:49.368694+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
+    {
+      "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
+      "title": "alert",
+      "published": "Thu Nov 19 16:36:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Gore Ave",
+      "city": "Weaste",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.487502 -2.301179"
+    },
     {
       "id": "5fc8003b-fefe-45ff-b7e4-d1bf7740abdd",
       "title": "alert",
@@ -82,7 +96,7 @@
       "road": "A580 - East Lancashire Rd",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.471336 -2.632004"
@@ -96,8 +110,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.378664 -2.506268"
     },
@@ -110,8 +124,8 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.395754 -2.249849"
     }
