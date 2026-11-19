@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-19T07:25:48.918112+00:00",
+  "updatedAt": "2026-11-19T07:30:48.976625+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
+    {
+      "id": "7869b87c-2d5e-4d3a-97b9-53c3a7ab1b5e",
+      "title": "alert",
+      "published": "Thu Nov 19 07:30:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.561459 -2.53484"
+    },
+    {
+      "id": "f876b3b5-8fa9-4b60-ba2a-e38436d59704",
+      "title": "alert",
+      "published": "Thu Nov 19 07:30:39 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Yew St",
+      "city": "Hulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.464714 -2.257335"
+    },
     {
       "id": "6bafde5b-e24e-4a25-9628-d85e0f40c03d",
       "title": "alert",
@@ -12,8 +40,8 @@
       "road": "J12 to M60 (N) > Leeds",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.488939 -2.378668"
     },
@@ -32,6 +60,20 @@
       "point": "53.470828 -2.249983"
     },
     {
+      "id": "a3c70474-a9a5-4c21-b88f-80f123b0a6c2",
+      "title": "alert",
+      "published": "Thu Nov 19 06:58:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.523871 -2.170741"
+    },
+    {
       "id": "a552f699-489d-45cd-b8fb-7ef8f99d57d4",
       "title": "alert",
       "published": "Thu Nov 19 06:43:03 +0000 2026",
@@ -44,20 +86,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.524939 -2.174455"
-    },
-    {
-      "id": "a3c70474-a9a5-4c21-b88f-80f123b0a6c2",
-      "title": "alert",
-      "published": "Thu Nov 19 06:58:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.523871 -2.170741"
     },
     {
       "id": "68423e54-857f-48eb-a284-b10defcebc9d",
@@ -82,7 +110,7 @@
       "road": "A57 - Dawson St",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.473678 -2.260046"
