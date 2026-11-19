@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-19T09:40:48.824824+00:00",
+  "updatedAt": "2026-11-19T09:45:48.875539+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
+    {
+      "id": "c6d1c22c-af43-48d8-84f9-b46c6868ee32",
+      "title": "alert",
+      "published": "Thu Nov 19 09:42:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.402561 -2.320501"
+    },
     {
       "id": "17f42ddb-8f11-4293-b323-414e2023cbd9",
       "title": "alert",
@@ -26,7 +40,7 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.482939 -2.264442"
