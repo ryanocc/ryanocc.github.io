@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T15:40:49.369071+00:00",
+  "updatedAt": "2026-11-19T15:45:49.311933+00:00",
   "source": "Waze GeoRSS",
   "count": 15,
   "incidents": [
@@ -40,8 +40,8 @@
       "road": "",
       "city": "Sale",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.422891 -2.353346"
     },
@@ -97,7 +97,7 @@
       "city": "Irlam",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.440214 -2.413659"
     },
@@ -110,24 +110,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.547215 -2.199796"
-    },
-    {
-      "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
-      "title": "alert",
-      "published": "Thu Nov 19 15:02:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.593045 -2.180765"
     },
     {
       "id": "0ded2990-defb-42c9-abbb-dd40394ff23c",
@@ -144,32 +130,46 @@
       "point": "53.592385 -2.179728"
     },
     {
-      "id": "8bc8463f-3506-405f-8a7b-5cfca38613fd",
+      "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
       "title": "alert",
-      "published": "Thu Nov 19 15:38:12 +0000 2026",
+      "published": "Thu Nov 19 15:02:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Manchester Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.593045 -2.180765"
+    },
+    {
+      "id": "5f21c564-c132-4b4d-923b-e1016b55f68f",
+      "title": "alert",
+      "published": "Thu Nov 19 15:44:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A56 - Chester Rd",
       "city": "Stretford",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.437117 -2.315308"
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.437509 -2.315013"
     },
     {
-      "id": "bce70a44-d256-431c-9bcd-09b81041b94c",
+      "id": "51517d96-15a8-46ae-8ac5-b4a656682d03",
       "title": "alert",
-      "published": "Thu Nov 19 15:36:30 +0000 2026",
+      "published": "Thu Nov 19 15:41:40 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A34 (N) - Ainslie Way",
-      "city": "Handforth",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 1.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.346686 -2.200495"
+      "reportRating": 1.0,
+      "point": "53.437656 -2.314907"
     },
     {
       "id": "1fb12a3b-4169-4014-87f1-a74f0d11c09a",
@@ -183,7 +183,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
-      "point": "53.409064 -2.175175"
+      "point": "53.409034 -2.175468"
     },
     {
       "id": "4af7614c-78fe-4511-839c-5bd72cd355a0",
@@ -194,8 +194,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.440948 -2.335754"
     },
