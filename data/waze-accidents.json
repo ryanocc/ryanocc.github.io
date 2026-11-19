@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-19T07:20:48.880676+00:00",
+  "updatedAt": "2026-11-19T07:25:48.918112+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
+    {
+      "id": "6bafde5b-e24e-4a25-9628-d85e0f40c03d",
+      "title": "alert",
+      "published": "Thu Nov 19 07:23:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J12 to M60 (N) > Leeds",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.488939 -2.378668"
+    },
     {
       "id": "7677d197-70af-4fa0-89a7-98b7d1058125",
       "title": "alert",
@@ -68,24 +82,10 @@
       "road": "A57 - Dawson St",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.473678 -2.260046"
-    },
-    {
-      "id": "30939893-b59f-4bad-8652-ba32668440f2",
-      "title": "alert",
-      "published": "Thu Nov 19 06:06:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MINOR",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.470847 -2.251249"
     },
     {
       "id": "fa187d75-26a0-42f3-ae89-e16f7d86613f",
@@ -100,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.471095 -2.254336"
+    },
+    {
+      "id": "30939893-b59f-4bad-8652-ba32668440f2",
+      "title": "alert",
+      "published": "Thu Nov 19 06:06:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.470847 -2.251249"
     }
   ]
 }
