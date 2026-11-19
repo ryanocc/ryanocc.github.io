@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T13:50:48.844190+00:00",
+  "updatedAt": "2026-11-19T13:55:48.850625+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "7f8ad3df-be25-4193-9b6c-4d81c67f0b37",
@@ -18,6 +18,20 @@
       "point": "53.410438 -2.223267"
     },
     {
+      "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
+      "title": "alert",
+      "published": "Thu Nov 19 13:54:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Catherine St",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.502633 -2.517567"
+    },
+    {
       "id": "5a1d0adb-3ae0-4c05-a9ac-9c72bda0accc",
       "title": "alert",
       "published": "Thu Nov 19 12:55:04 +0000 2026",
@@ -30,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.571835 -2.435641"
+    },
+    {
+      "id": "f89689ca-bfd1-4bde-b5ac-138ee216b174",
+      "title": "alert",
+      "published": "Thu Nov 19 13:54:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J2 to A58",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.590053 -2.272972"
     }
   ]
 }
