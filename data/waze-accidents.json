@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T16:55:48.973052+00:00",
+  "updatedAt": "2026-11-19T17:00:48.912346+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -46,20 +46,6 @@
       "point": "53.494509 -2.259783"
     },
     {
-      "id": "3351865b-4698-49d1-b26a-47fca41b6678",
-      "title": "alert",
-      "published": "Thu Nov 19 14:55:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "The Carriage Dr",
-      "city": "Hadfield",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.460309 -1.978887"
-    },
-    {
       "id": "36e37ca2-ddd5-41fd-95e8-f48ba8860a82",
       "title": "alert",
       "published": "Thu Nov 19 15:38:27 +0000 2026",
@@ -68,8 +54,8 @@
       "road": "Firsway",
       "city": "Sale",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.422037 -2.354829"
     },
@@ -100,6 +86,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.465968 -2.077855"
+    },
+    {
+      "id": "33f1c829-8e45-4f0c-8692-c44f581d9ee7",
+      "title": "alert",
+      "published": "Thu Nov 19 16:57:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6144 - Carrington Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.433813 -2.374757"
     },
     {
       "id": "7280bcb3-ec1d-4f93-92dd-e9fbcf019c43",
@@ -138,10 +138,24 @@
       "road": "",
       "city": "",
       "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.430502 -2.300873"
+    },
+    {
+      "id": "a82d42e9-75a8-417d-b474-1b9756092af1",
+      "title": "alert",
+      "published": "Thu Nov 19 17:00:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
       "confidence": 1.0,
       "reliability": 7.0,
       "reportRating": 2.0,
-      "point": "53.430502 -2.300873"
+      "point": "53.401854 -2.209948"
     }
   ]
 }
