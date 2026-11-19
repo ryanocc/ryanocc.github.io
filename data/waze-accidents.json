@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-19T06:50:48.882078+00:00",
+  "updatedAt": "2026-11-19T06:55:48.860862+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
+    {
+      "id": "62fbbbba-40fe-4b3f-86c2-97f9800228b1",
+      "title": "alert",
+      "published": "Thu Nov 19 06:51:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 > Birmingham",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.399192 -2.507968"
+    },
     {
       "id": "7677d197-70af-4fa0-89a7-98b7d1058125",
       "title": "alert",
@@ -86,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.545851 -2.253774"
+    },
+    {
+      "id": "6b09fa5c-041c-48b6-8ee4-4b665209b42c",
+      "title": "alert",
+      "published": "Thu Nov 19 06:53:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 5.0,
+      "point": "53.62952 -2.024681"
     }
   ]
 }
