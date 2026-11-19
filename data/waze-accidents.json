@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T17:25:49.290122+00:00",
+  "updatedAt": "2026-11-19T17:30:49.252838+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -40,24 +40,10 @@
       "road": "Firsway",
       "city": "Sale",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.422037 -2.354829"
-    },
-    {
-      "id": "725cd9a2-39eb-4224-b189-a85995135ba3",
-      "title": "alert",
-      "published": "Thu Nov 19 17:22:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5250 - Mossy Lea Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.59143 -2.695713"
     },
     {
       "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
@@ -69,9 +55,23 @@
       "city": "Shevington Moor",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.590949 -2.696074"
+    },
+    {
+      "id": "725cd9a2-39eb-4224-b189-a85995135ba3",
+      "title": "alert",
+      "published": "Thu Nov 19 17:22:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.59143 -2.695713"
     },
     {
       "id": "a3eb32cb-b6c3-4d41-96d0-b79a13944f3b",
@@ -97,7 +97,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.43993 -2.331114"
     },
@@ -130,18 +130,18 @@
       "point": "53.472063 -2.632484"
     },
     {
-      "id": "78249026-968d-406a-9752-bd3163b2f996",
+      "id": "c539047e-df86-46a8-a4a4-04e0131f87e7",
       "title": "alert",
-      "published": "Thu Nov 19 17:07:28 +0000 2026",
+      "published": "Thu Nov 19 17:28:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A665 - Bury Old Rd",
-      "city": "Whitefield",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.542586 -2.288625"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.437208 -2.315247"
     },
     {
       "id": "1b49d327-95df-4ec9-b014-de620e6092b9",
@@ -166,7 +166,7 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.453645 -2.339326"
