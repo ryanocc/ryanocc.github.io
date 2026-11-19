@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-19T06:35:48.858674+00:00",
+  "updatedAt": "2026-11-19T06:40:48.969170+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
-    {
-      "id": "79203e83-7339-475f-a363-8558328d018c",
-      "title": "alert",
-      "published": "Thu Nov 19 06:29:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5211 - Redclyffe Rd",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.470651 -2.349835"
-    },
     {
       "id": "7677d197-70af-4fa0-89a7-98b7d1058125",
       "title": "alert",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.471095 -2.254336"
+    },
+    {
+      "id": "1365bb6b-ec59-45ce-be19-2ef956008137",
+      "title": "alert",
+      "published": "Thu Nov 19 06:38:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.545851 -2.253774"
     }
   ]
 }
