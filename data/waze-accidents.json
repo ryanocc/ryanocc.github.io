@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T09:05:49.032379+00:00",
+  "updatedAt": "2026-11-19T09:10:49.071177+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "f876b3b5-8fa9-4b60-ba2a-e38436d59704",
@@ -27,7 +27,7 @@
       "city": "Birchwood",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.422794 -2.519137"
     },
@@ -46,6 +46,20 @@
       "point": "53.482939 -2.264442"
     },
     {
+      "id": "17f42ddb-8f11-4293-b323-414e2023cbd9",
+      "title": "alert",
+      "published": "Thu Nov 19 09:08:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Wilmslow Rd",
+      "city": "Rusholme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.44989 -2.220827"
+    },
+    {
       "id": "30939893-b59f-4bad-8652-ba32668440f2",
       "title": "alert",
       "published": "Thu Nov 19 06:06:00 +0000 2026",
@@ -58,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470847 -2.251249"
+    },
+    {
+      "id": "1ce856e1-7f01-451e-af23-179e8d4adb4c",
+      "title": "alert",
+      "published": "Thu Nov 19 09:08:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.566571 -2.234006"
     }
   ]
 }
