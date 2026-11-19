@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-19T12:00:48.864076+00:00",
+  "updatedAt": "2026-11-19T12:05:48.947702+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
-    {
-      "id": "d9303164-dcfa-471d-95da-d9bb6e1577f6",
-      "title": "alert",
-      "published": "Thu Nov 19 10:58:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.374081 -2.363189"
-    },
     {
       "id": "67086d65-0208-4bdf-aa29-e8473bd4d603",
       "title": "alert",
@@ -46,20 +32,6 @@
       "point": "53.457685 -2.160233"
     },
     {
-      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
-      "title": "alert",
-      "published": "Thu Nov 19 11:45:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5102 - Chester Rd",
-      "city": "Woodford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.342214 -2.161202"
-    },
-    {
       "id": "3ad1c5b4-13ac-471b-9f35-cc2b5270c37c",
       "title": "alert",
       "published": "Thu Nov 19 11:43:50 +0000 2026",
@@ -72,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.342066 -2.162415"
+    },
+    {
+      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
+      "title": "alert",
+      "published": "Thu Nov 19 11:45:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5102 - Chester Rd",
+      "city": "Woodford",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.342214 -2.161202"
     },
     {
       "id": "2e44d96c-2111-4c5a-ae6d-45f4150cf060",
