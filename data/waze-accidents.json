@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-19T07:05:48.842360+00:00",
+  "updatedAt": "2026-11-19T07:10:48.951647+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 6,
   "incidents": [
-    {
-      "id": "3c75f222-7736-4189-b1a9-191dee7576a1",
-      "title": "alert",
-      "published": "Thu Nov 19 06:51:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 > Birmingham",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.399192 -2.507968"
-    },
     {
       "id": "7677d197-70af-4fa0-89a7-98b7d1058125",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470828 -2.249983"
+    },
+    {
+      "id": "68423e54-857f-48eb-a284-b10defcebc9d",
+      "title": "alert",
+      "published": "Thu Nov 19 05:34:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.52464 -2.173445"
     },
     {
       "id": "a552f699-489d-45cd-b8fb-7ef8f99d57d4",
@@ -55,23 +55,9 @@
       "city": "New Moston",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.523871 -2.170741"
-    },
-    {
-      "id": "68423e54-857f-48eb-a284-b10defcebc9d",
-      "title": "alert",
-      "published": "Thu Nov 19 05:34:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.52464 -2.173445"
     },
     {
       "id": "fa187d75-26a0-42f3-ae89-e16f7d86613f",
@@ -100,20 +86,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470847 -2.251249"
-    },
-    {
-      "id": "6b09fa5c-041c-48b6-8ee4-4b665209b42c",
-      "title": "alert",
-      "published": "Thu Nov 19 06:53:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.62952 -2.024681"
     }
   ]
 }
