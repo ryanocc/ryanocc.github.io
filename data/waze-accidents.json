@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-19T14:00:48.896930+00:00",
+  "updatedAt": "2026-11-19T14:05:48.732483+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
-    {
-      "id": "7f8ad3df-be25-4193-9b6c-4d81c67f0b37",
-      "title": "alert",
-      "published": "Thu Nov 19 12:43:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.410438 -2.223267"
-    },
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
       "title": "alert",
@@ -40,10 +26,24 @@
       "road": "B5211 - Barton Dock Rd",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.461642 -2.332505"
+    },
+    {
+      "id": "03a9358b-7b15-4704-9ec0-2fa349f4f9e0",
+      "title": "alert",
+      "published": "Thu Nov 19 14:02:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5211 - Barton Dock Rd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.461192 -2.331694"
     },
     {
       "id": "5a1d0adb-3ae0-4c05-a9ac-9c72bda0accc",
@@ -69,7 +69,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.590053 -2.272972"
     }
