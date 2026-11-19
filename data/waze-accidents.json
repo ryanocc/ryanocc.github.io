@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T16:40:49.368694+00:00",
+  "updatedAt": "2026-11-19T16:45:49.101346+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -13,7 +13,7 @@
       "city": "Weaste",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.487502 -2.301179"
     },
@@ -88,18 +88,32 @@
       "point": "53.475884 -2.597263"
     },
     {
-      "id": "ad1876fb-6a03-42bc-a7c9-37968b987d32",
+      "id": "7280bcb3-ec1d-4f93-92dd-e9fbcf019c43",
       "title": "alert",
-      "published": "Thu Nov 19 16:34:12 +0000 2026",
+      "published": "Thu Nov 19 16:41:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A580 - East Lancashire Rd",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.471217 -2.630619"
+    },
+    {
+      "id": "2114684b-8a14-429e-8e76-40ada28b2b2e",
+      "title": "alert",
+      "published": "Thu Nov 19 16:43:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A663 - Broadway",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.471336 -2.632004"
+      "point": "53.519637 -2.167196"
     },
     {
       "id": "56442e93-f8c9-4d78-a922-9420c9a8aaa6",
@@ -124,7 +138,7 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.395754 -2.249849"
