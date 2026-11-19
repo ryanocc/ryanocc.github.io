@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-19T12:20:48.948729+00:00",
+  "updatedAt": "2026-11-19T12:25:49.013110+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
-    {
-      "id": "ea439459-88da-4d85-a59e-da87125f1529",
-      "title": "alert",
-      "published": "Thu Nov 19 11:04:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6167 - Reddish Ln",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.457685 -2.160233"
-    },
     {
       "id": "67086d65-0208-4bdf-aa29-e8473bd4d603",
       "title": "alert",
@@ -32,18 +18,18 @@
       "point": "53.457636 -2.160237"
     },
     {
-      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
+      "id": "ea439459-88da-4d85-a59e-da87125f1529",
       "title": "alert",
-      "published": "Thu Nov 19 11:45:21 +0000 2026",
+      "published": "Thu Nov 19 11:04:54 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5102 - Chester Rd",
-      "city": "Woodford",
+      "subtype": "",
+      "road": "B6167 - Reddish Ln",
+      "city": "Gorton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.342214 -2.161202"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.457685 -2.160233"
     },
     {
       "id": "3ad1c5b4-13ac-471b-9f35-cc2b5270c37c",
@@ -58,6 +44,20 @@
       "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.342066 -2.162415"
+    },
+    {
+      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
+      "title": "alert",
+      "published": "Thu Nov 19 11:45:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5102 - Chester Rd",
+      "city": "Woodford",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.342214 -2.161202"
     },
     {
       "id": "2e44d96c-2111-4c5a-ae6d-45f4150cf060",
