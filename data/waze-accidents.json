@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T17:20:49.206480+00:00",
+  "updatedAt": "2026-11-19T17:25:49.290122+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -46,6 +46,20 @@
       "point": "53.422037 -2.354829"
     },
     {
+      "id": "725cd9a2-39eb-4224-b189-a85995135ba3",
+      "title": "alert",
+      "published": "Thu Nov 19 17:22:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.59143 -2.695713"
+    },
+    {
       "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
       "title": "alert",
       "published": "Thu Nov 19 17:20:06 +0000 2026",
@@ -74,6 +88,20 @@
       "point": "53.440627 -2.333172"
     },
     {
+      "id": "16ed44f8-c644-46a6-a9e2-40807b993f24",
+      "title": "alert",
+      "published": "Thu Nov 19 17:24:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "J7 & J6",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.43993 -2.331114"
+    },
+    {
       "id": "1e7f671a-fedf-4390-84b7-48fd0821eef5",
       "title": "alert",
       "published": "Thu Nov 19 17:10:27 +0000 2026",
@@ -82,24 +110,24 @@
       "road": "A580 > St. Helens",
       "city": "Claremont",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.502212 -2.31185"
     },
     {
-      "id": "33f1c829-8e45-4f0c-8692-c44f581d9ee7",
+      "id": "7e0aaf88-da66-48d5-8cdf-295b8700463d",
       "title": "alert",
-      "published": "Thu Nov 19 16:57:51 +0000 2026",
+      "published": "Thu Nov 19 17:21:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A6144 - Carrington Ln",
-      "city": "",
+      "road": "A49 - Lodge Ln",
+      "city": "Haydock",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.433813 -2.374757"
+      "point": "53.472063 -2.632484"
     },
     {
       "id": "78249026-968d-406a-9752-bd3163b2f996",
@@ -110,38 +138,10 @@
       "road": "A665 - Bury Old Rd",
       "city": "Whitefield",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.542586 -2.288625"
-    },
-    {
-      "id": "416692d9-aae4-4099-ad72-5afead5fe417",
-      "title": "alert",
-      "published": "Thu Nov 19 17:04:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "Haydock",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.47132 -2.63158"
-    },
-    {
-      "id": "2114684b-8a14-429e-8e76-40ada28b2b2e",
-      "title": "alert",
-      "published": "Thu Nov 19 16:43:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A663 - Broadway",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.519637 -2.167196"
     },
     {
       "id": "1b49d327-95df-4ec9-b014-de620e6092b9",
@@ -156,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.440208 -2.333167"
+    },
+    {
+      "id": "3650cd83-af8b-4973-a1de-2646d395a954",
+      "title": "alert",
+      "published": "Thu Nov 19 17:23:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.453645 -2.339326"
     }
   ]
 }
