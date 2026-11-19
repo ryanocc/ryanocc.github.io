@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T15:50:49.177243+00:00",
+  "updatedAt": "2026-11-19T15:55:49.182948+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 11,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -88,6 +88,20 @@
       "point": "53.475884 -2.597263"
     },
     {
+      "id": "1cb2bbb2-45a6-44ee-8f53-1c00650b1a89",
+      "title": "alert",
+      "published": "Thu Nov 19 15:53:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A578 - Wigan Rd",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.49858 -2.532026"
+    },
+    {
       "id": "5af03c6c-7c5a-47a1-b341-0b483f251d86",
       "title": "alert",
       "published": "Thu Nov 19 15:39:11 +0000 2026",
@@ -96,7 +110,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.547215 -2.199796"
@@ -110,8 +124,8 @@
       "road": "A576 - Great Cheetham St W",
       "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.501796 -2.259167"
     },
@@ -128,34 +142,6 @@
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.409064 -2.175175"
-    },
-    {
-      "id": "a108c641-6e28-47b9-a07d-1fc6960c9217",
-      "title": "alert",
-      "published": "Thu Nov 19 15:15:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.453563 -2.339349"
-    },
-    {
-      "id": "57439660-db3c-43b7-a1d2-030c1c053b16",
-      "title": "alert",
-      "published": "Thu Nov 19 15:48:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.455256 -2.338664"
     },
     {
       "id": "4af7614c-78fe-4511-839c-5bd72cd355a0",
