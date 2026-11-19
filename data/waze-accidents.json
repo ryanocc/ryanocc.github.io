@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-19T16:00:49.114956+00:00",
+  "updatedAt": "2026-11-19T16:05:49.184721+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "5fc8003b-fefe-45ff-b7e4-d1bf7740abdd",
+      "title": "alert",
+      "published": "Thu Nov 19 16:01:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Lower Seedley Rd",
+      "city": "Langworthy",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.487896 -2.299955"
+    },
+    {
+      "id": "f89e879b-1d0a-4939-9070-66002cf57a34",
+      "title": "alert",
+      "published": "Thu Nov 19 16:04:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Clarence St",
+      "city": "Lower Broughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.494509 -2.259783"
+    },
     {
       "id": "3351865b-4698-49d1-b26a-47fca41b6678",
       "title": "alert",
@@ -16,20 +44,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.460309 -1.978887"
-    },
-    {
-      "id": "10cdff8c-7ec0-4d16-ab45-e3bed0d9a2c7",
-      "title": "alert",
-      "published": "Thu Nov 19 15:29:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5161 - Langham Rd",
-      "city": "Bowdon",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.377551 -2.352492"
     },
     {
       "id": "36e37ca2-ddd5-41fd-95e8-f48ba8860a82",
@@ -55,9 +69,23 @@
       "city": "Golborne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.475884 -2.597263"
+    },
+    {
+      "id": "10712e05-66b7-426c-889c-149ac3413157",
+      "title": "alert",
+      "published": "Thu Nov 19 16:04:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5214 - Barton Rd",
+      "city": "Davyhulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.463592 -2.35751"
     },
     {
       "id": "1cb2bbb2-45a6-44ee-8f53-1c00650b1a89",
@@ -74,32 +102,32 @@
       "point": "53.49858 -2.532026"
     },
     {
-      "id": "0b031c1f-0025-4d49-a854-749972b6af18",
+      "id": "74d81236-5128-4f9f-a7f9-24ae37f96450",
       "title": "alert",
-      "published": "Thu Nov 19 15:48:55 +0000 2026",
+      "published": "Thu Nov 19 16:05:47 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A576 - Great Cheetham St W",
-      "city": "Higher Broughton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.501796 -2.259167"
-    },
-    {
-      "id": "4af7614c-78fe-4511-839c-5bd72cd355a0",
-      "title": "alert",
-      "published": "Thu Nov 19 15:39:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
+      "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.440948 -2.335754"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.409115 -2.174664"
+    },
+    {
+      "id": "f583e975-7cf0-45c6-ab99-026d6490a8b9",
+      "title": "alert",
+      "published": "Thu Nov 19 16:04:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.470689 -2.250328"
     }
   ]
 }
