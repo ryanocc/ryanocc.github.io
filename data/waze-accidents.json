@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-19T05:55:48.834891+00:00",
+  "updatedAt": "2026-11-19T06:00:48.876626+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "7677d197-70af-4fa0-89a7-98b7d1058125",
+      "title": "alert",
+      "published": "Thu Nov 19 06:00:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 > Manchester Airport",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.470828 -2.249983"
+    },
     {
       "id": "68423e54-857f-48eb-a284-b10defcebc9d",
       "title": "alert",
@@ -13,7 +27,7 @@
       "city": "New Moston",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.52464 -2.173445"
     },
@@ -26,8 +40,8 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.428121 -2.547709"
     },
@@ -40,10 +54,24 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.426175 -2.555783"
+    },
+    {
+      "id": "0c2b20bb-ab4b-45da-afd5-c235a50b3ee5",
+      "title": "alert",
+      "published": "Thu Nov 19 05:56:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.470299 -2.244506"
     },
     {
       "id": "fa187d75-26a0-42f3-ae89-e16f7d86613f",
@@ -54,7 +82,7 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.471095 -2.254336"
