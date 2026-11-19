@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-19T08:15:49.240847+00:00",
+  "updatedAt": "2026-11-19T08:20:49.140536+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
+    {
+      "id": "94791058-d3e2-4f01-87db-15970ab78b5b",
+      "title": "alert",
+      "published": "Thu Nov 19 08:20:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Kingsway",
+      "city": "Walkden",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.512437 -2.394789"
+    },
     {
       "id": "f876b3b5-8fa9-4b60-ba2a-e38436d59704",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "Yew St",
       "city": "Hulme",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.464714 -2.257335"
     },
@@ -54,8 +68,8 @@
       "road": "A5063 - Trafford Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.476201 -2.282957"
     },
