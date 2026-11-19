@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T09:15:48.984280+00:00",
+  "updatedAt": "2026-11-19T09:20:49.021454+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "80f4b8a5-12a1-4de0-b57c-6c9062a583a7",
@@ -54,8 +54,8 @@
       "road": "A5066 - Oldfield Rd",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.482939 -2.264442"
     },
@@ -72,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470847 -2.251249"
-    },
-    {
-      "id": "1ce856e1-7f01-451e-af23-179e8d4adb4c",
-      "title": "alert",
-      "published": "Thu Nov 19 09:08:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.566571 -2.234006"
     }
   ]
 }
