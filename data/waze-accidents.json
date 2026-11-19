@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T21:55:48.841012+00:00",
+  "updatedAt": "2026-11-19T22:00:48.853353+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "dc08460c-ef0c-4e69-9a04-3a5b00957a56",
@@ -30,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.524664 -2.402564"
+    },
+    {
+      "id": "f716955d-355d-449a-ac46-e5168d39b319",
+      "title": "alert",
+      "published": "Thu Nov 19 21:58:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.358137 -2.305962"
     }
   ]
 }
