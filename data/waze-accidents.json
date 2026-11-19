@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T07:50:48.980313+00:00",
+  "updatedAt": "2026-11-19T07:55:49.096057+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -27,7 +27,7 @@
       "city": "Hulme",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.464714 -2.257335"
     },
@@ -102,6 +102,20 @@
       "point": "53.473678 -2.260046"
     },
     {
+      "id": "afc49209-d143-4b87-a8e8-3fb708796d10",
+      "title": "alert",
+      "published": "Thu Nov 19 07:53:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.447261 -2.436368"
+    },
+    {
       "id": "30939893-b59f-4bad-8652-ba32668440f2",
       "title": "alert",
       "published": "Thu Nov 19 06:06:00 +0000 2026",
@@ -114,20 +128,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470847 -2.251249"
-    },
-    {
-      "id": "fa187d75-26a0-42f3-ae89-e16f7d86613f",
-      "title": "alert",
-      "published": "Thu Nov 19 05:50:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.471095 -2.254336"
     }
   ]
 }
