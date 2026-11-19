@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T14:35:48.762952+00:00",
+  "updatedAt": "2026-11-19T14:40:49.235669+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -16,6 +16,34 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.502633 -2.517567"
+    },
+    {
+      "id": "00c507bb-40db-47fe-a258-4c51c847ac32",
+      "title": "alert",
+      "published": "Thu Nov 19 14:38:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.548525 -2.194556"
+    },
+    {
+      "id": "dec1aa81-3f45-43b1-a511-64070f35713a",
+      "title": "alert",
+      "published": "Thu Nov 19 14:39:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Chester Rd",
+      "city": "Hulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.471876 -2.258564"
     }
   ]
 }
