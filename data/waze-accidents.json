@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-19T18:45:49.058373+00:00",
+  "updatedAt": "2026-11-19T18:50:48.869024+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
-    {
-      "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
-      "title": "alert",
-      "published": "Thu Nov 19 16:36:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Gore Ave",
-      "city": "Weaste",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.487502 -2.301179"
-    },
     {
       "id": "cf1955be-9631-4986-9214-b0e122758cd0",
       "title": "alert",
@@ -30,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.610244 -2.156517"
-    },
-    {
-      "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
-      "title": "alert",
-      "published": "Thu Nov 19 18:02:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5250 - Mossy Lea Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.59265 -2.694867"
     },
     {
       "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
@@ -60,6 +32,34 @@
       "point": "53.590949 -2.696074"
     },
     {
+      "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
+      "title": "alert",
+      "published": "Thu Nov 19 18:02:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.59265 -2.694867"
+    },
+    {
+      "id": "8c7ce6c1-012c-4b51-817f-989a27645a17",
+      "title": "alert",
+      "published": "Thu Nov 19 18:49:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 > Wigan",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.441984 -2.586818"
+    },
+    {
       "id": "7d6d3308-c582-43fa-b678-a62e8569f349",
       "title": "alert",
       "published": "Thu Nov 19 18:32:52 +0000 2026",
@@ -68,24 +68,24 @@
       "road": "A560 - Gatley Rd",
       "city": "Gatley",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.391911 -2.226944"
     },
     {
-      "id": "936821dc-58d4-4266-9da8-00f9178ba1c6",
+      "id": "c57aa468-96cb-4ca8-bbf0-921fd1e7ffb6",
       "title": "alert",
-      "published": "Thu Nov 19 18:22:49 +0000 2026",
+      "published": "Thu Nov 19 18:49:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A577 - Mosley Common Rd",
-      "city": "Tyldesley",
+      "road": "A555 (E)",
+      "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.511464 -2.433621"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.357544 -2.234883"
     },
     {
       "id": "a24a126d-29df-43a8-a5d5-967623c17315",
@@ -96,24 +96,24 @@
       "road": "A34 (N) - Kingsway",
       "city": "Gatley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.391899 -2.226597"
     },
     {
-      "id": "415062a5-3677-47bc-a73c-86e5224c9d45",
+      "id": "f5197a81-d0b7-4805-b792-eeb781a7f353",
       "title": "alert",
-      "published": "Thu Nov 19 18:41:34 +0000 2026",
+      "published": "Thu Nov 19 18:49:17 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.353813 -2.504385"
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.38848 -2.274447"
     },
     {
       "id": "688ee43c-aec0-48f5-83d0-f809351ce7d2",
@@ -128,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.442144 -2.586792"
+    },
+    {
+      "id": "0289e3d5-3a03-483e-8790-fe333f8a1355",
+      "title": "alert",
+      "published": "Thu Nov 19 18:49:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.444284 -2.588751"
     }
   ]
 }
