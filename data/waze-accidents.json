@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T17:10:49.172812+00:00",
+  "updatedAt": "2026-11-19T17:15:49.252000+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 13,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -32,20 +32,6 @@
       "point": "53.487896 -2.299955"
     },
     {
-      "id": "f89e879b-1d0a-4939-9070-66002cf57a34",
-      "title": "alert",
-      "published": "Thu Nov 19 16:04:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Clarence St",
-      "city": "Lower Broughton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.494509 -2.259783"
-    },
-    {
       "id": "36e37ca2-ddd5-41fd-95e8-f48ba8860a82",
       "title": "alert",
       "published": "Thu Nov 19 15:38:27 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.422037 -2.354829"
+    },
+    {
+      "id": "a3eb32cb-b6c3-4d41-96d0-b79a13944f3b",
+      "title": "alert",
+      "published": "Thu Nov 19 17:11:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (S & E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.440627 -2.333172"
     },
     {
       "id": "1e7f671a-fedf-4390-84b7-48fd0821eef5",
@@ -111,23 +111,9 @@
       "city": "Whitefield",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.542586 -2.288625"
-    },
-    {
-      "id": "b422762a-68f5-439d-bb62-72a4236cd92f",
-      "title": "alert",
-      "published": "Thu Nov 19 17:09:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.355581 -2.200702"
     },
     {
       "id": "a0b693c3-49e8-4db0-a672-d36753ae1469",
@@ -139,7 +125,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.355692 -2.200721"
     },
@@ -152,8 +138,8 @@
       "road": "A580 - East Lancashire Rd",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.47132 -2.63158"
     },
@@ -170,20 +156,6 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.519637 -2.167196"
-    },
-    {
-      "id": "9ee7a6b2-6892-48ef-b802-a877860191b6",
-      "title": "alert",
-      "published": "Thu Nov 19 17:01:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.404138 -2.194759"
     },
     {
       "id": "1b49d327-95df-4ec9-b014-de620e6092b9",
@@ -208,7 +180,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.545384 -2.253421"
