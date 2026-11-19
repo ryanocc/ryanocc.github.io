@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T16:45:49.101346+00:00",
+  "updatedAt": "2026-11-19T16:50:49.221905+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -83,9 +83,23 @@
       "city": "Golborne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.475884 -2.597263"
+    },
+    {
+      "id": "8955657a-1e90-4e7a-a244-fde348641810",
+      "title": "alert",
+      "published": "Thu Nov 19 16:49:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6170 - Ashton Rd",
+      "city": "Hyde",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.465968 -2.077855"
     },
     {
       "id": "7280bcb3-ec1d-4f93-92dd-e9fbcf019c43",
@@ -96,10 +110,10 @@
       "road": "A580 - East Lancashire Rd",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.471217 -2.630619"
+      "point": "53.471216 -2.630455"
     },
     {
       "id": "2114684b-8a14-429e-8e76-40ada28b2b2e",
@@ -116,32 +130,32 @@
       "point": "53.519637 -2.167196"
     },
     {
-      "id": "56442e93-f8c9-4d78-a922-9420c9a8aaa6",
+      "id": "50d383c1-8892-44e2-82bf-8056a32f2165",
       "title": "alert",
-      "published": "Thu Nov 19 16:35:04 +0000 2026",
+      "published": "Thu Nov 19 16:48:41 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Blackley",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.378664 -2.506268"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.534963 -2.243689"
     },
     {
-      "id": "8d9d4275-2711-4abe-8c91-aa20b684b7a3",
+      "id": "fedd9c85-c138-4b8f-b1ec-1c4fa96aa2fa",
       "title": "alert",
-      "published": "Thu Nov 19 16:33:26 +0000 2026",
+      "published": "Thu Nov 19 16:49:09 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (E)",
+      "road": "M61 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.395754 -2.249849"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.545095 -2.450791"
     }
   ]
 }
