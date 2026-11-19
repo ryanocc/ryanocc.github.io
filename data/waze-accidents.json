@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T18:55:49.006286+00:00",
+  "updatedAt": "2026-11-19T19:00:48.920738+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "cf1955be-9631-4986-9214-b0e122758cd0",
@@ -60,6 +60,20 @@
       "point": "53.441984 -2.586818"
     },
     {
+      "id": "4118a19a-db6f-4a84-9690-7d50ff76e4b2",
+      "title": "alert",
+      "published": "Thu Nov 19 18:57:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.436035 -2.315933"
+    },
+    {
       "id": "c57aa468-96cb-4ca8-bbf0-921fd1e7ffb6",
       "title": "alert",
       "published": "Thu Nov 19 18:49:26 +0000 2026",
@@ -68,7 +82,7 @@
       "road": "A555 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.357948 -2.236076"
@@ -96,24 +110,10 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "Cheadle",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.369575 -2.210543"
-    },
-    {
-      "id": "f5197a81-d0b7-4805-b792-eeb781a7f353",
-      "title": "alert",
-      "published": "Thu Nov 19 18:49:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.38848 -2.274447"
     },
     {
       "id": "688ee43c-aec0-48f5-83d0-f809351ce7d2",
@@ -128,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.442144 -2.586792"
+    },
+    {
+      "id": "4ff99908-3c88-45c6-ac6b-7b2e02e38bb7",
+      "title": "alert",
+      "published": "Thu Nov 19 18:59:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.443275 -2.587858"
     }
   ]
 }
