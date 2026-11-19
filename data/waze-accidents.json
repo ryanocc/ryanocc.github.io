@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T17:15:49.252000+00:00",
+  "updatedAt": "2026-11-19T17:20:49.206480+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 11,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -46,6 +46,20 @@
       "point": "53.422037 -2.354829"
     },
     {
+      "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
+      "title": "alert",
+      "published": "Thu Nov 19 17:20:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.590949 -2.696074"
+    },
+    {
       "id": "a3eb32cb-b6c3-4d41-96d0-b79a13944f3b",
       "title": "alert",
       "published": "Thu Nov 19 17:11:12 +0000 2026",
@@ -54,7 +68,7 @@
       "road": "M60 (S & E)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.440627 -2.333172"
@@ -69,23 +83,9 @@
       "city": "Claremont",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.502212 -2.31185"
-    },
-    {
-      "id": "8955657a-1e90-4e7a-a244-fde348641810",
-      "title": "alert",
-      "published": "Thu Nov 19 16:49:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6170 - Ashton Rd",
-      "city": "Hyde",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.465968 -2.077855"
     },
     {
       "id": "33f1c829-8e45-4f0c-8692-c44f581d9ee7",
@@ -96,8 +96,8 @@
       "road": "A6144 - Carrington Ln",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.433813 -2.374757"
     },
@@ -114,20 +114,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.542586 -2.288625"
-    },
-    {
-      "id": "a0b693c3-49e8-4db0-a672-d36753ae1469",
-      "title": "alert",
-      "published": "Thu Nov 19 17:08:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.355692 -2.200721"
     },
     {
       "id": "416692d9-aae4-4099-ad72-5afead5fe417",
@@ -152,8 +138,8 @@
       "road": "A663 - Broadway",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.519637 -2.167196"
     },
@@ -169,21 +155,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.439407 -2.325952"
-    },
-    {
-      "id": "8f84ce0a-d4cc-45f0-ad24-d44455fd64f9",
-      "title": "alert",
-      "published": "Thu Nov 19 17:03:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.545384 -2.253421"
+      "point": "53.440208 -2.333167"
     }
   ]
 }
