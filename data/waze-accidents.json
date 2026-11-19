@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-19T08:25:49.140982+00:00",
+  "updatedAt": "2026-11-19T08:30:49.189562+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
-    {
-      "id": "94791058-d3e2-4f01-87db-15970ab78b5b",
-      "title": "alert",
-      "published": "Thu Nov 19 08:20:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Kingsway",
-      "city": "Walkden",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.512437 -2.394789"
-    },
     {
       "id": "f876b3b5-8fa9-4b60-ba2a-e38436d59704",
       "title": "alert",
@@ -32,20 +18,6 @@
       "point": "53.464714 -2.257335"
     },
     {
-      "id": "a552f699-489d-45cd-b8fb-7ef8f99d57d4",
-      "title": "alert",
-      "published": "Thu Nov 19 06:43:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.524939 -2.174455"
-    },
-    {
       "id": "a3c70474-a9a5-4c21-b88f-80f123b0a6c2",
       "title": "alert",
       "published": "Thu Nov 19 06:58:09 +0000 2026",
@@ -58,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.523871 -2.170741"
+    },
+    {
+      "id": "a552f699-489d-45cd-b8fb-7ef8f99d57d4",
+      "title": "alert",
+      "published": "Thu Nov 19 06:43:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.524939 -2.174455"
     },
     {
       "id": "30939893-b59f-4bad-8652-ba32668440f2",
