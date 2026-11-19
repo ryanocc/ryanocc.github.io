@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T16:05:49.184721+00:00",
+  "updatedAt": "2026-11-19T16:10:49.159632+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "5fc8003b-fefe-45ff-b7e4-d1bf7740abdd",
@@ -13,7 +13,7 @@
       "city": "Langworthy",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.487896 -2.299955"
     },
@@ -27,7 +27,7 @@
       "city": "Lower Broughton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.494509 -2.259783"
     },
@@ -74,18 +74,18 @@
       "point": "53.475884 -2.597263"
     },
     {
-      "id": "10712e05-66b7-426c-889c-149ac3413157",
+      "id": "98a50208-0fbe-4a0d-abe0-77fadd1dcbbe",
       "title": "alert",
-      "published": "Thu Nov 19 16:04:15 +0000 2026",
+      "published": "Thu Nov 19 16:09:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B5214 - Barton Rd",
-      "city": "Davyhulme",
+      "road": "A626 - Hall St",
+      "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.463592 -2.35751"
+      "point": "53.408181 -2.147778"
     },
     {
       "id": "1cb2bbb2-45a6-44ee-8f53-1c00650b1a89",
@@ -102,6 +102,20 @@
       "point": "53.49858 -2.532026"
     },
     {
+      "id": "b9e67c89-3873-4469-b923-2165a9b2f6a0",
+      "title": "alert",
+      "published": "Thu Nov 19 16:10:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.437174 -2.31527"
+    },
+    {
       "id": "74d81236-5128-4f9f-a7f9-24ae37f96450",
       "title": "alert",
       "published": "Thu Nov 19 16:05:47 +0000 2026",
@@ -110,8 +124,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.409115 -2.174664"
     },
@@ -124,8 +138,8 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470689 -2.250328"
     }
