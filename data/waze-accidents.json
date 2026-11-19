@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T18:15:48.893486+00:00",
+  "updatedAt": "2026-11-19T18:20:48.939798+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -32,6 +32,20 @@
       "point": "53.610244 -2.156517"
     },
     {
+      "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
+      "title": "alert",
+      "published": "Thu Nov 19 18:02:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.59265 -2.694867"
+    },
+    {
       "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
       "title": "alert",
       "published": "Thu Nov 19 17:20:06 +0000 2026",
@@ -44,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.590949 -2.696074"
-    },
-    {
-      "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
-      "title": "alert",
-      "published": "Thu Nov 19 18:02:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5250 - Mossy Lea Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.59265 -2.694867"
     },
     {
       "id": "f8ee8bf6-6d2b-475c-82c1-9d7d763a1b33",
@@ -74,6 +74,20 @@
       "point": "53.612108 -2.413204"
     },
     {
+      "id": "a3daea00-a91b-4a50-a878-7ec3f5ebcb50",
+      "title": "alert",
+      "published": "Thu Nov 19 18:19:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6140 - Lord Sheldon Way",
+      "city": "Ashton-under-Lyne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.488843 -2.113828"
+    },
+    {
       "id": "a535340c-12ad-4348-8df8-2f9179bab95f",
       "title": "alert",
       "published": "Thu Nov 19 18:15:25 +0000 2026",
@@ -82,8 +96,8 @@
       "road": "A56 - Chester Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.437223 -2.315237"
     },
