@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T19:00:48.920738+00:00",
+  "updatedAt": "2026-11-19T19:05:48.960641+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "cf1955be-9631-4986-9214-b0e122758cd0",
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.610244 -2.156517"
-    },
-    {
-      "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
-      "title": "alert",
-      "published": "Thu Nov 19 18:02:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5250 - Mossy Lea Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.59265 -2.694867"
     },
     {
       "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
@@ -68,8 +54,8 @@
       "road": "A56 - Chester Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.436035 -2.315933"
     },
@@ -88,6 +74,20 @@
       "point": "53.357948 -2.236076"
     },
     {
+      "id": "5e0f686e-7e47-441f-aa23-96aae857c818",
+      "title": "alert",
+      "published": "Thu Nov 19 18:53:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Handforth Bypass",
+      "city": "Cheadle",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.369575 -2.210543"
+    },
+    {
       "id": "a24a126d-29df-43a8-a5d5-967623c17315",
       "title": "alert",
       "published": "Thu Nov 19 18:42:33 +0000 2026",
@@ -102,18 +102,18 @@
       "point": "53.391899 -2.226597"
     },
     {
-      "id": "5e0f686e-7e47-441f-aa23-96aae857c818",
+      "id": "4ff99908-3c88-45c6-ac6b-7b2e02e38bb7",
       "title": "alert",
-      "published": "Thu Nov 19 18:53:33 +0000 2026",
+      "published": "Thu Nov 19 18:59:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A34 (S) - Handforth Bypass",
-      "city": "Cheadle",
+      "road": "M6 (N)",
+      "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.369575 -2.210543"
+      "reportRating": 0.0,
+      "point": "53.443275 -2.587858"
     },
     {
       "id": "688ee43c-aec0-48f5-83d0-f809351ce7d2",
@@ -128,20 +128,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.442144 -2.586792"
-    },
-    {
-      "id": "4ff99908-3c88-45c6-ac6b-7b2e02e38bb7",
-      "title": "alert",
-      "published": "Thu Nov 19 18:59:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.443275 -2.587858"
     }
   ]
 }
