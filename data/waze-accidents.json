@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T13:05:48.921946+00:00",
+  "updatedAt": "2026-11-19T13:10:48.823831+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "7f8ad3df-be25-4193-9b6c-4d81c67f0b37",
@@ -27,37 +27,9 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.571835 -2.435641"
-    },
-    {
-      "id": "ea439459-88da-4d85-a59e-da87125f1529",
-      "title": "alert",
-      "published": "Thu Nov 19 11:04:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6167 - Reddish Ln",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.457685 -2.160233"
-    },
-    {
-      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
-      "title": "alert",
-      "published": "Thu Nov 19 11:45:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A5102 - Chester Rd",
-      "city": "Woodford",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.342214 -2.161202"
     },
     {
       "id": "3ad1c5b4-13ac-471b-9f35-cc2b5270c37c",
@@ -72,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.342066 -2.162415"
+    },
+    {
+      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
+      "title": "alert",
+      "published": "Thu Nov 19 11:45:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5102 - Chester Rd",
+      "city": "Woodford",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.342214 -2.161202"
     },
     {
       "id": "f448ce94-6c99-49eb-9ccc-980729888841",
