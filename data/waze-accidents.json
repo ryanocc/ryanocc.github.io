@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T05:45:48.907509+00:00",
+  "updatedAt": "2026-11-19T05:50:48.796247+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
     {
       "id": "68423e54-857f-48eb-a284-b10defcebc9d",
@@ -16,6 +16,34 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.52464 -2.173445"
+    },
+    {
+      "id": "4daf26f9-264b-4d44-96cb-cfbf762b4467",
+      "title": "alert",
+      "published": "Thu Nov 19 05:47:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.426175 -2.555783"
+    },
+    {
+      "id": "fa187d75-26a0-42f3-ae89-e16f7d86613f",
+      "title": "alert",
+      "published": "Thu Nov 19 05:50:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.471095 -2.254336"
     }
   ]
 }
