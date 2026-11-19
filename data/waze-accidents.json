@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T15:20:49.137175+00:00",
+  "updatedAt": "2026-11-19T15:25:49.064860+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -32,18 +32,18 @@
       "point": "53.460309 -1.978887"
     },
     {
-      "id": "0ded2990-defb-42c9-abbb-dd40394ff23c",
+      "id": "6ff54b99-fbdf-46bc-bb71-5aceb0046465",
       "title": "alert",
-      "published": "Thu Nov 19 15:17:53 +0000 2026",
+      "published": "Thu Nov 19 15:24:30 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
+      "road": "",
+      "city": "Sale",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.592385 -2.179728"
+      "reportRating": 3.0,
+      "point": "53.422891 -2.353346"
     },
     {
       "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
@@ -60,6 +60,20 @@
       "point": "53.593045 -2.180765"
     },
     {
+      "id": "0ded2990-defb-42c9-abbb-dd40394ff23c",
+      "title": "alert",
+      "published": "Thu Nov 19 15:17:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Manchester Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.592385 -2.179728"
+    },
+    {
       "id": "98604442-cfc8-47fa-b1f4-7fadb731489a",
       "title": "alert",
       "published": "Thu Nov 19 15:15:18 +0000 2026",
@@ -68,10 +82,24 @@
       "road": "A57 - Hyde Rd",
       "city": "Mottram in Longdendale",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.454635 -2.023526"
+    },
+    {
+      "id": "1fb12a3b-4169-4014-87f1-a74f0d11c09a",
+      "title": "alert",
+      "published": "Thu Nov 19 15:21:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.409064 -2.175175"
     },
     {
       "id": "a108c641-6e28-47b9-a07d-1fc6960c9217",
@@ -82,7 +110,7 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.454 -2.339226"
