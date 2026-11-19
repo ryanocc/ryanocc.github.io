@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T15:10:48.925012+00:00",
+  "updatedAt": "2026-11-19T15:15:49.017686+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -32,20 +32,6 @@
       "point": "53.460309 -1.978887"
     },
     {
-      "id": "00c507bb-40db-47fe-a258-4c51c847ac32",
-      "title": "alert",
-      "published": "Thu Nov 19 14:38:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.548525 -2.194556"
-    },
-    {
       "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
       "title": "alert",
       "published": "Thu Nov 19 15:02:03 +0000 2026",
@@ -54,8 +40,8 @@
       "road": "A664 - Manchester Rd",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.593045 -2.180765"
     },
@@ -68,24 +54,24 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.472351 -2.258057"
     },
     {
-      "id": "4144a281-9da1-43de-8dc0-1cdb8768948e",
+      "id": "98604442-cfc8-47fa-b1f4-7fadb731489a",
       "title": "alert",
-      "published": "Thu Nov 19 15:02:47 +0000 2026",
+      "published": "Thu Nov 19 15:15:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Mottram in Longdendale",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.453473 -2.339374"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.454515 -2.023724"
     }
   ]
 }
