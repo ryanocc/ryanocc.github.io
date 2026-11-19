@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T08:50:49.188179+00:00",
+  "updatedAt": "2026-11-19T08:55:49.082178+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 9,
   "incidents": [
     {
       "id": "f876b3b5-8fa9-4b60-ba2a-e38436d59704",
@@ -27,23 +27,37 @@
       "city": "Birchwood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.422794 -2.519137"
     },
     {
-      "id": "985b67a1-8f83-4740-9882-837b03d84a35",
+      "id": "fb0e5b48-0fff-43c1-bc2c-1636af488290",
       "title": "alert",
-      "published": "Thu Nov 19 08:32:52 +0000 2026",
+      "published": "Thu Nov 19 08:53:25 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A50 - Warrington Rd",
-      "city": "",
+      "road": "A5066 - Oldfield Rd",
+      "city": "Ordsall",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.362787 -2.516194"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.482939 -2.264442"
+    },
+    {
+      "id": "8b3b534d-71cd-4c0b-b21e-974a5b4be007",
+      "title": "alert",
+      "published": "Thu Nov 19 08:55:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.474948 -2.261485"
     },
     {
       "id": "e9d70b91-7dbd-436c-b1e0-6b38d99b6a68",
@@ -55,9 +69,23 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.485741 -2.072031"
+    },
+    {
+      "id": "820a1554-d38a-427b-b730-5e49ac0c78c9",
+      "title": "alert",
+      "published": "Thu Nov 19 08:53:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 4.0,
+      "point": "53.430971 -2.564766"
     },
     {
       "id": "30939893-b59f-4bad-8652-ba32668440f2",
@@ -72,6 +100,34 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470847 -2.251249"
+    },
+    {
+      "id": "5b8c1bc6-179b-43b3-9bb1-1bf6072c1284",
+      "title": "alert",
+      "published": "Thu Nov 19 08:55:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.566297 -2.234582"
+    },
+    {
+      "id": "cc5ef467-7981-4d7e-9260-117342a65147",
+      "title": "alert",
+      "published": "Thu Nov 19 08:54:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.565628 -2.235934"
     }
   ]
 }
