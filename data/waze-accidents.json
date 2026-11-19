@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T18:10:49.150904+00:00",
+  "updatedAt": "2026-11-19T18:15:48.893486+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -60,20 +60,6 @@
       "point": "53.59265 -2.694867"
     },
     {
-      "id": "1e7f671a-fedf-4390-84b7-48fd0821eef5",
-      "title": "alert",
-      "published": "Thu Nov 19 17:10:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 > St. Helens",
-      "city": "Claremont",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.502221 -2.311887"
-    },
-    {
       "id": "f8ee8bf6-6d2b-475c-82c1-9d7d763a1b33",
       "title": "alert",
       "published": "Thu Nov 19 17:52:36 +0000 2026",
@@ -86,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.612108 -2.413204"
+    },
+    {
+      "id": "a535340c-12ad-4348-8df8-2f9179bab95f",
+      "title": "alert",
+      "published": "Thu Nov 19 18:15:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Chester Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.437223 -2.315237"
     },
     {
       "id": "534e4249-8a0f-4deb-99c1-693bf249cfe1",
@@ -110,7 +110,7 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.443627 -2.588169"
