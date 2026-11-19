@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T07:45:49.094077+00:00",
+  "updatedAt": "2026-11-19T07:50:48.980313+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.470828 -2.249983"
     },
     {
-      "id": "a3c70474-a9a5-4c21-b88f-80f123b0a6c2",
-      "title": "alert",
-      "published": "Thu Nov 19 06:58:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.523871 -2.170741"
-    },
-    {
       "id": "a552f699-489d-45cd-b8fb-7ef8f99d57d4",
       "title": "alert",
       "published": "Thu Nov 19 06:43:03 +0000 2026",
@@ -74,6 +60,20 @@
       "point": "53.524939 -2.174455"
     },
     {
+      "id": "a3c70474-a9a5-4c21-b88f-80f123b0a6c2",
+      "title": "alert",
+      "published": "Thu Nov 19 06:58:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.523871 -2.170741"
+    },
+    {
       "id": "68423e54-857f-48eb-a284-b10defcebc9d",
       "title": "alert",
       "published": "Thu Nov 19 05:34:10 +0000 2026",
@@ -82,7 +82,7 @@
       "road": "A6104 - Hollinwood Ave",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.52464 -2.173445"
