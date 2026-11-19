@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T15:45:49.311933+00:00",
+  "updatedAt": "2026-11-19T15:50:49.177243+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 12,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -32,20 +32,6 @@
       "point": "53.460309 -1.978887"
     },
     {
-      "id": "6ff54b99-fbdf-46bc-bb71-5aceb0046465",
-      "title": "alert",
-      "published": "Thu Nov 19 15:24:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Sale",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.422891 -2.353346"
-    },
-    {
       "id": "10cdff8c-7ec0-4d16-ab45-e3bed0d9a2c7",
       "title": "alert",
       "published": "Thu Nov 19 15:29:59 +0000 2026",
@@ -68,10 +54,24 @@
       "road": "Firsway",
       "city": "Sale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.422037 -2.354829"
+    },
+    {
+      "id": "6ff54b99-fbdf-46bc-bb71-5aceb0046465",
+      "title": "alert",
+      "published": "Thu Nov 19 15:24:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Sale",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.422891 -2.353346"
     },
     {
       "id": "6565557c-875d-4546-87f9-484506ee9f59",
@@ -88,20 +88,6 @@
       "point": "53.475884 -2.597263"
     },
     {
-      "id": "76c91c6a-1482-4a5a-81c3-9121dce45961",
-      "title": "alert",
-      "published": "Thu Nov 19 15:39:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5311 - Fairhills Rd",
-      "city": "Irlam",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.440214 -2.413659"
-    },
-    {
       "id": "5af03c6c-7c5a-47a1-b341-0b483f251d86",
       "title": "alert",
       "published": "Thu Nov 19 15:39:11 +0000 2026",
@@ -110,66 +96,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.547215 -2.199796"
     },
     {
-      "id": "0ded2990-defb-42c9-abbb-dd40394ff23c",
+      "id": "0b031c1f-0025-4d49-a854-749972b6af18",
       "title": "alert",
-      "published": "Thu Nov 19 15:17:53 +0000 2026",
+      "published": "Thu Nov 19 15:48:55 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
+      "road": "A576 - Great Cheetham St W",
+      "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.592385 -2.179728"
-    },
-    {
-      "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
-      "title": "alert",
-      "published": "Thu Nov 19 15:02:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
-      "point": "53.593045 -2.180765"
-    },
-    {
-      "id": "5f21c564-c132-4b4d-923b-e1016b55f68f",
-      "title": "alert",
-      "published": "Thu Nov 19 15:44:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.437509 -2.315013"
-    },
-    {
-      "id": "51517d96-15a8-46ae-8ac5-b4a656682d03",
-      "title": "alert",
-      "published": "Thu Nov 19 15:41:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.437656 -2.314907"
+      "point": "53.501796 -2.259167"
     },
     {
       "id": "1fb12a3b-4169-4014-87f1-a74f0d11c09a",
@@ -183,21 +127,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
-      "point": "53.409034 -2.175468"
-    },
-    {
-      "id": "4af7614c-78fe-4511-839c-5bd72cd355a0",
-      "title": "alert",
-      "published": "Thu Nov 19 15:39:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.440948 -2.335754"
+      "point": "53.409064 -2.175175"
     },
     {
       "id": "a108c641-6e28-47b9-a07d-1fc6960c9217",
@@ -212,6 +142,34 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.453563 -2.339349"
+    },
+    {
+      "id": "57439660-db3c-43b7-a1d2-030c1c053b16",
+      "title": "alert",
+      "published": "Thu Nov 19 15:48:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.455256 -2.338664"
+    },
+    {
+      "id": "4af7614c-78fe-4511-839c-5bd72cd355a0",
+      "title": "alert",
+      "published": "Thu Nov 19 15:39:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.440948 -2.335754"
     }
   ]
 }
