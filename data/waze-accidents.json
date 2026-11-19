@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T16:50:49.221905+00:00",
+  "updatedAt": "2026-11-19T16:55:48.973052+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -12,8 +12,8 @@
       "road": "Gore Ave",
       "city": "Weaste",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.487502 -2.301179"
     },
@@ -110,7 +110,7 @@
       "road": "A580 - East Lancashire Rd",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.471216 -2.630455"
@@ -125,37 +125,23 @@
       "city": "New Moston",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.519637 -2.167196"
     },
     {
-      "id": "50d383c1-8892-44e2-82bf-8056a32f2165",
+      "id": "328c727f-0861-404a-9853-5f570546ca88",
       "title": "alert",
-      "published": "Thu Nov 19 16:48:41 +0000 2026",
+      "published": "Thu Nov 19 16:54:19 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A576 - Middleton Rd",
-      "city": "Blackley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.534963 -2.243689"
-    },
-    {
-      "id": "fedd9c85-c138-4b8f-b1ec-1c4fa96aa2fa",
-      "title": "alert",
-      "published": "Thu Nov 19 16:49:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M61 (N)",
+      "road": "",
       "city": "",
       "country": "UK",
       "confidence": 1.0,
       "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.545095 -2.450791"
+      "reportRating": 2.0,
+      "point": "53.430502 -2.300873"
     }
   ]
 }
