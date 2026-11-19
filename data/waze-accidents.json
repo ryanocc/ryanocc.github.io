@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T15:00:48.940887+00:00",
+  "updatedAt": "2026-11-19T15:05:48.982351+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -32,6 +32,20 @@
       "point": "53.460309 -1.978887"
     },
     {
+      "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
+      "title": "alert",
+      "published": "Thu Nov 19 15:02:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Manchester Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.593045 -2.180765"
+    },
+    {
       "id": "00c507bb-40db-47fe-a258-4c51c847ac32",
       "title": "alert",
       "published": "Thu Nov 19 14:38:41 +0000 2026",
@@ -41,23 +55,23 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.548525 -2.194556"
     },
     {
-      "id": "286132b1-7528-4df7-b850-ef0f37957bf8",
+      "id": "4144a281-9da1-43de-8dc0-1cdb8768948e",
       "title": "alert",
-      "published": "Thu Nov 19 14:52:34 +0000 2026",
+      "published": "Thu Nov 19 15:02:47 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Hulme",
+      "road": "M60 (CW)",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.472007 -2.258307"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.453473 -2.339374"
     }
   ]
 }
