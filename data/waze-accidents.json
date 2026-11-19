@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T18:40:48.877184+00:00",
+  "updatedAt": "2026-11-19T18:45:49.058373+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -32,20 +32,6 @@
       "point": "53.610244 -2.156517"
     },
     {
-      "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
-      "title": "alert",
-      "published": "Thu Nov 19 17:20:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5250 - Mossy Lea Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.590949 -2.696074"
-    },
-    {
       "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
       "title": "alert",
       "published": "Thu Nov 19 18:02:36 +0000 2026",
@@ -60,18 +46,18 @@
       "point": "53.59265 -2.694867"
     },
     {
-      "id": "f8ee8bf6-6d2b-475c-82c1-9d7d763a1b33",
+      "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
       "title": "alert",
-      "published": "Thu Nov 19 17:52:36 +0000 2026",
+      "published": "Thu Nov 19 17:20:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B6472 - Darwen Rd",
-      "city": "Bromley Cross",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.612108 -2.413204"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.590949 -2.696074"
     },
     {
       "id": "7d6d3308-c582-43fa-b678-a62e8569f349",
@@ -82,8 +68,8 @@
       "road": "A560 - Gatley Rd",
       "city": "Gatley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.391911 -2.226944"
     },
@@ -102,32 +88,32 @@
       "point": "53.511464 -2.433621"
     },
     {
-      "id": "2730b135-314c-4745-9a1c-b09fc03852d7",
+      "id": "a24a126d-29df-43a8-a5d5-967623c17315",
       "title": "alert",
-      "published": "Thu Nov 19 18:23:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A577 - Mosley Common Rd",
-      "city": "Tyldesley",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.511838 -2.434231"
-    },
-    {
-      "id": "bf032590-f7ca-4e87-9782-3456e1ea54f6",
-      "title": "alert",
-      "published": "Thu Nov 19 18:33:09 +0000 2026",
+      "published": "Thu Nov 19 18:42:33 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A34 (N) - Kingsway",
       "city": "Gatley",
       "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.391899 -2.226597"
+    },
+    {
+      "id": "415062a5-3677-47bc-a73c-86e5224c9d45",
+      "title": "alert",
+      "published": "Thu Nov 19 18:41:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
       "confidence": 1.0,
-      "reliability": 10.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
-      "point": "53.392101 -2.226621"
+      "point": "53.353813 -2.504385"
     },
     {
       "id": "688ee43c-aec0-48f5-83d0-f809351ce7d2",
