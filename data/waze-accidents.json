@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T13:55:48.850625+00:00",
+  "updatedAt": "2026-11-19T14:00:48.896930+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "7f8ad3df-be25-4193-9b6c-4d81c67f0b37",
@@ -32,6 +32,20 @@
       "point": "53.502633 -2.517567"
     },
     {
+      "id": "f50f38c1-85cb-48dd-a1cc-6b105095e106",
+      "title": "alert",
+      "published": "Thu Nov 19 13:57:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5211 - Barton Dock Rd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.461642 -2.332505"
+    },
+    {
       "id": "5a1d0adb-3ae0-4c05-a9ac-9c72bda0accc",
       "title": "alert",
       "published": "Thu Nov 19 12:55:04 +0000 2026",
@@ -54,8 +68,8 @@
       "road": "J2 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.590053 -2.272972"
     }
