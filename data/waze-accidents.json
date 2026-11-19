@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T07:00:48.934222+00:00",
+  "updatedAt": "2026-11-19T07:05:48.842360+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "3c75f222-7736-4189-b1a9-191dee7576a1",
@@ -32,20 +32,6 @@
       "point": "53.470828 -2.249983"
     },
     {
-      "id": "68423e54-857f-48eb-a284-b10defcebc9d",
-      "title": "alert",
-      "published": "Thu Nov 19 05:34:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.52464 -2.173445"
-    },
-    {
       "id": "a552f699-489d-45cd-b8fb-7ef8f99d57d4",
       "title": "alert",
       "published": "Thu Nov 19 06:43:03 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.523871 -2.170741"
+    },
+    {
+      "id": "68423e54-857f-48eb-a284-b10defcebc9d",
+      "title": "alert",
+      "published": "Thu Nov 19 05:34:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.52464 -2.173445"
     },
     {
       "id": "fa187d75-26a0-42f3-ae89-e16f7d86613f",
@@ -114,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.62952 -2.024681"
-    },
-    {
-      "id": "762a345e-0539-46bb-b8a5-66bdea6339f3",
-      "title": "alert",
-      "published": "Thu Nov 19 06:57:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.629361 -2.029551"
     }
   ]
 }
