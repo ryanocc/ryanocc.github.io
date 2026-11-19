@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T10:20:48.894530+00:00",
+  "updatedAt": "2026-11-19T10:25:48.871729+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "c6d1c22c-af43-48d8-84f9-b46c6868ee32",
@@ -54,8 +54,8 @@
       "road": "A34 (S) - Handforth Bypass",
       "city": "Cheadle Hulme",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.359629 -2.199312"
     },
@@ -72,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.610725 -2.582276"
+    },
+    {
+      "id": "a804bb25-f967-4a69-b20a-15f2f9c06309",
+      "title": "alert",
+      "published": "Thu Nov 19 10:23:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.469792 -2.136931"
     }
   ]
 }
