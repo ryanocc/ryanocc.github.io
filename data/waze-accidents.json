@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T14:50:48.907846+00:00",
+  "updatedAt": "2026-11-19T14:55:48.949154+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -18,6 +18,20 @@
       "point": "53.502633 -2.517567"
     },
     {
+      "id": "3351865b-4698-49d1-b26a-47fca41b6678",
+      "title": "alert",
+      "published": "Thu Nov 19 14:55:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "The Carriage Dr",
+      "city": "Hadfield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.460309 -1.978887"
+    },
+    {
       "id": "00c507bb-40db-47fe-a258-4c51c847ac32",
       "title": "alert",
       "published": "Thu Nov 19 14:38:41 +0000 2026",
@@ -30,6 +44,20 @@
       "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.548525 -2.194556"
+    },
+    {
+      "id": "286132b1-7528-4df7-b850-ef0f37957bf8",
+      "title": "alert",
+      "published": "Thu Nov 19 14:52:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Hulme",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.472007 -2.258307"
     }
   ]
 }
