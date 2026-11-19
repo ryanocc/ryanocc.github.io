@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T11:40:48.885876+00:00",
+  "updatedAt": "2026-11-19T11:45:48.925219+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 9,
   "incidents": [
     {
       "id": "d9303164-dcfa-471d-95da-d9bb6e1577f6",
@@ -32,6 +32,20 @@
       "point": "53.606898 -2.604201"
     },
     {
+      "id": "6e54c9d7-f689-410a-88db-ef2a7f7bb21c",
+      "title": "alert",
+      "published": "Thu Nov 19 11:41:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A555 > Buxton",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.356431 -2.199222"
+    },
+    {
       "id": "67086d65-0208-4bdf-aa29-e8473bd4d603",
       "title": "alert",
       "published": "Thu Nov 19 10:59:07 +0000 2026",
@@ -41,7 +55,7 @@
       "city": "Gorton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.457636 -2.160237"
     },
@@ -68,10 +82,38 @@
       "road": "M60 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548647 -2.262459"
+    },
+    {
+      "id": "b1d5857e-6d02-440f-b938-fba294c5c6d8",
+      "title": "alert",
+      "published": "Thu Nov 19 11:45:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A5102 - Chester Rd",
+      "city": "Woodford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.342214 -2.161202"
+    },
+    {
+      "id": "3ad1c5b4-13ac-471b-9f35-cc2b5270c37c",
+      "title": "alert",
+      "published": "Thu Nov 19 11:43:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5102 - Chester Rd",
+      "city": "Woodford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.342066 -2.162415"
     },
     {
       "id": "2e44d96c-2111-4c5a-ae6d-45f4150cf060",
