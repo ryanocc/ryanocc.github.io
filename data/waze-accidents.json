@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T16:30:49.139010+00:00",
+  "updatedAt": "2026-11-19T16:35:49.305430+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 8,
   "incidents": [
     {
       "id": "5fc8003b-fefe-45ff-b7e4-d1bf7740abdd",
@@ -72,6 +72,48 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.475884 -2.597263"
+    },
+    {
+      "id": "ad1876fb-6a03-42bc-a7c9-37968b987d32",
+      "title": "alert",
+      "published": "Thu Nov 19 16:34:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "Haydock",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.471336 -2.632004"
+    },
+    {
+      "id": "56442e93-f8c9-4d78-a922-9420c9a8aaa6",
+      "title": "alert",
+      "published": "Thu Nov 19 16:35:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.378664 -2.506268"
+    },
+    {
+      "id": "8d9d4275-2711-4abe-8c91-aa20b684b7a3",
+      "title": "alert",
+      "published": "Thu Nov 19 16:33:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.395754 -2.249849"
     }
   ]
 }
