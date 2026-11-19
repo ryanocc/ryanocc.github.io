@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T07:15:48.900820+00:00",
+  "updatedAt": "2026-11-19T07:20:48.880676+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470828 -2.249983"
-    },
-    {
-      "id": "68423e54-857f-48eb-a284-b10defcebc9d",
-      "title": "alert",
-      "published": "Thu Nov 19 05:34:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6104 - Hollinwood Ave",
-      "city": "New Moston",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.52464 -2.173445"
     },
     {
       "id": "a552f699-489d-45cd-b8fb-7ef8f99d57d4",
@@ -60,6 +46,20 @@
       "point": "53.523871 -2.170741"
     },
     {
+      "id": "68423e54-857f-48eb-a284-b10defcebc9d",
+      "title": "alert",
+      "published": "Thu Nov 19 05:34:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6104 - Hollinwood Ave",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.52464 -2.173445"
+    },
+    {
       "id": "b084fb39-2548-4da6-8323-96d87df800b8",
       "title": "alert",
       "published": "Thu Nov 19 07:14:27 +0000 2026",
@@ -68,24 +68,10 @@
       "road": "A57 - Dawson St",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.473678 -2.260046"
-    },
-    {
-      "id": "fa187d75-26a0-42f3-ae89-e16f7d86613f",
-      "title": "alert",
-      "published": "Thu Nov 19 05:50:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.471095 -2.254336"
     },
     {
       "id": "30939893-b59f-4bad-8652-ba32668440f2",
@@ -100,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470847 -2.251249"
+    },
+    {
+      "id": "fa187d75-26a0-42f3-ae89-e16f7d86613f",
+      "title": "alert",
+      "published": "Thu Nov 19 05:50:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.471095 -2.254336"
     }
   ]
 }
