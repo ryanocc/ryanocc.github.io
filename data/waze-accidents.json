@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T17:00:48.912346+00:00",
+  "updatedAt": "2026-11-19T17:05:49.260901+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 14,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -102,18 +102,18 @@
       "point": "53.433813 -2.374757"
     },
     {
-      "id": "7280bcb3-ec1d-4f93-92dd-e9fbcf019c43",
+      "id": "416692d9-aae4-4099-ad72-5afead5fe417",
       "title": "alert",
-      "published": "Thu Nov 19 16:41:42 +0000 2026",
+      "published": "Thu Nov 19 17:04:34 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A580 - East Lancashire Rd",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.471216 -2.630455"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.47132 -2.63158"
     },
     {
       "id": "2114684b-8a14-429e-8e76-40ada28b2b2e",
@@ -138,24 +138,66 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.430502 -2.300873"
     },
     {
-      "id": "a82d42e9-75a8-417d-b474-1b9756092af1",
+      "id": "9ee7a6b2-6892-48ef-b802-a877860191b6",
       "title": "alert",
-      "published": "Thu Nov 19 17:00:07 +0000 2026",
+      "published": "Thu Nov 19 17:01:45 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.404138 -2.194759"
+    },
+    {
+      "id": "1b49d327-95df-4ec9-b014-de620e6092b9",
+      "title": "alert",
+      "published": "Thu Nov 19 17:05:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "Urmston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
-      "point": "53.401854 -2.209948"
+      "point": "53.439407 -2.325952"
+    },
+    {
+      "id": "e7937ee1-affe-4a10-bc15-4c46dbf56fc8",
+      "title": "alert",
+      "published": "Thu Nov 19 17:02:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M67 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.456877 -2.13403"
+    },
+    {
+      "id": "8f84ce0a-d4cc-45f0-ad24-d44455fd64f9",
+      "title": "alert",
+      "published": "Thu Nov 19 17:03:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.545384 -2.253421"
     }
   ]
 }
