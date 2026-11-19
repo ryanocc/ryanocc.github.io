@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T12:55:48.919020+00:00",
+  "updatedAt": "2026-11-19T13:00:49.028342+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "7f8ad3df-be25-4193-9b6c-4d81c67f0b37",
@@ -86,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.342066 -2.162415"
+    },
+    {
+      "id": "f448ce94-6c99-49eb-9ccc-980729888841",
+      "title": "alert",
+      "published": "Thu Nov 19 12:57:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6193 - Sir Isaac Newton Way",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.607082 -2.13559"
     }
   ]
 }
