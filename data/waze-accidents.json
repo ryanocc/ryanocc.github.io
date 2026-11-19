@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T19:10:48.813179+00:00",
+  "updatedAt": "2026-11-19T19:15:48.823061+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
     {
       "id": "a3e9a78d-41ba-4c12-8f7b-b795924fcf1d",
@@ -60,20 +60,6 @@
       "point": "53.441984 -2.586818"
     },
     {
-      "id": "a7403475-955a-4b36-8bae-f8a2fa69951e",
-      "title": "alert",
-      "published": "Thu Nov 19 19:05:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Ardwick",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.471938 -2.217556"
-    },
-    {
       "id": "4118a19a-db6f-4a84-9690-7d50ff76e4b2",
       "title": "alert",
       "published": "Thu Nov 19 18:57:16 +0000 2026",
@@ -82,24 +68,10 @@
       "road": "A56 - Chester Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.436035 -2.315933"
-    },
-    {
-      "id": "5e0f686e-7e47-441f-aa23-96aae857c818",
-      "title": "alert",
-      "published": "Thu Nov 19 18:53:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (S) - Handforth Bypass",
-      "city": "Cheadle",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.369575 -2.210543"
     },
     {
       "id": "c57aa468-96cb-4ca8-bbf0-921fd1e7ffb6",
@@ -116,18 +88,18 @@
       "point": "53.357948 -2.236076"
     },
     {
-      "id": "a24a126d-29df-43a8-a5d5-967623c17315",
+      "id": "b2eaee67-24cc-43a7-87cc-365a22250e7a",
       "title": "alert",
-      "published": "Thu Nov 19 18:42:33 +0000 2026",
+      "published": "Thu Nov 19 19:11:14 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (N) - Kingsway",
-      "city": "Gatley",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (N)",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
-      "point": "53.391899 -2.226597"
+      "point": "53.44099 -2.585463"
     }
   ]
 }
