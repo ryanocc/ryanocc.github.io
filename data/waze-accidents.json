@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T17:45:49.251620+00:00",
+  "updatedAt": "2026-11-19T17:50:49.140826+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 8,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -13,7 +13,7 @@
       "city": "Weaste",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.487502 -2.301179"
     },
@@ -32,32 +32,18 @@
       "point": "53.487896 -2.299955"
     },
     {
-      "id": "36e37ca2-ddd5-41fd-95e8-f48ba8860a82",
+      "id": "fb763122-795a-4e82-a62b-c88b76255571",
       "title": "alert",
-      "published": "Thu Nov 19 15:38:27 +0000 2026",
+      "published": "Thu Nov 19 17:49:45 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Firsway",
-      "city": "Sale",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 > Preston",
+      "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.422037 -2.354829"
-    },
-    {
-      "id": "725cd9a2-39eb-4224-b189-a85995135ba3",
-      "title": "alert",
-      "published": "Thu Nov 19 17:22:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5250 - Mossy Lea Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.59143 -2.695713"
+      "point": "53.362966 -2.510321"
     },
     {
       "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
@@ -68,8 +54,8 @@
       "road": "B5250 - Mossy Lea Rd",
       "city": "Shevington Moor",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.590949 -2.696074"
     },
@@ -96,8 +82,8 @@
       "road": "J7 & J6",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.43993 -2.331114"
     },
@@ -114,34 +100,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.502221 -2.311887"
-    },
-    {
-      "id": "853b8ec3-0506-40d9-8fc3-3a1c3e726480",
-      "title": "alert",
-      "published": "Thu Nov 19 17:36:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Lumn's Ln",
-      "city": "Pendlebury",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.511295 -2.309064"
-    },
-    {
-      "id": "c539047e-df86-46a8-a4a4-04e0131f87e7",
-      "title": "alert",
-      "published": "Thu Nov 19 17:28:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Chester Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.437208 -2.315247"
     },
     {
       "id": "ff3389d7-fe49-43bf-85ef-3abb4cd428ee",
