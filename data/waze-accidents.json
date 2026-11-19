@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T17:40:49.180695+00:00",
+  "updatedAt": "2026-11-19T17:45:49.251620+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 11,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -46,20 +46,6 @@
       "point": "53.422037 -2.354829"
     },
     {
-      "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
-      "title": "alert",
-      "published": "Thu Nov 19 17:20:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5250 - Mossy Lea Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.590949 -2.696074"
-    },
-    {
       "id": "725cd9a2-39eb-4224-b189-a85995135ba3",
       "title": "alert",
       "published": "Thu Nov 19 17:22:23 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.59143 -2.695713"
+    },
+    {
+      "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
+      "title": "alert",
+      "published": "Thu Nov 19 17:20:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.590949 -2.696074"
     },
     {
       "id": "a3eb32cb-b6c3-4d41-96d0-b79a13944f3b",
@@ -96,8 +96,8 @@
       "road": "J7 & J6",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.43993 -2.331114"
     },
@@ -124,24 +124,10 @@
       "road": "Lumn's Ln",
       "city": "Pendlebury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.511295 -2.309064"
-    },
-    {
-      "id": "7e0aaf88-da66-48d5-8cdf-295b8700463d",
-      "title": "alert",
-      "published": "Thu Nov 19 17:21:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Lodge Ln",
-      "city": "Haydock",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.472063 -2.632484"
     },
     {
       "id": "c539047e-df86-46a8-a4a4-04e0131f87e7",
@@ -166,24 +152,10 @@
       "road": "A34 - Anson Rd",
       "city": "Rusholme",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.456046 -2.215457"
-    },
-    {
-      "id": "5dee925e-3678-4720-b36a-1a670beaf2c8",
-      "title": "alert",
-      "published": "Thu Nov 19 17:39:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.447806 -2.593219"
     }
   ]
 }
