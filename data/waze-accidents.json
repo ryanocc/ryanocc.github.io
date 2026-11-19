@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T15:30:49.051384+00:00",
+  "updatedAt": "2026-11-19T15:35:49.169221+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -32,20 +32,6 @@
       "point": "53.460309 -1.978887"
     },
     {
-      "id": "6ff54b99-fbdf-46bc-bb71-5aceb0046465",
-      "title": "alert",
-      "published": "Thu Nov 19 15:24:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Sale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.422891 -2.353346"
-    },
-    {
       "id": "10cdff8c-7ec0-4d16-ab45-e3bed0d9a2c7",
       "title": "alert",
       "published": "Thu Nov 19 15:29:59 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.377551 -2.352492"
+    },
+    {
+      "id": "6ff54b99-fbdf-46bc-bb71-5aceb0046465",
+      "title": "alert",
+      "published": "Thu Nov 19 15:24:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Sale",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.422891 -2.353346"
     },
     {
       "id": "6565557c-875d-4546-87f9-484506ee9f59",
@@ -74,20 +74,6 @@
       "point": "53.475884 -2.597263"
     },
     {
-      "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
-      "title": "alert",
-      "published": "Thu Nov 19 15:02:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.593045 -2.180765"
-    },
-    {
       "id": "0ded2990-defb-42c9-abbb-dd40394ff23c",
       "title": "alert",
       "published": "Thu Nov 19 15:17:53 +0000 2026",
@@ -102,18 +88,18 @@
       "point": "53.592385 -2.179728"
     },
     {
-      "id": "02e38bbc-dc30-42b9-a133-f7d52a75ec81",
+      "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
       "title": "alert",
-      "published": "Thu Nov 19 15:29:06 +0000 2026",
+      "published": "Thu Nov 19 15:02:03 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A34 (N) - Kingsway",
-      "city": "Didsbury",
+      "road": "A664 - Manchester Rd",
+      "city": "Rochdale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
-      "point": "53.410808 -2.219381"
+      "point": "53.593045 -2.180765"
     },
     {
       "id": "1fb12a3b-4169-4014-87f1-a74f0d11c09a",
@@ -141,7 +127,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.454 -2.339226"
+      "point": "53.453563 -2.339349"
     }
   ]
 }
