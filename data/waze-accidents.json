@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T08:40:49.158822+00:00",
+  "updatedAt": "2026-11-19T08:45:49.220191+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "f876b3b5-8fa9-4b60-ba2a-e38436d59704",
@@ -18,6 +18,20 @@
       "point": "53.464714 -2.257335"
     },
     {
+      "id": "a5594dbf-88de-4cd2-9f89-67e53618c58c",
+      "title": "alert",
+      "published": "Thu Nov 19 08:44:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A574 - Birchwood Way",
+      "city": "Birchwood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.422794 -2.519137"
+    },
+    {
       "id": "f8e91181-95fa-427a-98a1-f51197cea1f8",
       "title": "alert",
       "published": "Thu Nov 19 08:37:36 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "Radcliffe",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.563537 -2.331796"
     },
@@ -41,7 +55,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.362787 -2.516194"
     },
