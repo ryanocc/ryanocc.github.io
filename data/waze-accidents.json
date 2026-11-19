@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T15:25:49.064860+00:00",
+  "updatedAt": "2026-11-19T15:30:49.051384+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -46,6 +46,34 @@
       "point": "53.422891 -2.353346"
     },
     {
+      "id": "10cdff8c-7ec0-4d16-ab45-e3bed0d9a2c7",
+      "title": "alert",
+      "published": "Thu Nov 19 15:29:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5161 - Langham Rd",
+      "city": "Bowdon",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.377551 -2.352492"
+    },
+    {
+      "id": "6565557c-875d-4546-87f9-484506ee9f59",
+      "title": "alert",
+      "published": "Thu Nov 19 15:29:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Nook Ln",
+      "city": "Golborne",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.475884 -2.597263"
+    },
+    {
       "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
       "title": "alert",
       "published": "Thu Nov 19 15:02:03 +0000 2026",
@@ -55,7 +83,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.593045 -2.180765"
     },
@@ -68,24 +96,24 @@
       "road": "A664 - Manchester Rd",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.592385 -2.179728"
     },
     {
-      "id": "98604442-cfc8-47fa-b1f4-7fadb731489a",
+      "id": "02e38bbc-dc30-42b9-a133-f7d52a75ec81",
       "title": "alert",
-      "published": "Thu Nov 19 15:15:18 +0000 2026",
+      "published": "Thu Nov 19 15:29:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Mottram in Longdendale",
+      "road": "A34 (N) - Kingsway",
+      "city": "Didsbury",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.454635 -2.023526"
+      "point": "53.410808 -2.219381"
     },
     {
       "id": "1fb12a3b-4169-4014-87f1-a74f0d11c09a",
@@ -96,7 +124,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.409064 -2.175175"
