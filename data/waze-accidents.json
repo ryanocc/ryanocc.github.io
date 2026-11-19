@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-19T10:55:48.859014+00:00",
+  "updatedAt": "2026-11-19T11:00:48.873755+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
-      "id": "39f83a21-5db3-48c8-b880-8ea3ba808084",
+      "id": "d9303164-dcfa-471d-95da-d9bb6e1577f6",
       "title": "alert",
-      "published": "Thu Nov 19 10:06:19 +0000 2026",
+      "published": "Thu Nov 19 10:58:35 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
@@ -15,7 +15,35 @@
       "confidence": 0.0,
       "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.558497 -2.49579"
+      "point": "53.374081 -2.363189"
+    },
+    {
+      "id": "5910b9f3-da26-4b2a-84cd-15b81f3327d5",
+      "title": "alert",
+      "published": "Thu Nov 19 10:58:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Palma Ave",
+      "city": "Manchester Airport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.370507 -2.284032"
+    },
+    {
+      "id": "67086d65-0208-4bdf-aa29-e8473bd4d603",
+      "title": "alert",
+      "published": "Thu Nov 19 10:59:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6167 - Reddish Ln",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.457636 -2.160237"
     },
     {
       "id": "1b40b875-2f37-4634-9062-a50382c37034",
