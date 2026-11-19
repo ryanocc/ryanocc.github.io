@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T09:00:49.027324+00:00",
+  "updatedAt": "2026-11-19T09:05:49.032379+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 4,
   "incidents": [
     {
       "id": "f876b3b5-8fa9-4b60-ba2a-e38436d59704",
@@ -26,8 +26,8 @@
       "road": "A574 - Birchwood Way",
       "city": "Birchwood",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.422794 -2.519137"
     },
@@ -46,48 +46,6 @@
       "point": "53.482939 -2.264442"
     },
     {
-      "id": "657fd171-2603-4371-8841-31b1caa85054",
-      "title": "alert",
-      "published": "Thu Nov 19 08:59:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.475098 -2.261605"
-    },
-    {
-      "id": "f3bd4557-9f99-4625-8bbd-15c790028374",
-      "title": "alert",
-      "published": "Thu Nov 19 08:58:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Regent Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.475399 -2.262172"
-    },
-    {
-      "id": "e9d70b91-7dbd-436c-b1e0-6b38d99b6a68",
-      "title": "alert",
-      "published": "Thu Nov 19 08:50:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Stamford St",
-      "city": "Stalybridge",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.485741 -2.072031"
-    },
-    {
       "id": "30939893-b59f-4bad-8652-ba32668440f2",
       "title": "alert",
       "published": "Thu Nov 19 06:06:00 +0000 2026",
@@ -100,34 +58,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470847 -2.251249"
-    },
-    {
-      "id": "cc5ef467-7981-4d7e-9260-117342a65147",
-      "title": "alert",
-      "published": "Thu Nov 19 08:54:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.565628 -2.235934"
-    },
-    {
-      "id": "5b8c1bc6-179b-43b3-9bb1-1bf6072c1284",
-      "title": "alert",
-      "published": "Thu Nov 19 08:55:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.566297 -2.234582"
     }
   ]
 }
