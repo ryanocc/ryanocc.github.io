@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T15:05:48.982351+00:00",
+  "updatedAt": "2026-11-19T15:10:48.925012+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "c8fdda6a-87b6-42a3-8809-904548db786c",
@@ -32,20 +32,6 @@
       "point": "53.460309 -1.978887"
     },
     {
-      "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
-      "title": "alert",
-      "published": "Thu Nov 19 15:02:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A664 - Manchester Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.593045 -2.180765"
-    },
-    {
       "id": "00c507bb-40db-47fe-a258-4c51c847ac32",
       "title": "alert",
       "published": "Thu Nov 19 14:38:41 +0000 2026",
@@ -60,6 +46,34 @@
       "point": "53.548525 -2.194556"
     },
     {
+      "id": "2e63c81e-e361-4b44-b6fc-d67a5ecd7e50",
+      "title": "alert",
+      "published": "Thu Nov 19 15:02:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Manchester Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.593045 -2.180765"
+    },
+    {
+      "id": "c480c1fd-a419-458a-85b4-617478ad3af8",
+      "title": "alert",
+      "published": "Thu Nov 19 15:09:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.472351 -2.258057"
+    },
+    {
       "id": "4144a281-9da1-43de-8dc0-1cdb8768948e",
       "title": "alert",
       "published": "Thu Nov 19 15:02:47 +0000 2026",
@@ -68,7 +82,7 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.453473 -2.339374"
