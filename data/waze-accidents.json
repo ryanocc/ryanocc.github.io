@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T18:05:49.230395+00:00",
+  "updatedAt": "2026-11-19T18:10:49.150904+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -18,20 +18,6 @@
       "point": "53.487502 -2.301179"
     },
     {
-      "id": "5fc8003b-fefe-45ff-b7e4-d1bf7740abdd",
-      "title": "alert",
-      "published": "Thu Nov 19 16:01:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Lower Seedley Rd",
-      "city": "Langworthy",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.487896 -2.299955"
-    },
-    {
       "id": "cf1955be-9631-4986-9214-b0e122758cd0",
       "title": "alert",
       "published": "Thu Nov 19 17:58:09 +0000 2026",
@@ -44,20 +30,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.610244 -2.156517"
-    },
-    {
-      "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
-      "title": "alert",
-      "published": "Thu Nov 19 18:02:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5250 - Mossy Lea Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.59265 -2.694867"
     },
     {
       "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
@@ -74,32 +46,18 @@
       "point": "53.590949 -2.696074"
     },
     {
-      "id": "a3eb32cb-b6c3-4d41-96d0-b79a13944f3b",
+      "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
       "title": "alert",
-      "published": "Thu Nov 19 17:11:12 +0000 2026",
+      "published": "Thu Nov 19 18:02:36 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (S & E)",
-      "city": "",
+      "subtype": "",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.440627 -2.333172"
-    },
-    {
-      "id": "16ed44f8-c644-46a6-a9e2-40807b993f24",
-      "title": "alert",
-      "published": "Thu Nov 19 17:24:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "J7 & J6",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.43993 -2.331114"
+      "point": "53.59265 -2.694867"
     },
     {
       "id": "1e7f671a-fedf-4390-84b7-48fd0821eef5",
@@ -138,10 +96,24 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.532801 -2.244756"
+    },
+    {
+      "id": "17243f46-63ef-45aa-9881-7421e3dfe03c",
+      "title": "alert",
+      "published": "Thu Nov 19 18:07:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.443627 -2.588169"
     }
   ]
 }
