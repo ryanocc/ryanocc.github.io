@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-19T18:00:49.145780+00:00",
+  "updatedAt": "2026-11-19T18:05:49.230395+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "490f53c2-3aa3-4838-9d0f-4b4844e49567",
@@ -46,6 +46,20 @@
       "point": "53.610244 -2.156517"
     },
     {
+      "id": "2dd920ee-ae0a-4271-b293-10e214b07340",
+      "title": "alert",
+      "published": "Thu Nov 19 18:02:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5250 - Mossy Lea Rd",
+      "city": "Shevington Moor",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.59265 -2.694867"
+    },
+    {
       "id": "970d6cc7-08ee-43e2-8f21-2b2a5bcc6f3f",
       "title": "alert",
       "published": "Thu Nov 19 17:20:06 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.590949 -2.696074"
-    },
-    {
-      "id": "16ed44f8-c644-46a6-a9e2-40807b993f24",
-      "title": "alert",
-      "published": "Thu Nov 19 17:24:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "J7 & J6",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.43993 -2.331114"
     },
     {
       "id": "a3eb32cb-b6c3-4d41-96d0-b79a13944f3b",
@@ -88,6 +88,20 @@
       "point": "53.440627 -2.333172"
     },
     {
+      "id": "16ed44f8-c644-46a6-a9e2-40807b993f24",
+      "title": "alert",
+      "published": "Thu Nov 19 17:24:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "J7 & J6",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.43993 -2.331114"
+    },
+    {
       "id": "1e7f671a-fedf-4390-84b7-48fd0821eef5",
       "title": "alert",
       "published": "Thu Nov 19 17:10:27 +0000 2026",
@@ -96,7 +110,7 @@
       "road": "A580 > St. Helens",
       "city": "Claremont",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.502221 -2.311887"
@@ -116,20 +130,6 @@
       "point": "53.612108 -2.413204"
     },
     {
-      "id": "ff3389d7-fe49-43bf-85ef-3abb4cd428ee",
-      "title": "alert",
-      "published": "Thu Nov 19 17:38:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A34 - Anson Rd",
-      "city": "Rusholme",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.456046 -2.215457"
-    },
-    {
       "id": "534e4249-8a0f-4deb-99c1-693bf249cfe1",
       "title": "alert",
       "published": "Thu Nov 19 17:59:13 +0000 2026",
@@ -138,24 +138,10 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.532801 -2.244756"
-    },
-    {
-      "id": "5acf54b5-3695-4ffb-9f6f-e870d09acac7",
-      "title": "alert",
-      "published": "Thu Nov 19 17:56:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.444742 -2.589157"
     }
   ]
 }
