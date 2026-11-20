@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T11:15:48.960299+00:00",
+  "updatedAt": "2026-11-20T11:20:48.984833+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "2fa05846-561b-4bca-9c04-4cbdfcb61512",
@@ -16,6 +16,20 @@
       "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.586406 -2.453941"
+    },
+    {
+      "id": "ce6cb884-31fe-49fb-bfad-bfb2043e9b54",
+      "title": "alert",
+      "published": "Fri Nov 20 11:19:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Kearsley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.543429 -2.387241"
     }
   ]
 }
