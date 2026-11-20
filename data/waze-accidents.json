@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T17:50:49.061127+00:00",
+  "updatedAt": "2026-11-20T17:55:49.058752+00:00",
   "source": "Waze GeoRSS",
-  "count": 15,
+  "count": 12,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -18,20 +18,6 @@
       "point": "53.428812 -2.382493"
     },
     {
-      "id": "11673b85-8817-4287-91cd-ac90825d56ce",
-      "title": "alert",
-      "published": "Fri Nov 20 17:26:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.457155 -2.114837"
-    },
-    {
       "id": "61770d7d-69ad-416a-a29d-418bd4979ccc",
       "title": "alert",
       "published": "Fri Nov 20 16:45:43 +0000 2026",
@@ -46,18 +32,32 @@
       "point": "53.540617 -2.116914"
     },
     {
-      "id": "ddce0c6f-912b-4c1b-8880-0c9789c2869a",
+      "id": "7c73b75e-d7d8-44d0-8faa-c4aa4a78e1a0",
       "title": "alert",
-      "published": "Fri Nov 20 17:36:57 +0000 2026",
+      "published": "Fri Nov 20 17:51:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "J2 to A58",
-      "city": "",
+      "road": "B5161 - Bow Green Rd",
+      "city": "Bowdon",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.590478 -2.272951"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.373164 -2.377226"
+    },
+    {
+      "id": "b822a4ce-306a-4e90-8e57-9adcb3f7df97",
+      "title": "alert",
+      "published": "Fri Nov 20 17:55:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Davyhulme Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.452918 -2.316148"
     },
     {
       "id": "0d3c0a62-4cc4-4604-a1ab-580dc640ea0a",
@@ -74,46 +74,18 @@
       "point": "53.36623 -2.386126"
     },
     {
-      "id": "3c3dbd01-dd08-429a-a860-13daae5a2fa2",
+      "id": "1146c4ec-ad51-43f5-9ab9-ee6b86a12fb6",
       "title": "alert",
-      "published": "Fri Nov 20 17:45:59 +0000 2026",
+      "published": "Fri Nov 20 17:49:54 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A58 - Bolton Rd",
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.601303 -2.192444"
-    },
-    {
-      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
-      "title": "alert",
-      "published": "Fri Nov 20 15:59:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.599407 -2.195948"
-    },
-    {
-      "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
-      "title": "alert",
-      "published": "Fri Nov 20 16:28:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.599721 -2.195208"
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.60209 -2.19122"
     },
     {
       "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
@@ -130,32 +102,32 @@
       "point": "53.599679 -2.195306"
     },
     {
-      "id": "1146c4ec-ad51-43f5-9ab9-ee6b86a12fb6",
+      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
       "title": "alert",
-      "published": "Fri Nov 20 17:49:54 +0000 2026",
+      "published": "Fri Nov 20 15:59:03 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Bolton Rd",
-      "city": "Rochdale",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.60209 -2.19122"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.599407 -2.195948"
     },
     {
-      "id": "d9998819-46c4-435b-b044-d533c02654b3",
+      "id": "8f208351-c1bc-4f00-917d-a0057bc94be3",
       "title": "alert",
-      "published": "Fri Nov 20 17:33:34 +0000 2026",
+      "published": "Fri Nov 20 17:53:52 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.357457 -2.312732"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.357316 -2.314887"
     },
     {
       "id": "d25042a1-40fb-4e96-9bb8-30659ac86eab",
@@ -166,24 +138,10 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.357635 -2.352977"
-    },
-    {
-      "id": "a8a73f74-0a89-4611-957b-c83db42719ef",
-      "title": "alert",
-      "published": "Fri Nov 20 17:49:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.380228 -2.279149"
     },
     {
       "id": "1d791e23-89cb-45f9-acfd-aa1ab49335cf",
@@ -194,24 +152,24 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.478676 -2.397232"
+      "point": "53.471942 -2.402058"
     },
     {
-      "id": "0ba3aba5-886a-4e8c-b8ee-db55159a8624",
+      "id": "7ff5e042-b3a4-4ef5-aa8c-ffaa61687489",
       "title": "alert",
-      "published": "Fri Nov 20 17:49:29 +0000 2026",
+      "published": "Fri Nov 20 17:52:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
+      "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.480633 -2.375796"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.48046 -2.395155"
     }
   ]
 }
