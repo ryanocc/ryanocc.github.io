@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T18:05:48.945923+00:00",
+  "updatedAt": "2026-11-20T18:10:49.053640+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 8,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.428812 -2.382493"
-    },
-    {
-      "id": "61770d7d-69ad-416a-a29d-418bd4979ccc",
-      "title": "alert",
-      "published": "Fri Nov 20 16:45:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Barn St",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.540617 -2.116914"
     },
     {
       "id": "7c73b75e-d7d8-44d0-8faa-c4aa4a78e1a0",
@@ -54,8 +40,8 @@
       "road": "Davyhulme Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.452918 -2.316148"
     },
@@ -68,52 +54,24 @@
       "road": "A6053 - Loxham St",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.557447 -2.398001"
     },
     {
-      "id": "8a5f0cc5-65e2-4109-904d-4336e4852167",
+      "id": "ddd8c434-cd0c-4a28-80bb-9442b80c3efc",
       "title": "alert",
-      "published": "Fri Nov 20 18:02:20 +0000 2026",
+      "published": "Fri Nov 20 18:09:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A664 - Edinburgh Way",
-      "city": "Rochdale",
+      "road": "A5209 - Almond Brook Rd",
+      "city": "Shevington Moor",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.600507 -2.166186"
-    },
-    {
-      "id": "1146c4ec-ad51-43f5-9ab9-ee6b86a12fb6",
-      "title": "alert",
-      "published": "Fri Nov 20 17:49:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Bolton Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.60209 -2.19122"
-    },
-    {
-      "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
-      "title": "alert",
-      "published": "Fri Nov 20 15:59:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.599679 -2.195306"
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.588799 -2.681543"
     },
     {
       "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
@@ -138,10 +96,24 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.35741 -2.313327"
+    },
+    {
+      "id": "fef66eeb-b0b9-4cd1-af7b-6ba6fcac6345",
+      "title": "alert",
+      "published": "Fri Nov 20 18:10:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.545078 -2.251919"
     }
   ]
 }
