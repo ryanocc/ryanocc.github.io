@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T12:40:48.921256+00:00",
+  "updatedAt": "2026-11-20T12:45:49.065883+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "b3840cd0-2468-4b5c-bfc6-20cb48ad32dd",
@@ -82,10 +82,24 @@
       "road": "M60 (S & W)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.456435 -2.133957"
+    },
+    {
+      "id": "3ef5acdf-91a4-4b04-a75a-c96a77a4ec34",
+      "title": "alert",
+      "published": "Fri Nov 20 12:43:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A574 - Warrington Rd",
+      "city": "Glazebury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.479927 -2.499903"
     }
   ]
 }
