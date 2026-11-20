@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T09:15:48.912329+00:00",
+  "updatedAt": "2026-11-20T09:20:48.892238+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "2a1baf4d-e996-406d-ae6f-f783a1bb8d9e",
@@ -30,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.446093 -2.333442"
+    },
+    {
+      "id": "43be24c8-a311-40e0-a934-4ddea7df4a05",
+      "title": "alert",
+      "published": "Fri Nov 20 09:17:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.409706 -2.174863"
     }
   ]
 }
