@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T14:55:49.174239+00:00",
+  "updatedAt": "2026-11-20T15:00:49.109848+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "2ea2f372-b641-4af7-86d3-6d916f1f24ea",
@@ -26,7 +26,7 @@
       "road": "Higher Ardwick",
       "city": "Ardwick",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.47197 -2.217711"
@@ -46,20 +46,6 @@
       "point": "53.541294 -2.134839"
     },
     {
-      "id": "95993e41-245e-405f-a4e6-4403116ef824",
-      "title": "alert",
-      "published": "Fri Nov 20 14:04:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Peel St",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.541258 -2.138812"
-    },
-    {
       "id": "527fc510-a197-4b5b-881e-7239238f70dd",
       "title": "alert",
       "published": "Fri Nov 20 13:47:47 +0000 2026",
@@ -72,6 +58,20 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.541915 -2.137683"
+    },
+    {
+      "id": "95993e41-245e-405f-a4e6-4403116ef824",
+      "title": "alert",
+      "published": "Fri Nov 20 14:04:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Peel St",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.541258 -2.138812"
     },
     {
       "id": "9c31c504-54b9-4d18-bfe3-5569bb1196d7",
@@ -88,6 +88,20 @@
       "point": "53.481784 -2.339857"
     },
     {
+      "id": "ea619d60-e3ac-4a2b-b29d-bd74ff5e6b58",
+      "title": "alert",
+      "published": "Fri Nov 20 14:58:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.491594 -2.532234"
+    },
+    {
       "id": "d69ed115-a1e5-409c-8cbc-85b0daa6cc2f",
       "title": "alert",
       "published": "Fri Nov 20 14:46:05 +0000 2026",
@@ -96,7 +110,7 @@
       "road": "A579 - Trinity St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.574036 -2.431724"
