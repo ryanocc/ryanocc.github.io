@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T15:05:49.108748+00:00",
+  "updatedAt": "2026-11-20T15:10:49.262153+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.535665 -2.27611"
+    },
+    {
+      "id": "b208b151-12e5-4a94-b718-8dd1406100ce",
+      "title": "alert",
+      "published": "Fri Nov 20 15:06:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Liverpool St",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.479726 -2.267676"
     },
     {
       "id": "653653b2-cc3d-4441-89a2-8b3a17ddc974",
@@ -74,20 +88,6 @@
       "point": "53.481784 -2.339857"
     },
     {
-      "id": "ea619d60-e3ac-4a2b-b29d-bd74ff5e6b58",
-      "title": "alert",
-      "published": "Fri Nov 20 14:58:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.491594 -2.532234"
-    },
-    {
       "id": "d0888335-8038-45ae-99ad-afbca667287f",
       "title": "alert",
       "published": "Fri Nov 20 15:04:49 +0000 2026",
@@ -96,8 +96,8 @@
       "road": "A5081 - Park Way",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.463578 -2.333151"
     },
@@ -116,18 +116,18 @@
       "point": "53.574036 -2.431724"
     },
     {
-      "id": "a0455e59-17f0-4c72-90dc-7a6d7379c87a",
+      "id": "49f7297f-84c5-4890-ac96-78ab066b2079",
       "title": "alert",
-      "published": "Fri Nov 20 15:04:54 +0000 2026",
+      "published": "Fri Nov 20 15:07:15 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (ACW)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.53089 -2.316906"
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.413875 -2.159039"
     }
   ]
 }
