@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-20T17:00:49.183923+00:00",
+  "updatedAt": "2026-11-20T17:05:49.176134+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
-    {
-      "id": "2405c512-02bd-4568-ad50-28e5b450f6b7",
-      "title": "alert",
-      "published": "Fri Nov 20 16:57:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Church Ln",
-      "city": "Culcheth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.451887 -2.518444"
-    },
     {
       "id": "61770d7d-69ad-416a-a29d-418bd4979ccc",
       "title": "alert",
@@ -32,32 +18,46 @@
       "point": "53.540617 -2.116914"
     },
     {
-      "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
+      "id": "42370483-9605-4a98-bb24-e43ab8abd26e",
       "title": "alert",
-      "published": "Fri Nov 20 15:59:26 +0000 2026",
+      "published": "Fri Nov 20 17:01:07 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
+      "road": "A5185 - Lancaster Rd",
+      "city": "Claremont",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.599679 -2.195306"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.501442 -2.322132"
     },
     {
-      "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
+      "id": "9f8aa733-92ab-4b30-8ae6-0eeee02b5c60",
       "title": "alert",
-      "published": "Fri Nov 20 16:28:25 +0000 2026",
+      "published": "Fri Nov 20 17:03:36 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
+      "subtype": "",
+      "road": "",
+      "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.599721 -2.195208"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.366451 -2.386011"
+    },
+    {
+      "id": "56837062-8940-4f7d-bc71-838ed5502d66",
+      "title": "alert",
+      "published": "Fri Nov 20 17:03:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (N) - Handforth Bypass",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.371204 -2.210976"
     },
     {
       "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
@@ -74,6 +74,48 @@
       "point": "53.599407 -2.195948"
     },
     {
+      "id": "4073a1da-07bb-4de6-86c7-a49e1d26dbb3",
+      "title": "alert",
+      "published": "Fri Nov 20 17:05:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.53778 -2.11645"
+    },
+    {
+      "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
+      "title": "alert",
+      "published": "Fri Nov 20 16:28:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.599721 -2.195208"
+    },
+    {
+      "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
+      "title": "alert",
+      "published": "Fri Nov 20 15:59:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.599679 -2.195306"
+    },
+    {
       "id": "d85e3f43-a986-4171-9554-9a7d90bf66a3",
       "title": "alert",
       "published": "Fri Nov 20 16:52:21 +0000 2026",
@@ -86,20 +128,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.357593 -2.311003"
-    },
-    {
-      "id": "8752dbde-51ca-45d7-a321-ec7ab2d9060d",
-      "title": "alert",
-      "published": "Fri Nov 20 16:59:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.629719 -2.021284"
     }
   ]
 }
