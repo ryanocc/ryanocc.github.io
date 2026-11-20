@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T21:50:48.974072+00:00",
+  "updatedAt": "2026-11-20T21:55:48.996586+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "f0002282-08dc-4286-9212-5df996514c82",
@@ -18,6 +18,20 @@
       "point": "53.457151 -2.220338"
     },
     {
+      "id": "daac98ba-097d-41c9-af8c-dd83f502d1c3",
+      "title": "alert",
+      "published": "Fri Nov 20 21:55:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Millwall Cl",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.464057 -2.172488"
+    },
+    {
       "id": "62b671cd-0208-482d-89bd-91d1cbd820db",
       "title": "alert",
       "published": "Fri Nov 20 20:57:20 +0000 2026",
@@ -32,6 +46,20 @@
       "point": "53.508124 -2.608935"
     },
     {
+      "id": "f3a3025d-b232-42b3-b45e-f664adc0d107",
+      "title": "alert",
+      "published": "Fri Nov 20 20:15:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Lily Ln",
+      "city": "Bamfurlong",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.50898 -2.607226"
+    },
+    {
       "id": "3792594e-4329-4d69-b5bb-9bdfa1ae307a",
       "title": "alert",
       "published": "Fri Nov 20 19:59:10 +0000 2026",
@@ -44,20 +72,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50477 -2.6131"
-    },
-    {
-      "id": "f3a3025d-b232-42b3-b45e-f664adc0d107",
-      "title": "alert",
-      "published": "Fri Nov 20 20:15:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Lily Ln",
-      "city": "Bamfurlong",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.50898 -2.607226"
     }
   ]
 }
