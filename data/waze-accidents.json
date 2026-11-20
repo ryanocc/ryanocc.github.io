@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T23:50:49.036748+00:00",
+  "updatedAt": "2026-11-20T23:55:48.887520+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "daac98ba-097d-41c9-af8c-dd83f502d1c3",
@@ -46,6 +46,20 @@
       "point": "53.558706 -2.392523"
     },
     {
+      "id": "6d02cea1-d8bf-403b-91bb-ed46fd9262fe",
+      "title": "alert",
+      "published": "Fri Nov 20 23:53:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Holmfirth Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.545594 -1.971793"
+    },
+    {
       "id": "cc1dfb64-62d9-4140-9095-c8e29cca7a26",
       "title": "alert",
       "published": "Fri Nov 20 22:15:21 +0000 2026",
@@ -58,6 +72,20 @@
       "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.651392 -1.947346"
+    },
+    {
+      "id": "b3fba2e6-3ef3-4de1-be3b-f123b96a34d8",
+      "title": "alert",
+      "published": "Fri Nov 20 23:54:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.379231 -2.280295"
     }
   ]
 }
