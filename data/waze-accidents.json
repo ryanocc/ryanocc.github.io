@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T14:30:49.179839+00:00",
+  "updatedAt": "2026-11-20T14:35:49.010738+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "bcb60d90-dc26-4caa-a1ba-e4b497e70fb4",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.420555 -2.133244"
     },
@@ -41,23 +41,9 @@
       "city": "Ardwick",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.47197 -2.217711"
-    },
-    {
-      "id": "653653b2-cc3d-4441-89a2-8b3a17ddc974",
-      "title": "alert",
-      "published": "Fri Nov 20 13:48:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Stockfield Rd",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.541294 -2.134839"
     },
     {
       "id": "527fc510-a197-4b5b-881e-7239238f70dd",
@@ -83,9 +69,23 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.541258 -2.138812"
+    },
+    {
+      "id": "653653b2-cc3d-4441-89a2-8b3a17ddc974",
+      "title": "alert",
+      "published": "Fri Nov 20 13:48:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Stockfield Rd",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.541294 -2.134839"
     },
     {
       "id": "9c31c504-54b9-4d18-bfe3-5569bb1196d7",
@@ -102,6 +102,20 @@
       "point": "53.481784 -2.339857"
     },
     {
+      "id": "f04f3ebc-62b9-4cdf-9c16-91b99217e5e1",
+      "title": "alert",
+      "published": "Fri Nov 20 14:32:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6018 - Mottram Rd",
+      "city": "Stalybridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.483462 -2.050865"
+    },
+    {
       "id": "4e7d55e2-a0c1-4a28-a6d6-fd12f18f4ece",
       "title": "alert",
       "published": "Fri Nov 20 14:30:25 +0000 2026",
@@ -110,8 +124,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.41325 -2.160444"
     }
