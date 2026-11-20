@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T07:25:48.814649+00:00",
+  "updatedAt": "2026-11-20T07:30:48.815496+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "2a1baf4d-e996-406d-ae6f-f783a1bb8d9e",
@@ -27,7 +27,7 @@
       "city": "Urmston",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.446093 -2.333442"
     },
@@ -41,9 +41,23 @@
       "city": "Stalybridge",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.483797 -2.073957"
+    },
+    {
+      "id": "b2bf513c-d51f-4c25-9b50-081f9b1c5b9f",
+      "title": "alert",
+      "published": "Fri Nov 20 07:29:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 4.0,
+      "point": "53.496257 -2.384161"
     }
   ]
 }
