@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T20:40:49.017225+00:00",
+  "updatedAt": "2026-11-20T20:45:48.987515+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "2e23701e-3493-4161-af25-86a0697b1b52",
@@ -12,8 +12,8 @@
       "road": "Albany Rd",
       "city": "Chorlton-cum-Hardy",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.442864 -2.275002"
     },
@@ -44,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.37042 -2.240936"
-    },
-    {
-      "id": "b9cacb93-375a-490b-b174-027b0fe4d9f6",
-      "title": "alert",
-      "published": "Fri Nov 20 19:34:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Henrietta St",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.495608 -2.092909"
     },
     {
       "id": "61efad03-8164-4da8-88a8-55588cb115d3",
@@ -102,6 +88,20 @@
       "point": "53.50477 -2.6131"
     },
     {
+      "id": "0650b306-ec09-4d4c-93a9-0e7ffb86574e",
+      "title": "alert",
+      "published": "Fri Nov 20 20:39:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.500043 -2.382533"
+    },
+    {
       "id": "f5af5e17-a83e-49cf-8034-da8cb9280f55",
       "title": "alert",
       "published": "Fri Nov 20 20:40:24 +0000 2026",
@@ -111,37 +111,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.500308 -2.382179"
-    },
-    {
-      "id": "966d554a-bf92-4716-aa40-464854bbf433",
-      "title": "alert",
-      "published": "Fri Nov 20 20:38:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A572 - Worsley Brow",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.50086 -2.383289"
-    },
-    {
-      "id": "0650b306-ec09-4d4c-93a9-0e7ffb86574e",
-      "title": "alert",
-      "published": "Fri Nov 20 20:39:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.500043 -2.382533"
     },
     {
       "id": "c91c9dba-db03-42b8-96ec-7c137104dbbc",
