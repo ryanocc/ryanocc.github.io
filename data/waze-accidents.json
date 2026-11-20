@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-20T16:35:49.185922+00:00",
+  "updatedAt": "2026-11-20T16:40:49.242753+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
     {
-      "id": "17c1964c-021e-4c94-8cbd-8414516f4ccd",
+      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
       "title": "alert",
-      "published": "Fri Nov 20 15:52:18 +0000 2026",
+      "published": "Fri Nov 20 15:59:03 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Church St W",
-      "city": "Radcliffe",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.559874 -2.323862"
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.599407 -2.195948"
     },
     {
       "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
@@ -44,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.599679 -2.195306"
-    },
-    {
-      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
-      "title": "alert",
-      "published": "Fri Nov 20 15:59:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.599407 -2.195948"
     }
   ]
 }
