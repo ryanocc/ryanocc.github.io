@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T14:25:49.013857+00:00",
+  "updatedAt": "2026-11-20T14:30:49.179839+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "bcb60d90-dc26-4caa-a1ba-e4b497e70fb4",
@@ -18,6 +18,20 @@
       "point": "53.585239 -2.296826"
     },
     {
+      "id": "92e3c023-e8d2-428e-891d-a377aa8504c2",
+      "title": "alert",
+      "published": "Fri Nov 20 14:29:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "J26 to A560",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.420555 -2.133244"
+    },
+    {
       "id": "3234385c-3f99-4d66-8bee-37bec7edca4f",
       "title": "alert",
       "published": "Fri Nov 20 14:11:29 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "Ardwick",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.47197 -2.217711"
     },
@@ -88,18 +102,18 @@
       "point": "53.481784 -2.339857"
     },
     {
-      "id": "349b7a8b-ea02-4974-983a-86f9f2643462",
+      "id": "4e7d55e2-a0c1-4a28-a6d6-fd12f18f4ece",
       "title": "alert",
-      "published": "Fri Nov 20 13:37:45 +0000 2026",
+      "published": "Fri Nov 20 14:30:25 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
+      "subtype": "ACCIDENT_MAJOR",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.412939 -2.161081"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.41325 -2.160444"
     }
   ]
 }
