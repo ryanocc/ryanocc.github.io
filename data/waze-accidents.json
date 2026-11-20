@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T17:30:49.086384+00:00",
+  "updatedAt": "2026-11-20T17:35:49.139854+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 12,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -26,8 +26,8 @@
       "road": "",
       "city": "",
       "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.457155 -2.114837"
     },
@@ -55,7 +55,7 @@
       "city": "Claremont",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.501442 -2.322132"
     },
@@ -68,24 +68,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.36623 -2.386126"
-    },
-    {
-      "id": "4073a1da-07bb-4de6-86c7-a49e1d26dbb3",
-      "title": "alert",
-      "published": "Fri Nov 20 17:05:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 5.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.53778 -2.11645"
+      "point": "53.36623 -2.386126"
     },
     {
       "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
@@ -102,20 +88,6 @@
       "point": "53.599721 -2.195208"
     },
     {
-      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
-      "title": "alert",
-      "published": "Fri Nov 20 15:59:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.599407 -2.195948"
-    },
-    {
       "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
       "title": "alert",
       "published": "Fri Nov 20 15:59:26 +0000 2026",
@@ -130,18 +102,18 @@
       "point": "53.599679 -2.195306"
     },
     {
-      "id": "d85e3f43-a986-4171-9554-9a7d90bf66a3",
+      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
       "title": "alert",
-      "published": "Fri Nov 20 16:52:21 +0000 2026",
+      "published": "Fri Nov 20 15:59:03 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.357593 -2.311003"
+      "reportRating": 3.0,
+      "point": "53.599407 -2.195948"
     },
     {
       "id": "cdf75fe7-360b-48ab-a4a0-0f9be5794db9",
@@ -153,9 +125,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.358979 -2.370334"
+    },
+    {
+      "id": "d9998819-46c4-435b-b044-d533c02654b3",
+      "title": "alert",
+      "published": "Fri Nov 20 17:33:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.357457 -2.312732"
     },
     {
       "id": "4a6e6173-1393-454f-be1c-a19ec6dc0a9a",
@@ -166,7 +152,7 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.480465 -2.375756"
