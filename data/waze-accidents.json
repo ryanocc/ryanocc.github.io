@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T19:20:48.994355+00:00",
+  "updatedAt": "2026-11-20T19:25:48.965120+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.452918 -2.316148"
     },
     {
-      "id": "ddd8c434-cd0c-4a28-80bb-9442b80c3efc",
-      "title": "alert",
-      "published": "Fri Nov 20 18:09:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Almond Brook Rd",
-      "city": "Shevington Moor",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.588799 -2.681543"
-    },
-    {
       "id": "51460543-2477-437a-8a19-de9349754ef4",
       "title": "alert",
       "published": "Fri Nov 20 19:12:46 +0000 2026",
@@ -69,9 +55,23 @@
       "city": "Whitefield",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.547652 -2.293326"
+    },
+    {
+      "id": "3da68209-4ccb-46bf-b4e7-6ca2b83c052c",
+      "title": "alert",
+      "published": "Fri Nov 20 19:16:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.549734 -2.294968"
     },
     {
       "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
@@ -88,20 +88,6 @@
       "point": "53.548569 -2.294121"
     },
     {
-      "id": "3da68209-4ccb-46bf-b4e7-6ca2b83c052c",
-      "title": "alert",
-      "published": "Fri Nov 20 19:16:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.549734 -2.294968"
-    },
-    {
       "id": "12a674b9-e3c9-4b48-a08d-9354a99b7b8c",
       "title": "alert",
       "published": "Fri Nov 20 18:17:09 +0000 2026",
@@ -114,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.48574 -2.230676"
+    },
+    {
+      "id": "8828f79b-b3a2-420a-8859-857e23666656",
+      "title": "alert",
+      "published": "Fri Nov 20 19:22:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.367435 -2.293999"
     }
   ]
 }
