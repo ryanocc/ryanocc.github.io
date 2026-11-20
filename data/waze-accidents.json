@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T14:45:49.123510+00:00",
+  "updatedAt": "2026-11-20T14:50:49.200805+00:00",
   "source": "Waze GeoRSS",
   "count": 10,
   "incidents": [
@@ -13,7 +13,7 @@
       "city": "",
       "country": "",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.455844 -2.228161"
     },
@@ -60,6 +60,20 @@
       "point": "53.47197 -2.217711"
     },
     {
+      "id": "95993e41-245e-405f-a4e6-4403116ef824",
+      "title": "alert",
+      "published": "Fri Nov 20 14:04:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Peel St",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.541258 -2.138812"
+    },
+    {
       "id": "653653b2-cc3d-4441-89a2-8b3a17ddc974",
       "title": "alert",
       "published": "Fri Nov 20 13:48:08 +0000 2026",
@@ -88,20 +102,6 @@
       "point": "53.541915 -2.137683"
     },
     {
-      "id": "95993e41-245e-405f-a4e6-4403116ef824",
-      "title": "alert",
-      "published": "Fri Nov 20 14:04:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Peel St",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.541258 -2.138812"
-    },
-    {
       "id": "9c31c504-54b9-4d18-bfe3-5569bb1196d7",
       "title": "alert",
       "published": "Fri Nov 20 13:12:08 +0000 2026",
@@ -116,6 +116,20 @@
       "point": "53.481784 -2.339857"
     },
     {
+      "id": "d69ed115-a1e5-409c-8cbc-85b0daa6cc2f",
+      "title": "alert",
+      "published": "Fri Nov 20 14:46:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Trinity St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.574036 -2.431724"
+    },
+    {
       "id": "f04f3ebc-62b9-4cdf-9c16-91b99217e5e1",
       "title": "alert",
       "published": "Fri Nov 20 14:32:09 +0000 2026",
@@ -124,24 +138,10 @@
       "road": "A6018 - Mottram Rd",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.483462 -2.050865"
-    },
-    {
-      "id": "4e7d55e2-a0c1-4a28-a6d6-fd12f18f4ece",
-      "title": "alert",
-      "published": "Fri Nov 20 14:30:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.41325 -2.160444"
     }
   ]
 }
