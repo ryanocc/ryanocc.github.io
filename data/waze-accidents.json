@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-20T15:50:49.238025+00:00",
+  "updatedAt": "2026-11-20T15:55:49.398187+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 5,
   "incidents": [
+    {
+      "id": "17c1964c-021e-4c94-8cbd-8414516f4ccd",
+      "title": "alert",
+      "published": "Fri Nov 20 15:52:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Church St W",
+      "city": "Radcliffe",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.559874 -2.323862"
+    },
     {
       "id": "0c49a655-76f4-4fb1-9930-f700728bd094",
       "title": "alert",
@@ -18,34 +32,6 @@
       "point": "53.503464 -2.184501"
     },
     {
-      "id": "8bf989c3-4e7b-4c90-a309-61d74186d64d",
-      "title": "alert",
-      "published": "Fri Nov 20 15:43:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J4 to M60 (W), M62",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.55135 -2.261583"
-    },
-    {
-      "id": "527fc510-a197-4b5b-881e-7239238f70dd",
-      "title": "alert",
-      "published": "Fri Nov 20 13:47:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Stockfield Rd",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.541915 -2.137683"
-    },
-    {
       "id": "65b8a37b-6873-4f46-9a79-1b3eac63c9b9",
       "title": "alert",
       "published": "Fri Nov 20 15:37:39 +0000 2026",
@@ -58,20 +44,6 @@
       "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.470315 -2.077874"
-    },
-    {
-      "id": "0222d52c-ed0e-4dff-86af-9cdfd473b55a",
-      "title": "alert",
-      "published": "Fri Nov 20 15:50:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.3597 -2.239544"
     },
     {
       "id": "8297b004-db16-487a-8149-b543a8e3cd0c",
