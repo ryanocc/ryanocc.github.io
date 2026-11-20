@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T15:20:49.214405+00:00",
+  "updatedAt": "2026-11-20T15:25:49.198932+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "2ea2f372-b641-4af7-86d3-6d916f1f24ea",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.535665 -2.27611"
+    },
+    {
+      "id": "0c49a655-76f4-4fb1-9930-f700728bd094",
+      "title": "alert",
+      "published": "Fri Nov 20 15:24:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Dean Ln",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.503464 -2.184501"
     },
     {
       "id": "527fc510-a197-4b5b-881e-7239238f70dd",
@@ -60,6 +74,20 @@
       "point": "53.574036 -2.431724"
     },
     {
+      "id": "e411eb3c-16b9-4288-9f4b-5b28ffaea44c",
+      "title": "alert",
+      "published": "Fri Nov 20 15:22:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.396976 -2.245121"
+    },
+    {
       "id": "2f680640-c39a-4b8c-80e1-9d593c7b4e3e",
       "title": "alert",
       "published": "Fri Nov 20 15:18:19 +0000 2026",
@@ -68,8 +96,8 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.622596 -2.079117"
     }
