@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T15:45:49.382551+00:00",
+  "updatedAt": "2026-11-20T15:50:49.238025+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "0c49a655-76f4-4fb1-9930-f700728bd094",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.55135 -2.261583"
     },
@@ -55,9 +55,37 @@
       "city": "Dukinfield",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.470315 -2.077874"
+    },
+    {
+      "id": "0222d52c-ed0e-4dff-86af-9cdfd473b55a",
+      "title": "alert",
+      "published": "Fri Nov 20 15:50:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.3597 -2.239544"
+    },
+    {
+      "id": "8297b004-db16-487a-8149-b543a8e3cd0c",
+      "title": "alert",
+      "published": "Fri Nov 20 15:50:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.360273 -2.240417"
     },
     {
       "id": "2f680640-c39a-4b8c-80e1-9d593c7b4e3e",
