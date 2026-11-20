@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-20T07:15:48.981209+00:00",
+  "updatedAt": "2026-11-20T07:20:48.944250+00:00",
   "source": "Waze GeoRSS",
   "count": 3,
   "incidents": [
+    {
+      "id": "2a1baf4d-e996-406d-ae6f-f783a1bb8d9e",
+      "title": "alert",
+      "published": "Fri Nov 20 07:18:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Beechwood St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.562171 -2.429771"
+    },
     {
       "id": "753b7de9-ed1f-42f2-9306-13aab1a50af0",
       "title": "alert",
@@ -18,32 +32,18 @@
       "point": "53.446093 -2.333442"
     },
     {
-      "id": "e6ce41f0-6a74-4c85-b64b-f6caac41df86",
+      "id": "dfcc9104-533c-47de-94b3-9bb244367ffa",
       "title": "alert",
-      "published": "Fri Nov 20 07:10:52 +0000 2026",
+      "published": "Fri Nov 20 07:15:00 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Moss Side",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "B6431 - Clarence St",
+      "city": "Stalybridge",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.457738 -2.245022"
-    },
-    {
-      "id": "d3df13d3-1e84-49b3-818d-4a016a234c1e",
-      "title": "alert",
-      "published": "Fri Nov 20 06:24:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.530566 -2.317752"
+      "point": "53.483797 -2.073957"
     }
   ]
 }
