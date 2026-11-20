@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T19:35:48.812319+00:00",
+  "updatedAt": "2026-11-20T19:40:48.895471+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "7054c4c4-fb82-42d3-a9a8-d6083be04778",
@@ -41,9 +41,37 @@
       "city": "Ashton-under-Lyne",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.495608 -2.092909"
+    },
+    {
+      "id": "97760389-2f23-40c6-aa32-f778475059b9",
+      "title": "alert",
+      "published": "Fri Nov 20 19:35:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "New Moston",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.525695 -2.176514"
+    },
+    {
+      "id": "7edc2214-fe01-43b8-83fc-39e8d0f219ca",
+      "title": "alert",
+      "published": "Fri Nov 20 19:37:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.583126 -2.519623"
     },
     {
       "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
@@ -83,7 +111,7 @@
       "city": "Wardle",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.636627 -2.124456"
     }
