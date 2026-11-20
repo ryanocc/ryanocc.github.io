@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-20T19:25:48.965120+00:00",
+  "updatedAt": "2026-11-20T19:30:48.963846+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 5,
   "incidents": [
-    {
-      "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
-      "title": "alert",
-      "published": "Fri Nov 20 17:22:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Birch Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.428812 -2.382493"
-    },
     {
       "id": "7054c4c4-fb82-42d3-a9a8-d6083be04778",
       "title": "alert",
@@ -60,20 +46,6 @@
       "point": "53.547652 -2.293326"
     },
     {
-      "id": "3da68209-4ccb-46bf-b4e7-6ca2b83c052c",
-      "title": "alert",
-      "published": "Fri Nov 20 19:16:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.549734 -2.294968"
-    },
-    {
       "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
       "title": "alert",
       "published": "Fri Nov 20 19:12:14 +0000 2026",
@@ -83,37 +55,23 @@
       "city": "Whitefield",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548569 -2.294121"
     },
     {
-      "id": "12a674b9-e3c9-4b48-a08d-9354a99b7b8c",
+      "id": "c91c9dba-db03-42b8-96ec-7c137104dbbc",
       "title": "alert",
-      "published": "Fri Nov 20 18:17:09 +0000 2026",
+      "published": "Fri Nov 20 19:26:23 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A62 - Oldham Rd",
-      "city": "Ancoats",
+      "road": "A58 - Halifax Rd",
+      "city": "Wardle",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.48574 -2.230676"
-    },
-    {
-      "id": "8828f79b-b3a2-420a-8859-857e23666656",
-      "title": "alert",
-      "published": "Fri Nov 20 19:22:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.367435 -2.293999"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.636627 -2.124456"
     }
   ]
 }
