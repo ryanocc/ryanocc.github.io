@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T16:15:49.152940+00:00",
+  "updatedAt": "2026-11-20T16:20:49.175645+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "17c1964c-021e-4c94-8cbd-8414516f4ccd",
@@ -13,23 +13,23 @@
       "city": "Radcliffe",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.559874 -2.323862"
     },
     {
-      "id": "0c49a655-76f4-4fb1-9930-f700728bd094",
+      "id": "945490e1-480a-4fff-87b0-fea296420fd0",
       "title": "alert",
-      "published": "Fri Nov 20 15:24:35 +0000 2026",
+      "published": "Fri Nov 20 16:17:39 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Dean Ln",
-      "city": "Newton Heath",
+      "road": "A6017 - Ashton Rd",
+      "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.503464 -2.184501"
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.427041 -2.121118"
     },
     {
       "id": "bba88636-3d75-4469-840e-552225d131c8",
@@ -54,7 +54,7 @@
       "road": "A58 - Rochdale Rd E",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.599679 -2.195306"
@@ -68,24 +68,10 @@
       "road": "A58 - Rochdale Rd E",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.599407 -2.195948"
-    },
-    {
-      "id": "2f680640-c39a-4b8c-80e1-9d593c7b4e3e",
-      "title": "alert",
-      "published": "Fri Nov 20 15:18:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.622596 -2.079117"
     }
   ]
 }
