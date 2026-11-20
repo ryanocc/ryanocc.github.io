@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T19:30:48.963846+00:00",
+  "updatedAt": "2026-11-20T19:35:48.812319+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "7054c4c4-fb82-42d3-a9a8-d6083be04778",
@@ -32,18 +32,18 @@
       "point": "53.452918 -2.316148"
     },
     {
-      "id": "51460543-2477-437a-8a19-de9349754ef4",
+      "id": "b9cacb93-375a-490b-b174-027b0fe4d9f6",
       "title": "alert",
-      "published": "Fri Nov 20 19:12:46 +0000 2026",
+      "published": "Fri Nov 20 19:34:07 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
+      "road": "Henrietta St",
+      "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.547652 -2.293326"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.495608 -2.092909"
     },
     {
       "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548569 -2.294121"
+    },
+    {
+      "id": "51460543-2477-437a-8a19-de9349754ef4",
+      "title": "alert",
+      "published": "Fri Nov 20 19:12:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.547652 -2.293326"
     },
     {
       "id": "c91c9dba-db03-42b8-96ec-7c137104dbbc",
