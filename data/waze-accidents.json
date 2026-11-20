@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-20T14:35:49.010738+00:00",
+  "updatedAt": "2026-11-20T14:40:49.421140+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
-    {
-      "id": "bcb60d90-dc26-4caa-a1ba-e4b497e70fb4",
-      "title": "alert",
-      "published": "Fri Nov 20 12:34:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Horne St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.585239 -2.296826"
-    },
     {
       "id": "92e3c023-e8d2-428e-891d-a377aa8504c2",
       "title": "alert",
@@ -26,8 +12,8 @@
       "road": "J26 to A560",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.420555 -2.133244"
     },
@@ -44,20 +30,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.47197 -2.217711"
-    },
-    {
-      "id": "527fc510-a197-4b5b-881e-7239238f70dd",
-      "title": "alert",
-      "published": "Fri Nov 20 13:47:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Stockfield Rd",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.541915 -2.137683"
     },
     {
       "id": "95993e41-245e-405f-a4e6-4403116ef824",
@@ -86,6 +58,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.541294 -2.134839"
+    },
+    {
+      "id": "527fc510-a197-4b5b-881e-7239238f70dd",
+      "title": "alert",
+      "published": "Fri Nov 20 13:47:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Stockfield Rd",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.541915 -2.137683"
     },
     {
       "id": "9c31c504-54b9-4d18-bfe3-5569bb1196d7",
