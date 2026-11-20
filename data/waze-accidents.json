@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T15:40:49.275180+00:00",
+  "updatedAt": "2026-11-20T15:45:49.382551+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "0c49a655-76f4-4fb1-9930-f700728bd094",
@@ -12,10 +12,24 @@
       "road": "Dean Ln",
       "city": "Newton Heath",
       "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.503464 -2.184501"
+    },
+    {
+      "id": "8bf989c3-4e7b-4c90-a309-61d74186d64d",
+      "title": "alert",
+      "published": "Fri Nov 20 15:43:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J4 to M60 (W), M62",
+      "city": "",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.503464 -2.184501"
+      "point": "53.55135 -2.261583"
     },
     {
       "id": "527fc510-a197-4b5b-881e-7239238f70dd",
@@ -41,37 +55,9 @@
       "city": "Dukinfield",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.470315 -2.077874"
-    },
-    {
-      "id": "1845250e-5f4c-4f0f-ac53-221629210a1a",
-      "title": "alert",
-      "published": "Fri Nov 20 15:39:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.425079 -2.25506"
-    },
-    {
-      "id": "e435aae2-1db2-4096-8b10-efd523d406a6",
-      "title": "alert",
-      "published": "Fri Nov 20 15:38:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Didsbury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.425949 -2.254001"
     },
     {
       "id": "2f680640-c39a-4b8c-80e1-9d593c7b4e3e",
