@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T18:50:48.991464+00:00",
+  "updatedAt": "2026-11-20T18:55:49.081290+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 11,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -41,7 +41,7 @@
       "city": "Radcliffe",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.559985 -2.323696"
     },
@@ -58,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.45336 -2.316732"
-    },
-    {
-      "id": "3e9c0814-f797-41ef-9358-64791c6c1ebc",
-      "title": "alert",
-      "published": "Fri Nov 20 18:32:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Buxton Rd",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.391649 -2.144389"
     },
     {
       "id": "ddd8c434-cd0c-4a28-80bb-9442b80c3efc",
@@ -97,7 +83,7 @@
       "city": "Lostock",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.579351 -2.488843"
     },
@@ -110,10 +96,24 @@
       "road": "A62 - Oldham Rd",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.48574 -2.230676"
+    },
+    {
+      "id": "e3f8c6b8-a479-4392-89e5-a8799eb4b775",
+      "title": "alert",
+      "published": "Fri Nov 20 18:55:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.369013 -2.293113"
     },
     {
       "id": "a88bc953-9414-4a2f-886a-55cdd9982593",
@@ -130,18 +130,32 @@
       "point": "53.359142 -2.371234"
     },
     {
-      "id": "eff1eab1-15e5-4725-b18d-6af48ec28126",
+      "id": "3b4a8871-27b0-477a-bc67-10612e7dd1bd",
       "title": "alert",
-      "published": "Fri Nov 20 18:49:07 +0000 2026",
+      "published": "Fri Nov 20 18:55:41 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.480264 -2.375708"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.377979 -2.282554"
+    },
+    {
+      "id": "25a3e1fe-7006-495e-9129-6f97098b684f",
+      "title": "alert",
+      "published": "Fri Nov 20 18:52:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.629747 -2.020807"
     }
   ]
 }
