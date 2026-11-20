@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T17:35:49.139854+00:00",
+  "updatedAt": "2026-11-20T17:40:49.230201+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -46,6 +46,34 @@
       "point": "53.540617 -2.116914"
     },
     {
+      "id": "ddce0c6f-912b-4c1b-8880-0c9789c2869a",
+      "title": "alert",
+      "published": "Fri Nov 20 17:36:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J2 to A58",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.590478 -2.272951"
+    },
+    {
+      "id": "8efa3a5b-712d-4ff4-9b94-542b903ef35e",
+      "title": "alert",
+      "published": "Fri Nov 20 17:39:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A50",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.333301 -2.41323"
+    },
+    {
       "id": "42370483-9605-4a98-bb24-e43ab8abd26e",
       "title": "alert",
       "published": "Fri Nov 20 17:01:07 +0000 2026",
@@ -68,10 +96,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.36623 -2.386126"
+    },
+    {
+      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
+      "title": "alert",
+      "published": "Fri Nov 20 15:59:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.599407 -2.195948"
     },
     {
       "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
@@ -102,34 +144,6 @@
       "point": "53.599679 -2.195306"
     },
     {
-      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
-      "title": "alert",
-      "published": "Fri Nov 20 15:59:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.599407 -2.195948"
-    },
-    {
-      "id": "cdf75fe7-360b-48ab-a4a0-0f9be5794db9",
-      "title": "alert",
-      "published": "Fri Nov 20 17:28:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.358979 -2.370334"
-    },
-    {
       "id": "d9998819-46c4-435b-b044-d533c02654b3",
       "title": "alert",
       "published": "Fri Nov 20 17:33:34 +0000 2026",
@@ -144,32 +158,32 @@
       "point": "53.357457 -2.312732"
     },
     {
-      "id": "4a6e6173-1393-454f-be1c-a19ec6dc0a9a",
+      "id": "cdf75fe7-360b-48ab-a4a0-0f9be5794db9",
       "title": "alert",
-      "published": "Fri Nov 20 17:27:22 +0000 2026",
+      "published": "Fri Nov 20 17:28:53 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.480465 -2.375756"
+      "reportRating": 2.0,
+      "point": "53.358979 -2.370334"
     },
     {
-      "id": "44cf7de4-9c0d-42ed-95b3-a2b6d9ec86ca",
+      "id": "d7cf3724-0887-4835-94a6-fe1d369afacf",
       "title": "alert",
-      "published": "Fri Nov 20 17:24:27 +0000 2026",
+      "published": "Fri Nov 20 17:39:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.464136 -2.356115"
+      "point": "53.475023 -2.399882"
     }
   ]
 }
