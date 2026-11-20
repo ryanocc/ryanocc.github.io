@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T12:30:48.905061+00:00",
+  "updatedAt": "2026-11-20T12:35:48.970342+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -16,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.586406 -2.453941"
+    },
+    {
+      "id": "bcb60d90-dc26-4caa-a1ba-e4b497e70fb4",
+      "title": "alert",
+      "published": "Fri Nov 20 12:34:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Horne St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.585239 -2.296826"
     },
     {
       "id": "bbf4e3a7-f469-4097-8e6f-d13fe811ca69",
@@ -44,20 +58,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.456435 -2.133957"
-    },
-    {
-      "id": "ff56a3a4-9727-40fb-a23c-4dba2af258da",
-      "title": "alert",
-      "published": "Fri Nov 20 12:24:36 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A666 - St. Peter's Way",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.567839 -2.412771"
     }
   ]
 }
