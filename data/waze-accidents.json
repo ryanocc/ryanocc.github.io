@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T20:10:48.806243+00:00",
+  "updatedAt": "2026-11-20T20:15:48.775091+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "2e23701e-3493-4161-af25-86a0697b1b52",
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.444473 -1.970128"
+    },
+    {
+      "id": "f9f8f01a-e85e-4011-b962-a4f4f9526e9a",
+      "title": "alert",
+      "published": "Fri Nov 20 20:12:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5166 - Styal Rd",
+      "city": "Wythenshawe",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.37042 -2.240936"
     },
     {
       "id": "b9cacb93-375a-490b-b174-027b0fe4d9f6",
@@ -68,10 +82,24 @@
       "road": "A58 - Bolton Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50477 -2.6131"
+    },
+    {
+      "id": "f3a3025d-b232-42b3-b45e-f664adc0d107",
+      "title": "alert",
+      "published": "Fri Nov 20 20:15:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Lily Ln",
+      "city": "Bamfurlong",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.50898 -2.607226"
     },
     {
       "id": "97760389-2f23-40c6-aa32-f778475059b9",
@@ -88,20 +116,6 @@
       "point": "53.525695 -2.176514"
     },
     {
-      "id": "51460543-2477-437a-8a19-de9349754ef4",
-      "title": "alert",
-      "published": "Fri Nov 20 19:12:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.547652 -2.293326"
-    },
-    {
       "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
       "title": "alert",
       "published": "Fri Nov 20 19:12:14 +0000 2026",
@@ -110,7 +124,7 @@
       "road": "A56 - Bury New Rd",
       "city": "Whitefield",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548569 -2.294121"
