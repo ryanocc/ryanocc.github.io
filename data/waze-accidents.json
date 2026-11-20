@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T12:20:48.934036+00:00",
+  "updatedAt": "2026-11-20T12:25:48.971095+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "2fa05846-561b-4bca-9c04-4cbdfcb61512",
@@ -44,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.456435 -2.133957"
+    },
+    {
+      "id": "ff56a3a4-9727-40fb-a23c-4dba2af258da",
+      "title": "alert",
+      "published": "Fri Nov 20 12:24:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A666 - St. Peter's Way",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.567839 -2.412771"
     }
   ]
 }
