@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T13:10:48.970498+00:00",
+  "updatedAt": "2026-11-20T13:15:48.972424+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "b3840cd0-2468-4b5c-bfc6-20cb48ad32dd",
@@ -82,10 +82,38 @@
       "road": "A57 - Bentcliffe Way",
       "city": "Eccles",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.4816 -2.339302"
+    },
+    {
+      "id": "9c31c504-54b9-4d18-bfe3-5569bb1196d7",
+      "title": "alert",
+      "published": "Fri Nov 20 13:12:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57 - Bentcliffe Way",
+      "city": "Eccles",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.481784 -2.339857"
+    },
+    {
+      "id": "4c7f1307-d8fa-4181-ab64-a47d5e72f014",
+      "title": "alert",
+      "published": "Fri Nov 20 13:14:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Stockport Rd",
+      "city": "Levenshulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.447504 -2.191514"
     }
   ]
 }
