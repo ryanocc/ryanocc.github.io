@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T18:40:49.103889+00:00",
+  "updatedAt": "2026-11-20T18:45:48.957272+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -27,7 +27,7 @@
       "city": "Hulme",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.460712 -2.248353"
     },
@@ -82,7 +82,7 @@
       "road": "A5181 - Park Rd",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.45336 -2.316732"
@@ -96,7 +96,7 @@
       "road": "A6053 - Loxham St",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.557447 -2.398001"
@@ -116,6 +116,20 @@
       "point": "53.391649 -2.144389"
     },
     {
+      "id": "37dea5b8-9542-48fb-8114-2aea6c0a5024",
+      "title": "alert",
+      "published": "Fri Nov 20 18:45:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.579351 -2.488843"
+    },
+    {
       "id": "ddd8c434-cd0c-4a28-80bb-9442b80c3efc",
       "title": "alert",
       "published": "Fri Nov 20 18:09:57 +0000 2026",
@@ -130,18 +144,18 @@
       "point": "53.588799 -2.681543"
     },
     {
-      "id": "495a2f32-207a-4ca8-b7ca-8a85d07c10d5",
+      "id": "e442bd5e-f2d5-41df-bb14-5a6893f968d6",
       "title": "alert",
-      "published": "Fri Nov 20 18:26:11 +0000 2026",
+      "published": "Fri Nov 20 18:45:03 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
+      "road": "A34 - Upper Brook St",
+      "city": "Chorlton-on-Medlock",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.507767 -2.24088"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.469819 -2.23262"
     },
     {
       "id": "12a674b9-e3c9-4b48-a08d-9354a99b7b8c",
@@ -172,18 +186,18 @@
       "point": "53.359142 -2.371234"
     },
     {
-      "id": "1d071bd4-694b-4f64-8c41-bde59700006f",
+      "id": "9dd3b357-1e8e-43d1-be5d-6accbe09bb77",
       "title": "alert",
-      "published": "Fri Nov 20 18:37:30 +0000 2026",
+      "published": "Fri Nov 20 18:44:29 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (W)",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
       "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.621221 -2.081611"
+      "point": "53.378215 -2.282162"
     }
   ]
 }
