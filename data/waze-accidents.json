@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T17:55:49.058752+00:00",
+  "updatedAt": "2026-11-20T18:00:49.120553+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -26,8 +26,8 @@
       "road": "Barn St",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.540617 -2.116914"
     },
@@ -40,8 +40,8 @@
       "road": "B5161 - Bow Green Rd",
       "city": "Bowdon",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.373164 -2.377226"
     },
@@ -55,23 +55,23 @@
       "city": "Stretford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.452918 -2.316148"
     },
     {
-      "id": "0d3c0a62-4cc4-4604-a1ab-580dc640ea0a",
+      "id": "19adb8a7-2764-4a96-b844-4028718e60d1",
       "title": "alert",
-      "published": "Fri Nov 20 17:29:13 +0000 2026",
+      "published": "Fri Nov 20 17:56:17 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "",
+      "road": "B6222 - Bury And Rochdale Old Rd",
+      "city": "Bamford",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.36623 -2.386126"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.60633 -2.213513"
     },
     {
       "id": "1146c4ec-ad51-43f5-9ab9-ee6b86a12fb6",
@@ -124,10 +124,10 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
-      "point": "53.357316 -2.314887"
+      "point": "53.357553 -2.311506"
     },
     {
       "id": "d25042a1-40fb-4e96-9bb8-30659ac86eab",
@@ -138,38 +138,52 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.357635 -2.352977"
     },
     {
-      "id": "1d791e23-89cb-45f9-acfd-aa1ab49335cf",
+      "id": "5e83676b-b2ae-462e-bba4-0bd7241f1e3f",
       "title": "alert",
-      "published": "Fri Nov 20 17:46:54 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.471942 -2.402058"
-    },
-    {
-      "id": "7ff5e042-b3a4-4ef5-aa8c-ffaa61687489",
-      "title": "alert",
-      "published": "Fri Nov 20 17:52:46 +0000 2026",
+      "published": "Fri Nov 20 17:58:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.462723 -2.412543"
+    },
+    {
+      "id": "217f638c-8368-473d-bbdd-2a84da9266ae",
+      "title": "alert",
+      "published": "Fri Nov 20 17:59:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
       "confidence": 1.0,
       "reliability": 8.0,
       "reportRating": 3.0,
-      "point": "53.48046 -2.395155"
+      "point": "53.480963 -2.375875"
+    },
+    {
+      "id": "98942340-bc37-4892-b738-e9968e069d73",
+      "title": "alert",
+      "published": "Fri Nov 20 17:57:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.471941 -2.402059"
     }
   ]
 }
