@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T17:40:49.230201+00:00",
+  "updatedAt": "2026-11-20T17:45:49.124207+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 15,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -26,8 +26,8 @@
       "road": "",
       "city": "",
       "country": "",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.457155 -2.114837"
     },
@@ -54,8 +54,8 @@
       "road": "J2 to A58",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.590478 -2.272951"
     },
@@ -68,10 +68,10 @@
       "road": "A50",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.333301 -2.41323"
+      "point": "53.33415 -2.41409"
     },
     {
       "id": "42370483-9605-4a98-bb24-e43ab8abd26e",
@@ -83,9 +83,23 @@
       "city": "Claremont",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.501442 -2.322132"
+    },
+    {
+      "id": "cbf4582f-8ae0-415f-9720-3d96b611540b",
+      "title": "alert",
+      "published": "Fri Nov 20 17:41:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6140 - Lord Sheldon Way",
+      "city": "Audenshaw",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.480487 -2.122482"
     },
     {
       "id": "0d3c0a62-4cc4-4604-a1ab-580dc640ea0a",
@@ -144,6 +158,20 @@
       "point": "53.599679 -2.195306"
     },
     {
+      "id": "cdf75fe7-360b-48ab-a4a0-0f9be5794db9",
+      "title": "alert",
+      "published": "Fri Nov 20 17:28:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.358979 -2.370334"
+    },
+    {
       "id": "d9998819-46c4-435b-b044-d533c02654b3",
       "title": "alert",
       "published": "Fri Nov 20 17:33:34 +0000 2026",
@@ -158,32 +186,32 @@
       "point": "53.357457 -2.312732"
     },
     {
-      "id": "cdf75fe7-360b-48ab-a4a0-0f9be5794db9",
+      "id": "f7887a37-82e0-418a-889e-d40adc962666",
       "title": "alert",
-      "published": "Fri Nov 20 17:28:53 +0000 2026",
+      "published": "Fri Nov 20 17:43:06 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (E)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
       "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.358979 -2.370334"
+      "reportRating": 1.0,
+      "point": "53.48178 -2.376048"
     },
     {
-      "id": "d7cf3724-0887-4835-94a6-fe1d369afacf",
+      "id": "fd7db8b3-94d3-42db-b9ca-40bf5512dce4",
       "title": "alert",
-      "published": "Fri Nov 20 17:39:57 +0000 2026",
+      "published": "Fri Nov 20 17:41:57 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (E)",
+      "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.475023 -2.399882"
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.540523 -2.239267"
     }
   ]
 }
