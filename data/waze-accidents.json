@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T18:25:49.076131+00:00",
+  "updatedAt": "2026-11-20T18:30:48.996089+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 12,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.428812 -2.382493"
+    },
+    {
+      "id": "faf7e0ac-5418-4ce3-b46e-9eb0ee234ace",
+      "title": "alert",
+      "published": "Fri Nov 20 18:28:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hulme High St",
+      "city": "Hulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.460712 -2.248353"
     },
     {
       "id": "7c73b75e-d7d8-44d0-8faa-c4aa4a78e1a0",
@@ -46,6 +60,20 @@
       "point": "53.452918 -2.316148"
     },
     {
+      "id": "94bfec14-7c06-4238-96c1-0c5ec5e1f0c8",
+      "title": "alert",
+      "published": "Fri Nov 20 18:30:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Church St W",
+      "city": "Radcliffe",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.559985 -2.323696"
+    },
+    {
       "id": "7e110e90-ca4d-4040-94bd-b59616d8608d",
       "title": "alert",
       "published": "Fri Nov 20 18:23:21 +0000 2026",
@@ -54,8 +82,8 @@
       "road": "A5181 - Park Rd",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.45336 -2.316732"
     },
@@ -97,9 +125,37 @@
       "city": "Ancoats",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.485659 -2.230874"
+    },
+    {
+      "id": "495a2f32-207a-4ca8-b7ca-8a85d07c10d5",
+      "title": "alert",
+      "published": "Fri Nov 20 18:26:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.507767 -2.24088"
+    },
+    {
+      "id": "112a5a5f-225b-4db6-b21c-c07e1a7e2719",
+      "title": "alert",
+      "published": "Fri Nov 20 18:27:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 2.0,
+      "point": "53.485026 -2.232467"
     },
     {
       "id": "a88bc953-9414-4a2f-886a-55cdd9982593",
@@ -114,20 +170,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.359142 -2.371234"
-    },
-    {
-      "id": "73dbbbcb-8d21-4b29-9d4d-849ab7d81c93",
-      "title": "alert",
-      "published": "Fri Nov 20 18:19:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.357594 -2.310992"
     }
   ]
 }
