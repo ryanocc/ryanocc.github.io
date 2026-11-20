@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-20T19:55:48.922835+00:00",
+  "updatedAt": "2026-11-20T20:00:49.015607+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "2e23701e-3493-4161-af25-86a0697b1b52",
+      "title": "alert",
+      "published": "Fri Nov 20 19:57:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Albany Rd",
+      "city": "Chorlton-cum-Hardy",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.442864 -2.275002"
+    },
     {
       "id": "7054c4c4-fb82-42d3-a9a8-d6083be04778",
       "title": "alert",
@@ -32,6 +46,20 @@
       "point": "53.495608 -2.092909"
     },
     {
+      "id": "3792594e-4329-4d69-b5bb-9bdfa1ae307a",
+      "title": "alert",
+      "published": "Fri Nov 20 19:59:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Bolton Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.50477 -2.6131"
+    },
+    {
       "id": "97760389-2f23-40c6-aa32-f778475059b9",
       "title": "alert",
       "published": "Fri Nov 20 19:35:48 +0000 2026",
@@ -40,7 +68,7 @@
       "road": "",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.525695 -2.176514"
@@ -60,20 +88,6 @@
       "point": "53.583126 -2.519623"
     },
     {
-      "id": "51460543-2477-437a-8a19-de9349754ef4",
-      "title": "alert",
-      "published": "Fri Nov 20 19:12:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.547652 -2.293326"
-    },
-    {
       "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
       "title": "alert",
       "published": "Fri Nov 20 19:12:14 +0000 2026",
@@ -86,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548569 -2.294121"
+    },
+    {
+      "id": "51460543-2477-437a-8a19-de9349754ef4",
+      "title": "alert",
+      "published": "Fri Nov 20 19:12:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.547652 -2.293326"
     },
     {
       "id": "c91c9dba-db03-42b8-96ec-7c137104dbbc",
