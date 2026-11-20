@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T18:15:49.072764+00:00",
+  "updatedAt": "2026-11-20T18:20:48.985348+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -40,8 +40,8 @@
       "road": "Davyhulme Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.452918 -2.316148"
     },
@@ -54,8 +54,8 @@
       "road": "A6053 - Loxham St",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.557447 -2.398001"
     },
@@ -74,6 +74,20 @@
       "point": "53.588799 -2.681543"
     },
     {
+      "id": "12a674b9-e3c9-4b48-a08d-9354a99b7b8c",
+      "title": "alert",
+      "published": "Fri Nov 20 18:17:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Ancoats",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.485659 -2.230874"
+    },
+    {
       "id": "a88bc953-9414-4a2f-886a-55cdd9982593",
       "title": "alert",
       "published": "Fri Nov 20 18:15:47 +0000 2026",
@@ -82,10 +96,24 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.359142 -2.371234"
+    },
+    {
+      "id": "73dbbbcb-8d21-4b29-9d4d-849ab7d81c93",
+      "title": "alert",
+      "published": "Fri Nov 20 18:19:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.357594 -2.310992"
     }
   ]
 }
