@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T23:05:48.944004+00:00",
+  "updatedAt": "2026-11-20T23:10:48.804144+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "daac98ba-097d-41c9-af8c-dd83f502d1c3",
@@ -40,7 +40,7 @@
       "road": "A56 - Walmersley Rd",
       "city": "Bury",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.601695 -2.290314"
@@ -55,9 +55,23 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.651392 -1.947346"
+    },
+    {
+      "id": "a75835ae-c6f0-44ba-8208-f27a8a3d012d",
+      "title": "alert",
+      "published": "Fri Nov 20 23:08:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.398742 -2.238642"
     }
   ]
 }
