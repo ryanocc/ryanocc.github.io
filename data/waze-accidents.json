@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T17:25:49.024746+00:00",
+  "updatedAt": "2026-11-20T17:30:49.086384+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 13,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.428812 -2.382493"
+    },
+    {
+      "id": "11673b85-8817-4287-91cd-ac90825d56ce",
+      "title": "alert",
+      "published": "Fri Nov 20 17:26:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.457155 -2.114837"
     },
     {
       "id": "61770d7d-69ad-416a-a29d-418bd4979ccc",
@@ -46,32 +60,18 @@
       "point": "53.501442 -2.322132"
     },
     {
-      "id": "56837062-8940-4f7d-bc71-838ed5502d66",
+      "id": "0d3c0a62-4cc4-4604-a1ab-580dc640ea0a",
       "title": "alert",
-      "published": "Fri Nov 20 17:03:43 +0000 2026",
+      "published": "Fri Nov 20 17:29:13 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A34 (N) - Handforth Bypass",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.371204 -2.210976"
-    },
-    {
-      "id": "3c9f48d1-f152-4d7c-b96f-1863470b66be",
-      "title": "alert",
-      "published": "Fri Nov 20 17:12:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6 - Buxton Rd",
-      "city": "Stockport",
+      "road": "",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.387356 -2.13324"
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.36623 -2.386126"
     },
     {
       "id": "4073a1da-07bb-4de6-86c7-a49e1d26dbb3",
@@ -82,38 +82,10 @@
       "road": "",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.53778 -2.11645"
-    },
-    {
-      "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
-      "title": "alert",
-      "published": "Fri Nov 20 15:59:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.599679 -2.195306"
-    },
-    {
-      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
-      "title": "alert",
-      "published": "Fri Nov 20 15:59:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.599407 -2.195948"
     },
     {
       "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
@@ -130,6 +102,34 @@
       "point": "53.599721 -2.195208"
     },
     {
+      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
+      "title": "alert",
+      "published": "Fri Nov 20 15:59:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.599407 -2.195948"
+    },
+    {
+      "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
+      "title": "alert",
+      "published": "Fri Nov 20 15:59:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.599679 -2.195306"
+    },
+    {
       "id": "d85e3f43-a986-4171-9554-9a7d90bf66a3",
       "title": "alert",
       "published": "Fri Nov 20 16:52:21 +0000 2026",
@@ -144,6 +144,34 @@
       "point": "53.357593 -2.311003"
     },
     {
+      "id": "cdf75fe7-360b-48ab-a4a0-0f9be5794db9",
+      "title": "alert",
+      "published": "Fri Nov 20 17:28:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.358979 -2.370334"
+    },
+    {
+      "id": "4a6e6173-1393-454f-be1c-a19ec6dc0a9a",
+      "title": "alert",
+      "published": "Fri Nov 20 17:27:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.480465 -2.375756"
+    },
+    {
       "id": "44cf7de4-9c0d-42ed-95b3-a2b6d9ec86ca",
       "title": "alert",
       "published": "Fri Nov 20 17:24:27 +0000 2026",
@@ -152,8 +180,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.464136 -2.356115"
     }
