@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T13:45:48.958495+00:00",
+  "updatedAt": "2026-11-20T13:50:48.988136+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 8,
   "incidents": [
     {
       "id": "bcb60d90-dc26-4caa-a1ba-e4b497e70fb4",
@@ -16,6 +16,48 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.585239 -2.296826"
+    },
+    {
+      "id": "2795fe8d-9462-493c-929a-52d67ed32994",
+      "title": "alert",
+      "published": "Fri Nov 20 13:49:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.447348 -2.266876"
+    },
+    {
+      "id": "527fc510-a197-4b5b-881e-7239238f70dd",
+      "title": "alert",
+      "published": "Fri Nov 20 13:47:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Stockfield Rd",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.541915 -2.137683"
+    },
+    {
+      "id": "653653b2-cc3d-4441-89a2-8b3a17ddc974",
+      "title": "alert",
+      "published": "Fri Nov 20 13:48:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Stockfield Rd",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.541294 -2.134839"
     },
     {
       "id": "9c31c504-54b9-4d18-bfe3-5569bb1196d7",
@@ -41,9 +83,23 @@
       "city": "Levenshulme",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.447504 -2.191514"
+    },
+    {
+      "id": "0980f4a6-9de6-4113-893a-bf43130e0c17",
+      "title": "alert",
+      "published": "Fri Nov 20 13:47:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.413858 -2.159438"
     },
     {
       "id": "349b7a8b-ea02-4974-983a-86f9f2643462",
