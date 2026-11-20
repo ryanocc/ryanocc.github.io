@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T15:00:49.109848+00:00",
+  "updatedAt": "2026-11-20T15:05:49.108748+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "2ea2f372-b641-4af7-86d3-6d916f1f24ea",
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.535665 -2.27611"
-    },
-    {
-      "id": "3234385c-3f99-4d66-8bee-37bec7edca4f",
-      "title": "alert",
-      "published": "Fri Nov 20 14:11:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Higher Ardwick",
-      "city": "Ardwick",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.47197 -2.217711"
     },
     {
       "id": "653653b2-cc3d-4441-89a2-8b3a17ddc974",
@@ -102,6 +88,20 @@
       "point": "53.491594 -2.532234"
     },
     {
+      "id": "d0888335-8038-45ae-99ad-afbca667287f",
+      "title": "alert",
+      "published": "Fri Nov 20 15:04:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5081 - Park Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.463578 -2.333151"
+    },
+    {
       "id": "d69ed115-a1e5-409c-8cbc-85b0daa6cc2f",
       "title": "alert",
       "published": "Fri Nov 20 14:46:05 +0000 2026",
@@ -110,10 +110,24 @@
       "road": "A579 - Trinity St",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.574036 -2.431724"
+    },
+    {
+      "id": "a0455e59-17f0-4c72-90dc-7a6d7379c87a",
+      "title": "alert",
+      "published": "Fri Nov 20 15:04:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.53089 -2.316906"
     }
   ]
 }
