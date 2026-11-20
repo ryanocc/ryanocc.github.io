@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T19:05:48.876695+00:00",
+  "updatedAt": "2026-11-20T19:10:49.007482+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 7,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -32,20 +32,6 @@
       "point": "53.444473 -1.970128"
     },
     {
-      "id": "b822a4ce-306a-4e90-8e57-9adcb3f7df97",
-      "title": "alert",
-      "published": "Fri Nov 20 17:55:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Davyhulme Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.452918 -2.316148"
-    },
-    {
       "id": "788fc5e1-3c29-44c5-b2b2-f991b46efe45",
       "title": "alert",
       "published": "Fri Nov 20 18:55:57 +0000 2026",
@@ -58,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.464881 -2.341263"
+    },
+    {
+      "id": "b822a4ce-306a-4e90-8e57-9adcb3f7df97",
+      "title": "alert",
+      "published": "Fri Nov 20 17:55:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Davyhulme Rd",
+      "city": "Stretford",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.452918 -2.316148"
     },
     {
       "id": "ddd8c434-cd0c-4a28-80bb-9442b80c3efc",
@@ -74,20 +74,6 @@
       "point": "53.588799 -2.681543"
     },
     {
-      "id": "37dea5b8-9542-48fb-8114-2aea6c0a5024",
-      "title": "alert",
-      "published": "Fri Nov 20 18:45:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A673 - Chorley New Rd",
-      "city": "Lostock",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.579351 -2.488843"
-    },
-    {
       "id": "12a674b9-e3c9-4b48-a08d-9354a99b7b8c",
       "title": "alert",
       "published": "Fri Nov 20 18:17:09 +0000 2026",
@@ -100,34 +86,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.48574 -2.230676"
-    },
-    {
-      "id": "a88bc953-9414-4a2f-886a-55cdd9982593",
-      "title": "alert",
-      "published": "Fri Nov 20 18:15:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.359142 -2.371234"
-    },
-    {
-      "id": "e3f8c6b8-a479-4392-89e5-a8799eb4b775",
-      "title": "alert",
-      "published": "Fri Nov 20 18:55:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.369013 -2.293113"
     },
     {
       "id": "3b4a8871-27b0-477a-bc67-10612e7dd1bd",
