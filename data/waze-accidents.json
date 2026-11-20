@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-20T16:20:49.175645+00:00",
+  "updatedAt": "2026-11-20T16:25:49.328431+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
+    {
+      "id": "f42606ee-8c52-4233-81e3-ba080aec2869",
+      "title": "alert",
+      "published": "Fri Nov 20 16:20:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.410751 -2.310495"
+    },
     {
       "id": "17c1964c-021e-4c94-8cbd-8414516f4ccd",
       "title": "alert",
@@ -26,24 +40,10 @@
       "road": "A6017 - Ashton Rd",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.427041 -2.121118"
-    },
-    {
-      "id": "bba88636-3d75-4469-840e-552225d131c8",
-      "title": "alert",
-      "published": "Fri Nov 20 16:04:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Ashton Old Rd",
-      "city": "West Gorton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.474321 -2.198931"
     },
     {
       "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
@@ -54,7 +54,7 @@
       "road": "A58 - Rochdale Rd E",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.599679 -2.195306"
@@ -68,7 +68,7 @@
       "road": "A58 - Rochdale Rd E",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.599407 -2.195948"
