@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T18:35:49.039219+00:00",
+  "updatedAt": "2026-11-20T18:40:49.103889+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 13,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -27,7 +27,7 @@
       "city": "Hulme",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.460712 -2.248353"
     },
@@ -40,8 +40,8 @@
       "road": "B5161 - Bow Green Rd",
       "city": "Bowdon",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.373164 -2.377226"
     },
@@ -54,7 +54,7 @@
       "road": "Davyhulme Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.452918 -2.316148"
@@ -68,8 +68,8 @@
       "road": "Church St W",
       "city": "Radcliffe",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.559985 -2.323696"
     },
@@ -124,8 +124,8 @@
       "road": "A5209 - Almond Brook Rd",
       "city": "Shevington Moor",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.588799 -2.681543"
     },
@@ -138,8 +138,8 @@
       "road": "A665 - Cheetham Hill Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.507767 -2.24088"
     },
@@ -152,10 +152,10 @@
       "road": "A62 - Oldham Rd",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.485659 -2.230874"
+      "point": "53.48574 -2.230676"
     },
     {
       "id": "a88bc953-9414-4a2f-886a-55cdd9982593",
@@ -170,6 +170,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.359142 -2.371234"
+    },
+    {
+      "id": "1d071bd4-694b-4f64-8c41-bde59700006f",
+      "title": "alert",
+      "published": "Fri Nov 20 18:37:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.621221 -2.081611"
     }
   ]
 }
