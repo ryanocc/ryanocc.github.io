@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T19:15:49.648423+00:00",
+  "updatedAt": "2026-11-20T19:20:48.994355+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -40,24 +40,10 @@
       "road": "Davyhulme Rd",
       "city": "Stretford",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.452918 -2.316148"
-    },
-    {
-      "id": "788fc5e1-3c29-44c5-b2b2-f991b46efe45",
-      "title": "alert",
-      "published": "Fri Nov 20 18:55:57 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5211 - Barton Dock Rd",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.464881 -2.341263"
     },
     {
       "id": "ddd8c434-cd0c-4a28-80bb-9442b80c3efc",
@@ -74,20 +60,6 @@
       "point": "53.588799 -2.681543"
     },
     {
-      "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
-      "title": "alert",
-      "published": "Fri Nov 20 19:12:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.548202 -2.293806"
-    },
-    {
       "id": "51460543-2477-437a-8a19-de9349754ef4",
       "title": "alert",
       "published": "Fri Nov 20 19:12:46 +0000 2026",
@@ -96,10 +68,38 @@
       "road": "A56 - Bury New Rd",
       "city": "Whitefield",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.547652 -2.293326"
+    },
+    {
+      "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
+      "title": "alert",
+      "published": "Fri Nov 20 19:12:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.548569 -2.294121"
+    },
+    {
+      "id": "3da68209-4ccb-46bf-b4e7-6ca2b83c052c",
+      "title": "alert",
+      "published": "Fri Nov 20 19:16:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.549734 -2.294968"
     },
     {
       "id": "12a674b9-e3c9-4b48-a08d-9354a99b7b8c",
@@ -114,20 +114,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.48574 -2.230676"
-    },
-    {
-      "id": "04bce72d-e559-4974-a40d-e51cbff1cbc6",
-      "title": "alert",
-      "published": "Fri Nov 20 19:11:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6042 - Trinity Way",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.489391 -2.241784"
     }
   ]
 }
