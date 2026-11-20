@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-20T11:25:48.849677+00:00",
+  "updatedAt": "2026-11-20T11:30:49.003014+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
+    {
+      "id": "a16ab2b1-0eb6-4175-a58b-ad4fade031e3",
+      "title": "alert",
+      "published": "Fri Nov 20 11:26:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.561016 -2.416186"
+    },
     {
       "id": "2fa05846-561b-4bca-9c04-4cbdfcb61512",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "Mornington Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.586406 -2.453941"
     }
