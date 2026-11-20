@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T18:30:48.996089+00:00",
+  "updatedAt": "2026-11-20T18:35:49.039219+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -68,8 +68,8 @@
       "road": "Church St W",
       "city": "Radcliffe",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.559985 -2.323696"
     },
@@ -82,8 +82,8 @@
       "road": "A5181 - Park Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.45336 -2.316732"
     },
@@ -102,6 +102,20 @@
       "point": "53.557447 -2.398001"
     },
     {
+      "id": "3e9c0814-f797-41ef-9358-64791c6c1ebc",
+      "title": "alert",
+      "published": "Fri Nov 20 18:32:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Buxton Rd",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.391649 -2.144389"
+    },
+    {
       "id": "ddd8c434-cd0c-4a28-80bb-9442b80c3efc",
       "title": "alert",
       "published": "Fri Nov 20 18:09:57 +0000 2026",
@@ -110,10 +124,24 @@
       "road": "A5209 - Almond Brook Rd",
       "city": "Shevington Moor",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 4.0,
       "point": "53.588799 -2.681543"
+    },
+    {
+      "id": "495a2f32-207a-4ca8-b7ca-8a85d07c10d5",
+      "title": "alert",
+      "published": "Fri Nov 20 18:26:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A665 - Cheetham Hill Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.507767 -2.24088"
     },
     {
       "id": "12a674b9-e3c9-4b48-a08d-9354a99b7b8c",
@@ -128,34 +156,6 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.485659 -2.230874"
-    },
-    {
-      "id": "495a2f32-207a-4ca8-b7ca-8a85d07c10d5",
-      "title": "alert",
-      "published": "Fri Nov 20 18:26:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Cheetham Hill Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.507767 -2.24088"
-    },
-    {
-      "id": "112a5a5f-225b-4db6-b21c-c07e1a7e2719",
-      "title": "alert",
-      "published": "Fri Nov 20 18:27:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A62 - Oldham Rd",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.485026 -2.232467"
     },
     {
       "id": "a88bc953-9414-4a2f-886a-55cdd9982593",
