@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T20:50:48.792902+00:00",
+  "updatedAt": "2026-11-20T20:55:49.125348+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "2e23701e-3493-4161-af25-86a0697b1b52",
@@ -44,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.37042 -2.240936"
+    },
+    {
+      "id": "ff437e0f-da0a-4e2b-8766-db1ce958d11c",
+      "title": "alert",
+      "published": "Fri Nov 20 20:52:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.476152 -2.264795"
     },
     {
       "id": "61efad03-8164-4da8-88a8-55588cb115d3",
@@ -96,7 +110,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.500043 -2.382533"
