@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T16:45:49.264882+00:00",
+  "updatedAt": "2026-11-20T16:50:49.216737+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "61770d7d-69ad-416a-a29d-418bd4979ccc",
@@ -13,37 +13,37 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.540617 -2.116914"
     },
     {
-      "id": "b7f90a52-7232-48dd-8755-1c829d3707e1",
+      "id": "5a7f038e-1778-4289-9768-b64f79ff38da",
       "title": "alert",
-      "published": "Fri Nov 20 16:41:57 +0000 2026",
+      "published": "Fri Nov 20 16:50:00 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A666 - St. Peter's Way",
-      "city": "Bolton",
+      "road": "",
+      "city": "Stockport",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.568961 -2.414073"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.41625 -2.149844"
     },
     {
-      "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
+      "id": "6f842e8a-5942-4a0d-b051-3fcbca735582",
       "title": "alert",
-      "published": "Fri Nov 20 16:28:25 +0000 2026",
+      "published": "Fri Nov 20 16:49:45 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
+      "subtype": "",
+      "road": "A6010 - Pottery Ln",
+      "city": "West Gorton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.599721 -2.195208"
+      "point": "53.466349 -2.195569"
     },
     {
       "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
@@ -74,6 +74,20 @@
       "point": "53.599407 -2.195948"
     },
     {
+      "id": "cca3cc25-8d54-4e84-b5b0-827a71e70015",
+      "title": "alert",
+      "published": "Fri Nov 20 16:28:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.599721 -2.195208"
+    },
+    {
       "id": "1c6d800c-39aa-4fff-a913-1f9746f74158",
       "title": "alert",
       "published": "Fri Nov 20 16:43:42 +0000 2026",
@@ -82,8 +96,8 @@
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.55493 -2.250479"
     }
