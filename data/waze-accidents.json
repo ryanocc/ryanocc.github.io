@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T18:55:49.081290+00:00",
+  "updatedAt": "2026-11-20T19:00:48.957505+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -32,6 +32,20 @@
       "point": "53.452918 -2.316148"
     },
     {
+      "id": "788fc5e1-3c29-44c5-b2b2-f991b46efe45",
+      "title": "alert",
+      "published": "Fri Nov 20 18:55:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5211 - Barton Dock Rd",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.464881 -2.341263"
+    },
+    {
       "id": "94bfec14-7c06-4238-96c1-0c5ec5e1f0c8",
       "title": "alert",
       "published": "Fri Nov 20 18:30:11 +0000 2026",
@@ -46,20 +60,6 @@
       "point": "53.559985 -2.323696"
     },
     {
-      "id": "7e110e90-ca4d-4040-94bd-b59616d8608d",
-      "title": "alert",
-      "published": "Fri Nov 20 18:23:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5181 - Park Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.45336 -2.316732"
-    },
-    {
       "id": "ddd8c434-cd0c-4a28-80bb-9442b80c3efc",
       "title": "alert",
       "published": "Fri Nov 20 18:09:57 +0000 2026",
@@ -68,7 +68,7 @@
       "road": "A5209 - Almond Brook Rd",
       "city": "Shevington Moor",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.588799 -2.681543"
@@ -96,24 +96,10 @@
       "road": "A62 - Oldham Rd",
       "city": "Ancoats",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.48574 -2.230676"
-    },
-    {
-      "id": "e3f8c6b8-a479-4392-89e5-a8799eb4b775",
-      "title": "alert",
-      "published": "Fri Nov 20 18:55:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.369013 -2.293113"
     },
     {
       "id": "a88bc953-9414-4a2f-886a-55cdd9982593",
@@ -130,6 +116,20 @@
       "point": "53.359142 -2.371234"
     },
     {
+      "id": "e3f8c6b8-a479-4392-89e5-a8799eb4b775",
+      "title": "alert",
+      "published": "Fri Nov 20 18:55:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.369013 -2.293113"
+    },
+    {
       "id": "3b4a8871-27b0-477a-bc67-10612e7dd1bd",
       "title": "alert",
       "published": "Fri Nov 20 18:55:41 +0000 2026",
@@ -138,8 +138,8 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.377979 -2.282554"
     },
