@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T07:10:48.905848+00:00",
+  "updatedAt": "2026-11-20T07:15:48.981209+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "753b7de9-ed1f-42f2-9306-13aab1a50af0",
@@ -12,10 +12,24 @@
       "road": "B5213 - Stretford Rd",
       "city": "Urmston",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.446093 -2.333442"
+    },
+    {
+      "id": "e6ce41f0-6a74-4c85-b64b-f6caac41df86",
+      "title": "alert",
+      "published": "Fri Nov 20 07:10:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Moss Side",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.457738 -2.245022"
     },
     {
       "id": "d3df13d3-1e84-49b3-818d-4a016a234c1e",
