@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T13:25:49.024510+00:00",
+  "updatedAt": "2026-11-20T13:30:48.922766+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "8c7ecb8b-ce12-488a-ba72-603e8be5dba4",
@@ -46,6 +46,20 @@
       "point": "53.551615 -2.09098"
     },
     {
+      "id": "d30da8b3-5534-4d6e-b61d-8f74d28c1932",
+      "title": "alert",
+      "published": "Fri Nov 20 12:59:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Bentcliffe Way",
+      "city": "Eccles",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.4816 -2.339302"
+    },
+    {
       "id": "9c31c504-54b9-4d18-bfe3-5569bb1196d7",
       "title": "alert",
       "published": "Fri Nov 20 13:12:08 +0000 2026",
@@ -60,18 +74,18 @@
       "point": "53.481784 -2.339857"
     },
     {
-      "id": "d30da8b3-5534-4d6e-b61d-8f74d28c1932",
+      "id": "f055e6d0-f6fc-4a46-a638-4e3eb612cf52",
       "title": "alert",
-      "published": "Fri Nov 20 12:59:49 +0000 2026",
+      "published": "Fri Nov 20 13:29:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Bentcliffe Way",
-      "city": "Eccles",
+      "road": "A6 - Watergate Ln",
+      "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.4816 -2.339302"
+      "point": "53.543439 -2.450708"
     },
     {
       "id": "4c7f1307-d8fa-4181-ab64-a47d5e72f014",
@@ -82,8 +96,8 @@
       "road": "A6 - Stockport Rd",
       "city": "Levenshulme",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.447504 -2.191514"
     }
