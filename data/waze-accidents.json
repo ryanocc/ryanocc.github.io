@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T14:20:49.059478+00:00",
+  "updatedAt": "2026-11-20T14:25:49.013857+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -26,10 +26,24 @@
       "road": "Higher Ardwick",
       "city": "Ardwick",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.47197 -2.217711"
+    },
+    {
+      "id": "653653b2-cc3d-4441-89a2-8b3a17ddc974",
+      "title": "alert",
+      "published": "Fri Nov 20 13:48:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Stockfield Rd",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.541294 -2.134839"
     },
     {
       "id": "527fc510-a197-4b5b-881e-7239238f70dd",
@@ -58,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.541258 -2.138812"
-    },
-    {
-      "id": "653653b2-cc3d-4441-89a2-8b3a17ddc974",
-      "title": "alert",
-      "published": "Fri Nov 20 13:48:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Stockfield Rd",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.541294 -2.134839"
     },
     {
       "id": "9c31c504-54b9-4d18-bfe3-5569bb1196d7",
