@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-20T21:20:48.876700+00:00",
+  "updatedAt": "2026-11-20T21:25:48.954785+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
+    {
+      "id": "f0002282-08dc-4286-9212-5df996514c82",
+      "title": "alert",
+      "published": "Fri Nov 20 21:21:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Upper Park Rd",
+      "city": "Rusholme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.457151 -2.220338"
+    },
     {
       "id": "f9f8f01a-e85e-4011-b962-a4f4f9526e9a",
       "title": "alert",
@@ -16,20 +30,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.37042 -2.240936"
-    },
-    {
-      "id": "62b671cd-0208-482d-89bd-91d1cbd820db",
-      "title": "alert",
-      "published": "Fri Nov 20 20:57:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A58 - Lily Ln",
-      "city": "Bamfurlong",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.508124 -2.608935"
     },
     {
       "id": "3792594e-4329-4d69-b5bb-9bdfa1ae307a",
@@ -58,6 +58,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.50898 -2.607226"
+    },
+    {
+      "id": "62b671cd-0208-482d-89bd-91d1cbd820db",
+      "title": "alert",
+      "published": "Fri Nov 20 20:57:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A58 - Lily Ln",
+      "city": "Bamfurlong",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.508124 -2.608935"
     },
     {
       "id": "c91c9dba-db03-42b8-96ec-7c137104dbbc",
