@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T07:35:48.896129+00:00",
+  "updatedAt": "2026-11-20T07:40:48.913497+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "2a1baf4d-e996-406d-ae6f-f783a1bb8d9e",
@@ -32,6 +32,20 @@
       "point": "53.446093 -2.333442"
     },
     {
+      "id": "1c123fc0-d442-4ae0-be46-0f97a42309f4",
+      "title": "alert",
+      "published": "Fri Nov 20 07:39:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.526859 -2.160136"
+    },
+    {
       "id": "dfcc9104-533c-47de-94b3-9bb244367ffa",
       "title": "alert",
       "published": "Fri Nov 20 07:15:00 +0000 2026",
@@ -40,24 +54,24 @@
       "road": "B6431 - Clarence St",
       "city": "Stalybridge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.483797 -2.073957"
     },
     {
-      "id": "b2bf513c-d51f-4c25-9b50-081f9b1c5b9f",
+      "id": "fc65c475-cda3-4a55-93a1-6a6cb6c9c0af",
       "title": "alert",
-      "published": "Fri Nov 20 07:29:01 +0000 2026",
+      "published": "Fri Nov 20 07:36:16 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
+      "road": "A57 - Dinting Vale",
+      "city": "Glossop",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.496257 -2.384161"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.451019 -1.980026"
     }
   ]
 }
