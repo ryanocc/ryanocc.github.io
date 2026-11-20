@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T16:00:49.362057+00:00",
+  "updatedAt": "2026-11-20T16:05:49.319591+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "17c1964c-021e-4c94-8cbd-8414516f4ccd",
@@ -26,24 +26,24 @@
       "road": "Dean Ln",
       "city": "Newton Heath",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.503464 -2.184501"
     },
     {
-      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
+      "id": "bba88636-3d75-4469-840e-552225d131c8",
       "title": "alert",
-      "published": "Fri Nov 20 15:59:03 +0000 2026",
+      "published": "Fri Nov 20 16:04:35 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
+      "road": "A635 - Ashton Old Rd",
+      "city": "West Gorton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.599407 -2.195948"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.474321 -2.198931"
     },
     {
       "id": "5045c629-0eea-4dc6-b354-5e4b536533be",
@@ -54,10 +54,24 @@
       "road": "A58 - Rochdale Rd E",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.599679 -2.195306"
+    },
+    {
+      "id": "b4cbde2d-c1fe-445a-acac-6cbaa5b1aa96",
+      "title": "alert",
+      "published": "Fri Nov 20 15:59:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.599407 -2.195948"
     },
     {
       "id": "2f680640-c39a-4b8c-80e1-9d593c7b4e3e",
