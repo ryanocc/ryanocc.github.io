@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T18:00:49.120553+00:00",
+  "updatedAt": "2026-11-20T18:05:48.945923+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 10,
   "incidents": [
     {
       "id": "af8f850a-6237-4cdb-9d1b-3d2f98cf295b",
@@ -60,18 +60,32 @@
       "point": "53.452918 -2.316148"
     },
     {
-      "id": "19adb8a7-2764-4a96-b844-4028718e60d1",
+      "id": "407025aa-7223-4955-b194-4c3a88073dbe",
       "title": "alert",
-      "published": "Fri Nov 20 17:56:17 +0000 2026",
+      "published": "Fri Nov 20 18:03:52 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B6222 - Bury And Rochdale Old Rd",
-      "city": "Bamford",
+      "road": "A6053 - Loxham St",
+      "city": "Farnworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.60633 -2.213513"
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.557447 -2.398001"
+    },
+    {
+      "id": "8a5f0cc5-65e2-4109-904d-4336e4852167",
+      "title": "alert",
+      "published": "Fri Nov 20 18:02:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Edinburgh Way",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.600507 -2.166186"
     },
     {
       "id": "1146c4ec-ad51-43f5-9ab9-ee6b86a12fb6",
@@ -116,74 +130,18 @@
       "point": "53.599407 -2.195948"
     },
     {
-      "id": "8f208351-c1bc-4f00-917d-a0057bc94be3",
+      "id": "f6376923-ad54-459c-b749-c8f0671c93e8",
       "title": "alert",
-      "published": "Fri Nov 20 17:53:52 +0000 2026",
+      "published": "Fri Nov 20 18:05:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.357553 -2.311506"
-    },
-    {
-      "id": "d25042a1-40fb-4e96-9bb8-30659ac86eab",
-      "title": "alert",
-      "published": "Fri Nov 20 17:50:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.357635 -2.352977"
-    },
-    {
-      "id": "5e83676b-b2ae-462e-bba4-0bd7241f1e3f",
-      "title": "alert",
-      "published": "Fri Nov 20 17:58:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.462723 -2.412543"
-    },
-    {
-      "id": "217f638c-8368-473d-bbdd-2a84da9266ae",
-      "title": "alert",
-      "published": "Fri Nov 20 17:59:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.480963 -2.375875"
-    },
-    {
-      "id": "98942340-bc37-4892-b738-e9968e069d73",
-      "title": "alert",
-      "published": "Fri Nov 20 17:57:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.471941 -2.402059"
+      "point": "53.35741 -2.313327"
     }
   ]
 }
