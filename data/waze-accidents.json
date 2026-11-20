@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-20T19:40:48.895471+00:00",
+  "updatedAt": "2026-11-20T19:45:48.853379+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "7054c4c4-fb82-42d3-a9a8-d6083be04778",
@@ -16,20 +16,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.444473 -1.970128"
-    },
-    {
-      "id": "b822a4ce-306a-4e90-8e57-9adcb3f7df97",
-      "title": "alert",
-      "published": "Fri Nov 20 17:55:01 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Davyhulme Rd",
-      "city": "Stretford",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.452918 -2.316148"
     },
     {
       "id": "b9cacb93-375a-490b-b174-027b0fe4d9f6",
@@ -54,8 +40,8 @@
       "road": "",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.525695 -2.176514"
     },
@@ -69,23 +55,9 @@
       "city": "Lostock",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.583126 -2.519623"
-    },
-    {
-      "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
-      "title": "alert",
-      "published": "Fri Nov 20 19:12:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.548569 -2.294121"
     },
     {
       "id": "51460543-2477-437a-8a19-de9349754ef4",
@@ -100,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.547652 -2.293326"
+    },
+    {
+      "id": "bcd26fe4-c28a-4f8f-a03e-2bd151fbbb73",
+      "title": "alert",
+      "published": "Fri Nov 20 19:12:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A56 - Bury New Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.548569 -2.294121"
     },
     {
       "id": "c91c9dba-db03-42b8-96ec-7c137104dbbc",
