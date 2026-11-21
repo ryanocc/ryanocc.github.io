@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T12:40:48.996846+00:00",
+  "updatedAt": "2026-11-21T12:45:48.879921+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "13d57b57-56c5-4a02-8f01-9461b8b53677",
@@ -60,6 +60,20 @@
       "point": "53.468755 -2.24335"
     },
     {
+      "id": "63c8afb7-5e7f-4e69-bf72-91f329c7b70a",
+      "title": "alert",
+      "published": "Sat Nov 21 12:43:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6167 - Lancashire Hill",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.418754 -2.160492"
+    },
+    {
       "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
       "title": "alert",
       "published": "Sat Nov 21 11:39:53 +0000 2026",
@@ -74,20 +88,6 @@
       "point": "53.367122 -2.268466"
     },
     {
-      "id": "8ba60b9e-8b8f-4f52-b343-a0c095f28a27",
-      "title": "alert",
-      "published": "Sat Nov 21 12:15:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Enterprise Way",
-      "city": "Wythenshawe",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.367391 -2.268242"
-    },
-    {
       "id": "9f5f462c-6099-4b47-a71e-99f87246e39a",
       "title": "alert",
       "published": "Sat Nov 21 12:30:51 +0000 2026",
@@ -100,6 +100,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.498904 -2.519108"
+    },
+    {
+      "id": "eceb8ef0-db12-484f-ab5c-c04ffaf9b9ef",
+      "title": "alert",
+      "published": "Sat Nov 21 12:41:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5213 - Church Rd",
+      "city": "Flixton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.441843 -2.378137"
     },
     {
       "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
@@ -130,20 +144,6 @@
       "point": "53.366885 -2.269162"
     },
     {
-      "id": "5285d30b-7b1c-4c43-95e0-4402919fe8a2",
-      "title": "alert",
-      "published": "Sat Nov 21 12:39:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.383217 -2.504757"
-    },
-    {
       "id": "369dfa2d-c6fd-4b84-9688-cc04a3e90b28",
       "title": "alert",
       "published": "Sat Nov 21 12:16:18 +0000 2026",
@@ -156,6 +156,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.406647 -2.521387"
+    },
+    {
+      "id": "5285d30b-7b1c-4c43-95e0-4402919fe8a2",
+      "title": "alert",
+      "published": "Sat Nov 21 12:39:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.383217 -2.504757"
     }
   ]
 }
