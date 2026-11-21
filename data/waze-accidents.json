@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-21T17:00:48.904860+00:00",
+  "updatedAt": "2026-11-21T17:05:48.892192+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
-    {
-      "id": "ef28ee27-02f2-4f1c-87b4-29addd7e959c",
-      "title": "alert",
-      "published": "Sat Nov 21 16:10:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.545219 -2.198025"
-    },
     {
       "id": "578c0aec-62e9-4810-98f0-c41ff649089a",
       "title": "alert",
@@ -26,7 +12,7 @@
       "road": "Burnden Way",
       "city": "Horwich",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 0.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.580125 -2.538099"
@@ -74,6 +60,20 @@
       "point": "53.399676 -2.442865"
     },
     {
+      "id": "021fd93b-2f00-4418-a293-50980d479357",
+      "title": "alert",
+      "published": "Sat Nov 21 17:04:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A669 - Lees Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.53886 -2.086525"
+    },
+    {
       "id": "732f9c8d-2287-425e-a9a8-3a1dde359b98",
       "title": "alert",
       "published": "Sat Nov 21 16:56:21 +0000 2026",
@@ -83,7 +83,7 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.53954 -2.087826"
     }
