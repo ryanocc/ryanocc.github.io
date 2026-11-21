@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-21T11:30:49.036192+00:00",
+  "updatedAt": "2026-11-21T11:35:49.020953+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "ac22f55e-fd5d-4c44-a561-932b9aa74672",
+      "title": "alert",
+      "published": "Sat Nov 21 11:34:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.438933 -2.423219"
+    },
     {
       "id": "d48c0a4a-bd5a-405f-9c4a-8e54618b484f",
       "title": "alert",
@@ -32,6 +46,20 @@
       "point": "53.575583 -2.293684"
     },
     {
+      "id": "a9808fdd-e1a8-4a67-b255-29cb2567b886",
+      "title": "alert",
+      "published": "Sat Nov 21 11:35:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.367055 -2.270077"
+    },
+    {
       "id": "5a9ee0b4-450a-4261-8753-da011c05cd6b",
       "title": "alert",
       "published": "Sat Nov 21 11:30:12 +0000 2026",
@@ -40,8 +68,8 @@
       "road": "A34 (N) - Handforth Bypass",
       "city": "Handforth",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.355096 -2.200671"
     },
@@ -54,8 +82,8 @@
       "road": "A579 - Atherleigh Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.482296 -2.534747"
     }
