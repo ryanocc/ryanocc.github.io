@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T13:15:48.917208+00:00",
+  "updatedAt": "2026-11-21T13:20:48.985706+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "6fea1b5d-daab-48b4-9e5c-5e8343edfd2f",
@@ -69,7 +69,7 @@
       "city": "Leigh",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.499088 -2.518623"
     },
@@ -83,23 +83,9 @@
       "city": "Leigh",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.498904 -2.519108"
-    },
-    {
-      "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
-      "title": "alert",
-      "published": "Sat Nov 21 12:08:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.367348 -2.271264"
     },
     {
       "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
@@ -114,6 +100,34 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.366885 -2.269162"
+    },
+    {
+      "id": "0bade86b-fb6b-4a85-b1f9-cc37b0eb5df5",
+      "title": "alert",
+      "published": "Sat Nov 21 13:17:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.366416 -2.266582"
+    },
+    {
+      "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
+      "title": "alert",
+      "published": "Sat Nov 21 12:08:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.367348 -2.271264"
     }
   ]
 }
