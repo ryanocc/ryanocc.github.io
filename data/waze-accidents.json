@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T18:05:49.098825+00:00",
+  "updatedAt": "2026-11-21T18:10:49.123065+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "e6bdf603-d71f-4218-b0b9-acdc686a0423",
@@ -40,38 +40,24 @@
       "road": "A676 - Bradshaw Brow",
       "city": "Bradshaw",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.603296 -2.40586"
     },
     {
-      "id": "cad006da-8c0f-426c-9797-624e43bd4615",
+      "id": "3c4bb252-0af8-4544-8cc4-3fd6c8cc88ed",
       "title": "alert",
-      "published": "Sat Nov 21 18:04:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A49 - Chapel Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.542102 -2.629951"
-    },
-    {
-      "id": "7c466ded-5e26-4b63-92a6-71df44d93ee1",
-      "title": "alert",
-      "published": "Sat Nov 21 18:03:42 +0000 2026",
+      "published": "Sat Nov 21 18:09:51 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A49 - River Way",
-      "city": "Wigan",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.547209 -2.627773"
+      "point": "53.579286 -2.489618"
     },
     {
       "id": "b43f5b4e-f8d8-442c-b2f0-898e46510525",
@@ -86,6 +72,48 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.544236 -2.628145"
+    },
+    {
+      "id": "cad006da-8c0f-426c-9797-624e43bd4615",
+      "title": "alert",
+      "published": "Sat Nov 21 18:04:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A49 - Chapel Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.542102 -2.629951"
+    },
+    {
+      "id": "7c466ded-5e26-4b63-92a6-71df44d93ee1",
+      "title": "alert",
+      "published": "Sat Nov 21 18:03:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - River Way",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.547209 -2.627773"
+    },
+    {
+      "id": "fb06c889-a2f0-45b8-90b2-eb1f1f8b8fef",
+      "title": "alert",
+      "published": "Sat Nov 21 18:07:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Chapel Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.54003 -2.63216"
     }
   ]
 }
