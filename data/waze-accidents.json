@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T08:40:48.786017+00:00",
+  "updatedAt": "2026-11-21T08:45:48.801479+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "33d3a3d2-f631-4900-a7d6-55248569c482",
@@ -12,8 +12,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.366143 -2.385108"
     },
@@ -27,9 +27,23 @@
       "city": "Longsight",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.455728 -2.202993"
+    },
+    {
+      "id": "66f43bff-8cf0-4050-a48e-d541f33f89d4",
+      "title": "alert",
+      "published": "Sat Nov 21 08:41:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A628 - Market St",
+      "city": "Hollingworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.463133 -1.991478"
     }
   ]
 }
