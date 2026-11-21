@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-21T18:20:48.921306+00:00",
+  "updatedAt": "2026-11-21T18:25:48.862364+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
+    {
+      "id": "294b3dcd-f545-461a-9382-2012ddfdb0c6",
+      "title": "alert",
+      "published": "Sat Nov 21 18:20:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Waterside Dr",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.539438 -2.633018"
+    },
     {
       "id": "e6bdf603-d71f-4218-b0b9-acdc686a0423",
       "title": "alert",
@@ -18,20 +32,6 @@
       "point": "53.456027 -2.115737"
     },
     {
-      "id": "222b9e20-72c8-421a-a0c5-b9541fdb9b06",
-      "title": "alert",
-      "published": "Sat Nov 21 17:55:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5211 - Barton Dock Rd",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.465732 -2.342583"
-    },
-    {
       "id": "b42e535c-0286-4474-8a1f-5381b75e4e6d",
       "title": "alert",
       "published": "Sat Nov 21 18:14:51 +0000 2026",
@@ -40,8 +40,8 @@
       "road": "A5145 - Wilmslow Rd",
       "city": "Didsbury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.409794 -2.220416"
     },
@@ -68,7 +68,7 @@
       "road": "A673 - Chorley New Rd",
       "city": "Lostock",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.579286 -2.489618"
@@ -83,7 +83,7 @@
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.540478 -2.631628"
     }
