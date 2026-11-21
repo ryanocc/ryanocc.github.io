@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-21T14:25:48.935140+00:00",
+  "updatedAt": "2026-11-21T14:30:48.935089+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
-    {
-      "id": "7a6a913a-bba2-4aa5-80f1-cbacd4fa23e0",
-      "title": "alert",
-      "published": "Sat Nov 21 12:26:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Back Bury New Rd E",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.579159 -2.414929"
-    },
     {
       "id": "b54b9e38-6777-4b1d-bf34-09b942c9bd5a",
       "title": "alert",
@@ -54,10 +40,24 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.459039 -2.16229"
+    },
+    {
+      "id": "f8d60b29-2218-46c1-97f9-28e59a996812",
+      "title": "alert",
+      "published": "Sat Nov 21 14:28:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.492469 -2.380733"
     }
   ]
 }
