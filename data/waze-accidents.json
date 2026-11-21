@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T10:00:48.876088+00:00",
+  "updatedAt": "2026-11-21T10:05:48.773900+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "f4eaaa21-5f54-4573-b3fb-de17044e8298",
@@ -41,7 +41,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.373974 -1.941561"
     },
@@ -58,6 +58,20 @@
       "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.376625 -1.94469"
+    },
+    {
+      "id": "703b3de4-c612-4dae-bfd1-f2c493b64956",
+      "title": "alert",
+      "published": "Sat Nov 21 10:01:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Peel Way",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.594891 -2.298009"
     }
   ]
 }
