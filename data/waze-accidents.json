@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T09:15:48.819799+00:00",
+  "updatedAt": "2026-11-21T09:20:48.780262+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
       "id": "223b08c3-2932-4dcc-874b-8259df16af8e",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.520363 -2.411627"
+    },
+    {
+      "id": "4a5de846-6515-4239-95e5-05766001f8d5",
+      "title": "alert",
+      "published": "Sat Nov 21 09:17:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A624 - Chapel Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.373974 -1.941561"
     }
   ]
 }
