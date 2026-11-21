@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-21T08:25:48.747695+00:00",
+  "updatedAt": "2026-11-21T08:30:48.854638+00:00",
   "source": "Waze GeoRSS",
   "count": 2,
   "incidents": [
-    {
-      "id": "f6b681e9-9600-44d1-aa83-31883a2b9bcc",
-      "title": "alert",
-      "published": "Sat Nov 21 07:59:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - Dickenson Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.455728 -2.202993"
-    },
     {
       "id": "dc95d8d1-5d66-455d-92a7-ba79f44be65e",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.455643 -2.203383"
+    },
+    {
+      "id": "f6b681e9-9600-44d1-aa83-31883a2b9bcc",
+      "title": "alert",
+      "published": "Sat Nov 21 07:59:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Dickenson Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.455728 -2.202993"
     }
   ]
 }
