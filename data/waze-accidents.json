@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-21T22:20:48.913905+00:00",
+  "updatedAt": "2026-11-21T22:25:48.826521+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
-    {
-      "id": "c44bbf13-2ca2-498f-b109-20fb584afb76",
-      "title": "alert",
-      "published": "Sat Nov 21 21:41:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B6180 - Waterloo Rd",
-      "city": "Cheetham",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.504742 -2.243364"
-    },
     {
       "id": "087fb4d2-f593-4715-ba01-f2ca5d29e66f",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50466 -2.243409"
+    },
+    {
+      "id": "c44bbf13-2ca2-498f-b109-20fb584afb76",
+      "title": "alert",
+      "published": "Sat Nov 21 21:41:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6180 - Waterloo Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.504742 -2.243364"
     },
     {
       "id": "3fcaf15a-de2e-456a-8f93-f867202309e3",
@@ -60,6 +60,20 @@
       "point": "53.586429 -2.156437"
     },
     {
+      "id": "d50bb615-fedf-4b93-9476-270f5c3c6033",
+      "title": "alert",
+      "published": "Sat Nov 21 22:21:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.624746 -2.070565"
+    },
+    {
       "id": "ffd76866-f18b-472a-a0c3-6a87a78c65b0",
       "title": "alert",
       "published": "Sat Nov 21 22:09:44 +0000 2026",
@@ -72,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.624687 -2.054945"
+    },
+    {
+      "id": "0e07b1ee-cdf4-43e3-bb34-0260e301247a",
+      "title": "alert",
+      "published": "Sat Nov 21 22:25:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.619297 -2.085303"
     }
   ]
 }
