@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T15:45:49.033133+00:00",
+  "updatedAt": "2026-11-21T15:50:49.006092+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
@@ -32,20 +32,6 @@
       "point": "53.535644 -2.289193"
     },
     {
-      "id": "b54b9e38-6777-4b1d-bf34-09b942c9bd5a",
-      "title": "alert",
-      "published": "Sat Nov 21 13:42:03 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Denton St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.602106 -2.292385"
-    },
-    {
       "id": "f3353282-4f7f-47b5-9e85-12082dafac8b",
       "title": "alert",
       "published": "Sat Nov 21 14:33:37 +0000 2026",
@@ -60,6 +46,20 @@
       "point": "53.545555 -2.089953"
     },
     {
+      "id": "81a8e6f3-09e3-4e4e-b7ab-5a565a4140f9",
+      "title": "alert",
+      "published": "Sat Nov 21 15:50:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6144 - Paddock Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.399676 -2.442865"
+    },
+    {
       "id": "cab09011-59db-490e-806d-ad2ac33d0c09",
       "title": "alert",
       "published": "Sat Nov 21 15:37:47 +0000 2026",
@@ -69,7 +69,7 @@
       "city": "Middleton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.547577 -2.203785"
     }
