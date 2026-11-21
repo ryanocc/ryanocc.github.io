@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T11:35:49.020953+00:00",
+  "updatedAt": "2026-11-21T11:40:48.893173+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "ac22f55e-fd5d-4c44-a561-932b9aa74672",
@@ -46,6 +46,34 @@
       "point": "53.575583 -2.293684"
     },
     {
+      "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
+      "title": "alert",
+      "published": "Sat Nov 21 11:39:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Enterprise Way",
+      "city": "Wythenshawe",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.367122 -2.268466"
+    },
+    {
+      "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
+      "title": "alert",
+      "published": "Sat Nov 21 11:36:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.366885 -2.269162"
+    },
+    {
       "id": "a9808fdd-e1a8-4a67-b255-29cb2567b886",
       "title": "alert",
       "published": "Sat Nov 21 11:35:44 +0000 2026",
@@ -54,8 +82,8 @@
       "road": "A555 - Ringway Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.367055 -2.270077"
     },
@@ -82,8 +110,8 @@
       "road": "A579 - Atherleigh Way",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.482296 -2.534747"
     }
