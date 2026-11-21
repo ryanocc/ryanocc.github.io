@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T13:20:48.985706+00:00",
+  "updatedAt": "2026-11-21T13:25:48.957593+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "6fea1b5d-daab-48b4-9e5c-5e8343edfd2f",
@@ -60,20 +60,6 @@
       "point": "53.367122 -2.268466"
     },
     {
-      "id": "b8a0dfbd-30fc-4f25-9a01-e0abced082f0",
-      "title": "alert",
-      "published": "Sat Nov 21 12:59:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "The Avenue",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.499088 -2.518623"
-    },
-    {
       "id": "9f5f462c-6099-4b47-a71e-99f87246e39a",
       "title": "alert",
       "published": "Sat Nov 21 12:30:51 +0000 2026",
@@ -86,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.498904 -2.519108"
+    },
+    {
+      "id": "b8a0dfbd-30fc-4f25-9a01-e0abced082f0",
+      "title": "alert",
+      "published": "Sat Nov 21 12:59:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "The Avenue",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.499088 -2.518623"
     },
     {
       "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
@@ -102,6 +102,20 @@
       "point": "53.366885 -2.269162"
     },
     {
+      "id": "fd5e38f6-b47d-4634-89d5-756377e5f2c7",
+      "title": "alert",
+      "published": "Sat Nov 21 13:23:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.366999 -2.270272"
+    },
+    {
       "id": "0bade86b-fb6b-4a85-b1f9-cc37b0eb5df5",
       "title": "alert",
       "published": "Sat Nov 21 13:17:12 +0000 2026",
@@ -110,8 +124,8 @@
       "road": "A555 - Ringway Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.366416 -2.266582"
     },
@@ -128,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.367348 -2.271264"
+    },
+    {
+      "id": "029e44bf-5588-42ef-a711-55050461cf3c",
+      "title": "alert",
+      "published": "Sat Nov 21 13:24:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.495618 -2.383857"
     }
   ]
 }
