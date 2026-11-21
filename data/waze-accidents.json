@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-21T12:15:48.868315+00:00",
+  "updatedAt": "2026-11-21T12:20:48.936190+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
-    {
-      "id": "4b4b8af8-7593-4245-aba8-3ecae023591f",
-      "title": "alert",
-      "published": "Sat Nov 21 11:52:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.379848 -2.28865"
-    },
     {
       "id": "d48c0a4a-bd5a-405f-9c4a-8e54618b484f",
       "title": "alert",
@@ -69,7 +55,7 @@
       "city": "Wythenshawe",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 4.0,
       "point": "53.367391 -2.268242"
     },
@@ -96,7 +82,7 @@
       "road": "A555 - Ringway Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.367307 -2.271002"
@@ -116,6 +102,34 @@
       "point": "53.366885 -2.269162"
     },
     {
+      "id": "369dfa2d-c6fd-4b84-9688-cc04a3e90b28",
+      "title": "alert",
+      "published": "Sat Nov 21 12:16:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.406647 -2.521387"
+    },
+    {
+      "id": "b89eef69-abff-47fa-8b79-ebac467b3611",
+      "title": "alert",
+      "published": "Sat Nov 21 12:16:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.380815 -2.505244"
+    },
+    {
       "id": "91234cc7-7d54-481e-a814-c3c2c0db51c6",
       "title": "alert",
       "published": "Sat Nov 21 12:13:46 +0000 2026",
@@ -124,8 +138,8 @@
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.382229 -2.505478"
     }
