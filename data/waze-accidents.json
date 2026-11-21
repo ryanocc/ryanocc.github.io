@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T16:10:49.094010+00:00",
+  "updatedAt": "2026-11-21T16:15:49.015547+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "db43f6bf-1cf8-4cc1-a5c0-cabae8a67276",
@@ -26,7 +26,7 @@
       "road": "",
       "city": "",
       "country": "",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.514078 -2.393726"
@@ -96,10 +96,24 @@
       "road": "A6144 - Paddock Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 5.0,
       "point": "53.399676 -2.442865"
+    },
+    {
+      "id": "303a7e5c-3d0a-4b91-aedb-3d1e167854a6",
+      "title": "alert",
+      "published": "Sat Nov 21 16:12:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A662 - Ashton Rd",
+      "city": "Droylsden",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.479573 -2.144803"
     },
     {
       "id": "cab09011-59db-490e-806d-ad2ac33d0c09",
@@ -110,8 +124,8 @@
       "road": "A576 - Manchester Old Rd",
       "city": "Middleton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.547577 -2.203785"
     }
