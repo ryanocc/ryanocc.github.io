@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T22:40:48.861375+00:00",
+  "updatedAt": "2026-11-21T22:45:48.893182+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "c44bbf13-2ca2-498f-b109-20fb584afb76",
@@ -12,7 +12,7 @@
       "road": "B6180 - Waterloo Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.504742 -2.243364"
@@ -26,10 +26,24 @@
       "road": "B6180 - Waterloo Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50466 -2.243409"
+    },
+    {
+      "id": "0d0e6373-2a34-4f2b-8bec-77b19218f1de",
+      "title": "alert",
+      "published": "Sat Nov 21 22:42:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6180 - Waterloo Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.505749 -2.242944"
     },
     {
       "id": "3fcaf15a-de2e-456a-8f93-f867202309e3",
@@ -54,8 +68,8 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.624667 -2.067273"
     }
