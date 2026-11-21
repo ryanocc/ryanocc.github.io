@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T12:30:49.162955+00:00",
+  "updatedAt": "2026-11-21T12:35:48.861410+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "d48c0a4a-bd5a-405f-9c4a-8e54618b484f",
@@ -68,10 +68,24 @@
       "road": "Enterprise Way",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 4.0,
       "point": "53.367391 -2.268242"
+    },
+    {
+      "id": "9f5f462c-6099-4b47-a71e-99f87246e39a",
+      "title": "alert",
+      "published": "Sat Nov 21 12:30:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5215 - Leigh Rd",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.498904 -2.519108"
     },
     {
       "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
@@ -82,7 +96,7 @@
       "road": "A555 - Ringway Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.367307 -2.271002"
@@ -110,10 +124,24 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.406647 -2.521387"
+    },
+    {
+      "id": "c0282020-8f4f-46d5-bb75-4185c8c5fbf1",
+      "title": "alert",
+      "published": "Sat Nov 21 12:32:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M66 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.664682 -2.3108"
     }
   ]
 }
