@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T16:30:49.015810+00:00",
+  "updatedAt": "2026-11-21T16:35:48.977974+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.545555 -2.089953"
     },
     {
-      "id": "a0975e68-5710-4472-807b-2ba1932e8b9f",
-      "title": "alert",
-      "published": "Sat Nov 21 15:58:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6144 - Paddock Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.399824 -2.444197"
-    },
-    {
       "id": "81a8e6f3-09e3-4e4e-b7ab-5a565a4140f9",
       "title": "alert",
       "published": "Sat Nov 21 15:50:08 +0000 2026",
@@ -68,10 +54,24 @@
       "road": "A6144 - Paddock Ln",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.399676 -2.442865"
+    },
+    {
+      "id": "a0975e68-5710-4472-807b-2ba1932e8b9f",
+      "title": "alert",
+      "published": "Sat Nov 21 15:58:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6144 - Paddock Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.399824 -2.444197"
     },
     {
       "id": "303a7e5c-3d0a-4b91-aedb-3d1e167854a6",
