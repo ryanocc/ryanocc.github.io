@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-11-21T07:40:48.879848+00:00",
+  "updatedAt": "2026-11-21T08:00:48.915956+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
-      "id": "c6fd89a2-d05e-4162-a893-f8e9f27e8053",
+      "id": "dc95d8d1-5d66-455d-92a7-ba79f44be65e",
       "title": "alert",
-      "published": "Sat Nov 21 07:34:01 +0000 2026",
+      "published": "Sat Nov 21 07:58:44 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
+      "road": "A6010 - Dickenson Rd",
+      "city": "Longsight",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.439423 -2.130557"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.455643 -2.203383"
+    },
+    {
+      "id": "f6b681e9-9600-44d1-aa83-31883a2b9bcc",
+      "title": "alert",
+      "published": "Sat Nov 21 07:59:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6010 - Dickenson Rd",
+      "city": "Longsight",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.455728 -2.202993"
     }
   ]
 }
