@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T15:00:50.083740+00:00",
+  "updatedAt": "2026-11-21T15:05:49.032486+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "6f4984ca-53aa-4aaa-bc9e-2f775cf799ee",
@@ -82,10 +82,24 @@
       "road": "A34",
       "city": "Fallowfield",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.442124 -2.20442"
+    },
+    {
+      "id": "a787973e-3387-445b-a2a3-b2a7b91f333d",
+      "title": "alert",
+      "published": "Sat Nov 21 15:04:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Broad St",
+      "city": "Irwell Riverside",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.485787 -2.276714"
     }
   ]
 }
