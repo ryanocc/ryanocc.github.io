@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T12:10:49.038294+00:00",
+  "updatedAt": "2026-11-21T12:15:48.868315+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -60,18 +60,18 @@
       "point": "53.468755 -2.24335"
     },
     {
-      "id": "c9429242-bd43-4e6f-be71-c6a9c2aee24b",
+      "id": "8ba60b9e-8b8f-4f52-b343-a0c095f28a27",
       "title": "alert",
-      "published": "Sat Nov 21 11:50:19 +0000 2026",
+      "published": "Sat Nov 21 12:15:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "Enterprise Way",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.36764 -2.268171"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.367391 -2.268242"
     },
     {
       "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
@@ -88,20 +88,6 @@
       "point": "53.367122 -2.268466"
     },
     {
-      "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
-      "title": "alert",
-      "published": "Sat Nov 21 11:36:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.366885 -2.269162"
-    },
-    {
       "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
       "title": "alert",
       "published": "Sat Nov 21 12:08:13 +0000 2026",
@@ -110,24 +96,38 @@
       "road": "A555 - Ringway Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.367307 -2.271002"
     },
     {
-      "id": "da0ea402-7a7d-4517-8aed-c26955c586f3",
+      "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
       "title": "alert",
-      "published": "Sat Nov 21 12:09:12 +0000 2026",
+      "published": "Sat Nov 21 11:36:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.366885 -2.269162"
+    },
+    {
+      "id": "91234cc7-7d54-481e-a814-c3c2c0db51c6",
+      "title": "alert",
+      "published": "Sat Nov 21 12:13:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
       "road": "M6 (N)",
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.384593 -2.505244"
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.382229 -2.505478"
     }
   ]
 }
