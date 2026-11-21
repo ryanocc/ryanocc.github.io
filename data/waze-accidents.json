@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T23:25:48.967276+00:00",
+  "updatedAt": "2026-11-21T23:30:48.911272+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
     {
       "id": "0d0e6373-2a34-4f2b-8bec-77b19218f1de",
@@ -13,7 +13,7 @@
       "city": "Cheetham",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.505749 -2.242944"
     },
@@ -26,38 +26,24 @@
       "road": "B6180 - Waterloo Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.50466 -2.243409"
     },
     {
-      "id": "3fcaf15a-de2e-456a-8f93-f867202309e3",
+      "id": "0913888c-ecbe-4318-971b-67e9515cddf5",
       "title": "alert",
-      "published": "Sat Nov 21 21:22:07 +0000 2026",
+      "published": "Sat Nov 21 23:27:59 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Stockport",
+      "road": "A662 - Ashton New Rd",
+      "city": "Bradford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.407787 -2.156189"
-    },
-    {
-      "id": "b063c7ad-9837-459f-9c52-ba5d89402c17",
-      "title": "alert",
-      "published": "Sat Nov 21 22:37:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
-      "point": "53.624667 -2.067273"
+      "point": "53.481699 -2.203305"
     }
   ]
 }
