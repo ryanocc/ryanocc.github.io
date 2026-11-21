@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-21T11:50:48.966931+00:00",
+  "updatedAt": "2026-11-21T11:55:48.898410+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
+    {
+      "id": "4b4b8af8-7593-4245-aba8-3ecae023591f",
+      "title": "alert",
+      "published": "Sat Nov 21 11:52:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.379848 -2.28865"
+    },
     {
       "id": "ac22f55e-fd5d-4c44-a561-932b9aa74672",
       "title": "alert",
@@ -46,6 +60,20 @@
       "point": "53.575583 -2.293684"
     },
     {
+      "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
+      "title": "alert",
+      "published": "Sat Nov 21 11:39:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Enterprise Way",
+      "city": "Wythenshawe",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.367122 -2.268466"
+    },
+    {
       "id": "c9429242-bd43-4e6f-be71-c6a9c2aee24b",
       "title": "alert",
       "published": "Sat Nov 21 11:50:19 +0000 2026",
@@ -55,37 +83,9 @@
       "city": "Wythenshawe",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.36764 -2.268171"
-    },
-    {
-      "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
-      "title": "alert",
-      "published": "Sat Nov 21 11:39:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Enterprise Way",
-      "city": "Wythenshawe",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.367122 -2.268466"
-    },
-    {
-      "id": "5a9ee0b4-450a-4261-8753-da011c05cd6b",
-      "title": "alert",
-      "published": "Sat Nov 21 11:30:12 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (N) - Handforth Bypass",
-      "city": "Handforth",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.355096 -2.200671"
     },
     {
       "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
@@ -100,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.366885 -2.269162"
+    },
+    {
+      "id": "fcad225d-e981-451f-ae5c-b3d4199eee6d",
+      "title": "alert",
+      "published": "Sat Nov 21 11:51:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.476204 -2.12447"
     }
   ]
 }
