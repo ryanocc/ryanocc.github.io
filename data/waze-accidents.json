@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T16:05:49.088761+00:00",
+  "updatedAt": "2026-11-21T16:10:49.094010+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "db43f6bf-1cf8-4cc1-a5c0-cabae8a67276",
@@ -26,10 +26,24 @@
       "road": "",
       "city": "",
       "country": "",
-      "confidence": 0.0,
-      "reliability": 8.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.514078 -2.393726"
+    },
+    {
+      "id": "ef28ee27-02f2-4f1c-87b4-29addd7e959c",
+      "title": "alert",
+      "published": "Sat Nov 21 16:10:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.545219 -2.198025"
     },
     {
       "id": "f35807bb-b5b3-4092-a2d7-ef66444d0e57",
@@ -83,7 +97,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 5.0,
       "point": "53.399676 -2.442865"
     },
@@ -96,8 +110,8 @@
       "road": "A576 - Manchester Old Rd",
       "city": "Middleton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.547577 -2.203785"
     }
