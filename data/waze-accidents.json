@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T18:15:48.886728+00:00",
+  "updatedAt": "2026-11-21T18:20:48.921306+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "e6bdf603-d71f-4218-b0b9-acdc686a0423",
@@ -13,7 +13,7 @@
       "city": "Denton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.456027 -2.115737"
     },
@@ -41,7 +41,7 @@
       "city": "Didsbury",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.409794 -2.220416"
     },
@@ -69,37 +69,23 @@
       "city": "Lostock",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.579286 -2.489618"
     },
     {
-      "id": "fb06c889-a2f0-45b8-90b2-eb1f1f8b8fef",
+      "id": "f67e7cf2-be29-44c6-820b-5620cfdc7d73",
       "title": "alert",
-      "published": "Sat Nov 21 18:07:16 +0000 2026",
+      "published": "Sat Nov 21 18:18:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "A49 - Chapel Ln",
       "city": "Wigan",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.54003 -2.63216"
-    },
-    {
-      "id": "b43f5b4e-f8d8-442c-b2f0-898e46510525",
-      "title": "alert",
-      "published": "Sat Nov 21 18:04:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - River Way",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.544236 -2.628145"
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.540478 -2.631628"
     }
   ]
 }
