@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T13:30:48.837502+00:00",
+  "updatedAt": "2026-11-21T13:35:49.015142+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "6fea1b5d-daab-48b4-9e5c-5e8343edfd2f",
@@ -32,20 +32,6 @@
       "point": "53.579159 -2.414929"
     },
     {
-      "id": "2624e254-2fed-4499-b65d-35d37394c5ea",
-      "title": "alert",
-      "published": "Sat Nov 21 12:02:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.468755 -2.24335"
-    },
-    {
       "id": "b8a0dfbd-30fc-4f25-9a01-e0abced082f0",
       "title": "alert",
       "published": "Sat Nov 21 12:59:09 +0000 2026",
@@ -68,24 +54,10 @@
       "road": "B5215 - Leigh Rd",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.498904 -2.519108"
-    },
-    {
-      "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
-      "title": "alert",
-      "published": "Sat Nov 21 12:08:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.367348 -2.271264"
     },
     {
       "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
@@ -102,18 +74,32 @@
       "point": "53.366885 -2.269162"
     },
     {
-      "id": "029e44bf-5588-42ef-a711-55050461cf3c",
+      "id": "88347608-ec82-4522-b79b-0f4297994045",
       "title": "alert",
-      "published": "Sat Nov 21 13:24:48 +0000 2026",
+      "published": "Sat Nov 21 13:33:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.461928 -2.177459"
+    },
+    {
+      "id": "c2c31b31-97b6-4253-95a2-8019ef8ba661",
+      "title": "alert",
+      "published": "Sat Nov 21 13:33:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.495618 -2.383857"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.497788 -2.38452"
     }
   ]
 }
