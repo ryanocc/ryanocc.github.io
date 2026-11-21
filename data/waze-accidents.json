@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T09:50:48.917785+00:00",
+  "updatedAt": "2026-11-21T09:55:48.829960+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "f4eaaa21-5f54-4573-b3fb-de17044e8298",
@@ -32,20 +32,6 @@
       "point": "53.520363 -2.411627"
     },
     {
-      "id": "4a5de846-6515-4239-95e5-05766001f8d5",
-      "title": "alert",
-      "published": "Sat Nov 21 09:17:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A624 - Chapel Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.373974 -1.941561"
-    },
-    {
       "id": "dc7ccf5f-8cea-42fb-b89a-4b948265f26f",
       "title": "alert",
       "published": "Sat Nov 21 09:34:34 +0000 2026",
@@ -60,18 +46,18 @@
       "point": "53.376625 -1.94469"
     },
     {
-      "id": "e5b05bdb-b596-4aaa-9eb9-796ed270c2c5",
+      "id": "4a5de846-6515-4239-95e5-05766001f8d5",
       "title": "alert",
-      "published": "Sat Nov 21 09:35:40 +0000 2026",
+      "published": "Sat Nov 21 09:17:18 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A624 - Chapel Rd",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.471963 -2.235477"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.373974 -1.941561"
     }
   ]
 }
