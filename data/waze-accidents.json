@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T13:10:49.145259+00:00",
+  "updatedAt": "2026-11-21T13:15:48.917208+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "6fea1b5d-daab-48b4-9e5c-5e8343edfd2f",
@@ -60,20 +60,6 @@
       "point": "53.367122 -2.268466"
     },
     {
-      "id": "63c8afb7-5e7f-4e69-bf72-91f329c7b70a",
-      "title": "alert",
-      "published": "Sat Nov 21 12:43:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6167 - Lancashire Hill",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.418754 -2.160492"
-    },
-    {
       "id": "b8a0dfbd-30fc-4f25-9a01-e0abced082f0",
       "title": "alert",
       "published": "Sat Nov 21 12:59:09 +0000 2026",
@@ -102,20 +88,6 @@
       "point": "53.498904 -2.519108"
     },
     {
-      "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
-      "title": "alert",
-      "published": "Sat Nov 21 11:36:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.366885 -2.269162"
-    },
-    {
       "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
       "title": "alert",
       "published": "Sat Nov 21 12:08:13 +0000 2026",
@@ -128,6 +100,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.367348 -2.271264"
+    },
+    {
+      "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
+      "title": "alert",
+      "published": "Sat Nov 21 11:36:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.366885 -2.269162"
     }
   ]
 }
