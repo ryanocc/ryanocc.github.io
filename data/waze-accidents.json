@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-21T12:50:48.987449+00:00",
+  "updatedAt": "2026-11-21T12:55:49.004441+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 11,
   "incidents": [
-    {
-      "id": "13d57b57-56c5-4a02-8f01-9461b8b53677",
-      "title": "alert",
-      "published": "Sat Nov 21 12:39:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.419957 -2.352415"
-    },
     {
       "id": "6fea1b5d-daab-48b4-9e5c-5e8343edfd2f",
       "title": "alert",
@@ -74,20 +60,6 @@
       "point": "53.468755 -2.24335"
     },
     {
-      "id": "63c8afb7-5e7f-4e69-bf72-91f329c7b70a",
-      "title": "alert",
-      "published": "Sat Nov 21 12:43:48 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6167 - Lancashire Hill",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.418754 -2.160492"
-    },
-    {
       "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
       "title": "alert",
       "published": "Sat Nov 21 11:39:53 +0000 2026",
@@ -100,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.367122 -2.268466"
+    },
+    {
+      "id": "63c8afb7-5e7f-4e69-bf72-91f329c7b70a",
+      "title": "alert",
+      "published": "Sat Nov 21 12:43:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6167 - Lancashire Hill",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.418754 -2.160492"
     },
     {
       "id": "9f5f462c-6099-4b47-a71e-99f87246e39a",
@@ -170,20 +156,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.406647 -2.521387"
-    },
-    {
-      "id": "5285d30b-7b1c-4c43-95e0-4402919fe8a2",
-      "title": "alert",
-      "published": "Sat Nov 21 12:39:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.383217 -2.504757"
     }
   ]
 }
