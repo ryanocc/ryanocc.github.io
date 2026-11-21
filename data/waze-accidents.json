@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T12:05:49.018514+00:00",
+  "updatedAt": "2026-11-21T12:10:49.038294+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "4b4b8af8-7593-4245-aba8-3ecae023591f",
@@ -68,7 +68,7 @@
       "road": "Enterprise Way",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.36764 -2.268171"
@@ -100,6 +100,34 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.366885 -2.269162"
+    },
+    {
+      "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
+      "title": "alert",
+      "published": "Sat Nov 21 12:08:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.367307 -2.271002"
+    },
+    {
+      "id": "da0ea402-7a7d-4517-8aed-c26955c586f3",
+      "title": "alert",
+      "published": "Sat Nov 21 12:09:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.384593 -2.505244"
     }
   ]
 }
