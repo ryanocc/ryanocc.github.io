@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T11:45:48.844665+00:00",
+  "updatedAt": "2026-11-21T11:50:48.966931+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "ac22f55e-fd5d-4c44-a561-932b9aa74672",
@@ -46,6 +46,20 @@
       "point": "53.575583 -2.293684"
     },
     {
+      "id": "c9429242-bd43-4e6f-be71-c6a9c2aee24b",
+      "title": "alert",
+      "published": "Sat Nov 21 11:50:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Enterprise Way",
+      "city": "Wythenshawe",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.36764 -2.268171"
+    },
+    {
       "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
       "title": "alert",
       "published": "Sat Nov 21 11:39:53 +0000 2026",
@@ -54,24 +68,10 @@
       "road": "Enterprise Way",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.367122 -2.268466"
-    },
-    {
-      "id": "a9808fdd-e1a8-4a67-b255-29cb2567b886",
-      "title": "alert",
-      "published": "Sat Nov 21 11:35:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.367055 -2.270077"
     },
     {
       "id": "5a9ee0b4-450a-4261-8753-da011c05cd6b",
@@ -100,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.366885 -2.269162"
-    },
-    {
-      "id": "7fee4a4b-5993-4fb0-9a10-a23119005753",
-      "title": "alert",
-      "published": "Sat Nov 21 11:20:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A579 - Atherleigh Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.482296 -2.534747"
     }
   ]
 }
