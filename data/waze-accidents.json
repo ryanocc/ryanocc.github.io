@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T17:50:48.826008+00:00",
+  "updatedAt": "2026-11-21T17:55:48.949283+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "e6bdf603-d71f-4218-b0b9-acdc686a0423",
@@ -60,18 +60,18 @@
       "point": "53.399676 -2.442865"
     },
     {
-      "id": "9f0d0f94-c9c6-4738-962c-7c0f67025599",
+      "id": "c50d8b16-3493-4b40-9fdf-355f6f946970",
       "title": "alert",
-      "published": "Sat Nov 21 17:49:51 +0000 2026",
+      "published": "Sat Nov 21 17:53:23 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A640 - Huddersfield Rd",
-      "city": "Newhey",
+      "road": "A676 - Bradshaw Brow",
+      "city": "Bradshaw",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.600307 -2.097803"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.603296 -2.40586"
     },
     {
       "id": "62305454-6ac9-4e45-b6d1-114b5b4923bb",
@@ -86,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.542609 -2.290329"
+    },
+    {
+      "id": "79c0096a-dae8-43e5-bcf9-0fa273ff01cc",
+      "title": "alert",
+      "published": "Sat Nov 21 17:52:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.505408 -2.378002"
     }
   ]
 }
