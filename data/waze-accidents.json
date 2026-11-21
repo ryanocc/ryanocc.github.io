@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T17:55:48.949283+00:00",
+  "updatedAt": "2026-11-21T18:00:48.773875+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 5,
   "incidents": [
     {
       "id": "e6bdf603-d71f-4218-b0b9-acdc686a0423",
@@ -18,18 +18,18 @@
       "point": "53.456027 -2.115737"
     },
     {
-      "id": "f35807bb-b5b3-4092-a2d7-ef66444d0e57",
+      "id": "222b9e20-72c8-421a-a0c5-b9541fdb9b06",
       "title": "alert",
-      "published": "Sat Nov 21 15:54:45 +0000 2026",
+      "published": "Sat Nov 21 17:55:50 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Greenside Ln",
-      "city": "Droylsden",
+      "subtype": "",
+      "road": "B5211 - Barton Dock Rd",
+      "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.481016 -2.145199"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.465732 -2.342583"
     },
     {
       "id": "a0975e68-5710-4472-807b-2ba1932e8b9f",
@@ -46,20 +46,6 @@
       "point": "53.399824 -2.444197"
     },
     {
-      "id": "81a8e6f3-09e3-4e4e-b7ab-5a565a4140f9",
-      "title": "alert",
-      "published": "Sat Nov 21 15:50:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6144 - Paddock Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.399676 -2.442865"
-    },
-    {
       "id": "c50d8b16-3493-4b40-9fdf-355f6f946970",
       "title": "alert",
       "published": "Sat Nov 21 17:53:23 +0000 2026",
@@ -68,29 +54,15 @@
       "road": "A676 - Bradshaw Brow",
       "city": "Bradshaw",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 3.0,
       "point": "53.603296 -2.40586"
     },
     {
-      "id": "62305454-6ac9-4e45-b6d1-114b5b4923bb",
+      "id": "8bbf2f3f-9f3b-457a-8ac9-4e13a51f3e1a",
       "title": "alert",
-      "published": "Sat Nov 21 17:28:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Bury New Rd",
-      "city": "Whitefield",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.542609 -2.290329"
-    },
-    {
-      "id": "79c0096a-dae8-43e5-bcf9-0fa273ff01cc",
-      "title": "alert",
-      "published": "Sat Nov 21 17:52:16 +0000 2026",
+      "published": "Sat Nov 21 17:56:33 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (ACW)",
@@ -98,8 +70,8 @@
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.505408 -2.378002"
+      "reportRating": 0.0,
+      "point": "53.510539 -2.370984"
     }
   ]
 }
