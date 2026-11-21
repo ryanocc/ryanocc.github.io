@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-21T22:05:48.931037+00:00",
+  "updatedAt": "2026-11-21T22:10:48.911435+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "4ab47660-7aa5-46c6-90da-6c8f34d6fdf1",
+      "title": "alert",
+      "published": "Sat Nov 21 22:10:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6213 - Tottington Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.599129 -2.31313"
+    },
     {
       "id": "087fb4d2-f593-4715-ba01-f2ca5d29e66f",
       "title": "alert",
@@ -12,8 +26,8 @@
       "road": "B6180 - Waterloo Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.50466 -2.243409"
     },
@@ -54,10 +68,24 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.586429 -2.156437"
+    },
+    {
+      "id": "ffd76866-f18b-472a-a0c3-6a87a78c65b0",
+      "title": "alert",
+      "published": "Sat Nov 21 22:09:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.624687 -2.054945"
     }
   ]
 }
