@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T19:50:48.913784+00:00",
+  "updatedAt": "2026-11-21T19:55:48.833730+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "294b3dcd-f545-461a-9382-2012ddfdb0c6",
@@ -32,6 +32,20 @@
       "point": "53.526903 -2.494114"
     },
     {
+      "id": "98bc46f7-649b-4ce3-85fb-b80c000edc3e",
+      "title": "alert",
+      "published": "Sat Nov 21 19:52:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bishop Rd",
+      "city": "Flixton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.448957 -2.391768"
+    },
+    {
       "id": "664cf070-fb9f-427b-8130-fd9963e5dcbb",
       "title": "alert",
       "published": "Sat Nov 21 19:15:32 +0000 2026",
@@ -60,20 +74,6 @@
       "point": "53.499133 -2.259532"
     },
     {
-      "id": "54865774-5fd3-43c5-926d-3ab26c507b23",
-      "title": "alert",
-      "published": "Sat Nov 21 18:45:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A673 - Chorley New Rd",
-      "city": "Lostock",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.579353 -2.488813"
-    },
-    {
       "id": "f67e7cf2-be29-44c6-820b-5620cfdc7d73",
       "title": "alert",
       "published": "Sat Nov 21 18:18:26 +0000 2026",
@@ -86,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.540478 -2.631628"
+    },
+    {
+      "id": "54865774-5fd3-43c5-926d-3ab26c507b23",
+      "title": "alert",
+      "published": "Sat Nov 21 18:45:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.579353 -2.488813"
     }
   ]
 }
