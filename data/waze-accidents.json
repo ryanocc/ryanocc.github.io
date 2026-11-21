@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T17:30:49.094462+00:00",
+  "updatedAt": "2026-11-21T17:35:48.963891+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "e6bdf603-d71f-4218-b0b9-acdc686a0423",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.456027 -2.115737"
+    },
+    {
+      "id": "96f6909e-35df-4563-8f29-a3c7077e099d",
+      "title": "alert",
+      "published": "Sat Nov 21 17:30:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Heaton Park Rd W",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.536647 -2.241057"
     },
     {
       "id": "f35807bb-b5b3-4092-a2d7-ef66444d0e57",
@@ -60,20 +74,6 @@
       "point": "53.399676 -2.442865"
     },
     {
-      "id": "732f9c8d-2287-425e-a9a8-3a1dde359b98",
-      "title": "alert",
-      "published": "Sat Nov 21 16:56:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A669 - Lees Rd",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.53954 -2.087826"
-    },
-    {
       "id": "021fd93b-2f00-4418-a293-50980d479357",
       "title": "alert",
       "published": "Sat Nov 21 17:04:32 +0000 2026",
@@ -88,6 +88,20 @@
       "point": "53.53886 -2.086525"
     },
     {
+      "id": "732f9c8d-2287-425e-a9a8-3a1dde359b98",
+      "title": "alert",
+      "published": "Sat Nov 21 16:56:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A669 - Lees Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.53954 -2.087826"
+    },
+    {
       "id": "62305454-6ac9-4e45-b6d1-114b5b4923bb",
       "title": "alert",
       "published": "Sat Nov 21 17:28:09 +0000 2026",
@@ -96,8 +110,8 @@
       "road": "A56 - Bury New Rd",
       "city": "Whitefield",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.542609 -2.290329"
     }
