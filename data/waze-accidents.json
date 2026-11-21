@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T18:00:48.773875+00:00",
+  "updatedAt": "2026-11-21T18:05:49.098825+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "e6bdf603-d71f-4218-b0b9-acdc686a0423",
@@ -26,24 +26,10 @@
       "road": "B5211 - Barton Dock Rd",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.465732 -2.342583"
-    },
-    {
-      "id": "a0975e68-5710-4472-807b-2ba1932e8b9f",
-      "title": "alert",
-      "published": "Sat Nov 21 15:58:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6144 - Paddock Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.399824 -2.444197"
+      "point": "53.465732 -2.342583"
     },
     {
       "id": "c50d8b16-3493-4b40-9fdf-355f6f946970",
@@ -60,18 +46,46 @@
       "point": "53.603296 -2.40586"
     },
     {
-      "id": "8bbf2f3f-9f3b-457a-8ac9-4e13a51f3e1a",
+      "id": "cad006da-8c0f-426c-9797-624e43bd4615",
       "title": "alert",
-      "published": "Sat Nov 21 17:56:33 +0000 2026",
+      "published": "Sat Nov 21 18:04:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A49 - Chapel Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.542102 -2.629951"
+    },
+    {
+      "id": "7c466ded-5e26-4b63-92a6-71df44d93ee1",
+      "title": "alert",
+      "published": "Sat Nov 21 18:03:42 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
+      "road": "A49 - River Way",
+      "city": "Wigan",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.510539 -2.370984"
+      "point": "53.547209 -2.627773"
+    },
+    {
+      "id": "b43f5b4e-f8d8-442c-b2f0-898e46510525",
+      "title": "alert",
+      "published": "Sat Nov 21 18:04:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - River Way",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.544236 -2.628145"
     }
   ]
 }
