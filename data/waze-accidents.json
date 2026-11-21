@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T19:45:49.262210+00:00",
+  "updatedAt": "2026-11-21T19:50:48.913784+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "294b3dcd-f545-461a-9382-2012ddfdb0c6",
@@ -32,20 +32,6 @@
       "point": "53.526903 -2.494114"
     },
     {
-      "id": "487403ee-15aa-4208-8021-83cdae2c60e7",
-      "title": "alert",
-      "published": "Sat Nov 21 19:08:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "W Crown Ave",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.477224 -2.274236"
-    },
-    {
       "id": "664cf070-fb9f-427b-8130-fd9963e5dcbb",
       "title": "alert",
       "published": "Sat Nov 21 19:15:32 +0000 2026",
@@ -68,24 +54,10 @@
       "road": "A6041 - Great Clowes St",
       "city": "Lower Broughton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.499133 -2.259532"
-    },
-    {
-      "id": "f67e7cf2-be29-44c6-820b-5620cfdc7d73",
-      "title": "alert",
-      "published": "Sat Nov 21 18:18:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A49 - Chapel Ln",
-      "city": "Wigan",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.540478 -2.631628"
     },
     {
       "id": "54865774-5fd3-43c5-926d-3ab26c507b23",
@@ -100,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.579353 -2.488813"
+    },
+    {
+      "id": "f67e7cf2-be29-44c6-820b-5620cfdc7d73",
+      "title": "alert",
+      "published": "Sat Nov 21 18:18:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - Chapel Ln",
+      "city": "Wigan",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.540478 -2.631628"
     }
   ]
 }
