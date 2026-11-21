@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T21:40:48.893319+00:00",
+  "updatedAt": "2026-11-21T21:45:48.957719+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "98bc46f7-649b-4ce3-85fb-b80c000edc3e",
@@ -46,6 +46,20 @@
       "point": "53.50466 -2.243409"
     },
     {
+      "id": "c44bbf13-2ca2-498f-b109-20fb584afb76",
+      "title": "alert",
+      "published": "Sat Nov 21 21:41:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B6180 - Waterloo Rd",
+      "city": "Cheetham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.504742 -2.243364"
+    },
+    {
       "id": "3fcaf15a-de2e-456a-8f93-f867202309e3",
       "title": "alert",
       "published": "Sat Nov 21 21:22:07 +0000 2026",
@@ -58,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.407787 -2.156189"
+    },
+    {
+      "id": "6da37a01-a257-4252-86b6-83a41b13edaa",
+      "title": "alert",
+      "published": "Sat Nov 21 21:43:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.586429 -2.156437"
     }
   ]
 }
