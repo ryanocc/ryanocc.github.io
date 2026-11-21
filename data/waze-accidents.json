@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T08:50:48.909569+00:00",
+  "updatedAt": "2026-11-21T08:55:48.923504+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 3,
   "incidents": [
     {
       "id": "223b08c3-2932-4dcc-874b-8259df16af8e",
@@ -26,8 +26,8 @@
       "road": "A57(M) > Sheffield",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.470883 -2.24162"
     },
@@ -44,34 +44,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.366143 -2.385108"
-    },
-    {
-      "id": "66f43bff-8cf0-4050-a48e-d541f33f89d4",
-      "title": "alert",
-      "published": "Sat Nov 21 08:41:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A628 - Market St",
-      "city": "Hollingworth",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.463133 -1.991478"
-    },
-    {
-      "id": "56dba5f9-ec61-44d1-be02-522d76324d72",
-      "title": "alert",
-      "published": "Sat Nov 21 08:49:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M6 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.44263 -2.587025"
     }
   ]
 }
