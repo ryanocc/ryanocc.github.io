@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T19:20:48.834982+00:00",
+  "updatedAt": "2026-11-21T19:25:48.817256+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -54,7 +54,7 @@
       "road": "B6186 - Camp St",
       "city": "Higher Broughton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.499113 -2.259867"
@@ -74,20 +74,6 @@
       "point": "53.499133 -2.259532"
     },
     {
-      "id": "54865774-5fd3-43c5-926d-3ab26c507b23",
-      "title": "alert",
-      "published": "Sat Nov 21 18:45:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A673 - Chorley New Rd",
-      "city": "Lostock",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.579353 -2.488813"
-    },
-    {
       "id": "f67e7cf2-be29-44c6-820b-5620cfdc7d73",
       "title": "alert",
       "published": "Sat Nov 21 18:18:26 +0000 2026",
@@ -100,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.540478 -2.631628"
+    },
+    {
+      "id": "54865774-5fd3-43c5-926d-3ab26c507b23",
+      "title": "alert",
+      "published": "Sat Nov 21 18:45:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.579353 -2.488813"
     }
   ]
 }
