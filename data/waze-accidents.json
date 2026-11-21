@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T14:05:48.796747+00:00",
+  "updatedAt": "2026-11-21T14:10:48.940485+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -46,20 +46,6 @@
       "point": "53.498904 -2.519108"
     },
     {
-      "id": "ec5c0752-8af5-4d85-9750-ea993f3ff944",
-      "title": "alert",
-      "published": "Sat Nov 21 14:03:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 > M67, Denton",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.456092 -2.136615"
-    },
-    {
       "id": "c2a3c7a6-8c9e-462b-87f9-65b6ce992697",
       "title": "alert",
       "published": "Sat Nov 21 14:03:08 +0000 2026",
@@ -68,10 +54,24 @@
       "road": "A6188 - Tiviot Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.417725 -2.150685"
+    },
+    {
+      "id": "942c02a6-963f-45ba-8b34-7396f85a6dce",
+      "title": "alert",
+      "published": "Sat Nov 21 14:06:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Birrell Way",
+      "city": "Wilmslow",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.328139 -2.223871"
     },
     {
       "id": "4b31ce20-a6ad-45ea-8679-f4847e7482f8",
@@ -82,8 +82,8 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.462474 -2.180539"
     },
