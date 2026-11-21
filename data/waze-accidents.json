@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T13:35:49.015142+00:00",
+  "updatedAt": "2026-11-21T13:40:48.840134+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "6fea1b5d-daab-48b4-9e5c-5e8343edfd2f",
@@ -40,7 +40,7 @@
       "road": "The Avenue",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.499088 -2.518623"
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.498904 -2.519108"
+    },
+    {
+      "id": "3f112721-b952-4ecd-8c38-03ab242ac5ac",
+      "title": "alert",
+      "published": "Sat Nov 21 13:38:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Hollins",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.569007 -2.288094"
     },
     {
       "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
@@ -83,7 +97,7 @@
       "city": "Gorton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.461928 -2.177459"
     },
@@ -96,8 +110,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.497788 -2.38452"
     }
