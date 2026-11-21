@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-21T08:45:48.801479+00:00",
+  "updatedAt": "2026-11-21T08:50:48.909569+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
+    {
+      "id": "223b08c3-2932-4dcc-874b-8259df16af8e",
+      "title": "alert",
+      "published": "Sat Nov 21 08:46:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.520363 -2.411627"
+    },
+    {
+      "id": "3cde3171-a4d9-401e-8a02-766766f7bd00",
+      "title": "alert",
+      "published": "Sat Nov 21 08:48:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) > Sheffield",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 3.0,
+      "point": "53.470883 -2.24162"
+    },
     {
       "id": "33d3a3d2-f631-4900-a7d6-55248569c482",
       "title": "alert",
@@ -12,24 +40,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.366143 -2.385108"
-    },
-    {
-      "id": "f6b681e9-9600-44d1-aa83-31883a2b9bcc",
-      "title": "alert",
-      "published": "Sat Nov 21 07:59:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6010 - Dickenson Rd",
-      "city": "Longsight",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.455728 -2.202993"
     },
     {
       "id": "66f43bff-8cf0-4050-a48e-d541f33f89d4",
@@ -44,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.463133 -1.991478"
+    },
+    {
+      "id": "56dba5f9-ec61-44d1-be02-522d76324d72",
+      "title": "alert",
+      "published": "Sat Nov 21 08:49:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M6 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.44263 -2.587025"
     }
   ]
 }
