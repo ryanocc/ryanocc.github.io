@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T18:45:48.849657+00:00",
+  "updatedAt": "2026-11-21T18:50:48.937335+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
     {
       "id": "294b3dcd-f545-461a-9382-2012ddfdb0c6",
@@ -18,6 +18,20 @@
       "point": "53.539438 -2.633018"
     },
     {
+      "id": "fe3e06e3-83e8-4718-bd90-9d77ce88a315",
+      "title": "alert",
+      "published": "Sat Nov 21 18:48:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Gloucester St",
+      "city": "Atherton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.526903 -2.494114"
+    },
+    {
       "id": "5b5f8952-54e7-42fc-b18f-99f91c4b71bc",
       "title": "alert",
       "published": "Sat Nov 21 18:38:36 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "Urmston",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.447087 -2.352538"
     },
@@ -44,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.540478 -2.631628"
+    },
+    {
+      "id": "54865774-5fd3-43c5-926d-3ab26c507b23",
+      "title": "alert",
+      "published": "Sat Nov 21 18:45:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A673 - Chorley New Rd",
+      "city": "Lostock",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.579353 -2.488813"
     }
   ]
 }
