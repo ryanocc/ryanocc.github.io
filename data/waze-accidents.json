@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T12:00:49.134819+00:00",
+  "updatedAt": "2026-11-21T12:05:49.018514+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "4b4b8af8-7593-4245-aba8-3ecae023591f",
@@ -46,18 +46,18 @@
       "point": "53.575583 -2.293684"
     },
     {
-      "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
+      "id": "2624e254-2fed-4499-b65d-35d37394c5ea",
       "title": "alert",
-      "published": "Sat Nov 21 11:39:53 +0000 2026",
+      "published": "Sat Nov 21 12:02:59 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "Enterprise Way",
-      "city": "Wythenshawe",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.367122 -2.268466"
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.468755 -2.24335"
     },
     {
       "id": "c9429242-bd43-4e6f-be71-c6a9c2aee24b",
@@ -68,10 +68,24 @@
       "road": "Enterprise Way",
       "city": "Wythenshawe",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.36764 -2.268171"
+    },
+    {
+      "id": "cd70235d-6461-4e11-b6f4-a6f3726e69ec",
+      "title": "alert",
+      "published": "Sat Nov 21 11:39:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Enterprise Way",
+      "city": "Wythenshawe",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.367122 -2.268466"
     },
     {
       "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
