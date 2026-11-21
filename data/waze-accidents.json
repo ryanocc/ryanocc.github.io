@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-21T14:45:48.892868+00:00",
+  "updatedAt": "2026-11-21T14:50:49.043304+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
+    {
+      "id": "6f4984ca-53aa-4aaa-bc9e-2f775cf799ee",
+      "title": "alert",
+      "published": "Sat Nov 21 14:48:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.535644 -2.289193"
+    },
     {
       "id": "b54b9e38-6777-4b1d-bf34-09b942c9bd5a",
       "title": "alert",
@@ -46,6 +60,20 @@
       "point": "53.545555 -2.089953"
     },
     {
+      "id": "45de281b-045f-4471-ba1f-15792e89a46d",
+      "title": "alert",
+      "published": "Sat Nov 21 14:50:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.547462 -2.127054"
+    },
+    {
       "id": "46395442-336c-4d7b-b654-abffd07b6117",
       "title": "alert",
       "published": "Sat Nov 21 14:45:09 +0000 2026",
@@ -58,20 +86,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.545698 -2.128402"
-    },
-    {
-      "id": "f8d60b29-2218-46c1-97f9-28e59a996812",
-      "title": "alert",
-      "published": "Sat Nov 21 14:28:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.492469 -2.380733"
     }
   ]
 }
