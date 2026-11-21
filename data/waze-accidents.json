@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-21T10:30:48.874871+00:00",
+  "updatedAt": "2026-11-21T10:35:48.894014+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
+    {
+      "id": "49999cac-e4e6-4b87-960f-bfe8f928dd0d",
+      "title": "alert",
+      "published": "Sat Nov 21 10:31:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.548728 -2.726074"
+    },
     {
       "id": "f4eaaa21-5f54-4573-b3fb-de17044e8298",
       "title": "alert",
@@ -27,7 +41,7 @@
       "city": "",
       "country": "",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.520363 -2.411627"
     },
@@ -54,7 +68,7 @@
       "road": "A624 - Chapel Rd",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.373974 -1.941561"
@@ -68,7 +82,7 @@
       "road": "A624 - Chapel Rd",
       "city": "Hayfield",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.376625 -1.94469"
