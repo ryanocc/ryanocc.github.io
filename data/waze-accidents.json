@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T17:20:48.993306+00:00",
+  "updatedAt": "2026-11-21T17:25:49.042270+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "e6bdf603-d71f-4218-b0b9-acdc686a0423",
@@ -32,6 +32,20 @@
       "point": "53.481016 -2.145199"
     },
     {
+      "id": "a0975e68-5710-4472-807b-2ba1932e8b9f",
+      "title": "alert",
+      "published": "Sat Nov 21 15:58:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6144 - Paddock Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.399824 -2.444197"
+    },
+    {
       "id": "81a8e6f3-09e3-4e4e-b7ab-5a565a4140f9",
       "title": "alert",
       "published": "Sat Nov 21 15:50:08 +0000 2026",
@@ -46,20 +60,6 @@
       "point": "53.399676 -2.442865"
     },
     {
-      "id": "a0975e68-5710-4472-807b-2ba1932e8b9f",
-      "title": "alert",
-      "published": "Sat Nov 21 15:58:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6144 - Paddock Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.399824 -2.444197"
-    },
-    {
       "id": "021fd93b-2f00-4418-a293-50980d479357",
       "title": "alert",
       "published": "Sat Nov 21 17:04:32 +0000 2026",
@@ -69,7 +69,7 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.53886 -2.086525"
     },
@@ -82,10 +82,24 @@
       "road": "A669 - Lees Rd",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.53954 -2.087826"
+    },
+    {
+      "id": "cd6be0be-a69e-443e-b908-0a98b4c62430",
+      "title": "alert",
+      "published": "Sat Nov 21 17:22:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 (S) - Kingsway",
+      "city": "Levenshulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.441846 -2.203793"
     },
     {
       "id": "fd3078b4-b96d-43e2-86c2-88c26ff97216",
@@ -97,7 +111,7 @@
       "city": "Mottram in Longdendale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.458747 -2.008926"
     }
