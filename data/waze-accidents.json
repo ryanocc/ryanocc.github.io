@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T11:15:48.913743+00:00",
+  "updatedAt": "2026-11-21T11:20:48.984131+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "d75bd386-e6f3-4ea6-9cb4-fc808d8197bf",
@@ -58,6 +58,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.373974 -1.941561"
+    },
+    {
+      "id": "7fee4a4b-5993-4fb0-9a10-a23119005753",
+      "title": "alert",
+      "published": "Sat Nov 21 11:20:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Atherleigh Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.482296 -2.534747"
     }
   ]
 }
