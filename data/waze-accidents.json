@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T09:40:48.866913+00:00",
+  "updatedAt": "2026-11-21T09:45:48.899301+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "223b08c3-2932-4dcc-874b-8259df16af8e",
@@ -18,20 +18,6 @@
       "point": "53.520363 -2.411627"
     },
     {
-      "id": "dc7ccf5f-8cea-42fb-b89a-4b948265f26f",
-      "title": "alert",
-      "published": "Sat Nov 21 09:34:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A624 - Chapel Rd",
-      "city": "Hayfield",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.376625 -1.94469"
-    },
-    {
       "id": "4a5de846-6515-4239-95e5-05766001f8d5",
       "title": "alert",
       "published": "Sat Nov 21 09:17:18 +0000 2026",
@@ -46,18 +32,18 @@
       "point": "53.373974 -1.941561"
     },
     {
-      "id": "650175a0-5b3c-4de1-999e-01542d88500a",
+      "id": "dc7ccf5f-8cea-42fb-b89a-4b948265f26f",
       "title": "alert",
-      "published": "Sat Nov 21 09:40:05 +0000 2026",
+      "published": "Sat Nov 21 09:34:34 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M602 (E)",
-      "city": "",
+      "subtype": "",
+      "road": "A624 - Chapel Rd",
+      "city": "Hayfield",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 4.0,
-      "point": "53.49003 -2.365607"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.376625 -1.94469"
     },
     {
       "id": "e5b05bdb-b596-4aaa-9eb9-796ed270c2c5",
@@ -68,7 +54,7 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.471963 -2.235477"
