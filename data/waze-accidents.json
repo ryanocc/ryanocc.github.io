@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T14:50:49.043304+00:00",
+  "updatedAt": "2026-11-21T14:55:49.063289+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "6f4984ca-53aa-4aaa-bc9e-2f775cf799ee",
@@ -60,20 +60,6 @@
       "point": "53.545555 -2.089953"
     },
     {
-      "id": "45de281b-045f-4471-ba1f-15792e89a46d",
-      "title": "alert",
-      "published": "Sat Nov 21 14:50:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.547462 -2.127054"
-    },
-    {
       "id": "46395442-336c-4d7b-b654-abffd07b6117",
       "title": "alert",
       "published": "Sat Nov 21 14:45:09 +0000 2026",
@@ -86,6 +72,34 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.545698 -2.128402"
+    },
+    {
+      "id": "45de281b-045f-4471-ba1f-15792e89a46d",
+      "title": "alert",
+      "published": "Sat Nov 21 14:50:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.54839 -2.126884"
+    },
+    {
+      "id": "23e43361-e5f4-4e2a-9bbe-ec632a7b180e",
+      "title": "alert",
+      "published": "Sat Nov 21 14:52:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34",
+      "city": "Fallowfield",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.442124 -2.20442"
     }
   ]
 }
