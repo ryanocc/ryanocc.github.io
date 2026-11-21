@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T13:40:48.840134+00:00",
+  "updatedAt": "2026-11-21T13:45:48.853155+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "6fea1b5d-daab-48b4-9e5c-5e8343edfd2f",
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.579159 -2.414929"
+    },
+    {
+      "id": "b54b9e38-6777-4b1d-bf34-09b942c9bd5a",
+      "title": "alert",
+      "published": "Sat Nov 21 13:42:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Denton St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.602106 -2.292385"
     },
     {
       "id": "b8a0dfbd-30fc-4f25-9a01-e0abced082f0",
@@ -69,37 +83,9 @@
       "city": "Hollins",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.569007 -2.288094"
-    },
-    {
-      "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
-      "title": "alert",
-      "published": "Sat Nov 21 11:36:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.366885 -2.269162"
-    },
-    {
-      "id": "88347608-ec82-4522-b79b-0f4297994045",
-      "title": "alert",
-      "published": "Sat Nov 21 13:33:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.461928 -2.177459"
     },
     {
       "id": "c2c31b31-97b6-4253-95a2-8019ef8ba661",
