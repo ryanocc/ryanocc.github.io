@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T14:30:48.935089+00:00",
+  "updatedAt": "2026-11-21T14:35:48.888427+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
@@ -18,32 +18,32 @@
       "point": "53.602106 -2.292385"
     },
     {
-      "id": "c2a3c7a6-8c9e-462b-87f9-65b6ce992697",
+      "id": "a033ea37-4865-436e-8967-1f7824b93709",
       "title": "alert",
-      "published": "Sat Nov 21 14:03:08 +0000 2026",
+      "published": "Sat Nov 21 14:30:58 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6188 - Tiviot Way",
-      "city": "Stockport",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Simonsway",
+      "city": "Wythenshawe",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 10.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
-      "point": "53.417725 -2.150685"
+      "point": "53.371422 -2.240729"
     },
     {
-      "id": "1c4f882e-39fb-4149-814e-64efcebb42e7",
+      "id": "f3353282-4f7f-47b5-9e85-12082dafac8b",
       "title": "alert",
-      "published": "Sat Nov 21 14:23:52 +0000 2026",
+      "published": "Sat Nov 21 14:33:37 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
+      "road": "",
+      "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.459039 -2.16229"
+      "point": "53.545555 -2.089953"
     },
     {
       "id": "f8d60b29-2218-46c1-97f9-28e59a996812",
@@ -54,7 +54,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.492469 -2.380733"
