@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-21T10:55:49.006005+00:00",
+  "updatedAt": "2026-11-21T11:00:49.005265+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
+    {
+      "id": "d75bd386-e6f3-4ea6-9cb4-fc808d8197bf",
+      "title": "alert",
+      "published": "Sat Nov 21 10:56:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.406811 -2.266112"
+    },
+    {
+      "id": "d48c0a4a-bd5a-405f-9c4a-8e54618b484f",
+      "title": "alert",
+      "published": "Sat Nov 21 10:59:56 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Silkhey Gr",
+      "city": "Walkden",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.515407 -2.393784"
+    },
     {
       "id": "c92214c8-9537-42fd-8a26-da339ff7f3f5",
       "title": "alert",
@@ -30,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.373974 -1.941561"
-    },
-    {
-      "id": "dc7ccf5f-8cea-42fb-b89a-4b948265f26f",
-      "title": "alert",
-      "published": "Sat Nov 21 09:34:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A624 - Chapel Rd",
-      "city": "Hayfield",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.376625 -1.94469"
     }
   ]
 }
