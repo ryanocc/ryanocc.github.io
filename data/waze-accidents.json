@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T13:00:49.008018+00:00",
+  "updatedAt": "2026-11-21T13:05:49.086888+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "6fea1b5d-daab-48b4-9e5c-5e8343edfd2f",
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.518291 -2.715464"
-    },
-    {
-      "id": "d48c0a4a-bd5a-405f-9c4a-8e54618b484f",
-      "title": "alert",
-      "published": "Sat Nov 21 10:59:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Silkhey Gr",
-      "city": "Walkden",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.515407 -2.393784"
     },
     {
       "id": "7a6a913a-bba2-4aa5-80f1-cbacd4fa23e0",
@@ -88,6 +74,20 @@
       "point": "53.418754 -2.160492"
     },
     {
+      "id": "b8a0dfbd-30fc-4f25-9a01-e0abced082f0",
+      "title": "alert",
+      "published": "Sat Nov 21 12:59:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "The Avenue",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.499088 -2.518623"
+    },
+    {
       "id": "9f5f462c-6099-4b47-a71e-99f87246e39a",
       "title": "alert",
       "published": "Sat Nov 21 12:30:51 +0000 2026",
@@ -100,34 +100,6 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.498904 -2.519108"
-    },
-    {
-      "id": "b8a0dfbd-30fc-4f25-9a01-e0abced082f0",
-      "title": "alert",
-      "published": "Sat Nov 21 12:59:09 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "The Avenue",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.499088 -2.518623"
-    },
-    {
-      "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
-      "title": "alert",
-      "published": "Sat Nov 21 11:36:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.366885 -2.269162"
     },
     {
       "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
@@ -144,18 +116,18 @@
       "point": "53.367348 -2.271264"
     },
     {
-      "id": "369dfa2d-c6fd-4b84-9688-cc04a3e90b28",
+      "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
       "title": "alert",
-      "published": "Sat Nov 21 12:16:18 +0000 2026",
+      "published": "Sat Nov 21 11:36:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M6 (S)",
+      "road": "A555 - Ringway Rd W",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.406647 -2.521387"
+      "reportRating": 2.0,
+      "point": "53.366885 -2.269162"
     }
   ]
 }
