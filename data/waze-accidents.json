@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T23:45:48.816372+00:00",
+  "updatedAt": "2026-11-21T23:50:48.820090+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
     {
       "id": "0d0e6373-2a34-4f2b-8bec-77b19218f1de",
@@ -32,20 +32,6 @@
       "point": "53.50466 -2.243409"
     },
     {
-      "id": "0913888c-ecbe-4318-971b-67e9515cddf5",
-      "title": "alert",
-      "published": "Sat Nov 21 23:27:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A662 - Ashton New Rd",
-      "city": "Bradford",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.481699 -2.203305"
-    },
-    {
       "id": "aea16fe3-a929-4562-8aad-432803af9212",
       "title": "alert",
       "published": "Sat Nov 21 23:43:27 +0000 2026",
@@ -54,8 +40,8 @@
       "road": "M62 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.624751 -2.069763"
     }
