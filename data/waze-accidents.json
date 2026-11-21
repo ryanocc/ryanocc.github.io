@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T21:20:48.874109+00:00",
+  "updatedAt": "2026-11-21T21:25:48.973665+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 4,
   "incidents": [
     {
       "id": "98bc46f7-649b-4ce3-85fb-b80c000edc3e",
@@ -30,6 +30,34 @@
       "reliability": 6.0,
       "reportRating": 4.0,
       "point": "53.46656 -1.941697"
+    },
+    {
+      "id": "3fcaf15a-de2e-456a-8f93-f867202309e3",
+      "title": "alert",
+      "published": "Sat Nov 21 21:22:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Stockport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.407787 -2.156189"
+    },
+    {
+      "id": "3eeaad5b-2928-4d4e-ab32-8eb06c7f8e58",
+      "title": "alert",
+      "published": "Sat Nov 21 21:22:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.545493 -2.274294"
     }
   ]
 }
