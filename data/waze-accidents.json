@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-21T14:15:48.858359+00:00",
+  "updatedAt": "2026-11-21T14:20:49.092626+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 3,
   "incidents": [
     {
       "id": "7a6a913a-bba2-4aa5-80f1-cbacd4fa23e0",
@@ -40,38 +40,10 @@
       "road": "A6188 - Tiviot Way",
       "city": "Stockport",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.417725 -2.150685"
-    },
-    {
-      "id": "942c02a6-963f-45ba-8b34-7396f85a6dce",
-      "title": "alert",
-      "published": "Sat Nov 21 14:06:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (S) - Birrell Way",
-      "city": "Wilmslow",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.328139 -2.223871"
-    },
-    {
-      "id": "c2c31b31-97b6-4253-95a2-8019ef8ba661",
-      "title": "alert",
-      "published": "Sat Nov 21 13:33:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.497788 -2.38452"
     }
   ]
 }
