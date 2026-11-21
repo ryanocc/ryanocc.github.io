@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T13:05:49.086888+00:00",
+  "updatedAt": "2026-11-21T13:10:49.145259+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -96,24 +96,10 @@
       "road": "B5215 - Leigh Rd",
       "city": "Leigh",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.498904 -2.519108"
-    },
-    {
-      "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
-      "title": "alert",
-      "published": "Sat Nov 21 12:08:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.367348 -2.271264"
     },
     {
       "id": "58fe5a5f-c71e-44c0-8dad-1c85d06418f2",
@@ -128,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.366885 -2.269162"
+    },
+    {
+      "id": "d6e0d912-a39a-4613-bd48-ce468caeb236",
+      "title": "alert",
+      "published": "Sat Nov 21 12:08:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A555 - Ringway Rd W",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.367348 -2.271264"
     }
   ]
 }
