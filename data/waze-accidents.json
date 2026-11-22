@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-11-22T01:05:48.818205+00:00",
+  "updatedAt": "2026-11-22T01:35:48.938883+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
-      "id": "c4f31bb5-cddb-44a1-a1dd-85057905ea40",
+      "id": "4ad2bc59-6172-4434-9987-047d8c23d25b",
       "title": "alert",
-      "published": "Sun Nov 22 00:55:42 +0000 2026",
+      "published": "Sun Nov 22 01:33:08 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Blackley",
+      "road": "A62 - Oldham Rd",
+      "city": "Newton Heath",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.533325 -2.24433"
+      "reportRating": 2.0,
+      "point": "53.500154 -2.197556"
+    },
+    {
+      "id": "d9b95fca-27dc-46ac-aaa5-b56f51534ffa",
+      "title": "alert",
+      "published": "Sun Nov 22 01:35:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.500621 -2.196248"
     }
   ]
 }
