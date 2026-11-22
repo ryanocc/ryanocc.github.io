@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T16:00:48.457370+00:00",
+  "updatedAt": "2026-11-22T16:05:48.415503+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "0cd1bd19-178b-449f-a51d-711021fd5646",
@@ -69,9 +69,23 @@
       "city": "Chorlton-cum-Hardy",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.426264 -2.258476"
+    },
+    {
+      "id": "752b5788-b54a-42d1-b25a-ce699db088b0",
+      "title": "alert",
+      "published": "Sun Nov 22 16:04:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Rochdale Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.521526 -2.214821"
     },
     {
       "id": "fa324853-bb66-4d93-9411-39b906a75c30",
@@ -82,8 +96,8 @@
       "road": "A627 - Clark Way",
       "city": "Hyde",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.452524 -2.076801"
     }
