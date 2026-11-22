@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T16:55:48.550708+00:00",
+  "updatedAt": "2026-11-22T17:00:48.552073+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 10,
   "incidents": [
     {
       "id": "05612665-a853-4976-a39c-2dc453a2dbc9",
@@ -54,8 +54,8 @@
       "road": "M56 > Manchester",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.376063 -2.285844"
     },
@@ -88,6 +88,20 @@
       "point": "53.426264 -2.258476"
     },
     {
+      "id": "670d084b-7934-4133-9779-c17802c49ca3",
+      "title": "alert",
+      "published": "Sun Nov 22 17:00:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A672 - Ripponden Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.623286 -2.027828"
+    },
+    {
       "id": "158c7881-7aa2-4b9d-9696-084a8602bc0c",
       "title": "alert",
       "published": "Sun Nov 22 16:51:10 +0000 2026",
@@ -96,8 +110,8 @@
       "road": "",
       "city": "Manchester",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.472323 -2.258097"
     },
@@ -110,10 +124,24 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.388934 -2.274232"
+    },
+    {
+      "id": "1d782b32-f75e-4b11-b5a5-91e99e8f442d",
+      "title": "alert",
+      "published": "Sun Nov 22 16:57:09 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.391482 -2.272441"
     }
   ]
 }
