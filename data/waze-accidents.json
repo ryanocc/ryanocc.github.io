@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-22T11:20:48.460761+00:00",
+  "updatedAt": "2026-11-22T11:25:48.442642+00:00",
   "source": "Waze GeoRSS",
   "count": 4,
   "incidents": [
-    {
-      "id": "05f05ed1-69d6-4825-8408-7d2150e7abb7",
-      "title": "alert",
-      "published": "Sun Nov 22 11:15:31 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Melbourne Ave",
-      "city": "Manchester Airport",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.370247 -2.285444"
-    },
     {
       "id": "44a4a382-da06-48ba-ac07-bf205e4a50d4",
       "title": "alert",
@@ -26,24 +12,38 @@
       "road": "Melbourne Ave",
       "city": "Manchester Airport",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.3705 -2.285168"
     },
     {
-      "id": "64ecf16a-e5bd-4ecf-a921-f9d32ba2bca4",
+      "id": "05f05ed1-69d6-4825-8408-7d2150e7abb7",
       "title": "alert",
-      "published": "Sun Nov 22 10:26:48 +0000 2026",
+      "published": "Sun Nov 22 11:15:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
+      "road": "Melbourne Ave",
+      "city": "Manchester Airport",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.370247 -2.285444"
+    },
+    {
+      "id": "f5972f8e-6e2c-4614-aa8d-b3b14de057f8",
+      "title": "alert",
+      "published": "Sun Nov 22 11:23:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A555 > Buxton",
       "city": "",
-      "country": "",
+      "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.484386 -2.608577"
+      "point": "53.356071 -2.199077"
     },
     {
       "id": "d6b99c59-3bc2-4bd8-ab3a-39c3d5601c70",
