@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T17:35:48.467002+00:00",
+  "updatedAt": "2026-11-22T17:40:48.410799+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "475defe5-6e54-48c4-b3b8-b357034fc2ca",
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.488462 -2.632082"
-    },
-    {
-      "id": "511d2618-1060-41ff-9d26-768133f32205",
-      "title": "alert",
-      "published": "Sun Nov 22 15:35:42 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Burns Ave",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.575968 -2.293687"
     },
     {
       "id": "cd97a4fc-d560-460e-9755-37b567586833",
@@ -58,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.508845 -2.157575"
+    },
+    {
+      "id": "4635ee76-b4a1-4466-9b1e-b1603a99b833",
+      "title": "alert",
+      "published": "Sun Nov 22 17:36:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Castle Mill Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.351305 -2.310841"
     },
     {
       "id": "a325e0a0-6529-4cbd-b685-80489ab98fde",
@@ -114,6 +114,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.494511 -2.250843"
+    },
+    {
+      "id": "d294f74e-ce89-4b78-aa06-ff144de6d6f8",
+      "title": "alert",
+      "published": "Sun Nov 22 17:39:18 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.470479 -2.242574"
     }
   ]
 }
