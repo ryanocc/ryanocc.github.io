@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T17:55:53.485360+00:00",
+  "updatedAt": "2026-11-22T18:00:49.330899+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "42115132-4130-4df9-8271-9244bceaf475",
@@ -60,6 +60,20 @@
       "point": "53.449434 -2.191509"
     },
     {
+      "id": "669f6577-13de-462d-9d8c-d8b87854653c",
+      "title": "alert",
+      "published": "Sun Nov 22 17:56:03 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.475907 -2.28641"
+    },
+    {
       "id": "51a8f371-6f93-4a56-abac-0c9f32a810c7",
       "title": "alert",
       "published": "Sun Nov 22 17:52:33 +0000 2026",
@@ -68,8 +82,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.415923 -2.150786"
     },
