@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T19:25:48.428406+00:00",
+  "updatedAt": "2026-11-22T19:30:48.352447+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "4635ee76-b4a1-4466-9b1e-b1603a99b833",
@@ -30,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.492986 -2.649741"
+    },
+    {
+      "id": "aeef172f-03e0-4929-9243-9d0952c2f28d",
+      "title": "alert",
+      "published": "Sun Nov 22 19:26:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5081 - Park Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.460228 -2.336622"
     }
   ]
 }
