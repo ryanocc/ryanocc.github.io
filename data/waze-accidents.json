@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T12:05:48.468446+00:00",
+  "updatedAt": "2026-11-22T12:10:48.395755+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "e21fb3d7-0c77-4061-83d4-c228f12379c6",
@@ -12,8 +12,8 @@
       "road": "Sydney Ave",
       "city": "Manchester Airport",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.370872 -2.285402"
     },
@@ -27,7 +27,7 @@
       "city": "Manchester Airport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.370291 -2.283283"
     },
@@ -58,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.575846 -2.294204"
+    },
+    {
+      "id": "cebc2267-ae40-4695-892c-8017ada81d55",
+      "title": "alert",
+      "published": "Sun Nov 22 12:06:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6192 - Frederick St",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.534728 -2.130848"
     },
     {
       "id": "f2f03835-09c1-480c-b78f-65bdf043f75b",
