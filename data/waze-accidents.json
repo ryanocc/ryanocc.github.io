@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-22T14:00:49.723274+00:00",
+  "updatedAt": "2026-11-22T14:05:48.601126+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
+    {
+      "id": "0cd1bd19-178b-449f-a51d-711021fd5646",
+      "title": "alert",
+      "published": "Sun Nov 22 14:05:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Mallard Cr",
+      "city": "Poynton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.348979 -2.142895"
+    },
+    {
+      "id": "8007eb32-d460-484c-b353-9522e2b5a314",
+      "title": "alert",
+      "published": "Sun Nov 22 14:01:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.549528 -2.450109"
+    },
     {
       "id": "3bd46efa-74f0-4338-8ada-5f33df4ea984",
       "title": "alert",
@@ -12,10 +40,24 @@
       "road": "Greenside Ln",
       "city": "Droylsden",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.482784 -2.147533"
+    },
+    {
+      "id": "199ed190-e6e8-4388-b454-b8d253a69b3e",
+      "title": "alert",
+      "published": "Sun Nov 22 14:03:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.475918 -2.286526"
     },
     {
       "id": "2a324478-19fd-4085-8fcb-66fc5de5baeb",
@@ -30,20 +72,6 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.441834 -2.034924"
-    },
-    {
-      "id": "bd8736c7-b1d1-443b-b507-3aaff7c836b2",
-      "title": "alert",
-      "published": "Sun Nov 22 12:00:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Bolton Rd",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.592216 -2.312629"
     },
     {
       "id": "2c1237c4-3085-4060-81b6-af3b88d0fea3",
