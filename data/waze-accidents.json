@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-22T16:20:48.732416+00:00",
+  "updatedAt": "2026-11-22T16:25:48.862347+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
+    {
+      "id": "05612665-a853-4976-a39c-2dc453a2dbc9",
+      "title": "alert",
+      "published": "Sun Nov 22 16:22:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.585042 -2.53355"
+    },
     {
       "id": "511d2618-1060-41ff-9d26-768133f32205",
       "title": "alert",
@@ -72,6 +86,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.426264 -2.258476"
+    },
+    {
+      "id": "bab1e292-de7a-44ff-9a73-daf5c33c98c3",
+      "title": "alert",
+      "published": "Sun Nov 22 16:23:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Middleton Rd",
+      "city": "Crumpsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.516749 -2.248923"
     }
   ]
 }
