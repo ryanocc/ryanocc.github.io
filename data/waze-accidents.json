@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T18:05:49.787728+00:00",
+  "updatedAt": "2026-11-22T18:10:50.953788+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -26,7 +26,7 @@
       "road": "Castle Mill Ln",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.351305 -2.310841"
@@ -46,20 +46,6 @@
       "point": "53.390742 -2.276621"
     },
     {
-      "id": "393a89b5-f955-4a3a-bb2b-ebbf35e17031",
-      "title": "alert",
-      "published": "Sun Nov 22 16:06:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.449434 -2.191509"
-    },
-    {
       "id": "669f6577-13de-462d-9d8c-d8b87854653c",
       "title": "alert",
       "published": "Sun Nov 22 17:56:03 +0000 2026",
@@ -68,10 +54,24 @@
       "road": "",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.475907 -2.28641"
+    },
+    {
+      "id": "1df2a408-9faa-4018-9571-2fce49813114",
+      "title": "alert",
+      "published": "Sun Nov 22 18:08:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A663 - Broadway",
+      "city": "Chadderton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.526593 -2.160483"
     },
     {
       "id": "51a8f371-6f93-4a56-abac-0c9f32a810c7",
