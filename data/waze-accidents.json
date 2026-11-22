@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T10:55:48.595796+00:00",
+  "updatedAt": "2026-11-22T11:00:48.450836+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "64ecf16a-e5bd-4ecf-a921-f9d32ba2bca4",
@@ -46,6 +46,34 @@
       "point": "53.328696 -2.223997"
     },
     {
+      "id": "2c767e0a-594b-448e-b8f3-992dd04167b2",
+      "title": "alert",
+      "published": "Sun Nov 22 10:59:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Regent Rd",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.47691 -2.270516"
+    },
+    {
+      "id": "3fa8bf73-4c76-429b-965a-213e46036fba",
+      "title": "alert",
+      "published": "Sun Nov 22 10:58:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.599645 -2.117313"
+    },
+    {
       "id": "86b9d6f0-5e7d-4de8-a4f8-5a2cb85a9435",
       "title": "alert",
       "published": "Sun Nov 22 10:53:26 +0000 2026",
@@ -54,7 +82,7 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.543864 -2.27901"
