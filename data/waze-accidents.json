@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T12:20:48.416105+00:00",
+  "updatedAt": "2026-11-22T12:25:48.382416+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.370872 -2.285402"
-    },
-    {
-      "id": "391ae743-3167-41af-8a06-3cda0a95af7c",
-      "title": "alert",
-      "published": "Sun Nov 22 11:55:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Palma Ave",
-      "city": "Manchester Airport",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.370291 -2.283283"
     },
     {
       "id": "733c38d1-d5e7-4921-ae4b-0e4e8e7b8c02",
@@ -58,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.575846 -2.294204"
+    },
+    {
+      "id": "a951aa9a-87f3-4369-817d-37cc9f52e5dc",
+      "title": "alert",
+      "published": "Sun Nov 22 12:21:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.590292 -2.319804"
     },
     {
       "id": "f2f03835-09c1-480c-b78f-65bdf043f75b",
@@ -110,8 +110,8 @@
       "road": "A58 - Bolton Rd",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.592616 -2.311988"
     },
