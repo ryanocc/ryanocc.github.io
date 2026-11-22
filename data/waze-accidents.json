@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T15:40:48.780957+00:00",
+  "updatedAt": "2026-11-22T15:45:48.676268+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "0cd1bd19-178b-449f-a51d-711021fd5646",
@@ -58,6 +58,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.428312 -2.524625"
+    },
+    {
+      "id": "fd567635-113e-405b-af02-b7872ed62ad9",
+      "title": "alert",
+      "published": "Sun Nov 22 15:42:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Hale Rd",
+      "city": "Hale Barns",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.36782 -2.310707"
     }
   ]
 }
