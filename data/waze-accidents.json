@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T23:35:48.335959+00:00",
+  "updatedAt": "2026-11-22T23:40:48.393094+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "1cc529d0-4bf3-4905-9aa1-fe836c6205ee",
@@ -40,8 +40,8 @@
       "road": "Market St",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.585982 -2.29294"
     },
@@ -58,20 +58,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.481579 -2.194633"
-    },
-    {
-      "id": "240ae19b-1c53-4f8d-8b50-54700279e0eb",
-      "title": "alert",
-      "published": "Sun Nov 22 23:09:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A555 - Ringway Rd W",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.367378 -2.271561"
     }
   ]
 }
