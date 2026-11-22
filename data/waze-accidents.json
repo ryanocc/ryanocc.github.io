@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T10:35:48.463992+00:00",
+  "updatedAt": "2026-11-22T10:40:48.464489+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "64ecf16a-e5bd-4ecf-a921-f9d32ba2bca4",
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.328696 -2.223997"
+    },
+    {
+      "id": "9fe01f0c-d6e0-4e6a-ab98-433be1f826da",
+      "title": "alert",
+      "published": "Sun Nov 22 10:38:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.624554 -2.071173"
     }
   ]
 }
