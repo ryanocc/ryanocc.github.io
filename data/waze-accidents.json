@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-22T22:05:48.343952+00:00",
+  "updatedAt": "2026-11-22T22:10:48.305051+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
+    {
+      "id": "1cc529d0-4bf3-4905-9aa1-fe836c6205ee",
+      "title": "alert",
+      "published": "Sun Nov 22 22:10:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Green Pastures",
+      "city": "Heaton Mersey",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.410838 -2.213973"
+    },
     {
       "id": "815b4529-93ee-4e74-ba6b-9a13d15f23df",
       "title": "alert",
@@ -68,8 +82,8 @@
       "road": "A6010 - Dickenson Rd",
       "city": "Rusholme",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.45239 -2.219114"
     },
