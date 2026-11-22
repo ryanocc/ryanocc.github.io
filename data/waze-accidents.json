@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-22T17:25:49.557952+00:00",
+  "updatedAt": "2026-11-22T17:30:48.425838+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
+    {
+      "id": "475defe5-6e54-48c4-b3b8-b357034fc2ca",
+      "title": "alert",
+      "published": "Sun Nov 22 17:29:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.488462 -2.632082"
+    },
     {
       "id": "511d2618-1060-41ff-9d26-768133f32205",
       "title": "alert",
@@ -32,6 +46,20 @@
       "point": "53.575958 -2.293691"
     },
     {
+      "id": "42115132-4130-4df9-8271-9244bceaf475",
+      "title": "alert",
+      "published": "Sun Nov 22 17:29:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.508845 -2.157575"
+    },
+    {
       "id": "a325e0a0-6529-4cbd-b685-80489ab98fde",
       "title": "alert",
       "published": "Sun Nov 22 16:55:43 +0000 2026",
@@ -54,7 +82,7 @@
       "road": "Hollyhedge Rd",
       "city": "Baguley",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.390742 -2.276621"
