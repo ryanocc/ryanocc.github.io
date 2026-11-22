@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-22T16:05:48.415503+00:00",
+  "updatedAt": "2026-11-22T16:10:49.339841+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
-    {
-      "id": "0cd1bd19-178b-449f-a51d-711021fd5646",
-      "title": "alert",
-      "published": "Sun Nov 22 14:05:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Mallard Cr",
-      "city": "Poynton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.348979 -2.142895"
-    },
     {
       "id": "511d2618-1060-41ff-9d26-768133f32205",
       "title": "alert",
@@ -60,6 +46,20 @@
       "point": "53.428312 -2.524625"
     },
     {
+      "id": "393a89b5-f955-4a3a-bb2b-ebbf35e17031",
+      "title": "alert",
+      "published": "Sun Nov 22 16:06:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.449434 -2.191509"
+    },
+    {
       "id": "db9e2852-f144-4a65-8e65-5e5d70af6a6a",
       "title": "alert",
       "published": "Sun Nov 22 15:51:54 +0000 2026",
@@ -68,7 +68,7 @@
       "road": "A5145 - Barlow Moor Rd",
       "city": "Chorlton-cum-Hardy",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.426264 -2.258476"
@@ -82,8 +82,8 @@
       "road": "A664 - Rochdale Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.521526 -2.214821"
     },
