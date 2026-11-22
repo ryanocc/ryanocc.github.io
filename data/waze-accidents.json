@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-22T11:10:48.442612+00:00",
+  "updatedAt": "2026-11-22T11:15:48.426457+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
+    {
+      "id": "05f05ed1-69d6-4825-8408-7d2150e7abb7",
+      "title": "alert",
+      "published": "Sun Nov 22 11:15:31 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Melbourne Ave",
+      "city": "Manchester Airport",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.370247 -2.285444"
+    },
     {
       "id": "64ecf16a-e5bd-4ecf-a921-f9d32ba2bca4",
       "title": "alert",
@@ -43,7 +57,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.543864 -2.27901"
+      "point": "53.54269 -2.281859"
     }
   ]
 }
