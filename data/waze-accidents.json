@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T15:50:48.625277+00:00",
+  "updatedAt": "2026-11-22T15:55:49.071997+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "0cd1bd19-178b-449f-a51d-711021fd5646",
@@ -60,6 +60,34 @@
       "point": "53.428312 -2.524625"
     },
     {
+      "id": "db9e2852-f144-4a65-8e65-5e5d70af6a6a",
+      "title": "alert",
+      "published": "Sun Nov 22 15:51:54 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5145 - Barlow Moor Rd",
+      "city": "Chorlton-cum-Hardy",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.426264 -2.258476"
+    },
+    {
+      "id": "fa324853-bb66-4d93-9411-39b906a75c30",
+      "title": "alert",
+      "published": "Sun Nov 22 15:53:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A627 - Clark Way",
+      "city": "Hyde",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.452524 -2.076801"
+    },
+    {
       "id": "577344c4-8dce-4d52-91b5-786646394463",
       "title": "alert",
       "published": "Sun Nov 22 15:46:16 +0000 2026",
@@ -68,7 +96,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.40794 -2.184115"
