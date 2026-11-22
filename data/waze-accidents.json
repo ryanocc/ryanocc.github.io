@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-22T17:00:48.552073+00:00",
+  "updatedAt": "2026-11-22T17:05:48.464712+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
-    {
-      "id": "05612665-a853-4976-a39c-2dc453a2dbc9",
-      "title": "alert",
-      "published": "Sun Nov 22 16:22:53 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.585042 -2.53355"
-    },
     {
       "id": "511d2618-1060-41ff-9d26-768133f32205",
       "title": "alert",
@@ -97,23 +83,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.623286 -2.027828"
     },
     {
-      "id": "158c7881-7aa2-4b9d-9696-084a8602bc0c",
+      "id": "b3593b1c-88b2-402e-b591-6e2066aaa0f8",
       "title": "alert",
-      "published": "Sun Nov 22 16:51:10 +0000 2026",
+      "published": "Sun Nov 22 17:05:36 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Manchester",
+      "road": "A56 - Bury New Rd",
+      "city": "Cheetham",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.472323 -2.258097"
+      "point": "53.494511 -2.250843"
     },
     {
       "id": "fff2e088-f576-4633-ba94-464eed714ea1",
@@ -130,18 +116,18 @@
       "point": "53.388934 -2.274232"
     },
     {
-      "id": "1d782b32-f75e-4b11-b5a5-91e99e8f442d",
+      "id": "a735a2b0-2510-41d9-bd62-20722675f0dc",
       "title": "alert",
-      "published": "Sun Nov 22 16:57:09 +0000 2026",
+      "published": "Sun Nov 22 17:05:41 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 (W)",
+      "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.391482 -2.272441"
+      "point": "53.378489 -2.281711"
     }
   ]
 }
