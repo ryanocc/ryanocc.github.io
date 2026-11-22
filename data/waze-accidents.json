@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T17:20:48.636461+00:00",
+  "updatedAt": "2026-11-22T17:25:49.557952+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "511d2618-1060-41ff-9d26-768133f32205",
@@ -54,8 +54,8 @@
       "road": "Hollyhedge Rd",
       "city": "Baguley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.390742 -2.276621"
     },
@@ -97,23 +97,9 @@
       "city": "Cheetham",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.494511 -2.250843"
-    },
-    {
-      "id": "a735a2b0-2510-41d9-bd62-20722675f0dc",
-      "title": "alert",
-      "published": "Sun Nov 22 17:05:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.385088 -2.276141"
     }
   ]
 }
