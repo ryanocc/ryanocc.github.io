@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T16:25:48.862347+00:00",
+  "updatedAt": "2026-11-22T16:30:48.571060+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "05612665-a853-4976-a39c-2dc453a2dbc9",
@@ -55,7 +55,7 @@
       "city": "Birchwood",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.428312 -2.524625"
     },
@@ -100,6 +100,34 @@
       "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.516749 -2.248923"
+    },
+    {
+      "id": "37129387-8371-4ae4-86fa-a6122186d251",
+      "title": "alert",
+      "published": "Sun Nov 22 16:28:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.39096 -2.27312"
+    },
+    {
+      "id": "0f9c1ac0-63e5-45a3-977d-e753f5812749",
+      "title": "alert",
+      "published": "Sun Nov 22 16:26:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.386266 -2.275516"
     }
   ]
 }
