@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T23:10:48.307519+00:00",
+  "updatedAt": "2026-11-22T23:15:48.303889+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 6,
   "incidents": [
     {
       "id": "1cc529d0-4bf3-4905-9aa1-fe836c6205ee",
@@ -55,7 +55,7 @@
       "city": "Moston",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.505005 -2.194945"
     },
@@ -69,7 +69,7 @@
       "city": "Clayton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.481579 -2.194633"
     },
@@ -82,24 +82,10 @@
       "road": "A555 - Ringway Rd W",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.367378 -2.271561"
-    },
-    {
-      "id": "a825e868-6fe3-4321-915f-6d89cf93e57b",
-      "title": "alert",
-      "published": "Sun Nov 22 21:07:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Bury New Rd",
-      "city": "Broughton Park",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.511036 -2.263258"
     }
   ]
 }
