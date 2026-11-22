@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T19:55:48.446823+00:00",
+  "updatedAt": "2026-11-22T20:00:48.389222+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "9a616bad-b23a-4c19-9c9e-ce0d635c3ad8",
@@ -18,6 +18,20 @@
       "point": "53.492986 -2.649741"
     },
     {
+      "id": "245ca6e2-27e4-47ba-9895-5c5942881403",
+      "title": "alert",
+      "published": "Sun Nov 22 19:57:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Gaskell St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.583376 -2.441832"
+    },
+    {
       "id": "c3837d4a-4b45-4aff-8f80-6b8cfb2c7fde",
       "title": "alert",
       "published": "Sun Nov 22 19:47:11 +0000 2026",
@@ -27,7 +41,7 @@
       "city": "",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548802 -2.26191"
     },
@@ -40,7 +54,7 @@
       "road": "A5081 - Park Way",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 5.0,
       "point": "53.460228 -2.336622"
