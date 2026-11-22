@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T14:50:48.938028+00:00",
+  "updatedAt": "2026-11-22T14:55:49.869633+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "0cd1bd19-178b-449f-a51d-711021fd5646",
@@ -18,6 +18,20 @@
       "point": "53.348979 -2.142895"
     },
     {
+      "id": "23b0a4d5-1684-4c6a-8f46-e3f64fb4009f",
+      "title": "alert",
+      "published": "Sun Nov 22 14:53:42 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Faraday St",
+      "city": "Birchwood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.428312 -2.524625"
+    },
+    {
       "id": "3bd46efa-74f0-4338-8ada-5f33df4ea984",
       "title": "alert",
       "published": "Sun Nov 22 13:03:35 +0000 2026",
@@ -26,7 +40,7 @@
       "road": "Greenside Ln",
       "city": "Droylsden",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.482784 -2.147533"
