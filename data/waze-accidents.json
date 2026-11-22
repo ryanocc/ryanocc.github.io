@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T18:10:50.953788+00:00",
+  "updatedAt": "2026-11-22T18:15:50.350692+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -54,7 +54,7 @@
       "road": "",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.475907 -2.28641"
@@ -68,10 +68,24 @@
       "road": "A663 - Broadway",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.526593 -2.160483"
+    },
+    {
+      "id": "300a67fc-a0e7-4717-8067-3ccc210377a6",
+      "title": "alert",
+      "published": "Sun Nov 22 18:15:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.414211 -2.158543"
     },
     {
       "id": "51a8f371-6f93-4a56-abac-0c9f32a810c7",
@@ -86,20 +100,6 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.415923 -2.150786"
-    },
-    {
-      "id": "d294f74e-ce89-4b78-aa06-ff144de6d6f8",
-      "title": "alert",
-      "published": "Sun Nov 22 17:39:18 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470544 -2.242244"
     }
   ]
 }
