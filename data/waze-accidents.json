@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T17:15:48.467412+00:00",
+  "updatedAt": "2026-11-22T17:20:48.636461+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -46,6 +46,20 @@
       "point": "53.376063 -2.285844"
     },
     {
+      "id": "fc7ad03f-02d1-4899-a909-33bcfafa2292",
+      "title": "alert",
+      "published": "Sun Nov 22 17:19:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Hollyhedge Rd",
+      "city": "Baguley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.390742 -2.276621"
+    },
+    {
       "id": "393a89b5-f955-4a3a-bb2b-ebbf35e17031",
       "title": "alert",
       "published": "Sun Nov 22 16:06:26 +0000 2026",
@@ -74,20 +88,6 @@
       "point": "53.426264 -2.258476"
     },
     {
-      "id": "670d084b-7934-4133-9779-c17802c49ca3",
-      "title": "alert",
-      "published": "Sun Nov 22 17:00:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A672 - Ripponden Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.623286 -2.027828"
-    },
-    {
       "id": "b3593b1c-88b2-402e-b591-6e2066aaa0f8",
       "title": "alert",
       "published": "Sun Nov 22 17:05:36 +0000 2026",
@@ -96,8 +96,8 @@
       "road": "A56 - Bury New Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.494511 -2.250843"
     },
@@ -113,7 +113,7 @@
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.378489 -2.281711"
+      "point": "53.385088 -2.276141"
     }
   ]
 }
