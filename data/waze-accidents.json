@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T17:05:48.464712+00:00",
+  "updatedAt": "2026-11-22T17:10:48.583288+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -40,8 +40,8 @@
       "road": "M56 > Manchester",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.376063 -2.285844"
     },
@@ -88,6 +88,20 @@
       "point": "53.623286 -2.027828"
     },
     {
+      "id": "04550a38-738e-4a9b-bde2-942d97549465",
+      "title": "alert",
+      "published": "Sun Nov 22 17:00:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 0.0,
+      "point": "53.472224 -2.258226"
+    },
+    {
       "id": "b3593b1c-88b2-402e-b591-6e2066aaa0f8",
       "title": "alert",
       "published": "Sun Nov 22 17:05:36 +0000 2026",
@@ -96,24 +110,10 @@
       "road": "A56 - Bury New Rd",
       "city": "Cheetham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.494511 -2.250843"
-    },
-    {
-      "id": "fff2e088-f576-4633-ba94-464eed714ea1",
-      "title": "alert",
-      "published": "Sun Nov 22 16:39:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.388934 -2.274232"
     },
     {
       "id": "a735a2b0-2510-41d9-bd62-20722675f0dc",
@@ -124,8 +124,8 @@
       "road": "M56 (E)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.378489 -2.281711"
     }
