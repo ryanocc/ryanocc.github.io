@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-22T11:40:48.467644+00:00",
+  "updatedAt": "2026-11-22T11:45:48.497136+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "44a4a382-da06-48ba-ac07-bf205e4a50d4",
@@ -12,10 +12,24 @@
       "road": "Melbourne Ave",
       "city": "Manchester Airport",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.3705 -2.285168"
+    },
+    {
+      "id": "733c38d1-d5e7-4921-ae4b-0e4e8e7b8c02",
+      "title": "alert",
+      "published": "Sun Nov 22 11:45:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Burns Ave",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.575861 -2.294112"
     },
     {
       "id": "d6b99c59-3bc2-4bd8-ab3a-39c3d5601c70",
