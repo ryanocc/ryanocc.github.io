@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-23T16:20:48.590251+00:00",
+  "updatedAt": "2026-11-23T16:25:48.576640+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 7,
   "incidents": [
-    {
-      "id": "bb004619-158a-4ab9-8141-5db81ed60d56",
-      "title": "alert",
-      "published": "Mon Nov 23 16:19:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Bridgewater Ave",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.53906 -2.456035"
-    },
     {
       "id": "f4524f1f-cb9b-4978-bfb8-6a4ac88bb033",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 2.0,
       "point": "53.549786 -2.391676"
+    },
+    {
+      "id": "bb004619-158a-4ab9-8141-5db81ed60d56",
+      "title": "alert",
+      "published": "Mon Nov 23 16:19:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bridgewater Ave",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.53906 -2.456035"
     },
     {
       "id": "2a5bd69f-f809-4ac2-9f26-e0c35d1a800e",
@@ -74,18 +74,18 @@
       "point": "53.567823 -2.428586"
     },
     {
-      "id": "7f08670e-6991-45d3-b621-ffcc7cf46d6a",
+      "id": "a8899d70-5dd7-44db-ad32-e9689f2e4441",
       "title": "alert",
-      "published": "Mon Nov 23 15:51:07 +0000 2026",
+      "published": "Mon Nov 23 16:21:43 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "Crowcroft Rd",
       "city": "Levenshulme",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.451711 -2.195473"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.451744 -2.195823"
     },
     {
       "id": "849507e3-f263-42d9-b3c7-5a7150648950",
@@ -97,37 +97,9 @@
       "city": "Heywood",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.581673 -2.254112"
-    },
-    {
-      "id": "5621bcfb-492b-4734-8195-130d641fd7b8",
-      "title": "alert",
-      "published": "Mon Nov 23 16:05:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6189 - Coalshaw Green Rd",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.529793 -2.144673"
-    },
-    {
-      "id": "e9408bd5-a2c7-4a7a-9632-206225406f2c",
-      "title": "alert",
-      "published": "Mon Nov 23 16:09:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.459281 -2.163148"
     }
   ]
 }
