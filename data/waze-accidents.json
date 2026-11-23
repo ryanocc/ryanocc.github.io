@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T12:45:48.412443+00:00",
+  "updatedAt": "2026-11-23T12:50:48.423126+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 4,
   "incidents": [
     {
       "id": "7524396d-9667-49a2-b4a5-ecc19b91f78c",
@@ -18,20 +18,6 @@
       "point": "53.541027 -2.739217"
     },
     {
-      "id": "d08265c0-eeec-41c8-822b-bfdb7d32f222",
-      "title": "alert",
-      "published": "Mon Nov 23 12:26:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.490787 -2.328871"
-    },
-    {
       "id": "6e441e36-9bd7-4c1c-8a09-7d1b84a4d45f",
       "title": "alert",
       "published": "Mon Nov 23 12:44:32 +0000 2026",
@@ -46,20 +32,6 @@
       "point": "53.365737 -2.11424"
     },
     {
-      "id": "1006107d-9f6d-4082-90b6-abf8b417d506",
-      "title": "alert",
-      "published": "Mon Nov 23 12:44:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 - Kingsway",
-      "city": "Burnage",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.42103 -2.213198"
-    },
-    {
       "id": "cf2a7556-7fec-462a-9e1d-81af32e40a48",
       "title": "alert",
       "published": "Mon Nov 23 12:44:55 +0000 2026",
@@ -68,10 +40,24 @@
       "road": "A5063 - Albion Way",
       "city": "Ordsall",
       "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.484966 -2.276329"
+    },
+    {
+      "id": "1d878acd-4636-40f2-a1ef-d5b4568d9803",
+      "title": "alert",
+      "published": "Mon Nov 23 12:49:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "Manchester",
+      "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 2.0,
-      "point": "53.484966 -2.276329"
+      "point": "53.471896 -2.236662"
     }
   ]
 }
