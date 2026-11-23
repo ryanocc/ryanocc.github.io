@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T10:15:48.387130+00:00",
+  "updatedAt": "2026-11-23T10:20:48.368176+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "e7643b63-48d7-4e82-947b-dc1d6633d348",
@@ -72,6 +72,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.523654 -2.603118"
+    },
+    {
+      "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
+      "title": "alert",
+      "published": "Mon Nov 23 10:19:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Walthew Ln",
+      "city": "Platt Bridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.522823 -2.60186"
     }
   ]
 }
