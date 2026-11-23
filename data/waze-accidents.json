@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-23T15:05:50.538122+00:00",
+  "updatedAt": "2026-11-23T15:10:48.460837+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
+    {
+      "id": "86688af8-8652-41ac-84fd-1b7516d749c4",
+      "title": "alert",
+      "published": "Mon Nov 23 15:08:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.371956 -2.330973"
+    },
     {
       "id": "d88e00f5-3d29-467a-804f-5d0be7f12d32",
       "title": "alert",
@@ -13,7 +27,7 @@
       "city": "Lowton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.468255 -2.572099"
     },
@@ -26,8 +40,8 @@
       "road": "B5235 - Leigh Rd",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.543506 -2.516319"
     },
