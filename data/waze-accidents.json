@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T17:45:48.505288+00:00",
+  "updatedAt": "2026-11-23T17:50:48.533569+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 9,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.41158 -2.353772"
+    },
+    {
+      "id": "5373b3eb-81e0-482d-92da-9ce26c330a70",
+      "title": "alert",
+      "published": "Mon Nov 23 17:46:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.447361 -2.312183"
     },
     {
       "id": "b66360e4-d2c3-4d92-a25e-588155a60f5b",
@@ -82,8 +96,8 @@
       "road": "A5209 - Hall Ln",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 4.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.59255 -2.727377"
     },
@@ -96,8 +110,8 @@
       "road": "A635 - Ashton Old Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.473647 -2.184504"
     },
@@ -110,8 +124,8 @@
       "road": "A635 - Park Parade",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.485188 -2.099514"
     }
