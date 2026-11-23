@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T15:25:48.512130+00:00",
+  "updatedAt": "2026-11-23T15:30:48.674271+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "86688af8-8652-41ac-84fd-1b7516d749c4",
@@ -68,8 +68,8 @@
       "road": "B5231 - Station Rd",
       "city": "Pendlebury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.515547 -2.337025"
     },
@@ -96,8 +96,8 @@
       "road": "B5218 - Chorlton Rd",
       "city": "Old Trafford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.465371 -2.257866"
     },
@@ -153,9 +153,23 @@
       "city": "Carrington",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.431451 -2.391251"
+    },
+    {
+      "id": "667bd296-5135-4098-9416-a8147ee5debb",
+      "title": "alert",
+      "published": "Mon Nov 23 15:29:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Crompton Way",
+      "city": "Astley Bridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.601028 -2.431497"
     }
   ]
 }
