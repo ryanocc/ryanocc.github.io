@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T16:55:48.550732+00:00",
+  "updatedAt": "2026-11-23T17:00:48.612088+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 7,
   "incidents": [
     {
       "id": "c2597fbb-1a2e-41b0-a0b8-468e943e679e",
@@ -32,6 +32,20 @@
       "point": "53.549786 -2.391676"
     },
     {
+      "id": "dd8708d3-2623-4a98-b112-6216ca7efab1",
+      "title": "alert",
+      "published": "Mon Nov 23 16:58:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Friendship Ave",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.45921 -2.163003"
+    },
+    {
       "id": "d6e6ce19-645b-49e6-82b4-889ef610a245",
       "title": "alert",
       "published": "Mon Nov 23 16:44:19 +0000 2026",
@@ -44,6 +58,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.589575 -2.429198"
+    },
+    {
+      "id": "e33b7ba7-ae60-4a87-8b8d-719777d222e6",
+      "title": "alert",
+      "published": "Mon Nov 23 16:44:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.593503 -2.265207"
     },
     {
       "id": "da9e7666-1abc-43e4-b394-34fb2e377a92",
@@ -60,18 +88,18 @@
       "point": "53.464404 -2.344127"
     },
     {
-      "id": "e33b7ba7-ae60-4a87-8b8d-719777d222e6",
+      "id": "3d1501c8-4a06-41fb-a60b-4b30389890bf",
       "title": "alert",
-      "published": "Mon Nov 23 16:44:20 +0000 2026",
+      "published": "Mon Nov 23 16:56:19 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Bury",
+      "subtype": "",
+      "road": "A666 - Manchester Rd",
+      "city": "Swinton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.593503 -2.265207"
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.522754 -2.335435"
     }
   ]
 }
