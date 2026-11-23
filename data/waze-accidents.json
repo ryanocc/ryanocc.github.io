@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-23T11:40:48.557927+00:00",
+  "updatedAt": "2026-11-23T11:45:48.355205+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 4,
   "incidents": [
-    {
-      "id": "863a2dff-d1da-456b-984a-ac337ae307bf",
-      "title": "alert",
-      "published": "Mon Nov 23 11:29:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.404202 -2.330199"
-    },
     {
       "id": "4840a1d7-fbdc-4af9-bcbf-003c5a6ffd3d",
       "title": "alert",
@@ -30,34 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.428206 -2.26268"
-    },
-    {
-      "id": "4633f460-43b8-4681-91da-1a2ae173f6b7",
-      "title": "alert",
-      "published": "Mon Nov 23 11:24:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.552672 -2.199013"
-    },
-    {
-      "id": "530950d9-b22c-4835-9f2f-77638c3aee0d",
-      "title": "alert",
-      "published": "Mon Nov 23 10:30:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Haydock",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.470755 -2.634787"
     },
     {
       "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
@@ -74,6 +32,20 @@
       "point": "53.522823 -2.60186"
     },
     {
+      "id": "530950d9-b22c-4835-9f2f-77638c3aee0d",
+      "title": "alert",
+      "published": "Mon Nov 23 10:30:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Haydock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.470755 -2.634787"
+    },
+    {
       "id": "1c5dca6a-f130-49f6-9d56-f93d73a98433",
       "title": "alert",
       "published": "Mon Nov 23 10:24:05 +0000 2026",
@@ -82,24 +54,10 @@
       "road": "",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.471203 -2.634201"
-    },
-    {
-      "id": "742e863b-0159-4021-9669-6e66b6571533",
-      "title": "alert",
-      "published": "Mon Nov 23 11:12:39 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Manchester Rd",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.612619 -2.163409"
     }
   ]
 }
