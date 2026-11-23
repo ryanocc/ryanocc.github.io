@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T18:10:48.409006+00:00",
+  "updatedAt": "2026-11-23T18:15:48.414885+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 12,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -55,7 +55,7 @@
       "city": "Stockport",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.389784 -2.130242"
     },
@@ -96,8 +96,8 @@
       "road": "A6048 - Featherstall Rd N",
       "city": "Chadderton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.548214 -2.125363"
     },
@@ -111,23 +111,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 4.0,
       "point": "53.561763 -1.886264"
-    },
-    {
-      "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
-      "title": "alert",
-      "published": "Mon Nov 23 18:08:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Hall Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.59229 -2.726022"
     },
     {
       "id": "f62fc7fb-71d3-44a2-afd3-cfd7f4cd318c",
@@ -142,6 +128,34 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.59255 -2.727377"
+    },
+    {
+      "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
+      "title": "alert",
+      "published": "Mon Nov 23 18:08:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - Hall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.59229 -2.726022"
+    },
+    {
+      "id": "a8d47fb1-14c9-4f12-b7af-7f7300c66840",
+      "title": "alert",
+      "published": "Mon Nov 23 18:12:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Kingsway",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.615214 -2.130226"
     },
     {
       "id": "b476cb0d-879f-467e-b8b5-eef5a39e7ba1",
