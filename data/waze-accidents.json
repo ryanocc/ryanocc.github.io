@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T16:40:48.585876+00:00",
+  "updatedAt": "2026-11-23T16:45:48.640007+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -69,9 +69,23 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.567823 -2.428586"
+    },
+    {
+      "id": "d6e6ce19-645b-49e6-82b4-889ef610a245",
+      "title": "alert",
+      "published": "Mon Nov 23 16:44:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Waters Meeting Rd",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.589575 -2.429198"
     },
     {
       "id": "da9e7666-1abc-43e4-b394-34fb2e377a92",
@@ -88,18 +102,18 @@
       "point": "53.464404 -2.344127"
     },
     {
-      "id": "9d49d5e8-4c5c-4a7a-b8c2-2565c5af873e",
+      "id": "e33b7ba7-ae60-4a87-8b8d-719777d222e6",
       "title": "alert",
-      "published": "Mon Nov 23 16:38:57 +0000 2026",
+      "published": "Mon Nov 23 16:44:20 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A669 - Oldham Rd",
-      "city": "Oldham",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "Bury",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.537253 -2.050134"
+      "point": "53.593503 -2.265207"
     },
     {
       "id": "a7189f85-2a61-49fc-a91d-c4ac0c9872f4",
@@ -114,20 +128,6 @@
       "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.546933 -2.523147"
-    },
-    {
-      "id": "47c3868a-d86a-4e11-a40e-2fd5122d8e7c",
-      "title": "alert",
-      "published": "Mon Nov 23 16:40:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.548585 -2.264008"
     }
   ]
 }
