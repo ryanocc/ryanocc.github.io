@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-23T10:25:48.391691+00:00",
+  "updatedAt": "2026-11-23T10:30:48.353970+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
-    {
-      "id": "e7643b63-48d7-4e82-947b-dc1d6633d348",
-      "title": "alert",
-      "published": "Mon Nov 23 09:43:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.413261 -2.55896"
-    },
     {
       "id": "afbacaab-a35d-417a-8fb9-4bb9c1062172",
       "title": "alert",
@@ -44,6 +30,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.529602 -2.414993"
+    },
+    {
+      "id": "913d8670-d481-4ea7-8798-8dbc25e509b0",
+      "title": "alert",
+      "published": "Mon Nov 23 10:30:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (S & W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.408573 -2.177672"
     },
     {
       "id": "82f1f1e6-c7fb-4b5e-9afa-de58ca186e50",
@@ -74,20 +74,6 @@
       "point": "53.494815 -2.297028"
     },
     {
-      "id": "c3198edd-1a93-49ce-940b-ce7840262f83",
-      "title": "alert",
-      "published": "Mon Nov 23 08:20:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Walthew Ln",
-      "city": "Platt Bridge",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.523654 -2.603118"
-    },
-    {
       "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
       "title": "alert",
       "published": "Mon Nov 23 10:19:34 +0000 2026",
@@ -102,18 +88,32 @@
       "point": "53.522823 -2.60186"
     },
     {
-      "id": "4881bcee-243f-4314-baa3-46cad22c459f",
+      "id": "c3198edd-1a93-49ce-940b-ce7840262f83",
       "title": "alert",
-      "published": "Mon Nov 23 10:21:33 +0000 2026",
+      "published": "Mon Nov 23 08:20:14 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A580 - East Lancashire Rd",
+      "road": "A573 - Walthew Ln",
+      "city": "Platt Bridge",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.523654 -2.603118"
+    },
+    {
+      "id": "530950d9-b22c-4835-9f2f-77638c3aee0d",
+      "title": "alert",
+      "published": "Mon Nov 23 10:30:19 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
       "city": "Haydock",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.471141 -2.634558"
+      "reportRating": 2.0,
+      "point": "53.470755 -2.634787"
     },
     {
       "id": "1c5dca6a-f130-49f6-9d56-f93d73a98433",
@@ -128,6 +128,34 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.471203 -2.634201"
+    },
+    {
+      "id": "4881bcee-243f-4314-baa3-46cad22c459f",
+      "title": "alert",
+      "published": "Mon Nov 23 10:21:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "Haydock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.471141 -2.634558"
+    },
+    {
+      "id": "b63783e7-993b-44d1-9ed9-d570f1018c49",
+      "title": "alert",
+      "published": "Mon Nov 23 10:29:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.409463 -2.17129"
     }
   ]
 }
