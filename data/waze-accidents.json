@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T18:45:48.392698+00:00",
+  "updatedAt": "2026-11-23T18:50:48.349172+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 10,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -46,34 +46,6 @@
       "point": "53.45921 -2.163003"
     },
     {
-      "id": "963bfd4f-5c73-4486-9927-0932177707f9",
-      "title": "alert",
-      "published": "Mon Nov 23 18:22:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Gorton Ln",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.46928 -2.193776"
-    },
-    {
-      "id": "e33b7ba7-ae60-4a87-8b8d-719777d222e6",
-      "title": "alert",
-      "published": "Mon Nov 23 16:44:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.593503 -2.265207"
-    },
-    {
       "id": "f436bd38-6971-4eb7-b6f6-5fa7ee28a990",
       "title": "alert",
       "published": "Mon Nov 23 18:05:07 +0000 2026",
@@ -102,6 +74,20 @@
       "point": "53.436774 -2.244601"
     },
     {
+      "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
+      "title": "alert",
+      "published": "Mon Nov 23 18:08:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - Hall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.59229 -2.726022"
+    },
+    {
       "id": "f62fc7fb-71d3-44a2-afd3-cfd7f4cd318c",
       "title": "alert",
       "published": "Mon Nov 23 17:37:45 +0000 2026",
@@ -116,18 +102,18 @@
       "point": "53.59255 -2.727377"
     },
     {
-      "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
+      "id": "e92fdbcf-d523-4429-80e8-928c8a2f75e5",
       "title": "alert",
-      "published": "Mon Nov 23 18:08:37 +0000 2026",
+      "published": "Mon Nov 23 18:49:14 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5209 - Hall Ln",
-      "city": "",
+      "road": "",
+      "city": "Manchester",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.59229 -2.726022"
+      "point": "53.474831 -2.261395"
     },
     {
       "id": "b312a797-2931-46ca-b714-92a00df6852b",
@@ -138,7 +124,7 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460886 -2.171837"
@@ -152,7 +138,7 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.496349 -2.384199"
