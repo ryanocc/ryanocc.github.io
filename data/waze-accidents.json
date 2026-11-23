@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T17:40:48.507301+00:00",
+  "updatedAt": "2026-11-23T17:45:48.505288+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -46,6 +46,20 @@
       "point": "53.45921 -2.163003"
     },
     {
+      "id": "5161275a-752e-49d3-9099-1ed9e4b0d125",
+      "title": "alert",
+      "published": "Mon Nov 23 17:42:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.560514 -2.405014"
+    },
+    {
       "id": "e33b7ba7-ae60-4a87-8b8d-719777d222e6",
       "title": "alert",
       "published": "Mon Nov 23 16:44:20 +0000 2026",
@@ -68,8 +82,8 @@
       "road": "A5209 - Hall Ln",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.59255 -2.727377"
     },
@@ -82,24 +96,24 @@
       "road": "A635 - Ashton Old Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.473647 -2.184504"
     },
     {
-      "id": "56a64785-c8fb-473b-a6ee-b41838833dd5",
+      "id": "b476cb0d-879f-467e-b8b5-eef5a39e7ba1",
       "title": "alert",
-      "published": "Mon Nov 23 17:32:05 +0000 2026",
+      "published": "Mon Nov 23 17:42:31 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A58 - Manchester Rd",
-      "city": "Rochdale",
+      "road": "A635 - Park Parade",
+      "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.6045 -2.170355"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.485188 -2.099514"
     }
   ]
 }
