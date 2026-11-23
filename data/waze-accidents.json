@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T08:15:48.558708+00:00",
+  "updatedAt": "2026-11-23T08:20:48.566546+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
     {
       "id": "65590cb5-a99f-4f33-98ed-b5c52b123b7e",
@@ -18,6 +18,20 @@
       "point": "53.380832 -2.136762"
     },
     {
+      "id": "c3198edd-1a93-49ce-940b-ce7840262f83",
+      "title": "alert",
+      "published": "Mon Nov 23 08:20:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Walthew Ln",
+      "city": "Platt Bridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.523654 -2.603118"
+    },
+    {
       "id": "3b05d729-ea6c-49c8-a3ff-e007736a640d",
       "title": "alert",
       "published": "Mon Nov 23 08:03:56 +0000 2026",
@@ -26,8 +40,8 @@
       "road": "A5186 - Langworthy Rd",
       "city": "Langworthy",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.493239 -2.295546"
     },
