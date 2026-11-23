@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-23T12:30:48.404397+00:00",
+  "updatedAt": "2026-11-23T12:35:48.398504+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 6,
   "incidents": [
-    {
-      "id": "c485689c-279a-4f88-9678-187543e1ebc2",
-      "title": "alert",
-      "published": "Mon Nov 23 12:22:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.422303 -2.24151"
-    },
     {
       "id": "7524396d-9667-49a2-b4a5-ecc19b91f78c",
       "title": "alert",
@@ -46,20 +32,6 @@
       "point": "53.490787 -2.328871"
     },
     {
-      "id": "fa7c2084-431a-4d68-ac66-3ee20f7fce8d",
-      "title": "alert",
-      "published": "Mon Nov 23 12:10:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.558894 -2.433916"
-    },
-    {
       "id": "530950d9-b22c-4835-9f2f-77638c3aee0d",
       "title": "alert",
       "published": "Mon Nov 23 10:30:19 +0000 2026",
@@ -74,20 +46,6 @@
       "point": "53.470755 -2.634787"
     },
     {
-      "id": "2fd9291a-50de-40f4-a63a-54594a5800a3",
-      "title": "alert",
-      "published": "Mon Nov 23 12:02:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "Haydock",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.471151 -2.633346"
-    },
-    {
       "id": "fa049627-994b-445b-bab3-1675e749da62",
       "title": "alert",
       "published": "Mon Nov 23 12:30:17 +0000 2026",
@@ -97,9 +55,23 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.623319 -2.144952"
+    },
+    {
+      "id": "6564fa5e-e0db-46e8-976f-62205d6a737f",
+      "title": "alert",
+      "published": "Mon Nov 23 12:31:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.510156 -2.37155"
     },
     {
       "id": "2fad6873-faf8-465c-8da8-2db8c604bfe6",
