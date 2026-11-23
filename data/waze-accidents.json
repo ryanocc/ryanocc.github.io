@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T18:15:48.414885+00:00",
+  "updatedAt": "2026-11-23T18:20:48.413991+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
@@ -27,7 +27,7 @@
       "city": "Sedgley Park",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.519959 -2.259074"
     },
@@ -46,20 +46,6 @@
       "point": "53.45921 -2.163003"
     },
     {
-      "id": "2074e01c-b259-4c4a-94ef-4f278e2ea18c",
-      "title": "alert",
-      "published": "Mon Nov 23 18:09:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Dialstone Ln",
-      "city": "Stockport",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.389784 -2.130242"
-    },
-    {
       "id": "514e9e04-bd44-4083-9f93-c2ea179b6b7d",
       "title": "alert",
       "published": "Mon Nov 23 17:50:51 +0000 2026",
@@ -69,7 +55,7 @@
       "city": "Oldham",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.534978 -2.131374"
     },
@@ -97,7 +83,7 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.548214 -2.125363"
     },
@@ -139,9 +125,23 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.59229 -2.726022"
+    },
+    {
+      "id": "7185a10c-9cc9-472f-bdc9-4e696057827a",
+      "title": "alert",
+      "published": "Mon Nov 23 18:19:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Ardwick",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.470007 -2.221975"
     },
     {
       "id": "a8d47fb1-14c9-4f12-b7af-7f7300c66840",
@@ -152,8 +152,8 @@
       "road": "A664 - Kingsway",
       "city": "Rochdale",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.615214 -2.130226"
     },
