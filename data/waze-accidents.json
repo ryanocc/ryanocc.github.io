@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T12:40:48.481539+00:00",
+  "updatedAt": "2026-11-23T12:45:48.412443+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
     {
       "id": "7524396d-9667-49a2-b4a5-ecc19b91f78c",
@@ -32,32 +32,46 @@
       "point": "53.490787 -2.328871"
     },
     {
-      "id": "fa049627-994b-445b-bab3-1675e749da62",
+      "id": "6e441e36-9bd7-4c1c-8a09-7d1b84a4d45f",
       "title": "alert",
-      "published": "Mon Nov 23 12:30:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A58 - Yorkshire St",
-      "city": "Rochdale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.623319 -2.144952"
-    },
-    {
-      "id": "6564fa5e-e0db-46e8-976f-62205d6a737f",
-      "title": "alert",
-      "published": "Mon Nov 23 12:31:02 +0000 2026",
+      "published": "Mon Nov 23 12:44:32 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
+      "road": "A523 - Macclesfield Rd",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.510156 -2.37155"
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.365737 -2.11424"
+    },
+    {
+      "id": "1006107d-9f6d-4082-90b6-abf8b417d506",
+      "title": "alert",
+      "published": "Mon Nov 23 12:44:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A34 - Kingsway",
+      "city": "Burnage",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.42103 -2.213198"
+    },
+    {
+      "id": "cf2a7556-7fec-462a-9e1d-81af32e40a48",
+      "title": "alert",
+      "published": "Mon Nov 23 12:44:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5063 - Albion Way",
+      "city": "Ordsall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.484966 -2.276329"
     }
   ]
 }
