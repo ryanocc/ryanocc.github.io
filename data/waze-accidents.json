@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T13:40:48.450291+00:00",
+  "updatedAt": "2026-11-23T13:45:48.474877+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "27801746-75c2-421e-8be1-862282bb60a8",
@@ -32,6 +32,20 @@
       "point": "53.512357 -2.526423"
     },
     {
+      "id": "0641c3c6-3572-418c-98aa-6c82cd45dcd8",
+      "title": "alert",
+      "published": "Mon Nov 23 13:40:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Hollyhedge Rd",
+      "city": "Baguley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.389986 -2.273854"
+    },
+    {
       "id": "58e61c85-5b82-4471-a75c-0f530649f587",
       "title": "alert",
       "published": "Mon Nov 23 13:13:28 +0000 2026",
@@ -40,7 +54,7 @@
       "road": "B5235 - Leigh Rd",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.544258 -2.51677"
@@ -74,6 +88,20 @@
       "point": "53.482108 -2.33856"
     },
     {
+      "id": "223ee7f2-360d-4ba1-8324-4938539211f1",
+      "title": "alert",
+      "published": "Mon Nov 23 13:39:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6 - Manchester Rd W",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.531255 -2.424307"
+    },
+    {
       "id": "d36d76a4-2cc2-4361-9c7f-1892028c5793",
       "title": "alert",
       "published": "Mon Nov 23 13:10:01 +0000 2026",
@@ -88,18 +116,18 @@
       "point": "53.531622 -2.425532"
     },
     {
-      "id": "223ee7f2-360d-4ba1-8324-4938539211f1",
+      "id": "3ae027c2-cabb-4c2b-acdf-c17ae83a6fe7",
       "title": "alert",
-      "published": "Mon Nov 23 13:39:26 +0000 2026",
+      "published": "Mon Nov 23 13:45:08 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6 - Manchester Rd W",
-      "city": "Little Hulton",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 4.0,
-      "point": "53.531255 -2.424307"
+      "reportRating": 0.0,
+      "point": "53.52045 -2.366207"
     }
   ]
 }
