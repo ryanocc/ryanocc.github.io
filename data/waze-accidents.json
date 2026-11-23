@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T18:00:48.445194+00:00",
+  "updatedAt": "2026-11-23T18:05:48.467586+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -13,7 +13,7 @@
       "city": "Sale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.41158 -2.353772"
     },
@@ -60,20 +60,6 @@
       "point": "53.45921 -2.163003"
     },
     {
-      "id": "5161275a-752e-49d3-9099-1ed9e4b0d125",
-      "title": "alert",
-      "published": "Mon Nov 23 17:42:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Bolton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.560514 -2.405014"
-    },
-    {
       "id": "514e9e04-bd44-4083-9f93-c2ea179b6b7d",
       "title": "alert",
       "published": "Mon Nov 23 17:50:51 +0000 2026",
@@ -82,8 +68,8 @@
       "road": "",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.534978 -2.131374"
     },
@@ -102,6 +88,20 @@
       "point": "53.593503 -2.265207"
     },
     {
+      "id": "f436bd38-6971-4eb7-b6f6-5fa7ee28a990",
+      "title": "alert",
+      "published": "Mon Nov 23 18:05:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A635",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.561763 -1.886264"
+    },
+    {
       "id": "f62fc7fb-71d3-44a2-afd3-cfd7f4cd318c",
       "title": "alert",
       "published": "Mon Nov 23 17:37:45 +0000 2026",
@@ -116,20 +116,6 @@
       "point": "53.59255 -2.727377"
     },
     {
-      "id": "538b02e8-d49e-450f-82d2-67ea5877d003",
-      "title": "alert",
-      "published": "Mon Nov 23 17:37:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Ashton Old Rd",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.473647 -2.184504"
-    },
-    {
       "id": "b476cb0d-879f-467e-b8b5-eef5a39e7ba1",
       "title": "alert",
       "published": "Mon Nov 23 17:42:31 +0000 2026",
@@ -138,7 +124,7 @@
       "road": "A635 - Park Parade",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.485188 -2.099514"
