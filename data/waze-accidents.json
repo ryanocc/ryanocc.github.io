@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T16:00:48.566695+00:00",
+  "updatedAt": "2026-11-23T16:05:48.620616+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "f4524f1f-cb9b-4978-bfb8-6a4ac88bb033",
@@ -69,9 +69,23 @@
       "city": "Levenshulme",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.451711 -2.195473"
+    },
+    {
+      "id": "849507e3-f263-42d9-b3c7-5a7150648950",
+      "title": "alert",
+      "published": "Mon Nov 23 16:03:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Moss Hall Rd",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.581673 -2.254112"
     },
     {
       "id": "6d1ab2d0-49a2-4dae-aafe-e58facfef570",
@@ -100,34 +114,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.431451 -2.391251"
-    },
-    {
-      "id": "36d99454-7ba7-4cf6-9667-f966133b7773",
-      "title": "alert",
-      "published": "Mon Nov 23 16:00:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 5.0,
-      "point": "53.471705 -2.23727"
-    },
-    {
-      "id": "8b87357c-9923-4da3-a4e4-fa5be4dfe232",
-      "title": "alert",
-      "published": "Mon Nov 23 15:48:38 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.550235 -2.259435"
     }
   ]
 }
