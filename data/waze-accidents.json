@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T12:35:48.398504+00:00",
+  "updatedAt": "2026-11-23T12:40:48.481539+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 4,
   "incidents": [
     {
       "id": "7524396d-9667-49a2-b4a5-ecc19b91f78c",
@@ -32,20 +32,6 @@
       "point": "53.490787 -2.328871"
     },
     {
-      "id": "530950d9-b22c-4835-9f2f-77638c3aee0d",
-      "title": "alert",
-      "published": "Mon Nov 23 10:30:19 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Haydock",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 2.0,
-      "point": "53.470755 -2.634787"
-    },
-    {
       "id": "fa049627-994b-445b-bab3-1675e749da62",
       "title": "alert",
       "published": "Mon Nov 23 12:30:17 +0000 2026",
@@ -55,7 +41,7 @@
       "city": "Rochdale",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.623319 -2.144952"
     },
@@ -68,24 +54,10 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.510156 -2.37155"
-    },
-    {
-      "id": "2fad6873-faf8-465c-8da8-2db8c604bfe6",
-      "title": "alert",
-      "published": "Mon Nov 23 12:25:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.625787 -2.045917"
     }
   ]
 }
