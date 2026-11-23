@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T14:05:48.367155+00:00",
+  "updatedAt": "2026-11-23T14:10:48.422882+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "4cebb873-4585-47b3-853b-9d3c4e49d720",
@@ -26,10 +26,24 @@
       "road": "Hollyhedge Rd",
       "city": "Baguley",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.389986 -2.273854"
+    },
+    {
+      "id": "b26fd40f-1b97-4842-8ed5-8629045e22f4",
+      "title": "alert",
+      "published": "Mon Nov 23 14:10:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5235 - Leigh Rd",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.544474 -2.516909"
     },
     {
       "id": "2a5bd69f-f809-4ac2-9f26-e0c35d1a800e",
@@ -40,8 +54,8 @@
       "road": "B5235 - Leigh Rd",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.543803 -2.516482"
     },
