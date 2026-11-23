@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-23T19:25:48.419773+00:00",
+  "updatedAt": "2026-11-23T19:30:48.663154+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
-    {
-      "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
-      "title": "alert",
-      "published": "Mon Nov 23 17:26:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Woodhouse Ln",
-      "city": "Sale",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.41158 -2.353772"
-    },
     {
       "id": "b66360e4-d2c3-4d92-a25e-588155a60f5b",
       "title": "alert",
@@ -46,20 +32,6 @@
       "point": "53.561763 -1.886264"
     },
     {
-      "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
-      "title": "alert",
-      "published": "Mon Nov 23 18:08:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Hall Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.59229 -2.726022"
-    },
-    {
       "id": "f62fc7fb-71d3-44a2-afd3-cfd7f4cd318c",
       "title": "alert",
       "published": "Mon Nov 23 17:37:45 +0000 2026",
@@ -72,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.59255 -2.727377"
+    },
+    {
+      "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
+      "title": "alert",
+      "published": "Mon Nov 23 18:08:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - Hall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.59229 -2.726022"
     },
     {
       "id": "dc19bfdc-9612-4109-b5b0-d09684682a13",
