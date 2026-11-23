@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T18:50:48.349172+00:00",
+  "updatedAt": "2026-11-23T18:55:48.682429+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -60,18 +60,18 @@
       "point": "53.561763 -1.886264"
     },
     {
-      "id": "8f9791d1-148c-4626-aee5-ddbd01fb182c",
+      "id": "f62fc7fb-71d3-44a2-afd3-cfd7f4cd318c",
       "title": "alert",
-      "published": "Mon Nov 23 18:30:25 +0000 2026",
+      "published": "Mon Nov 23 17:37:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 (S) - Princess Rd",
-      "city": "Withington",
+      "road": "A5209 - Hall Ln",
+      "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.436774 -2.244601"
+      "reportRating": 0.0,
+      "point": "53.59255 -2.727377"
     },
     {
       "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
@@ -88,32 +88,18 @@
       "point": "53.59229 -2.726022"
     },
     {
-      "id": "f62fc7fb-71d3-44a2-afd3-cfd7f4cd318c",
+      "id": "6b631cf8-19c9-4eb3-aebd-3ce411b8ba15",
       "title": "alert",
-      "published": "Mon Nov 23 17:37:45 +0000 2026",
+      "published": "Mon Nov 23 18:53:45 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5209 - Hall Ln",
+      "road": "A572 - Worsley Brow",
       "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.59255 -2.727377"
-    },
-    {
-      "id": "e92fdbcf-d523-4429-80e8-928c8a2f75e5",
-      "title": "alert",
-      "published": "Mon Nov 23 18:49:14 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.474831 -2.261395"
+      "reportRating": 3.0,
+      "point": "53.502125 -2.385606"
     },
     {
       "id": "b312a797-2931-46ca-b714-92a00df6852b",
@@ -124,7 +110,7 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460886 -2.171837"
