@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T13:35:48.427038+00:00",
+  "updatedAt": "2026-11-23T13:40:48.450291+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "27801746-75c2-421e-8be1-862282bb60a8",
@@ -32,20 +32,6 @@
       "point": "53.512357 -2.526423"
     },
     {
-      "id": "a8d5e3a3-4089-4051-b1f4-bc977f296d8d",
-      "title": "alert",
-      "published": "Mon Nov 23 12:56:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5235 - Leigh Rd",
-      "city": "Westhoughton",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.544597 -2.516988"
-    },
-    {
       "id": "58e61c85-5b82-4471-a75c-0f530649f587",
       "title": "alert",
       "published": "Mon Nov 23 13:13:28 +0000 2026",
@@ -74,6 +60,20 @@
       "point": "53.612119 -2.412996"
     },
     {
+      "id": "1fd7b622-9a54-4f82-90df-ecd899489fcb",
+      "title": "alert",
+      "published": "Mon Nov 23 13:38:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Eccles",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.482108 -2.33856"
+    },
+    {
       "id": "d36d76a4-2cc2-4361-9c7f-1892028c5793",
       "title": "alert",
       "published": "Mon Nov 23 13:10:01 +0000 2026",
@@ -82,10 +82,24 @@
       "road": "A6 - Manchester Rd W",
       "city": "Little Hulton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.531622 -2.425532"
+    },
+    {
+      "id": "223ee7f2-360d-4ba1-8324-4938539211f1",
+      "title": "alert",
+      "published": "Mon Nov 23 13:39:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6 - Manchester Rd W",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 4.0,
+      "point": "53.531255 -2.424307"
     }
   ]
 }
