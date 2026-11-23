@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-23T14:45:48.468262+00:00",
+  "updatedAt": "2026-11-23T14:50:48.452726+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
+    {
+      "id": "b26fd40f-1b97-4842-8ed5-8629045e22f4",
+      "title": "alert",
+      "published": "Mon Nov 23 14:10:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "B5235 - Leigh Rd",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.544474 -2.516909"
+    },
     {
       "id": "2a5bd69f-f809-4ac2-9f26-e0c35d1a800e",
       "title": "alert",
@@ -30,20 +44,6 @@
       "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.543506 -2.516319"
-    },
-    {
-      "id": "b26fd40f-1b97-4842-8ed5-8629045e22f4",
-      "title": "alert",
-      "published": "Mon Nov 23 14:10:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "B5235 - Leigh Rd",
-      "city": "Westhoughton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.544474 -2.516909"
     },
     {
       "id": "8611704e-aaba-40a5-b4f1-a0f5e65c6135",
