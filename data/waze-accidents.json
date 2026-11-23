@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-23T13:00:48.417604+00:00",
+  "updatedAt": "2026-11-23T13:05:48.469930+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
+    {
+      "id": "6e3d5b4a-3ec4-474f-9079-a710019b4ac3",
+      "title": "alert",
+      "published": "Mon Nov 23 13:00:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.459095 -2.29524"
+    },
     {
       "id": "a8d5e3a3-4089-4051-b1f4-bc977f296d8d",
       "title": "alert",
@@ -13,7 +27,7 @@
       "city": "Westhoughton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.544597 -2.516988"
     },
