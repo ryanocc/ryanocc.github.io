@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T17:50:48.533569+00:00",
+  "updatedAt": "2026-11-23T17:55:48.471104+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -68,10 +68,24 @@
       "road": "",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.560514 -2.405014"
+    },
+    {
+      "id": "514e9e04-bd44-4083-9f93-c2ea179b6b7d",
+      "title": "alert",
+      "published": "Mon Nov 23 17:50:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.534978 -2.131374"
     },
     {
       "id": "e33b7ba7-ae60-4a87-8b8d-719777d222e6",
@@ -96,7 +110,7 @@
       "road": "A5209 - Hall Ln",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.59255 -2.727377"
@@ -124,7 +138,7 @@
       "road": "A635 - Park Parade",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.485188 -2.099514"
