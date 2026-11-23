@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-23T16:25:48.576640+00:00",
+  "updatedAt": "2026-11-23T16:30:48.668230+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 10,
   "incidents": [
+    {
+      "id": "c2597fbb-1a2e-41b0-a0b8-468e943e679e",
+      "title": "alert",
+      "published": "Mon Nov 23 16:26:02 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.409513 -2.281756"
+    },
     {
       "id": "f4524f1f-cb9b-4978-bfb8-6a4ac88bb033",
       "title": "alert",
@@ -82,8 +96,8 @@
       "road": "Crowcroft Rd",
       "city": "Levenshulme",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.451744 -2.195823"
     },
@@ -100,6 +114,34 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.581673 -2.254112"
+    },
+    {
+      "id": "da9e7666-1abc-43e4-b394-34fb2e377a92",
+      "title": "alert",
+      "published": "Mon Nov 23 16:26:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.464404 -2.344127"
+    },
+    {
+      "id": "a7189f85-2a61-49fc-a91d-c4ac0c9872f4",
+      "title": "alert",
+      "published": "Mon Nov 23 16:29:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Cricketers Way",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.546933 -2.523147"
     }
   ]
 }
