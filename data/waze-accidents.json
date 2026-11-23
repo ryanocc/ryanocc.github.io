@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-23T15:55:48.556049+00:00",
+  "updatedAt": "2026-11-23T16:00:48.566695+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
-    {
-      "id": "86688af8-8652-41ac-84fd-1b7516d749c4",
-      "title": "alert",
-      "published": "Mon Nov 23 15:08:27 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.371956 -2.330973"
-    },
     {
       "id": "f4524f1f-cb9b-4978-bfb8-6a4ac88bb033",
       "title": "alert",
@@ -82,8 +68,8 @@
       "road": "Crowcroft Rd",
       "city": "Levenshulme",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.451711 -2.195473"
     },
@@ -110,10 +96,24 @@
       "road": "A6144 - Manchester Rd",
       "city": "Carrington",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.431451 -2.391251"
+    },
+    {
+      "id": "36d99454-7ba7-4cf6-9667-f966133b7773",
+      "title": "alert",
+      "published": "Mon Nov 23 16:00:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 5.0,
+      "point": "53.471705 -2.23727"
     },
     {
       "id": "8b87357c-9923-4da3-a4e4-fa5be4dfe232",
@@ -124,7 +124,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.550235 -2.259435"
