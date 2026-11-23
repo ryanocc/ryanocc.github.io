@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T15:10:48.460837+00:00",
+  "updatedAt": "2026-11-23T15:15:48.479850+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "86688af8-8652-41ac-84fd-1b7516d749c4",
@@ -18,32 +18,18 @@
       "point": "53.371956 -2.330973"
     },
     {
-      "id": "d88e00f5-3d29-467a-804f-5d0be7f12d32",
+      "id": "f4524f1f-cb9b-4978-bfb8-6a4ac88bb033",
       "title": "alert",
-      "published": "Mon Nov 23 14:53:38 +0000 2026",
+      "published": "Mon Nov 23 15:12:38 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B5207 - Church Ln",
-      "city": "Lowton",
+      "road": "Darley St",
+      "city": "Farnworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.468255 -2.572099"
-    },
-    {
-      "id": "1a095296-bea9-44c2-89a5-9afcbff8c990",
-      "title": "alert",
-      "published": "Mon Nov 23 14:27:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5235 - Leigh Rd",
-      "city": "Westhoughton",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.543506 -2.516319"
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.549786 -2.391676"
     },
     {
       "id": "2a5bd69f-f809-4ac2-9f26-e0c35d1a800e",
@@ -58,6 +44,20 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.543803 -2.516482"
+    },
+    {
+      "id": "1a095296-bea9-44c2-89a5-9afcbff8c990",
+      "title": "alert",
+      "published": "Mon Nov 23 14:27:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5235 - Leigh Rd",
+      "city": "Westhoughton",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.543506 -2.516319"
     },
     {
       "id": "8611704e-aaba-40a5-b4f1-a0f5e65c6135",
@@ -88,6 +88,20 @@
       "point": "53.644631 -2.393849"
     },
     {
+      "id": "ee4d5a97-5596-411b-82a0-2f32d93119d7",
+      "title": "alert",
+      "published": "Mon Nov 23 15:12:51 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6194 - Heyside",
+      "city": "Royton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.562047 -2.103713"
+    },
+    {
       "id": "1fd7b622-9a54-4f82-90df-ecd899489fcb",
       "title": "alert",
       "published": "Mon Nov 23 13:38:11 +0000 2026",
@@ -100,6 +114,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.482108 -2.33856"
+    },
+    {
+      "id": "3b8655ec-d837-4374-b001-a1626997bb4a",
+      "title": "alert",
+      "published": "Mon Nov 23 15:14:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6144 - Manchester Rd",
+      "city": "Carrington",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.431451 -2.391251"
     }
   ]
 }
