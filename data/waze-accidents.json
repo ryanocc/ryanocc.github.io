@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T19:40:48.405734+00:00",
+  "updatedAt": "2026-11-23T19:45:48.381255+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
     {
       "id": "672d1ccb-b66d-43c3-b21f-1f88b9b66334",
@@ -12,8 +12,8 @@
       "road": "M60 (W & S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.498497 -2.384289"
     },
@@ -44,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.59229 -2.726022"
-    },
-    {
-      "id": "f62fc7fb-71d3-44a2-afd3-cfd7f4cd318c",
-      "title": "alert",
-      "published": "Mon Nov 23 17:37:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Hall Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.59255 -2.727377"
     }
   ]
 }
