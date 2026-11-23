@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-23T07:40:48.436702+00:00",
+  "updatedAt": "2026-11-23T07:45:48.451186+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 4,
   "incidents": [
+    {
+      "id": "65590cb5-a99f-4f33-98ed-b5c52b123b7e",
+      "title": "alert",
+      "published": "Mon Nov 23 07:41:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Blackthorn Rd",
+      "city": "Bramhall",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.380832 -2.136762"
+    },
     {
       "id": "642124d1-d8bb-41b8-a840-d8adeff871d2",
       "title": "alert",
@@ -16,6 +30,34 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.459319 -2.339821"
+    },
+    {
+      "id": "d8f1b841-94c4-486b-a122-0e3482038f4b",
+      "title": "alert",
+      "published": "Mon Nov 23 07:44:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A665 - Bury Old Rd",
+      "city": "Whitefield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.542879 -2.289214"
+    },
+    {
+      "id": "e5780149-b051-4e3f-8981-d6b7ddcfa52c",
+      "title": "alert",
+      "published": "Mon Nov 23 07:41:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A6 - Stockport Rd",
+      "city": "Levenshulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.436041 -2.184603"
     }
   ]
 }
