@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-23T12:00:48.407634+00:00",
+  "updatedAt": "2026-11-23T12:05:48.384284+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 5,
   "incidents": [
-    {
-      "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
-      "title": "alert",
-      "published": "Mon Nov 23 10:19:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Walthew Ln",
-      "city": "Platt Bridge",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.522823 -2.60186"
-    },
     {
       "id": "530950d9-b22c-4835-9f2f-77638c3aee0d",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.470755 -2.634787"
+    },
+    {
+      "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
+      "title": "alert",
+      "published": "Mon Nov 23 10:19:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A573 - Walthew Ln",
+      "city": "Platt Bridge",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.522823 -2.60186"
     },
     {
       "id": "1c5dca6a-f130-49f6-9d56-f93d73a98433",
@@ -46,18 +46,32 @@
       "point": "53.471203 -2.634201"
     },
     {
-      "id": "a663144e-24ad-4ab3-8af7-b533c3629a9f",
+      "id": "2fd9291a-50de-40f4-a63a-54594a5800a3",
       "title": "alert",
-      "published": "Mon Nov 23 11:53:43 +0000 2026",
+      "published": "Mon Nov 23 12:02:29 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A57 - Regent Rd",
-      "city": "Ordsall",
+      "road": "A580 - East Lancashire Rd",
+      "city": "Haydock",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.471151 -2.633346"
+    },
+    {
+      "id": "bc8031cd-e063-4548-bc88-54301966afd1",
+      "title": "alert",
+      "published": "Mon Nov 23 12:00:48 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A579 - Bradford St",
+      "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 8.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
-      "point": "53.477477 -2.273802"
+      "point": "53.57637 -2.418591"
     }
   ]
 }
