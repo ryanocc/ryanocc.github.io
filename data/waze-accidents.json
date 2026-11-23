@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T15:50:48.563232+00:00",
+  "updatedAt": "2026-11-23T15:55:48.556049+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 9,
   "incidents": [
     {
       "id": "86688af8-8652-41ac-84fd-1b7516d749c4",
@@ -32,20 +32,6 @@
       "point": "53.549786 -2.391676"
     },
     {
-      "id": "1a095296-bea9-44c2-89a5-9afcbff8c990",
-      "title": "alert",
-      "published": "Mon Nov 23 14:27:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5235 - Leigh Rd",
-      "city": "Westhoughton",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.543506 -2.516319"
-    },
-    {
       "id": "2a5bd69f-f809-4ac2-9f26-e0c35d1a800e",
       "title": "alert",
       "published": "Mon Nov 23 13:57:04 +0000 2026",
@@ -60,18 +46,18 @@
       "point": "53.543803 -2.516482"
     },
     {
-      "id": "c56ce85b-b781-4f0c-8728-6a0f98863b9d",
+      "id": "1a095296-bea9-44c2-89a5-9afcbff8c990",
       "title": "alert",
-      "published": "Mon Nov 23 15:18:39 +0000 2026",
+      "published": "Mon Nov 23 14:27:41 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "B5231 - Station Rd",
-      "city": "Pendlebury",
+      "road": "B5235 - Leigh Rd",
+      "city": "Westhoughton",
       "country": "UK",
-      "confidence": 1.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.515547 -2.337025"
+      "reportRating": 0.0,
+      "point": "53.543506 -2.516319"
     },
     {
       "id": "fff8c862-b4c3-4d8b-9648-b5f0c3dd9564",
@@ -88,6 +74,20 @@
       "point": "53.567823 -2.428586"
     },
     {
+      "id": "7f08670e-6991-45d3-b621-ffcc7cf46d6a",
+      "title": "alert",
+      "published": "Mon Nov 23 15:51:07 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Crowcroft Rd",
+      "city": "Levenshulme",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.451711 -2.195473"
+    },
+    {
       "id": "6d1ab2d0-49a2-4dae-aafe-e58facfef570",
       "title": "alert",
       "published": "Mon Nov 23 13:59:25 +0000 2026",
@@ -97,7 +97,7 @@
       "city": "Edgworth",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.644631 -2.393849"
     },
@@ -116,20 +116,6 @@
       "point": "53.431451 -2.391251"
     },
     {
-      "id": "0fb34775-41ba-489a-a3ac-f4fb2da1b0c6",
-      "title": "alert",
-      "published": "Mon Nov 23 15:39:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A665 - Great Ancoats St",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.483199 -2.229954"
-    },
-    {
       "id": "8b87357c-9923-4da3-a4e4-fa5be4dfe232",
       "title": "alert",
       "published": "Mon Nov 23 15:48:38 +0000 2026",
@@ -138,8 +124,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.550235 -2.259435"
     }
