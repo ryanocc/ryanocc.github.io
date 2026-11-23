@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T10:40:48.405633+00:00",
+  "updatedAt": "2026-11-23T10:45:48.404800+00:00",
   "source": "Waze GeoRSS",
-  "count": 11,
+  "count": 9,
   "incidents": [
     {
       "id": "afbacaab-a35d-417a-8fb9-4bb9c1062172",
@@ -18,20 +18,6 @@
       "point": "53.484388 -2.608582"
     },
     {
-      "id": "2c2898fc-b1fd-485f-a00f-05da7c9c912c",
-      "title": "alert",
-      "published": "Mon Nov 23 09:50:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.529602 -2.414993"
-    },
-    {
       "id": "913d8670-d481-4ea7-8798-8dbc25e509b0",
       "title": "alert",
       "published": "Mon Nov 23 10:30:15 +0000 2026",
@@ -41,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.408573 -2.177672"
     },
@@ -116,20 +102,6 @@
       "point": "53.522823 -2.60186"
     },
     {
-      "id": "4881bcee-243f-4314-baa3-46cad22c459f",
-      "title": "alert",
-      "published": "Mon Nov 23 10:21:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "Haydock",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.471141 -2.634558"
-    },
-    {
       "id": "1c5dca6a-f130-49f6-9d56-f93d73a98433",
       "title": "alert",
       "published": "Mon Nov 23 10:24:05 +0000 2026",
@@ -138,24 +110,24 @@
       "road": "",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.471203 -2.634201"
     },
     {
-      "id": "073ca97b-7fa9-45c4-ac31-9667ba4e8e85",
+      "id": "4881bcee-243f-4314-baa3-46cad22c459f",
       "title": "alert",
-      "published": "Mon Nov 23 10:32:55 +0000 2026",
+      "published": "Mon Nov 23 10:21:33 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A58 - Rochdale Rd",
-      "city": "Bury",
+      "subtype": "",
+      "road": "A580 - East Lancashire Rd",
+      "city": "Haydock",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 2.0,
-      "point": "53.592865 -2.282834"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.471141 -2.634558"
     }
   ]
 }
