@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T17:30:48.588476+00:00",
+  "updatedAt": "2026-11-23T17:35:48.564615+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -54,8 +54,8 @@
       "road": "B6536 - Manchester Rd",
       "city": "Bolton",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.56105 -2.406433"
     },
@@ -72,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.593503 -2.265207"
+    },
+    {
+      "id": "56a64785-c8fb-473b-a6ee-b41838833dd5",
+      "title": "alert",
+      "published": "Mon Nov 23 17:32:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Manchester Rd",
+      "city": "Rochdale",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.6045 -2.170355"
     }
   ]
 }
