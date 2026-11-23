@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T14:15:48.390657+00:00",
+  "updatedAt": "2026-11-23T14:20:48.411181+00:00",
   "source": "Waze GeoRSS",
-  "count": 8,
+  "count": 7,
   "incidents": [
     {
       "id": "4cebb873-4585-47b3-853b-9d3c4e49d720",
@@ -12,8 +12,8 @@
       "road": "Hollyhedge Rd",
       "city": "Baguley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.390281 -2.274966"
     },
@@ -54,7 +54,7 @@
       "road": "B5235 - Leigh Rd",
       "city": "Westhoughton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.543803 -2.516482"
@@ -100,20 +100,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.482108 -2.33856"
-    },
-    {
-      "id": "647a501f-6d04-41cf-b3e0-e023d68a88e0",
-      "title": "alert",
-      "published": "Mon Nov 23 14:10:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.468633 -2.324712"
     }
   ]
 }
