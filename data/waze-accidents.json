@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T18:30:48.333623+00:00",
+  "updatedAt": "2026-11-23T18:35:48.390335+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 13,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -110,8 +110,8 @@
       "road": "A635",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 4.0,
       "point": "53.561763 -1.886264"
     },
@@ -124,8 +124,8 @@
       "road": "A5103 (S) - Princess Rd",
       "city": "Withington",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.436774 -2.244601"
     },
@@ -158,20 +158,6 @@
       "point": "53.59255 -2.727377"
     },
     {
-      "id": "d63e6268-a71f-4189-bc19-7d325ef3c6bf",
-      "title": "alert",
-      "published": "Mon Nov 23 18:22:33 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A6010 - Pottery Ln",
-      "city": "West Gorton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.469642 -2.194243"
-    },
-    {
       "id": "b312a797-2931-46ca-b714-92a00df6852b",
       "title": "alert",
       "published": "Mon Nov 23 18:28:25 +0000 2026",
@@ -180,8 +166,8 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460886 -2.171837"
     },
@@ -194,7 +180,7 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460854 -2.171695"
