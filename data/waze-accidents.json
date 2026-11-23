@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T10:45:48.404800+00:00",
+  "updatedAt": "2026-11-23T10:50:48.386772+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 8,
   "incidents": [
     {
       "id": "afbacaab-a35d-417a-8fb9-4bb9c1062172",
@@ -18,34 +18,6 @@
       "point": "53.484388 -2.608582"
     },
     {
-      "id": "913d8670-d481-4ea7-8798-8dbc25e509b0",
-      "title": "alert",
-      "published": "Mon Nov 23 10:30:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (S & W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.408573 -2.177672"
-    },
-    {
-      "id": "82f1f1e6-c7fb-4b5e-9afa-de58ca186e50",
-      "title": "alert",
-      "published": "Mon Nov 23 08:41:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Moss Ln",
-      "city": "Platt Bridge",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.52389 -2.602965"
-    },
-    {
       "id": "c4a89155-87e6-4a10-9c9b-40cf474b8ff6",
       "title": "alert",
       "published": "Mon Nov 23 10:11:29 +0000 2026",
@@ -60,18 +32,18 @@
       "point": "53.494815 -2.297028"
     },
     {
-      "id": "530950d9-b22c-4835-9f2f-77638c3aee0d",
+      "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
       "title": "alert",
-      "published": "Mon Nov 23 10:30:19 +0000 2026",
+      "published": "Mon Nov 23 10:19:34 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Haydock",
+      "road": "A573 - Walthew Ln",
+      "city": "Platt Bridge",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.470755 -2.634787"
+      "reportRating": 0.0,
+      "point": "53.522823 -2.60186"
     },
     {
       "id": "c3198edd-1a93-49ce-940b-ce7840262f83",
@@ -88,18 +60,32 @@
       "point": "53.523654 -2.603118"
     },
     {
-      "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
+      "id": "530950d9-b22c-4835-9f2f-77638c3aee0d",
       "title": "alert",
-      "published": "Mon Nov 23 10:19:34 +0000 2026",
+      "published": "Mon Nov 23 10:30:19 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A573 - Walthew Ln",
-      "city": "Platt Bridge",
+      "road": "",
+      "city": "Haydock",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.470755 -2.634787"
+    },
+    {
+      "id": "cdc40157-04d3-4f36-8283-5e8115eeeb70",
+      "title": "alert",
+      "published": "Mon Nov 23 10:46:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A672 - Oldham Rd",
+      "city": "",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.522823 -2.60186"
+      "reportRating": 2.0,
+      "point": "53.665698 -1.94959"
     },
     {
       "id": "1c5dca6a-f130-49f6-9d56-f93d73a98433",
