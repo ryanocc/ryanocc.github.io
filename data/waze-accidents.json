@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T10:30:48.353970+00:00",
+  "updatedAt": "2026-11-23T10:35:48.405000+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -69,23 +69,9 @@
       "city": "Langworthy",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.494815 -2.297028"
-    },
-    {
-      "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
-      "title": "alert",
-      "published": "Mon Nov 23 10:19:34 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A573 - Walthew Ln",
-      "city": "Platt Bridge",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.522823 -2.60186"
     },
     {
       "id": "c3198edd-1a93-49ce-940b-ce7840262f83",
@@ -116,18 +102,18 @@
       "point": "53.470755 -2.634787"
     },
     {
-      "id": "1c5dca6a-f130-49f6-9d56-f93d73a98433",
+      "id": "02bd8cc4-5ea0-41a3-a562-e1517257f215",
       "title": "alert",
-      "published": "Mon Nov 23 10:24:05 +0000 2026",
+      "published": "Mon Nov 23 10:19:34 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Haydock",
+      "road": "A573 - Walthew Ln",
+      "city": "Platt Bridge",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.471203 -2.634201"
+      "reportRating": 0.0,
+      "point": "53.522823 -2.60186"
     },
     {
       "id": "4881bcee-243f-4314-baa3-46cad22c459f",
@@ -138,24 +124,38 @@
       "road": "A580 - East Lancashire Rd",
       "city": "Haydock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 9.0,
       "reportRating": 0.0,
       "point": "53.471141 -2.634558"
     },
     {
-      "id": "b63783e7-993b-44d1-9ed9-d570f1018c49",
+      "id": "1c5dca6a-f130-49f6-9d56-f93d73a98433",
       "title": "alert",
-      "published": "Mon Nov 23 10:29:43 +0000 2026",
+      "published": "Mon Nov 23 10:24:05 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
+      "road": "",
+      "city": "Haydock",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.409463 -2.17129"
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.471203 -2.634201"
+    },
+    {
+      "id": "073ca97b-7fa9-45c4-ac31-9667ba4e8e85",
+      "title": "alert",
+      "published": "Mon Nov 23 10:32:55 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.592865 -2.282834"
     }
   ]
 }
