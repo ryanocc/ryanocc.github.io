@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T18:55:48.682429+00:00",
+  "updatedAt": "2026-11-23T19:00:50.095847+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -16,6 +16,20 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.41158 -2.353772"
+    },
+    {
+      "id": "1657cedd-468b-4e97-8dd3-4205634d46e3",
+      "title": "alert",
+      "published": "Mon Nov 23 18:56:36 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.499567 -2.617142"
     },
     {
       "id": "b66360e4-d2c3-4d92-a25e-588155a60f5b",
@@ -44,6 +58,20 @@
       "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.45921 -2.163003"
+    },
+    {
+      "id": "6a124f10-bed9-430c-8080-d1e2d75f511d",
+      "title": "alert",
+      "published": "Mon Nov 23 18:57:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J7 to A56",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.435526 -2.313368"
     },
     {
       "id": "f436bd38-6971-4eb7-b6f6-5fa7ee28a990",
@@ -97,7 +125,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.502125 -2.385606"
     },
@@ -110,7 +138,7 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460886 -2.171837"
