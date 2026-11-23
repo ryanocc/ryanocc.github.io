@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T18:40:48.444122+00:00",
+  "updatedAt": "2026-11-23T18:45:48.392698+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 11,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -60,20 +60,6 @@
       "point": "53.46928 -2.193776"
     },
     {
-      "id": "514e9e04-bd44-4083-9f93-c2ea179b6b7d",
-      "title": "alert",
-      "published": "Mon Nov 23 17:50:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.534978 -2.131374"
-    },
-    {
       "id": "e33b7ba7-ae60-4a87-8b8d-719777d222e6",
       "title": "alert",
       "published": "Mon Nov 23 16:44:20 +0000 2026",
@@ -88,20 +74,6 @@
       "point": "53.593503 -2.265207"
     },
     {
-      "id": "e64b0bb1-2543-4492-8c19-0d354bc21578",
-      "title": "alert",
-      "published": "Mon Nov 23 18:07:16 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6048 - Featherstall Rd N",
-      "city": "Chadderton",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.548214 -2.125363"
-    },
-    {
       "id": "f436bd38-6971-4eb7-b6f6-5fa7ee28a990",
       "title": "alert",
       "published": "Mon Nov 23 18:05:07 +0000 2026",
@@ -111,7 +83,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 4.0,
       "point": "53.561763 -1.886264"
     },
@@ -130,20 +102,6 @@
       "point": "53.436774 -2.244601"
     },
     {
-      "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
-      "title": "alert",
-      "published": "Mon Nov 23 18:08:37 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Hall Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.59229 -2.726022"
-    },
-    {
       "id": "f62fc7fb-71d3-44a2-afd3-cfd7f4cd318c",
       "title": "alert",
       "published": "Mon Nov 23 17:37:45 +0000 2026",
@@ -158,6 +116,20 @@
       "point": "53.59255 -2.727377"
     },
     {
+      "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
+      "title": "alert",
+      "published": "Mon Nov 23 18:08:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - Hall Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.59229 -2.726022"
+    },
+    {
       "id": "b312a797-2931-46ca-b714-92a00df6852b",
       "title": "alert",
       "published": "Mon Nov 23 18:28:25 +0000 2026",
@@ -170,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.460886 -2.171837"
+    },
+    {
+      "id": "2babebd7-988e-42cf-af17-1b09b1247314",
+      "title": "alert",
+      "published": "Mon Nov 23 18:41:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.496349 -2.384199"
     }
   ]
 }
