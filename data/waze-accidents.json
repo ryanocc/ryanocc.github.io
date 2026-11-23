@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-23T13:05:48.469930+00:00",
+  "updatedAt": "2026-11-23T13:10:48.408670+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 5,
   "incidents": [
+    {
+      "id": "c886b1f4-bec8-4fc0-ba0c-8e107adf3afa",
+      "title": "alert",
+      "published": "Mon Nov 23 13:06:16 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.512357 -2.526423"
+    },
     {
       "id": "6e3d5b4a-3ec4-474f-9079-a710019b4ac3",
       "title": "alert",
@@ -27,9 +41,23 @@
       "city": "Westhoughton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.544597 -2.516988"
+    },
+    {
+      "id": "d36d76a4-2cc2-4361-9c7f-1892028c5793",
+      "title": "alert",
+      "published": "Mon Nov 23 13:10:01 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A6 - Manchester Rd W",
+      "city": "Little Hulton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.531622 -2.425532"
     },
     {
       "id": "6e441e36-9bd7-4c1c-8a09-7d1b84a4d45f",
