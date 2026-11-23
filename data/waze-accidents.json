@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T18:25:48.384439+00:00",
+  "updatedAt": "2026-11-23T18:30:48.333623+00:00",
   "source": "Waze GeoRSS",
-  "count": 13,
+  "count": 14,
   "incidents": [
     {
       "id": "854b050c-feeb-47ae-a588-2a3301c1c947",
@@ -55,7 +55,7 @@
       "city": "Gorton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.46928 -2.193776"
     },
@@ -97,7 +97,7 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.548214 -2.125363"
     },
@@ -114,6 +114,20 @@
       "reliability": 6.0,
       "reportRating": 4.0,
       "point": "53.561763 -1.886264"
+    },
+    {
+      "id": "8f9791d1-148c-4626-aee5-ddbd01fb182c",
+      "title": "alert",
+      "published": "Mon Nov 23 18:30:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Withington",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.436774 -2.244601"
     },
     {
       "id": "ad871ab0-a30d-4d32-8174-2163f98b02d2",
@@ -144,20 +158,6 @@
       "point": "53.59255 -2.727377"
     },
     {
-      "id": "17b61be8-44db-4c86-a5f0-c5e6df74232e",
-      "title": "alert",
-      "published": "Mon Nov 23 18:22:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57 - Hyde Rd",
-      "city": "Gorton",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.460854 -2.171695"
-    },
-    {
       "id": "d63e6268-a71f-4189-bc19-7d325ef3c6bf",
       "title": "alert",
       "published": "Mon Nov 23 18:22:33 +0000 2026",
@@ -172,18 +172,32 @@
       "point": "53.469642 -2.194243"
     },
     {
-      "id": "b476cb0d-879f-467e-b8b5-eef5a39e7ba1",
+      "id": "b312a797-2931-46ca-b714-92a00df6852b",
       "title": "alert",
-      "published": "Mon Nov 23 17:42:31 +0000 2026",
+      "published": "Mon Nov 23 18:28:25 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A635 - Park Parade",
-      "city": "Ashton-under-Lyne",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.460886 -2.171837"
+    },
+    {
+      "id": "17b61be8-44db-4c86-a5f0-c5e6df74232e",
+      "title": "alert",
+      "published": "Mon Nov 23 18:22:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57 - Hyde Rd",
+      "city": "Gorton",
+      "country": "UK",
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.485188 -2.099514"
+      "reportRating": 2.0,
+      "point": "53.460854 -2.171695"
     }
   ]
 }
