@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-23T16:15:48.564762+00:00",
+  "updatedAt": "2026-11-23T16:20:48.590251+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 9,
   "incidents": [
+    {
+      "id": "bb004619-158a-4ab9-8141-5db81ed60d56",
+      "title": "alert",
+      "published": "Mon Nov 23 16:19:17 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Bridgewater Ave",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.53906 -2.456035"
+    },
     {
       "id": "f4524f1f-cb9b-4978-bfb8-6a4ac88bb033",
       "title": "alert",
@@ -46,20 +60,6 @@
       "point": "53.543506 -2.516319"
     },
     {
-      "id": "8ab62b38-9bd0-49f3-bea6-7eaed6db6350",
-      "title": "alert",
-      "published": "Mon Nov 23 16:07:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B5231 - Folly Ln",
-      "city": "Swinton",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.504256 -2.345517"
-    },
-    {
       "id": "fff8c862-b4c3-4d8b-9648-b5f0c3dd9564",
       "title": "alert",
       "published": "Mon Nov 23 15:46:49 +0000 2026",
@@ -69,7 +69,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.567823 -2.428586"
     },
@@ -111,37 +111,9 @@
       "city": "Chadderton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.529793 -2.144673"
-    },
-    {
-      "id": "3b8655ec-d837-4374-b001-a1626997bb4a",
-      "title": "alert",
-      "published": "Mon Nov 23 15:14:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A6144 - Manchester Rd",
-      "city": "Carrington",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.431451 -2.391251"
-    },
-    {
-      "id": "027a2c4a-fa19-4c6c-ae5c-126ad5d70ba5",
-      "title": "alert",
-      "published": "Mon Nov 23 16:08:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A665 - Pin Mill Brow",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.475544 -2.217036"
     },
     {
       "id": "e9408bd5-a2c7-4a7a-9632-206225406f2c",
@@ -152,24 +124,10 @@
       "road": "A57 - Hyde Rd",
       "city": "Gorton",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.459281 -2.163148"
-    },
-    {
-      "id": "a9042022-2f47-49ed-b93d-560cfabe2e11",
-      "title": "alert",
-      "published": "Mon Nov 23 16:07:55 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 (N)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.373492 -2.507987"
     }
   ]
 }
