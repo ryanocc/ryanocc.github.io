@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-23T08:35:48.620372+00:00",
+  "updatedAt": "2026-11-23T08:40:48.651008+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
     {
       "id": "65590cb5-a99f-4f33-98ed-b5c52b123b7e",
@@ -26,8 +26,8 @@
       "road": "A573 - Walthew Ln",
       "city": "Platt Bridge",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.523654 -2.603118"
     },
@@ -44,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.542879 -2.289214"
-    },
-    {
-      "id": "a0676d07-4aa5-4f34-9358-94e1ef1463e3",
-      "title": "alert",
-      "published": "Mon Nov 23 08:32:08 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A34 (N) - Kingsway",
-      "city": "Burnage",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.433829 -2.207349"
     }
   ]
 }
