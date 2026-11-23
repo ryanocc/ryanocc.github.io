@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T16:35:48.596910+00:00",
+  "updatedAt": "2026-11-23T16:40:48.585876+00:00",
   "source": "Waze GeoRSS",
   "count": 9,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.409513 -2.281756"
-    },
-    {
-      "id": "bb004619-158a-4ab9-8141-5db81ed60d56",
-      "title": "alert",
-      "published": "Mon Nov 23 16:19:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Bridgewater Ave",
-      "city": "",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 1.0,
-      "point": "53.53906 -2.456035"
     },
     {
       "id": "f4524f1f-cb9b-4978-bfb8-6a4ac88bb033",
@@ -88,20 +74,6 @@
       "point": "53.567823 -2.428586"
     },
     {
-      "id": "a8899d70-5dd7-44db-ad32-e9689f2e4441",
-      "title": "alert",
-      "published": "Mon Nov 23 16:21:43 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Crowcroft Rd",
-      "city": "Levenshulme",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.451744 -2.195823"
-    },
-    {
       "id": "da9e7666-1abc-43e4-b394-34fb2e377a92",
       "title": "alert",
       "published": "Mon Nov 23 16:26:58 +0000 2026",
@@ -116,6 +88,20 @@
       "point": "53.464404 -2.344127"
     },
     {
+      "id": "9d49d5e8-4c5c-4a7a-b8c2-2565c5af873e",
+      "title": "alert",
+      "published": "Mon Nov 23 16:38:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A669 - Oldham Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.537253 -2.050134"
+    },
+    {
       "id": "a7189f85-2a61-49fc-a91d-c4ac0c9872f4",
       "title": "alert",
       "published": "Mon Nov 23 16:29:45 +0000 2026",
@@ -125,9 +111,23 @@
       "city": "Westhoughton",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.546933 -2.523147"
+    },
+    {
+      "id": "47c3868a-d86a-4e11-a40e-2fd5122d8e7c",
+      "title": "alert",
+      "published": "Mon Nov 23 16:40:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.548585 -2.264008"
     }
   ]
 }
