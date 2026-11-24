@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T15:45:48.189190+00:00",
+  "updatedAt": "2026-11-24T15:50:47.923951+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.559047 -2.462735"
-    },
-    {
-      "id": "409106e8-4f51-4d16-b2f1-7607e0c96e83",
-      "title": "alert",
-      "published": "Tue Nov 24 15:39:07 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Blossom St",
-      "city": "Ancoats",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 4.0,
-      "point": "53.483804 -2.230315"
     },
     {
       "id": "35d5d0f0-17ac-44c7-b2d2-9cd86c558fe8",
@@ -58,6 +44,20 @@
       "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.475631 -2.196935"
+    },
+    {
+      "id": "e7f706cc-eaf9-4a20-a4b7-8bcfa75adc3f",
+      "title": "alert",
+      "published": "Tue Nov 24 15:47:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.496635 -2.168715"
     },
     {
       "id": "75c31873-aa2f-4a83-b45c-b07172922f79",
@@ -110,8 +110,8 @@
       "road": "A58 - Rochdale Rd E",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.593959 -2.208474"
     }
