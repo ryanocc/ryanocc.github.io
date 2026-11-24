@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-24T12:55:47.659910+00:00",
+  "updatedAt": "2026-11-24T13:00:47.657973+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
+    {
+      "id": "90f6fcc0-2cf0-416b-af0a-e643797f5d29",
+      "title": "alert",
+      "published": "Tue Nov 24 12:57:57 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A538 - Wilmslow Rd",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.363001 -2.29712"
+    },
     {
       "id": "ea6d8cfc-7f28-4be9-bad8-d6d1afa979d1",
       "title": "alert",
@@ -26,8 +40,8 @@
       "road": "A576 - Middleton Rd",
       "city": "Blackley",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.537276 -2.241258"
     }
