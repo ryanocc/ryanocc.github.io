@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T16:50:48.451485+00:00",
+  "updatedAt": "2026-11-24T16:55:48.478158+00:00",
   "source": "Waze GeoRSS",
-  "count": 10,
+  "count": 6,
   "incidents": [
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -12,7 +12,7 @@
       "road": "Bell Cr",
       "city": "Bradford",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.475631 -2.196935"
@@ -32,20 +32,6 @@
       "point": "53.391443 -2.347909"
     },
     {
-      "id": "fae8b49c-ba56-4468-b6fd-f51a6760263d",
-      "title": "alert",
-      "published": "Tue Nov 24 16:44:29 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.519442 -2.141831"
-    },
-    {
       "id": "610c39fe-0e82-455f-9c37-8339e995b0df",
       "title": "alert",
       "published": "Tue Nov 24 16:36:51 +0000 2026",
@@ -54,8 +40,8 @@
       "road": "B6477 - Manchester St",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.54003 -2.121162"
     },
@@ -74,20 +60,6 @@
       "point": "53.390698 -2.347377"
     },
     {
-      "id": "a53f1ff2-b953-4501-a69d-60ea5243f9d1",
-      "title": "alert",
-      "published": "Tue Nov 24 15:18:23 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A576 - Centenary Way",
-      "city": "Trafford Park",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.480342 -2.32527"
-    },
-    {
       "id": "8168311b-c32c-4ff5-aa00-9fb2905ec84f",
       "title": "alert",
       "published": "Tue Nov 24 16:34:28 +0000 2026",
@@ -96,52 +68,24 @@
       "road": "A560 - Woodlands Rd",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.391143 -2.345988"
     },
     {
-      "id": "558d9bb2-72a2-498f-98d5-59a7ec7accfe",
+      "id": "92fe7410-a677-4805-b0fb-af4edb5fa6c5",
       "title": "alert",
-      "published": "Tue Nov 24 15:14:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd E",
-      "city": "Heywood",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.593959 -2.208474"
-    },
-    {
-      "id": "e4453b02-fc67-4e68-9096-c68829f0cac5",
-      "title": "alert",
-      "published": "Tue Nov 24 16:44:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 3.0,
-      "point": "53.472803 -2.232996"
-    },
-    {
-      "id": "2837b2e1-e761-41a2-b5c2-65eedd0183f3",
-      "title": "alert",
-      "published": "Tue Nov 24 16:48:42 +0000 2026",
+      "published": "Tue Nov 24 16:54:39 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 2.0,
-      "point": "53.520738 -2.145243"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.527853 -2.168016"
     }
   ]
 }
