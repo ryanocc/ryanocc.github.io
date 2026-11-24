@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T16:20:48.471134+00:00",
+  "updatedAt": "2026-11-24T16:25:48.268773+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "e1b9d59c-9e33-494a-b521-e2a7ff8dc8b7",
@@ -46,6 +46,20 @@
       "point": "53.475288 -2.197151"
     },
     {
+      "id": "e96e586b-13de-4626-8fa7-156fdfdb251c",
+      "title": "alert",
+      "published": "Tue Nov 24 16:24:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B5164 - Barrington Rd",
+      "city": "Altrincham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.391443 -2.347909"
+    },
+    {
       "id": "305be2ba-9268-4eb7-b943-e86deecf1579",
       "title": "alert",
       "published": "Tue Nov 24 14:30:32 +0000 2026",
@@ -55,7 +69,7 @@
       "city": "Farnworth",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.543597 -2.39826"
     },
@@ -82,10 +96,24 @@
       "road": "A58 - Rochdale Rd E",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.593959 -2.208474"
+    },
+    {
+      "id": "e89d3a76-c0dd-4dd9-83eb-b69118964bf2",
+      "title": "alert",
+      "published": "Tue Nov 24 16:22:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.505969 -2.131297"
     }
   ]
 }
