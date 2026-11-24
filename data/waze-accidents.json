@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-11-24T11:20:47.663749+00:00",
+  "updatedAt": "2026-11-24T11:25:47.671596+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
-      "id": "d3be6abf-5613-4c4d-b661-add20398bd26",
+      "id": "0f036404-77c2-4304-84ea-4d758333f041",
       "title": "alert",
-      "published": "Tue Nov 24 10:49:40 +0000 2026",
+      "published": "Tue Nov 24 11:24:02 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "J26 to A560",
+      "road": "",
       "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.420345 -2.136854"
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.427295 -2.31426"
     },
     {
       "id": "47237de0-5fe8-43a1-a4b2-59e8267215e3",
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.420145 -2.13806"
+    },
+    {
+      "id": "0587866f-5bd8-428e-8c49-f09ca43849f9",
+      "title": "alert",
+      "published": "Tue Nov 24 11:25:34 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5081 - Park Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.458601 -2.337946"
     }
   ]
 }
