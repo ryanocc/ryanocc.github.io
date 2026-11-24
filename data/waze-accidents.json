@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-24T14:55:48.563328+00:00",
+  "updatedAt": "2026-11-24T15:00:47.873783+00:00",
   "source": "Waze GeoRSS",
-  "count": 3,
+  "count": 4,
   "incidents": [
-    {
-      "id": "8c87efed-4a22-443a-aff1-9ca6b43e92e9",
-      "title": "alert",
-      "published": "Tue Nov 24 14:25:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.488961 -2.524175"
-    },
     {
       "id": "35d5d0f0-17ac-44c7-b2d2-9cd86c558fe8",
       "title": "alert",
@@ -27,9 +13,23 @@
       "city": "Bradford",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.475288 -2.197151"
+    },
+    {
+      "id": "75c31873-aa2f-4a83-b45c-b07172922f79",
+      "title": "alert",
+      "published": "Tue Nov 24 14:56:12 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thynne St",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.569918 -2.423765"
     },
     {
       "id": "305be2ba-9268-4eb7-b943-e86deecf1579",
@@ -44,6 +44,20 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.543597 -2.39826"
+    },
+    {
+      "id": "f849d969-9a4d-4131-ac73-c5521958c66d",
+      "title": "alert",
+      "published": "Tue Nov 24 14:58:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5082 - Long Causeway",
+      "city": "Farnworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.544262 -2.393692"
     }
   ]
 }
