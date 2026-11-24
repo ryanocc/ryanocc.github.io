@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T07:10:47.694849+00:00",
+  "updatedAt": "2026-11-24T07:15:47.751628+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "a7df8d65-0942-4ee5-852f-60f0d908f81e",
@@ -18,6 +18,20 @@
       "point": "53.478483 -2.115816"
     },
     {
+      "id": "73dde3ba-3e62-4f35-96d4-1c4050ddbbdc",
+      "title": "alert",
+      "published": "Tue Nov 24 07:15:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6219 - Heywood St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.592713 -2.284992"
+    },
+    {
       "id": "084bc8cc-d2fa-45b2-898f-820d83085b72",
       "title": "alert",
       "published": "Tue Nov 24 05:50:14 +0000 2026",
@@ -32,6 +46,20 @@
       "point": "53.432382 -2.429637"
     },
     {
+      "id": "0f2aab59-015e-4595-b5d1-f34b7832a079",
+      "title": "alert",
+      "published": "Tue Nov 24 07:10:46 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A574 - Warrington Rd",
+      "city": "Leigh",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.483524 -2.500737"
+    },
+    {
       "id": "8bed5eb4-1d05-4e17-8f40-8b55254cefdc",
       "title": "alert",
       "published": "Tue Nov 24 07:10:31 +0000 2026",
@@ -44,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.482666 -2.500677"
-    },
-    {
-      "id": "0f2aab59-015e-4595-b5d1-f34b7832a079",
-      "title": "alert",
-      "published": "Tue Nov 24 07:10:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A574 - Warrington Rd",
-      "city": "Leigh",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.483524 -2.500737"
     },
     {
       "id": "1012964c-13cb-400c-b774-35325f8bdb4f",
