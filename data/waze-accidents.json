@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T18:00:48.277834+00:00",
+  "updatedAt": "2026-11-24T18:05:48.308824+00:00",
   "source": "Waze GeoRSS",
-  "count": 19,
+  "count": 22,
   "incidents": [
     {
       "id": "af80dc6d-d65a-4d1e-9932-e5c120f7756d",
@@ -60,6 +60,20 @@
       "point": "53.391443 -2.347909"
     },
     {
+      "id": "7aed3208-7db1-4f7a-b0d0-5b4bc15c0a4f",
+      "title": "alert",
+      "published": "Tue Nov 24 18:02:33 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.398083 -2.233796"
+    },
+    {
       "id": "51a48924-383e-4ed6-b53e-070106d97778",
       "title": "alert",
       "published": "Tue Nov 24 17:27:50 +0000 2026",
@@ -102,6 +116,20 @@
       "point": "53.596716 -2.289254"
     },
     {
+      "id": "a71d4d04-39da-41b9-9af4-0d9d06230d2c",
+      "title": "alert",
+      "published": "Tue Nov 24 18:02:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.547914 -2.258807"
+    },
+    {
       "id": "4513186c-dc20-4b6b-b9c0-57c0c04d40af",
       "title": "alert",
       "published": "Tue Nov 24 17:55:49 +0000 2026",
@@ -110,7 +138,7 @@
       "road": "J18 > M60 (W & S)",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.548405 -2.259747"
@@ -138,10 +166,24 @@
       "road": "A626 - Brabyns Brow",
       "city": "Marple Bridge",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.400583 -2.056102"
+    },
+    {
+      "id": "7e44a0c1-e6a3-4d0e-a363-55ae47450e8e",
+      "title": "alert",
+      "published": "Tue Nov 24 18:01:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.470796 -2.633117"
     },
     {
       "id": "6ce1b1ea-0d01-4b82-970e-07d89995df0a",
@@ -186,6 +228,20 @@
       "point": "53.596862 -2.28976"
     },
     {
+      "id": "df226797-4b45-4c98-bf82-f34f6cf8c6d6",
+      "title": "alert",
+      "published": "Tue Nov 24 18:04:38 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Manchester Rd",
+      "city": "Oldham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.520047 -2.143355"
+    },
+    {
       "id": "b1489735-6151-41c6-b35b-da5579d88b4f",
       "title": "alert",
       "published": "Tue Nov 24 17:45:20 +0000 2026",
@@ -195,7 +251,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.542461 -2.148865"
     },
@@ -214,32 +270,32 @@
       "point": "53.404967 -2.51856"
     },
     {
-      "id": "b879f804-9c0c-4d8b-954c-b63d72279418",
+      "id": "9e3b8883-51a4-4b47-b954-20394465929f",
       "title": "alert",
-      "published": "Tue Nov 24 17:57:37 +0000 2026",
+      "published": "Tue Nov 24 18:00:22 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (E)",
+      "road": "M60 (CW)",
       "city": "",
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.37958 -2.280284"
+      "point": "53.400298 -2.217098"
     },
     {
-      "id": "91cdb5b1-22ef-431d-b798-bf540a5eded2",
+      "id": "07a9cdb4-560e-4cc1-8649-d10f58e87af9",
       "title": "alert",
-      "published": "Tue Nov 24 17:57:13 +0000 2026",
+      "published": "Tue Nov 24 18:05:46 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M60 (ACW)",
+      "road": "M56 (W)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.39924 -2.23788"
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.398164 -2.23412"
     },
     {
       "id": "27ba39ae-f71d-482a-a31c-4a347473d300",
@@ -250,24 +306,10 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.402947 -2.245481"
-    },
-    {
-      "id": "9e3b8883-51a4-4b47-b954-20394465929f",
-      "title": "alert",
-      "published": "Tue Nov 24 18:00:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.400298 -2.217098"
     }
   ]
 }
