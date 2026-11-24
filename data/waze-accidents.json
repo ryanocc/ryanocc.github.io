@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-24T17:50:48.403300+00:00",
+  "updatedAt": "2026-11-24T17:55:48.547862+00:00",
   "source": "Waze GeoRSS",
-  "count": 21,
+  "count": 17,
   "incidents": [
-    {
-      "id": "c227526a-8804-4b1c-9483-9b79551b3373",
-      "title": "alert",
-      "published": "Tue Nov 24 17:44:06 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "York St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.593619 -2.286944"
-    },
     {
       "id": "af80dc6d-d65a-4d1e-9932-e5c120f7756d",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.597183 -2.288146"
+    },
+    {
+      "id": "c227526a-8804-4b1c-9483-9b79551b3373",
+      "title": "alert",
+      "published": "Tue Nov 24 17:44:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "York St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.593619 -2.286944"
     },
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -83,7 +83,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.573867 -2.43931"
     },
@@ -96,52 +96,10 @@
       "road": "",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.596716 -2.289254"
-    },
-    {
-      "id": "39542a2a-c76a-4207-b8fa-09b3f3407b65",
-      "title": "alert",
-      "published": "Tue Nov 24 17:15:13 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5103 > Manchester Airport",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.470663 -2.247606"
-    },
-    {
-      "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
-      "title": "alert",
-      "published": "Tue Nov 24 16:59:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J18 to M62 > Leeds",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.548754 -2.260224"
-    },
-    {
-      "id": "7040014c-dc6f-4936-b2db-794429606860",
-      "title": "alert",
-      "published": "Tue Nov 24 17:13:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J18 > M60 (W & S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.548444 -2.259836"
     },
     {
       "id": "de7b73c7-509a-462e-8da4-f01cc8dcb47a",
@@ -180,8 +138,8 @@
       "road": "A56 - Walmersley Rd",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.597185 -2.289754"
     },
@@ -194,24 +152,10 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470985 -2.634668"
-    },
-    {
-      "id": "a4b1572f-54c6-4dcb-bc9b-93903d108abf",
-      "title": "alert",
-      "published": "Tue Nov 24 17:20:50 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A580 - East Lancashire Rd",
-      "city": "Haydock",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.471158 -2.635145"
     },
     {
       "id": "33a191fc-2360-4243-a6dd-ea83e1858b03",
@@ -242,6 +186,20 @@
       "point": "53.596862 -2.28976"
     },
     {
+      "id": "46645f91-6563-45ee-8253-71d67c8ebf27",
+      "title": "alert",
+      "published": "Tue Nov 24 17:53:40 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A62 - Oldham Rd",
+      "city": "Newton Heath",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 9.0,
+      "reportRating": 3.0,
+      "point": "53.501311 -2.194157"
+    },
+    {
       "id": "b1489735-6151-41c6-b35b-da5579d88b4f",
       "title": "alert",
       "published": "Tue Nov 24 17:45:20 +0000 2026",
@@ -256,46 +214,32 @@
       "point": "53.542461 -2.148865"
     },
     {
-      "id": "9bb972e3-7a66-4713-9b38-6128c7e7b2a9",
+      "id": "91391866-fc57-481d-b1a1-feb47035c462",
       "title": "alert",
-      "published": "Tue Nov 24 17:41:53 +0000 2026",
+      "published": "Tue Nov 24 17:54:02 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (E)",
+      "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.379661 -2.28018"
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.404967 -2.51856"
     },
     {
-      "id": "50b38444-7a3e-45a2-8f33-057643f7be6d",
+      "id": "25a5cb06-e5a6-4ca2-befd-27225120dd10",
       "title": "alert",
-      "published": "Tue Nov 24 17:12:27 +0000 2026",
+      "published": "Tue Nov 24 17:54:14 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.398547 -2.237036"
-    },
-    {
-      "id": "0750c2bc-88c9-41f7-ac0c-5bd2d1dceb98",
-      "title": "alert",
-      "published": "Tue Nov 24 17:39:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
+      "subtype": "ACCIDENT_MAJOR",
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
+      "confidence": 0.0,
+      "reliability": 5.0,
       "reportRating": 1.0,
-      "point": "53.402882 -2.245396"
+      "point": "53.541455 -2.28405"
     }
   ]
 }
