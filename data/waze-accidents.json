@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T10:40:47.765375+00:00",
+  "updatedAt": "2026-11-24T10:45:47.730140+00:00",
   "source": "Waze GeoRSS",
   "count": 6,
   "incidents": [
@@ -16,20 +16,6 @@
       "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.382139 -2.316254"
-    },
-    {
-      "id": "a18e5fd2-d072-4f60-b83a-64eb4bac3861",
-      "title": "alert",
-      "published": "Tue Nov 24 10:32:44 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M6 > Preston",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.431678 -2.567217"
     },
     {
       "id": "37991732-e729-42cc-aedd-c333223e3a76",
@@ -69,7 +55,7 @@
       "city": "Hyde",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.452693 -2.085742"
     },
@@ -86,6 +72,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.586131 -2.663496"
+    },
+    {
+      "id": "46a728be-3647-43bc-959c-d47cafef33c3",
+      "title": "alert",
+      "published": "Tue Nov 24 10:43:08 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 1.0,
+      "point": "53.630271 -2.013274"
     }
   ]
 }
