@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T07:15:47.751628+00:00",
+  "updatedAt": "2026-11-24T07:20:47.730127+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "a7df8d65-0942-4ee5-852f-60f0d908f81e",
@@ -27,9 +27,23 @@
       "city": "Bury",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.592713 -2.284992"
+    },
+    {
+      "id": "fa18264e-3bac-4b97-935f-f7d01be9be87",
+      "title": "alert",
+      "published": "Tue Nov 24 07:15:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6219 - Bond St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.593322 -2.284378"
     },
     {
       "id": "084bc8cc-d2fa-45b2-898f-820d83085b72",
@@ -55,23 +69,23 @@
       "city": "Leigh",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 7.0,
       "reportRating": 3.0,
       "point": "53.483524 -2.500737"
     },
     {
-      "id": "8bed5eb4-1d05-4e17-8f40-8b55254cefdc",
+      "id": "5b2a3704-a798-46a5-8300-e67e893901a5",
       "title": "alert",
-      "published": "Tue Nov 24 07:10:31 +0000 2026",
+      "published": "Tue Nov 24 07:15:59 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A574 - Warrington Rd",
-      "city": "Leigh",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
       "country": "UK",
       "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.482666 -2.500677"
+      "reportRating": 2.0,
+      "point": "53.59294 -2.284376"
     },
     {
       "id": "1012964c-13cb-400c-b774-35325f8bdb4f",
