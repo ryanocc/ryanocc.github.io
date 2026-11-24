@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T17:20:48.342093+00:00",
+  "updatedAt": "2026-11-24T17:25:48.426787+00:00",
   "source": "Waze GeoRSS",
-  "count": 14,
+  "count": 13,
   "incidents": [
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -69,7 +69,7 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.470663 -2.247606"
     },
@@ -96,8 +96,8 @@
       "road": "J18 > M60 (W & S)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.548444 -2.259836"
     },
@@ -124,24 +124,24 @@
       "road": "A576 - Centenary Way",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.476363 -2.325921"
     },
     {
-      "id": "07917611-aa58-4afb-a828-a4ee3f53aed9",
+      "id": "a4b1572f-54c6-4dcb-bc9b-93903d108abf",
       "title": "alert",
-      "published": "Tue Nov 24 17:17:04 +0000 2026",
+      "published": "Tue Nov 24 17:20:50 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A56 - Manchester Rd",
-      "city": "Altrincham",
+      "road": "A580 - East Lancashire Rd",
+      "city": "Haydock",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.405915 -2.347709"
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 4.0,
+      "point": "53.471158 -2.635145"
     },
     {
       "id": "e9d4905d-1911-4ac1-b63b-ef9500e9252e",
@@ -152,7 +152,7 @@
       "road": "A56 - Peel Way",
       "city": "Bury",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.596699 -2.291533"
@@ -167,7 +167,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.470617 -2.246837"
     },
@@ -184,20 +184,6 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.398547 -2.237036"
-    },
-    {
-      "id": "61e42ec0-332b-4a3d-8656-bf2ebb48ba1a",
-      "title": "alert",
-      "published": "Tue Nov 24 17:10:30 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A57(M) - Mancunian Way",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.472693 -2.25897"
     }
   ]
 }
