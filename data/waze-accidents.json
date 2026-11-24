@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T17:40:48.395161+00:00",
+  "updatedAt": "2026-11-24T17:45:48.319603+00:00",
   "source": "Waze GeoRSS",
-  "count": 21,
+  "count": 22,
   "incidents": [
     {
       "id": "af80dc6d-d65a-4d1e-9932-e5c120f7756d",
@@ -16,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.597183 -2.288146"
+    },
+    {
+      "id": "c227526a-8804-4b1c-9483-9b79551b3373",
+      "title": "alert",
+      "published": "Tue Nov 24 17:44:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "York St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.593619 -2.286944"
     },
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -54,7 +68,7 @@
       "road": "J23 to A580",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470635 -2.633912"
@@ -69,7 +83,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.573867 -2.43931"
     },
@@ -116,20 +130,6 @@
       "point": "53.520467 -2.143649"
     },
     {
-      "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
-      "title": "alert",
-      "published": "Tue Nov 24 16:59:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J18 to M62 > Leeds",
-      "city": "",
-      "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.548754 -2.260224"
-    },
-    {
       "id": "7040014c-dc6f-4936-b2db-794429606860",
       "title": "alert",
       "published": "Tue Nov 24 17:13:49 +0000 2026",
@@ -142,6 +142,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.548444 -2.259836"
+    },
+    {
+      "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
+      "title": "alert",
+      "published": "Tue Nov 24 16:59:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J18 to M62 > Leeds",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.548754 -2.260224"
     },
     {
       "id": "de7b73c7-509a-462e-8da4-f01cc8dcb47a",
@@ -167,23 +181,9 @@
       "city": "Marple Bridge",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.400583 -2.056102"
-    },
-    {
-      "id": "d16ae9c8-94fc-43d0-ad0c-fafd2b18f536",
-      "title": "alert",
-      "published": "Tue Nov 24 17:36:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - Crow Orchard Rd",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 3.0,
-      "point": "53.590054 -2.696019"
     },
     {
       "id": "6ce1b1ea-0d01-4b82-970e-07d89995df0a",
@@ -194,8 +194,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470985 -2.634668"
     },
@@ -222,8 +222,8 @@
       "road": "A58 - Derby Way",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.596657 -2.289969"
     },
@@ -242,6 +242,34 @@
       "point": "53.596862 -2.28976"
     },
     {
+      "id": "b1489735-6151-41c6-b35b-da5579d88b4f",
+      "title": "alert",
+      "published": "Tue Nov 24 17:45:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A663 - Broadway",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.542461 -2.148865"
+    },
+    {
+      "id": "9bb972e3-7a66-4713-9b38-6128c7e7b2a9",
+      "title": "alert",
+      "published": "Tue Nov 24 17:41:53 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.379661 -2.28018"
+    },
+    {
       "id": "0750c2bc-88c9-41f7-ac0c-5bd2d1dceb98",
       "title": "alert",
       "published": "Tue Nov 24 17:39:11 +0000 2026",
@@ -250,8 +278,8 @@
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.402882 -2.245396"
     },
@@ -270,32 +298,18 @@
       "point": "53.398547 -2.237036"
     },
     {
-      "id": "335f32ef-69cd-4d53-b8bb-c5dfe4929840",
+      "id": "c8a67afe-d189-4b75-b5f8-26ff3a27a2c7",
       "title": "alert",
-      "published": "Tue Nov 24 17:29:45 +0000 2026",
+      "published": "Tue Nov 24 17:42:13 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M56 (W)",
+      "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.398558 -2.227734"
-    },
-    {
-      "id": "1e60b87d-7b63-47fe-90bf-962032eae335",
-      "title": "alert",
-      "published": "Tue Nov 24 17:34:56 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.414526 -2.156075"
+      "reportRating": 4.0,
+      "point": "53.484387 -2.386114"
     }
   ]
 }
