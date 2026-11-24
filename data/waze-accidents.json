@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T15:00:47.873783+00:00",
+  "updatedAt": "2026-11-24T15:05:47.716379+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "35d5d0f0-17ac-44c7-b2d2-9cd86c558fe8",
@@ -12,10 +12,24 @@
       "road": "Whitehurst Dr",
       "city": "Bradford",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 2.0,
       "point": "53.475288 -2.197151"
+    },
+    {
+      "id": "46d230ab-df6a-4700-ab0e-2ba754012c4b",
+      "title": "alert",
+      "published": "Tue Nov 24 15:03:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Shay Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.374733 -2.296122"
     },
     {
       "id": "75c31873-aa2f-4a83-b45c-b07172922f79",
@@ -27,7 +41,7 @@
       "city": "Bolton",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 2.0,
       "point": "53.569918 -2.423765"
     },
@@ -54,10 +68,24 @@
       "road": "A5082 - Long Causeway",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.544262 -2.393692"
+    },
+    {
+      "id": "e407ce0e-b84a-4782-b20f-e6f49c9f35fb",
+      "title": "alert",
+      "published": "Tue Nov 24 15:05:41 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Fallowfield",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.44344 -2.244178"
     }
   ]
 }
