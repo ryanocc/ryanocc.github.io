@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-24T17:35:48.342039+00:00",
+  "updatedAt": "2026-11-24T17:40:48.395161+00:00",
   "source": "Waze GeoRSS",
-  "count": 19,
+  "count": 21,
   "incidents": [
+    {
+      "id": "af80dc6d-d65a-4d1e-9932-e5c120f7756d",
+      "title": "alert",
+      "published": "Tue Nov 24 17:36:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Bold St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.597183 -2.288146"
+    },
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
       "title": "alert",
@@ -26,7 +40,7 @@
       "road": "B5164 - Barrington Rd",
       "city": "Altrincham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.391443 -2.347909"
@@ -40,7 +54,7 @@
       "road": "J23 to A580",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470635 -2.633912"
@@ -82,10 +96,38 @@
       "road": "A5103 > Manchester Airport",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470663 -2.247606"
+    },
+    {
+      "id": "5fb1cd5a-7349-4ede-a940-ac4eccf38ac7",
+      "title": "alert",
+      "published": "Tue Nov 24 17:39:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J22 to A62",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.520467 -2.143649"
+    },
+    {
+      "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
+      "title": "alert",
+      "published": "Tue Nov 24 16:59:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J18 to M62 > Leeds",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.548754 -2.260224"
     },
     {
       "id": "7040014c-dc6f-4936-b2db-794429606860",
@@ -102,20 +144,6 @@
       "point": "53.548444 -2.259836"
     },
     {
-      "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
-      "title": "alert",
-      "published": "Tue Nov 24 16:59:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J18 to M62 > Leeds",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.548754 -2.260224"
-    },
-    {
       "id": "de7b73c7-509a-462e-8da4-f01cc8dcb47a",
       "title": "alert",
       "published": "Tue Nov 24 16:26:12 +0000 2026",
@@ -124,7 +152,7 @@
       "road": "A538 - Stamford New Rd",
       "city": "Altrincham",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.390698 -2.347377"
@@ -138,24 +166,24 @@
       "road": "A626 - Brabyns Brow",
       "city": "Marple Bridge",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.400583 -2.056102"
     },
     {
-      "id": "aab22330-7c52-4274-8821-07d9885ee167",
+      "id": "d16ae9c8-94fc-43d0-ad0c-fafd2b18f536",
       "title": "alert",
-      "published": "Tue Nov 24 17:35:36 +0000 2026",
+      "published": "Tue Nov 24 17:36:51 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5103 - Princess Parkway",
+      "road": "A5209 - Crow Orchard Rd",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.417175 -2.262696"
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.590054 -2.696019"
     },
     {
       "id": "6ce1b1ea-0d01-4b82-970e-07d89995df0a",
@@ -166,8 +194,8 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.470985 -2.634668"
     },
@@ -195,7 +223,7 @@
       "city": "Bury",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.596657 -2.289969"
     },
@@ -209,37 +237,23 @@
       "city": "Bury",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.596862 -2.28976"
     },
     {
-      "id": "f2e5a914-4c31-424e-9753-8cb94d4b567a",
+      "id": "0750c2bc-88c9-41f7-ac0c-5bd2d1dceb98",
       "title": "alert",
-      "published": "Tue Nov 24 17:15:27 +0000 2026",
+      "published": "Tue Nov 24 17:39:11 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "Manchester",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.470617 -2.246837"
-    },
-    {
-      "id": "335f32ef-69cd-4d53-b8bb-c5dfe4929840",
-      "title": "alert",
-      "published": "Tue Nov 24 17:29:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
+      "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
-      "point": "53.398558 -2.227734"
+      "point": "53.402882 -2.245396"
     },
     {
       "id": "50b38444-7a3e-45a2-8f33-057643f7be6d",
@@ -256,6 +270,20 @@
       "point": "53.398547 -2.237036"
     },
     {
+      "id": "335f32ef-69cd-4d53-b8bb-c5dfe4929840",
+      "title": "alert",
+      "published": "Tue Nov 24 17:29:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.398558 -2.227734"
+    },
+    {
       "id": "1e60b87d-7b63-47fe-90bf-962032eae335",
       "title": "alert",
       "published": "Tue Nov 24 17:34:56 +0000 2026",
@@ -264,10 +292,10 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
-      "point": "53.414305 -2.157677"
+      "point": "53.414526 -2.156075"
     }
   ]
 }
