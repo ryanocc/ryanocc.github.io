@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T14:30:48.045409+00:00",
+  "updatedAt": "2026-11-24T14:35:47.914808+00:00",
   "source": "Waze GeoRSS",
   "count": 3,
   "incidents": [
@@ -18,6 +18,20 @@
       "point": "53.488961 -2.524175"
     },
     {
+      "id": "35d5d0f0-17ac-44c7-b2d2-9cd86c558fe8",
+      "title": "alert",
+      "published": "Tue Nov 24 14:31:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Whitehurst Dr",
+      "city": "Bradford",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.475288 -2.197151"
+    },
+    {
       "id": "305be2ba-9268-4eb7-b943-e86deecf1579",
       "title": "alert",
       "published": "Tue Nov 24 14:30:32 +0000 2026",
@@ -30,20 +44,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.543597 -2.39826"
-    },
-    {
-      "id": "6dc5643c-ee30-4f76-8704-c284c3cbb938",
-      "title": "alert",
-      "published": "Tue Nov 24 14:18:52 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A635 - Manchester Rd",
-      "city": "Ashton-under-Lyne",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.482788 -2.111748"
     }
   ]
 }
