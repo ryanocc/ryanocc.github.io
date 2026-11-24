@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T15:15:48.140167+00:00",
+  "updatedAt": "2026-11-24T15:20:48.086972+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 11,
   "incidents": [
     {
       "id": "e1b9d59c-9e33-494a-b521-e2a7ff8dc8b7",
@@ -55,9 +55,23 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.374644 -2.295673"
+    },
+    {
+      "id": "d30c055f-41f8-4e6b-88f4-e1b6dba47fad",
+      "title": "alert",
+      "published": "Tue Nov 24 15:20:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Tuffley Rd",
+      "city": "Baguley",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.382494 -2.283454"
     },
     {
       "id": "75c31873-aa2f-4a83-b45c-b07172922f79",
@@ -88,6 +102,20 @@
       "point": "53.543597 -2.39826"
     },
     {
+      "id": "a53f1ff2-b953-4501-a69d-60ea5243f9d1",
+      "title": "alert",
+      "published": "Tue Nov 24 15:18:23 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Centenary Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.480342 -2.32527"
+    },
+    {
       "id": "f849d969-9a4d-4131-ac73-c5521958c66d",
       "title": "alert",
       "published": "Tue Nov 24 14:58:23 +0000 2026",
@@ -97,7 +125,7 @@
       "city": "Farnworth",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.544262 -2.393692"
     },
@@ -110,7 +138,7 @@
       "road": "A5103 (S) - Princess Rd",
       "city": "Fallowfield",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.44344 -2.244178"
