@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-24T05:45:48.122095+00:00",
+  "updatedAt": "2026-11-24T05:50:48.126705+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
+    {
+      "id": "084bc8cc-d2fa-45b2-898f-820d83085b72",
+      "title": "alert",
+      "published": "Tue Nov 24 05:50:14 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Irlam",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.432382 -2.429637"
+    },
     {
       "id": "5f2220cd-9dfc-4f63-8efd-3af81585cd84",
       "title": "alert",
@@ -16,6 +30,20 @@
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.529582 -2.321259"
+    },
+    {
+      "id": "d9bdfdf1-34c8-4358-84c6-c6129e587bce",
+      "title": "alert",
+      "published": "Tue Nov 24 05:46:37 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.53051 -2.3179"
     }
   ]
 }
