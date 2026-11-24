@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T10:30:48.081786+00:00",
+  "updatedAt": "2026-11-24T10:35:47.887470+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 6,
   "incidents": [
     {
       "id": "fa2b08fc-afd3-4646-afff-1106ee2ed094",
@@ -18,6 +18,20 @@
       "point": "53.382139 -2.316254"
     },
     {
+      "id": "a18e5fd2-d072-4f60-b83a-64eb4bac3861",
+      "title": "alert",
+      "published": "Tue Nov 24 10:32:44 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M6 > Preston",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.431678 -2.567217"
+    },
+    {
       "id": "37991732-e729-42cc-aedd-c333223e3a76",
       "title": "alert",
       "published": "Tue Nov 24 09:07:08 +0000 2026",
@@ -30,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.445857 -2.064689"
+    },
+    {
+      "id": "4062f3a1-ca5b-49e5-8b4d-27e2de71cd9e",
+      "title": "alert",
+      "published": "Tue Nov 24 10:31:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A664 - Rochdale Rd",
+      "city": "Blackley",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.523777 -2.215577"
     },
     {
       "id": "4f659b05-a219-4532-8c6a-9e86acddfd37",
