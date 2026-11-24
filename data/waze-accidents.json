@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T17:05:48.425806+00:00",
+  "updatedAt": "2026-11-24T17:10:48.384359+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
@@ -54,24 +54,10 @@
       "road": "J18 to M62 > Leeds",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.548754 -2.260224"
-    },
-    {
-      "id": "610c39fe-0e82-455f-9c37-8339e995b0df",
-      "title": "alert",
-      "published": "Tue Nov 24 16:36:51 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6477 - Manchester St",
-      "city": "Oldham",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 8.0,
-      "reportRating": 1.0,
-      "point": "53.54003 -2.121162"
     },
     {
       "id": "de7b73c7-509a-462e-8da4-f01cc8dcb47a",
@@ -96,10 +82,24 @@
       "road": "A560 - Woodlands Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.391143 -2.345988"
+    },
+    {
+      "id": "61e42ec0-332b-4a3d-8656-bf2ebb48ba1a",
+      "title": "alert",
+      "published": "Tue Nov 24 17:10:30 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.472693 -2.25897"
     }
   ]
 }
