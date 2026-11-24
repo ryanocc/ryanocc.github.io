@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T09:15:48.202517+00:00",
+  "updatedAt": "2026-11-24T09:20:48.121000+00:00",
   "source": "Waze GeoRSS",
   "count": 8,
   "incidents": [
@@ -74,6 +74,20 @@
       "point": "53.445857 -2.064689"
     },
     {
+      "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
+      "title": "alert",
+      "published": "Tue Nov 24 07:36:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - School Ln",
+      "city": "Standish",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.586333 -2.664505"
+    },
+    {
       "id": "4cf00d3a-e377-44ea-a640-19a938d5fae6",
       "title": "alert",
       "published": "Tue Nov 24 08:47:52 +0000 2026",
@@ -100,20 +114,6 @@
       "reliability": 6.0,
       "reportRating": 3.0,
       "point": "53.585974 -2.665492"
-    },
-    {
-      "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
-      "title": "alert",
-      "published": "Tue Nov 24 07:36:26 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - School Ln",
-      "city": "Standish",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.586333 -2.664505"
     }
   ]
 }
