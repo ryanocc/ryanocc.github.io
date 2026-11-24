@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T15:20:48.086972+00:00",
+  "updatedAt": "2026-11-24T15:25:48.102505+00:00",
   "source": "Waze GeoRSS",
   "count": 11,
   "incidents": [
@@ -41,23 +41,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.374733 -2.296122"
-    },
-    {
-      "id": "c1cd1b0c-1edb-4dd4-adaa-881394354168",
-      "title": "alert",
-      "published": "Tue Nov 24 15:13:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "Thorley Ln",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.374644 -2.295673"
     },
     {
       "id": "d30c055f-41f8-4e6b-88f4-e1b6dba47fad",
@@ -110,8 +96,8 @@
       "road": "A576 - Centenary Way",
       "city": "Trafford Park",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.480342 -2.32527"
     },
@@ -142,6 +128,20 @@
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.44344 -2.244178"
+    },
+    {
+      "id": "cd67b0eb-80d3-468c-9dca-362cac1055d1",
+      "title": "alert",
+      "published": "Tue Nov 24 15:00:00 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MINOR",
+      "road": "A5103 (S) - Princess Rd",
+      "city": "Fallowfield",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 8.0,
+      "reportRating": 0.0,
+      "point": "53.444043 -2.244211"
     },
     {
       "id": "558d9bb2-72a2-498f-98d5-59a7ec7accfe",
