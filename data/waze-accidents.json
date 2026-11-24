@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T08:45:48.373469+00:00",
+  "updatedAt": "2026-11-24T08:50:48.338774+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
     {
       "id": "ff20d107-0fe2-4843-90aa-a4d46c0c20a7",
@@ -46,6 +46,20 @@
       "point": "53.586625 -2.663585"
     },
     {
+      "id": "4cf00d3a-e377-44ea-a640-19a938d5fae6",
+      "title": "alert",
+      "published": "Tue Nov 24 08:47:52 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A49 - High St",
+      "city": "Standish",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.586131 -2.663496"
+    },
+    {
       "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
       "title": "alert",
       "published": "Tue Nov 24 07:36:26 +0000 2026",
@@ -74,9 +88,9 @@
       "point": "53.585974 -2.665492"
     },
     {
-      "id": "29233c86-7057-423f-a039-9be38c316d83",
+      "id": "0822e0ac-4d29-426c-a163-8f2002f862a8",
       "title": "alert",
-      "published": "Tue Nov 24 08:40:38 +0000 2026",
+      "published": "Tue Nov 24 08:46:02 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M62 (E)",
@@ -84,8 +98,8 @@
       "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 5.0,
-      "point": "53.481421 -2.393673"
+      "reportRating": 1.0,
+      "point": "53.482384 -2.391847"
     }
   ]
 }
