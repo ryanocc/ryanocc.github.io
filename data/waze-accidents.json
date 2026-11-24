@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T16:55:48.478158+00:00",
+  "updatedAt": "2026-11-24T17:00:48.394478+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 8,
   "incidents": [
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -30,6 +30,34 @@
       "reliability": 9.0,
       "reportRating": 2.0,
       "point": "53.391443 -2.347909"
+    },
+    {
+      "id": "6d040006-2e11-43cb-9abd-9ce2cdb3c8a0",
+      "title": "alert",
+      "published": "Tue Nov 24 16:57:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Bolton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.573867 -2.43931"
+    },
+    {
+      "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
+      "title": "alert",
+      "published": "Tue Nov 24 16:59:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J18 to M62 > Leeds",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.548754 -2.260224"
     },
     {
       "id": "610c39fe-0e82-455f-9c37-8339e995b0df",
@@ -68,8 +96,8 @@
       "road": "A560 - Woodlands Rd",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
+      "confidence": 1.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.391143 -2.345988"
     },
@@ -82,8 +110,8 @@
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.527853 -2.168016"
     }
