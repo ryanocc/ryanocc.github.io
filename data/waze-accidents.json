@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T08:10:48.337758+00:00",
+  "updatedAt": "2026-11-24T08:15:48.325955+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 5,
   "incidents": [
     {
       "id": "fa1f4415-2b49-4f0e-b5ae-c17bc0fdb9cc",
@@ -32,20 +32,6 @@
       "point": "53.586625 -2.663585"
     },
     {
-      "id": "7eca9391-b2fe-41db-8151-320eab666a83",
-      "title": "alert",
-      "published": "Tue Nov 24 07:38:45 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A5209 - School Ln",
-      "city": "Standish",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.585974 -2.665492"
-    },
-    {
       "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
       "title": "alert",
       "published": "Tue Nov 24 07:36:26 +0000 2026",
@@ -60,32 +46,32 @@
       "point": "53.586333 -2.664505"
     },
     {
-      "id": "48a3f2d4-e426-4a66-92fc-84f4a284c156",
+      "id": "7eca9391-b2fe-41db-8151-320eab666a83",
       "title": "alert",
-      "published": "Tue Nov 24 08:05:22 +0000 2026",
+      "published": "Tue Nov 24 07:38:45 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - School Ln",
+      "city": "Standish",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 3.0,
+      "point": "53.585974 -2.665492"
+    },
+    {
+      "id": "6dd2f127-2d0b-4468-b4ec-340cb4b3b366",
+      "title": "alert",
+      "published": "Tue Nov 24 08:13:27 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "",
-      "city": "Manchester",
+      "city": "Whitefield",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
-      "point": "53.469962 -2.246734"
-    },
-    {
-      "id": "de496611-c470-4bd7-a1e1-d51e2ee75df3",
-      "title": "alert",
-      "published": "Tue Nov 24 07:56:00 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.604946 -2.102618"
+      "point": "53.539017 -2.28813"
     }
   ]
 }
