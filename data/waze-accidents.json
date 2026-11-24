@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-11-24T12:20:47.683870+00:00",
+  "updatedAt": "2026-11-24T12:25:47.708417+00:00",
   "source": "Waze GeoRSS",
-  "count": 4,
+  "count": 3,
   "incidents": [
     {
-      "id": "e4bf3aa2-fbb6-48bb-8854-b8fa5454231e",
+      "id": "03d65c86-c992-4a06-99b7-22504c6e5aca",
       "title": "alert",
-      "published": "Tue Nov 24 12:14:52 +0000 2026",
+      "published": "Tue Nov 24 12:24:18 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A556 (S)",
-      "city": "",
+      "road": "Wilson St",
+      "city": "Openshaw",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.476241 -2.193275"
+    },
+    {
+      "id": "b09be567-a3bd-4760-95df-8f00ba45b57f",
+      "title": "alert",
+      "published": "Tue Nov 24 12:10:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Ashton Old Rd",
+      "city": "Abbey Hey",
       "country": "UK",
       "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.318644 -2.420299"
+      "point": "53.472634 -2.152445"
     },
     {
       "id": "ea6d8cfc-7f28-4be9-bad8-d6d1afa979d1",
@@ -30,34 +44,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.472688 -2.15339"
-    },
-    {
-      "id": "b09be567-a3bd-4760-95df-8f00ba45b57f",
-      "title": "alert",
-      "published": "Tue Nov 24 12:10:05 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "A635 - Ashton Old Rd",
-      "city": "Abbey Hey",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
-      "reportRating": 0.0,
-      "point": "53.472634 -2.152445"
-    },
-    {
-      "id": "c686c492-c237-44ca-a4e7-952d809e2950",
-      "title": "alert",
-      "published": "Tue Nov 24 12:16:10 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.646414 -1.938879"
     }
   ]
 }
