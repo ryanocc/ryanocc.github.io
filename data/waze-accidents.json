@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T17:55:48.547862+00:00",
+  "updatedAt": "2026-11-24T18:00:48.277834+00:00",
   "source": "Waze GeoRSS",
-  "count": 17,
+  "count": 19,
   "incidents": [
     {
       "id": "af80dc6d-d65a-4d1e-9932-e5c120f7756d",
@@ -102,6 +102,20 @@
       "point": "53.596716 -2.289254"
     },
     {
+      "id": "4513186c-dc20-4b6b-b9c0-57c0c04d40af",
+      "title": "alert",
+      "published": "Tue Nov 24 17:55:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J18 > M60 (W & S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 4.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.548405 -2.259747"
+    },
+    {
       "id": "de7b73c7-509a-462e-8da4-f01cc8dcb47a",
       "title": "alert",
       "published": "Tue Nov 24 16:26:12 +0000 2026",
@@ -128,20 +142,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.400583 -2.056102"
-    },
-    {
-      "id": "a077e638-ea44-4b0b-854b-60d6ecab4671",
-      "title": "alert",
-      "published": "Tue Nov 24 17:48:47 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A56 - Walmersley Rd",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.597185 -2.289754"
     },
     {
       "id": "6ce1b1ea-0d01-4b82-970e-07d89995df0a",
@@ -186,20 +186,6 @@
       "point": "53.596862 -2.28976"
     },
     {
-      "id": "46645f91-6563-45ee-8253-71d67c8ebf27",
-      "title": "alert",
-      "published": "Tue Nov 24 17:53:40 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A62 - Oldham Rd",
-      "city": "Newton Heath",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 3.0,
-      "point": "53.501311 -2.194157"
-    },
-    {
       "id": "b1489735-6151-41c6-b35b-da5579d88b4f",
       "title": "alert",
       "published": "Tue Nov 24 17:45:20 +0000 2026",
@@ -222,24 +208,66 @@
       "road": "M6 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.404967 -2.51856"
     },
     {
-      "id": "25a5cb06-e5a6-4ca2-befd-27225120dd10",
+      "id": "b879f804-9c0c-4d8b-954c-b63d72279418",
       "title": "alert",
-      "published": "Tue Nov 24 17:54:14 +0000 2026",
+      "published": "Tue Nov 24 17:57:37 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
+      "road": "M56 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.37958 -2.280284"
+    },
+    {
+      "id": "91cdb5b1-22ef-431d-b798-bf540a5eded2",
+      "title": "alert",
+      "published": "Tue Nov 24 17:57:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
       "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
       "confidence": 0.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.39924 -2.23788"
+    },
+    {
+      "id": "27ba39ae-f71d-482a-a31c-4a347473d300",
+      "title": "alert",
+      "published": "Tue Nov 24 17:57:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (ACW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.402947 -2.245481"
+    },
+    {
+      "id": "9e3b8883-51a4-4b47-b954-20394465929f",
+      "title": "alert",
+      "published": "Tue Nov 24 18:00:22 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
       "reliability": 5.0,
-      "reportRating": 1.0,
-      "point": "53.541455 -2.28405"
+      "reportRating": 3.0,
+      "point": "53.400298 -2.217098"
     }
   ]
 }
