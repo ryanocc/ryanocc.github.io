@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T17:10:48.384359+00:00",
+  "updatedAt": "2026-11-24T17:15:48.359890+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 12,
   "incidents": [
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -26,7 +26,7 @@
       "road": "B5164 - Barrington Rd",
       "city": "Altrincham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.391443 -2.347909"
@@ -44,6 +44,48 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.573867 -2.43931"
+    },
+    {
+      "id": "69e70988-e7c3-410f-b2ce-3da3f1f2d848",
+      "title": "alert",
+      "published": "Tue Nov 24 17:12:10 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.596716 -2.289254"
+    },
+    {
+      "id": "39542a2a-c76a-4207-b8fa-09b3f3407b65",
+      "title": "alert",
+      "published": "Tue Nov 24 17:15:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5103 > Manchester Airport",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.470663 -2.247606"
+    },
+    {
+      "id": "7040014c-dc6f-4936-b2db-794429606860",
+      "title": "alert",
+      "published": "Tue Nov 24 17:13:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J18 > M60 (W & S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.548444 -2.259836"
     },
     {
       "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
@@ -68,24 +110,38 @@
       "road": "A538 - Stamford New Rd",
       "city": "Altrincham",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.390698 -2.347377"
     },
     {
-      "id": "8168311b-c32c-4ff5-aa00-9fb2905ec84f",
+      "id": "f2e5a914-4c31-424e-9753-8cb94d4b567a",
       "title": "alert",
-      "published": "Tue Nov 24 16:34:28 +0000 2026",
+      "published": "Tue Nov 24 17:15:27 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A560 - Woodlands Rd",
+      "road": "",
+      "city": "Manchester",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.470617 -2.246837"
+    },
+    {
+      "id": "50b38444-7a3e-45a2-8f33-057643f7be6d",
+      "title": "alert",
+      "published": "Tue Nov 24 17:12:27 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.391143 -2.345988"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.398547 -2.237036"
     },
     {
       "id": "61e42ec0-332b-4a3d-8656-bf2ebb48ba1a",
@@ -96,10 +152,24 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.472693 -2.25897"
+    },
+    {
+      "id": "4c6bc118-3512-4982-a3c2-fdea1bef6117",
+      "title": "alert",
+      "published": "Tue Nov 24 17:12:25 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.629223 -2.035121"
     }
   ]
 }
