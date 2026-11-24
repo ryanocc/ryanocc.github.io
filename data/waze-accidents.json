@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-24T08:25:48.558650+00:00",
+  "updatedAt": "2026-11-24T08:30:48.377942+00:00",
   "source": "Waze GeoRSS",
   "count": 7,
   "incidents": [
+    {
+      "id": "ff20d107-0fe2-4843-90aa-a4d46c0c20a7",
+      "title": "alert",
+      "published": "Tue Nov 24 08:26:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Homebury Dr",
+      "city": "Clayton",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.486079 -2.182796"
+    },
     {
       "id": "7e569f84-f541-4f29-84b2-6aae8bc0783a",
       "title": "alert",
@@ -46,20 +60,6 @@
       "point": "53.586625 -2.663585"
     },
     {
-      "id": "4bcbf19f-a859-4164-8c12-f4ca916302bc",
-      "title": "alert",
-      "published": "Tue Nov 24 08:20:21 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Sale Moor",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.426374 -2.294929"
-    },
-    {
       "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
       "title": "alert",
       "published": "Tue Nov 24 07:36:26 +0000 2026",
@@ -96,7 +96,7 @@
       "road": "",
       "city": "New Moston",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.522331 -2.165134"
