@@ -1,8 +1,36 @@
 {
-  "updatedAt": "2026-11-24T14:25:48.162204+00:00",
+  "updatedAt": "2026-11-24T14:30:48.045409+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 3,
   "incidents": [
+    {
+      "id": "8c87efed-4a22-443a-aff1-9ca6b43e92e9",
+      "title": "alert",
+      "published": "Tue Nov 24 14:25:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.488961 -2.524175"
+    },
+    {
+      "id": "305be2ba-9268-4eb7-b943-e86deecf1579",
+      "title": "alert",
+      "published": "Tue Nov 24 14:30:32 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "Farnworth",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.543597 -2.39826"
+    },
     {
       "id": "6dc5643c-ee30-4f76-8704-c284c3cbb938",
       "title": "alert",
@@ -12,7 +40,7 @@
       "road": "A635 - Manchester Rd",
       "city": "Ashton-under-Lyne",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.482788 -2.111748"
