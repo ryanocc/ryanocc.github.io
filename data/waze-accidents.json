@@ -1,21 +1,35 @@
 {
-  "updatedAt": "2026-11-24T12:05:47.680103+00:00",
+  "updatedAt": "2026-11-24T12:10:47.772411+00:00",
   "source": "Waze GeoRSS",
-  "count": 1,
+  "count": 2,
   "incidents": [
     {
-      "id": "0f036404-77c2-4304-84ea-4d758333f041",
+      "id": "ea6d8cfc-7f28-4be9-bad8-d6d1afa979d1",
       "title": "alert",
-      "published": "Tue Nov 24 11:24:02 +0000 2026",
+      "published": "Tue Nov 24 12:09:37 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
+      "road": "A635 - Ashton Old Rd",
+      "city": "Abbey Hey",
+      "country": "UK",
       "confidence": 0.0,
-      "reliability": 6.0,
+      "reliability": 5.0,
       "reportRating": 0.0,
-      "point": "53.427295 -2.31426"
+      "point": "53.472688 -2.15339"
+    },
+    {
+      "id": "b09be567-a3bd-4760-95df-8f00ba45b57f",
+      "title": "alert",
+      "published": "Tue Nov 24 12:10:05 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "A635 - Ashton Old Rd",
+      "city": "Abbey Hey",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.472634 -2.152445"
     }
   ]
 }
