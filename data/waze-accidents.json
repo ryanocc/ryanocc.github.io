@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-24T08:55:48.320377+00:00",
+  "updatedAt": "2026-11-24T09:00:48.324622+00:00",
   "source": "Waze GeoRSS",
-  "count": 6,
+  "count": 7,
   "incidents": [
+    {
+      "id": "30f3ac2a-5526-4044-84a6-7504196d3eba",
+      "title": "alert",
+      "published": "Tue Nov 24 08:58:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "",
+      "city": "",
+      "country": "",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.558647 -2.408252"
+    },
     {
       "id": "ff20d107-0fe2-4843-90aa-a4d46c0c20a7",
       "title": "alert",
@@ -18,20 +32,6 @@
       "point": "53.486079 -2.182796"
     },
     {
-      "id": "fa1f4415-2b49-4f0e-b5ae-c17bc0fdb9cc",
-      "title": "alert",
-      "published": "Tue Nov 24 07:40:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J26 to A560",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.420252 -2.137405"
-    },
-    {
       "id": "7ee5b432-5800-4c6e-ab4e-a9dfa04dd6cb",
       "title": "alert",
       "published": "Tue Nov 24 07:55:40 +0000 2026",
@@ -44,6 +44,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.586625 -2.663585"
+    },
+    {
+      "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
+      "title": "alert",
+      "published": "Tue Nov 24 07:36:26 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A5209 - School Ln",
+      "city": "Standish",
+      "country": "UK",
+      "confidence": 5.0,
+      "reliability": 10.0,
+      "reportRating": 0.0,
+      "point": "53.586333 -2.664505"
     },
     {
       "id": "4cf00d3a-e377-44ea-a640-19a938d5fae6",
@@ -74,18 +88,18 @@
       "point": "53.585974 -2.665492"
     },
     {
-      "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
+      "id": "20dfb729-97f1-4278-88d1-d1ebf37b8291",
       "title": "alert",
-      "published": "Tue Nov 24 07:36:26 +0000 2026",
+      "published": "Tue Nov 24 08:58:33 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5209 - School Ln",
-      "city": "Standish",
+      "road": "M62 (E)",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.586333 -2.664505"
+      "reportRating": 1.0,
+      "point": "53.481766 -2.3931"
     }
   ]
 }
