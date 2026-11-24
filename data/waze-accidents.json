@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T06:55:47.660491+00:00",
+  "updatedAt": "2026-11-24T07:00:47.671068+00:00",
   "source": "Waze GeoRSS",
-  "count": 2,
+  "count": 3,
   "incidents": [
     {
       "id": "a7df8d65-0942-4ee5-852f-60f0d908f81e",
@@ -30,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 3.0,
       "point": "53.432382 -2.429637"
+    },
+    {
+      "id": "153daac1-9c95-49e6-b8e7-b5d500ec703a",
+      "title": "alert",
+      "published": "Tue Nov 24 07:00:28 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 3.0,
+      "point": "53.592941 -2.284483"
     }
   ]
 }
