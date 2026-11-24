@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T16:45:48.383308+00:00",
+  "updatedAt": "2026-11-24T16:50:48.451485+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 10,
   "incidents": [
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -12,7 +12,7 @@
       "road": "Bell Cr",
       "city": "Bradford",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.475631 -2.196935"
@@ -32,20 +32,6 @@
       "point": "53.391443 -2.347909"
     },
     {
-      "id": "f9e40545-085e-47b8-ab11-e11018edfacb",
-      "title": "alert",
-      "published": "Tue Nov 24 16:38:17 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J3 to A5063",
-      "city": "Ordsall",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.480434 -2.283542"
-    },
-    {
       "id": "fae8b49c-ba56-4468-b6fd-f51a6760263d",
       "title": "alert",
       "published": "Tue Nov 24 16:44:29 +0000 2026",
@@ -54,8 +40,8 @@
       "road": "M60 (S)",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.519442 -2.141831"
     },
@@ -124,24 +110,10 @@
       "road": "A58 - Rochdale Rd E",
       "city": "Heywood",
       "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.593959 -2.208474"
-    },
-    {
-      "id": "e89d3a76-c0dd-4dd9-83eb-b69118964bf2",
-      "title": "alert",
-      "published": "Tue Nov 24 16:22:41 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
       "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.50553 -2.130982"
+      "point": "53.593959 -2.208474"
     },
     {
       "id": "e4453b02-fc67-4e68-9096-c68829f0cac5",
@@ -152,24 +124,24 @@
       "road": "A57(M) - Mancunian Way",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 0.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.472803 -2.232996"
     },
     {
-      "id": "cdfd331f-2ac9-4fe1-8a22-ad91610ab372",
+      "id": "2837b2e1-e761-41a2-b5c2-65eedd0183f3",
       "title": "alert",
-      "published": "Tue Nov 24 16:38:15 +0000 2026",
+      "published": "Tue Nov 24 16:48:42 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
+      "subtype": "",
       "road": "M60 (CW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 10.0,
-      "reportRating": 3.0,
-      "point": "53.516654 -2.138381"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 2.0,
+      "point": "53.520738 -2.145243"
     }
   ]
 }
