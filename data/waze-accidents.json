@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T07:45:47.819972+00:00",
+  "updatedAt": "2026-11-24T07:50:47.873956+00:00",
   "source": "Waze GeoRSS",
-  "count": 9,
+  "count": 10,
   "incidents": [
     {
       "id": "fa1f4415-2b49-4f0e-b5ae-c17bc0fdb9cc",
@@ -13,9 +13,23 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 1.0,
       "point": "53.420252 -2.137405"
+    },
+    {
+      "id": "fa18264e-3bac-4b97-935f-f7d01be9be87",
+      "title": "alert",
+      "published": "Tue Nov 24 07:15:58 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6219 - Bond St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.593322 -2.284378"
     },
     {
       "id": "73dde3ba-3e62-4f35-96d4-1c4050ddbbdc",
@@ -30,20 +44,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.592713 -2.284992"
-    },
-    {
-      "id": "fa18264e-3bac-4b97-935f-f7d01be9be87",
-      "title": "alert",
-      "published": "Tue Nov 24 07:15:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6219 - Bond St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.593322 -2.284378"
     },
     {
       "id": "084bc8cc-d2fa-45b2-898f-820d83085b72",
@@ -82,8 +82,8 @@
       "road": "A5209 - School Ln",
       "city": "Standish",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.586333 -2.664505"
     },
@@ -96,8 +96,8 @@
       "road": "A57 - Liverpool Rd",
       "city": "Peel Green",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 2.0,
       "point": "53.475754 -2.374662"
     },
@@ -116,18 +116,32 @@
       "point": "53.592928 -2.283912"
     },
     {
-      "id": "ac46f862-67e2-438a-8ba1-101eee328203",
+      "id": "0687e0bf-861e-493d-b3a1-37fa01548dc9",
       "title": "alert",
-      "published": "Tue Nov 24 07:40:24 +0000 2026",
+      "published": "Tue Nov 24 07:47:07 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
+      "subtype": "",
+      "road": "M6 > Preston",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 5.0,
-      "point": "53.42687 -2.12459"
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 1.0,
+      "point": "53.356389 -2.5073"
+    },
+    {
+      "id": "e9ef192b-eefe-4646-b75b-da4492eaf8e2",
+      "title": "alert",
+      "published": "Tue Nov 24 07:50:13 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M62 (E)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.476778 -2.398815"
     }
   ]
 }
