@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T18:20:48.114641+00:00",
+  "updatedAt": "2026-11-24T18:25:48.404477+00:00",
   "source": "Waze GeoRSS",
-  "count": 19,
+  "count": 16,
   "incidents": [
     {
       "id": "af80dc6d-d65a-4d1e-9932-e5c120f7756d",
@@ -88,18 +88,18 @@
       "point": "53.573867 -2.43931"
     },
     {
-      "id": "69e70988-e7c3-410f-b2ce-3da3f1f2d848",
+      "id": "09df7be3-7650-4cd8-b44a-5ded4bc6e831",
       "title": "alert",
-      "published": "Tue Nov 24 17:12:10 +0000 2026",
+      "published": "Tue Nov 24 18:21:58 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Bury",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "J18 to M62 > Leeds",
+      "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.596716 -2.289254"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.54868 -2.260006"
     },
     {
       "id": "4513186c-dc20-4b6b-b9c0-57c0c04d40af",
@@ -153,23 +153,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 1.0,
       "point": "53.391077 -2.347054"
-    },
-    {
-      "id": "7e44a0c1-e6a3-4d0e-a363-55ae47450e8e",
-      "title": "alert",
-      "published": "Tue Nov 24 18:01:58 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 7.0,
-      "reportRating": 1.0,
-      "point": "53.470796 -2.633117"
     },
     {
       "id": "6ce1b1ea-0d01-4b82-970e-07d89995df0a",
@@ -186,18 +172,18 @@
       "point": "53.470985 -2.634668"
     },
     {
-      "id": "33a191fc-2360-4243-a6dd-ea83e1858b03",
+      "id": "7e44a0c1-e6a3-4d0e-a363-55ae47450e8e",
       "title": "alert",
-      "published": "Tue Nov 24 17:30:23 +0000 2026",
+      "published": "Tue Nov 24 18:01:58 +0000 2026",
       "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Derby Way",
-      "city": "Bury",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "",
+      "city": "",
       "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.596657 -2.289969"
+      "confidence": 1.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.470796 -2.633117"
     },
     {
       "id": "42cc5c0f-5ea2-455e-baa3-edae14e1febb",
@@ -214,46 +200,18 @@
       "point": "53.596862 -2.28976"
     },
     {
-      "id": "df226797-4b45-4c98-bf82-f34f6cf8c6d6",
+      "id": "33a191fc-2360-4243-a6dd-ea83e1858b03",
       "title": "alert",
-      "published": "Tue Nov 24 18:04:38 +0000 2026",
+      "published": "Tue Nov 24 17:30:23 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A62 - Manchester Rd",
-      "city": "Oldham",
+      "road": "A58 - Derby Way",
+      "city": "Bury",
       "country": "UK",
-      "confidence": 3.0,
-      "reliability": 10.0,
-      "reportRating": 2.0,
-      "point": "53.520047 -2.143355"
-    },
-    {
-      "id": "41b4171f-0384-40bc-987b-de51d03e369f",
-      "title": "alert",
-      "published": "Tue Nov 24 18:11:04 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.37861 -2.281545"
-    },
-    {
-      "id": "07a9cdb4-560e-4cc1-8649-d10f58e87af9",
-      "title": "alert",
-      "published": "Tue Nov 24 18:05:46 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M56 (W)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.398186 -2.234627"
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 0.0,
+      "point": "53.596657 -2.289969"
     },
     {
       "id": "27ba39ae-f71d-482a-a31c-4a347473d300",
