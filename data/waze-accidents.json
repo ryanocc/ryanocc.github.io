@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-24T16:40:48.223039+00:00",
+  "updatedAt": "2026-11-24T16:45:48.383308+00:00",
   "source": "Waze GeoRSS",
   "count": 12,
   "incidents": [
-    {
-      "id": "e1b9d59c-9e33-494a-b521-e2a7ff8dc8b7",
-      "title": "alert",
-      "published": "Tue Nov 24 15:09:20 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "",
-      "country": "",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 0.0,
-      "point": "53.559047 -2.462735"
-    },
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
       "title": "alert",
@@ -54,10 +40,24 @@
       "road": "J3 to A5063",
       "city": "Ordsall",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 8.0,
       "reportRating": 0.0,
       "point": "53.480434 -2.283542"
+    },
+    {
+      "id": "fae8b49c-ba56-4468-b6fd-f51a6760263d",
+      "title": "alert",
+      "published": "Tue Nov 24 16:44:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 2.0,
+      "point": "53.519442 -2.141831"
     },
     {
       "id": "610c39fe-0e82-455f-9c37-8339e995b0df",
@@ -68,24 +68,10 @@
       "road": "B6477 - Manchester St",
       "city": "Oldham",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 1.0,
       "point": "53.54003 -2.121162"
-    },
-    {
-      "id": "305be2ba-9268-4eb7-b943-e86deecf1579",
-      "title": "alert",
-      "published": "Tue Nov 24 14:30:32 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "",
-      "city": "Farnworth",
-      "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
-      "reportRating": 0.0,
-      "point": "53.543597 -2.39826"
     },
     {
       "id": "de7b73c7-509a-462e-8da4-f01cc8dcb47a",
@@ -97,7 +83,7 @@
       "city": "Altrincham",
       "country": "UK",
       "confidence": 2.0,
-      "reliability": 9.0,
+      "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.390698 -2.347377"
     },
@@ -144,20 +130,6 @@
       "point": "53.593959 -2.208474"
     },
     {
-      "id": "cdfd331f-2ac9-4fe1-8a22-ad91610ab372",
-      "title": "alert",
-      "published": "Tue Nov 24 16:38:15 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 3.0,
-      "point": "53.516654 -2.138381"
-    },
-    {
       "id": "e89d3a76-c0dd-4dd9-83eb-b69118964bf2",
       "title": "alert",
       "published": "Tue Nov 24 16:22:41 +0000 2026",
@@ -170,6 +142,34 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.50553 -2.130982"
+    },
+    {
+      "id": "e4453b02-fc67-4e68-9096-c68829f0cac5",
+      "title": "alert",
+      "published": "Tue Nov 24 16:44:06 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A57(M) - Mancunian Way",
+      "city": "",
+      "country": "UK",
+      "confidence": 1.0,
+      "reliability": 7.0,
+      "reportRating": 3.0,
+      "point": "53.472803 -2.232996"
+    },
+    {
+      "id": "cdfd331f-2ac9-4fe1-8a22-ad91610ab372",
+      "title": "alert",
+      "published": "Tue Nov 24 16:38:15 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.516654 -2.138381"
     }
   ]
 }
