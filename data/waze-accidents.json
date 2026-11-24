@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-24T07:30:47.831693+00:00",
+  "updatedAt": "2026-11-24T07:35:47.777113+00:00",
   "source": "Waze GeoRSS",
   "count": 5,
   "incidents": [
-    {
-      "id": "73dde3ba-3e62-4f35-96d4-1c4050ddbbdc",
-      "title": "alert",
-      "published": "Tue Nov 24 07:15:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6219 - Heywood St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.592713 -2.284992"
-    },
     {
       "id": "fa18264e-3bac-4b97-935f-f7d01be9be87",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.593322 -2.284378"
+    },
+    {
+      "id": "73dde3ba-3e62-4f35-96d4-1c4050ddbbdc",
+      "title": "alert",
+      "published": "Tue Nov 24 07:15:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6219 - Heywood St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 1.0,
+      "point": "53.592713 -2.284992"
     },
     {
       "id": "084bc8cc-d2fa-45b2-898f-820d83085b72",
@@ -46,6 +46,20 @@
       "point": "53.432382 -2.429637"
     },
     {
+      "id": "bf30c4de-c2a3-45b5-8fad-476690c2806d",
+      "title": "alert",
+      "published": "Tue Nov 24 07:32:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A556 (N)",
+      "city": "",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.350591 -2.407073"
+    },
+    {
       "id": "1012964c-13cb-400c-b774-35325f8bdb4f",
       "title": "alert",
       "published": "Tue Nov 24 07:05:24 +0000 2026",
@@ -58,20 +72,6 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.592928 -2.283912"
-    },
-    {
-      "id": "de0dc66d-c191-4312-beee-ddf0f8115f47",
-      "title": "alert",
-      "published": "Tue Nov 24 07:24:35 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (CW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.470078 -2.370157"
     }
   ]
 }
