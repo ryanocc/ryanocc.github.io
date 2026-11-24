@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T10:55:48.202996+00:00",
+  "updatedAt": "2026-11-24T11:00:47.874399+00:00",
   "source": "Waze GeoRSS",
-  "count": 5,
+  "count": 6,
   "incidents": [
     {
       "id": "fa2b08fc-afd3-4646-afff-1106ee2ed094",
@@ -27,7 +27,7 @@
       "city": "",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.420345 -2.136854"
     },
@@ -55,23 +55,37 @@
       "city": "Hyde",
       "country": "UK",
       "confidence": 1.0,
-      "reliability": 7.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.452693 -2.085742"
     },
     {
-      "id": "46a728be-3647-43bc-959c-d47cafef33c3",
+      "id": "96a8425d-946e-401c-9938-2528be357284",
       "title": "alert",
-      "published": "Tue Nov 24 10:43:08 +0000 2026",
+      "published": "Tue Nov 24 11:00:43 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M58 (W)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.535621 -2.71625"
+    },
+    {
+      "id": "b309cbb3-12c6-4fff-8838-a721bb39515c",
+      "title": "alert",
+      "published": "Tue Nov 24 10:57:49 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
       "road": "M62 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 5.0,
+      "confidence": 2.0,
       "reliability": 10.0,
       "reportRating": 1.0,
-      "point": "53.629605 -2.020559"
+      "point": "53.626354 -2.044207"
     }
   ]
 }
