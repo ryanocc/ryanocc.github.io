@@ -1,22 +1,8 @@
 {
-  "updatedAt": "2026-11-24T17:45:48.319603+00:00",
+  "updatedAt": "2026-11-24T17:50:48.403300+00:00",
   "source": "Waze GeoRSS",
-  "count": 22,
+  "count": 21,
   "incidents": [
-    {
-      "id": "af80dc6d-d65a-4d1e-9932-e5c120f7756d",
-      "title": "alert",
-      "published": "Tue Nov 24 17:36:24 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "ACCIDENT_MAJOR",
-      "road": "Bold St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 0.0,
-      "point": "53.597183 -2.288146"
-    },
     {
       "id": "c227526a-8804-4b1c-9483-9b79551b3373",
       "title": "alert",
@@ -30,6 +16,20 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.593619 -2.286944"
+    },
+    {
+      "id": "af80dc6d-d65a-4d1e-9932-e5c120f7756d",
+      "title": "alert",
+      "published": "Tue Nov 24 17:36:24 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Bold St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 0.0,
+      "point": "53.597183 -2.288146"
     },
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -68,10 +68,10 @@
       "road": "J23 to A580",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
-      "point": "53.470635 -2.633912"
+      "point": "53.470503 -2.633803"
     },
     {
       "id": "6d040006-2e11-43cb-9abd-9ce2cdb3c8a0",
@@ -97,7 +97,7 @@
       "city": "Bury",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.596716 -2.289254"
     },
@@ -110,24 +110,24 @@
       "road": "A5103 > Manchester Airport",
       "city": "",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 0.0,
       "point": "53.470663 -2.247606"
     },
     {
-      "id": "5fb1cd5a-7349-4ede-a940-ac4eccf38ac7",
+      "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
       "title": "alert",
-      "published": "Tue Nov 24 17:39:21 +0000 2026",
+      "published": "Tue Nov 24 16:59:22 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "J22 to A62",
+      "road": "J18 to M62 > Leeds",
       "city": "",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 3.0,
-      "point": "53.520467 -2.143649"
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 1.0,
+      "point": "53.548754 -2.260224"
     },
     {
       "id": "7040014c-dc6f-4936-b2db-794429606860",
@@ -144,20 +144,6 @@
       "point": "53.548444 -2.259836"
     },
     {
-      "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
-      "title": "alert",
-      "published": "Tue Nov 24 16:59:22 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J18 to M62 > Leeds",
-      "city": "",
-      "country": "UK",
-      "confidence": 4.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.548754 -2.260224"
-    },
-    {
       "id": "de7b73c7-509a-462e-8da4-f01cc8dcb47a",
       "title": "alert",
       "published": "Tue Nov 24 16:26:12 +0000 2026",
@@ -166,7 +152,7 @@
       "road": "A538 - Stamford New Rd",
       "city": "Altrincham",
       "country": "UK",
-      "confidence": 4.0,
+      "confidence": 5.0,
       "reliability": 10.0,
       "reportRating": 3.0,
       "point": "53.390698 -2.347377"
@@ -180,10 +166,24 @@
       "road": "A626 - Brabyns Brow",
       "city": "Marple Bridge",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 3.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.400583 -2.056102"
+    },
+    {
+      "id": "a077e638-ea44-4b0b-854b-60d6ecab4671",
+      "title": "alert",
+      "published": "Tue Nov 24 17:48:47 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Walmersley Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.597185 -2.289754"
     },
     {
       "id": "6ce1b1ea-0d01-4b82-970e-07d89995df0a",
@@ -194,7 +194,7 @@
       "road": "",
       "city": "",
       "country": "UK",
-      "confidence": 3.0,
+      "confidence": 4.0,
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.470985 -2.634668"
@@ -236,8 +236,8 @@
       "road": "",
       "city": "Bury",
       "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
+      "confidence": 1.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.596862 -2.28976"
     },
@@ -270,20 +270,6 @@
       "point": "53.379661 -2.28018"
     },
     {
-      "id": "0750c2bc-88c9-41f7-ac0c-5bd2d1dceb98",
-      "title": "alert",
-      "published": "Tue Nov 24 17:39:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M60 (ACW)",
-      "city": "",
-      "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.402882 -2.245396"
-    },
-    {
       "id": "50b38444-7a3e-45a2-8f33-057643f7be6d",
       "title": "alert",
       "published": "Tue Nov 24 17:12:27 +0000 2026",
@@ -298,18 +284,18 @@
       "point": "53.398547 -2.237036"
     },
     {
-      "id": "c8a67afe-d189-4b75-b5f8-26ff3a27a2c7",
+      "id": "0750c2bc-88c9-41f7-ac0c-5bd2d1dceb98",
       "title": "alert",
-      "published": "Tue Nov 24 17:42:13 +0000 2026",
+      "published": "Tue Nov 24 17:39:11 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (W)",
+      "road": "M60 (ACW)",
       "city": "",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 4.0,
-      "point": "53.484387 -2.386114"
+      "reportRating": 1.0,
+      "point": "53.402882 -2.245396"
     }
   ]
 }
