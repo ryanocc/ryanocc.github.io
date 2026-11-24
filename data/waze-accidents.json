@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T07:20:47.730127+00:00",
+  "updatedAt": "2026-11-24T07:25:47.763533+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
     {
       "id": "a7df8d65-0942-4ee5-852f-60f0d908f81e",
@@ -18,20 +18,6 @@
       "point": "53.478483 -2.115816"
     },
     {
-      "id": "73dde3ba-3e62-4f35-96d4-1c4050ddbbdc",
-      "title": "alert",
-      "published": "Tue Nov 24 07:15:11 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "B6219 - Heywood St",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 1.0,
-      "point": "53.592713 -2.284992"
-    },
-    {
       "id": "fa18264e-3bac-4b97-935f-f7d01be9be87",
       "title": "alert",
       "published": "Tue Nov 24 07:15:58 +0000 2026",
@@ -44,6 +30,20 @@
       "reliability": 5.0,
       "reportRating": 1.0,
       "point": "53.593322 -2.284378"
+    },
+    {
+      "id": "73dde3ba-3e62-4f35-96d4-1c4050ddbbdc",
+      "title": "alert",
+      "published": "Tue Nov 24 07:15:11 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "B6219 - Heywood St",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.592713 -2.284992"
     },
     {
       "id": "084bc8cc-d2fa-45b2-898f-820d83085b72",
@@ -69,23 +69,9 @@
       "city": "Leigh",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 7.0,
+      "reliability": 8.0,
       "reportRating": 3.0,
       "point": "53.483524 -2.500737"
-    },
-    {
-      "id": "5b2a3704-a798-46a5-8300-e67e893901a5",
-      "title": "alert",
-      "published": "Tue Nov 24 07:15:59 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "A58 - Rochdale Rd",
-      "city": "Bury",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 5.0,
-      "reportRating": 2.0,
-      "point": "53.59294 -2.284376"
     },
     {
       "id": "1012964c-13cb-400c-b774-35325f8bdb4f",
@@ -100,6 +86,34 @@
       "reliability": 5.0,
       "reportRating": 0.0,
       "point": "53.592928 -2.283912"
+    },
+    {
+      "id": "5b2a3704-a798-46a5-8300-e67e893901a5",
+      "title": "alert",
+      "published": "Tue Nov 24 07:15:59 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 2.0,
+      "point": "53.59294 -2.284376"
+    },
+    {
+      "id": "de0dc66d-c191-4312-beee-ddf0f8115f47",
+      "title": "alert",
+      "published": "Tue Nov 24 07:24:35 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "M60 (CW)",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 1.0,
+      "point": "53.469437 -2.369423"
     }
   ]
 }
