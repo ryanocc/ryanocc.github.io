@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T15:10:48.216443+00:00",
+  "updatedAt": "2026-11-24T15:15:48.140167+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 9,
   "incidents": [
     {
       "id": "e1b9d59c-9e33-494a-b521-e2a7ff8dc8b7",
@@ -46,6 +46,20 @@
       "point": "53.374733 -2.296122"
     },
     {
+      "id": "c1cd1b0c-1edb-4dd4-adaa-881394354168",
+      "title": "alert",
+      "published": "Tue Nov 24 15:13:21 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "Thorley Ln",
+      "city": "",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.374644 -2.295673"
+    },
+    {
       "id": "75c31873-aa2f-4a83-b45c-b07172922f79",
       "title": "alert",
       "published": "Tue Nov 24 14:56:12 +0000 2026",
@@ -82,8 +96,8 @@
       "road": "A5082 - Long Causeway",
       "city": "Farnworth",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.544262 -2.393692"
     },
@@ -96,10 +110,24 @@
       "road": "A5103 (S) - Princess Rd",
       "city": "Fallowfield",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 8.0,
+      "confidence": 3.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.44344 -2.244178"
+    },
+    {
+      "id": "558d9bb2-72a2-498f-98d5-59a7ec7accfe",
+      "title": "alert",
+      "published": "Tue Nov 24 15:14:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A58 - Rochdale Rd E",
+      "city": "Heywood",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 1.0,
+      "point": "53.593959 -2.208474"
     }
   ]
 }
