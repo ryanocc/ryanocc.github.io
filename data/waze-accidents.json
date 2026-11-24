@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-24T17:15:48.359890+00:00",
+  "updatedAt": "2026-11-24T17:20:48.342093+00:00",
   "source": "Waze GeoRSS",
-  "count": 12,
+  "count": 14,
   "incidents": [
     {
       "id": "a5010a06-7d40-4662-8918-66abd43b2917",
@@ -69,23 +69,9 @@
       "city": "",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 6.0,
       "reportRating": 0.0,
       "point": "53.470663 -2.247606"
-    },
-    {
-      "id": "7040014c-dc6f-4936-b2db-794429606860",
-      "title": "alert",
-      "published": "Tue Nov 24 17:13:49 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "J18 > M60 (W & S)",
-      "city": "",
-      "country": "UK",
-      "confidence": 0.0,
-      "reliability": 6.0,
-      "reportRating": 2.0,
-      "point": "53.548444 -2.259836"
     },
     {
       "id": "1d925968-202b-446e-9ebb-9a3eadff8523",
@@ -96,10 +82,24 @@
       "road": "J18 to M62 > Leeds",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 2.0,
+      "reliability": 9.0,
       "reportRating": 1.0,
       "point": "53.548754 -2.260224"
+    },
+    {
+      "id": "7040014c-dc6f-4936-b2db-794429606860",
+      "title": "alert",
+      "published": "Tue Nov 24 17:13:49 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "J18 > M60 (W & S)",
+      "city": "",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 9.0,
+      "reportRating": 2.0,
+      "point": "53.548444 -2.259836"
     },
     {
       "id": "de7b73c7-509a-462e-8da4-f01cc8dcb47a",
@@ -116,6 +116,48 @@
       "point": "53.390698 -2.347377"
     },
     {
+      "id": "5e74aa14-77ea-4bc1-a7ea-408c719df243",
+      "title": "alert",
+      "published": "Tue Nov 24 17:17:29 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A576 - Centenary Way",
+      "city": "Trafford Park",
+      "country": "UK",
+      "confidence": 2.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.476363 -2.325921"
+    },
+    {
+      "id": "07917611-aa58-4afb-a828-a4ee3f53aed9",
+      "title": "alert",
+      "published": "Tue Nov 24 17:17:04 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Manchester Rd",
+      "city": "Altrincham",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 0.0,
+      "point": "53.405915 -2.347709"
+    },
+    {
+      "id": "e9d4905d-1911-4ac1-b63b-ef9500e9252e",
+      "title": "alert",
+      "published": "Tue Nov 24 17:17:20 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "",
+      "road": "A56 - Peel Way",
+      "city": "Bury",
+      "country": "UK",
+      "confidence": 3.0,
+      "reliability": 10.0,
+      "reportRating": 3.0,
+      "point": "53.596699 -2.291533"
+    },
+    {
       "id": "f2e5a914-4c31-424e-9753-8cb94d4b567a",
       "title": "alert",
       "published": "Tue Nov 24 17:15:27 +0000 2026",
@@ -125,7 +167,7 @@
       "city": "Manchester",
       "country": "UK",
       "confidence": 0.0,
-      "reliability": 5.0,
+      "reliability": 7.0,
       "reportRating": 0.0,
       "point": "53.470617 -2.246837"
     },
@@ -138,8 +180,8 @@
       "road": "M56 (W)",
       "city": "",
       "country": "UK",
-      "confidence": 1.0,
-      "reliability": 7.0,
+      "confidence": 5.0,
+      "reliability": 10.0,
       "reportRating": 2.0,
       "point": "53.398547 -2.237036"
     },
@@ -156,20 +198,6 @@
       "reliability": 10.0,
       "reportRating": 1.0,
       "point": "53.472693 -2.25897"
-    },
-    {
-      "id": "4c6bc118-3512-4982-a3c2-fdea1bef6117",
-      "title": "alert",
-      "published": "Tue Nov 24 17:12:25 +0000 2026",
-      "type": "ACCIDENT",
-      "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
-      "country": "UK",
-      "confidence": 2.0,
-      "reliability": 9.0,
-      "reportRating": 0.0,
-      "point": "53.629223 -2.035121"
     }
   ]
 }
