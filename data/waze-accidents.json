@@ -1,8 +1,22 @@
 {
-  "updatedAt": "2026-11-24T09:00:48.324622+00:00",
+  "updatedAt": "2026-11-24T09:05:48.231439+00:00",
   "source": "Waze GeoRSS",
-  "count": 7,
+  "count": 8,
   "incidents": [
+    {
+      "id": "4c5542f5-749f-49c1-b607-c860b6d7e9a2",
+      "title": "alert",
+      "published": "Tue Nov 24 09:01:50 +0000 2026",
+      "type": "ACCIDENT",
+      "subtype": "ACCIDENT_MAJOR",
+      "road": "Rutland Cr",
+      "city": "Brinnington",
+      "country": "UK",
+      "confidence": 0.0,
+      "reliability": 5.0,
+      "reportRating": 2.0,
+      "point": "53.428985 -2.129272"
+    },
     {
       "id": "30f3ac2a-5526-4044-84a6-7504196d3eba",
       "title": "alert",
@@ -46,18 +60,18 @@
       "point": "53.586625 -2.663585"
     },
     {
-      "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
+      "id": "580d3459-86d9-408d-8a04-eebbc5ff3d53",
       "title": "alert",
-      "published": "Tue Nov 24 07:36:26 +0000 2026",
+      "published": "Tue Nov 24 09:04:15 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "A5209 - School Ln",
-      "city": "Standish",
+      "road": "M60 (W & S)",
+      "city": "",
       "country": "UK",
-      "confidence": 5.0,
-      "reliability": 10.0,
-      "reportRating": 0.0,
-      "point": "53.586333 -2.664505"
+      "confidence": 0.0,
+      "reliability": 6.0,
+      "reportRating": 4.0,
+      "point": "53.49987 -2.3833"
     },
     {
       "id": "4cf00d3a-e377-44ea-a640-19a938d5fae6",
@@ -88,18 +102,18 @@
       "point": "53.585974 -2.665492"
     },
     {
-      "id": "20dfb729-97f1-4278-88d1-d1ebf37b8291",
+      "id": "1066d8d1-3a31-4015-803c-0d869fd1d64d",
       "title": "alert",
-      "published": "Tue Nov 24 08:58:33 +0000 2026",
+      "published": "Tue Nov 24 07:36:26 +0000 2026",
       "type": "ACCIDENT",
       "subtype": "",
-      "road": "M62 (E)",
-      "city": "",
+      "road": "A5209 - School Ln",
+      "city": "Standish",
       "country": "UK",
-      "confidence": 2.0,
+      "confidence": 5.0,
       "reliability": 10.0,
-      "reportRating": 1.0,
-      "point": "53.481766 -2.3931"
+      "reportRating": 0.0,
+      "point": "53.586333 -2.664505"
     }
   ]
 }
